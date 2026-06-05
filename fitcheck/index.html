@@ -414,7 +414,9 @@ async function verzend(){
     source:'fitup-fitcheck-page',page:'/fitcheck'
   };
   const wh='https://hook.eu1.make.com/404tppk0uuhkptx98h7rvulb329nryli';
+  const whNotify='https://hook.eu1.make.com/i9lrwrvdk6mg03yotyum1p8dd0n0es6v';
   if(wh){try{await fetch(wh,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})}catch(e){}}
+  if(whNotify){try{await fetch(whNotify,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})}catch(e){}}
   document.getElementById('stap-6').classList.remove('active');
   const sc=document.getElementById('succes');
   sc.classList.add('active');
