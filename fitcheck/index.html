@@ -413,7 +413,7 @@ async function verzend(){
     selectedBlueprint:bpKey,
     source:'fitup-fitcheck-page',page:'/fitcheck'
   };
-  const wh=window.FITCHECK_WEBHOOK||'';
+  const wh='https://hook.eu1.make.com/404tppk0uuhkptx98h7rvulb329nryli';
   if(wh){try{await fetch(wh,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})}catch(e){}}
   document.getElementById('stap-6').classList.remove('active');
   const sc=document.getElementById('succes');
