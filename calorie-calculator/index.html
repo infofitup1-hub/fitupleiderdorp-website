@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Calorie Calculator Leiderdorp | Kcal & Macro’s · Fit Up</title>
+<meta name="description" content="Bereken je dagelijkse calorieën en macroverdeling met de calorie calculator van Fit Up Leiderdorp. Mifflin-St Jeor, gratis en direct.">
+<meta name="keywords" content="calorie calculator, kcal berekenen, macro calculator, mifflin st jeor, voedingsdoel leiderdorp">
+<link rel="canonical" href="https://fitupleiderdorp.nl/calorie-calculator/">
+<meta property="og:title" content="Calorie Calculator | Fit Up Leiderdorp">
+<meta property="og:description" content="Bereken je dagelijkse calorieën en macroverdeling op basis van Mifflin-St Jeor. Gratis en direct.">
+<meta property="og:url" content="https://fitupleiderdorp.nl/calorie-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calorie Calculator Leiderdorp | Kcal & Macro’s · Fit Up">
+<meta name="twitter:description" content="Bereken je dagelijkse calorieën en macroverdeling met de calorie calculator van Fit Up Leiderdorp. Mifflin-St Jeor, gratis en direct.">
+<meta name="twitter:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
+<meta property="og:locale" content="nl_NL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/seo.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .calc-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+  .calc-form { background: var(--mid); padding: 40px; border-left: 3px solid var(--accent); }
+  .calc-form h2 { margin-bottom: 28px; font-size: clamp(28px, 3.4vw, 36px); }
+  .field-group { margin-bottom: 22px; }
+  .field-group label { display: block; font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid rgba(255,255,255,.15); }
+  .seg button { padding: 14px; background: transparent; color: rgba(255,255,255,.6); border: none; font-family: var(--fb); font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; border-right: 1px solid rgba(255,255,255,.08); }
+  .seg button:last-child { border-right: none; }
+  .seg button.active { background: var(--accent); color: var(--black); font-weight: 700; }
+  .seg-3 { grid-template-columns: repeat(3, 1fr); }
+  .seg-5 { grid-template-columns: repeat(5, 1fr); }
+  .seg-4 { grid-template-columns: repeat(4, 1fr); }
+  @media(max-width:640px){ .seg-5{grid-template-columns:repeat(3,1fr)} }
+  input.field { width: 100%; padding: 14px 16px; background: var(--black); color: var(--white); border: 1px solid rgba(255,255,255,.15); font-family: var(--fb); font-size: 16px; outline: none; transition: border-color .2s; }
+  input.field:focus { border-color: var(--accent); }
+  .field-suffix { position: relative; }
+  .field-suffix::after { content: attr(data-suffix); position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 13px; pointer-events: none; }
+  .field-suffix input { padding-right: 38px; }
+  .calc-result { background: var(--black); border: 1px solid rgba(212,255,0,.12); padding: 40px; position: sticky; top: 110px; }
+  .res-eyebrow { font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .res-headline { font-family: var(--fd); font-size: clamp(28px, 3.4vw, 38px); font-weight: 900; text-transform: uppercase; line-height: 1; margin-bottom: 24px; letter-spacing: .5px; }
+  .res-kcal-box { background: var(--accent); color: var(--black); padding: 24px 28px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 24px; }
+  .res-kcal-num { font-family: var(--fd); font-size: 58px; font-weight: 900; line-height: 1; }
+  .res-kcal-label { font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; text-align: right; line-height: 1.3; }
+  .res-onderhoud { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 14px; }
+  .res-onderhoud-label { color: var(--gray); letter-spacing: .5px; }
+  .res-onderhoud-val { font-family: var(--fd); font-weight: 800; color: var(--white); }
+  .macros { margin-top: 28px; display: grid; gap: 14px; }
+  .macro { background: var(--mid); padding: 18px 22px; }
+  .macro-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .macro-name { font-family: var(--fd); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px; }
+  .macro-dot { width: 9px; height: 9px; border-radius: 50%; }
+  .m-protein .macro-dot { background: #d4ff00; }
+  .m-fat .macro-dot { background: #ff8c2e; }
+  .m-carb .macro-dot { background: #2ec4ff; }
+  .macro-step { font-size: 10px; letter-spacing: 1.5px; color: var(--gray); text-transform: uppercase; }
+  .macro-vals { display: flex; gap: 18px; font-size: 13px; color: rgba(255,255,255,.6); }
+  .macro-vals strong { color: var(--white); font-family: var(--fd); font-weight: 900; font-size: 22px; margin-right: 4px; }
+  .macro-bar { margin-top: 10px; height: 4px; background: rgba(255,255,255,.06); position: relative; overflow: hidden; }
+  .macro-bar-fill { height: 100%; transition: width .5s ease; }
+  .m-protein .macro-bar-fill { background: #d4ff00; }
+  .m-fat .macro-bar-fill { background: #ff8c2e; }
+  .m-carb .macro-bar-fill { background: #2ec4ff; }
+  .res-cta { margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.08); }
+  .res-cta-q { font-size: 14.5px; color: rgba(255,255,255,.7); line-height: 1.6; margin-bottom: 18px; }
+  .res-cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .placeholder { color: rgba(255,255,255,.4); font-size: 14px; line-height: 1.7; padding: 20px 0; text-align: center; }
+  @media (max-width: 980px) {
+    .calc-wrap { grid-template-columns: 1fr; gap: 32px; }
+    .calc-result { position: static; }
+    .calc-form, .calc-result { padding: 28px; }
+  }
+
+  /* INFO */
+  .calc-info { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; }
+  .calc-info-card { background: var(--mid); padding: 32px 28px; }
+  .calc-info-num { font-family: var(--fd); font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--accent); margin-bottom: 12px; }
+  .calc-info-title { font-family: var(--fd); font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; letter-spacing: .5px; }
+  .calc-info-text { font-size: 13.5px; color: rgba(255,255,255,.6); line-height: 1.7; font-weight: 300; }
+  @media (max-width: 980px) { .calc-info { grid-template-columns: 1fr; } }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fitupleiderdorp.nl/"},
+    {"@type": "ListItem", "position": 2, "name": "Calorie calculator", "item": "https://fitupleiderdorp.nl/calorie-calculator/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calorie Calculator Fit Up Leiderdorp",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "url": "https://fitupleiderdorp.nl/calorie-calculator/"
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <a href="../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <ul class="nav-links">
+    <li class="has-sub">
+      <a href="../trainingsaanbod/index.html" aria-haspopup="true">Trainingsaanbod</a>
+      <ul class="nav-submenu" role="menu">
+        <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
+        <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
+        <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
+        <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen<small>Bodypump · boksfit · HIIT</small></a></li>
+      </ul>
+    </li>
+    <li><a href="../online-coaching/index.html">Online Coaching</a></li>
+    <li><a href="../tarieven/index.html">Tarieven</a></li>
+    <li><a href="../fitcheck/index.html">Fitcheck</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+    <li><a href="../gratis-intake/index.html" class="nav-btn">Gratis intake</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
+    <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="drawer-group">
+    <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
+    <ul class="drawer-sub">
+      <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+      <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+      <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+      <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+    </ul>
+  </div>
+  <a href="../online-coaching/index.html">Online Coaching</a>
+  <a href="../tarieven/index.html">Tarieven</a>
+  <a href="../fitcheck/index.html">Fitcheck</a>
+  <a href="../contact/index.html">Contact</a>
+  <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
+</div>
+
+<section class="crumb">
+  <div class="container">
+    <nav class="crumb-inner" aria-label="Kruimelpad">
+      <a href="../index.html">Home</a>
+      <span class="crumb-sep">/</span>
+      <span class="crumb-cur">Calorie calculator</span>
+    </nav>
+  </div>
+</section>
+
+<header class="seo-hero" style="padding-bottom:50px">
+  <div class="container">
+    <div style="text-align:center;max-width:760px;margin:0 auto">
+      <div class="hero-eyebrow" style="justify-content:center;display:inline-flex"><span class="eyebrow-dot"></span>Gratis tool · 30 sec</div>
+      <h1 style="font-size:clamp(48px,6.5vw,84px);margin-bottom:24px"><span class="h1-kicker">Calorie calculator</span>Bereken jouw<br><em>dagdoel.</em></h1>
+      <p class="seo-hero-sub" style="margin:0 auto 0;max-width:580px;text-align:left;text-wrap:pretty">
+        Bereken in 30 seconden jouw <strong>persoonlijke kcal-doel</strong> en macroverdeling (eiwit, vet, koolhydraten) op basis van Mifflin-St Jeor. Vul je gegevens in en het resultaat verschijnt direct naast het formulier.
+      </p>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:30px">
+  <div class="container">
+    <div class="calc-wrap">
+
+      <!-- FORM -->
+      <form class="calc-form" id="calcForm" novalidate>
+        <h2>Jouw <em>gegevens</em></h2>
+
+        <div class="field-group">
+          <label>Geslacht</label>
+          <div class="seg" data-name="gender">
+            <button type="button" class="active" data-val="m">Man</button>
+            <button type="button" data-val="v">Vrouw</button>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="age">Leeftijd</label>
+            <div class="field-suffix" data-suffix="jaar"><input id="age" type="number" class="field" min="14" max="99" value="32" inputmode="numeric"></div>
+          </div>
+          <div class="field-group">
+            <label for="height">Lengte</label>
+            <div class="field-suffix" data-suffix="cm"><input id="height" type="number" class="field" min="120" max="230" value="180" inputmode="numeric"></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="weight">Gewicht</label>
+          <div class="field-suffix" data-suffix="kg"><input id="weight" type="number" class="field" min="35" max="220" value="78" inputmode="decimal" step="0.1"></div>
+        </div>
+
+        <div class="field-group">
+          <label>Activiteit</label>
+          <div class="seg seg-4" data-name="activity">
+            <button type="button" data-val="1.2">Weinig</button>
+            <button type="button" class="active" data-val="1.375">Licht</button>
+            <button type="button" data-val="1.55">Gemiddeld</button>
+            <button type="button" data-val="1.725">Zeer</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Doel</label>
+          <div class="seg seg-3" data-name="goal">
+            <button type="button" data-val="cut">Afvallen</button>
+            <button type="button" class="active" data-val="maint">Onderhoud</button>
+            <button type="button" data-val="bulk">Spieropbouw</button>
+          </div>
+        </div>
+
+        <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.6;margin-top:12px">Berekening op basis van Mifflin-St Jeor (BMR). Activiteitsfactor wordt toegepast voor TDEE. Voor afvallen rekenen we −15%, voor spieropbouw +10%.</p>
+      </form>
+
+      <!-- RESULT -->
+      <aside class="calc-result" id="calcResult">
+        <div class="res-eyebrow">Jouw advies</div>
+        <div class="res-headline" id="resHead">Vul je gegevens in →</div>
+
+        <div id="resBody">
+          <div class="placeholder">Pas geslacht, leeftijd, lengte, gewicht, activiteit en doel aan — je resultaat verschijnt direct hier.</div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section style="background:var(--mid)" aria-labelledby="info">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Hoe werkt het</div>
+      <h2 id="info" class="reveal d1">Berekening<br><em>in 3 stappen</em></h2>
+      <p class="reveal d2">We gebruiken de Mifflin-St Jeor formule — al jaren de standaard binnen voedingscoaching. Snel, betrouwbaar, en bewezen.</p>
+    </div>
+    <div class="calc-info">
+      <div class="calc-info-card reveal">
+        <div class="calc-info-num">Stap 01</div>
+        <div class="calc-info-title">BMR berekenen</div>
+        <div class="calc-info-text">Mifflin-St Jeor: voor mannen 10 × kg + 6.25 × cm − 5 × jaar + 5. Voor vrouwen: −161. Dit is wat je lichaam in rust verbrandt.</div>
+      </div>
+      <div class="calc-info-card reveal d1">
+        <div class="calc-info-num">Stap 02</div>
+        <div class="calc-info-title">Activiteit erbij</div>
+        <div class="calc-info-text">BMR × activiteitsfactor (1.2 weinig actief · 1.375 licht · 1.55 gemiddeld · 1.725 zeer actief) = TDEE: je dagelijkse verbranding.</div>
+      </div>
+      <div class="calc-info-card reveal d2">
+        <div class="calc-info-num">Stap 03</div>
+        <div class="calc-info-title">Doel toepassen</div>
+        <div class="calc-info-text">Afvallen: TDEE −15%. Onderhoud: TDEE. Spieropbouw: TDEE +10%. Macro's: 1,8 g eiwit per kg, 0,8 g vet per kg, rest koolhydraten.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="container">
+    <h2 class="reveal">Wil je dit omzetten naar<br><em>een persoonlijk plan?</em></h2>
+    <p class="reveal d1">Een kcal-doel is een startpunt. Het écht laten werken vraagt om coaching, training, herstel en bijsturen elke 4 weken. Plan een gratis intake — vrijblijvend.</p>
+    <div class="cta-actions reveal d2">
+      <a href="../gratis-intake/index.html" class="btn-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20heb%20de%20calorie%20calculator%20gedaan%20en%20wil%20graag%20meer%20info." target="_blank" rel="noopener" class="btn-outline-dark">WhatsApp direct</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--mid)" aria-labelledby="meer">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Meer ontdekken</div>
+      <h2 id="meer" class="reveal d1">Lees ook</h2>
+    </div>
+    <div class="linklist">
+      <a href="../afvallen-leiderdorp/index.html"><span class="linklist-title">Afvallen Leiderdorp</span><span class="linklist-sub">Programma voor blijvend resultaat</span></a>
+      <a href="../voedingscoach-leiderdorp/index.html"><span class="linklist-title">Voedingscoach Leiderdorp</span><span class="linklist-sub">Macro-coaching via app</span></a>
+      <a href="../small-group-personal-training-leiderdorp/index.html"><span class="linklist-title">SGPT Leiderdorp</span><span class="linklist-sub">Vanaf €149 per 4 weken</span></a>
+      <a href="../personal-training-leiderdorp/index.html"><span class="linklist-title">Personal Training Leiderdorp</span><span class="linklist-sub">1-op-1 met je eigen coach</span></a>
+      <a href="../krachttraining-leiderdorp/index.html"><span class="linklist-title">Krachttraining Leiderdorp</span><span class="linklist-sub">Sterker worden, methodisch</span></a>
+      <a href="../gratis-intake/index.html"><span class="linklist-title">Plan gratis intake</span><span class="linklist-sub">Vrijblijvend gesprek</span></a>
+      <a href="../trainingsaanbod/index.html"><span class="linklist-title">Trainingsaanbod</span><span class="linklist-sub">Alle abonnementen op een rij</span></a>
+      <a href="../tarieven/index.html"><span class="linklist-title">Tarieven</span><span class="linklist-sub">SGPT · PT · 24/7 · groepslessen</span></a>
+      <a href="../fitcheck/index.html"><span class="linklist-title">Fitcheck</span><span class="linklist-sub">3 vragen, persoonlijk advies</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-logo">FIT<span>UP</span></div>
+        <p>Kleinschalige premium fitnessclub aan de Weversbaan 9 in Leiderdorp. 24/7 fitness, Small Group Personal Training, groepslessen en personal training.</p>
+      </div>
+      <div class="f-col"><h4>Trainingsaanbod</h4><ul>
+        <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+        <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+        <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+        <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+        <li><a href="../online-coaching/index.html">Online Coaching</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Lokaal</h4><ul>
+        <li><a href="../sportschool-leiderdorp/index.html">Sportschool Leiderdorp</a></li>
+        <li><a href="../fitnessclub-leiderdorp/index.html">Fitnessclub Leiderdorp</a></li>
+        <li><a href="../personal-training-leiderdorp/index.html">Personal Training Leiderdorp</a></li>
+        <li><a href="../afvallen-leiderdorp/index.html">Afvallen Leiderdorp</a></li>
+        <li><a href="../hyrox-training-leiderdorp/index.html">Hyrox training Leiderdorp</a></li>
+        <li><a href="../fitness-voor-beginners-leiderdorp/index.html">Fitness voor beginners</a></li>
+        <li><a href="../fitness-40-plus-leiderdorp/index.html">Fitness 40+</a></li>
+        <li><a href="../vrouwen-fitness-leiderdorp/index.html">Vrouwen fitness</a></li>
+        <li><a href="../spiermassa-opbouwen-leiderdorp/index.html">Spiermassa opbouwen</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Contact</h4><ul>
+        <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
+        <li><a href="tel:0648776322">06 48776322</a></li>
+        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="https://wa.me/31648776322" target="_blank" rel="noopener">WhatsApp direct</a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2020–2026 Fit Up Leiderdorp · KvK 60617268 · BTW NL178744876B01</p>
+      <p>Sportschool Leiderdorp · 24/7 Fitness Leiderdorp · Personal Trainer Leiderdorp</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Segmented controls
+  document.querySelectorAll('.seg').forEach(seg => {
+    seg.addEventListener('click', e => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      seg.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      compute();
+    });
+  });
+  // Inputs
+  ['age','height','weight'].forEach(id => {
+    document.getElementById(id).addEventListener('input', compute);
+  });
+
+  function getSeg(name){
+    const seg = document.querySelector('.seg[data-name="'+name+'"]');
+    return seg.querySelector('button.active').dataset.val;
+  }
+
+  function compute(){
+    const gender = getSeg('gender');
+    const activity = parseFloat(getSeg('activity'));
+    const goal = getSeg('goal');
+    const age = parseInt(document.getElementById('age').value, 10);
+    const h = parseFloat(document.getElementById('height').value);
+    const w = parseFloat(document.getElementById('weight').value);
+    if (!age || !h || !w || age < 14 || age > 99 || h < 120 || w < 35) return;
+
+    // Mifflin-St Jeor
+    const bmr = gender === 'm'
+      ? 10 * w + 6.25 * h - 5 * age + 5
+      : 10 * w + 6.25 * h - 5 * age - 161;
+    const tdee = bmr * activity;
+    const goalMul = goal === 'cut' ? 0.85 : goal === 'bulk' ? 1.10 : 1.0;
+    const target = Math.round(tdee * goalMul);
+    const onderhoud = Math.round(tdee);
+
+    // Macros — order is: 1. Eiwit, 2. Vet, 3. Koolhydraten
+    const proteinG = Math.round(1.8 * w);
+    const fatG = Math.round(0.8 * w);
+    const proteinKcal = proteinG * 4;
+    const fatKcal = fatG * 9;
+    const remainKcal = Math.max(target - proteinKcal - fatKcal, 0);
+    const carbG = Math.round(remainKcal / 4);
+
+    // % of target kcal for bar
+    const pctP = (proteinKcal / target) * 100;
+    const pctF = (fatKcal / target) * 100;
+    const pctC = ((carbG * 4) / target) * 100;
+
+    const goalLabel = goal === 'cut' ? 'Afvallen' : goal === 'bulk' ? 'Spieropbouw' : 'Onderhoud';
+    const goalDelta = goal === 'cut' ? '−15% tekort' : goal === 'bulk' ? '+10% overschot' : 'gelijk aan TDEE';
+
+    document.getElementById('resHead').innerHTML = goalLabel + ' · <em style="font-style:normal;color:var(--accent)">' + target.toLocaleString('nl-NL') + ' kcal</em>';
+    document.getElementById('resBody').innerHTML = `
+      <div class="res-kcal-box">
+        <div>
+          <div class="res-kcal-num">${target.toLocaleString('nl-NL')}</div>
+        </div>
+        <div class="res-kcal-label">kcal<br>per dag<br><span style="opacity:.7;font-weight:600">(${goalDelta})</span></div>
+      </div>
+      <div class="res-onderhoud">
+        <span class="res-onderhoud-label">Onderhoud (TDEE)</span>
+        <span class="res-onderhoud-val">${onderhoud.toLocaleString('nl-NL')} kcal</span>
+      </div>
+      <div class="res-onderhoud">
+        <span class="res-onderhoud-label">Bij rust (BMR)</span>
+        <span class="res-onderhoud-val">${Math.round(bmr).toLocaleString('nl-NL')} kcal</span>
+      </div>
+
+      <div class="macros">
+        <div class="macro m-protein">
+          <div class="macro-top"><span class="macro-name"><span class="macro-dot"></span>Eiwitten</span><span class="macro-step">Stap 01 · 1,8 g/kg</span></div>
+          <div class="macro-vals"><span><strong>${proteinG}</strong>gram</span><span><strong>${proteinKcal}</strong>kcal</span></div>
+          <div class="macro-bar"><div class="macro-bar-fill" style="width:${pctP.toFixed(1)}%"></div></div>
+        </div>
+        <div class="macro m-fat">
+          <div class="macro-top"><span class="macro-name"><span class="macro-dot"></span>Vetten</span><span class="macro-step">Stap 02 · 0,8 g/kg</span></div>
+          <div class="macro-vals"><span><strong>${fatG}</strong>gram</span><span><strong>${fatKcal}</strong>kcal</span></div>
+          <div class="macro-bar"><div class="macro-bar-fill" style="width:${pctF.toFixed(1)}%"></div></div>
+        </div>
+        <div class="macro m-carb">
+          <div class="macro-top"><span class="macro-name"><span class="macro-dot"></span>Koolhydraten</span><span class="macro-step">Stap 03 · resterende kcal</span></div>
+          <div class="macro-vals"><span><strong>${carbG}</strong>gram</span><span><strong>${carbG * 4}</strong>kcal</span></div>
+          <div class="macro-bar"><div class="macro-bar-fill" style="width:${pctC.toFixed(1)}%"></div></div>
+        </div>
+      </div>
+
+      <div class="res-cta">
+        <p class="res-cta-q">Wil je dit omzetten naar een persoonlijk plan? Onze coaches helpen je met training, voeding en metingen — gratis intake.</p>
+        <div class="res-cta-actions">
+          <a href="../gratis-intake/index.html" class="btn-accent" style="font-size:13px;padding:13px 22px">Plan gratis intake</a>
+          <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20heb%20de%20calorie%20calculator%20gedaan%20(${encodeURIComponent(goalLabel)}%20${target}%20kcal)%20en%20wil%20graag%20meer%20info." target="_blank" rel="noopener" class="btn-outline" style="font-size:12px;padding:12px 20px">WhatsApp direct</a>
+        </div>
+      </div>
+    `;
+  }
+  // Run initial compute
+  compute();
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
+  // Reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }});
+  }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Drawer
+  var t = document.getElementById('nav-toggle'), d = document.getElementById('nav-drawer');
+  if (t && d) {
+    function setNav(o){ document.body.classList.toggle('nav-open', o); t.setAttribute('aria-expanded', o?'true':'false'); t.setAttribute('aria-label', o?'Menu sluiten':'Menu openen'); d.setAttribute('aria-hidden', o?'false':'true'); }
+    t.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
+    d.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setNav(false); });
+  }
+})();
+</script>
+</body>
+</html>

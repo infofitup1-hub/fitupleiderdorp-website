@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Geen indexering van bedankt-pagina (conversie-pagina)
+Disallow: /bedankt/
+
+Sitemap: https://fitupleiderdorp.nl/sitemap.xml

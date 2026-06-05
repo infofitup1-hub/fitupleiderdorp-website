@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Groepslessen Leiderdorp | Fit Up Groepslessen voor Kracht & Conditie</title>
+<meta name="description" content="Doe mee met groepslessen bij Fit Up Leiderdorp. Train kracht, conditie en energie in motiverende lessen met professionele begeleiding.">
+<meta property="og:title" content="Groepslessen Leiderdorp | Fit Up Groepslessen voor Kracht & Conditie">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Doe mee met groepslessen bij Fit Up Leiderdorp. Train kracht, conditie en energie in motiverende lessen met professionele begeleiding.">
+<meta property="og:url" content="https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/">
+<meta property="og:image" content="https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/assets/images/logo-mark-on-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Groepslessen Leiderdorp | Fit Up Groepslessen voor Kracht & Conditie">
+<meta name="twitter:description" content="Doe mee met groepslessen bij Fit Up Leiderdorp. Train kracht, conditie en energie in motiverende lessen met professionele begeleiding.">
+<meta name="twitter:image" content="https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/assets/images/logo-mark-on-dark.png">
+<link rel="canonical" href="https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#0c0c0c;--mid:#161616;--dark:#111;--white:#fff;--accent:#d4ff00;--gray:#888;--lgray:#2a2a2a;--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
+  nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
+  .logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--white)}
+  .nav-btn{background:var(--accent)!important;color:var(--black)!important;padding:10px 24px;font-weight:700!important;letter-spacing:1px!important}
+  .nav-btn:hover{background:var(--white)!important}
+  section{padding:100px 0}
+  .container{max-width:1240px;margin:0 auto;padding:0 40px}
+  .sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .sec-label-line{width:24px;height:1.5px;background:var(--accent)}
+  h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
+  h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
+  h2 em{font-style:normal;color:var(--accent)}
+  h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
+  .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);transition:all .25s;white-space:nowrap}
+  .btn-accent:hover{background:transparent;color:var(--accent)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
+  .btn-ghost:hover{color:var(--white);border-color:var(--white)}
+  .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--black);transition:all .25s;white-space:nowrap}
+  .btn-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+
+  /* PAGE HERO */
+  .page-hero{min-height:78vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px}
+  .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
+  .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+  .page-hero h1{font-size:clamp(56px,7.5vw,96px);margin-bottom:24px;opacity:0;animation:fadeUp .6s ease .4s forwards}
+  .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
+  .page-hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
+  .page-hero-sub strong{color:var(--white);font-weight:500}
+  .page-hero-stats{display:flex;gap:32px;margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .7s forwards;flex-wrap:wrap}
+  .ph-stat{border-left:2px solid var(--accent);padding-left:16px}
+  .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1}
+  .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:4px}
+  .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
+  .page-hero-right{position:relative;overflow:hidden;background:var(--lgray)}
+  .page-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:0;animation:fadeIn 1s ease .3s forwards}
+  .page-hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,transparent 25%),linear-gradient(to top,rgba(12,12,12,.8) 0%,transparent 35%);pointer-events:none}
+  .hero-badge{position:absolute;bottom:32px;right:32px;background:var(--accent);color:var(--black);padding:14px 18px;font-family:var(--fd);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
+
+  /* SECTION HEADERS */
+  .sec-head{text-align:center;margin-bottom:56px}
+  .sec-head .sec-label{justify-content:center}
+  .sec-head p{max-width:580px;margin:18px auto 0;font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75}
+
+  /* HIGHLIGHT BAND */
+  .hbar{background:var(--mid);padding:36px 0;border-top:1px solid rgba(212,255,0,.08);border-bottom:1px solid rgba(212,255,0,.08)}
+  .hbar-inner{display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:center}
+  .hbar-eyebrow{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:12px;white-space:nowrap}
+  .hbar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .hbar-item{display:flex;flex-direction:column;gap:4px}
+  .hbar-label{font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+  .hbar-value{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--white)}
+  .hbar-value em{color:var(--accent);font-style:normal}
+
+  /* CLASS CARDS — big editorial blocks alternating image left/right */
+  .classes{background:var(--black)}
+  .class-block{display:grid;grid-template-columns:1.1fr 1fr;gap:0;margin-bottom:3px;background:var(--mid);overflow:hidden}
+  .class-block:nth-child(even){grid-template-columns:1fr 1.1fr}
+  .class-block:nth-child(even) .class-photo{order:2}
+  .class-photo{position:relative;overflow:hidden;background:var(--lgray);min-height:480px;aspect-ratio:auto}
+  .class-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 1s ease}
+  .class-block:hover .class-photo img{transform:scale(1.04)}
+  .class-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,12,12,.35) 0%,transparent 45%);pointer-events:none}
+  .class-tag{position:absolute;top:24px;left:24px;display:flex;gap:6px;z-index:2}
+  .class-tag span{background:var(--accent);color:var(--black);padding:6px 10px;font-family:var(--fd);font-weight:900;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+  .class-tag span.alt{background:transparent;border:1px solid rgba(255,255,255,.4);color:var(--white)}
+  .class-num{position:absolute;bottom:24px;right:24px;font-family:var(--fd);font-size:120px;font-weight:900;color:rgba(255,255,255,.06);line-height:.8;z-index:1;pointer-events:none}
+  .class-content{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+  .class-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .class-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent)}
+  .class-title{font-family:var(--fd);font-size:clamp(40px,5vw,60px);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.5px;margin-bottom:18px}
+  .class-title em{font-style:normal;color:var(--accent)}
+  .class-desc{font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;font-weight:300;margin-bottom:24px;max-width:480px}
+  .class-meta{display:flex;gap:0;margin-bottom:28px;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);padding:14px 0}
+  .class-meta-item{flex:1;display:flex;flex-direction:column;gap:3px;padding-right:18px}
+  .class-meta-item+.class-meta-item{border-left:1px solid rgba(255,255,255,.07);padding-left:18px}
+  .class-meta-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);font-weight:600}
+  .class-meta-value{font-family:var(--fd);font-size:18px;font-weight:900;color:var(--white)}
+  .class-meta-value em{color:var(--accent);font-style:normal}
+  .class-focus{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+  .class-focus span{font-size:11px;font-weight:500;letter-spacing:.5px;color:rgba(255,255,255,.65);background:rgba(212,255,0,.06);border:1px solid rgba(212,255,0,.15);padding:6px 12px}
+  .class-intensity{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+  .int-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);font-weight:600}
+  .int-bar{display:flex;gap:3px}
+  .int-bar span{width:18px;height:6px;background:rgba(255,255,255,.1)}
+  .int-bar span.on{background:var(--accent)}
+
+  /* PRICE STRIP */
+  .price-strip{background:var(--mid);padding:80px 0}
+  .price-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--black);padding:48px;border-left:3px solid var(--accent)}
+  .price-inner h3{font-family:var(--fd);font-size:clamp(32px,4vw,44px);font-weight:900;text-transform:uppercase;line-height:.95;margin-bottom:14px}
+  .price-inner h3 em{font-style:normal;color:var(--accent)}
+  .price-inner p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300;max-width:420px}
+  .price-side{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+  .price-headline{display:flex;align-items:baseline;gap:4px;font-family:var(--fd);font-weight:900;line-height:1}
+  .price-headline .curr{font-size:24px;color:var(--accent)}
+  .price-headline .num{font-size:72px;letter-spacing:-2px}
+  .price-headline .per{font-size:13px;color:var(--gray);margin-left:8px;font-family:var(--fb);font-weight:400;letter-spacing:.3px}
+  .price-feat{display:flex;flex-direction:column;gap:8px}
+  .price-feat span{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:center;font-weight:300}
+  .price-feat span svg{color:var(--accent);flex-shrink:0}
+
+  /* ROOSTER (Pay'n Plan live embed) */
+  .rooster{background:var(--mid)}
+  .rooster-frame{position:relative;background:var(--black);border:1px solid rgba(255,255,255,.06);padding:0;overflow:hidden}
+  .rooster-frame::before{content:'';position:absolute;top:0;left:0;width:120px;height:3px;background:var(--accent);z-index:3}
+  .rooster-frame::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;background:linear-gradient(135deg,transparent 50%,var(--accent) 50%);opacity:.08;pointer-events:none}
+  .rooster-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.06);background:var(--mid);position:relative;z-index:2}
+  .rt-tab{flex:1;background:transparent;border:none;color:rgba(255,255,255,.45);font-family:var(--fd);font-size:14px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:22px 28px;cursor:pointer;transition:all .25s;border-bottom:3px solid transparent;display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--fd)}
+  .rt-tab:hover{color:var(--white)}
+  .rt-tab.active{color:var(--accent);background:var(--black);border-bottom-color:var(--accent)}
+  .rt-tab-icon{width:8px;height:8px;background:currentColor;border-radius:50%;opacity:.55}
+  .rt-tab.active .rt-tab-icon{opacity:1;box-shadow:0 0 0 4px rgba(212,255,0,.15)}
+  .rt-tab-meta{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:1.5px;color:var(--gray);text-transform:uppercase;margin-left:6px}
+  .rt-tab.active .rt-tab-meta{color:rgba(212,255,0,.5)}
+  .rt-panels{position:relative}
+  .rt-panel{display:none;padding:32px}
+  .rt-panel.active{display:block;animation:fadeIn .35s ease}
+  .rt-panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.05);flex-wrap:wrap}
+  .rt-panel-title{font-family:var(--fd);font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:1px;line-height:1}
+  .rt-panel-title em{color:var(--accent);font-style:normal}
+  .rt-panel-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:300;line-height:1.5;max-width:520px}
+  .rt-panel-live{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-family:var(--fb)}
+  .rt-panel-live .live-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite;box-shadow:0 0 0 4px rgba(212,255,0,.18)}
+  .paynplan-embed{background:var(--black);min-height:420px;overflow:auto;color:var(--white)}
+  .paynplan-embed table{width:100%;color:var(--white);font-family:var(--fb);border-collapse:collapse}
+  .paynplan-embed td,.paynplan-embed th{padding:8px 10px;border-color:rgba(255,255,255,.06)!important;color:inherit}
+  .paynplan-embed a{color:var(--accent)!important}
+  .rt-foot{text-align:center;margin-top:24px;font-size:12px;color:var(--gray);letter-spacing:.3px}
+
+  /* FOR WHO / TRY */
+  .try-strip{background:var(--accent);padding:64px 0}
+  .try-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+  .try-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:10px}
+  .try-title{font-family:var(--fd);font-size:clamp(30px,4vw,48px);font-weight:900;text-transform:uppercase;color:var(--black);line-height:1;letter-spacing:.5px}
+  .try-sub{font-size:15px;color:rgba(0,0,0,.55);margin-top:12px;max-width:480px;line-height:1.6}
+
+  /* FAQ */
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .faq-item{background:var(--mid);padding:32px 28px;border-left:3px solid transparent;transition:all .25s}
+  .faq-item:hover{border-left-color:var(--accent);background:var(--lgray)}
+  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:flex-start}
+  .faq-q::before{content:'?';color:var(--accent);font-family:var(--fd);font-weight:900;flex-shrink:0}
+  .faq-a{font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;font-weight:300}
+
+  /* FINAL CTA */
+  .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 70%);pointer-events:none}
+  .final-cta h2{font-size:clamp(52px,8vw,92px);margin-bottom:24px}
+  .final-cta p{font-size:16px;color:rgba(255,255,255,.55);max-width:460px;margin:0 auto 44px;font-weight:300;line-height:1.75}
+  .cta-actions{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:var(--mid);border-top:1px solid rgba(255,255,255,.05);padding:64px 0 32px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  .f-brand .f-logo{font-family:var(--fd);font-size:26px;font-weight:900;letter-spacing:4px;margin-bottom:14px}
+  .f-brand .f-logo span{color:var(--accent)}
+  .f-brand p{font-size:13px;color:var(--gray);line-height:1.7;max-width:260px}
+  .f-col h4{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:18px}
+  .f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .f-col ul a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+  .f-col ul a:hover{color:var(--accent)}
+  .f-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .f-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
+
+  @media (max-width:980px){
+    .page-hero{grid-template-columns:1fr;min-height:auto}
+    .page-hero-left{padding:40px}
+    .page-hero-right{min-height:380px}
+    .class-block,.class-block:nth-child(even){grid-template-columns:1fr}
+    .class-block:nth-child(even) .class-photo{order:0}
+    .class-photo{min-height:320px}
+    .class-content{padding:40px 32px}
+    .price-inner{grid-template-columns:1fr;padding:36px 28px;gap:32px}
+    .paynplan-embed{padding:16px}
+    .faq-grid{grid-template-columns:1fr}
+    .hbar-inner{grid-template-columns:1fr;gap:24px;text-align:left}
+    .hbar-grid{grid-template-columns:1fr 1fr}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links{display:none}
+    .nav-links li:last-child{display:block}
+  }
+  @media (max-width:640px){
+    .rooster-wrap{overflow-x:auto;margin:0 -16px;padding:0 16px}
+  }
+
+
+  /* ───── MOBILE (smartphone) ───── */
+  @media (max-width:640px){
+    nav{padding:14px 16px!important}
+    nav.scrolled{padding:10px 16px!important}
+    .logo{font-size:22px;letter-spacing:2px}
+    .nav-links{gap:0}
+    .nav-btn{padding:8px 16px!important;font-size:11px}
+
+    .container{padding:0 20px}
+    section{padding:56px 0}
+    h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
+    h2{font-size:clamp(34px,9vw,48px)!important}
+
+    .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
+    .page-hero-right,.fu-page-hero-right{min-height:300px!important}
+    .page-hero-sub,.fu-page-hero-sub{font-size:15px}
+    .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
+    .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
+    .ph-stat-num,.fu-ph-stat-num{font-size:22px}
+    .ph-stat-label,.fu-ph-stat-label{font-size:9px;letter-spacing:1px}
+    .page-hero-ctas,.fu-page-hero-ctas{flex-direction:column;align-items:stretch;gap:12px}
+    .page-hero-ctas .btn-accent,.fu-page-hero-ctas .btn-accent{justify-content:center;width:100%}
+
+    .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
+    .f-brand{grid-column:auto!important}
+    .f-brand p{max-width:none!important}
+    .f-bottom{flex-direction:column;gap:10px;text-align:center}
+    .f-bottom p{text-align:center}
+
+    .hours-grid,.fu-hours-grid{grid-template-columns:1fr!important}
+    .sec-head h2,.fu-sec-head h2{font-size:clamp(30px,8vw,42px)!important}
+
+    .btn-accent{padding:14px 22px;font-size:13px;letter-spacing:1.5px}
+    .btn-dark{padding:14px 22px;font-size:13px}
+
+    .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
+
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
+    .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
+    .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
+
+    .reviews-grid{grid-template-columns:1fr!important}
+    .services-grid,.fu-services-grid{grid-template-columns:1fr!important;gap:2px}
+    .why-grid,.fu-why-grid{grid-template-columns:1fr!important;gap:48px}
+    .problem-grid,.fu-problem-grid{grid-template-columns:1fr!important;gap:48px}
+
+    .price-grid,.fu-price-grid{grid-template-columns:1fr!important;gap:24px}
+    .student-band,.fu-student-band{grid-template-columns:1fr!important;gap:24px;padding:32px 22px!important}
+    .stu-item,.fu-stu-item{border-left:none!important;border-top:1px solid rgba(255,255,255,.08)!important;padding:20px 0 0!important}
+
+    .contact-grid,.fu-contact-grid{grid-template-columns:1fr!important;gap:40px}
+    .contact-right,.fu-contact-right{position:static!important}
+
+    .fitcheck-inner,.fu-fitcheck-inner{flex-direction:column;align-items:flex-start;gap:20px;text-align:left}
+  }
+
+  @media (max-width:420px){
+    .container{padding:0 16px}
+    h1{font-size:clamp(36px,11vw,52px)!important}
+    .logo{letter-spacing:1.5px}
+    .nav-links li:not(:last-child){display:none!important}
+  }
+
+/* === NAV DROPDOWN + DRAWER (FIT UP) === */
+.nav-links .has-sub{position:relative}
+.nav-links .has-sub > a{display:inline-flex;align-items:center;gap:6px;cursor:default}
+.nav-links .has-sub > a::after{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s,border-color .2s;opacity:.6}
+.nav-links .has-sub:hover > a::after,.nav-links .has-sub:focus-within > a::after{border-color:var(--accent);transform:rotate(225deg) translate(-2px,-2px);opacity:1}
+.nav-submenu{position:absolute;top:100%;left:-18px;min-width:280px;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border:1px solid rgba(212,255,0,.12);padding:14px;display:flex;flex-direction:column;list-style:none;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:210;margin-top:14px}
+.nav-links .has-sub:hover .nav-submenu,.nav-links .has-sub:focus-within .nav-submenu{opacity:1;visibility:visible;transform:none}
+.nav-submenu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px;background:transparent}
+.nav-submenu li{margin:0}
+.nav-submenu a{display:flex;flex-direction:column;gap:3px;padding:13px 14px;font-size:13px;font-family:var(--fd);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none}
+.nav-submenu a:last-child{border-bottom:0}
+.nav-submenu a small{font-family:var(--fb);font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none}
+.nav-submenu a:hover{color:var(--accent);background:rgba(212,255,0,.04)}
+
+.nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--white);cursor:pointer;transition:border-color .2s,background .2s;padding:0}
+.nav-toggle:hover{border-color:var(--accent);background:rgba(212,255,0,.06)}
+.nav-toggle svg{display:block}
+.nav-toggle .icon-close{display:none}
+body.nav-open .nav-toggle .icon-open{display:none}
+body.nav-open .nav-toggle .icon-close{display:block}
+body.nav-open{overflow:hidden}
+.nav-drawer{position:fixed;inset:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);z-index:190;padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;border-bottom:1px solid rgba(212,255,0,.12);overflow-y:auto}
+body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
+.nav-drawer a{display:flex;align-items:center;justify-content:space-between;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,.06);color:var(--white);text-decoration:none;font-family:var(--fd);font-weight:800;font-size:24px;letter-spacing:1px;text-transform:uppercase;transition:color .2s,padding .2s}
+.nav-drawer a::after{content:"→";color:rgba(255,255,255,.25);transition:color .2s,transform .2s}
+.nav-drawer a:hover,.nav-drawer a:focus-visible{color:var(--accent);padding-left:10px}
+.nav-drawer a:hover::after,.nav-drawer a:focus-visible::after{color:var(--accent);transform:translateX(4px)}
+.nav-drawer .drawer-cta{margin-top:22px;background:var(--accent);color:var(--black);border:0;padding:18px 22px;justify-content:center;font-size:14px;letter-spacing:2px}
+.nav-drawer .drawer-cta::after{color:var(--black)}
+.nav-drawer .drawer-foot{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:6px;font-family:var(--fb);font-size:12px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none;border:0}
+.nav-drawer .drawer-foot::after{display:none}
+.nav-drawer .drawer-foot a{font-family:var(--fb);font-size:13px;font-weight:500;padding:6px 0;border:0;color:rgba(255,255,255,.55);text-transform:none;letter-spacing:.3px}
+.nav-drawer .drawer-foot a::after{display:none}
+.nav-drawer .drawer-foot a:hover{color:var(--accent);padding-left:0}
+.nav-drawer .drawer-group{border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-drawer .drawer-group > a{border-bottom:0}
+.nav-drawer .drawer-sub{list-style:none;display:flex;flex-direction:column;padding:0 0 14px 4px;margin:-6px 0 0 0}
+.nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:10px 0 10px 18px;border-bottom:0;position:relative}
+.nav-drawer .drawer-sub a::before{content:"";position:absolute;left:0;top:50%;width:8px;height:1px;background:rgba(212,255,0,.6);transform:translateY(-50%)}
+.nav-drawer .drawer-sub a::after{display:none}
+.nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
+
+@media (max-width:980px){
+  .nav-links{display:none!important}
+  .nav-toggle{display:inline-flex!important}
+}
+/* === END NAV DROPDOWN + DRAWER === */
+
+</style>
+<style>.h1-kicker{display:block;font-size:.16em;letter-spacing:3px;color:var(--accent);margin-bottom:14px;line-height:1;font-weight:700;text-transform:uppercase}</style>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../../assets/js/main.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <a href="../../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <ul class="nav-links">
+    <li class="has-sub">
+      <a href="../../trainingsaanbod/index.html" class="active" aria-haspopup="true">Trainingsaanbod</a>
+      <ul class="nav-submenu" role="menu">
+        <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
+        <li><a href="../../trainingsaanbod/personal-training/index.html">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
+        <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
+        <li><a href="../../trainingsaanbod/groepslessen/index.html" class="active">Groepslessen<small>Spinning · bootcamp · HIIT</small></a></li>
+      </ul>
+    </li>
+    <li><a href="../../online-coaching/index.html">Online Coaching</a></li>
+    <li><a href="../../tarieven/index.html">Tarieven</a></li>
+    <li><a href="../../fitcheck/index.html">Fitcheck</a></li>
+    <li><a href="../../contact/index.html">Contact</a></li>
+    <li><a href="../../contact/index.html" class="nav-btn">Gratis intake</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
+    <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="drawer-group">
+    <a href="../../trainingsaanbod/index.html">Trainingsaanbod</a>
+    <ul class="drawer-sub">
+      <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+      <li><a href="../../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+      <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+      <li><a href="../../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+    </ul>
+  </div>
+  <a href="../../online-coaching/index.html">Online Coaching</a>
+  <a href="../../tarieven/index.html">Tarieven</a>
+  <a href="../../fitcheck/index.html">Fitcheck</a>
+  <a href="../../contact/index.html">Contact</a>
+  <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
+</div>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="page-hero-left">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Groepslessen</div>
+    <h1><span class="h1-kicker">Groepslessen Leiderdorp</span>Train samen,<br>sla harder<br><em>terug.</em></h1>
+    <p class="page-hero-sub">
+      Vier compacte groepslessen met <strong>vaste trainers</strong>. Van loeizware
+      barbell-sessies tot bokshandschoenen — onbeperkt meedoen met het
+      <strong>All-Inclusive abonnement</strong> vanaf €53,50 per 4 weken.
+    </p>
+    <div class="page-hero-stats">
+      <div class="ph-stat"><div class="ph-stat-num">4</div><div class="ph-stat-label">Vaste lessen p/week</div></div>
+      <div class="ph-stat"><div class="ph-stat-num">45–60</div><div class="ph-stat-label">Min. per les</div></div>
+      <div class="ph-stat"><div class="ph-stat-num">€53,50</div><div class="ph-stat-label">All-Inclusive p/4 wkn</div></div>
+    </div>
+    <div class="page-hero-ctas">
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">Plan een gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#rooster" class="btn-ghost">Of: bekijk het rooster →</a>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <img src="../../assets/images/interieur-1.png" alt="Groepslessen bij Fit Up Leiderdorp" loading="lazy">
+    <div class="hero-badge">★ Onbeperkt meedoen</div>
+  </div>
+</header>
+
+<!-- HIGHLIGHT BAND -->
+<section class="hbar" style="padding:36px 0">
+  <div class="container">
+    <div class="hbar-inner">
+      <div class="hbar-eyebrow">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Wat krijg je
+      </div>
+      <div class="hbar-grid">
+        <div class="hbar-item"><div class="hbar-label">Lessen</div><div class="hbar-value"><em>Onbeperkt</em> mee</div></div>
+        <div class="hbar-item"><div class="hbar-label">Trainers</div><div class="hbar-value"><em>Vaste</em> coaches</div></div>
+        <div class="hbar-item"><div class="hbar-label">Niveau</div><div class="hbar-value">Alle <em>niveaus</em></div></div>
+        <div class="hbar-item"><div class="hbar-label">Inschrijven</div><div class="hbar-value"><em>Geen</em> kosten</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section style="padding:100px 0 40px">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:0">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Vier lessen, één doel</div>
+      <h2 class="reveal d1">Sterker, fitter,<br><em>scherper.</em></h2>
+      <p class="reveal d2">Geen overvolle zalen, geen wisselende lesgevers. Vier doordachte lessen die elkaar perfect aanvullen — barbell-kracht, conditie, intervaltraining en bokstechniek.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section class="classes" style="padding:60px 0 100px" aria-labelledby="classes-heading">
+  <h2 id="classes-heading" style="position:absolute;left:-9999px">Onze groepslessen</h2>
+  <div class="container">
+
+    <!-- BODYPUMP -->
+    <article class="class-block reveal">
+      <div class="class-photo">
+        <div class="class-tag"><span>Kracht</span><span class="alt">Les Mills</span></div>
+        <img src="../../assets/images/les-bodypump.jpg" alt="Bodypump bij Fit Up Leiderdorp" loading="lazy">
+        <div class="class-num">01</div>
+      </div>
+      <div class="class-content">
+        <div class="class-eyebrow">Les 01 · Barbell workout</div>
+        <h3 class="class-title">Body<em>pump</em></h3>
+        <p class="class-desc">De originele barbell workout op muziek. Negen tracks, één doel: elke spier in je lichaam aan het werk met lichte gewichten en veel herhalingen. Vetverbranding én spieruithoudingsvermogen in 55 minuten.</p>
+        <div class="class-intensity">
+          <span class="int-label">Intensiteit</span>
+          <div class="int-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+        </div>
+        <div class="class-meta">
+          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>55</em> min</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
+        </div>
+        <div class="class-focus">
+          <span>Volledig lichaam</span>
+          <span>Spieruithouding</span>
+          <span>Vetverbranding</span>
+          <span>Op muziek</span>
+        </div>
+        <a href="#rooster" class="btn-ghost">Bekijk lestijden →</a>
+      </div>
+    </article>
+
+    <!-- BOKSFIT -->
+    <article class="class-block reveal">
+      <div class="class-photo">
+        <div class="class-tag"><span>Cardio</span><span class="alt">Techniek</span></div>
+        <img src="../../assets/images/les-boksfit.jpg" alt="Boksfit bij Fit Up Leiderdorp" loading="lazy">
+        <div class="class-num">02</div>
+      </div>
+      <div class="class-content">
+        <div class="class-eyebrow">Les 02 · Boxing conditioning</div>
+        <h3 class="class-title">Boks<em>fit</em></h3>
+        <p class="class-desc">Bokstechniek, cardio en kracht in één les. Werk aan je jab, hook en uppercut op de stootkussens — afgewisseld met explosieve oefeningen. Geen sparring, wél het gevoel van een echte training.</p>
+        <div class="class-intensity">
+          <span class="int-label">Intensiteit</span>
+          <div class="int-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+        </div>
+        <div class="class-meta">
+          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Cardio</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
+        </div>
+        <div class="class-focus">
+          <span>Techniek</span>
+          <span>Conditie</span>
+          <span>Coördinatie</span>
+          <span>Stressrelease</span>
+        </div>
+        <a href="#rooster" class="btn-ghost">Bekijk lestijden →</a>
+      </div>
+    </article>
+
+    <!-- HIIT & HYROX -->
+    <article class="class-block reveal">
+      <div class="class-photo">
+        <div class="class-tag"><span>High intensity</span><span class="alt">Hyrox</span></div>
+        <img src="../../assets/images/les-hiit-hyrox.jpg" alt="HIIT en Hyrox training bij Fit Up Leiderdorp" loading="lazy">
+        <div class="class-num">03</div>
+      </div>
+      <div class="class-content">
+        <div class="class-eyebrow">Les 03 · Functional fitness</div>
+        <h3 class="class-title">HIIT<br>& <em>Hyrox</em></h3>
+        <p class="class-desc">Hoge intensiteit, korte rust. Functionele stations met sled push, burpees, wallballs en rowing — de bouwstenen van Hyrox. Voor iedereen die voorbij de loopband wil en in 45 minuten écht leeg wil zijn.</p>
+        <div class="class-intensity">
+          <span class="int-label">Intensiteit</span>
+          <div class="int-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+        </div>
+        <div class="class-meta">
+          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>45</em> min</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">HIIT</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Mid-Pro</span></div>
+        </div>
+        <div class="class-focus">
+          <span>Sled push</span>
+          <span>Wallballs</span>
+          <span>Rowing</span>
+          <span>Burpees</span>
+          <span>Vo₂ max</span>
+        </div>
+        <a href="#rooster" class="btn-ghost">Bekijk lestijden →</a>
+      </div>
+    </article>
+
+    <!-- POWERHOUR -->
+    <article class="class-block reveal">
+      <div class="class-photo">
+        <div class="class-tag"><span>Zware kracht</span><span class="alt">60 min</span></div>
+        <img src="../../assets/images/les-powerhour.jpg" alt="Powerhour krachttraining bij Fit Up Leiderdorp" loading="lazy">
+        <div class="class-num">04</div>
+      </div>
+      <div class="class-content">
+        <div class="class-eyebrow">Les 04 · Heavy strength</div>
+        <h3 class="class-title">Power<em>hour</em></h3>
+        <p class="class-desc">Een uur zware krachttraining onder begeleiding. Squat, deadlift, bench, row — de grote oefeningen, met techniekcheck en progressie. Zelfde gevoel als training met een PT, alleen dan in een vaste groep.</p>
+        <div class="class-intensity">
+          <span class="int-label">Intensiteit</span>
+          <div class="int-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+        </div>
+        <div class="class-meta">
+          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
+          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
+        </div>
+        <div class="class-focus">
+          <span>Squat</span>
+          <span>Deadlift</span>
+          <span>Bench press</span>
+          <span>Row</span>
+          <span>Techniek-check</span>
+        </div>
+        <a href="#rooster" class="btn-ghost">Bekijk lestijden →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- PRICE STRIP -->
+<section class="price-strip">
+  <div class="container">
+    <div class="price-inner reveal">
+      <div>
+        <h3>Eén abonnement,<br><em>alle lessen.</em></h3>
+        <p>Met het Fit Up <strong>All-Inclusive</strong> abonnement doe je onbeperkt mee met alle groepslessen. Geen losse strippenkaarten, geen extra kosten — gewoon binnenlopen en meedoen.</p>
+      </div>
+      <div class="price-side">
+        <div>
+          <div class="price-headline"><span class="curr">€</span><span class="num">53,50</span><span class="per">per 4 weken</span></div>
+          <div style="font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;font-weight:600">All-Inclusive abonnement</div>
+        </div>
+        <div class="price-feat">
+          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt meedoen met alle 4 lessen</span>
+          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inbegrepen bij het All-Inclusive abonnement</span>
+          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Maandelijks opzegbaar</span>
+        </div>
+        <a href="../../tarieven/index.html" class="btn-accent" style="margin-top:8px">Bekijk alle tarieven <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOSTER -->
+<section id="rooster" class="rooster" aria-labelledby="rooster-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Weekrooster</div>
+      <h2 id="rooster-heading" class="reveal d1">Plan jouw <em>week</em></h2>
+      <p class="reveal d2">Een vast weekrooster — geen reservering nodig, gewoon op tijd binnenlopen. Wijzigingen worden in de Fit Up app gecommuniceerd.</p>
+    </div>
+    <div class="rooster-wrap reveal d1">
+      <div class="rooster-frame">
+        <div class="rooster-tabs" role="tablist">
+          <button type="button" class="rt-tab active" role="tab" aria-selected="true" data-tab="groepslessen">
+            <span class="rt-tab-icon"></span>
+            Groepslessen
+            <span class="rt-tab-meta">04 lessen</span>
+          </button>
+          <button type="button" class="rt-tab" role="tab" aria-selected="false" data-tab="sgpt">
+            <span class="rt-tab-icon"></span>
+            SGPT
+            <span class="rt-tab-meta">Small Group PT</span>
+          </button>
+        </div>
+        <div class="rt-panels">
+          <div class="rt-panel active" id="panel-groepslessen" role="tabpanel">
+            <div class="rt-panel-head">
+              <div>
+                <div class="rt-panel-title">Rooster <em>Groepslessen</em></div>
+                <div class="rt-panel-sub">Bodypump · Boksfit · HIIT &amp; Hyrox · Powerhour — onbeperkt meedoen met het All-Inclusive abonnement.</div>
+              </div>
+              <div class="rt-panel-live"><span class="live-dot"></span>Live agenda</div>
+            </div>
+            <div class="paynplan-embed">
+              <script src="https://www.paynplan.nl/require_app?c=2598&p=agenda&id_agenda=19647"></script>
+            </div>
+          </div>
+          <div class="rt-panel" id="panel-sgpt" role="tabpanel">
+            <div class="rt-panel-head">
+              <div>
+                <div class="rt-panel-title">Rooster <em>Small Group PT</em></div>
+                <div class="rt-panel-sub">Persoonlijke coaching in vaste kleine groepen van max. 4 personen. Reserveer je vaste plek via Pay'n Plan.</div>
+              </div>
+              <div class="rt-panel-live"><span class="live-dot"></span>Live agenda</div>
+            </div>
+            <div class="paynplan-embed">
+              <script src="https://www.paynplan.nl/require_app?c=2598&p=agenda&id_agenda=20972"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="rt-foot">Live rooster via Pay'n Plan · Reserveer direct online · Wijzigingen worden in de Fit Up app gecommuniceerd.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRY STRIP -->
+<section class="try-strip">
+  <div class="container">
+    <div class="try-inner">
+      <div>
+        <div class="try-label">Nog geen lid?</div>
+        <div class="try-title">Plan een gratis<br>intake</div>
+        <p class="try-sub">Kies een les uit het rooster, kom langs en doe gewoon mee. Zonder verplichtingen, zonder voorinschrijving — even melden bij de balie is genoeg.</p>
+      </div>
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--black)" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Veelgestelde vragen</div>
+      <h2 id="faq-heading" class="reveal d1">Over de <em>lessen</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><div class="faq-q">Moet ik me vooraf inschrijven voor een les?</div><div class="faq-a">Nee. Loop gewoon binnen vóór de les begint en doe mee. Bij hele drukke momenten communiceren we dat via de Fit Up app.</div></div>
+      <div class="faq-item reveal d1"><div class="faq-q">Voor welk niveau zijn de lessen?</div><div class="faq-a">Bodypump, Boksfit en Powerhour zijn geschikt voor elk niveau — de trainer geeft alternatieven voor elke oefening. HIIT & Hyrox vraagt iets meer conditie, maar ook daar passen we aan op jouw tempo.</div></div>
+      <div class="faq-item reveal d2"><div class="faq-q">Zit dit bij mijn abonnement?</div><div class="faq-a">Bij het <strong>All-Inclusive</strong> abonnement (vanaf €53,50 per 4 weken) zit onbeperkt meedoen met alle groepslessen inbegrepen. Bij het 24/7 Fitness abonnement zitten groepslessen niet inbegrepen — daarvoor upgrade je naar All-Inclusive. Geen losse strippenkaarten of extra kosten.</div></div>
+      <div class="faq-item reveal d3"><div class="faq-q">Wat moet ik meenemen?</div><div class="faq-a">Sportkleren, schone binnenschoenen en een handdoek. Voor Boksfit zijn handschoenen aanwezig, maar eigen wraps zijn aan te raden. Bodypump-gewichten staan klaar in de zaal.</div></div>
+      <div class="faq-item reveal d4"><div class="faq-q">Kan ik een gratis intake doen?</div><div class="faq-a">Ja. Stuur ons een berichtje via WhatsApp en we plannen een gratis intake in. Daarna mag je rustig kijken of het bij je past — zonder verplichting.</div></div>
+      <div class="faq-item reveal d5"><div class="faq-q">Hoe vaak per week kan ik komen?</div><div class="faq-a">Zo vaak je wilt. Onbeperkt deelnemen betekent ook echt onbeperkt. Combineer Bodypump met Boksfit, of doe vier keer per week Powerhour — jouw keuze.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="reveal">Welke les<br><em>doe jij eerst?</em></h2>
+    <p class="reveal d1">Plan een gratis intake via WhatsApp. Loop binnen, doe mee en voel het verschil — zonder verplichtingen.</p>
+    <div class="cta-actions reveal d2">
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="../../tarieven/index.html" class="btn-ghost">Of: bekijk alle tarieven →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-logo">FIT<span>UP</span></div>
+        <p>Kleinschalige premium fitnessclub aan de Weversbaan 9 in Leiderdorp. 24/7 fitness, Small Group Personal Training, groepslessen en personal training.</p>
+      </div>
+      <div class="f-col"><h4>Trainingsaanbod</h4><ul>
+        <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+        <li><a href="../../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+        <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+        <li><a href="../../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+        <li><a href="../../online-coaching/index.html">Online Coaching</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Informatie</h4><ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../trainingsaanbod/index.html">Trainingsaanbod</a></li>
+        <li><a href="../../tarieven/index.html">Tarieven</a></li>
+        <li><a href="../../fitcheck/index.html">Fitcheck</a></li>
+        <li><a href="../../contact/index.html">Contact</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Contact</h4><ul>
+        <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
+        <li><a href="tel:0648776322">06 48776322</a></li>
+        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="https://wa.me/31648776322" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2020–2026 Fit Up Leiderdorp · KvK 60617268 · BTW NL178744876B01</p>
+      <p>Groepslessen Leiderdorp · Bodypump · Boksfit · HIIT & Hyrox · Powerhour</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Rooster tabs
+  document.querySelectorAll('.rt-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.rt-tab').forEach(t => {
+        const active = t === tab;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', active);
+      });
+      document.querySelectorAll('.rt-panel').forEach(p => {
+        p.classList.toggle('active', p.id === 'panel-' + target);
+      });
+    });
+  });
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+/* === NAV DRAWER TOGGLE (FIT UP) === */
+(function(){
+  var navToggle = document.getElementById('nav-toggle');
+  var navDrawer = document.getElementById('nav-drawer');
+  if(!navToggle || !navDrawer) return;
+  function setNavOpen(open){
+    document.body.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    navDrawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  navToggle.addEventListener('click', function(){ setNavOpen(!document.body.classList.contains('nav-open')); });
+  navDrawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setNavOpen(false); }); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
+})();
+/* === END NAV DRAWER TOGGLE === */
+</script>
+</body>
+</html>

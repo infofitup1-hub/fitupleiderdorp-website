@@ -1,0 +1,24 @@
+/trainingsaanbod/small-group-pt  /trainingsaanbod/sgpt-small-group-personal-training/  301!
+/trainingsaanbod/small-group-pt/  /trainingsaanbod/sgpt-small-group-personal-training/  301!
+
+# Trailing-slash redirects for the new SEO landing pages
+/personal-training-leiderdorp                 /personal-training-leiderdorp/                 301
+/small-group-personal-training-leiderdorp     /small-group-personal-training-leiderdorp/     301
+/afvallen-leiderdorp                          /afvallen-leiderdorp/                          301
+/voedingscoach-leiderdorp                     /voedingscoach-leiderdorp/                     301
+/krachttraining-leiderdorp                    /krachttraining-leiderdorp/                    301
+/personal-trainer-leiden                      /personal-trainer-leiden/                      301
+/personal-trainer-oegstgeest                  /personal-trainer-oegstgeest/                  301
+/personal-trainer-voorschoten                 /personal-trainer-voorschoten/                 301
+/calorie-calculator                           /calorie-calculator/                           301
+/gratis-intake                                /gratis-intake/                                301
+/bedankt                                      /bedankt/                                      301
+
+# Common alternate spellings → canonical
+/sgpt                                         /small-group-personal-training-leiderdorp/     301
+/sgpt-leiderdorp                              /small-group-personal-training-leiderdorp/     301
+/personal-training                            /trainingsaanbod/personal-training/            301
+/24-7-fitness                                 /trainingsaanbod/24-7-fitness/                 301
+/groepslessen                                 /trainingsaanbod/groepslessen/                 301
+/intake                                       /gratis-intake/                                301
+/calculator                                   /calorie-calculator/                           301

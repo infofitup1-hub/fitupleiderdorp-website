@@ -1,0 +1,27 @@
+/* Fit Up Leiderdorp — shared stylesheet
+ *
+ * The page-level CSS is currently inlined inside each HTML file's
+ * <head> for fastest first paint (no extra request, no FOUC).
+ * This file is reserved for any future shared overrides that should
+ * apply site-wide. Linking it from every page is safe and free
+ * (Netlify serves a 304 after first hit thanks to the immutable
+ * cache headers configured in netlify.toml).
+ */
+
+/* Site-wide selection styling */
+::selection {
+  background: #d4ff00;
+  color: #0c0c0c;
+}
+
+/* Honour user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

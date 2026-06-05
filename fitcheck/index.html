@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gratis Fitcheck Leiderdorp | Ontvang jouw persoonlijke Blueprint | Fit Up</title>
+<meta name="description" content="Doe de gratis Fitcheck van Fit Up Leiderdorp en ontvang direct jouw persoonlijke blueprint voor afvallen, spieropbouw, voeding, 24/7 fitness of overgang.">
+<link rel="canonical" href="https://fitupleiderdorp.nl/fitcheck/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A;--bg2:#111111;--bg3:#161616;
+  --accent:#C8FF00;--accent-dim:rgba(200,255,0,0.08);
+  --white:#FFFFFF;--muted:#555;--border:rgba(255,255,255,0.07);
+  --error:#ff4d4d;
+  --font-d:'Barlow Condensed',sans-serif;
+  --font-b:'Barlow',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:var(--font-b);-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:var(--font-d);font-weight:900;font-size:24px;letter-spacing:3px;text-decoration:none;color:var(--white);text-transform:uppercase;}
+.nav-logo span{color:var(--accent);}
+.nav-back{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:1px;font-family:var(--font-d);text-transform:uppercase;transition:color 0.15s;}
+.nav-back:hover{color:var(--white);}
+
+/* HERO */
+.hero{padding:120px 24px 72px;text-align:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(200,255,0,0.05) 0%,transparent 70%);}
+.hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(200,255,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,255,0,0.025) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid rgba(200,255,0,0.2);color:var(--accent);font-family:var(--font-d);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:8px 20px;border-radius:2px;margin-bottom:32px;}
+.badge-pulse{width:5px;height:5px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-family:var(--font-d);font-weight:900;font-size:clamp(48px,9vw,90px);line-height:0.9;text-transform:uppercase;letter-spacing:-2px;margin-bottom:28px;}
+h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{font-size:17px;line-height:1.7;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 48px;}
+.hero-divider{width:40px;height:2px;background:var(--accent);margin:0 auto 48px;opacity:0.6;}
+
+/* QUIZ */
+.quiz-wrap{max-width:640px;margin:0 auto;padding:0 24px 100px;}
+
+/* PROGRESS */
+.progress-wrap{margin-bottom:48px;}
+.progress-meta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+.progress-title{font-family:var(--font-d);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.progress-pct{font-family:var(--font-d);font-size:13px;font-weight:800;color:var(--accent);}
+.progress-track{height:2px;background:rgba(255,255,255,0.06);border-radius:0;}
+.progress-fill{height:100%;background:var(--accent);transition:width 0.5s cubic-bezier(.4,0,.2,1);}
+
+/* STAP */
+.stap{display:none;}
+.stap.active{display:block;animation:fadeUp 0.35s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.stap-kop{font-family:var(--font-d);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700;}
+.stap h2{font-family:var(--font-d);font-weight:900;font-size:clamp(30px,5vw,48px);text-transform:uppercase;line-height:1;margin-bottom:8px;letter-spacing:-0.5px;}
+.stap h2 em{font-style:normal;color:var(--accent);}
+.stap-sub{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:36px;line-height:1.5;}
+
+/* OPTIES — geen icoontjes, puur typografisch */
+.opties{display:flex;flex-direction:column;gap:8px;}
+.optie{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:0;
+  padding:20px 24px;
+  cursor:pointer;
+  transition:border-color 0.15s,background 0.15s,transform 0.15s;
+  display:flex;align-items:center;justify-content:space-between;
+  text-align:left;
+  position:relative;
+}
+.optie::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--accent);transition:width 0.15s;
+}
+.optie:hover{border-color:rgba(200,255,0,0.25);background:rgba(255,255,255,0.02);transform:translateX(3px);}
+.optie:hover::before{width:2px;}
+.optie.selected{border-color:var(--accent);background:rgba(200,255,0,0.04);}
+.optie.selected::before{width:3px;}
+.optie-left{}
+.optie-title{font-family:var(--font-d);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px;}
+.optie-desc{font-size:13px;color:rgba(255,255,255,0.35);font-weight:400;}
+.optie-arrow{color:rgba(255,255,255,0.15);font-size:18px;transition:color 0.15s;flex-shrink:0;margin-left:16px;font-family:var(--font-d);}
+.optie:hover .optie-arrow,.optie.selected .optie-arrow{color:var(--accent);}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px;}
+.sf{display:flex;flex-direction:column;gap:8px;}
+.sf.full{grid-column:1/-1;}
+.sf-label{font-family:var(--font-d);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:700;}
+.sf-input{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--white);font-family:var(--font-b);font-size:16px;padding:14px 16px;border-radius:0;outline:none;transition:border-color 0.15s;width:100%;}
+.sf-input:focus{border-color:var(--accent);}
+.sf-input::placeholder{color:rgba(255,255,255,0.15);}
+.gender-row{display:flex;gap:8px;}
+.gender-btn{flex:1;background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-family:var(--font-d);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:2px;padding:14px;cursor:pointer;transition:all 0.15s;border-radius:0;}
+.gender-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(200,255,0,0.05);}
+
+/* FORMULIER */
+.form-wrap{border:1px solid rgba(255,255,255,0.07);padding:32px;background:var(--bg2);}
+.f-field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.f-label{font-family:var(--font-d);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:700;}
+.f-input{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--white);font-family:var(--font-b);font-size:16px;padding:14px 16px;border-radius:0;outline:none;transition:border-color 0.15s;width:100%;}
+.f-input:focus{border-color:var(--accent);}
+.f-input.err{border-color:var(--error);}
+.f-input::placeholder{color:rgba(255,255,255,0.15);}
+.consent-row{display:flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.4);line-height:1.6;}
+.consent-cb{width:18px;height:18px;min-width:18px;accent-color:var(--accent);margin-top:3px;cursor:pointer;}
+.f-err-msg{color:var(--error);font-size:13px;margin-bottom:12px;display:none;}
+
+/* BLUEPRINT PREVIEW */
+.bp-reveal{border-left:3px solid var(--accent);padding:16px 20px;background:rgba(200,255,0,0.04);margin-bottom:28px;}
+.bp-reveal-label{font-family:var(--font-d);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,255,0,0.6);margin-bottom:4px;}
+.bp-reveal-name{font-family:var(--font-d);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--accent);}
+
+/* KNOPPEN */
+.btn-primary{width:100%;background:var(--accent);color:#0A0A0A;border:none;font-family:var(--font-d);font-weight:900;font-size:18px;letter-spacing:1px;text-transform:uppercase;padding:20px;cursor:pointer;transition:opacity 0.15s,transform 0.15s;margin-top:8px;border-radius:0;}
+.btn-primary:hover{opacity:0.9;transform:translateY(-1px);}
+.btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+.btn-secondary{width:100%;background:transparent;border:1px solid rgba(200,255,0,0.2);color:rgba(200,255,0,0.7);font-family:var(--font-d);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:2px;padding:16px;cursor:pointer;transition:all 0.15s;margin-top:20px;display:none;border-radius:0;}
+.btn-secondary.show{display:block;}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+.btn-back{background:none;border:none;color:rgba(255,255,255,0.25);font-family:var(--font-d);font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;padding:0;margin-top:20px;display:flex;align-items:center;gap:6px;transition:color 0.15s;}
+.btn-back:hover{color:rgba(255,255,255,0.6);}
+
+/* SUCCES */
+.succes{display:none;padding:40px 0 80px;}
+.succes.active{display:block;animation:fadeUp 0.4s ease both;}
+.succes-line{width:60px;height:3px;background:var(--accent);margin-bottom:32px;}
+.succes h2{font-family:var(--font-d);font-weight:900;font-size:clamp(36px,7vw,60px);text-transform:uppercase;line-height:0.95;margin-bottom:20px;letter-spacing:-1px;}
+.succes h2 em{font-style:normal;color:var(--accent);}
+.succes-bp{display:inline-flex;align-items:center;gap:16px;border:1px solid rgba(200,255,0,0.2);padding:16px 24px;margin:24px 0 32px;background:rgba(200,255,0,0.04);}
+.succes-bp-name{font-family:var(--font-d);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--accent);}
+.succes p{font-size:15px;color:rgba(255,255,255,0.4);line-height:1.7;margin-bottom:12px;max-width:440px;}
+.succes-wa{display:inline-block;border:1px solid rgba(200,255,0,0.3);color:var(--accent);font-family:var(--font-d);font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:2px;padding:14px 32px;text-decoration:none;margin-top:16px;transition:all 0.15s;}
+.succes-wa:hover{background:var(--accent);color:#0A0A0A;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,0.2);flex-wrap:wrap;gap:8px;}
+footer a{color:rgba(255,255,255,0.2);text-decoration:none;letter-spacing:1px;}
+footer a:hover{color:rgba(255,255,255,0.5);}
+
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr;}
+  .sf.full{grid-column:1;}
+  .form-wrap{padding:24px 20px;}
+  footer{justify-content:center;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://fitupleiderdorp.nl/" class="nav-logo">FIT<span>UP</span></a>
+  <a href="https://fitupleiderdorp.nl/" class="nav-back">← Website</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-inner">
+    <div class="badge"><span class="badge-pulse"></span>Gratis · Direct in je inbox</div>
+    <h1>Gratis<br>Fitcheck<br><em>+ Blueprint</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Beantwoord 5 vragen over jouw doel en situatie. Wij bepalen automatisch welke blueprint bij jou past en sturen hem direct naar je inbox.</p>
+  </div>
+</section>
+
+<div class="quiz-wrap">
+
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span class="progress-title" id="prog-label">Stap 1 van 6</span>
+      <span class="progress-pct" id="prog-pct">17%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:17%"></div></div>
+  </div>
+
+  <!-- STAP 1 -->
+  <div class="stap active" id="stap-1">
+    <div class="stap-kop">01 — Doel</div>
+    <h2>Wat wil je <em>bereiken?</em></h2>
+    <p class="stap-sub">Kies je hoofddoel — dit bepaalt welke blueprint je ontvangt.</p>
+    <div class="opties">
+      <div class="optie" onclick="kies(1,'Afvallen / vetverlies',this)">
+        <div class="optie-left"><div class="optie-title">Afvallen / Vetverlies</div><div class="optie-desc">Strakker, lichter, buikvet verminderen</div></div>
+        <span class="optie-arrow">→</span>
+      </div>
+      <div class="optie" onclick="kies(1,'Spiermassa opbouwen',this)">
+        <div class="optie-left"><div class="optie-title">Spiermassa opbouwen</div><div class="optie-desc">Sterker worden, zichtbaar resultaat</div></div>
+        <span class="optie-arrow">→</span>
+      </div>
+      <div class="optie" onclick="kies(1,'Fitter worden',this)">
+        <div class="optie-left"><div class="optie-title">Fitter worden</div><div class="optie-desc">Meer energie, beter uithoudingsvermogen</div></div>
+        <span class="optie-arrow">→</span>
+      </div>
+      <div class="optie" onclick="kies(1,'Voeding verbeteren',this)">
+        <div class="optie-left"><div class="optie-title">Voeding verbeteren</div><div class="optie-desc">Structuur in eten, betere keuzes</div></div>
+        <span class="optie-arrow">→</span>
+      </div>
+      <div class="optie" onclick="kies(1,'Trainen met drukke agenda',this)">
+        <div class="optie-left"><div class="optie-title">Trainen met drukke agenda</div><div class="optie-desc">Weinig tijd, toch resultaat boeken</div></div>
+        <span class="optie-arrow">→</span>
+      </div>
+      <div class="optie" onclick="kies(1,'Overgang / menopauze',this)">
+        <div class="optie-left"><div class="optie-title">Overgang / Menopauze</div><div class="optie-desc">Hormonen, energie, buikvet, herstel</div></div>
+        <span class="optie-arrow">→</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAP 2 -->
+  <div class="stap" id="stap-2">
+    <div class="stap-kop">02 — Leeftijd</div>
+    <h2>Jouw <em>leeftijds­categorie</em></h2>
+    <p class="stap-sub">Leeftijd bepaalt mede welke aanpak het best werkt.</p>
+    <div class="opties">
+      <div class="optie" onclick="kies(2,'Onder 30',this)"><div class="optie-left"><div class="optie-title">Onder 30</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(2,'30-39',this)"><div class="optie-left"><div class="optie-title">30 – 39</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(2,'40-44',this)"><div class="optie-left"><div class="optie-title">40 – 44</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(2,'45-49',this)"><div class="optie-left"><div class="optie-title">45 – 49</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(2,'50-55',this)"><div class="optie-left"><div class="optie-title">50 – 55</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(2,'56+',this)"><div class="optie-left"><div class="optie-title">56 en ouder</div></div><span class="optie-arrow">→</span></div>
+    </div>
+    <button class="btn-back" onclick="gaNaar(1)">← Vorige</button>
+  </div>
+
+  <!-- STAP 3 -->
+  <div class="stap" id="stap-3">
+    <div class="stap-kop">03 — Uitdaging</div>
+    <h2>Jouw grootste <em>uitdaging</em></h2>
+    <p class="stap-sub">Eerlijk antwoorden helpt — zo sturen we precies de juiste blueprint.</p>
+    <div class="opties">
+      <div class="optie" onclick="kies(3,'Ik weet niet wat ik moet eten',this)"><div class="optie-left"><div class="optie-title">Ik weet niet wat ik moet eten</div><div class="optie-desc">Verwarring over voeding en porties</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(3,'Ik train maar zie weinig resultaat',this)"><div class="optie-left"><div class="optie-title">Ik train maar zie weinig resultaat</div><div class="optie-desc">Hard werken zonder zichtbaar effect</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(3,'Ik heb weinig tijd',this)"><div class="optie-left"><div class="optie-title">Ik heb weinig tijd</div><div class="optie-desc">Druk leven, moeilijk consistent blijven</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(3,'Ik val niet meer af zoals vroeger',this)"><div class="optie-left"><div class="optie-title">Ik val niet meer af zoals vroeger</div><div class="optie-desc">Het lichaam reageert anders dan vroeger</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(3,'Ik heb weinig energie',this)"><div class="optie-left"><div class="optie-title">Ik heb weinig energie</div><div class="optie-desc">Moe, weinig motivatie, slecht herstel</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(3,'Ik wil begeleiding',this)"><div class="optie-left"><div class="optie-title">Ik wil begeleiding</div><div class="optie-desc">Iemand die mij stuurt en motiveert</div></div><span class="optie-arrow">→</span></div>
+    </div>
+    <button class="btn-back" onclick="gaNaar(2)">← Vorige</button>
+  </div>
+
+  <!-- STAP 4 -->
+  <div class="stap" id="stap-4">
+    <div class="stap-kop">04 — Trainingsstijl</div>
+    <h2>Hoe wil je het <em>liefst trainen?</em></h2>
+    <p class="stap-sub">Bepaalt welke aanpak bij jou past.</p>
+    <div class="opties">
+      <div class="optie" onclick="kies(4,'Zelfstandig',this)"><div class="optie-left"><div class="optie-title">Zelfstandig</div><div class="optie-desc">Op eigen tempo, eigen schema</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(4,'Kleine groep met coach',this)"><div class="optie-left"><div class="optie-title">Kleine groep met coach</div><div class="optie-desc">Max. 4 personen, persoonlijke begeleiding</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(4,'1-op-1 met coach',this)"><div class="optie-left"><div class="optie-title">1-op-1 met coach</div><div class="optie-desc">Maximaal maatwerk, volledig persoonlijk</div></div><span class="optie-arrow">→</span></div>
+      <div class="optie" onclick="kies(4,'Energieke groepsles',this)"><div class="optie-left"><div class="optie-title">Energieke groepsles</div><div class="optie-desc">Spinning, bootcamp, HIIT</div></div><span class="optie-arrow">→</span></div>
+    </div>
+    <button class="btn-back" onclick="gaNaar(3)">← Vorige</button>
+  </div>
+
+  <!-- STAP 5 -->
+  <div class="stap" id="stap-5">
+    <div class="stap-kop">05 — Jouw stats</div>
+    <h2>Snel je <em>gegevens</em></h2>
+    <p class="stap-sub">Voor een persoonlijk kcal- en macro-advies bij de blueprint. Optioneel.</p>
+    <div class="sf full" style="margin-bottom:20px;">
+      <div class="sf-label">Geslacht</div>
+      <div class="gender-row">
+        <button class="gender-btn" id="btn-man" onclick="kiesGeslacht('Man')">Man</button>
+        <button class="gender-btn" id="btn-vrouw" onclick="kiesGeslacht('Vrouw')">Vrouw</button>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="sf"><label class="sf-label">Leeftijd</label><input class="sf-input" type="number" id="s-leeftijd" placeholder="bijv. 38" min="16" max="99"></div>
+      <div class="sf"><label class="sf-label">Gewicht (kg)</label><input class="sf-input" type="number" id="s-gewicht" placeholder="bijv. 72" min="40" max="200"></div>
+      <div class="sf full"><label class="sf-label">Lengte (cm)</label><input class="sf-input" type="number" id="s-lengte" placeholder="bijv. 168" min="140" max="220"></div>
+    </div>
+    <button class="btn-secondary show" onclick="naarFormulier()">Naar mijn Blueprint →</button>
+    <button class="btn-back" onclick="gaNaar(4)">← Vorige</button>
+  </div>
+
+  <!-- STAP 6 -->
+  <div class="stap" id="stap-6">
+    <div class="stap-kop">06 — Ontvang jouw Blueprint</div>
+    <h2>Waar sturen<br>we hem <em>naartoe?</em></h2>
+    <p class="stap-sub">Vul je gegevens in — we sturen de blueprint direct naar je e-mail.</p>
+
+    <div class="bp-reveal">
+      <div class="bp-reveal-label">Jouw blueprint</div>
+      <div class="bp-reveal-name" id="bp-naam">Vetverlies Blueprint</div>
+    </div>
+
+    <div class="form-wrap">
+      <div class="f-field"><label class="f-label">Voornaam *</label><input class="f-input" type="text" id="f-naam" placeholder="Jouw voornaam"></div>
+      <div class="f-field"><label class="f-label">E-mailadres *</label><input class="f-input" type="email" id="f-email" placeholder="jouw@email.nl"></div>
+      <div class="f-field"><label class="f-label">Telefoonnummer *</label><input class="f-input" type="tel" id="f-tel" placeholder="06 12 34 56 78"></div>
+      <div class="f-field">
+        <label class="consent-row">
+          <input type="checkbox" class="consent-cb" id="f-consent">
+          Ik geef toestemming om mijn persoonlijke blueprint en opvolging per e-mail/WhatsApp te ontvangen.
+        </label>
+      </div>
+      <div class="f-err-msg" id="f-err">Vul alle velden in en geef toestemming.</div>
+      <button class="btn-primary" id="submit-btn" onclick="verzend()">Stuur mij mijn Blueprint →</button>
+    </div>
+    <button class="btn-back" onclick="gaNaar(5)">← Vorige</button>
+  </div>
+
+  <!-- SUCCES -->
+  <div class="succes" id="succes">
+    <div class="succes-line"></div>
+    <h2>Gelukt,<br><em id="s-naam"></em>!</h2>
+    <p>Jouw blueprint is onderweg naar je inbox.<br>Check ook je spam als je hem niet ziet binnen 5 minuten.</p>
+    <div class="succes-bp">
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,255,0,0.5);margin-bottom:4px;font-family:var(--font-d);">Jouw blueprint</div>
+        <div class="succes-bp-name" id="s-bp"></div>
+      </div>
+    </div>
+    <p>Vragen? We helpen je graag persoonlijk verder.</p>
+    <a href="https://wa.me/31648776322" class="succes-wa" target="_blank" rel="noopener">App ons op WhatsApp →</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="https://fitupleiderdorp.nl/">← Terug naar fitupleiderdorp.nl</a>
+  <span>© 2026 Fit Up Leiderdorp · Weversbaan 9</span>
+</footer>
+
+<script>
+const S={doel:'',leeftijd:'',uitdaging:'',stijl:'',geslacht:'',huidig:1};
+const BP={
+  vetverlies_blueprint:'Vetverlies Blueprint',
+  spieropbouw_blueprint:'Spieropbouw Blueprint',
+  voedings_blueprint:'Voedings Blueprint',
+  fitness_24_7_blueprint:'24/7 Fitness Blueprint',
+  drukke_agenda_blueprint:'Drukke Agenda Blueprint',
+  overgang_blueprint:'Overgang Blueprint'
+};
+
+function bepaal(){
+  const ov=['45-49','50-55','56+'].includes(S.leeftijd);
+  const ou=S.uitdaging.includes('niet meer af')||S.uitdaging.includes('weinig energie');
+  if(ov&&ou&&!S.doel.includes('Spiermassa')) return 'overgang_blueprint';
+  if(S.doel.includes('Afvallen')||S.doel.includes('vetverlies')) return 'vetverlies_blueprint';
+  if(S.doel.includes('Spiermassa')) return 'spieropbouw_blueprint';
+  if(S.doel.includes('Voeding')) return 'voedings_blueprint';
+  if(S.doel.includes('drukke')) return 'drukke_agenda_blueprint';
+  if(S.doel.includes('Overgang')||S.doel.includes('menopauze')) return 'overgang_blueprint';
+  return 'fitness_24_7_blueprint';
+}
+
+function updProg(n){
+  const p=Math.round(n/6*100);
+  document.getElementById('prog-fill').style.width=p+'%';
+  document.getElementById('prog-label').textContent='Stap '+n+' van 6';
+  document.getElementById('prog-pct').textContent=p+'%';
+}
+
+function gaNaar(n){
+  document.getElementById('stap-'+S.huidig).classList.remove('active');
+  document.getElementById('stap-'+n).classList.add('active');
+  S.huidig=n; updProg(n);
+  window.scrollTo({top:document.querySelector('.quiz-wrap').offsetTop-80,behavior:'smooth'});
+}
+
+function kies(stap,val,el){
+  el.closest('.opties').querySelectorAll('.optie').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  if(stap===1) S.doel=val;
+  if(stap===2) S.leeftijd=val;
+  if(stap===3) S.uitdaging=val;
+  if(stap===4) S.stijl=val;
+  setTimeout(()=>gaNaar(stap+1),280);
+}
+
+function kiesGeslacht(g){
+  S.geslacht=g;
+  document.getElementById('btn-man').classList.toggle('active',g==='Man');
+  document.getElementById('btn-vrouw').classList.toggle('active',g==='Vrouw');
+}
+
+function naarFormulier(){
+  const bpKey=bepaal();
+  document.getElementById('bp-naam').textContent=BP[bpKey];
+  gaNaar(6);
+}
+
+async function verzend(){
+  const naam=document.getElementById('f-naam').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const tel=document.getElementById('f-tel').value.trim();
+  const consent=document.getElementById('f-consent').checked;
+  const err=document.getElementById('f-err');
+  if(!naam||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!tel||!consent){
+    err.style.display='block';
+    err.textContent=!consent?'Geef toestemming om verder te gaan.':!email?'Vul een geldig e-mailadres in.':'Vul alle velden in.';
+    return;
+  }
+  err.style.display='none';
+  const btn=document.getElementById('submit-btn');
+  btn.disabled=true; btn.textContent='Bezig...';
+  const bpKey=bepaal();
+  const payload={
+    firstName:naam,email,phone:tel,
+    goal:S.doel,ageCategory:S.leeftijd,challenge:S.uitdaging,
+    trainingStyle:S.stijl,gender:S.geslacht,
+    age:document.getElementById('s-leeftijd').value,
+    weight:document.getElementById('s-gewicht').value,
+    height:document.getElementById('s-lengte').value,
+    selectedBlueprint:bpKey,
+    source:'fitup-fitcheck-page',page:'/fitcheck'
+  };
+  const wh=window.FITCHECK_WEBHOOK||'';
+  if(wh){try{await fetch(wh,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})}catch(e){}}
+  document.getElementById('stap-6').classList.remove('active');
+  const sc=document.getElementById('succes');
+  sc.classList.add('active');
+  document.getElementById('s-naam').textContent=naam;
+  document.getElementById('s-bp').textContent=BP[bpKey];
+  updProg(6);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+updProg(1);
+</script>
+</body>
+</html>

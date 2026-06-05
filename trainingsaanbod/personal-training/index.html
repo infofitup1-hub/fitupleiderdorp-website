@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Personal Trainer Leiderdorp | Persoonlijke Coaching bij Fit Up</title>
+<meta name="description" content="Personal training in Leiderdorp voor afvallen, sterker worden, fitter worden en duurzame resultaten. Plan je intake bij Fit Up.">
+<meta property="og:title" content="Personal Trainer Leiderdorp | Persoonlijke Coaching bij Fit Up">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Personal training in Leiderdorp voor afvallen, sterker worden, fitter worden en duurzame resultaten. Plan je intake bij Fit Up.">
+<meta property="og:url" content="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/">
+<meta property="og:image" content="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/assets/images/logo-mark-on-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personal Trainer Leiderdorp | Persoonlijke Coaching bij Fit Up">
+<meta name="twitter:description" content="Personal training in Leiderdorp voor afvallen, sterker worden, fitter worden en duurzame resultaten. Plan je intake bij Fit Up.">
+<meta name="twitter:image" content="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/assets/images/logo-mark-on-dark.png">
+<link rel="canonical" href="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#0c0c0c;--mid:#161616;--dark:#111;--white:#fff;--accent:#d4ff00;--gray:#888;--lgray:#2a2a2a;--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
+  nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
+  .logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--white)}
+  .nav-btn{background:var(--accent)!important;color:var(--black)!important;padding:10px 24px;font-weight:700!important;letter-spacing:1px!important}
+  .nav-btn:hover{background:var(--white)!important}
+  section{padding:100px 0}
+  .container{max-width:1240px;margin:0 auto;padding:0 40px}
+  .sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .sec-label-line{width:24px;height:1.5px;background:var(--accent)}
+  h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
+  h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
+  h2 em{font-style:normal;color:var(--accent)}
+  h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
+  .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);transition:all .25s;white-space:nowrap}
+  .btn-accent:hover{background:transparent;color:var(--accent)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
+  .btn-ghost:hover{color:var(--white);border-color:var(--white)}
+  .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--black);transition:all .25s;white-space:nowrap}
+  .btn-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+
+  /* PAGE HERO */
+  .page-hero{min-height:78vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px}
+  .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
+  .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+  .page-hero h1{font-size:clamp(56px,7.5vw,96px);margin-bottom:24px;opacity:0;animation:fadeUp .6s ease .4s forwards}
+  .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
+  .page-hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
+  .page-hero-sub strong{color:var(--white);font-weight:500}
+  .page-hero-stats{display:flex;gap:32px;margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .7s forwards;flex-wrap:wrap}
+  .ph-stat{border-left:2px solid var(--accent);padding-left:16px}
+  .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1}
+  .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:4px}
+  .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
+  .page-hero-right{position:relative;overflow:hidden;background:var(--lgray)}
+  .page-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;animation:fadeIn 1s ease .3s forwards}
+  .page-hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,transparent 25%),linear-gradient(to top,rgba(12,12,12,.8) 0%,transparent 35%);pointer-events:none}
+  .hero-badge{position:absolute;bottom:32px;right:32px;background:var(--accent);color:var(--black);padding:14px 18px;font-family:var(--fd);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
+
+  /* PHOTO PLACEHOLDER (hero) — striped, monospace caption, no faked imagery */
+  .photo-placeholder{position:absolute;inset:0;background:
+    repeating-linear-gradient(135deg,rgba(212,255,0,.04) 0 14px,transparent 14px 28px),
+    linear-gradient(180deg,#1a1a1a 0%,#0e0e0e 100%);
+    display:flex;flex-direction:column;justify-content:flex-end;padding:36px;color:rgba(255,255,255,.85)}
+  .photo-placeholder::before{content:'';position:absolute;inset:24px;border:1px dashed rgba(212,255,0,.28);pointer-events:none}
+  .pp-tag{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:rgba(0,0,0,.55);padding:8px 12px;border:1px solid rgba(212,255,0,.3)}
+  .pp-tag-dot{width:6px;height:6px;background:var(--accent);border-radius:50%}
+  .pp-title{font-family:var(--fd);font-size:clamp(28px,3vw,38px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:.3px;max-width:380px;margin-bottom:10px;position:relative;z-index:1}
+  .pp-meta{font-family:var(--fm);font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.5px;line-height:1.65;max-width:340px;position:relative;z-index:1}
+  .pp-meta b{color:var(--accent);font-weight:500}
+  .pp-corners{position:absolute;inset:24px;pointer-events:none}
+  .pp-corners::before,.pp-corners::after{content:'';position:absolute;width:14px;height:14px;border:1.5px solid var(--accent)}
+  .pp-corners::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+  .pp-corners::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+
+  /* SECTION HEADERS */
+  .sec-head{text-align:center;margin-bottom:56px}
+  .sec-head .sec-label{justify-content:center}
+  .sec-head p{max-width:580px;margin:18px auto 0;font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75}
+
+  /* HIGHLIGHT BAND */
+  .hbar{background:var(--mid);padding:36px 0;border-top:1px solid rgba(212,255,0,.08);border-bottom:1px solid rgba(212,255,0,.08)}
+  .hbar-inner{display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:center}
+  .hbar-eyebrow{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:12px;white-space:nowrap}
+  .hbar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .hbar-item{display:flex;flex-direction:column;gap:4px}
+  .hbar-label{font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+  .hbar-value{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--white)}
+  .hbar-value em{color:var(--accent);font-style:normal}
+
+  /* WHAT IS PT — centered narrative + includes list */
+  .what-wrap{max-width:880px;margin:0 auto}
+  .what-head{text-align:center;margin-bottom:48px}
+  .what-head .sec-label{justify-content:center}
+  .what-head h2{font-size:clamp(48px,6.4vw,76px)}
+  .what-head p{font-size:16px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.75;margin:20px auto 0;max-width:560px}
+  .what-wrap .includes-list{margin-top:0}
+  .what-wrap .include-item{padding:22px 4px}
+  .includes-list{display:flex;flex-direction:column;gap:0;margin-top:32px}
+  .include-item{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid rgba(255,255,255,.06);transition:padding .25s}
+  .include-item:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+  .include-item:hover{padding-left:6px}
+  .check{width:24px;height:24px;background:rgba(212,255,0,.1);border:1px solid rgba(212,255,0,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--accent)}
+  .include-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px}
+  .include-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
+
+  /* SPOTTER STRIP — full-bleed editorial moment about being spotted */
+  .spotter{background:var(--black);padding:80px 0;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+  .spotter-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:0;background:var(--mid);overflow:hidden}
+  .spotter-photo{position:relative;min-height:420px;background:var(--lgray)}
+  .spotter-photo .photo-placeholder{padding:28px}
+  .spotter-content{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+  .spotter-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .spotter-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent)}
+  .spotter-content h3{font-family:var(--fd);font-size:clamp(34px,4.4vw,52px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.3px;margin-bottom:18px}
+  .spotter-content h3 em{font-style:normal;color:var(--accent)}
+  .spotter-content p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.75;font-weight:300;max-width:520px;margin-bottom:20px}
+  .spotter-bullets{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .spotter-bullets span{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:12px;align-items:center;font-weight:400}
+  .spotter-bullets span::before{content:'';width:18px;height:1.5px;background:var(--accent);flex-shrink:0}
+
+  /* NUTRITION APP STRIP */
+  .nutri{background:var(--mid);padding:100px 0;position:relative;overflow:hidden}
+  .nutri::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 65%);pointer-events:none}
+  .nutri-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
+  .nutri-copy h2{font-size:clamp(40px,5.2vw,62px);margin-bottom:22px}
+  .nutri-copy>p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.75;font-weight:300;max-width:480px;margin-bottom:32px}
+  .nutri-features{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;border-top:1px solid rgba(255,255,255,.06)}
+  .nutri-feat{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .nutri-feat:nth-child(odd){padding-right:24px;border-right:1px solid rgba(255,255,255,.06)}
+  .nutri-feat:nth-child(even){padding-left:24px}
+  .nutri-feat-num{font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2.5px;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .nutri-feat-num::before{content:'';width:14px;height:1.5px;background:var(--accent)}
+  .nutri-feat-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px}
+  .nutri-feat-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
+  .nutri-phone{display:flex;justify-content:center;align-items:center;position:relative;min-height:560px}
+  .nutri-phone::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;height:520px;background:radial-gradient(ellipse,rgba(212,255,0,.1) 0%,transparent 60%);pointer-events:none;z-index:0}
+  .nutri-phone-stack{position:relative;width:100%;max-width:520px;height:560px}
+  .nutri-phone-stack img{position:absolute;max-width:300px;width:65%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.55));transition:transform .4s ease}
+  .nutri-phone-stack .ph-back{top:0;right:0;transform:rotate(4deg)}
+  .nutri-phone-stack .ph-front{bottom:0;left:0;transform:rotate(-4deg);z-index:2}
+  .nutri-phone-stack:hover .ph-back{transform:rotate(6deg) translateY(-6px)}
+  .nutri-phone-stack:hover .ph-front{transform:rotate(-6deg) translateY(-6px)}
+  .nutri-phone-label{position:absolute;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:rgba(12,12,12,.85);padding:6px 10px;border:1px solid rgba(212,255,0,.3);z-index:3;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px}
+  .nutri-phone-label::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%}
+  .nutri-phone-label.l-back{top:24px;right:14px}
+  .nutri-phone-label.l-front{bottom:24px;left:14px}
+
+  /* STEPS */
+  .how{background:var(--mid)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .step{background:var(--black);padding:44px 32px 36px;position:relative;overflow:hidden;border-bottom:3px solid transparent;transition:all .3s}
+  .step:hover{border-bottom-color:var(--accent);transform:translateY(-4px);background:var(--lgray)}
+  .step-num{font-family:var(--fd);font-size:110px;font-weight:900;color:rgba(212,255,0,.07);position:absolute;top:-14px;right:14px;line-height:1;pointer-events:none}
+  .step-icon{width:46px;height:46px;border:1px solid rgba(212,255,0,.22);background:rgba(212,255,0,.06);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:22px;position:relative;z-index:1}
+  .step h3{font-family:var(--fd);font-size:24px;font-weight:900;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px}
+  .step p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300}
+
+  /* PRICING */
+  .pricing{background:var(--black);padding:100px 0}
+  .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:3px;align-items:stretch;max-width:880px;margin:0 auto}
+  .tarief-card{background:var(--mid);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:all .3s;border-top:3px solid transparent}
+  .tarief-card:hover{transform:translateY(-4px);border-top-color:var(--accent)}
+  .tarief-card.hot{background:var(--accent);color:var(--black);border-top-color:var(--black);box-shadow:0 24px 60px -20px rgba(212,255,0,.3)}
+  .tarief-card.hot:hover{border-top-color:rgba(0,0,0,.85)}
+  .tarief-card .ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);background:var(--black);color:var(--accent);padding:6px 14px;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;border:1px solid var(--accent)}
+  .t-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .tarief-card.hot .t-label{color:rgba(0,0,0,.55)}
+  .t-name{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;margin-bottom:18px;line-height:.95;letter-spacing:.3px}
+  .t-price-wrap{display:flex;align-items:baseline;gap:2px;margin-bottom:4px;font-family:var(--fd);font-weight:900;line-height:1}
+  .t-price-wrap .currency{font-size:24px;color:var(--accent);margin-right:6px}
+  .tarief-card.hot .t-price-wrap .currency{color:rgba(0,0,0,.6)}
+  .t-price-wrap .num{font-size:62px;letter-spacing:-1px}
+  .t-period{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:24px;letter-spacing:.3px}
+  .tarief-card.hot .t-period{color:rgba(0,0,0,.5)}
+  .t-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:24px 0 28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.06);flex-grow:1}
+  .tarief-card.hot .t-features{border-top-color:rgba(0,0,0,.12)}
+  .t-features li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.78);font-weight:300}
+  .tarief-card.hot .t-features li{color:rgba(0,0,0,.78)}
+  .t-features li svg{color:var(--accent);flex-shrink:0;margin-top:3px}
+  .tarief-card.hot .t-features li svg{color:var(--black)}
+  .t-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .25s;border:2px solid}
+  .t-cta-dark{background:var(--black);color:var(--accent);border-color:var(--black)}
+  .t-cta-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
+  .t-cta-outline{background:transparent;color:var(--white);border-color:rgba(255,255,255,.18)}
+  .t-cta-outline:hover{border-color:var(--accent);color:var(--accent)}
+  .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--gray);letter-spacing:.5px}
+
+  /* FOR WHO */
+  .forwho{background:var(--mid)}
+  .forwho-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .forwho-list{margin-top:32px;display:flex;flex-direction:column;gap:0}
+  .forwho-item{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.06);transition:padding .3s}
+  .forwho-item:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+  .forwho-item:hover{padding-left:8px}
+  .forwho-num{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--accent);letter-spacing:1.5px;min-width:24px;line-height:1.5}
+  .forwho-text{font-size:15px;color:rgba(255,255,255,.78);line-height:1.55;font-weight:400}
+  .forwho-photo{aspect-ratio:4/3;overflow:hidden;background:var(--lgray);position:relative}
+  .forwho-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform .6s}
+  .forwho-photo:hover img{transform:scale(1.04)}
+  .forwho-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.85) 0%,transparent 55%)}
+
+  /* RESULTS */
+  .results{background:var(--black);padding:100px 0;position:relative}
+  .results-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+  .results-head .sec-label{margin-bottom:14px}
+  .results-head h2{font-size:clamp(40px,5vw,60px)}
+  .results-head p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300;max-width:420px}
+  .results-stats{display:flex;gap:32px;flex-wrap:wrap}
+  .res-stat{border-left:2px solid var(--accent);padding-left:14px}
+  .res-stat-num{font-family:var(--fd);font-size:34px;font-weight:900;line-height:1}
+  .res-stat-num em{color:var(--accent);font-style:normal}
+  .res-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:4px}
+  .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .result-card{background:var(--mid);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s;position:relative}
+  .result-card:hover{transform:translateY(-4px)}
+  .result-banner{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:14px 18px;background:var(--lgray);border-bottom:2px solid var(--accent)}
+  .result-banner-kg{font-family:var(--fd);font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-.5px}
+  .result-banner-sub{font-family:var(--fd);font-size:11px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;line-height:1.1;text-align:right;opacity:.85}
+  .result-img{position:relative;background:#0e0e0e;overflow:hidden;aspect-ratio:347/295;display:flex;align-items:center;justify-content:center}
+  .result-img img{width:100%;height:100%;object-fit:contain;display:block}
+  .result-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:12px}
+  .result-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .result-name{font-family:var(--fd);font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:.3px;line-height:1}
+  .result-name span{display:block;font-size:10.5px;font-weight:500;letter-spacing:1px;color:var(--gray);margin-top:5px;font-family:var(--fb);text-transform:none;line-height:1.4}
+  .result-weeks{font-family:var(--fd);font-size:10px;font-weight:800;color:var(--accent);letter-spacing:2px;background:rgba(212,255,0,.08);border:1px solid rgba(212,255,0,.25);padding:5px 8px;white-space:nowrap}
+  .result-deltas{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.07);padding-top:12px}
+  .result-delta{flex:1;display:flex;flex-direction:column;gap:2px;padding-right:10px}
+  .result-delta+.result-delta{border-left:1px solid rgba(255,255,255,.07);padding-left:10px}
+  .result-delta-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);font-weight:600}
+  .result-delta-value{font-family:var(--fd);font-size:15px;font-weight:900}
+  .result-delta-value em{color:var(--accent);font-style:normal}
+  .result-quote{font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;font-weight:300;font-style:italic;padding-top:6px;border-top:1px dashed rgba(255,255,255,.06)}
+  .result-quote::before{content:'\201C';color:var(--accent);font-family:var(--fd);font-size:24px;font-weight:900;line-height:0;margin-right:4px;position:relative;top:6px}
+  .results-foot{margin-top:28px;text-align:center;font-size:12px;color:var(--gray);letter-spacing:.3px}
+  .results-foot a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+  /* FAQ */
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .faq-item{background:var(--mid);padding:32px 28px;border-left:3px solid transparent;transition:all .25s}
+  .faq-item:hover{border-left-color:var(--accent);background:var(--lgray)}
+  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:flex-start}
+  .faq-q::before{content:'?';color:var(--accent);font-family:var(--fd);font-weight:900;flex-shrink:0}
+  .faq-a{font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;font-weight:300}
+
+  /* TRY STRIP */
+  .try-strip{background:var(--accent);padding:64px 0}
+  .try-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+  .try-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:10px}
+  .try-title{font-family:var(--fd);font-size:clamp(30px,4vw,48px);font-weight:900;text-transform:uppercase;color:var(--black);line-height:1;letter-spacing:.5px}
+  .try-sub{font-size:15px;color:rgba(0,0,0,.55);margin-top:12px;max-width:480px;line-height:1.6}
+
+  /* FINAL CTA */
+  .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 70%);pointer-events:none}
+  .final-cta h2{font-size:clamp(52px,8vw,92px);margin-bottom:24px}
+  .final-cta p{font-size:16px;color:rgba(255,255,255,.55);max-width:460px;margin:0 auto 44px;font-weight:300;line-height:1.75}
+  .cta-actions{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:var(--mid);border-top:1px solid rgba(255,255,255,.05);padding:64px 0 32px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  .f-brand .f-logo{font-family:var(--fd);font-size:26px;font-weight:900;letter-spacing:4px;margin-bottom:14px}
+  .f-brand .f-logo span{color:var(--accent)}
+  .f-brand p{font-size:13px;color:var(--gray);line-height:1.7;max-width:260px}
+  .f-col h4{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:18px}
+  .f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .f-col ul a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+  .f-col ul a:hover{color:var(--accent)}
+  .f-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .f-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
+
+  @media (max-width:980px){
+    .page-hero{grid-template-columns:1fr;min-height:auto}
+    .page-hero-left{padding:40px}
+    .page-hero-right{min-height:380px}
+    .what-grid,.forwho-grid{grid-template-columns:1fr;gap:48px}
+    .steps{grid-template-columns:1fr}
+    .tarief-cards{grid-template-columns:1fr}
+    .spotter-inner{grid-template-columns:1fr}
+    .spotter-content{padding:40px 32px}
+    .spotter-photo{min-height:340px}
+    .faq-grid{grid-template-columns:1fr}
+    .nutri-grid{grid-template-columns:1fr;gap:48px}
+    .nutri-phone{min-height:480px;margin-top:8px}
+    .nutri-features{grid-template-columns:1fr}
+    .nutri-feat:nth-child(odd){padding-right:0;border-right:none}
+    .nutri-feat:nth-child(even){padding-left:0}
+    .results-grid{grid-template-columns:1fr 1fr}
+    .hbar-inner{grid-template-columns:1fr;gap:24px;text-align:left}
+    .hbar-grid{grid-template-columns:1fr 1fr}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links{display:none}
+    .nav-links li:last-child{display:block}
+  }
+  @media (max-width:680px){
+    .results-grid{grid-template-columns:1fr}
+  }
+
+
+  /* ───── MOBILE (smartphone) ───── */
+  @media (max-width:640px){
+    nav{padding:14px 16px!important}
+    nav.scrolled{padding:10px 16px!important}
+    .logo{font-size:22px;letter-spacing:2px}
+    .nav-links{gap:0}
+    .nav-btn{padding:8px 16px!important;font-size:11px}
+
+    .container{padding:0 20px}
+    section{padding:56px 0}
+    h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
+    h2{font-size:clamp(34px,9vw,48px)!important}
+
+    .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
+    .page-hero-right,.fu-page-hero-right{min-height:300px!important}
+    .page-hero-sub,.fu-page-hero-sub{font-size:15px}
+    .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
+    .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
+    .ph-stat-num,.fu-ph-stat-num{font-size:22px}
+    .ph-stat-label,.fu-ph-stat-label{font-size:9px;letter-spacing:1px}
+    .page-hero-ctas,.fu-page-hero-ctas{flex-direction:column;align-items:stretch;gap:12px}
+    .page-hero-ctas .btn-accent,.fu-page-hero-ctas .btn-accent{justify-content:center;width:100%}
+
+    .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
+    .f-brand{grid-column:auto!important}
+    .f-brand p{max-width:none!important}
+    .f-bottom{flex-direction:column;gap:10px;text-align:center}
+    .f-bottom p{text-align:center}
+
+    .hours-grid,.fu-hours-grid{grid-template-columns:1fr!important}
+    .sec-head h2,.fu-sec-head h2{font-size:clamp(30px,8vw,42px)!important}
+
+    .btn-accent{padding:14px 22px;font-size:13px;letter-spacing:1.5px}
+    .btn-dark{padding:14px 22px;font-size:13px}
+
+    .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
+
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
+    .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
+    .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
+
+    .reviews-grid{grid-template-columns:1fr!important}
+    .services-grid,.fu-services-grid{grid-template-columns:1fr!important;gap:2px}
+    .why-grid,.fu-why-grid{grid-template-columns:1fr!important;gap:48px}
+    .problem-grid,.fu-problem-grid{grid-template-columns:1fr!important;gap:48px}
+
+    .price-grid,.fu-price-grid{grid-template-columns:1fr!important;gap:24px}
+    .student-band,.fu-student-band{grid-template-columns:1fr!important;gap:24px;padding:32px 22px!important}
+    .stu-item,.fu-stu-item{border-left:none!important;border-top:1px solid rgba(255,255,255,.08)!important;padding:20px 0 0!important}
+
+    .contact-grid,.fu-contact-grid{grid-template-columns:1fr!important;gap:40px}
+    .contact-right,.fu-contact-right{position:static!important}
+
+    .fitcheck-inner,.fu-fitcheck-inner{flex-direction:column;align-items:flex-start;gap:20px;text-align:left}
+  }
+
+  @media (max-width:420px){
+    .container{padding:0 16px}
+    h1{font-size:clamp(36px,11vw,52px)!important}
+    .logo{letter-spacing:1.5px}
+    .nav-links li:not(:last-child){display:none!important}
+  }
+
+/* === NAV DROPDOWN + DRAWER (FIT UP) === */
+.nav-links .has-sub{position:relative}
+.nav-links .has-sub > a{display:inline-flex;align-items:center;gap:6px;cursor:default}
+.nav-links .has-sub > a::after{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s,border-color .2s;opacity:.6}
+.nav-links .has-sub:hover > a::after,.nav-links .has-sub:focus-within > a::after{border-color:var(--accent);transform:rotate(225deg) translate(-2px,-2px);opacity:1}
+.nav-submenu{position:absolute;top:100%;left:-18px;min-width:280px;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border:1px solid rgba(212,255,0,.12);padding:14px;display:flex;flex-direction:column;list-style:none;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:210;margin-top:14px}
+.nav-links .has-sub:hover .nav-submenu,.nav-links .has-sub:focus-within .nav-submenu{opacity:1;visibility:visible;transform:none}
+.nav-submenu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px;background:transparent}
+.nav-submenu li{margin:0}
+.nav-submenu a{display:flex;flex-direction:column;gap:3px;padding:13px 14px;font-size:13px;font-family:var(--fd);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none}
+.nav-submenu a:last-child{border-bottom:0}
+.nav-submenu a small{font-family:var(--fb);font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none}
+.nav-submenu a:hover{color:var(--accent);background:rgba(212,255,0,.04)}
+
+.nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--white);cursor:pointer;transition:border-color .2s,background .2s;padding:0}
+.nav-toggle:hover{border-color:var(--accent);background:rgba(212,255,0,.06)}
+.nav-toggle svg{display:block}
+.nav-toggle .icon-close{display:none}
+body.nav-open .nav-toggle .icon-open{display:none}
+body.nav-open .nav-toggle .icon-close{display:block}
+body.nav-open{overflow:hidden}
+.nav-drawer{position:fixed;inset:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);z-index:190;padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;border-bottom:1px solid rgba(212,255,0,.12);overflow-y:auto}
+body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
+.nav-drawer a{display:flex;align-items:center;justify-content:space-between;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,.06);color:var(--white);text-decoration:none;font-family:var(--fd);font-weight:800;font-size:24px;letter-spacing:1px;text-transform:uppercase;transition:color .2s,padding .2s}
+.nav-drawer a::after{content:"→";color:rgba(255,255,255,.25);transition:color .2s,transform .2s}
+.nav-drawer a:hover,.nav-drawer a:focus-visible{color:var(--accent);padding-left:10px}
+.nav-drawer a:hover::after,.nav-drawer a:focus-visible::after{color:var(--accent);transform:translateX(4px)}
+.nav-drawer .drawer-cta{margin-top:22px;background:var(--accent);color:var(--black);border:0;padding:18px 22px;justify-content:center;font-size:14px;letter-spacing:2px}
+.nav-drawer .drawer-cta::after{color:var(--black)}
+.nav-drawer .drawer-foot{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:6px;font-family:var(--fb);font-size:12px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none;border:0}
+.nav-drawer .drawer-foot::after{display:none}
+.nav-drawer .drawer-foot a{font-family:var(--fb);font-size:13px;font-weight:500;padding:6px 0;border:0;color:rgba(255,255,255,.55);text-transform:none;letter-spacing:.3px}
+.nav-drawer .drawer-foot a::after{display:none}
+.nav-drawer .drawer-foot a:hover{color:var(--accent);padding-left:0}
+.nav-drawer .drawer-group{border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-drawer .drawer-group > a{border-bottom:0}
+.nav-drawer .drawer-sub{list-style:none;display:flex;flex-direction:column;padding:0 0 14px 4px;margin:-6px 0 0 0}
+.nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:10px 0 10px 18px;border-bottom:0;position:relative}
+.nav-drawer .drawer-sub a::before{content:"";position:absolute;left:0;top:50%;width:8px;height:1px;background:rgba(212,255,0,.6);transform:translateY(-50%)}
+.nav-drawer .drawer-sub a::after{display:none}
+.nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
+
+@media (max-width:980px){
+  .nav-links{display:none!important}
+  .nav-toggle{display:inline-flex!important}
+}
+/* === END NAV DROPDOWN + DRAWER === */
+
+</style>
+<style>.h1-kicker{display:block;font-size:.16em;letter-spacing:3px;color:var(--accent);margin-bottom:14px;line-height:1;font-weight:700;text-transform:uppercase}</style>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../../assets/js/main.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <a href="../../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <ul class="nav-links">
+    <li class="has-sub">
+      <a href="../../trainingsaanbod/index.html" class="active" aria-haspopup="true">Trainingsaanbod</a>
+      <ul class="nav-submenu" role="menu">
+        <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
+        <li><a href="../../trainingsaanbod/personal-training/index.html" class="active">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
+        <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
+        <li><a href="../../trainingsaanbod/groepslessen/index.html">Groepslessen<small>Spinning · bootcamp · HIIT</small></a></li>
+      </ul>
+    </li>
+    <li><a href="../../online-coaching/index.html">Online Coaching</a></li>
+    <li><a href="../../tarieven/index.html">Tarieven</a></li>
+    <li><a href="../../fitcheck/index.html">Fitcheck</a></li>
+    <li><a href="../../contact/index.html">Contact</a></li>
+    <li><a href="../../contact/index.html" class="nav-btn">Gratis intake</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
+    <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="drawer-group">
+    <a href="../../trainingsaanbod/index.html">Trainingsaanbod</a>
+    <ul class="drawer-sub">
+      <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+      <li><a href="../../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+      <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+      <li><a href="../../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+    </ul>
+  </div>
+  <a href="../../online-coaching/index.html">Online Coaching</a>
+  <a href="../../tarieven/index.html">Tarieven</a>
+  <a href="../../fitcheck/index.html">Fitcheck</a>
+  <a href="../../contact/index.html">Contact</a>
+  <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
+</div>
+
+<!-- HERO — Personal Training -->
+<header class="page-hero" data-screen-label="Hero PT">
+  <div class="page-hero-left">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Personal Training</div>
+    <h1><span class="h1-kicker">Personal Training Leiderdorp</span>Eén trainer.<br>Eén plan.<br><em>Jouw resultaat.</em></h1>
+    <p class="page-hero-sub">
+      Volledig <strong>1-op-1 coaching</strong> met je eigen vaste trainer. Jouw schema,
+      jouw tempo, jouw doel — met techniekcheck op elke herhaling en voedingsbegeleiding
+      via de app. Vier sessies per maand, meetbare progressie.
+    </p>
+    <div class="page-hero-stats">
+      <div class="ph-stat"><div class="ph-stat-num">1-op-1</div><div class="ph-stat-label">Vaste trainer</div></div>
+      <div class="ph-stat"><div class="ph-stat-num">4×</div><div class="ph-stat-label">Sessies p/4 wkn</div></div>
+      <div class="ph-stat"><div class="ph-stat-num">€75</div><div class="ph-stat-label">Vanaf per week</div></div>
+    </div>
+    <div class="page-hero-ctas">
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#tarieven" class="btn-ghost">Of: bekijk tarieven →</a>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <img src="../../assets/images/pt-squat-spot.png" alt="Personal trainer spot een klant tijdens een barbell back-squat bij Fit Up Leiderdorp">
+    <div class="hero-badge">★ 1-op-1 coaching</div>
+  </div>
+</header>
+
+<!-- HIGHLIGHT BAND -->
+<section class="hbar" style="padding:36px 0">
+  <div class="container">
+    <div class="hbar-inner">
+      <div class="hbar-eyebrow">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Wat krijg je
+      </div>
+      <div class="hbar-grid">
+        <div class="hbar-item"><div class="hbar-label">Coaching</div><div class="hbar-value"><em>1-op-1</em> sessies</div></div>
+        <div class="hbar-item"><div class="hbar-label">Schema</div><div class="hbar-value"><em>Op maat</em></div></div>
+        <div class="hbar-item"><div class="hbar-label">Voeding</div><div class="hbar-value">Plan <em>via app</em></div></div>
+        <div class="hbar-item"><div class="hbar-label">Meting</div><div class="hbar-value">Elke <em>4 weken</em></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS PT -->
+<section aria-labelledby="what-heading">
+  <div class="container">
+    <div class="what-wrap">
+      <div class="what-head">
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Wat is Personal Training?</div>
+        <h2 id="what-heading" class="reveal d1">Volledig op <em>jou afgestemd</em></h2>
+        <p class="reveal d2">Geen losse sessies, geen wisselende trainers, geen standaardschema's. Eén vaste trainer die jou kent, jouw doel begrijpt en bij elke herhaling naast je staat — letterlijk.</p>
+      </div>
+      <div class="includes-list">
+          <div class="include-item reveal d1">
+            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="include-title">Jouw eigen vaste trainer</div><div class="include-desc">Eén coach die jouw naam, doel en blessuregeschiedenis kent. Geen wisselingen.</div></div>
+          </div>
+          <div class="include-item reveal d2">
+            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="include-title">Volledige techniekcoaching</div><div class="include-desc">Squat, deadlift, bench — alles met spot en correctie op de millimeter. Veilig zwaar trainen.</div></div>
+          </div>
+          <div class="include-item reveal d3">
+            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="include-title">Persoonlijk trainingsschema</div><div class="include-desc">Volledig op maat gemaakt — voor afvallen, opbouwen of sportspecifieke prestaties.</div></div>
+          </div>
+          <div class="include-item reveal d4">
+            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="include-title">Voedingsbegeleiding via app</div><div class="include-desc">Calorieën en macro's op maat, elke 4 weken bijgesteld op basis van je meting.</div></div>
+          </div>
+        <div class="include-item reveal d5">
+          <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><div class="include-title">Progressiemeting elke 4 weken</div><div class="include-desc">Gewicht, vetpercentage en spiermassa — je weet altijd waar je staat en wat de volgende stap is.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTTER STRIP — secondary placement of the squat-spot photo + technique narrative -->
+<section class="spotter" aria-labelledby="spotter-heading">
+  <div class="container">
+    <div class="spotter-inner reveal">
+      <div class="spotter-photo">
+        <img src="../../assets/images/pt-coach.png" alt="Coach van Fit Up Leiderdorp begeleidt een klant tijdens krachttraining" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block">
+      </div>
+      <div class="spotter-content">
+        <div class="spotter-eyebrow">De waarde van een spotter</div>
+        <h3>Zwaarder trainen,<br><em>veilig.</em></h3>
+        <p>De grootste sprong in kracht maak je wanneer je écht tot dichtbij je limiet kunt gaan. Een vaste PT staat letterlijk achter je: handen langs de stang bij je squat, blik op je houding, klaar om bij te springen. Daardoor durf je dat extra setje van vijf rep's, durf je 5kg meer op de bar te leggen — en bouw je sneller op zonder concessies aan techniek.</p>
+        <div class="spotter-bullets">
+          <span>Squat, bench &amp; deadlift met live correctie op houding en ademhaling</span>
+          <span>Bijspringen bij maximale herhalingen — nooit alleen onder de stang</span>
+          <span>Periodisering: zwaarder worden zonder overtraining of blessures</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUTRITION + TRAINING APP -->
+<section class="nutri" aria-labelledby="nutri-heading">
+  <div class="container">
+    <div class="nutri-grid">
+      <div class="nutri-copy">
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Voeding &amp; training in één app</div>
+        <h2 id="nutri-heading" class="reveal d1">Je plan altijd <em>op zak</em></h2>
+        <p class="reveal d2">Jouw schema, voedingsdoelen en voortgang — alles in dezelfde app. Tussen sessies door zie je precies wat er op het programma staat, wat je vandaag mag eten en hoe je er bij elke meting voorstaat.</p>
+        <div class="nutri-features">
+          <div class="nutri-feat reveal d1">
+            <div class="nutri-feat-num">01 · Voeding</div>
+            <div class="nutri-feat-title">Calorieën &amp; macro's</div>
+            <div class="nutri-feat-desc">Plan op maat met dagelijkse kcal- en macrotelling. Maaltijden afvinken en je weet direct waar je staat.</div>
+          </div>
+          <div class="nutri-feat reveal d2">
+            <div class="nutri-feat-num">02 · Training</div>
+            <div class="nutri-feat-title">Schema met video</div>
+            <div class="nutri-feat-desc">Elke oefening met techniekvideo, sets, reps en gewicht — duidelijk wat je doet en hoe.</div>
+          </div>
+          <div class="nutri-feat reveal d3">
+            <div class="nutri-feat-num">03 · Inzicht</div>
+            <div class="nutri-feat-title">Voortgang real-time</div>
+            <div class="nutri-feat-desc">Gewicht, vetpercentage en kracht­getallen in één overzicht. Je trainer kijkt mee.</div>
+          </div>
+          <div class="nutri-feat reveal d4">
+            <div class="nutri-feat-num">04 · Begeleiding</div>
+            <div class="nutri-feat-title">Chat met je trainer</div>
+            <div class="nutri-feat-desc">Vraag tussen sessies door iets over je schema, voeding of een oefening. Korte lijn.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nutri-phone reveal d1">
+        <div class="nutri-phone-stack">
+          <img src="../../assets/images/trainingsapp.png" alt="Trainingsapp van Fit Up — schema met oefeningen, video en sets" class="ph-back" loading="lazy">
+          <div class="nutri-phone-label l-back">Trainings­schema</div>
+          <img src="../../assets/images/voedingsapp.png" alt="Voedingsapp van Fit Up — kcal, macro's en maaltijden per dag" class="ph-front" loading="lazy">
+          <div class="nutri-phone-label l-front">Voedings­plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Hoe werkt het?</div>
+      <h2 id="how-heading" class="reveal d1">Van intake tot <em>PR</em></h2>
+      <p class="reveal d2">In drie stappen weet je waar je staat, wat je doel is en hoe je er komt.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        </div>
+        <h3>Gratis intake</h3>
+        <p>Een uur waarin we jouw doel, blessuregeschiedenis en leefstijl in kaart brengen. Daarna kiezen we samen de juiste trainer voor jou.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-num">02</div>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Schema &amp; voeding</h3>
+        <p>Jij krijgt een trainingsschema en voedingsplan op maat. Via de app houd je calorieën, macro's en progressie real-time bij.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-num">03</div>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Trainen &amp; meten</h3>
+        <p>Vier sessies per maand 1-op-1. Elke 4 weken meten we gewicht, vetpercentage en spiermassa en sturen we het plan bij.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="tarieven" class="pricing" aria-labelledby="pricing-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Tarieven PT</div>
+      <h2 id="pricing-heading" class="reveal d1">Kies jouw <em>pakket</em></h2>
+      <p class="reveal d2">Vier 1-op-1 sessies per 4 weken. Kies of je daarnaast onbeperkt 24/7 fitness en groepslessen wilt.</p>
+    </div>
+    <div class="tarief-cards">
+      <!-- PT -->
+      <div class="tarief-card reveal">
+        <div class="t-label">Alleen PT</div>
+        <div class="t-name">Personal<br>Training</div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num">75</span></div>
+        <div class="t-period">per week · 4 sessies van 60 min p/4 wkn</div>
+        <ul class="t-features">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
+        </ul>
+        <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training" class="t-cta t-cta-outline">Aanmelden →</a>
+      </div>
+      <!-- PT Plus (hot) -->
+      <div class="tarief-card hot reveal d1">
+        <div class="ribbon">★ Aanrader</div>
+        <div class="t-label">PT + alles inbegrepen</div>
+        <div class="t-name">Personal<br>Training Plus</div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num">86</span></div>
+        <div class="t-period">per week · incl. 24/7 + groepslessen</div>
+        <ul class="t-features">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 Fitness</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
+        </ul>
+        <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="t-cta t-cta-dark">Aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <p class="tarief-foot">Geen inschrijfgeld · Losse PT-sessie? Vanaf €80 per sessie via de <a href="../../tarieven/index.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">tarievenpagina</a></p>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="forwho" aria-labelledby="forwho-heading">
+  <div class="container">
+    <div class="forwho-grid">
+      <div>
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Voor wie is PT?</div>
+        <h2 id="forwho-heading" class="reveal d1">Personal Training<br>is voor jou <em>als…</em></h2>
+        <p class="reveal d2" style="font-size:15px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.75;margin-top:18px;max-width:440px">Geen wachtlijst, geen volgnummer. Eén trainer die jouw schema kent en bij elke set naast je staat — voor wie écht een sprong wil maken.</p>
+        <div class="forwho-list">
+          <div class="forwho-item reveal d1"><div class="forwho-num">01</div><div class="forwho-text">Je wilt zwaardere oefeningen veilig leren — squat, deadlift, bench</div></div>
+          <div class="forwho-item reveal d2"><div class="forwho-num">02</div><div class="forwho-text">Je komt terug uit een blessure en wilt onder begeleiding opbouwen</div></div>
+          <div class="forwho-item reveal d3"><div class="forwho-num">03</div><div class="forwho-text">Je hebt een specifiek sportdoel — Hyrox, een race, een PR op kracht</div></div>
+          <div class="forwho-item reveal d4"><div class="forwho-num">04</div><div class="forwho-text">Je wilt volledige privacy — geen groep, alleen jij en je trainer</div></div>
+          <div class="forwho-item reveal d5"><div class="forwho-num">05</div><div class="forwho-text">Je hebt accountability nodig en een vast moment in je week</div></div>
+        </div>
+      </div>
+      <div class="forwho-photo reveal d2">
+        <img src="../../assets/images/pt-gym-interior.png" alt="Interieur van Fit Up Leiderdorp — ruime gym met kabeltoren, racks en sprintbaan" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" aria-labelledby="results-heading">
+  <div class="container">
+    <div class="results-head">
+      <div>
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Resultaten · klanten van Fit Up</div>
+        <h2 id="results-heading" class="reveal d1">Echte mensen.<br><em>Echte progressie.</em></h2>
+        <p class="reveal d2">Geen filters, geen photoshop — gewoon Leiderdorpers die met hun vaste PT consequent zijn doorgegaan.</p>
+      </div>
+      <div class="results-stats reveal d2">
+        <div class="res-stat"><div class="res-stat-num"><em>104</em>kg</div><div class="res-stat-label">Totaal verloren</div></div>
+        <div class="res-stat"><div class="res-stat-num"><em>5</em></div><div class="res-stat-label">Klantverhalen</div></div>
+      </div>
+    </div>
+    <div class="results-grid">
+
+      <!-- Marja -->
+      <article class="result-card reveal">
+        <div class="result-banner"><span class="result-banner-kg">−13 kg</span><span class="result-banner-sub">Marja · 69 jaar</span></div>
+        <div class="result-img">
+          <img src="../../assets/images/result-marja.png" alt="Marja, 69 jaar — voor en na haar transformatie van 13 kg afgevallen bij Fit Up Leiderdorp" loading="lazy">
+        </div>
+        <div class="result-body">
+          <div class="result-top">
+            <div class="result-name">Marja<span>Begon met wandelen, eindigde met deadlift</span></div>
+            <div class="result-weeks">12 mnd</div>
+          </div>
+          <div class="result-deltas">
+            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−13</em>kg</span></div>
+            <div class="result-delta"><span class="result-delta-label">Energie</span><span class="result-delta-value"><em>↑</em></span></div>
+            <div class="result-delta"><span class="result-delta-label">Vertrouwen</span><span class="result-delta-value"><em>↑</em></span></div>
+          </div>
+          <p class="result-quote">Ik dacht dat krachttraining niks voor mij was op mijn leeftijd. Met mijn PT bleek het juist het beste wat ik kon doen.</p>
+        </div>
+      </article>
+
+      <!-- Irene -->
+      <article class="result-card reveal d1">
+        <div class="result-banner"><span class="result-banner-kg">−34 kg</span><span class="result-banner-sub">Irene · 1 jaar</span></div>
+        <div class="result-img">
+          <img src="../../assets/images/result-34kg.png" alt="Irene — 34 kilo afgevallen onder begeleiding van een vaste personal trainer bij Fit Up Leiderdorp" loading="lazy">
+        </div>
+        <div class="result-body">
+          <div class="result-top">
+            <div class="result-name">Irene<span>Van inactief naar dagelijks trainen</span></div>
+            <div class="result-weeks">52 wkn</div>
+          </div>
+          <div class="result-deltas">
+            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−34</em>kg</span></div>
+            <div class="result-delta"><span class="result-delta-label">Houding</span><span class="result-delta-value"><em>↑</em></span></div>
+            <div class="result-delta"><span class="result-delta-label">Kracht</span><span class="result-delta-value"><em>↑↑</em></span></div>
+          </div>
+          <p class="result-quote">Eén vaste trainer die je elke week ziet — dat is precies wat ik nodig had om vol te houden.</p>
+        </div>
+      </article>
+
+      <!-- Barbara -->
+      <article class="result-card reveal d2">
+        <div class="result-banner"><span class="result-banner-kg">−35 kg</span><span class="result-banner-sub">Barbara · fitste versie ooit</span></div>
+        <div class="result-img">
+          <img src="../../assets/images/result-35kg.png" alt="Barbara — 35 kilo afgevallen, de fitste versie ooit, bij Fit Up Leiderdorp" loading="lazy">
+        </div>
+        <div class="result-body">
+          <div class="result-top">
+            <div class="result-name">Barbara<span>Combinatie van PT, voeding &amp; groepslessen</span></div>
+            <div class="result-weeks">14 mnd</div>
+          </div>
+          <div class="result-deltas">
+            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−35</em>kg</span></div>
+            <div class="result-delta"><span class="result-delta-label">Conditie</span><span class="result-delta-value"><em>↑↑</em></span></div>
+            <div class="result-delta"><span class="result-delta-label">Slaap</span><span class="result-delta-value"><em>↑</em></span></div>
+          </div>
+          <p class="result-quote">PT Plus betekende dat ik óók 24/7 kon trainen en lessen kon volgen — dat verschil zie je terug.</p>
+        </div>
+      </article>
+
+      <!-- Mark -->
+      <article class="result-card reveal d3">
+        <div class="result-banner"><span class="result-banner-kg">−5 kg</span><span class="result-banner-sub">Mark · 8 weken · 16% → 13,9%</span></div>
+        <div class="result-img">
+          <img src="../../assets/images/result-5kg.png" alt="Mark — 5 kilo afgevallen in 8 weken, vetpercentage van 16 naar 13,9 bij Fit Up Leiderdorp" loading="lazy">
+        </div>
+        <div class="result-body">
+          <div class="result-top">
+            <div class="result-name">Mark<span>Strak in 8 weken — body recomposition</span></div>
+            <div class="result-weeks">8 wkn</div>
+          </div>
+          <div class="result-deltas">
+            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−5</em>kg</span></div>
+            <div class="result-delta"><span class="result-delta-label">Vet %</span><span class="result-delta-value"><em>−2,1</em>%</span></div>
+            <div class="result-delta"><span class="result-delta-label">Spier</span><span class="result-delta-value"><em>↑</em></span></div>
+          </div>
+          <p class="result-quote">Met een schema op maat en strakke voedingsbegeleiding zag ik binnen acht weken écht verschil.</p>
+        </div>
+      </article>
+
+      <!-- Karin -->
+      <article class="result-card reveal d4">
+        <div class="result-banner"><span class="result-banner-kg">−17 kg</span><span class="result-banner-sub">Karin · afgevallen &amp; reisklaar</span></div>
+        <div class="result-img">
+          <img src="../../assets/images/result-karin.png" alt="Karin — 17 kilo afgevallen onder begeleiding van Fit Up Leiderdorp" loading="lazy">
+        </div>
+        <div class="result-body">
+          <div class="result-top">
+            <div class="result-name">Karin<span>Klaar voor de wereldreis — en nog steeds aan het trainen</span></div>
+            <div class="result-weeks">9 mnd</div>
+          </div>
+          <div class="result-deltas">
+            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−17</em>kg</span></div>
+            <div class="result-delta"><span class="result-delta-label">Conditie</span><span class="result-delta-value"><em>↑↑</em></span></div>
+            <div class="result-delta"><span class="result-delta-label">Mindset</span><span class="result-delta-value"><em>↑</em></span></div>
+          </div>
+          <p class="result-quote">Ik kan nu dingen die ik me jaren niet voor kon stellen — wandelen, hiken, gewoon meedoen.</p>
+        </div>
+      </article>
+
+    </div>
+    <p class="results-foot">Resultaten verschillen per persoon. Gemiddelde looptijd PT-traject: 6–12 maanden. <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training">Plan jouw gratis intake →</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--black)" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Veelgestelde vragen</div>
+      <h2 id="faq-heading" class="reveal d1">Over <em>PT</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><div class="faq-q">Wat is het verschil tussen PT en SGPT?</div><div class="faq-a">Bij Personal Training ben je volledig 1-op-1 met je trainer — alle aandacht voor jou. Bij Small Group PT train je in een vaste groep van maximaal 4 personen met coaching én groepsmotivatie. PT is intensiever en persoonlijker; SGPT is voordeliger.</div></div>
+      <div class="faq-item reveal d1"><div class="faq-q">Hoe vaak per maand train ik?</div><div class="faq-a">Standaard 4 sessies van 60 minuten per 4 weken — ongeveer wekelijks. Wil je vaker? Dat kan: extra sessies zijn los bij te boeken vanaf €80 per sessie.</div></div>
+      <div class="faq-item reveal d2"><div class="faq-q">Wat zit er bij PT Plus extra in?</div><div class="faq-a">PT Plus is je PT-pakket plus onbeperkte toegang tot 24/7 Fitness én alle groepslessen. Voor €43 extra per 4 weken kun je dus ook tussen je sessies door onbeperkt komen trainen of meedoen met Bodypump, Boksfit, HIIT &amp; Hyrox en Powerhour.</div></div>
+      <div class="faq-item reveal d3"><div class="faq-q">Is voedingsbegeleiding inbegrepen?</div><div class="faq-a">Ja. Bij beide PT-pakketten krijg je voedingsbegeleiding via onze app — calorieplan, macro-doelen en aanpassingen elke 4 weken op basis van je meting.</div></div>
+      <div class="faq-item reveal d4"><div class="faq-q">Kan ik kiezen wie mijn trainer wordt?</div><div class="faq-a">Bij de intake bespreken we jouw doel en voorkeur, en koppelen we je aan de trainer die daar het beste bij past. Klikt het niet? Dan wisselen we — jouw vertrouwen in je coach is wat het verschil maakt.</div></div>
+      <div class="faq-item reveal d5"><div class="faq-q">Kan ik eerst kennismaken?</div><div class="faq-a">Ja. We starten altijd met een gratis intake. Geen verkooppraatje — wel een eerlijk gesprek over of PT bij jou past en welke aanpak past bij jouw doel.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRY STRIP -->
+<section class="try-strip">
+  <div class="container">
+    <div class="try-inner">
+      <div>
+        <div class="try-label">Nog geen lid?</div>
+        <div class="try-title">Start met een<br>gratis intake</div>
+        <p class="try-sub">Een uur waarin we jouw doel, startpunt en aanpak doornemen. Zonder verplichtingen, zonder verkooppraatje — wel met een concreet advies.</p>
+      </div>
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="reveal">Klaar om<br><em>zwaarder te tillen?</em></h2>
+    <p class="reveal d1">Plan een gratis intake bij Fit Up Leiderdorp. We kijken samen of Personal Training bij jou past — zonder verplichtingen.</p>
+    <div class="cta-actions reveal d2">
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="../../tarieven/index.html" class="btn-ghost">Of: bekijk alle tarieven →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-logo">FIT<span>UP</span></div>
+        <p>Kleinschalige premium fitnessclub aan de Weversbaan 9 in Leiderdorp. 24/7 fitness, Small Group Personal Training, groepslessen en personal training.</p>
+      </div>
+      <div class="f-col"><h4>Trainingsaanbod</h4><ul>
+        <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+        <li><a href="../../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+        <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+        <li><a href="../../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+        <li><a href="../../online-coaching/index.html">Online Coaching</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Informatie</h4><ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../trainingsaanbod/index.html">Trainingsaanbod</a></li>
+        <li><a href="../../tarieven/index.html">Tarieven</a></li>
+        <li><a href="../../fitcheck/index.html">Fitcheck</a></li>
+        <li><a href="../../contact/index.html">Contact</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Contact</h4><ul>
+        <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
+        <li><a href="tel:0648776322">06 48776322</a></li>
+        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="https://wa.me/31648776322" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2020–2026 Fit Up Leiderdorp · KvK 60617268 · BTW NL178744876B01</p>
+      <p>Personal Training Leiderdorp · 1-op-1 coaching · Squat · Deadlift · Bench</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+/* === NAV DRAWER TOGGLE (FIT UP) === */
+(function(){
+  var navToggle = document.getElementById('nav-toggle');
+  var navDrawer = document.getElementById('nav-drawer');
+  if(!navToggle || !navDrawer) return;
+  function setNavOpen(open){
+    document.body.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    navDrawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  navToggle.addEventListener('click', function(){ setNavOpen(!document.body.classList.contains('nav-open')); });
+  navDrawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setNavOpen(false); }); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
+})();
+/* === END NAV DRAWER TOGGLE === */
+</script>
+</body>
+</html>

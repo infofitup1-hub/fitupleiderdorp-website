@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Trainingsaanbod Fit Up Leiderdorp | PT, SGPT, Fitness & Groepslessen</title>
+<meta name="description" content="Ontdek het trainingsaanbod van Fit Up Leiderdorp: personal training, small group PT, groepslessen, 24/7 fitness en online coaching.">
+<meta property="og:title" content="Trainingsaanbod Fit Up Leiderdorp | PT, SGPT, Fitness & Groepslessen">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Ontdek het trainingsaanbod van Fit Up Leiderdorp: personal training, small group PT, groepslessen, 24/7 fitness en online coaching.">
+<meta property="og:url" content="https://fitupleiderdorp.nl/trainingsaanbod/">
+<meta property="og:image" content="https://fitupleiderdorp.nl/trainingsaanbod/assets/images/logo-mark-on-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trainingsaanbod Fit Up Leiderdorp | PT, SGPT, Fitness & Groepslessen">
+<meta name="twitter:description" content="Ontdek het trainingsaanbod van Fit Up Leiderdorp: personal training, small group PT, groepslessen, 24/7 fitness en online coaching.">
+<meta name="twitter:image" content="https://fitupleiderdorp.nl/trainingsaanbod/assets/images/logo-mark-on-dark.png">
+<link rel="canonical" href="https://fitupleiderdorp.nl/trainingsaanbod/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0c0c0c;--mid:#161616;--dark:#111;--white:#fff;--off:#f0ede8;--accent:#d4ff00;--gray:#888;--lgray:#2a2a2a;--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
+nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
+.logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-btn{background:var(--accent)!important;color:var(--black)!important;padding:10px 24px;font-weight:700!important;letter-spacing:1px!important}
+
+/* HERO */
+.page-hero{padding:160px 40px 80px;max-width:1400px;margin:0 auto;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.eyebrow-line{width:24px;height:2px;background:var(--accent)}
+h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(48px,9vw,116px);line-height:.88;letter-spacing:-.5px;margin-bottom:24px}
+h1 em{font-style:normal;color:var(--accent);display:block}
+.hero-sub{font-size:18px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.7;max-width:640px;margin:0 auto}
+.hero-sub strong{color:var(--white);font-weight:500}
+
+/* SERVICES GRID */
+.services{padding:40px 40px 120px;max-width:1400px;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.svc-card{background:var(--mid);border:1px solid var(--lgray);padding:36px 30px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:14px;transition:all .25s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,255,0,0) 0%,rgba(212,255,0,0.04) 100%);opacity:0;transition:opacity .25s}
+.svc-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.svc-card:hover::before{opacity:1}
+.svc-card.hot{background:linear-gradient(140deg,#1c1f0a 0%,var(--mid) 60%);border-color:rgba(212,255,0,.25)}
+.svc-icon{color:var(--accent);position:relative;z-index:1}
+.svc-tag{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);position:relative;z-index:1}
+.svc-name{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:-.5px;position:relative;z-index:1}
+.svc-desc{font-size:14px;color:var(--gray);line-height:1.6;flex:1;position:relative;z-index:1}
+.svc-price{font-family:var(--fd);font-size:14px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;border-top:1px solid var(--lgray);padding-top:14px;margin-top:6px;position:relative;z-index:1}
+.svc-price strong{color:var(--white);font-size:18px;font-weight:800}
+.svc-arrow{position:absolute;top:30px;right:30px;color:var(--accent);opacity:0;transform:translateX(-4px);transition:all .25s;z-index:1}
+.svc-card:hover .svc-arrow{opacity:1;transform:translateX(0)}
+
+/* CTA SECTION */
+.cta{background:var(--accent);color:var(--black);padding:80px 40px;text-align:center;margin-top:60px}
+.cta h2{font-family:var(--fd);font-size:clamp(36px,6vw,72px);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-1px;margin-bottom:18px}
+.cta p{font-size:17px;max-width:520px;margin:0 auto 32px;line-height:1.6;color:rgba(12,12,12,.75)}
+.btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--white);padding:16px 32px;font-family:var(--fd);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:14px;text-decoration:none;transition:transform .2s}
+.btn-dark:hover{transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--lgray)}
+.f-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.f-col h4{font-family:var(--fd);font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;color:var(--white)}
+.f-col ul{list-style:none}
+.f-col li{margin-bottom:10px}
+.f-col a{color:var(--gray);text-decoration:none;font-size:14px;transition:color .2s}
+.f-col a:hover{color:var(--accent)}
+.f-brand .logo{display:block;margin-bottom:16px}
+.f-brand p{color:var(--gray);font-size:14px;line-height:1.7;max-width:300px}
+.f-bottom{max-width:1400px;margin:0 auto;padding-top:30px;border-top:1px solid var(--lgray);display:flex;justify-content:space-between;color:var(--gray);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+
+@media (max-width:768px){
+  nav{padding:18px 20px}
+  .nav-links{display:none}
+  .page-hero{padding:120px 20px 60px}
+  .services{padding:30px 20px 80px}
+  .f-grid{grid-template-columns:1fr;gap:40px}
+}
+
+/* === NAV DROPDOWN + DRAWER (FIT UP) === */
+.nav-links .has-sub{position:relative}
+.nav-links .has-sub > a{display:inline-flex;align-items:center;gap:6px;cursor:default}
+.nav-links .has-sub > a::after{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s,border-color .2s;opacity:.6}
+.nav-links .has-sub:hover > a::after,.nav-links .has-sub:focus-within > a::after{border-color:var(--accent);transform:rotate(225deg) translate(-2px,-2px);opacity:1}
+.nav-submenu{position:absolute;top:100%;left:-18px;min-width:280px;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border:1px solid rgba(212,255,0,.12);padding:14px;display:flex;flex-direction:column;list-style:none;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:210;margin-top:14px}
+.nav-links .has-sub:hover .nav-submenu,.nav-links .has-sub:focus-within .nav-submenu{opacity:1;visibility:visible;transform:none}
+.nav-submenu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px;background:transparent}
+.nav-submenu li{margin:0}
+.nav-submenu a{display:flex;flex-direction:column;gap:3px;padding:13px 14px;font-size:13px;font-family:var(--fd);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none}
+.nav-submenu a:last-child{border-bottom:0}
+.nav-submenu a small{font-family:var(--fb);font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none}
+.nav-submenu a:hover{color:var(--accent);background:rgba(212,255,0,.04)}
+
+.nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--white);cursor:pointer;transition:border-color .2s,background .2s;padding:0}
+.nav-toggle:hover{border-color:var(--accent);background:rgba(212,255,0,.06)}
+.nav-toggle svg{display:block}
+.nav-toggle .icon-close{display:none}
+body.nav-open .nav-toggle .icon-open{display:none}
+body.nav-open .nav-toggle .icon-close{display:block}
+body.nav-open{overflow:hidden}
+.nav-drawer{position:fixed;inset:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);z-index:190;padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;border-bottom:1px solid rgba(212,255,0,.12);overflow-y:auto}
+body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
+.nav-drawer a{display:flex;align-items:center;justify-content:space-between;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,.06);color:var(--white);text-decoration:none;font-family:var(--fd);font-weight:800;font-size:24px;letter-spacing:1px;text-transform:uppercase;transition:color .2s,padding .2s}
+.nav-drawer a::after{content:"→";color:rgba(255,255,255,.25);transition:color .2s,transform .2s}
+.nav-drawer a:hover,.nav-drawer a:focus-visible{color:var(--accent);padding-left:10px}
+.nav-drawer a:hover::after,.nav-drawer a:focus-visible::after{color:var(--accent);transform:translateX(4px)}
+.nav-drawer .drawer-cta{margin-top:22px;background:var(--accent);color:var(--black);border:0;padding:18px 22px;justify-content:center;font-size:14px;letter-spacing:2px}
+.nav-drawer .drawer-cta::after{color:var(--black)}
+.nav-drawer .drawer-foot{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:6px;font-family:var(--fb);font-size:12px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none;border:0}
+.nav-drawer .drawer-foot::after{display:none}
+.nav-drawer .drawer-foot a{font-family:var(--fb);font-size:13px;font-weight:500;padding:6px 0;border:0;color:rgba(255,255,255,.55);text-transform:none;letter-spacing:.3px}
+.nav-drawer .drawer-foot a::after{display:none}
+.nav-drawer .drawer-foot a:hover{color:var(--accent);padding-left:0}
+.nav-drawer .drawer-group{border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-drawer .drawer-group > a{border-bottom:0}
+.nav-drawer .drawer-sub{list-style:none;display:flex;flex-direction:column;padding:0 0 14px 4px;margin:-6px 0 0 0}
+.nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:10px 0 10px 18px;border-bottom:0;position:relative}
+.nav-drawer .drawer-sub a::before{content:"";position:absolute;left:0;top:50%;width:8px;height:1px;background:rgba(212,255,0,.6);transform:translateY(-50%)}
+.nav-drawer .drawer-sub a::after{display:none}
+.nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
+
+@media (max-width:980px){
+  .nav-links{display:none!important}
+  .nav-toggle{display:inline-flex!important}
+}
+/* === END NAV DROPDOWN + DRAWER === */
+
+</style>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/main.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <a href="../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <ul class="nav-links">
+    <li class="has-sub">
+      <a href="../trainingsaanbod/index.html" class="active" aria-haspopup="true">Trainingsaanbod</a>
+      <ul class="nav-submenu" role="menu">
+        <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
+        <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
+        <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
+        <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen<small>Spinning · bootcamp · HIIT</small></a></li>
+      </ul>
+    </li>
+    <li><a href="../online-coaching/index.html">Online Coaching</a></li>
+    <li><a href="../tarieven/index.html">Tarieven</a></li>
+    <li><a href="../fitcheck/index.html">Fitcheck</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+    <li><a href="../contact/index.html" class="nav-btn">Gratis intake</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
+    <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="drawer-group">
+    <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
+    <ul class="drawer-sub">
+      <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+      <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+      <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+      <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+    </ul>
+  </div>
+  <a href="../online-coaching/index.html">Online Coaching</a>
+  <a href="../tarieven/index.html">Tarieven</a>
+  <a href="../fitcheck/index.html">Fitcheck</a>
+  <a href="../contact/index.html">Contact</a>
+  <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
+</div>
+
+<header class="page-hero">
+  <span class="eyebrow"><span class="eyebrow-line"></span>Fit Up Leiderdorp</span>
+  <h1>Trainingsaanbod<br><em>Leiderdorp</em></h1>
+  <p class="hero-sub">Vijf manieren om bij Fit Up te trainen — van <strong>1-op-1 personal training</strong> tot <strong>24/7 fitness</strong>, groepslessen, Small Group PT en online coaching. Kies wat past bij jouw doel, ervaring en agenda.</p>
+</header>
+
+<section class="services">
+  <div class="services-grid">
+    <a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html" class="svc-card hot">
+      <div class="svc-arrow"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="14" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 34c0-5.523 4.477-10 10-10h12c5.523 0 10 4.477 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="svc-tag">⭐ Meest gekozen</div>
+      <div class="svc-name">Small Group<br>Personal Training</div>
+      <p class="svc-desc">Persoonlijke coaching in groepen van maximaal 4 personen. Inclusief voedingsbegeleiding en 24/7 fitness toegang.</p>
+      <div class="svc-price">Vanaf <strong>€149</strong> per 4 weken</div>
+    </a>
+
+    <a href="../trainingsaanbod/personal-training/index.html" class="svc-card">
+      <div class="svc-arrow"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 34c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="svc-tag">1-op-1</div>
+      <div class="svc-name">Personal<br>Training</div>
+      <p class="svc-desc">Eén coach, één doel, één plan. Voor wie maximale persoonlijke aandacht wil en snelle resultaten zoekt.</p>
+      <div class="svc-price">vanaf <strong>€275</strong> p/m</div>
+    </a>
+
+    <a href="../trainingsaanbod/24-7-fitness/index.html" class="svc-card">
+      <div class="svc-arrow"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 11v9l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="svc-tag">Altijd open</div>
+      <div class="svc-name">24/7<br>Fitness</div>
+      <p class="svc-desc">Train wanneer jij wilt. Volledig uitgeruste sportschool, dumbbells tot 40kg, plate-loaded krachtapparatuur en cardio.</p>
+      <div class="svc-price">vanaf <strong>€48,50</strong> p/m</div>
+    </a>
+
+    <a href="../trainingsaanbod/groepslessen/index.html" class="svc-card">
+      <div class="svc-arrow"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 30V20l12-8 12 8v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="22" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="svc-tag">Samen trainen</div>
+      <div class="svc-name">Groepslessen</div>
+      <p class="svc-desc">Bodypump, Boksfit, HIIT, Powerhour en meer. Onbeperkt meedoen aan alle lessen — energie en motivatie gegarandeerd.</p>
+      <div class="svc-price">inclusief bij <strong>SGPT &amp; PT</strong></div>
+    </a>
+
+    <a href="../online-coaching/index.html" class="svc-card">
+      <div class="svc-arrow"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="12" y="6" width="16" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="30" r="1" fill="currentColor"/></svg></div>
+      <div class="svc-tag">Overal trainen</div>
+      <div class="svc-name">Online<br>Coaching</div>
+      <p class="svc-desc">Coach in je app. Persoonlijk schema, voedingsplan, techniekvideo en wekelijkse check-ins — train waar je wilt.</p>
+      <div class="svc-price">vanaf <strong>€79</strong> p/m</div>
+    </a>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Niet zeker welke past?<br>Doe de gratis fitcheck.</h2>
+  <p>3 vragen, 30 seconden, persoonlijk advies. Geen verkooppraatjes — alleen het beste voor jou.</p>
+  <a href="../fitcheck/index.html" class="btn-dark">Start gratis fitcheck
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<footer>
+  <div class="f-grid">
+    <div class="f-brand">
+      <a href="../index.html" class="logo">FIT<span>UP</span></a>
+      <p>Kleinschalige premium sportschool in Leiderdorp. Persoonlijk, met aandacht, en altijd open.</p>
+    </div>
+    <div class="f-col"><h4>Trainingsaanbod</h4><ul>
+        <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+        <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+        <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+        <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+        <li><a href="../online-coaching/index.html">Online Coaching</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Informatie</h4><ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../trainingsaanbod/index.html">Trainingsaanbod</a></li>
+        <li><a href="../tarieven/index.html">Tarieven</a></li>
+        <li><a href="../fitcheck/index.html">Fitcheck</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Contact</h4><ul>
+        <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
+        <li><a href="tel:0648776322">06 48776322</a></li>
+        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="https://wa.me/31648776322" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul></div>
+  </div>
+  <div class="f-bottom">
+    <span>© Fit Up Leiderdorp</span>
+    <span>Kleinschalig · Persoonlijk · 24/7</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
+</script>
+
+<script>
+/* === NAV DRAWER TOGGLE (FIT UP) === */
+(function(){
+  var navToggle = document.getElementById('nav-toggle');
+  var navDrawer = document.getElementById('nav-drawer');
+  if(!navToggle || !navDrawer) return;
+  function setNavOpen(open){
+    document.body.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    navDrawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  navToggle.addEventListener('click', function(){ setNavOpen(!document.body.classList.contains('nav-open')); });
+  navDrawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setNavOpen(false); }); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
+})();
+/* === END NAV DRAWER TOGGLE === */
+</script>
+</body>
+</html>

@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Fit Up Leiderdorp | Sportschool, Personal Training & 24/7 Fitness</title>
+<meta name="description" content="Fit Up Leiderdorp is jouw sportschool voor personal training, small group PT, 24/7 fitness, groepslessen en online coaching. Plan je gratis intake.">
+<meta property="og:title" content="Fit Up Leiderdorp | Sportschool, Personal Training & 24/7 Fitness">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Fit Up Leiderdorp is jouw sportschool voor personal training, small group PT, 24/7 fitness, groepslessen en online coaching. Plan je gratis intake.">
+<meta property="og:url" content="https://fitupleiderdorp.nl/">
+<meta property="og:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
+<meta property="og:image:alt" content="Fit Up Leiderdorp logo">
+<meta property="og:site_name" content="Fit Up Leiderdorp">
+<meta property="og:locale" content="nl_NL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fit Up Leiderdorp | Sportschool, Personal Training & 24/7 Fitness">
+<meta name="twitter:description" content="Fit Up Leiderdorp is jouw sportschool voor personal training, small group PT, 24/7 fitness, groepslessen en online coaching. Plan je gratis intake.">
+<meta name="twitter:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
+<link rel="canonical" href="https://fitupleiderdorp.nl/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:#0c0c0c; --mid:#161616; --dark:#111;
+    --white:#fff; --off:#f0ede8; --accent:#d4ff00;
+    --gray:#888; --lgray:#2a2a2a;
+    --fd:'Barlow Condensed',sans-serif; --fb:'DM Sans',sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
+  nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
+  .logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+  .nav-links a:hover{color:var(--white)}
+  .nav-btn{background:var(--accent)!important;color:var(--black)!important;padding:10px 24px;font-weight:700!important;letter-spacing:1px!important;transition:background .2s!important}
+  .nav-btn:hover{background:var(--white)!important}
+
+  /* nav dropdown (desktop) */
+  .nav-links .has-sub{position:relative}
+  .nav-links .has-sub > a{display:inline-flex;align-items:center;gap:6px;cursor:default}
+  .nav-links .has-sub > a::after{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s,border-color .2s;opacity:.6}
+  .nav-links .has-sub:hover > a::after,.nav-links .has-sub:focus-within > a::after{border-color:var(--accent);transform:rotate(225deg) translate(-2px,-2px);opacity:1}
+  .nav-submenu{position:absolute;top:100%;left:-18px;min-width:280px;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border:1px solid rgba(212,255,0,.12);padding:14px;display:flex;flex-direction:column;list-style:none;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:210;margin-top:14px}
+  .nav-links .has-sub:hover .nav-submenu,.nav-links .has-sub:focus-within .nav-submenu{opacity:1;visibility:visible;transform:none}
+  .nav-submenu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px;background:transparent}
+  .nav-submenu li{margin:0}
+  .nav-submenu a{display:flex;flex-direction:column;gap:3px;padding:13px 14px;font-size:13px;font-family:var(--fd);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav-submenu a:last-child{border-bottom:0}
+  .nav-submenu a small{font-family:var(--fb);font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none}
+  .nav-submenu a:hover{color:var(--accent);background:rgba(212,255,0,.04)}
+
+  /* mobile hamburger + drawer */
+  .nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--white);cursor:pointer;transition:border-color .2s,background .2s}
+  .nav-toggle:hover{border-color:var(--accent);background:rgba(212,255,0,.06)}
+  .nav-toggle svg{display:block}
+  .nav-toggle .icon-close{display:none}
+  body.nav-open .nav-toggle .icon-open{display:none}
+  body.nav-open .nav-toggle .icon-close{display:block}
+  body.nav-open{overflow:hidden}
+  .nav-drawer{position:fixed;inset:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);z-index:190;padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;border-bottom:1px solid rgba(212,255,0,.12)}
+  body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
+  .nav-drawer a{display:flex;align-items:center;justify-content:space-between;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,.06);color:var(--white);text-decoration:none;font-family:var(--fd);font-weight:800;font-size:24px;letter-spacing:1px;text-transform:uppercase;transition:color .2s,padding .2s}
+  .nav-drawer a::after{content:"→";color:rgba(255,255,255,.25);transition:color .2s,transform .2s}
+  .nav-drawer a:hover,.nav-drawer a:focus-visible{color:var(--accent);padding-left:10px}
+  .nav-drawer a:hover::after,.nav-drawer a:focus-visible::after{color:var(--accent);transform:translateX(4px)}
+  .nav-drawer .drawer-cta{margin-top:22px;background:var(--accent);color:var(--black);border:0;padding:18px 22px;justify-content:center;font-size:14px;letter-spacing:2px}
+  .nav-drawer .drawer-cta::after{color:var(--black)}
+  .nav-drawer .drawer-foot{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:6px;font-family:var(--fb);font-size:12px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.3px;text-transform:none;border:0}
+  .nav-drawer .drawer-foot::after{display:none}
+  .nav-drawer .drawer-foot a{font-family:var(--fb);font-size:13px;font-weight:500;padding:6px 0;border:0;color:rgba(255,255,255,.55);text-transform:none;letter-spacing:.3px}
+  .nav-drawer .drawer-foot a::after{display:none}
+  .nav-drawer .drawer-foot a:hover{color:var(--accent);padding-left:0}
+
+  /* mobile drawer submenu */
+  .nav-drawer .drawer-group{border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav-drawer .drawer-group > a{border-bottom:0}
+  .nav-drawer .drawer-sub{list-style:none;display:flex;flex-direction:column;padding:0 0 14px 4px;margin:-6px 0 0 0}
+  .nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:10px 0 10px 18px;border-bottom:0;position:relative}
+  .nav-drawer .drawer-sub a::before{content:"";position:absolute;left:0;top:50%;width:8px;height:1px;background:rgba(212,255,0,.6);transform:translateY(-50%)}
+  .nav-drawer .drawer-sub a::after{display:none}
+  .nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
+
+  /* HERO */
+  .hero{min-height:100svh;display:flex;flex-direction:column}
+
+  .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:46vh;overflow:hidden}
+  .photo-cell{position:relative;overflow:hidden;background:var(--lgray);opacity:0;animation:fadeIn .9s ease forwards}
+  .photo-cell:nth-child(1){animation-delay:.1s}
+  .photo-cell:nth-child(2){animation-delay:.22s}
+  .photo-cell:nth-child(3){animation-delay:.34s}
+  .photo-cell:nth-child(4){animation-delay:.46s}
+  .photo-cell img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease;display:block}
+  .photo-cell:hover img{transform:scale(1.03)}
+  .photo-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(12,12,12,.5) 100%);pointer-events:none}
+
+  .hero-text{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 40px 56px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;opacity:0;animation:fadeUp .6s ease .5s forwards}
+  .eyebrow-line{width:24px;height:2px;background:var(--accent);flex-shrink:0}
+
+  h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(64px,15vw,116px);line-height:.88;letter-spacing:-.5px;margin-bottom:24px;opacity:0;animation:fadeUp .6s ease .7s forwards}
+  h1 em{font-style:normal;color:var(--accent);display:block}
+
+  .hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:400px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .9s forwards}
+  .hero-sub strong{color:var(--white);font-weight:500}
+
+  .hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease 1.05s forwards}
+
+  .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);transition:all .25s}
+  .btn-accent:hover{background:transparent;color:var(--accent)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
+  .btn-ghost:hover{color:var(--white);border-color:var(--white)}
+
+  .hero-stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.06);margin-top:48px;opacity:0;animation:fadeUp .6s ease 1.2s forwards}
+  .hero-stat{flex:1;padding:20px 0;border-right:1px solid rgba(255,255,255,.06);text-align:center}
+  .hero-stat:last-child{border-right:none}
+  .stat-num{font-family:var(--fd);font-size:36px;font-weight:900;line-height:1;letter-spacing:1px}
+  .stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:4px;font-weight:500}
+
+  /* TICKER */
+  .ticker{background:var(--accent);padding:12px 0;overflow:hidden}
+  .ticker-track{display:inline-flex;white-space:nowrap;animation:ticker 24s linear infinite}
+  .ticker-item{display:inline-flex;align-items:center;gap:14px;margin-right:56px;font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--black)}
+  .ticker-sep{width:5px;height:5px;background:rgba(0,0,0,.3);border-radius:50%}
+
+  /* SECTIONS */
+  section{padding:100px 0}
+  .container{max-width:1240px;margin:0 auto;padding:0 40px}
+  .sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}.section-header{text-align:center;margin-bottom:56px}.section-header .sec-label{justify-content:center}.section-header h2{margin:0 auto}.section-header p{max-width:560px;margin:16px auto 0;font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75}
+  .sec-label-line{width:24px;height:1.5px;background:var(--accent)}
+  h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
+  h2 em{font-style:normal;color:var(--accent)}
+  h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(28px,4vw,38px);line-height:1;letter-spacing:.5px}
+
+  /* PROBLEM */
+  .problem{background:var(--mid)}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .problem-intro p{font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75;margin-top:20px;max-width:400px}
+  .problem-list{margin-top:40px;display:flex;flex-direction:column}
+  .problem-item{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-top:1px solid rgba(255,255,255,.06);transition:all .3s}
+  .problem-item:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+  .p-num{font-family:var(--fd);font-size:42px;font-weight:900;color:rgba(212,255,0,.15);line-height:1;min-width:52px;transition:color .3s}
+  .problem-item:hover .p-num{color:rgba(212,255,0,.4)}
+  .p-title{font-size:16px;font-weight:600;margin-bottom:5px}
+  .p-desc{font-size:13px;color:var(--gray);line-height:1.65}
+
+  .problem-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px;position:sticky;top:120px}
+  .prob-photo{overflow:hidden;background:var(--lgray);position:relative}
+  .prob-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s;display:block}
+  .prob-photo:hover img{transform:scale(1.04)}
+  .prob-photo.tall{grid-row:span 2;aspect-ratio:auto;min-height:400px}
+  .prob-photo:not(.tall){aspect-ratio:1}
+  /* prob-caption desktop — overlay onderop foto */
+  .prob-caption{position:absolute;bottom:0;left:0;right:0;background:var(--accent);padding:14px 18px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .prob-caption-num{font-family:var(--fd);font-size:32px;font-weight:900;color:var(--black);line-height:1}
+  .prob-caption-text{font-size:11px;font-weight:700;color:var(--black);letter-spacing:1px;text-transform:uppercase}
+
+  /* prob ticker — alleen op mobile, onder de foto */
+  .prob-ticker{display:none;overflow:hidden;background:var(--accent);border-top:1px solid rgba(0,0,0,.15);position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+  .prob-ticker-track{display:inline-flex;align-items:center;gap:32px;padding:11px 0;white-space:nowrap;animation:probTicker 22s linear infinite;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:2.5px;color:var(--black);text-transform:uppercase}
+  .prob-ticker-track span{display:inline-flex;align-items:center;gap:8px}
+  .prob-ticker-track span::after{content:"·";opacity:.5;margin-left:32px}
+  .prob-ticker-track .pt-num{font-size:18px;letter-spacing:.5px}
+  @keyframes probTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.prob-ticker-track{animation:none}}
+
+  /* SERVICES */
+  .services{background:var(--black)}
+  .services-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+  .svc-card{background:var(--mid);padding:36px 28px 80px;position:relative;overflow:hidden;text-decoration:none;color:var(--white);display:block;transition:transform .3s;border-bottom:3px solid transparent}
+  .svc-card:hover{transform:translateY(-6px);border-bottom-color:var(--accent)}
+  .svc-card.hot{background:var(--accent);color:var(--black)}
+  .svc-card.hot:hover{border-bottom-color:rgba(0,0,0,.3)}
+  .svc-icon{margin-bottom:24px}
+  .svc-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  .svc-card.hot .svc-tag{color:rgba(0,0,0,.45)}
+  .svc-name{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;line-height:1.05;margin-bottom:14px;letter-spacing:.5px}
+  .svc-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:20px}
+  .svc-card.hot .svc-desc{color:rgba(0,0,0,.5)}
+  .svc-price{font-family:var(--fd);font-size:22px;font-weight:800;letter-spacing:.5px}
+  .svc-price span{font-size:12px;font-family:var(--fb);font-weight:400;opacity:.55}
+  .svc-arrow{position:absolute;bottom:28px;right:28px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all .25s}
+  .svc-card:hover .svc-arrow{background:var(--accent);border-color:var(--accent);color:var(--black)}
+  .svc-card.hot .svc-arrow{border-color:rgba(0,0,0,.2);color:var(--black);background:rgba(0,0,0,.08)}
+  .svc-card.hot:hover .svc-arrow{background:var(--black);border-color:var(--black);color:var(--accent)}
+
+  /* WHY */
+  .why{background:var(--mid)}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .why-photo-block{position:relative}
+  .why-main-photo{width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--lgray)}
+  .why-main-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .6s}
+  .why-main-photo:hover img{transform:scale(1.03)}
+  .why-inset{position:absolute;bottom:-24px;right:-24px;background:var(--black);border:3px solid var(--mid);width:52%;aspect-ratio:1;overflow:hidden}
+  .why-inset img{width:100%;height:100%;object-fit:cover;object-position:center top}
+  .why-content{padding-top:16px}
+  .why-content p{font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75;margin-top:20px;margin-bottom:40px}
+  .why-features{display:flex;flex-direction:column}
+  .why-feat{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.06);transition:all .25s}
+  .why-feat:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+  .why-feat:hover{padding-left:8px}
+  .feat-icon{width:38px;height:38px;flex-shrink:0;border:1px solid rgba(212,255,0,.2);display:flex;align-items:center;justify-content:center;color:var(--accent);transition:all .25s;background:rgba(212,255,0,.04)}
+  .why-feat:hover .feat-icon{background:rgba(212,255,0,.12);border-color:rgba(212,255,0,.4)}
+  .feat-title{font-size:15px;font-weight:600;margin-bottom:3px}
+  .feat-desc{font-size:13px;color:var(--gray);line-height:1.6}
+
+  /* REVIEWS */
+  .reviews{background:var(--black)}
+  .reviews-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+  .reviews-score-block{display:flex;align-items:center;gap:12px}
+  .score-big{font-family:var(--fd);font-size:52px;font-weight:900;line-height:1}
+  .stars-col{display:flex;flex-direction:column;gap:4px}
+  .stars{display:flex;gap:3px;color:var(--accent)}
+  .stars-count{font-size:12px;color:var(--gray)}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .review-card{background:var(--mid);padding:32px;position:relative;overflow:hidden;transition:transform .3s}
+  .review-card:hover{transform:translateY(-4px)}
+  .review-stars{display:flex;gap:3px;color:var(--accent);margin-bottom:18px}
+  .review-stars svg{width:13px;height:13px}
+  .review-text{font-size:15px;font-weight:300;font-style:italic;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:24px}
+  .review-author{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,.06);padding-top:18px}
+  .review-avatar{width:38px;height:38px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:20px;font-weight:900;color:var(--black);flex-shrink:0}
+  .review-name{font-size:14px;font-weight:600}
+  .review-meta{font-size:11px;color:var(--gray);margin-top:2px}
+  .review-quote-mark{position:absolute;top:20px;right:24px;font-family:var(--fd);font-size:90px;font-weight:900;color:var(--accent);opacity:.08;line-height:1;pointer-events:none}
+
+  /* FITCHECK */
+  .fitcheck-bar{background:var(--accent);padding:60px 0}
+  .fitcheck-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
+  .fitcheck-left .fc-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:8px}
+  .fitcheck-left h3{color:var(--black);font-size:clamp(32px,4vw,48px)}
+  .fitcheck-left p{font-size:14px;color:rgba(0,0,0,.5);margin-top:8px}
+  .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:16px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;transition:all .25s;white-space:nowrap;border:2px solid var(--black)}
+  .btn-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
+
+  /* FINAL CTA */
+  .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(212,255,0,.05) 0%,transparent 70%);pointer-events:none}
+  .cta-badges{display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+  .cta-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(212,255,0,.07);border:1px solid rgba(212,255,0,.18);padding:8px 16px;font-size:12px;color:var(--accent);font-weight:500;letter-spacing:.5px}
+  .final-cta h2{font-size:clamp(52px,8vw,88px);margin-bottom:24px}
+  .final-cta p{font-size:16px;color:rgba(255,255,255,.5);max-width:420px;margin:0 auto 44px;font-weight:300;line-height:1.75}
+  .cta-actions{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:var(--mid);border-top:1px solid rgba(255,255,255,.05);padding:64px 0 32px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  .f-brand .f-logo{font-family:var(--fd);font-size:26px;font-weight:900;letter-spacing:4px;margin-bottom:14px}
+  .f-brand .f-logo span{color:var(--accent)}
+  .f-brand p{font-size:13px;color:var(--gray);line-height:1.7;max-width:260px}
+  .f-col h4{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:18px}
+  .f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .f-col ul a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+  .f-col ul a:hover{color:var(--accent)}
+  .f-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+  .f-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* CENTERED SECTION HEADERS */
+  .sec-center{text-align:center}
+  .sec-center .sec-label{justify-content:center}
+  .sec-center h2{margin-left:auto;margin-right:auto}
+  .sec-center > p{max-width:580px;margin-left:auto;margin-right:auto}
+
+  /* Force center all standalone section headers */
+  section > .container > .sec-label,
+  section > .container > h2,
+  section > .container > p:first-of-type { text-align:center; }
+  section > .container > .sec-label { justify-content:center; }
+  .sec-label.reveal { display:inline-flex; }
+  /* How/Steps/FAQ/Services section headers */
+  .how > .container > .sec-label,
+  .how > .container > h2,
+  .services > .container > .services-intro,
+  .faq > .container > .sec-label,
+  .faq > .container > h2,
+  .reviews > .container > .sec-label,
+  .pricing > .container > .sec-label,
+  .pricing > .container > h2,
+  .results > .container > .sec-label,
+  .results > .container > h2,
+  .approach > .container > .sec-label,
+  .approach > .container > h2,
+  .forwho > .container > .sec-label,
+  .why-works > .container > .sec-label,
+  .why-works > .container > h2 { text-align:center; justify-content:center; }
+
+  /* ───────────────────────────── RESPONSIVE ───────────────────────────── */
+  @media (max-width:980px){
+    nav{padding:16px 20px}
+    nav.scrolled{padding:12px 20px}
+    .nav-links{display:none}
+    .nav-toggle{display:inline-flex}
+    .logo{font-size:24px;letter-spacing:3px}
+
+    .photo-strip{grid-template-columns:repeat(2,1fr);height:auto;aspect-ratio:auto}
+    .photo-cell{aspect-ratio:1/1}
+
+    .hero-text{padding:36px 24px 44px}
+    h1{font-size:clamp(48px,11vw,72px)}
+    .hero-sub{font-size:15px;max-width:none}
+    .hero-stats{margin-top:36px}
+    .stat-num{font-size:26px}
+    .stat-label{font-size:9px;letter-spacing:1px}
+
+    section{padding:64px 0}
+    .container{padding:0 24px}
+    h2{font-size:clamp(36px,9vw,52px)}
+    .section-header{margin-bottom:40px}
+
+    .problem-grid{grid-template-columns:1fr;gap:48px}
+    .problem-photos{position:static;grid-template-columns:1fr 1fr}
+    .prob-photo.tall{grid-row:auto;min-height:0;aspect-ratio:1}
+    .problem-intro p{max-width:none}
+
+    .services-intro{flex-direction:column;align-items:flex-start;gap:18px;margin-bottom:36px;text-align:left!important}
+    .services-grid{grid-template-columns:1fr 1fr;gap:2px}
+    .svc-card{padding:28px 22px 72px}
+    .svc-name{font-size:24px}
+    .svc-desc{font-size:13px}
+
+    .why-grid{grid-template-columns:1fr;gap:56px}
+    .why-main-photo{aspect-ratio:4/3}
+    .why-inset{width:44%;bottom:-18px;right:-18px}
+
+    .reviews-header{flex-direction:column;align-items:flex-start;gap:24px;text-align:left}
+    .reviews-grid{grid-template-columns:1fr;gap:2px}
+    .review-card{padding:28px 22px}
+
+    .fitcheck-bar{padding:48px 0}
+    .fitcheck-inner{flex-direction:column;align-items:flex-start;gap:24px;text-align:left}
+
+    .final-cta{padding:80px 0}
+    .final-cta h2{font-size:clamp(40px,11vw,64px)}
+    .cta-actions{flex-direction:column;gap:14px;align-items:stretch}
+    .cta-actions .btn-accent{justify-content:center}
+    .cta-actions .btn-ghost{text-align:center;justify-content:center}
+
+    .footer-grid{grid-template-columns:1fr 1fr;gap:36px 24px}
+    .f-brand{grid-column:1/-1}
+    .f-bottom{flex-direction:column;gap:10px;text-align:center}
+    .f-bottom p{text-align:center}
+
+    .btn-accent{padding:14px 22px;font-size:14px;letter-spacing:1.5px}
+    .btn-dark{padding:14px 22px;font-size:14px}
+
+    .ticker-item{margin-right:36px;font-size:12px}
+  }
+
+  @media (max-width:560px){
+    nav{padding:14px 16px}
+    nav.scrolled{padding:10px 16px}
+    .logo{font-size:22px;letter-spacing:2px}
+    .nav-toggle{width:42px;height:42px}
+
+    /* 600m² wordt ticker onder de foto i.p.v. overlay op de foto */
+    .prob-photo.tall .prob-caption{display:none}
+    .prob-photo.tall + .prob-ticker,
+    .prob-photo.tall .prob-ticker{display:block}
+    .problem-photos .prob-ticker{display:block;grid-column:1 / -1}
+
+    .photo-strip{grid-template-columns:repeat(2,1fr)}
+    .hero-text{padding:32px 20px 40px}
+    h1{font-size:clamp(44px,12vw,60px);line-height:.92}
+    .hero-sub{font-size:14px;line-height:1.7;margin-bottom:28px}
+    .hero-ctas{gap:14px}
+    .hero-ctas .btn-accent{width:100%;justify-content:center}
+
+    .hero-stats{flex-wrap:wrap;margin-top:32px}
+    .hero-stat{flex:1 1 33%;padding:16px 4px}
+    .stat-num{font-size:22px}
+    .stat-label{font-size:8px}
+
+    section{padding:56px 0}
+    .container{padding:0 20px}
+
+    .services-grid{grid-template-columns:1fr;gap:2px}
+    .svc-card{padding:26px 22px 68px}
+
+    .problem-photos{grid-template-columns:1fr 1fr;gap:2px}
+    .problem-photos .prob-photo:nth-child(3){display:none}
+
+    .footer-grid{grid-template-columns:1fr;gap:32px}
+    .f-brand{grid-column:auto}
+    .f-brand p{max-width:none}
+
+    .why-inset{width:40%}
+
+    .prob-caption{padding:10px 14px}
+    .prob-caption-num{font-size:24px}
+    .prob-caption-text{font-size:10px}
+  }
+</style>
+<style>.h1-kicker{display:block;font-size:.16em;letter-spacing:3px;color:var(--accent);margin-bottom:14px;line-height:1;font-weight:700;text-transform:uppercase}</style>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "https://fitupleiderdorp.nl/#sportsclub",
+      "name": "Fit Up Leiderdorp",
+      "url": "https://fitupleiderdorp.nl/",
+      "image": "https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png",
+      "telephone": "+31648776322",
+      "email": "info.fitup1@gmail.com",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Weversbaan 9",
+        "addressLocality": "Leiderdorp",
+        "postalCode": "2352 BZ",
+        "addressCountry": "NL"
+      },
+      "areaServed": ["Leiderdorp", "Leiden", "Zoeterwoude", "Voorschoten", "Alphen aan den Rijn"],
+      "sport": ["Fitness", "Personal Training", "Group Training", "Strength Training"],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://fitupleiderdorp.nl/#organization",
+      "name": "Fit Up Leiderdorp",
+      "url": "https://fitupleiderdorp.nl/",
+      "logo": "https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png",
+      "email": "info.fitup1@gmail.com",
+      "telephone": "+31648776322",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Weversbaan 9",
+        "addressLocality": "Leiderdorp",
+        "postalCode": "2352 BZ",
+        "addressCountry": "NL"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://fitupleiderdorp.nl/#website",
+      "url": "https://fitupleiderdorp.nl/",
+      "name": "Fit Up Leiderdorp",
+      "publisher": { "@id": "https://fitupleiderdorp.nl/#organization" },
+      "inLanguage": "nl-NL"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <a href="index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <ul class="nav-links">
+    <li class="has-sub">
+      <a href="trainingsaanbod/index.html" aria-haspopup="true">Trainingsaanbod</a>
+      <ul class="nav-submenu" role="menu">
+        <li><a href="trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
+        <li><a href="trainingsaanbod/personal-training/index.html">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
+        <li><a href="trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
+        <li><a href="trainingsaanbod/groepslessen/index.html">Groepslessen<small>Spinning · bootcamp · HIIT</small></a></li>
+      </ul>
+    </li>
+    <li><a href="online-coaching/index.html">Online Coaching</a></li>
+    <li><a href="tarieven/index.html">Tarieven</a></li>
+    <li><a href="fitcheck/index.html">Fitcheck</a></li>
+    <li><a href="contact/index.html">Contact</a></li>
+    <li><a href="gratis-intake/index.html" class="nav-btn">Gratis intake</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
+    <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <div class="drawer-group">
+    <a href="trainingsaanbod/index.html">Trainingsaanbod</a>
+    <ul class="drawer-sub">
+      <li><a href="trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+      <li><a href="trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+      <li><a href="trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+      <li><a href="trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+    </ul>
+  </div>
+  <a href="online-coaching/index.html">Online Coaching</a>
+  <a href="tarieven/index.html">Tarieven</a>
+  <a href="fitcheck/index.html">Fitcheck</a>
+  <a href="contact/index.html">Contact</a>
+  <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
+</div>
+
+<header class="hero" role="banner">
+  <div class="photo-strip" aria-hidden="true">
+    <div class="photo-cell">
+      <img src="assets/images/interieur-1.png"
+           width="347" height="408" loading="eager" decoding="async"
+           alt="Trainingsruimte Fit Up Leiderdorp">
+    </div>
+    <div class="photo-cell">
+      <img src="assets/images/interieur-4.png"
+           width="347" height="444" loading="eager" decoding="async"
+           alt="Fitnessruimte Fit Up Leiderdorp">
+    </div>
+    <div class="photo-cell">
+      <img src="assets/images/interieur-3.png"
+           width="347" height="477" loading="eager" decoding="async"
+           alt="Loungeruimte Fit Up Leiderdorp">
+    </div>
+    <div class="photo-cell">
+      <img src="assets/images/interieur-6.png"
+           width="347" height="437" loading="eager" decoding="async"
+           alt="Cardio en entree Fit Up Leiderdorp">
+    </div>
+  </div>
+
+  <div class="hero-text">
+    <span class="eyebrow"><span class="eyebrow-line"></span>Sportschool Leiderdorp</span>
+    <h1><span class="h1-kicker">Fitness Leiderdorp</span>De sportschool<br>die <em>resultaat</em><br><em>levert</em></h1>
+    <p class="hero-sub">
+      Kleinschalige premium fitnessclub met <strong>persoonlijke begeleiding</strong>,
+      voedingscoaching en 24/7 toegang. Weversbaan&nbsp;9, Leiderdorp.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">
+        Plan gratis intake
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="trainingsaanbod/index.html" class="btn-ghost">
+        Bekijk ons aanbod
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-num">4,8★</div><div class="stat-label">Google Reviews</div></div>
+      <div class="hero-stat"><div class="stat-num">24/7</div><div class="stat-label">Altijd open</div></div>
+      <div class="hero-stat"><div class="stat-num">Gratis</div><div class="stat-label">Parkeren & intake</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-sep"></span>24/7 TOEGANG</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>KLEINE GROEPEN</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>VOEDINGSBEGELEIDING VIA APP</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>GRATIS PARKEREN</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>GEEN INSCHRIJFGELD</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>LAAGDREMPELIG</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>ALLE NIVEAUS WELKOM</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>WEVERSBAAN 9 LEIDERDORP</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>PROGRESSIEMETING ELKE 4 WEKEN</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>24/7 TOEGANG</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>KLEINE GROEPEN</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>VOEDINGSBEGELEIDING VIA APP</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>GRATIS PARKEREN</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>GEEN INSCHRIJFGELD</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>LAAGDREMPELIG</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>ALLE NIVEAUS WELKOM</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>WEVERSBAAN 9 LEIDERDORP</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>PROGRESSIEMETING ELKE 4 WEKEN</span>
+  </div>
+</div>
+
+<section class="problem" aria-labelledby="problem-heading">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Herken jij dit?</div>
+        <h2 id="problem-heading" class="reveal d1">Waarom de meeste mensen<br><em>niet vooruitgaan</em></h2>
+        <div class="problem-intro">
+          <p class="reveal d2">Bij Fit Up Leiderdorp lossen we dit structureel op — met een persoonlijk plan, een trainer die jou kent en voedingsbegeleiding via de app.</p>
+        </div>
+        <div class="problem-list">
+          <div class="problem-item reveal d1">
+            <div class="p-num">01</div>
+            <div><div class="p-title">Geen structuur of plan</div><div class="p-desc">Je traint wel, maar zonder duidelijk schema en doel kom je nergens. Elke sessie voelt als opnieuw beginnen.</div></div>
+          </div>
+          <div class="problem-item reveal d2">
+            <div class="p-num">02</div>
+            <div><div class="p-title">Geen accountability</div><div class="p-desc">Bij een grote sportschool kent niemand je naam. Je mist motivatie en geeft op bij de eerste tegenslag.</div></div>
+          </div>
+          <div class="problem-item reveal d3">
+            <div class="p-num">03</div>
+            <div><div class="p-title">Voeding klopt niet</div><div class="p-desc">Trainen zonder voedingsbegeleiding is dweilen met de kraan open. Voeding bepaalt voor veel doelen een groot deel van je resultaat. Daarom combineren we training met persoonlijk voedingsadvies.</div></div>
+          </div>
+          <div class="problem-item reveal d4">
+            <div class="p-num">04</div>
+            <div><div class="p-title">Drukke, massale sportschool</div><div class="p-desc">Je wacht op apparaten, voelt je verloren en haalt het meeste niet uit je training.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="problem-photos reveal d2" aria-hidden="true">
+        <div class="prob-photo tall">
+          <img src="assets/images/interieur-2.png"
+               width="347" height="412" loading="lazy" decoding="async"
+               alt="Krachtruimte Fit Up Leiderdorp">
+          <div class="prob-caption">
+            <div class="prob-caption-num">600m²</div>
+            <div class="prob-caption-text">Kracht · Cardio · Functioneel</div>
+          </div>
+        </div>
+        <div class="prob-photo">
+          <img src="assets/images/interieur-5.png"
+               width="347" height="426" loading="lazy" decoding="async"
+               alt="Loungeruimte met bar Fit Up Leiderdorp">
+        </div>
+        <div class="prob-photo">
+          <img src="assets/images/interieur-4.png"
+               width="347" height="444" loading="lazy" decoding="async"
+               alt="Fitnessruimte Fit Up Leiderdorp">
+        </div>
+        <div class="prob-ticker" aria-hidden="true">
+          <div class="prob-ticker-track">
+            <span><span class="pt-num">600m²</span> Sportvloer</span>
+            <span>Kracht</span><span>Cardio</span><span>Functioneel</span>
+            <span>Life Fitness</span><span>Vrije gewichten tot 40 kg</span>
+            <span>24/7 toegang</span>
+            <span><span class="pt-num">600m²</span> Sportvloer</span>
+            <span>Kracht</span><span>Cardio</span><span>Functioneel</span>
+            <span>Life Fitness</span><span>Vrije gewichten tot 40 kg</span>
+            <span>24/7 toegang</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="services-intro" style="flex-direction:column;align-items:center;text-align:center">
+      <div>
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Trainingsaanbod</div>
+        <h2 id="services-heading" class="reveal d1">Kies jouw <em>aanpak</em></h2>
+      </div>
+      <a href="tarieven/index.html" class="btn-ghost reveal d2" style="margin-bottom:8px;">
+        Bekijk alle tarieven
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="services-grid">
+      <a href="trainingsaanbod/sgpt-small-group-personal-training/index.html" class="svc-card hot reveal">
+        <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="14" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 34c0-5.523 4.477-10 10-10h12c5.523 0 10 4.477 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="svc-tag">⭐ Meest gekozen</div>
+        <div class="svc-name">Small Group<br>Personal Training</div>
+        <p class="svc-desc">Persoonlijke coaching in groepen van maximaal 4 personen. Inclusief voedingsbegeleiding en 24/7 fitness.</p>
+        <div class="svc-price">Vanaf €37,25 <span>per week</span></div>
+        <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="trainingsaanbod/24-7-fitness/index.html" class="svc-card reveal d1">
+        <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 11v9l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="svc-tag">Altijd open</div>
+        <div class="svc-name">24/7<br>Fitness</div>
+        <p class="svc-desc">Zelfstandig trainen op jouw moment. Volledig uitgeruste fitnessruimte, dumbbells tot 40 kg, Concept2 rowers.</p>
+        <div class="svc-price">Vanaf €12,15 <span>per week · ≈ €1,75 p/dag</span></div>
+        <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="trainingsaanbod/groepslessen/index.html" class="svc-card reveal d2">
+        <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8 30V20l12-8 12 8v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="22" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="svc-tag">Samen trainen</div>
+        <div class="svc-name">Groeps&shy;lessen</div>
+        <p class="svc-desc">Boksfit, HIIT, Hyrox-style, Bodypump en meer. Energie en motivatie in kleinschalige groepsverband.</p>
+        <div class="svc-price">All-Inclusive <span>vanaf €13,40 per week</span></div>
+        <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="trainingsaanbod/personal-training/index.html" class="svc-card reveal d3">
+        <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 34c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M28 18l4 4-4 4M32 22H24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="svc-tag">1-op-1</div>
+        <div class="svc-name">Personal<br>Training</div>
+        <p class="svc-desc">Maximale aandacht en maatwerk voor jouw specifieke doel. Volledig persoonlijk schema en voedingsplan.</p>
+        <div class="svc-price">Vanaf €75 <span>per week</span></div>
+        <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="why" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-photo-block reveal">
+        <div class="why-main-photo">
+          <img src="assets/images/interieur-1.png"
+               width="347" height="408" loading="lazy" decoding="async"
+               alt="Trainingsruimte Fit Up Leiderdorp">
+        </div>
+        <div class="why-inset" aria-hidden="true">
+          <img src="assets/images/interieur-6.png"
+               width="347" height="437" loading="lazy" decoding="async"
+               alt="Cardio en entree Fit Up Leiderdorp">
+        </div>
+      </div>
+      <div class="why-content">
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Waarom Fit Up Leiderdorp</div>
+        <h2 id="why-heading" class="reveal d1">Geen nummer.<br><em>Wel resultaat.</em></h2>
+        <p class="reveal d2">Fit Up Leiderdorp is bewust kleinschalig. Waar grote sportscholen honderden leden hebben, kiezen wij voor persoonlijke aandacht, kwaliteit en een omgeving waar jij jezelf kunt zijn. Voor fitness in Leiderdorp ben je bij dé sportschool die resultaat levert.</p>
+        <div class="why-features">
+          <div class="why-feat reveal d1">
+            <div class="feat-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><div class="feat-title">24/7 open — train wanneer het jou uitkomt</div><div class="feat-desc">Vroeg in de ochtend of laat in de avond. Veilige toegang met persoonlijke QR-code, altijd rustig.</div></div>
+          </div>
+          <div class="why-feat reveal d2">
+            <div class="feat-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><div class="feat-title">Kleine groepen — maximaal 4 personen bij SGPT</div><div class="feat-desc">Je trainer kent je naam, je doel en je voortgang. Geen anonimiteit, wel echte aandacht.</div></div>
+          </div>
+          <div class="why-feat reveal d3">
+            <div class="feat-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><div class="feat-title">Voedingsbegeleiding via app — calorieën en macro's op maat</div><div class="feat-desc">Elke 4 weken progressiemeting: gewicht, vetpercentage en spiermassa. Je weet altijd waar je staat.</div></div>
+          </div>
+          <div class="why-feat reveal d4">
+            <div class="feat-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="feat-title">Weversbaan 9 Leiderdorp — gratis parkeren voor de deur</div><div class="feat-desc">Goed bereikbaar vanuit Leiden, Zoeterwoude, Alphen aan den Rijn en Voorschoten.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" aria-labelledby="reviews-heading">
+  <div class="container">
+    <div class="reviews-header" style="flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <div>
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Google Reviews</div>
+        <h2 id="reviews-heading" class="reveal d1">Wat sporters <em>zeggen</em></h2>
+      </div>
+      <div class="reviews-score-block reveal d2">
+        <div class="score-big">4,8</div>
+        <div class="stars-col">
+          <div class="stars" aria-label="4,8 van de 5 sterren">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="stars-count">49 beoordelingen</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+
+      <!-- Featured review — biggest result, spans visually -->
+      <article class="review-card reveal" style="border-left:3px solid var(--accent);">
+        <div class="review-quote-mark" aria-hidden="true">"</div>
+        <div class="review-stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <!-- Result badge -->
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,255,0,0.08);border:1px solid rgba(212,255,0,0.2);padding:6px 12px;margin-bottom:14px;font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.5px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          Van 106 kg naar 70 kg
+        </div>
+        <blockquote class="review-text">Door te sporten bij Fit Up heb ik mijn doel bereikt: gewicht verliezen. Dat is me nooit eerder gelukt bij een sportschool. Dankzij Patrick met PT en voeding ben ik van 106 naar 70 kilo gegaan. Je wordt heel goed begeleid. Echte aanrader.</blockquote>
+        <div class="review-author"><div class="review-avatar" aria-hidden="true">I</div><div><div class="review-name">Irene Peters</div><div class="review-meta">Google · januari 2024</div></div></div>
+      </article>
+
+      <article class="review-card reveal d1">
+        <div class="review-quote-mark" aria-hidden="true">"</div>
+        <div class="review-stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <blockquote class="review-text">De trainers kennen je bij naam, houden je voortgang goed bij en motiveren je om het beste uit jezelf te halen. Of je nu net begint of al jaren sport, hier voel je je altijd welkom. De apparatuur is top en er zijn genoeg opties voor zowel krachttraining als cardio.</blockquote>
+        <div class="review-author"><div class="review-avatar" aria-hidden="true">★</div><div><div class="review-name">Google reviewer</div><div class="review-meta">Google · september 2024</div></div></div>
+      </article>
+
+      <article class="review-card reveal d2">
+        <div class="review-quote-mark" aria-hidden="true">"</div>
+        <div class="review-stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <blockquote class="review-text">Goede begeleiding, laagdrempelig en gezellig. Altijd geopend om zelf te trainen en verschillende lessen waar je aan mee kunt doen. Top!</blockquote>
+        <div class="review-author"><div class="review-avatar" aria-hidden="true">N</div><div><div class="review-name">Nienke Kelderman</div><div class="review-meta">Google · 9 weken geleden</div></div></div>
+      </article>
+
+    </div>
+    <div style="text-align:center;margin-top:36px;" class="reveal d3">
+      <a href="https://share.google/LzpqWN4mAFxA6ZDuG" class="btn-ghost" target="_blank" rel="noopener">
+        Bekijk alle 49 reviews op Google
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="fitcheck-bar" role="complementary">
+  <div class="container">
+    <div class="fitcheck-inner">
+      <div class="fitcheck-left reveal">
+        <div class="fc-label">Weet niet waar je moet beginnen?</div>
+        <h3>Doe de gratis fitcheck</h3>
+        <p>Ontdek in 30 seconden welke training het beste past bij jouw doel.</p>
+      </div>
+      <a href="fitcheck/index.html" class="btn-dark reveal d2">
+        Start gratis fitcheck
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- LOKALE PAGINA'S -->
+<section style="background:var(--mid);padding:90px 0" aria-labelledby="lokaal-heading">
+  <style>
+    .seo-linklist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px; }
+    .seo-linklist a { background: var(--black); padding: 22px 24px; text-decoration: none; color: var(--white); display: flex; flex-direction: column; gap: 6px; border-bottom: 2px solid transparent; transition: all .25s; border-left: 2px solid rgba(212,255,0,.15); }
+    .seo-linklist a:hover { background: var(--lgray); border-bottom-color: var(--accent); border-left-color: var(--accent); transform: translateY(-2px); }
+    .seo-ll-title { font-family: var(--fd); font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--white); }
+    .seo-ll-sub { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.5; }
+    .seo-linklist a:hover .seo-ll-title { color: var(--accent); }
+    @media (max-width: 980px) { .seo-linklist { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .seo-linklist { grid-template-columns: 1fr; } }
+  </style>
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto">
+      <div class="sec-label reveal" style="justify-content:center"><span class="sec-label-line"></span>Lokaal &amp; specifiek</div>
+      <h2 id="lokaal-heading" class="reveal d1" style="font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(40px,5.5vw,64px);line-height:.92;letter-spacing:.5px">Onze pagina&apos;s voor<br><em style="font-style:normal;color:var(--accent)">jouw doel of locatie</em></h2>
+      <p class="reveal d2" style="font-size:15px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.75;margin-top:18px">Op zoek naar een trainer in Leiden, een afvaltraject of een voedingscoach? Hieronder onze landingspagina&apos;s met specifiek advies per doel en regio.</p>
+    </div>
+    <div class="seo-linklist">
+      <a href="sportschool-leiderdorp/index.html"><span class="seo-ll-title">Sportschool Leiderdorp</span><span class="seo-ll-sub">Alles onder één dak</span></a>
+      <a href="fitnessclub-leiderdorp/index.html"><span class="seo-ll-title">Fitnessclub Leiderdorp</span><span class="seo-ll-sub">Premium club · 24/7 toegang</span></a>
+      <a href="fitness-voor-beginners-leiderdorp/index.html"><span class="seo-ll-title">Fitness voor beginners</span><span class="seo-ll-sub">Drempelvrij starten</span></a>
+      <a href="fitness-40-plus-leiderdorp/index.html"><span class="seo-ll-title">Fitness 40+</span><span class="seo-ll-sub">Sterk en fit blijven</span></a>
+      <a href="vrouwen-fitness-leiderdorp/index.html"><span class="seo-ll-title">Vrouwen fitness</span><span class="seo-ll-sub">Sterker in een fijne sfeer</span></a>
+      <a href="spiermassa-opbouwen-leiderdorp/index.html"><span class="seo-ll-title">Spiermassa opbouwen</span><span class="seo-ll-sub">Methodisch · meetbaar</span></a>
+      <a href="hyrox-training-leiderdorp/index.html"><span class="seo-ll-title">Hyrox training</span><span class="seo-ll-sub">Race-fit worden</span></a>
+      <a href="personal-training-leiderdorp/index.html"><span class="seo-ll-title">Personal Training Leiderdorp</span><span class="seo-ll-sub">1-op-1 met je eigen vaste coach</span></a>
+      <a href="small-group-personal-training-leiderdorp/index.html"><span class="seo-ll-title">Small Group PT Leiderdorp</span><span class="seo-ll-sub">Max. 4 personen · vanaf €149 p/4 wkn</span></a>
+      <a href="afvallen-leiderdorp/index.html"><span class="seo-ll-title">Afvallen Leiderdorp</span><span class="seo-ll-sub">Programma voor blijvend resultaat</span></a>
+      <a href="voedingscoach-leiderdorp/index.html"><span class="seo-ll-title">Voedingscoach Leiderdorp</span><span class="seo-ll-sub">Eetplan en macro-coaching via app</span></a>
+      <a href="krachttraining-leiderdorp/index.html"><span class="seo-ll-title">Krachttraining Leiderdorp</span><span class="seo-ll-sub">Sterker worden, methodisch</span></a>
+      <a href="calorie-calculator/index.html"><span class="seo-ll-title">Calorie calculator</span><span class="seo-ll-sub">Bereken kcal en macro-doel · 30 sec</span></a>
+      <a href="personal-trainer-leiden/index.html"><span class="seo-ll-title">Personal trainer Leiden</span><span class="seo-ll-sub">10 min van Leiden centrum</span></a>
+      <a href="personal-trainer-oegstgeest/index.html"><span class="seo-ll-title">Personal trainer Oegstgeest</span><span class="seo-ll-sub">12 min via de N446</span></a>
+      <a href="personal-trainer-voorschoten/index.html"><span class="seo-ll-title">Personal trainer Voorschoten</span><span class="seo-ll-sub">15 min via de A4</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-badges reveal">
+      <span class="cta-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Weversbaan 9, Leiderdorp</span>
+      <span class="cta-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Geen inschrijfgeld</span>
+      <span class="cta-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Gratis parkeren voor de deur</span>
+    </div>
+    <h2 id="cta-heading" class="reveal d1">Klaar voor een sportschool<br><em>die werkt?</em></h2>
+    <p class="reveal d2">Plan een gratis intake bij Fit Up Leiderdorp. We kijken samen naar jouw doel en bepalen de beste aanpak — zonder verplichtingen.</p>
+    <div class="cta-actions reveal d3">
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">
+        Plan gratis intake via WhatsApp
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="tarieven/index.html" class="btn-ghost">Bekijk tarieven <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-logo">FIT<span>UP</span></div>
+        <p>Kleinschalige premium fitnessclub aan de Weversbaan 9 in Leiderdorp. 24/7 fitness, Small Group Personal Training, groepslessen en personal training. Gratis parkeren voor de deur.</p>
+      </div>
+      <div class="f-col"><h4>Trainingsaanbod</h4><ul>
+        <li><a href="trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
+        <li><a href="trainingsaanbod/personal-training/index.html">Personal Training</a></li>
+        <li><a href="trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
+        <li><a href="trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+        <li><a href="online-coaching/index.html">Online Coaching</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Informatie</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="trainingsaanbod/index.html">Trainingsaanbod</a></li>
+        <li><a href="tarieven/index.html">Tarieven</a></li>
+        <li><a href="fitcheck/index.html">Fitcheck</a></li>
+        <li><a href="contact/index.html">Contact</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Contact</h4><ul>
+        <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
+        <li><a href="tel:0648776322">06 48776322</a></li>
+        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="https://wa.me/31648776322" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2020–2026 Fit Up Leiderdorp · KvK 60617268 · BTW NL178744876B01</p>
+      <p>Sportschool Leiderdorp · Personal trainer Leiderdorp · Groepslessen Leiderdorp</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
+
+  // Mobile nav drawer
+  const navToggle = document.getElementById('nav-toggle');
+  const navDrawer = document.getElementById('nav-drawer');
+  function setNavOpen(open){
+    document.body.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    navDrawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  navToggle.addEventListener('click', () => setNavOpen(!document.body.classList.contains('nav-open')));
+  navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNavOpen(false)));
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') setNavOpen(false); });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
