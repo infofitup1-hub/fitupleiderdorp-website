@@ -499,7 +499,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 /* === END NAV DRAWER TOGGLE === */
 </script>
 <script>
-  /* INTAKE WIDGET – contactpagina */
+  /* INTAKE WIDGET – contactpagina → Make webhook → Google Calendar + WhatsApp */
+  const MAKE_WEBHOOK = 'https://hook.eu1.make.com/2gu1t19yn3tdkd9hz2ylf2jitg4r6y37';
+
   const INTAKE_SLOTS = {
     maandag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','19:00','21:00'],
     dinsdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','20:00','21:00'],
@@ -509,6 +511,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     zaterdag:  ['12:00'],
     zondag:    ['12:00']
   };
+
+  function getNextDate(dagNaam) {
+    const dagen = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+    const target = dagen.indexOf(dagNaam.toLowerCase());
+    const now = new Date();
+    let diff = target - now.getDay();
+    if (diff <= 0) diff += 7;
+    const next = new Date(now);
+    next.setDate(now.getDate() + diff);
+    return next.toISOString().split('T')[0];
+  }
 
   const dagSel  = document.getElementById('iw-dag-c');
   const tijdSel = document.getElementById('iw-tijd-c');
@@ -534,18 +547,35 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     btn.disabled = !this.value;
   });
 
-  btn.addEventListener('click', function() {
-    const dag  = dagSel.value;
-    const tijd = tijdSel.value;
-    const naam = document.getElementById('iw-naam-c').value || '';
-    const tel  = document.getElementById('iw-tel-c').value || '';
+  btn.addEventListener('click', async function() {
+    const dag   = dagSel.value;
+    const tijd  = tijdSel.value;
+    const naam  = document.getElementById('iw-naam-c').value || '';
+    const tel   = document.getElementById('iw-tel-c').value || '';
+    const datum = getNextDate(dag);
     const dagLabel = dag.charAt(0).toUpperCase() + dag.slice(1);
-    let msg = `Hi Fit Up! Ik wil graag een gratis intake inplannen.%0A%0A`;
-    msg += `📅 Dag: ${dagLabel}%0A`;
-    msg += `🕐 Tijd: ${tijd} uur%0A`;
-    if (naam) msg += `👤 Naam: ${naam}%0A`;
-    if (tel)  msg += `📱 Tel: ${tel}%0A`;
-    window.open(`https://wa.me/31648776322?text=${msg}`, '_blank');
+
+    btn.disabled = true;
+    btn.textContent = 'Bezig met inplannen...';
+
+    try {
+      await fetch(MAKE_WEBHOOK, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ naam, tel, dag: dagLabel, datum, tijd, doel: '' })
+      });
+      btn.textContent = '✓ Intake aangevraagd!';
+      btn.style.background = 'var(--black)';
+      btn.style.color = '#c8f400';
+      document.querySelector('.iw-note').textContent = '✓ Aanvraag ontvangen! We bevestigen zo snel mogelijk.';
+    } catch(e) {
+      let msg = `Hi Fit Up! Ik wil graag een gratis intake inplannen.%0A%0A📅 Dag: ${dagLabel}%0A🕐 Tijd: ${tijd} uur%0A`;
+      if (naam) msg += `👤 Naam: ${naam}%0A`;
+      if (tel)  msg += `📱 Tel: ${tel}%0A`;
+      window.open(`https://wa.me/31648776322?text=${msg}`, '_blank');
+      btn.disabled = false;
+      btn.textContent = 'Aanvragen via WhatsApp';
+    }
   });
 </script>
 </body>

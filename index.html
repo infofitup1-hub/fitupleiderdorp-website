@@ -1087,7 +1087,10 @@
   /* =============================================
      INTAKE BOOKING WIDGET – beschikbare tijdsloten
      Namen zijn NIET zichtbaar voor klanten
+     Boeking → Make.com webhook → Google Calendar + WhatsApp melding
   ============================================= */
+  const MAKE_WEBHOOK = 'https://hook.eu1.make.com/2gu1t19yn3tdkd9hz2ylf2jitg4r6y37';
+
   const INTAKE_SLOTS = {
     maandag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','19:00','21:00'],
     dinsdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','20:00','21:00'],
@@ -1098,70 +1101,88 @@
     zondag:    ['12:00']
   };
 
+  // Bereken de eerstvolgende datum voor een dagnaam
+  function getNextDate(dagNaam) {
+    const dagen = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+    const target = dagen.indexOf(dagNaam.toLowerCase());
+    const now = new Date();
+    const current = now.getDay();
+    let diff = target - current;
+    if (diff <= 0) diff += 7;
+    const next = new Date(now);
+    next.setDate(now.getDate() + diff);
+    return next.toISOString().split('T')[0]; // YYYY-MM-DD
+  }
+
   function initIntakeWidget(dagId, tijdId, btnId) {
     const dagSel  = document.getElementById(dagId);
     const tijdSel = document.getElementById(tijdId);
     const btn     = document.getElementById(btnId);
     if (!dagSel || !tijdSel || !btn) return;
 
-    // Dag gekozen → vul tijden in
     dagSel.addEventListener('change', function() {
       const dag = this.value;
       tijdSel.innerHTML = '';
       tijdSel.disabled = true;
       btn.disabled = true;
-
-      if (!dag) {
-        tijdSel.innerHTML = '<option value="">— Kies eerst een dag —</option>';
-        return;
-      }
-
+      if (!dag) { tijdSel.innerHTML = '<option value="">— Kies eerst een dag —</option>'; return; }
       const slots = INTAKE_SLOTS[dag] || [];
-      if (slots.length === 0) {
-        tijdSel.innerHTML = '<option value="">Geen beschikbaarheid</option>';
-        return;
-      }
-
       tijdSel.innerHTML = '<option value="">— Selecteer tijdstip —</option>';
       slots.forEach(t => {
         const opt = document.createElement('option');
-        opt.value = t;
-        opt.textContent = t + ' uur';
+        opt.value = t; opt.textContent = t + ' uur';
         tijdSel.appendChild(opt);
       });
       tijdSel.disabled = false;
     });
 
-    // Tijd gekozen → activeer knop
     tijdSel.addEventListener('change', function() {
       btn.disabled = !this.value;
     });
 
-    // Submit → WhatsApp
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', async function() {
       const dag   = dagSel.value;
       const tijd  = tijdSel.value;
-      const num   = document.getElementById(btnId.replace('btn','num')) ?
-                    document.getElementById(btnId.replace('btn','num')).value : '';
-      // Zoek naam en tel in hetzelfde form
       const form  = btn.closest('div[id^="iw-form"]');
       const naam  = form ? (form.querySelector('input[id^="iw-naam"]') || {}).value || '' : '';
       const tel   = form ? (form.querySelector('input[id^="iw-tel"]')  || {}).value || '' : '';
       const doel  = form ? (form.querySelector('input[id^="iw-doel"]') || {}).value || '' : '';
-
+      const datum = getNextDate(dag);
       const dagLabel = dag.charAt(0).toUpperCase() + dag.slice(1);
-      let msg = `Hi Fit Up! Ik wil graag een gratis intake inplannen.%0A%0A`;
-      msg += `📅 Dag: ${dagLabel}%0A`;
-      msg += `🕐 Tijd: ${tijd} uur%0A`;
-      if (naam) msg += `👤 Naam: ${naam}%0A`;
-      if (tel)  msg += `📱 Tel: ${tel}%0A`;
-      if (doel) msg += `🎯 Doel: ${doel}%0A`;
 
-      window.open(`https://wa.me/31648776322?text=${msg}`, '_blank');
+      // Knop feedback
+      btn.disabled = true;
+      btn.textContent = 'Bezig met inplannen...';
+
+      try {
+        // Stuur naar Make webhook → Google Calendar + WhatsApp melding
+        await fetch(MAKE_WEBHOOK, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ naam, tel, doel, dag: dagLabel, datum, tijd })
+        });
+
+        // Succesmelding tonen
+        btn.textContent = '✓ Intake aangevraagd!';
+        btn.style.background = '#c8f400';
+        if (form) {
+          const note = form.querySelector('.iw-note');
+          if (note) { note.textContent = '✓ Je aanvraag is ontvangen. We bevestigen je intake zo snel mogelijk!'; note.style.color = '#c8f400'; }
+        }
+      } catch(e) {
+        // Fallback naar WhatsApp als webhook faalt
+        let msg = `Hi Fit Up! Ik wil graag een gratis intake inplannen.%0A%0A`;
+        msg += `📅 Dag: ${dagLabel}%0A🕐 Tijd: ${tijd} uur%0A`;
+        if (naam) msg += `👤 Naam: ${naam}%0A`;
+        if (tel)  msg += `📱 Tel: ${tel}%0A`;
+        if (doel) msg += `🎯 Doel: ${doel}%0A`;
+        window.open(`https://wa.me/31648776322?text=${msg}`, '_blank');
+        btn.disabled = false;
+        btn.textContent = 'Aanvragen via WhatsApp';
+      }
     });
   }
 
-  // Init beide widgets
   initIntakeWidget('iw-dag-1', 'iw-tijd-1', 'iw-btn-1');
   initIntakeWidget('iw-dag-2', 'iw-tijd-2', 'iw-btn-2');
 </script>
