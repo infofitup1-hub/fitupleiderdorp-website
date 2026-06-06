@@ -274,6 +274,46 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
   @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+  /* INTAKE BOOKING WIDGET */
+  .intake-widget{background:var(--mid);border:1px solid rgba(212,255,0,.12);padding:40px;position:relative;overflow:hidden}
+  .intake-widget::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+  .intake-widget-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .intake-widget-left .iw-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .intake-widget-left .iw-label::before{content:'';width:20px;height:1.5px;background:var(--accent)}
+  .intake-widget-left h3{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(28px,3.5vw,40px);line-height:.95;letter-spacing:.5px;margin-bottom:14px}
+  .intake-widget-left h3 em{font-style:normal;color:var(--accent)}
+  .intake-widget-left p{font-size:14px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75}
+  .intake-widget-right{display:flex;flex-direction:column;gap:16px}
+  .iw-form-row{display:flex;flex-direction:column;gap:6px}
+  .iw-form-row label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45)}
+  .iw-select{appearance:none;-webkit-appearance:none;background:var(--black);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:14px 44px 14px 16px;font-family:var(--fb);font-size:14px;font-weight:400;width:100%;cursor:pointer;transition:border-color .2s,background .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c8f400' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+  .iw-select:focus{outline:none;border-color:var(--accent);background-color:rgba(212,255,0,.04)}
+  .iw-select option{background:var(--black);color:var(--white)}
+  .iw-select:disabled{opacity:.35;cursor:not-allowed}
+  .iw-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .iw-input{background:var(--black);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:14px 16px;font-family:var(--fb);font-size:14px;width:100%;transition:border-color .2s}
+  .iw-input::placeholder{color:rgba(255,255,255,.3)}
+  .iw-input:focus{outline:none;border-color:var(--accent)}
+  .iw-input.full{grid-column:span 2}
+  .iw-submit{background:var(--accent);color:var(--black);border:none;padding:16px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;width:100%;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px}
+  .iw-submit:hover{background:var(--white)}
+  .iw-submit:disabled{opacity:.4;cursor:not-allowed}
+  .iw-note{font-size:11px;color:rgba(255,255,255,.3);text-align:center;letter-spacing:.3px}
+  .iw-success{display:none;text-align:center;padding:24px;background:rgba(212,255,0,.06);border:1px solid rgba(212,255,0,.2)}
+  .iw-success.show{display:block}
+  .iw-success-icon{font-size:32px;margin-bottom:12px}
+  .iw-success h4{font-family:var(--fd);font-size:22px;font-weight:900;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .iw-success p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.65}
+
+  @media(max-width:820px){
+    .intake-widget-inner{grid-template-columns:1fr;gap:32px}
+    .intake-widget{padding:28px 20px}
+  }
+  @media(max-width:480px){
+    .iw-fields{grid-template-columns:1fr}
+    .iw-input.full{grid-column:span 1}
+  }
+
   /* CENTERED SECTION HEADERS */
   .sec-center{text-align:center}
   .sec-center .sec-label{justify-content:center}
@@ -805,6 +845,77 @@
   </div>
 </div>
 
+<!-- INTAKE BOOKING WIDGET 1 – na fitcheck -->
+<section class="intake-booking" id="intake-plannen" aria-labelledby="iw-heading-1" style="background:var(--black);padding:80px 0">
+  <div class="container">
+    <div class="intake-widget reveal">
+      <div class="intake-widget-inner">
+        <div class="intake-widget-left">
+          <div class="iw-label">Gratis &amp; vrijblijvend</div>
+          <h3 id="iw-heading-1">Plan je <em>gratis intake</em> direct in</h3>
+          <p>Kies een dag en beschikbaar tijdstip. We nemen contact op ter bevestiging. Geen verplichtingen, geen inschrijfgeld.</p>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.5)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f400" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Weversbaan 9, Leiderdorp
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.5)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f400" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              Duur: 60 minuten
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.5)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f400" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Gratis parkeren voor de deur
+            </div>
+          </div>
+        </div>
+        <div class="intake-widget-right">
+          <div id="iw-form-1">
+            <div class="iw-form-row">
+              <label for="iw-dag-1">Kies een dag</label>
+              <select class="iw-select iw-dag" id="iw-dag-1" aria-label="Kies een dag">
+                <option value="">— Selecteer dag —</option>
+                <option value="maandag">Maandag</option>
+                <option value="dinsdag">Dinsdag</option>
+                <option value="woensdag">Woensdag</option>
+                <option value="donderdag">Donderdag</option>
+                <option value="vrijdag">Vrijdag</option>
+                <option value="zaterdag">Zaterdag</option>
+                <option value="zondag">Zondag</option>
+              </select>
+            </div>
+            <div class="iw-form-row" style="margin-top:12px">
+              <label for="iw-tijd-1">Kies een tijdstip</label>
+              <select class="iw-select iw-tijd" id="iw-tijd-1" disabled aria-label="Kies een tijdstip">
+                <option value="">— Kies eerst een dag —</option>
+              </select>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+              <div class="iw-form-row">
+                <label for="iw-naam-1">Voornaam</label>
+                <input type="text" class="iw-input" id="iw-naam-1" placeholder="Jouw naam" autocomplete="given-name">
+              </div>
+              <div class="iw-form-row">
+                <label for="iw-tel-1">Telefoon</label>
+                <input type="tel" class="iw-input" id="iw-tel-1" placeholder="06 — — — —" autocomplete="tel">
+              </div>
+              <div class="iw-form-row" style="grid-column:span 2">
+                <label for="iw-doel-1">Jouw doel <span style="color:rgba(255,255,255,.3);font-weight:400">(optioneel)</span></label>
+                <input type="text" class="iw-input" id="iw-doel-1" placeholder="bijv. afvallen, spiermassa, fitter worden...">
+              </div>
+            </div>
+            <button class="iw-submit" id="iw-btn-1" disabled style="margin-top:16px">
+              Aanvragen via WhatsApp
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="iw-note" style="margin-top:10px">Je wordt doorgestuurd naar WhatsApp met je keuze ingevuld. Wij bevestigen binnen 24 uur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LOKALE PAGINA'S -->
 <section style="background:var(--mid);padding:90px 0" aria-labelledby="lokaal-heading">
   <style>
@@ -840,6 +951,80 @@
       <a href="personal-trainer-leiden/index.html"><span class="seo-ll-title">Personal trainer Leiden</span><span class="seo-ll-sub">10 min van Leiden centrum</span></a>
       <a href="personal-trainer-oegstgeest/index.html"><span class="seo-ll-title">Personal trainer Oegstgeest</span><span class="seo-ll-sub">12 min via de N446</span></a>
       <a href="personal-trainer-voorschoten/index.html"><span class="seo-ll-title">Personal trainer Voorschoten</span><span class="seo-ll-sub">15 min via de A4</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INTAKE BOOKING WIDGET 2 – bij contact/final CTA -->
+<section style="background:var(--mid);padding:80px 0" aria-labelledby="iw-heading-2">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="sec-label reveal" style="justify-content:center"><span class="sec-label-line"></span>Direct inplannen</div>
+      <h2 id="iw-heading-2" class="reveal d1">Kies jouw <em>intake moment</em></h2>
+      <p class="reveal d2" style="font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75;max-width:480px;margin:16px auto 0">Selecteer een dag en tijdstip. Geen wachtrij, geen gedoe — direct bevestiging via WhatsApp.</p>
+    </div>
+    <div class="intake-widget reveal d2">
+      <div class="intake-widget-inner">
+        <div class="intake-widget-left">
+          <div class="iw-label">Beschikbare momenten</div>
+          <h3>Wanneer kom <em>jij</em> langs?</h3>
+          <p>De intake duurt 60 minuten. We bespreken jouw doel, maken een plan en je ziet de accommodatie. Geen verplichtingen.</p>
+          <div style="margin-top:28px;background:rgba(212,255,0,.04);border:1px solid rgba(212,255,0,.1);padding:20px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px">Beschikbare dagen</div>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(255,255,255,.6)">
+              <div>Ma · 11:00–17:00 · 19:00 · 21:00</div>
+              <div>Di · 11:00–18:00 · 20:00 · 21:00</div>
+              <div>Wo · 12:00–18:00 · 21:00</div>
+              <div>Do · 13:00–15:00</div>
+              <div>Vr · 11:00–19:00</div>
+              <div>Za · 12:00–13:00</div>
+              <div>Zo · 12:00–13:00</div>
+            </div>
+          </div>
+        </div>
+        <div class="intake-widget-right">
+          <div id="iw-form-2">
+            <div class="iw-form-row">
+              <label for="iw-dag-2">Kies een dag</label>
+              <select class="iw-select iw-dag" id="iw-dag-2" aria-label="Kies een dag">
+                <option value="">— Selecteer dag —</option>
+                <option value="maandag">Maandag</option>
+                <option value="dinsdag">Dinsdag</option>
+                <option value="woensdag">Woensdag</option>
+                <option value="donderdag">Donderdag</option>
+                <option value="vrijdag">Vrijdag</option>
+                <option value="zaterdag">Zaterdag</option>
+                <option value="zondag">Zondag</option>
+              </select>
+            </div>
+            <div class="iw-form-row" style="margin-top:12px">
+              <label for="iw-tijd-2">Kies een tijdstip</label>
+              <select class="iw-select iw-tijd" id="iw-tijd-2" disabled aria-label="Kies een tijdstip">
+                <option value="">— Kies eerst een dag —</option>
+              </select>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+              <div class="iw-form-row">
+                <label for="iw-naam-2">Voornaam</label>
+                <input type="text" class="iw-input" id="iw-naam-2" placeholder="Jouw naam" autocomplete="given-name">
+              </div>
+              <div class="iw-form-row">
+                <label for="iw-tel-2">Telefoon</label>
+                <input type="tel" class="iw-input" id="iw-tel-2" placeholder="06 — — — —" autocomplete="tel">
+              </div>
+              <div class="iw-form-row" style="grid-column:span 2">
+                <label for="iw-doel-2">Jouw doel <span style="color:rgba(255,255,255,.3);font-weight:400">(optioneel)</span></label>
+                <input type="text" class="iw-input" id="iw-doel-2" placeholder="bijv. afvallen, spiermassa, fitter worden...">
+              </div>
+            </div>
+            <button class="iw-submit" id="iw-btn-2" disabled style="margin-top:16px">
+              Aanvragen via WhatsApp
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="iw-note" style="margin-top:10px">Je wordt doorgestuurd naar WhatsApp met je keuze ingevuld. Wij bevestigen binnen 24 uur.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -897,6 +1082,89 @@
     </div>
   </div>
 </footer>
+
+<script>
+  /* =============================================
+     INTAKE BOOKING WIDGET – beschikbare tijdsloten
+     Namen zijn NIET zichtbaar voor klanten
+  ============================================= */
+  const INTAKE_SLOTS = {
+    maandag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','19:00','21:00'],
+    dinsdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','20:00','21:00'],
+    woensdag:  ['12:00','13:00','14:00','15:00','16:00','17:00','18:00','21:00'],
+    donderdag: ['13:00','14:00','15:00'],
+    vrijdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'],
+    zaterdag:  ['12:00'],
+    zondag:    ['12:00']
+  };
+
+  function initIntakeWidget(dagId, tijdId, btnId) {
+    const dagSel  = document.getElementById(dagId);
+    const tijdSel = document.getElementById(tijdId);
+    const btn     = document.getElementById(btnId);
+    if (!dagSel || !tijdSel || !btn) return;
+
+    // Dag gekozen → vul tijden in
+    dagSel.addEventListener('change', function() {
+      const dag = this.value;
+      tijdSel.innerHTML = '';
+      tijdSel.disabled = true;
+      btn.disabled = true;
+
+      if (!dag) {
+        tijdSel.innerHTML = '<option value="">— Kies eerst een dag —</option>';
+        return;
+      }
+
+      const slots = INTAKE_SLOTS[dag] || [];
+      if (slots.length === 0) {
+        tijdSel.innerHTML = '<option value="">Geen beschikbaarheid</option>';
+        return;
+      }
+
+      tijdSel.innerHTML = '<option value="">— Selecteer tijdstip —</option>';
+      slots.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = t + ' uur';
+        tijdSel.appendChild(opt);
+      });
+      tijdSel.disabled = false;
+    });
+
+    // Tijd gekozen → activeer knop
+    tijdSel.addEventListener('change', function() {
+      btn.disabled = !this.value;
+    });
+
+    // Submit → WhatsApp
+    btn.addEventListener('click', function() {
+      const dag   = dagSel.value;
+      const tijd  = tijdSel.value;
+      const num   = document.getElementById(btnId.replace('btn','num')) ?
+                    document.getElementById(btnId.replace('btn','num')).value : '';
+      // Zoek naam en tel in hetzelfde form
+      const form  = btn.closest('div[id^="iw-form"]');
+      const naam  = form ? (form.querySelector('input[id^="iw-naam"]') || {}).value || '' : '';
+      const tel   = form ? (form.querySelector('input[id^="iw-tel"]')  || {}).value || '' : '';
+      const doel  = form ? (form.querySelector('input[id^="iw-doel"]') || {}).value || '' : '';
+
+      const dagLabel = dag.charAt(0).toUpperCase() + dag.slice(1);
+      let msg = `Hi Fit Up! Ik wil graag een gratis intake inplannen.%0A%0A`;
+      msg += `📅 Dag: ${dagLabel}%0A`;
+      msg += `🕐 Tijd: ${tijd} uur%0A`;
+      if (naam) msg += `👤 Naam: ${naam}%0A`;
+      if (tel)  msg += `📱 Tel: ${tel}%0A`;
+      if (doel) msg += `🎯 Doel: ${doel}%0A`;
+
+      window.open(`https://wa.me/31648776322?text=${msg}`, '_blank');
+    });
+  }
+
+  // Init beide widgets
+  initIntakeWidget('iw-dag-1', 'iw-tijd-1', 'iw-btn-1');
+  initIntakeWidget('iw-dag-2', 'iw-tijd-2', 'iw-btn-2');
+</script>
 
 <script>
   const nav = document.getElementById('nav');
