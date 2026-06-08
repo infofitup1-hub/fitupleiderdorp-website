@@ -1098,6 +1098,7 @@
      Boeking → Make.com webhook → Google Calendar + WhatsApp melding
   ============================================= */
   const MAKE_WEBHOOK = 'https://hook.eu1.make.com/2gu1t19yn3tdkd9hz2ylf2jitg4r6y37';
+  const MAKE_EMAIL   = 'https://hook.eu1.make.com/95kilo0637shjh5ygzuk9t95dgbo1nde';
 
   const INTAKE_SLOTS = {
     maandag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','19:00','21:00'],
@@ -1165,11 +1166,11 @@
 
       try {
         // Stuur naar Make webhook → Google Calendar + WhatsApp melding
-        await fetch(MAKE_WEBHOOK, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ naam, tel, email, doel, dag: dagLabel, datum, tijd })
-        });
+        const payload = JSON.stringify({ naam, tel, email, doel, dag: dagLabel, datum, tijd });
+        await Promise.all([
+          fetch(MAKE_WEBHOOK, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: payload }),
+          fetch(MAKE_EMAIL,   { method: 'POST', headers: {'Content-Type': 'application/json'}, body: payload })
+        ]);
 
         // Succesmelding tonen
         btn.textContent = '✓ Intake aangevraagd!';
