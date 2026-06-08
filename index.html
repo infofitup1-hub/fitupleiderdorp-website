@@ -103,7 +103,7 @@
   .photo-cell:hover img{transform:scale(1.03)}
   .photo-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(12,12,12,.5) 100%);pointer-events:none}
 
-  .hero-text{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 40px 56px}
+  .hero-text{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 40px 56px;position:relative;z-index:1}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;opacity:0;animation:fadeUp .6s ease .5s forwards}
   .eyebrow-line{width:24px;height:2px;background:var(--accent);flex-shrink:0}
 
@@ -552,27 +552,10 @@
 </div>
 
 <header class="hero" role="banner">
-  <div class="photo-strip" aria-hidden="true">
-    <div class="photo-cell">
-      <img src="assets/images/interieur-1.png"
-           width="347" height="408" loading="eager" decoding="async"
-           alt="Trainingsruimte Fit Up Leiderdorp">
-    </div>
-    <div class="photo-cell">
-      <img src="assets/images/interieur-4.png"
-           width="347" height="444" loading="eager" decoding="async"
-           alt="Fitnessruimte Fit Up Leiderdorp">
-    </div>
-    <div class="photo-cell">
-      <img src="assets/images/interieur-3.png"
-           width="347" height="477" loading="eager" decoding="async"
-           alt="Loungeruimte Fit Up Leiderdorp">
-    </div>
-    <div class="photo-cell">
-      <img src="assets/images/interieur-6.png"
-           width="347" height="437" loading="eager" decoding="async"
-           alt="Cardio en entree Fit Up Leiderdorp">
-    </div>
+  <div class="hero-video-bg" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/hero-video.mp4" type="video/mp4">
+    </video>
   </div>
 
   <div class="hero-text">
