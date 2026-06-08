@@ -91,7 +91,10 @@
   .nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
 
   /* HERO */
-  .hero{min-height:100svh;display:flex;flex-direction:column}
+  .hero{min-height:100svh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .hero-video-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .hero-video-bg video{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-video-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
 
   .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:46vh;overflow:hidden}
   .photo-cell{position:relative;overflow:hidden;background:var(--lgray);opacity:0;animation:fadeIn .9s ease forwards}
