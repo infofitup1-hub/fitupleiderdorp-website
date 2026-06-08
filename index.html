@@ -900,6 +900,10 @@
                 <input type="tel" class="iw-input" id="iw-tel-1" placeholder="06 — — — —" autocomplete="tel">
               </div>
               <div class="iw-form-row" style="grid-column:span 2">
+                <label for="iw-email-1">E-mailadres <span style="color:rgba(255,255,255,.3);font-weight:400">(voor bevestiging)</span></label>
+                <input type="email" class="iw-input" id="iw-email-1" placeholder="jouw@email.nl" autocomplete="email">
+              </div>
+              <div class="iw-form-row" style="grid-column:span 2">
                 <label for="iw-doel-1">Jouw doel <span style="color:rgba(255,255,255,.3);font-weight:400">(optioneel)</span></label>
                 <input type="text" class="iw-input" id="iw-doel-1" placeholder="bijv. afvallen, spiermassa, fitter worden...">
               </div>
@@ -1011,6 +1015,10 @@
               <div class="iw-form-row">
                 <label for="iw-tel-2">Telefoon</label>
                 <input type="tel" class="iw-input" id="iw-tel-2" placeholder="06 — — — —" autocomplete="tel">
+              </div>
+              <div class="iw-form-row" style="grid-column:span 2">
+                <label for="iw-email-2">E-mailadres <span style="color:rgba(255,255,255,.3);font-weight:400">(voor bevestiging)</span></label>
+                <input type="email" class="iw-input" id="iw-email-2" placeholder="jouw@email.nl" autocomplete="email">
               </div>
               <div class="iw-form-row" style="grid-column:span 2">
                 <label for="iw-doel-2">Jouw doel <span style="color:rgba(255,255,255,.3);font-weight:400">(optioneel)</span></label>
@@ -1146,6 +1154,7 @@
       const form  = btn.closest('div[id^="iw-form"]');
       const naam  = form ? (form.querySelector('input[id^="iw-naam"]') || {}).value || '' : '';
       const tel   = form ? (form.querySelector('input[id^="iw-tel"]')  || {}).value || '' : '';
+      const email = form ? (form.querySelector('input[id^="iw-email"]') || {}).value || '' : '';
       const doel  = form ? (form.querySelector('input[id^="iw-doel"]') || {}).value || '' : '';
       const datum = getNextDate(dag);
       const dagLabel = dag.charAt(0).toUpperCase() + dag.slice(1);
@@ -1159,7 +1168,7 @@
         await fetch(MAKE_WEBHOOK, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ naam, tel, doel, dag: dagLabel, datum, tijd })
+          body: JSON.stringify({ naam, tel, email, doel, dag: dagLabel, datum, tijd })
         });
 
         // Succesmelding tonen

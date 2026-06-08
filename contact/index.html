@@ -423,6 +423,10 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
                   <label for="iw-tel-c" style="color:rgba(0,0,0,.5)">Telefoon</label>
                   <input type="tel" class="iw-input" id="iw-tel-c" placeholder="06 —" autocomplete="tel">
                 </div>
+                <div class="iw-form-row" style="grid-column:span 2">
+                  <label for="iw-email-c" style="color:rgba(0,0,0,.5)">E-mailadres <span style="font-weight:400">(voor bevestiging)</span></label>
+                  <input type="email" class="iw-input" id="iw-email-c" placeholder="jouw@email.nl" autocomplete="email">
+                </div>
               </div>
               <button class="iw-submit" id="iw-btn-c" disabled>
                 Aanvragen via WhatsApp
@@ -552,6 +556,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     const tijd  = tijdSel.value;
     const naam  = document.getElementById('iw-naam-c').value || '';
     const tel   = document.getElementById('iw-tel-c').value || '';
+    const email = document.getElementById('iw-email-c') ? document.getElementById('iw-email-c').value || '' : '';
     const datum = getNextDate(dag);
     const dagLabel = dag.charAt(0).toUpperCase() + dag.slice(1);
 
@@ -562,7 +567,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       await fetch(MAKE_WEBHOOK, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ naam, tel, dag: dagLabel, datum, tijd, doel: '' })
+        body: JSON.stringify({ naam, tel, email, dag: dagLabel, datum, tijd, doel: '' })
       });
       btn.textContent = '✓ Intake aangevraagd!';
       btn.style.background = 'var(--black)';
