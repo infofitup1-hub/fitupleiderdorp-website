@@ -35,7 +35,7 @@
   body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden}
 
   /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s;background:rgba(12,12,12,.7);backdrop-filter:blur(10px)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
   nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
   .logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
   .logo span{color:var(--accent)}
@@ -91,10 +91,7 @@
   .nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
 
   /* HERO */
-  .hero{min-height:100svh;display:flex;flex-direction:column;position:relative;overflow:hidden}
-  .hero-video-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-  .hero-video-bg video{width:100%;height:100%;object-fit:cover;display:block}
-  .hero-video-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
+  .hero{min-height:100svh;display:flex;flex-direction:column}
 
   .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:46vh;overflow:hidden}
   .photo-cell{position:relative;overflow:hidden;background:var(--lgray);opacity:0;animation:fadeIn .9s ease forwards}
@@ -586,6 +583,40 @@
   </div>
 </header>
 
+<!-- OVER PATRICK -->
+<section style="background:var(--black);padding:100px 0">
+  <style>
+    .patrick-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .patrick-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
+    .patrick-photos .p-main img,.patrick-photos .p-side img{width:100%;border-radius:4px;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
+    .patrick-text h2{font-family:var(--fd);font-size:clamp(38px,5vw,58px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:28px;color:var(--white)}
+    .patrick-text h2 em{color:var(--accent);font-style:normal}
+    .patrick-text p{color:rgba(255,255,255,.7);font-size:16px;line-height:1.75;margin-bottom:16px}
+    @media(max-width:980px){.patrick-wrap{grid-template-columns:1fr;gap:48px}.patrick-photos{max-width:480px;margin:0 auto}}
+  </style>
+  <div class="container">
+    <div class="patrick-wrap">
+      <div class="patrick-photos reveal">
+        <div class="p-main">
+          <img src="assets/images/patrick-eigenaar.webp" alt="Patrick – eigenaar Fit Up Leiderdorp" loading="lazy">
+        </div>
+        <div class="p-side">
+          <img src="assets/images/patrick-defensie.png" alt="Patrick tijdens uitzending bij Defensie" loading="lazy">
+        </div>
+      </div>
+      <div class="patrick-text">
+        <div class="sec-label reveal"><svg width="32" height="2" viewBox="0 0 32 2"><rect width="32" height="2" fill="var(--accent)"/></svg><span>Het verhaal achter Fit Up</span></div>
+        <h2 class="reveal">Hallo, ik ben<br><em>Patrick</em></h2>
+        <p class="reveal">Van 1999 tot 2012 diende ik bij Defensie — inclusief twee uitzendingen. Die jaren leerden me dat discipline, structuur en het zorgen voor anderen geen bijzaak zijn. Het is een manier van leven.</p>
+        <p class="reveal">In 2014 begon ik voor mezelf. Niet om een sportschool te runnen, maar om mensen te blijven helpen. Om te dienen — maar dan in hun zoektocht naar een gezond en fit lijf.</p>
+        <p class="reveal">Ik ben 45, getrouwd met Jerney, vader van Hayden en Jordan. Bij Fit Up kennen we iedereen bij naam. Je bent hier geen nummer. Onze leden zijn onze beste ambassadeurs — en daar zijn we trots op.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
     <span class="ticker-item"><span class="ticker-sep"></span>24/7 TOEGANG</span>
@@ -637,28 +668,8 @@
           </div>
         </div>
       </div>
-      <div class="problem-photos reveal d2" aria-hidden="true">
-        <div class="prob-photo tall">
-          <img src="assets/images/interieur-2.png"
-               width="694" height="412" loading="lazy" decoding="async"
-               alt="Krachtruimte Fit Up Leiderdorp" style="width:100%;object-fit:cover">
-          <div class="prob-caption">
-            <div class="prob-caption-num">600m²</div>
-            <div class="prob-caption-text">Kracht · Cardio · Functioneel</div>
-          </div>
         </div>
-        <div class="prob-ticker" aria-hidden="true">
-          <div class="prob-ticker-track">
-            <span><span class="pt-num">600m²</span> Sportvloer</span>
-            <span>Kracht</span><span>Cardio</span><span>Functioneel</span>
-            <span>Life Fitness</span><span>Vrije gewichten tot 40 kg</span>
-            <span>24/7 toegang</span>
-            <span><span class="pt-num">600m²</span> Sportvloer</span>
-            <span>Kracht</span><span>Cardio</span><span>Functioneel</span>
-            <span>Life Fitness</span><span>Vrije gewichten tot 40 kg</span>
-            <span>24/7 toegang</span>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -715,10 +726,20 @@
 
 <section class="why" aria-labelledby="why-heading">
   <div class="container">
-        <div class="why-photo-full reveal">
-      <img src="assets/images/interieur-11.webp" width="1240" height="500" loading="lazy" decoding="async" alt="Krachtruimte Fit Up Leiderdorp" style="object-position:center 40%">
-    </div>
-    <div class="why-content why-content-full">
+    <div class="why-grid">
+      <div class="why-photo-block reveal">
+        <div class="why-main-photo">
+          <img src="assets/images/interieur-1.png"
+               width="347" height="408" loading="lazy" decoding="async"
+               alt="Trainingsruimte Fit Up Leiderdorp">
+        </div>
+        <div class="why-inset" aria-hidden="true">
+          <img src="assets/images/interieur-6.png"
+               width="347" height="437" loading="lazy" decoding="async"
+               alt="Cardio en entree Fit Up Leiderdorp">
+        </div>
+      </div>
+      <div class="why-content">
         <div class="sec-label reveal"><span class="sec-label-line"></span>Waarom Fit Up Leiderdorp</div>
         <h2 id="why-heading" class="reveal d1">Geen nummer.<br><em>Wel resultaat.</em></h2>
         <p class="reveal d2">Fit Up Leiderdorp is bewust kleinschalig. Waar grote sportscholen honderden leden hebben, kiezen wij voor persoonlijke aandacht, kwaliteit en een omgeving waar jij jezelf kunt zijn. Voor fitness in Leiderdorp ben je bij dé sportschool die resultaat levert.</p>
@@ -891,39 +912,6 @@
             <p class="iw-note" style="margin-top:10px">Je wordt doorgestuurd naar WhatsApp met je keuze ingevuld. Wij bevestigen binnen 24 uur.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- OVER PATRICK -->
-<section style="background:var(--black);padding:100px 0">
-  <style>
-    .patrick-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .patrick-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
-    .patrick-photos .p-main img,.patrick-photos .p-side img{width:100%;border-radius:4px;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
-    .patrick-text h2{font-family:var(--fd);font-size:clamp(38px,5vw,58px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:28px;color:var(--white)}
-    .patrick-text h2 em{color:var(--accent);font-style:normal}
-    .patrick-text p{color:rgba(255,255,255,.7);font-size:16px;line-height:1.75;margin-bottom:16px}
-    @media(max-width:980px){.patrick-wrap{grid-template-columns:1fr;gap:48px}.patrick-photos{max-width:480px;margin:0 auto}}
-  </style>
-  <div class="container">
-    <div class="patrick-wrap">
-      <div class="patrick-photos reveal">
-        <div class="p-main">
-          <img src="assets/images/patrick-eigenaar.webp" alt="Patrick – eigenaar Fit Up Leiderdorp" loading="lazy">
-        </div>
-        <div class="p-side">
-          <img src="assets/images/patrick-defensie.png" alt="Patrick tijdens uitzending bij Defensie" loading="lazy">
-        </div>
-      </div>
-      <div class="patrick-text">
-        <div class="sec-label reveal"><svg width="32" height="2" viewBox="0 0 32 2"><rect width="32" height="2" fill="var(--accent)"/></svg><span>Het verhaal achter Fit Up</span></div>
-        <h2 class="reveal">Hallo, ik ben<br><em>Patrick</em></h2>
-        <p class="reveal">Van 1999 tot 2012 diende ik bij Defensie — inclusief twee uitzendingen. Die jaren leerden me dat discipline, structuur en het zorgen voor anderen geen bijzaak zijn. Het is een manier van leven.</p>
-        <p class="reveal">In 2014 begon ik voor mezelf. Niet om een sportschool te runnen, maar om mensen te blijven helpen. Om te dienen — maar dan in hun zoektocht naar een gezond en fit lijf.</p>
-        <p class="reveal">Ik ben 45, getrouwd met Jerney, vader van Hayden en Jordan. Bij Fit Up kennen we iedereen bij naam. Je bent hier geen nummer. Onze leden zijn onze beste ambassadeurs — en daar zijn we trots op.</p>
       </div>
     </div>
   </div>
