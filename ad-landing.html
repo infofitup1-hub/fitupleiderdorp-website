@@ -176,6 +176,47 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .chip{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.4)}
 .chip svg{width:14px;height:14px;stroke:var(--y);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
+
+/* ── RESULTATEN NIEUW ── */
+.res-sub{font-size:16px;color:rgba(255,255,255,.45);margin-top:16px;margin-bottom:64px;max-width:480px;line-height:1.6}
+.karin-block{margin-bottom:64px}
+.karin-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.karin-label::before{content:'';width:28px;height:2px;background:var(--y)}
+.karin-photos{display:grid;grid-template-columns:1fr 1fr;gap:4px;border-radius:20px;overflow:hidden;position:relative}
+.karin-photo{position:relative;overflow:hidden}
+.karin-photo img{width:100%;height:520px;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.karin-photo:hover img{transform:scale(1.03)}
+.karin-foto-label{position:absolute;top:20px;left:20px;font-family:var(--font-h);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);padding:6px 14px;border-radius:100px}
+.karin-photo.na .karin-foto-label{color:var(--y);border-color:rgba(200,255,0,.35)}
+.karin-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;background:var(--ink);border:3px solid var(--y);border-radius:50%;width:96px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(200,255,0,.35);animation:badgePulse 3s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 40px rgba(200,255,0,.35)}50%{box-shadow:0 0 60px rgba(200,255,0,.6)}}
+.karin-badge-num{font-family:var(--font-h);font-size:30px;font-weight:900;color:var(--y);line-height:1}
+.karin-badge-sub{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase}
+.meter-block{margin-top:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px 36px}
+.meter-name{font-family:var(--font-h);font-size:22px;font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:4px}
+.meter-desc{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:28px}
+.meter-row{display:flex;flex-direction:column;gap:18px}
+.meter-item{display:flex;flex-direction:column;gap:8px}
+.meter-top{display:flex;justify-content:space-between;align-items:center}
+.meter-stat-label{font-size:13px;font-weight:500;color:rgba(255,255,255,.55)}
+.meter-stat-val{font-family:var(--font-h);font-size:17px;font-weight:800;color:var(--y)}
+.meter-bar-bg{height:5px;background:rgba(255,255,255,.08);border-radius:100px;overflow:hidden}
+.meter-bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,rgba(200,255,0,.5),var(--y));width:0;transition:width 1.4s cubic-bezier(.16,1,.3,1)}
+.other-results{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.other-card{position:relative;border-radius:16px;overflow:hidden;background:#111;cursor:default}
+.other-card img{width:100%;display:block;transition:transform .5s ease}
+.other-card:hover img{transform:scale(1.03)}
+.other-stamp{position:absolute;top:16px;right:16px;font-family:var(--font-h);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.1);padding:4px 12px;border-radius:100px}
+.other-overlay{position:absolute;bottom:0;left:0;right:0;padding:28px 24px 22px;background:linear-gradient(to top,rgba(10,10,10,.95),transparent)}
+.other-num{font-family:var(--font-h);font-size:38px;font-weight:900;color:var(--y);line-height:1}
+.other-name{font-size:13px;color:rgba(255,255,255,.45);margin-top:6px}
+@media(max-width:700px){
+  .karin-photos{grid-template-columns:1fr}
+  .karin-photo img{height:280px}
+  .karin-badge{display:none}
+  .other-results{grid-template-columns:1fr}
+}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -350,28 +391,76 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 </div>
 
 <!-- RESULTATEN -->
-<section class="resultaten">
+<section class="resultaten" id="resultaten">
+
   <div class="res-header rv">
     <h2>Echte mensen.<br><em>Echte cijfers.</em></h2>
+    <p class="res-sub">Geen trucjes, geen filters. Dit zijn leden van Fit Up Leiderdorp.</p>
   </div>
-  <div class="res-grid">
-    <div class="res-card rv">
-      <img src="assets/images/ad-result-marja.png" alt="Marja -13kg" class="res-card-img">
-      <div class="res-stamp"><span class="res-stamp-text">-13KG</span></div>
-      <div class="res-label">
-        <strong>-13 KG</strong>
-        <span>Marja · 69 jaar · Meer energie &amp; vertrouwen</span>
+
+  <!-- KARIN voor/na -->
+  <div class="karin-block rv">
+    <div class="karin-label">Karin · Personal Training · -17 KG</div>
+    <div class="karin-photos">
+      <div class="karin-photo voor">
+        <img src="assets/images/ad-karin-voor.jpg" alt="Karin voor – Fit Up Leiderdorp">
+        <div class="karin-foto-label">Voor</div>
+      </div>
+      <div class="karin-photo na">
+        <img src="assets/images/ad-karin-na.jpg" alt="Karin na – Fit Up Leiderdorp">
+        <div class="karin-foto-label">Na</div>
+      </div>
+      <div class="karin-badge">
+        <div class="karin-badge-num">-17</div>
+        <div class="karin-badge-sub">KG</div>
       </div>
     </div>
-    <div class="res-card rv rv1">
-      <img src="assets/images/ad-result-34kg.png" alt="-34kg resultaat" class="res-card-img">
-      <div class="res-stamp"><span class="res-stamp-text">-34KG</span></div>
-      <div class="res-label">
-        <strong>-34 KG</strong>
-        <span>Transformatie · De fitste versie ooit</span>
+
+    <!-- PRESTATIEMETER -->
+    <div class="meter-block rv">
+      <div class="meter-name">Karin · Prestatiemeter</div>
+      <div class="meter-desc">Personal Training · 6 maanden · Fit Up Leiderdorp</div>
+      <div class="meter-row">
+        <div class="meter-item">
+          <div class="meter-top"><span class="meter-stat-label">Gewichtsverlies</span><span class="meter-stat-val">-17 KG</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" data-width="85"></div></div>
+        </div>
+        <div class="meter-item">
+          <div class="meter-top"><span class="meter-stat-label">Energie</span><span class="meter-stat-val">Veel meer</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" data-width="92"></div></div>
+        </div>
+        <div class="meter-item">
+          <div class="meter-top"><span class="meter-stat-label">Kracht</span><span class="meter-stat-val">Sterk verbeterd</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" data-width="78"></div></div>
+        </div>
+        <div class="meter-item">
+          <div class="meter-top"><span class="meter-stat-label">Zelfvertrouwen</span><span class="meter-stat-val">Door het dak</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" data-width="96"></div></div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- ANDERE RESULTATEN -->
+  <div class="other-results">
+    <div class="other-card rv">
+      <img src="assets/images/ad-result-marja2.webp" alt="Marja resultaat Fit Up">
+      <div class="other-stamp">Marja · -13 KG</div>
+      <div class="other-overlay">
+        <div class="other-num">-13 KG</div>
+        <div class="other-name">Marja · 69 jaar · Personal Training</div>
+      </div>
+    </div>
+    <div class="other-card rv rv1">
+      <img src="assets/images/ad-result-grid.webp" alt="Resultaat Fit Up Leiderdorp">
+      <div class="other-stamp">Transformatie</div>
+      <div class="other-overlay">
+        <div class="other-num">Transformatie</div>
+        <div class="other-name">Personal Training · Fit Up Leiderdorp</div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- EDITORIAL: gym foto met grote tekst -->
@@ -514,6 +603,20 @@ const countIo = new IntersectionObserver(entries=>{
   });
 },{threshold:.5});
 document.querySelectorAll('.stats').forEach(el=>countIo.observe(el));
+
+// Prestatiemeter bars
+const barIo = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.meter-bar-fill').forEach(bar=>{
+        setTimeout(()=>{ bar.style.width = bar.dataset.width + '%'; }, 200);
+      });
+      barIo.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.meter-block').forEach(el=>barIo.observe(el));
+
 </script>
 </body>
 </html>
