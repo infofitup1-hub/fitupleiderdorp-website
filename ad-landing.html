@@ -124,17 +124,17 @@ body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-
 
 /* ── OVER PATRICK ── */
 .patrick-section{position:relative;overflow:hidden;background:var(--ink)}
-.patrick-bg{position:relative;height:90vh;min-height:600px}
-.patrick-img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block;filter:brightness(.4)}
-.patrick-gradient{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,10,10,1) 0%,rgba(10,10,10,.7) 45%,transparent 100%)}
-.patrick-content{position:absolute;top:50%;left:5%;transform:translateY(-50%);max-width:600px;z-index:2}
+.patrick-bg{position:relative;min-height:600px;background:linear-gradient(135deg,#0f0f0f 0%,#1a1a1a 50%,#0a0a0a 100%);border-top:1px solid rgba(200,255,0,.1);border-bottom:1px solid rgba(200,255,0,.1)}
+.patrick-img{display:none}
+.patrick-gradient{display:none}
+.patrick-content{position:relative;top:auto;left:auto;transform:none;max-width:640px;padding:80px 5%;z-index:2}
 .patrick-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .patrick-eyebrow::before{content:'';width:32px;height:2px;background:var(--y)}
 .patrick-content blockquote{font-family:var(--font-h);font-size:clamp(44px,5.5vw,80px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.03em;color:var(--white);margin-bottom:28px}
 .patrick-content blockquote em{font-style:italic;color:var(--y)}
 .patrick-content p{font-size:16px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:32px;max-width:440px}
 /* floating stats over photo */
-.patrick-stat{position:absolute;bottom:10%;right:5%;background:rgba(10,10,10,.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px 32px;display:flex;gap:32px}
+.patrick-stat{position:relative;bottom:auto;right:auto;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px 32px;display:flex;gap:32px;margin:0 5% 80px;width:fit-content}
 .ps-item strong{font-family:var(--font-h);font-size:36px;font-weight:900;color:var(--white);display:block;line-height:1}
 .ps-item strong em{font-style:normal;color:var(--y)}
 .ps-item span{font-size:12px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em}
@@ -381,7 +381,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 
 <!-- EDITORIAL: squat foto volledige breedte met grote tekst eroverheen -->
 <div class="editorial rv" id="editorial-1">
-  <img src="assets/images/ad-actie-squat.webp" alt="Groepstraining Fit Up" class="editorial-img">
+  <img src="assets/images/ad-gym-lounge.webp" alt="Groepstraining Fit Up" class="editorial-img">
   <div class="editorial-stamp">SGPT</div>
   <div class="editorial-content">
     <div class="editorial-eyebrow">Small Group PT</div>
@@ -465,7 +465,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 
 <!-- EDITORIAL: gym foto met grote tekst -->
 <div class="editorial rv" id="editorial-2">
-  <img src="assets/images/ad-gym-overzicht.webp" alt="Gym Fit Up Leiderdorp" class="editorial-img">
+  <img src="assets/images/ad-gym-cardio.webp" alt="Gym Fit Up Leiderdorp" class="editorial-img">
   <div class="editorial-stamp">400M² Kracht</div>
   <div class="editorial-content">
     <div class="editorial-eyebrow">De gym</div>
@@ -477,7 +477,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <!-- PATRICK over foto -->
 <div class="patrick-section">
   <div class="patrick-bg">
-    <img src="assets/images/ad-gym-overzicht.webp" alt="Gym Fit Up Leiderdorp" class="patrick-img">
+    <!-- geen achtergrond foto -- puur typografisch blok -->
     <div class="patrick-gradient"></div>
     <div class="patrick-content rv">
       <div class="patrick-eyebrow">De coach</div>
