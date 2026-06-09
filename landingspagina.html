@@ -290,11 +290,7 @@
     gap: 14px;
   }
 
-  .badge-stars {
-    font-size: 15px;
-    letter-spacing: 1px;
-    color: var(--accent);
-  }
+  .badge-stars { display: flex; align-items: center; }
 
   .badge-text strong {
     display: block;
@@ -447,15 +443,22 @@
   }
 
   .card-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--accent);
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-    font-size: 20px;
+  }
+
+  .card-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--ink);
+    stroke-width: 1.25;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .voor-wie-card h3 {
@@ -744,7 +747,7 @@
     line-height: 1;
   }
 
-  .google-score-stars { color: var(--accent); font-size: 18px; letter-spacing: 2px; }
+  .google-score-stars { display: flex; align-items: center; margin-bottom: 4px; }
   .google-score-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
 
   .reviews-track {
@@ -770,7 +773,7 @@
     gap: 14px;
   }
 
-  .review-stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; }
+  .review-stars { display: flex; align-items: center; }
 
   .review-text {
     font-size: 15px;
@@ -940,13 +943,13 @@
     color: rgba(255,255,255,0.45);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
 
-  .cta-chip::before {
-    content: '✓';
-    color: var(--accent);
-    font-size: 12px;
+  .cta-chip svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
   }
 
   /* ── FOOTER ── */
@@ -1076,7 +1079,7 @@
     <div class="hero-image reveal">
       <img src="assets/images/hero-training.jpg" alt="Personal training bij Fit Up Leiderdorp" loading="eager">
       <div class="hero-image-badge">
-        <div class="badge-stars">★★★★★</div>
+        <div class="badge-stars"><svg width="80" height="14" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="8,1 10,6 15,6 11,10 12.5,15 8,12 3.5,15 5,10 1,6 6,6" fill="#C8FF00"/><polygon points="26,1 28,6 33,6 29,10 30.5,15 26,12 21.5,15 23,10 19,6 24,6" fill="#C8FF00"/><polygon points="44,1 46,6 51,6 47,10 48.5,15 44,12 39.5,15 41,10 37,6 42,6" fill="#C8FF00"/><polygon points="62,1 64,6 69,6 65,10 66.5,15 62,12 57.5,15 59,10 55,6 60,6" fill="#C8FF00"/><polygon points="80,1 82,6 87,6 83,10 84.5,15 80,12 75.5,15 77,10 73,6 78,6" fill="#C8FF00"/></svg></div>
         <div class="badge-text">
           <strong>4.9 op Google</strong>
           <span>55+ beoordelingen</span>
@@ -1126,27 +1129,67 @@
     </div>
     <div class="voor-wie-grid">
       <div class="voor-wie-card reveal">
-        <div class="card-icon">⚡</div>
+        <div class="card-icon">
+          <!-- Target / weight loss -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="16"/>
+            <circle cx="20" cy="20" r="9"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor" stroke="none"/>
+            <line x1="20" y1="4" x2="20" y2="8"/>
+            <line x1="20" y1="32" x2="20" y2="36"/>
+            <line x1="4" y1="20" x2="8" y2="20"/>
+            <line x1="32" y1="20" x2="36" y2="20"/>
+          </svg>
+        </div>
         <h3>Afvallen</h3>
         <p>Je hebt al van alles geprobeerd, maar niks houdt. Met een persoonlijk plan en begeleiding die klopt, pakken we het structureel aan.</p>
       </div>
       <div class="voor-wie-card reveal">
-        <div class="card-icon">💪</div>
+        <div class="card-icon">
+          <!-- Dumbbell / muscle -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="16" width="5" height="8" rx="1.5"/>
+            <rect x="32" y="16" width="5" height="8" rx="1.5"/>
+            <rect x="8" y="13" width="4" height="14" rx="1.5"/>
+            <rect x="28" y="13" width="4" height="14" rx="1.5"/>
+            <line x1="12" y1="20" x2="28" y2="20"/>
+          </svg>
+        </div>
         <h3>Spieropbouw</h3>
         <p>Je wil sterker worden en je lichaam zien veranderen. Geen raden of YouTuben — gewoon goed trainen met iemand die weet wat werkt.</p>
       </div>
       <div class="voor-wie-card reveal">
-        <div class="card-icon">🔋</div>
+        <div class="card-icon">
+          <!-- Lightning / energy — clean line style -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="23,4 13,21 20,21 17,36 27,19 20,19 23,4"/>
+          </svg>
+        </div>
         <h3>Meer energie</h3>
         <p>Druk leven, weinig energie. Bewegen is het tegengif. We bouwen een routine die past bij jouw schema — niet andersom.</p>
       </div>
       <div class="voor-wie-card reveal">
-        <div class="card-icon">🛡️</div>
+        <div class="card-icon">
+          <!-- Person / beginner — simple human silhouette -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="9" r="5"/>
+            <path d="M10 36 L13 24 L20 28 L27 24 L30 36"/>
+            <path d="M13 24 L10 16 Q20 12 30 16 L27 24"/>
+          </svg>
+        </div>
         <h3>40+ beginners</h3>
         <p>Je hebt nooit gesport of bent lang gestopt. Geen oordeel hier. We beginnen waar jij staat en gaan op jouw tempo verder.</p>
       </div>
       <div class="voor-wie-card reveal">
-        <div class="card-icon">🌿</div>
+        <div class="card-icon">
+          <!-- Leaf / lifestyle — minimal organic shape -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 34 C20 34 6 28 6 14 C6 14 14 8 26 10 C32 11 34 18 32 24 C30 30 20 34 20 34Z"/>
+            <line x1="20" y1="34" x2="20" y2="20"/>
+            <line x1="20" y1="26" x2="27" y2="19"/>
+            <line x1="20" y1="22" x2="13" y2="16"/>
+          </svg>
+        </div>
         <h3>Gezonde leefstijl</h3>
         <p>Geen crash-diëten of extreme programma's. Duurzaam bewegen en eten dat je leven verbetert zonder dat je er alles voor op moet geven.</p>
       </div>
@@ -1315,7 +1358,7 @@
       <div class="google-score">
         <div class="google-score-num">4.9</div>
         <div>
-          <div class="google-score-stars">★★★★★</div>
+          <div class="google-score-stars"><svg width="100" height="18" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="8,1 10,6 15,6 11,10 12.5,15 8,12 3.5,15 5,10 1,6 6,6" fill="#C8FF00"/><polygon points="26,1 28,6 33,6 29,10 30.5,15 26,12 21.5,15 23,10 19,6 24,6" fill="#C8FF00"/><polygon points="44,1 46,6 51,6 47,10 48.5,15 44,12 39.5,15 41,10 37,6 42,6" fill="#C8FF00"/><polygon points="62,1 64,6 69,6 65,10 66.5,15 62,12 57.5,15 59,10 55,6 60,6" fill="#C8FF00"/><polygon points="80,1 82,6 87,6 83,10 84.5,15 80,12 75.5,15 77,10 73,6 78,6" fill="#C8FF00"/></svg></div>
           <div class="google-score-label">55+ beoordelingen</div>
           <div class="google-score-label">Google Reviews</div>
         </div>
@@ -1323,27 +1366,27 @@
     </div>
     <div class="reviews-track">
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars"><svg width="80" height="14" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="8,1 10,6 15,6 11,10 12.5,15 8,12 3.5,15 5,10 1,6 6,6" fill="#C8FF00"/><polygon points="26,1 28,6 33,6 29,10 30.5,15 26,12 21.5,15 23,10 19,6 24,6" fill="#C8FF00"/><polygon points="44,1 46,6 51,6 47,10 48.5,15 44,12 39.5,15 41,10 37,6 42,6" fill="#C8FF00"/><polygon points="62,1 64,6 69,6 65,10 66.5,15 62,12 57.5,15 59,10 55,6 60,6" fill="#C8FF00"/><polygon points="80,1 82,6 87,6 83,10 84.5,15 80,12 75.5,15 77,10 73,6 78,6" fill="#C8FF00"/></svg></div>
         <p class="review-text">"Eindelijk een sportschool waar je echt gezien wordt. Patrick weet precies wat je nodig hebt en past de training perfect aan. Na 3 maanden resultaten die ik nooit voor mogelijk hield."</p>
         <div class="review-author">Sandra V. — Personal Training</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars"><svg width="80" height="14" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="8,1 10,6 15,6 11,10 12.5,15 8,12 3.5,15 5,10 1,6 6,6" fill="#C8FF00"/><polygon points="26,1 28,6 33,6 29,10 30.5,15 26,12 21.5,15 23,10 19,6 24,6" fill="#C8FF00"/><polygon points="44,1 46,6 51,6 47,10 48.5,15 44,12 39.5,15 41,10 37,6 42,6" fill="#C8FF00"/><polygon points="62,1 64,6 69,6 65,10 66.5,15 62,12 57.5,15 59,10 55,6 60,6" fill="#C8FF00"/><polygon points="80,1 82,6 87,6 83,10 84.5,15 80,12 75.5,15 77,10 73,6 78,6" fill="#C8FF00"/></svg></div>
         <p class="review-text">"Als beginner was ik bang voor grote sportscholen. Bij Fit Up voelde ik me direct op mijn gemak. De SGPT-lessen zijn perfect — kleine groep, veel aandacht en super resultaat."</p>
         <div class="review-author">Mark T. — Small Group PT</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars"><svg width="80" height="14" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="8,1 10,6 15,6 11,10 12.5,15 8,12 3.5,15 5,10 1,6 6,6" fill="#C8FF00"/><polygon points="26,1 28,6 33,6 29,10 30.5,15 26,12 21.5,15 23,10 19,6 24,6" fill="#C8FF00"/><polygon points="44,1 46,6 51,6 47,10 48.5,15 44,12 39.5,15 41,10 37,6 42,6" fill="#C8FF00"/><polygon points="62,1 64,6 69,6 65,10 66.5,15 62,12 57.5,15 59,10 55,6 60,6" fill="#C8FF00"/><polygon points="80,1 82,6 87,6 83,10 84.5,15 80,12 75.5,15 77,10 73,6 78,6" fill="#C8FF00"/></svg></div>
         <p class="review-text">"De 24/7 toegang is ideaal. Ik train vroeg in de ochtend voor mijn werk. Rust, goede apparatuur en altijd schoon. Zou ik iedereen aanraden."</p>
         <div class="review-author">Lisa K. — 24/7 Fitness</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars"><svg width="80" height="14" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="8,1 10,6 15,6 11,10 12.5,15 8,12 3.5,15 5,10 1,6 6,6" fill="#C8FF00"/><polygon points="26,1 28,6 33,6 29,10 30.5,15 26,12 21.5,15 23,10 19,6 24,6" fill="#C8FF00"/><polygon points="44,1 46,6 51,6 47,10 48.5,15 44,12 39.5,15 41,10 37,6 42,6" fill="#C8FF00"/><polygon points="62,1 64,6 69,6 65,10 66.5,15 62,12 57.5,15 59,10 55,6 60,6" fill="#C8FF00"/><polygon points="80,1 82,6 87,6 83,10 84.5,15 80,12 75.5,15 77,10 73,6 78,6" fill="#C8FF00"/></svg></div>
         <p class="review-text">"Na jarenlang stoppen met sporten weer begonnen bij Fit Up. Patrick heeft veel geduld, goede kennis en een fijne manier van coachen. In een half jaar meer bereikt dan in drie jaar daarvoor."</p>
         <div class="review-author">Joost R. — Personal Training</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars"><svg width="80" height="14" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="8,1 10,6 15,6 11,10 12.5,15 8,12 3.5,15 5,10 1,6 6,6" fill="#C8FF00"/><polygon points="26,1 28,6 33,6 29,10 30.5,15 26,12 21.5,15 23,10 19,6 24,6" fill="#C8FF00"/><polygon points="44,1 46,6 51,6 47,10 48.5,15 44,12 39.5,15 41,10 37,6 42,6" fill="#C8FF00"/><polygon points="62,1 64,6 69,6 65,10 66.5,15 62,12 57.5,15 59,10 55,6 60,6" fill="#C8FF00"/><polygon points="80,1 82,6 87,6 83,10 84.5,15 80,12 75.5,15 77,10 73,6 78,6" fill="#C8FF00"/></svg></div>
         <p class="review-text">"Geweldig concept. Kleine groepen, persoonlijke aanpak en een coach die echt betrokken is. De sfeer is ook gewoon top — gezellig, motiverend en nooit druk."</p>
         <div class="review-author">Annemiek S. — Small Group PT</div>
       </div>
@@ -1425,9 +1468,9 @@
     <p>Boek jouw gratis kennismaking. We kijken samen wat jij nodig hebt en hoe we dat voor elkaar gaan krijgen. Geen verplichtingen.</p>
     <a href="/gratis-intake/" class="btn-primary" style="font-size:17px; padding: 18px 40px;">Plan jouw gratis kennismaking →</a>
     <div class="cta-chips">
-      <span class="cta-chip">Gratis & vrijblijvend</span>
-      <span class="cta-chip">Geen verkooppraatje</span>
-      <span class="cta-chip">Binnen 24 uur reactie</span>
+      <span class="cta-chip"><svg viewBox="0 0 16 16" fill="none" stroke="#C8FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg>Gratis & vrijblijvend</span>
+      <span class="cta-chip"><svg viewBox="0 0 16 16" fill="none" stroke="#C8FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg>Geen verkooppraatje</span>
+      <span class="cta-chip"><svg viewBox="0 0 16 16" fill="none" stroke="#C8FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg>Binnen 24 uur reactie</span>
     </div>
   </div>
 </section>
