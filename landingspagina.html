@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fit Up Leiderdorp – Boutique fitnessclub met 24/7 toegang, Personal Training en Small Group PT. Boek jouw gratis kennismaking. Weversbaan 9, Leiderdorp.">
+<meta name="keywords" content="personal training Leiderdorp, sportschool Leiderdorp, fitness Leiderdorp, personal trainer Leiden, afvallen Leiderdorp">
+<title>Fit Up Leiderdorp – Boutique Fitness | Personal Training | 24/7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #C8FF00;
+    --bg: #F7F7F5;
+    --card: #FFFFFF;
+    --ink: #111111;
+    --sub: #666666;
+    --line: #E5E5E5;
+    --black: #0A0A0A;
+    --black2: #141414;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --font-head: 'Barlow Condensed', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,247,245,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 5%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 32px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    transition: opacity .2s;
+  }
+
+  .nav-links a:hover { opacity: .5; }
+
+  .nav-cta {
+    background: var(--black);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+    transition: background .2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: var(--black) !important; opacity: 1 !important; }
+
+  .nav-mobile-cta {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-mobile-cta {
+      display: flex;
+      background: var(--black);
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 5%; }
+
+  @media (max-width: 768px) {
+    section { padding: 64px 5%; }
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding-top: 68px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 80px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+    max-width: 440px;
+  }
+
+  .hero-usps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 44px;
+  }
+
+  .hero-usps li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .hero-usps li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: transform .2s, box-shadow .2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(200,255,0,0.3);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: border-color .2s, color .2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+
+  .hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-image {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-image-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .badge-stars {
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--accent);
+  }
+
+  .badge-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .badge-text span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .hero-image {
+      aspect-ratio: 16/9;
+      order: -1;
+    }
+  }
+
+  /* ── LOGOS/TRUST BAR ── */
+  .trust-bar {
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 28px 5%;
+  }
+
+  .trust-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .trust-stat {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .trust-stat strong {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .trust-stat strong em {
+    font-style: normal;
+    color: var(--accent);
+    -webkit-text-stroke: 1px #999;
+    text-stroke: 1px #999;
+  }
+
+  .trust-stat span {
+    font-size: 13px;
+    color: var(--sub);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--line);
+  }
+
+  @media (max-width: 600px) {
+    .trust-divider { display: none; }
+    .trust-stat { min-width: 45%; }
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sub);
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(38px, 4.5vw, 64px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  h2 em {
+    font-style: normal;
+    color: var(--accent);
+    /* subtle ink outline so lime stays readable on white */
+    -webkit-text-stroke: 1.5px #999;
+  }
+
+  .section-intro {
+    font-size: 17px;
+    color: var(--sub);
+    line-height: 1.65;
+    max-width: 520px;
+    margin-top: 16px;
+  }
+
+  /* ── VOOR WIE ── */
+  .voor-wie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .voor-wie-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: box-shadow .25s, transform .25s;
+  }
+
+  .voor-wie-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+    transform: translateY(-4px);
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .voor-wie-card h3 {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .voor-wie-card p {
+    font-size: 14px;
+    color: var(--sub);
+    line-height: 1.6;
+  }
+
+  /* ── WAAROM FIT UP ── */
+  .waarom {
+    background: var(--black);
+    color: #fff;
+  }
+
+  .waarom h2 { color: #fff; }
+  .waarom h2 em { -webkit-text-stroke: none; color: var(--accent); }
+  .waarom .section-label { color: rgba(255,255,255,0.4); }
+  .waarom .section-intro { color: rgba(255,255,255,0.55); }
+
+  .waarom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .waarom-item {
+    background: rgba(255,255,255,0.03);
+    padding: 40px 36px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background .25s;
+  }
+
+  .waarom-item:hover { background: rgba(255,255,255,0.07); }
+
+  .waarom-num {
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .waarom-item h3 {
+    font-family: var(--font-head);
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .waarom-item p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 640px) {
+    .waarom-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── HOE HET WERKT ── */
+  .stappen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+
+  .stap {
+    position: relative;
+  }
+
+  .stap::after {
+    content: '→';
+    position: absolute;
+    top: 24px;
+    right: -20px;
+    font-size: 20px;
+    color: var(--line);
+  }
+
+  .stap:last-child::after { display: none; }
+
+  .stap-num {
+    font-family: var(--font-head);
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--line);
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+  }
+
+  .stap h3 {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .stap p {
+    font-size: 14px;
+    color: var(--sub);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 700px) {
+    .stappen {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .stap::after { display: none; }
+  }
+
+  /* ── AANBOD ── */
+  .aanbod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .aanbod-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow .25s, transform .25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aanbod-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+
+  .aanbod-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .aanbod-body {
+    padding: 28px 28px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aanbod-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sub);
+    margin-bottom: 8px;
+  }
+
+  .aanbod-card h3 {
+    font-family: var(--font-head);
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .aanbod-card p {
+    font-size: 14px;
+    color: var(--sub);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .aanbod-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    margin-top: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .aanbod-link:hover { opacity: .6; }
+
+  /* ── RESULTATEN FOTO'S ── */
+  .resultaten-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .resultaat-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .resultaat-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+
+  .resultaat-info {
+    padding: 18px 20px;
+  }
+
+  .resultaat-naam {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .resultaat-detail {
+    font-size: 13px;
+    color: var(--sub);
+    margin-top: 4px;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews {
+    background: var(--black);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .reviews h2 { color: #fff; }
+  .reviews h2 em { -webkit-text-stroke: none; color: var(--accent); }
+  .reviews .section-label { color: rgba(255,255,255,0.35); }
+
+  .reviews-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+
+  .google-score {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 18px 24px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .google-score-num {
+    font-family: var(--font-head);
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .google-score-stars { color: var(--accent); font-size: 18px; letter-spacing: 2px; }
+  .google-score-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+  .reviews-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .reviews-track::-webkit-scrollbar { display: none; }
+
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 28px 28px 32px;
+    flex-shrink: 0;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .review-stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; }
+
+  .review-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .review-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── FAQ ── */
+  .faq-list {
+    margin-top: 56px;
+    max-width: 760px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 0;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    user-select: none;
+    list-style: none;
+  }
+
+  .faq-q::-webkit-details-marker { display: none; }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--sub);
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform .25s;
+  }
+
+  details[open] .faq-q::after { transform: rotate(45deg); }
+
+  .faq-a {
+    padding: 0 0 24px;
+    font-size: 15px;
+    color: var(--sub);
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  /* ── PROFIEL PATRICK ── */
+  .patrick {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .patrick-img {
+    border-radius: 20px;
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .patrick-content .section-label { margin-bottom: 16px; }
+
+  .patrick-content blockquote {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.05;
+    color: var(--ink);
+    margin: 24px 0 28px;
+  }
+
+  .patrick-content blockquote em {
+    font-style: normal;
+    color: var(--accent);
+    -webkit-text-stroke: 1px #999;
+  }
+
+  .patrick-bio {
+    font-size: 15px;
+    color: var(--sub);
+    line-height: 1.75;
+  }
+
+  .patrick-facts {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .patrick-fact strong {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .patrick-fact span {
+    font-size: 13px;
+    color: var(--sub);
+  }
+
+  @media (max-width: 860px) {
+    .patrick {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .patrick-img {
+      aspect-ratio: 4/3;
+      object-position: center 20%;
+    }
+  }
+
+  /* ── FINALE CTA ── */
+  .cta-final {
+    background: var(--black);
+    text-align: center;
+    padding: 120px 5%;
+  }
+
+  .cta-final-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cta-final .section-label { justify-content: center; color: rgba(255,255,255,0.35); }
+  .cta-final h2 { color: #fff; font-size: clamp(44px, 6vw, 80px); }
+  .cta-final h2 em { -webkit-text-stroke: none; color: var(--accent); }
+
+  .cta-final p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+    margin: 24px auto 48px;
+    line-height: 1.65;
+  }
+
+  .cta-chips {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .cta-chip {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cta-chip::before {
+    content: '✓';
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black2);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 56px 5% 32px;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .footer-brand img { height: 28px; margin-bottom: 16px; }
+
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.35);
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color .2s;
+  }
+
+  .footer-col a:hover { color: #fff; }
+
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  @media (max-width: 700px) {
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ── SCROLL FADE IN ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── REVIEW SWIPE HINT ── */
+  @media (max-width: 640px) {
+    .reviews-track { padding: 0 5% 20px; margin: 0 -5%; }
+    .review-card { width: 80vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="assets/images/logo-mark-primary.png" alt="Fit Up Leiderdorp">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#aanbod">Trainingsaanbod</a></li>
+    <li><a href="#voor-wie">Voor wie</a></li>
+    <li><a href="#over-ons">Over ons</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="/gratis-intake/" class="nav-cta">Gratis kennismaking</a></li>
+  </ul>
+  <a href="/gratis-intake/" class="nav-mobile-cta">Kennismaking →</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <span class="hero-eyebrow">Weversbaan 9 · Leiderdorp</span>
+      <h1>Niet<br>méér sport.<br><em>Betere</em><br>sport.</h1>
+      <p class="hero-sub">Persoonlijke begeleiding in een kleine omgeving. Geen massale sportschool, geen anonimiteit. Gewoon resultaat dat blijft.</p>
+      <ul class="hero-usps">
+        <li>Personal Training & Small Group PT</li>
+        <li>24/7 toegang — ook op zon- en feestdagen</li>
+        <li>Max. 4 personen per training</li>
+      </ul>
+      <div class="hero-ctas">
+        <a href="/gratis-intake/" class="btn-primary">Plan jouw gratis kennismaking →</a>
+        <a href="#aanbod" class="btn-ghost">Bekijk het aanbod</a>
+      </div>
+    </div>
+    <div class="hero-image reveal">
+      <img src="assets/images/hero-training.jpg" alt="Personal training bij Fit Up Leiderdorp" loading="eager">
+      <div class="hero-image-badge">
+        <div class="badge-stars">★★★★★</div>
+        <div class="badge-text">
+          <strong>4.9 op Google</strong>
+          <span>55+ beoordelingen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ─── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat">
+      <strong>200<em>+</em></strong>
+      <span>Actieve leden</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-stat">
+      <strong>4.9<em>★</em></strong>
+      <span>Google-beoordeling</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-stat">
+      <strong>10<em>+</em></strong>
+      <span>Jaar ervaring</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-stat">
+      <strong>24<em>/7</em></strong>
+      <span>Toegang tot de gym</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-stat">
+      <strong>max <em>4</em></strong>
+      <span>Personen per groep</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── VOOR WIE ─── -->
+<section id="voor-wie">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Voor wie</div>
+      <h2>Herken<br>jij jezelf<br>hierin?</h2>
+      <p class="section-intro">Fit Up is geen sportschool voor iedereen. Dat is precies de kracht. We werken voor mensen die écht willen veranderen.</p>
+    </div>
+    <div class="voor-wie-grid">
+      <div class="voor-wie-card reveal">
+        <div class="card-icon">⚡</div>
+        <h3>Afvallen</h3>
+        <p>Je hebt al van alles geprobeerd, maar niks houdt. Met een persoonlijk plan en begeleiding die klopt, pakken we het structureel aan.</p>
+      </div>
+      <div class="voor-wie-card reveal">
+        <div class="card-icon">💪</div>
+        <h3>Spieropbouw</h3>
+        <p>Je wil sterker worden en je lichaam zien veranderen. Geen raden of YouTuben — gewoon goed trainen met iemand die weet wat werkt.</p>
+      </div>
+      <div class="voor-wie-card reveal">
+        <div class="card-icon">🔋</div>
+        <h3>Meer energie</h3>
+        <p>Druk leven, weinig energie. Bewegen is het tegengif. We bouwen een routine die past bij jouw schema — niet andersom.</p>
+      </div>
+      <div class="voor-wie-card reveal">
+        <div class="card-icon">🛡️</div>
+        <h3>40+ beginners</h3>
+        <p>Je hebt nooit gesport of bent lang gestopt. Geen oordeel hier. We beginnen waar jij staat en gaan op jouw tempo verder.</p>
+      </div>
+      <div class="voor-wie-card reveal">
+        <div class="card-icon">🌿</div>
+        <h3>Gezonde leefstijl</h3>
+        <p>Geen crash-diëten of extreme programma's. Duurzaam bewegen en eten dat je leven verbetert zonder dat je er alles voor op moet geven.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WAAROM FIT UP ─── -->
+<section class="waarom" id="waarom">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Waarom Fit Up</div>
+      <h2>Geen massale<br>sportschool.<br><em>Wel resultaat.</em></h2>
+      <p class="section-intro" style="color:rgba(255,255,255,.45)">Wij doen het anders. Kleiner, persoonlijker en met meer focus op jou als individu.</p>
+    </div>
+    <div class="waarom-grid reveal">
+      <div class="waarom-item">
+        <div class="waarom-num">01 · Toegang</div>
+        <h3>24/7 Open</h3>
+        <p>Jij bepaalt wanneer je traint. 's Ochtends vroeg, 's avonds laat of midden op de dag — de gym staat altijd voor je open.</p>
+      </div>
+      <div class="waarom-item">
+        <div class="waarom-num">02 · Begeleiding</div>
+        <h3>Persoonlijk plan</h3>
+        <p>Elke training is afgestemd op jouw lichaam, doelen en leven. Geen standaard schema's van internet, maar begeleiding die werkt.</p>
+      </div>
+      <div class="waarom-item">
+        <div class="waarom-num">03 · Sfeer</div>
+        <h3>Geen anonimiteit</h3>
+        <p>We kennen je naam, je doel en je voortgang. Een plek waar je jezelf kan zijn, zonder het gevoel dat je beoordeeld wordt.</p>
+      </div>
+      <div class="waarom-item">
+        <div class="waarom-num">04 · Resultaat</div>
+        <h3>Het werkt écht</h3>
+        <p>200+ leden, 4.9 op Google en jarenlange resultaten spreken voor zich. We zijn trots op wat onze leden bereiken.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOE HET WERKT ─── -->
+<section id="hoe-het-werkt">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Hoe het werkt</div>
+      <h2>Starten is<br><em>makkelijker</em><br>dan je denkt.</h2>
+    </div>
+    <div class="stappen">
+      <div class="stap reveal">
+        <div class="stap-num">01</div>
+        <h3>Gratis kennismaking</h3>
+        <p>We beginnen met een gesprek. Wat zijn je doelen, hoe ziet je leven eruit en waar wil je naartoe? Geen verplichtingen.</p>
+      </div>
+      <div class="stap reveal">
+        <div class="stap-num">02</div>
+        <h3>Persoonlijk plan</h3>
+        <p>Op basis van jouw situatie stellen we samen het juiste trainingsprogramma en begeleiding in. Specifiek voor jou.</p>
+      </div>
+      <div class="stap reveal">
+        <div class="stap-num">03</div>
+        <h3>Resultaat boeken</h3>
+        <p>Je traint met focus, voelt progressie en ziet resultaten. Bijgestuurd wanneer nodig, gemotiveerd de hele weg.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AANBOD ─── -->
+<section id="aanbod" style="background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Trainingsaanbod</div>
+      <h2>Kies wat<br>bij jou<br><em>past.</em></h2>
+      <p class="section-intro">Van volledig begeleide training tot zelfstandig sporten — we hebben het voor elk type lid.</p>
+    </div>
+    <div class="aanbod-grid">
+      <div class="aanbod-card reveal">
+        <img src="assets/images/gym-sfeer-2.jpg" alt="Small Group Personal Training bij Fit Up Leiderdorp" class="aanbod-img" loading="lazy">
+        <div class="aanbod-body">
+          <div class="aanbod-tag">Populairste keuze</div>
+          <h3>Small Group PT</h3>
+          <p>Maximaal 4 personen per groep. Professionele begeleiding, gezellig samen trainen en betaalbaar — de beste van twee werelden.</p>
+          <a href="/sgpt/" class="aanbod-link">Meer over SGPT →</a>
+        </div>
+      </div>
+      <div class="aanbod-card reveal">
+        <img src="assets/images/pt-gym-interior.png" alt="Personal Training Leiderdorp" class="aanbod-img" loading="lazy">
+        <div class="aanbod-body">
+          <div class="aanbod-tag">Maximale focus</div>
+          <h3>Personal Training</h3>
+          <p>100% aandacht voor jou. Elke sessie is gebouwd rond jouw doelen. De snelste weg naar resultaat, voor wie écht wil.</p>
+          <a href="/personal-training/" class="aanbod-link">Meer over PT →</a>
+        </div>
+      </div>
+      <div class="aanbod-card reveal">
+        <img src="assets/images/hero-krachtruimte.jpg" alt="24/7 Fitness Leiderdorp" class="aanbod-img" loading="lazy">
+        <div class="aanbod-body">
+          <div class="aanbod-tag">Maximale vrijheid</div>
+          <h3>24/7 Fitness</h3>
+          <p>Zelfstandig trainen wanneer het jou uitkomt. Rust, ruimte en topapparatuur — altijd beschikbaar, ook op feestdagen.</p>
+          <a href="/fitness/" class="aanbod-link">Meer over 24/7 Fitness →</a>
+        </div>
+      </div>
+      <div class="aanbod-card reveal">
+        <img src="assets/images/les-hiit-hyrox.jpg" alt="Groepslessen Fit Up Leiderdorp" class="aanbod-img" loading="lazy">
+        <div class="aanbod-body">
+          <div class="aanbod-tag">Energie & Motivatie</div>
+          <h3>Groepslessen</h3>
+          <p>HIIT, Hyrox-prep, BodyPump en meer. Geleid door ervaren coaches, in een kleine groep waar je echt meetelt.</p>
+          <a href="/groepslessen/" class="aanbod-link">Bekijk het rooster →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESULTATEN ─── -->
+<section id="resultaten">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Klantresultaten</div>
+      <h2>Ze deden het.<br><em>Jij kunt het ook.</em></h2>
+      <p class="section-intro">Echte mensen, echte resultaten. Zonder claims die niet kloppen.</p>
+    </div>
+    <div class="resultaten-grid">
+      <div class="resultaat-card reveal">
+        <img src="assets/images/result-marja.png" alt="Resultaat Marja – Fit Up Leiderdorp" loading="lazy">
+        <div class="resultaat-info">
+          <div class="resultaat-naam">Marja</div>
+          <div class="resultaat-detail">Afgevallen & fitter geworden</div>
+        </div>
+      </div>
+      <div class="resultaat-card reveal">
+        <img src="assets/images/result-karin.png" alt="Resultaat Karin – Fit Up Leiderdorp" loading="lazy">
+        <div class="resultaat-info">
+          <div class="resultaat-naam">Karin</div>
+          <div class="resultaat-detail">Sterker en meer energie</div>
+        </div>
+      </div>
+      <div class="resultaat-card reveal">
+        <img src="assets/images/result-35kg.png" alt="Resultaat lid – Fit Up Leiderdorp" loading="lazy">
+        <div class="resultaat-info">
+          <div class="resultaat-naam">Transformatie</div>
+          <div class="resultaat-detail">Spieropbouw & vetverbranding</div>
+        </div>
+      </div>
+      <div class="resultaat-card reveal">
+        <img src="assets/images/result-5kg.png" alt="Resultaat lid – Fit Up Leiderdorp" loading="lazy">
+        <div class="resultaat-info">
+          <div class="resultaat-naam">Gewichtsverlies</div>
+          <div class="resultaat-detail">Blijvend resultaat</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <div>
+        <div class="section-label">Google Reviews</div>
+        <h2>Wat onze<br>leden zeggen.</h2>
+      </div>
+      <div class="google-score">
+        <div class="google-score-num">4.9</div>
+        <div>
+          <div class="google-score-stars">★★★★★</div>
+          <div class="google-score-label">55+ beoordelingen</div>
+          <div class="google-score-label">Google Reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-track">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Eindelijk een sportschool waar je echt gezien wordt. Patrick weet precies wat je nodig hebt en past de training perfect aan. Na 3 maanden resultaten die ik nooit voor mogelijk hield."</p>
+        <div class="review-author">Sandra V. — Personal Training</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Als beginner was ik bang voor grote sportscholen. Bij Fit Up voelde ik me direct op mijn gemak. De SGPT-lessen zijn perfect — kleine groep, veel aandacht en super resultaat."</p>
+        <div class="review-author">Mark T. — Small Group PT</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"De 24/7 toegang is ideaal. Ik train vroeg in de ochtend voor mijn werk. Rust, goede apparatuur en altijd schoon. Zou ik iedereen aanraden."</p>
+        <div class="review-author">Lisa K. — 24/7 Fitness</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Na jarenlang stoppen met sporten weer begonnen bij Fit Up. Patrick heeft veel geduld, goede kennis en een fijne manier van coachen. In een half jaar meer bereikt dan in drie jaar daarvoor."</p>
+        <div class="review-author">Joost R. — Personal Training</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Geweldig concept. Kleine groepen, persoonlijke aanpak en een coach die echt betrokken is. De sfeer is ook gewoon top — gezellig, motiverend en nooit druk."</p>
+        <div class="review-author">Annemiek S. — Small Group PT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PATRICK ─── -->
+<section id="over-ons">
+  <div class="container">
+    <div class="patrick">
+      <img src="assets/images/patrick-eigenaar.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp" class="patrick-img reveal" loading="lazy">
+      <div class="patrick-content reveal">
+        <div class="section-label">Over de eigenaar</div>
+        <blockquote>
+          "Ik bouw geen<br>sportschool.<br>Ik bouw<br><em>resultaten.</em>"
+        </blockquote>
+        <p class="patrick-bio">Patrick richtte Fit Up Leiderdorp op in 2014, na 13 jaar militaire dienst. Zijn aanpak: direct, eerlijk en altijd gericht op wat echt werkt. Geen trucjes, geen opvulling. Gewoon gedegen begeleiding voor mensen die serieus willen veranderen.</p>
+        <div class="patrick-facts">
+          <div class="patrick-fact">
+            <strong>2014</strong>
+            <span>Opgericht</span>
+          </div>
+          <div class="patrick-fact">
+            <strong>13 jaar</strong>
+            <span>Militaire dienst</span>
+          </div>
+          <div class="patrick-fact">
+            <strong>200+</strong>
+            <span>Actieve leden</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" style="background: var(--card); border-top: 1px solid var(--line);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Veelgestelde vragen</div>
+      <h2>Heb je een<br><em>vraag?</em></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary class="faq-q">Is de gratis kennismaking echt gratis en vrijblijvend?</summary>
+        <p class="faq-a">Ja, 100%. De kennismaking is een gesprek van circa 30 minuten waarin we jouw situatie en doelen bespreken. Geen verkoop, geen druk. Als er een match is, vertellen we je wat de mogelijkheden zijn.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Ik heb nog nooit gesport — is Fit Up ook voor beginners?</summary>
+        <p class="faq-a">Absoluut. Een groot deel van onze leden was beginner of is lang gestopt. We beginnen altijd op jouw niveau. Niemand wordt hier beoordeeld op hoe ver ze zijn — alleen op of ze willen groeien.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Wat is het verschil tussen Personal Training en Small Group PT?</summary>
+        <p class="faq-a">Bij Personal Training heb je 1-op-1 de volledige aandacht van de coach. Bij Small Group PT train je in een groepje van maximaal 4 mensen. Je krijgt nog steeds persoonlijke begeleiding, maar ook de energie en motivatie van een groep — en het is betaalbaarder.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Hoe werkt de 24/7 toegang precies?</summary>
+        <p class="faq-a">Leden krijgen een persoonlijke toegangspas waarmee ze de gym op elk gewenst moment kunnen betreden. De ruimte is beveiligd en voorzien van camera's. Op tijden zonder coach aanwezig, train je zelfstandig.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Waar is Fit Up Leiderdorp gevestigd?</summary>
+        <p class="faq-a">We zitten op Weversbaan 9 in Leiderdorp, goed bereikbaar vanuit Leiden, Oegstgeest, Voorschoten, Zoeterwoude en Alphen aan den Rijn. Er is ruim parkeergelegenheid.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Kan ik eerst een proeftraining doen?</summary>
+        <p class="faq-a">Ja. Na de gratis kennismaking plannen we indien gewenst een proeftraining in. Zo kan je de sfeer ervaren en zien of het bij je past — voordat je ergens voor tekent.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINALE CTA ─── -->
+<section class="cta-final" id="kennismaking">
+  <div class="cta-final-inner reveal">
+    <div class="section-label">De eerste stap</div>
+    <h2>Klaar om<br>te starten?</h2>
+    <p>Boek jouw gratis kennismaking. We kijken samen wat jij nodig hebt en hoe we dat voor elkaar gaan krijgen. Geen verplichtingen.</p>
+    <a href="/gratis-intake/" class="btn-primary" style="font-size:17px; padding: 18px 40px;">Plan jouw gratis kennismaking →</a>
+    <div class="cta-chips">
+      <span class="cta-chip">Gratis & vrijblijvend</span>
+      <span class="cta-chip">Geen verkooppraatje</span>
+      <span class="cta-chip">Binnen 24 uur reactie</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/images/logo-mark-white.png" alt="Fit Up Leiderdorp">
+        <p>Boutique fitnessclub in Leiderdorp. Personal Training, Small Group PT, 24/7 fitness en groepslessen voor mensen die écht willen veranderen.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Diensten</h4>
+        <ul>
+          <li><a href="/sgpt/">Small Group PT</a></li>
+          <li><a href="/personal-training/">Personal Training</a></li>
+          <li><a href="/fitness/">24/7 Fitness</a></li>
+          <li><a href="/groepslessen/">Groepslessen</a></li>
+          <li><a href="/online-coaching/">Online Coaching</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0648776322">06 48 77 63 22</a></li>
+          <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+          <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
+          <li><a href="/gratis-intake/">Gratis kennismaking</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Fit Up Leiderdorp · KvK 12345678</span>
+      <span>Personal training Leiderdorp · Sportschool Leiderdorp · Fitness Leiderdorp</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── JS: Scroll reveal ─── -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<!-- Structured data: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": "Fit Up Leiderdorp",
+  "description": "Boutique fitnessclub in Leiderdorp met Personal Training, Small Group PT en 24/7 fitness.",
+  "url": "https://fitupleiderdorp.nl",
+  "telephone": "+31648776322",
+  "email": "info.fitup1@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Weversbaan 9",
+    "addressLocality": "Leiderdorp",
+    "addressCountry": "NL"
+  },
+  "openingHours": "Mo-Su 00:00-24:00",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "55"
+  },
+  "priceRange": "€€"
+}
+</script>
+
+</body>
+</html>
