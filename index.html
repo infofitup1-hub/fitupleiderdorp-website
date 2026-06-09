@@ -350,6 +350,22 @@
   @media (max-width:980px){
     nav{padding:16px 20px}
     nav.scrolled{padding:12px 20px}
+    /* WHY sectie - foto boven tekst op mobiel */
+    .why-grid{grid-template-columns:1fr!important;gap:32px}
+    .why-main-photo{width:100%!important;height:280px!important;overflow:hidden;border-radius:8px}
+    .why-main-photo img{width:100%!important;height:100%!important;object-fit:cover}
+
+    /* PROBLEM sectie - foto netjes op mobiel */
+    .problem-grid{grid-template-columns:1fr;gap:32px}
+    .problem-photos{position:static}
+    .prob-photo.tall{height:260px;min-height:0;aspect-ratio:unset}
+    .prob-photo.tall img{height:100%;object-fit:cover;object-position:center 60%}
+
+    /* PATRICK sectie - fotos kleiner op mobiel */
+    .patrick-wrap{grid-template-columns:1fr!important;gap:32px}
+    .patrick-photos{max-width:100%!important;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .p-main,.p-second{height:220px;overflow:hidden;border-radius:8px}
+    .p-main img,.p-second img{width:100%;height:100%;object-fit:cover;object-position:center top}
     .nav-links{display:none}
     .nav-toggle{display:inline-flex}
     .logo{font-size:24px;letter-spacing:3px}
@@ -413,6 +429,11 @@
     nav.scrolled{padding:10px 16px}
     .logo{font-size:22px;letter-spacing:2px}
     .nav-toggle{width:42px;height:42px}
+    /* Kleine telefoons */
+    .why-main-photo{height:220px!important}
+    .prob-photo.tall{height:200px}
+    .patrick-photos{grid-template-columns:1fr}
+    .p-main,.p-second{height:200px}
 
     /* 600m² wordt ticker onder de foto i.p.v. overlay op de foto */
     .prob-photo.tall .prob-caption{display:none}
