@@ -7,401 +7,451 @@
 <title>Fit Up Leiderdorp – Jouw gratis kennismaking</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --y:#C8FF00;--ink:#0D0D0D;--white:#FFFFFF;--off:#F5F5F3;
-  --mid:#888;--line:#E8E8E6;
+  --y:#C8FF00;--ink:#0A0A0A;--white:#fff;--off:#F4F4F2;--mid:#777;
   --font-h:'Barlow Condensed',sans-serif;
   --font-b:'Inter',sans-serif;
 }
-body{font-family:var(--font-b);background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-.topbar{position:fixed;top:0;left:0;right:0;z-index:99;height:56px;background:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
-.topbar img{height:26px}
-.topbar-cta{background:var(--y);color:var(--ink);font-family:var(--font-b);font-size:13px;font-weight:700;padding:9px 20px;border-radius:100px;text-decoration:none;transition:opacity .15s}
-.topbar-cta:hover{opacity:.85}
+/* ── TOPBAR ── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(10,10,10,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.topbar img{height:24px}
+.btn-y{background:var(--y);color:var(--ink);font-family:var(--font-b);font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;border:none;cursor:pointer}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,255,0,.4)}
+.btn-y-lg{font-size:16px;padding:18px 40px}
 
-.hero{padding-top:56px;min-height:100svh;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.hero-left{padding:72px 48px 72px 6%;display:flex;flex-direction:column;justify-content:center;z-index:2}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(200,255,0,.12);border:1px solid rgba(200,255,0,.25);color:var(--y);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:28px;width:fit-content}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--y);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:var(--font-h);font-weight:900;font-size:clamp(52px,5.5vw,88px);line-height:.88;letter-spacing:-.02em;text-transform:uppercase;color:var(--white);margin-bottom:28px}
-.hero h1 .accent{color:var(--y);display:block}
-.hero h1 .italic{font-style:italic}
-.hero-sub{font-size:16px;line-height:1.65;color:rgba(255,255,255,.55);max-width:400px;margin-bottom:40px}
-.hero-sub strong{color:rgba(255,255,255,.9);font-weight:600}
-.cta-block{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
-.btn-main{display:inline-flex;align-items:center;gap:10px;background:var(--y);color:var(--ink);font-family:var(--font-b);font-size:16px;font-weight:700;padding:17px 34px;border-radius:100px;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.btn-main:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(200,255,0,.35)}
-.btn-main svg{width:18px;height:18px}
-.hero-micro{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.35)}
-.hero-micro svg{width:14px;height:14px;stroke:rgba(255,255,255,.35)}
-.hero-right{position:relative;overflow:hidden}
-.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;filter:brightness(.78)}
-.hero-right::before{content:'';position:absolute;top:0;left:0;bottom:0;width:140px;background:linear-gradient(to right,var(--ink),transparent);z-index:1}
-.hero-right::after{content:'';position:absolute;top:0;right:0;width:4px;height:100%;background:var(--y)}
-.review-badge{position:absolute;bottom:32px;left:-28px;z-index:3;background:rgba(13,13,13,.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 22px;display:flex;align-items:center;gap:14px}
-.rb-num{font-family:var(--font-h);font-size:40px;font-weight:900;color:var(--white);line-height:1}
-.rb-right{display:flex;flex-direction:column;gap:3px}
-.rb-stars{display:flex;gap:3px}
-.rb-stars svg{width:13px;height:13px;fill:var(--y)}
-.rb-label{font-size:11px;color:rgba(255,255,255,.4)}
+/* ── HERO ── */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;padding-bottom:80px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 15%;transform-origin:center;will-change:transform}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,.6) 40%,rgba(10,10,10,.2) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 5%;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(200,255,0,.3);color:var(--y);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--y);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero h1{font-family:var(--font-h);font-weight:900;font-size:clamp(64px,10vw,140px);line-height:.85;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);overflow:hidden}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:block;transform:translateY(100%);animation:slideUp .7s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .line:nth-child(1) span{animation-delay:.1s}
+.hero h1 .line:nth-child(2) span{animation-delay:.22s}
+.hero h1 .line:nth-child(3) span{animation-delay:.34s}
+@keyframes slideUp{to{transform:translateY(0)}}
+.hero h1 em{font-style:italic;color:var(--y)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.6);margin-top:24px;margin-bottom:36px;max-width:480px;line-height:1.6}
+.hero-sub strong{color:var(--white)}
+.hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-micro{font-size:13px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:6px}
+.hero-micro svg{width:14px;height:14px;stroke:var(--y);fill:none;stroke-width:2;stroke-linecap:round}
 
-.proof-strip{background:var(--y);padding:0 6%;display:flex;align-items:stretch}
-.proof-item{flex:1;padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:2px;border-right:1px solid rgba(0,0,0,.12)}
-.proof-item:last-child{border-right:none}
-.proof-item strong{font-family:var(--font-h);font-size:32px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.02em}
-.proof-item span{font-size:12px;font-weight:500;color:rgba(0,0,0,.55);text-align:center}
+/* scroll indicator */
+.scroll-hint{position:absolute;bottom:24px;right:5%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.4}
+.scroll-hint span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;writing-mode:vertical-rl}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--y));animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
 
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:'';width:24px;height:2px;background:var(--y)}
-.eyebrow.light{color:rgba(255,255,255,.35)}
+/* ── TICKER ── */
+.ticker-wrap{background:var(--y);overflow:hidden;padding:14px 0;white-space:nowrap}
+.ticker{display:inline-flex;animation:ticker 20s linear infinite}
+.ticker-item{font-family:var(--font-h);font-size:22px;font-weight:800;text-transform:uppercase;color:var(--ink);padding:0 32px;letter-spacing:.04em}
+.ticker-sep{color:rgba(0,0,0,.3);margin:0 -8px}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-.sh2{font-family:var(--font-h);font-size:clamp(36px,4vw,58px);font-weight:900;text-transform:uppercase;line-height:.93;letter-spacing:-.02em;color:var(--ink);margin-bottom:48px}
-.sh2 em{font-style:italic;color:var(--y);-webkit-text-stroke:1.5px #aaa}
-.sh2.light{color:var(--white)}
-.sh2.light em{-webkit-text-stroke:none}
+/* ── STATS ── */
+.stats{padding:80px 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--ink)}
+.stat-box{padding:48px 32px;border:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;transition:background .3s}
+.stat-box:hover{background:rgba(255,255,255,.04)}
+.stat-box::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--y);transition:height .4s ease}
+.stat-box:hover::before{height:100%}
+.stat-num{font-family:var(--font-h);font-size:clamp(56px,5vw,80px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-.03em}
+.stat-num .suf{color:var(--y)}
+.stat-label{font-size:13px;color:rgba(255,255,255,.4);margin-top:8px;letter-spacing:.04em;text-transform:uppercase}
 
-.voor-wie{padding:96px 6%;background:var(--white)}
-.audience-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.audience-card{background:var(--off);border-radius:14px;padding:28px 22px 24px;display:flex;flex-direction:column;gap:10px;transition:background .2s,transform .2s;cursor:default}
-.audience-card:hover{background:var(--ink);transform:translateY(-4px)}
-.audience-card:hover .ac-title{color:var(--y)}
-.audience-card:hover .ac-body{color:rgba(255,255,255,.55)}
-.audience-card:hover .ac-icon svg{stroke:var(--y)}
-.ac-icon{width:36px;height:36px;margin-bottom:4px}
-.ac-icon svg{width:36px;height:36px;stroke:var(--ink);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
-.ac-title{font-family:var(--font-h);font-size:20px;font-weight:800;text-transform:uppercase;color:var(--ink);line-height:1;transition:color .2s}
-.ac-body{font-size:13px;color:var(--mid);line-height:1.55;transition:color .2s}
+/* ── DIENSTEN ── */
+.diensten{padding:0 5% 100px}
+.diensten-header{padding:80px 0 56px}
+.diensten-header h2{font-family:var(--font-h);font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em}
+.diensten-header h2 em{font-style:italic;color:var(--y)}
+.dienst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dienst-card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;group:dienst}
+.dienst-card-inner{position:relative;height:520px}
+.dienst-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1);filter:brightness(.55)}
+.dienst-card:hover .dienst-img{transform:scale(1.06);filter:brightness(.4)}
+.dienst-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.3) 50%,transparent 100%);transition:background .4s}
+.dienst-card:hover .dienst-overlay{background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,.6) 60%,rgba(10,10,10,.2) 100%)}
+.dienst-body{position:absolute;bottom:0;left:0;right:0;padding:36px 32px;transform:translateY(0);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.dienst-tag{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.dienst-tag::before{content:'';width:20px;height:2px;background:var(--y)}
+.dienst-card h3{font-family:var(--font-h);font-size:clamp(36px,3vw,48px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;margin-bottom:14px}
+.dienst-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0}
+.dienst-card:hover .dienst-desc{max-height:120px;opacity:1}
+.dienst-cta{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--ink);font-size:13px;font-weight:700;padding:12px 24px;border-radius:100px;text-decoration:none;margin-top:20px;transform:translateY(20px);opacity:0;transition:transform .4s .1s ease,opacity .4s .1s ease}
+.dienst-card:hover .dienst-cta{transform:translateY(0);opacity:1}
+.dienst-badge{position:absolute;top:24px;right:24px;background:rgba(200,255,0,.15);border:1px solid rgba(200,255,0,.3);color:var(--y);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px}
 
-/* SPLIT — foto en tekst naast elkaar */
-.split{display:grid;grid-template-columns:1fr 1fr;min-height:540px}
-.split-img{overflow:hidden;position:relative}
-.split-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-.split-img:hover img{transform:scale(1.03)}
-.split-body{padding:72px 6%;display:flex;flex-direction:column;justify-content:center}
-.split-body.white{background:var(--white)}
-.split-body.off{background:var(--off)}
-.split-body.dark{background:var(--ink)}
-.split-body h3{font-family:var(--font-h);font-size:clamp(32px,3.5vw,52px);font-weight:900;text-transform:uppercase;line-height:.93;letter-spacing:-.02em;color:var(--ink);margin-bottom:20px}
-.split-body.dark h3{color:var(--white)}
-.split-body h3 em{font-style:italic;color:var(--y);-webkit-text-stroke:1.5px #aaa}
-.split-body.dark h3 em{-webkit-text-stroke:none}
-.split-body p{font-size:15px;color:var(--mid);line-height:1.7;max-width:420px}
-.split-body.dark p{color:rgba(255,255,255,.5)}
-.split-body .btn-main{margin-top:32px;align-self:flex-start}
+/* ── FULLSCREEN FOTO MET TEKST EROVERHEEN ── */
+.editorial{position:relative;height:85vh;min-height:500px;overflow:hidden}
+.editorial-img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.45);transform:scale(1.05);transition:transform 8s ease}
+.editorial.in-view .editorial-img{transform:scale(1)}
+.editorial-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:5% 5% 6%}
+.editorial-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.editorial-eyebrow::before{content:'';width:32px;height:2px;background:var(--y)}
+.editorial h2{font-family:var(--font-h);font-size:clamp(52px,8vw,120px);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.03em;color:var(--white);max-width:900px}
+.editorial h2 em{font-style:italic;color:var(--y)}
+.editorial-sub{font-size:17px;color:rgba(255,255,255,.6);margin-top:24px;max-width:520px;line-height:1.6}
+/* big number stamp over photo */
+.editorial-stamp{position:absolute;top:5%;right:5%;font-family:var(--font-h);font-size:clamp(80px,14vw,200px);font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(200,255,0,.25);letter-spacing:-.04em;pointer-events:none;animation:floatY 6s ease-in-out infinite}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 
-.how{background:var(--ink);padding:96px 6%}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:36px 32px 40px;transition:background .2s}
-.step:hover{background:rgba(255,255,255,.08)}
-.step-num{font-family:var(--font-h);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:20px}
-.step h3{font-family:var(--font-h);font-size:28px;font-weight:800;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:12px}
-.step p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.65}
+/* ── RESULTATEN ── */
+.resultaten{padding:100px 5%;background:var(--ink)}
+.res-header{margin-bottom:64px}
+.res-header h2{font-family:var(--font-h);font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em}
+.res-header h2 em{font-style:italic;color:var(--y)}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.res-card{position:relative;border-radius:20px;overflow:hidden;background:#111}
+.res-card-img{width:100%;display:block;transition:transform .5s ease}
+.res-card:hover .res-card-img{transform:scale(1.03)}
+.res-stamp{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.res-stamp-text{font-family:var(--font-h);font-size:clamp(80px,10vw,140px);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(200,255,0,.2);letter-spacing:-.04em;text-transform:uppercase;transform:rotate(-8deg)}
+.res-label{position:absolute;bottom:0;left:0;right:0;padding:28px 28px 24px;background:linear-gradient(to top,rgba(10,10,10,.95),transparent)}
+.res-label strong{font-family:var(--font-h);font-size:32px;font-weight:900;color:var(--y);display:block;line-height:1}
+.res-label span{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;display:block}
 
-.reviews{background:var(--off);padding:96px 6%}
-.reviews-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.r-card{background:var(--white);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;border:1px solid var(--line)}
+/* ── OVER PATRICK ── */
+.patrick-section{position:relative;overflow:hidden;background:var(--ink)}
+.patrick-bg{position:relative;height:90vh;min-height:600px}
+.patrick-img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block;filter:brightness(.4)}
+.patrick-gradient{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,10,10,1) 0%,rgba(10,10,10,.7) 45%,transparent 100%)}
+.patrick-content{position:absolute;top:50%;left:5%;transform:translateY(-50%);max-width:600px;z-index:2}
+.patrick-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.patrick-eyebrow::before{content:'';width:32px;height:2px;background:var(--y)}
+.patrick-content blockquote{font-family:var(--font-h);font-size:clamp(44px,5.5vw,80px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.03em;color:var(--white);margin-bottom:28px}
+.patrick-content blockquote em{font-style:italic;color:var(--y)}
+.patrick-content p{font-size:16px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:32px;max-width:440px}
+/* floating stats over photo */
+.patrick-stat{position:absolute;bottom:10%;right:5%;background:rgba(10,10,10,.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px 32px;display:flex;gap:32px}
+.ps-item strong{font-family:var(--font-h);font-size:36px;font-weight:900;color:var(--white);display:block;line-height:1}
+.ps-item strong em{font-style:normal;color:var(--y)}
+.ps-item span{font-size:12px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em}
+
+/* ── REVIEWS ── */
+.reviews-section{padding:100px 5%;background:#0f0f0f}
+.reviews-section h2{font-family:var(--font-h);font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:56px}
+.reviews-section h2 em{font-style:italic;color:var(--y)}
+.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.r-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:background .25s,transform .25s}
+.r-card:hover{background:rgba(255,255,255,.08);transform:translateY(-4px)}
 .r-stars{display:flex;gap:3px}
-.r-stars svg{width:14px;height:14px;fill:#FFBB00}
-.r-text{font-size:15px;color:var(--ink);line-height:1.65;flex:1}
-.r-author{font-size:13px;font-weight:600;color:var(--mid);padding-top:12px;border-top:1px solid var(--line)}
+.r-stars svg{width:14px;height:14px;fill:var(--y)}
+.r-text{font-size:15px;color:rgba(255,255,255,.7);line-height:1.65;flex:1}
+.r-author{font-size:13px;font-weight:600;color:rgba(255,255,255,.35);padding-top:16px;border-top:1px solid rgba(255,255,255,.07)}
 
-.faq{background:var(--white);padding:96px 6%}
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:960px}
-.faq-item{background:var(--off);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-details summary{list-style:none;padding:22px 24px;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+/* ── FAQ ── */
+.faq-section{padding:100px 5%;background:var(--ink)}
+.faq-section h2{font-family:var(--font-h);font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:56px}
+.faq-section h2 em{font-style:italic;color:var(--y)}
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:1000px}
+.faq-item{border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden}
+details summary{list-style:none;padding:22px 24px;font-size:15px;font-weight:600;color:rgba(255,255,255,.85);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;transition:color .2s}
 details summary::-webkit-details-marker{display:none}
-.faq-icon{width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;font-weight:300;color:var(--mid);transition:background .2s,color .2s;line-height:1}
-details[open] .faq-icon{background:var(--y);color:var(--ink)}
-.faq-answer{padding:16px 24px 22px;font-size:14px;color:var(--mid);line-height:1.7;border-top:1px solid var(--line)}
+details[open] summary{color:var(--y)}
+.fi{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;font-weight:300;color:rgba(255,255,255,.4);transition:background .2s,color .2s,border-color .2s;line-height:1}
+details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
+.faq-a{padding:0 24px 22px;font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;border-top:1px solid rgba(255,255,255,.06);padding-top:16px}
 
-.final-cta{background:var(--ink);padding:120px 6%;text-align:center;position:relative;overflow:hidden}
-.final-cta::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.08) 0%,transparent 70%);pointer-events:none}
-.final-cta h2{font-family:var(--font-h);font-size:clamp(48px,7vw,100px);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.03em;color:var(--white);margin-bottom:24px;position:relative}
-.final-cta h2 em{font-style:italic;color:var(--y)}
-.final-cta p{font-size:16px;color:rgba(255,255,255,.45);margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.65}
-.final-chips{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:28px}
+/* ── FINALE CTA ── */
+.finale{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:100px 5%;text-align:center}
+.finale-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(200,255,0,.12),transparent 70%)}
+.finale-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
+.finale-content{position:relative;z-index:2}
+.finale h2{font-family:var(--font-h);font-size:clamp(60px,9vw,130px);font-weight:900;text-transform:uppercase;line-height:.85;letter-spacing:-.04em;color:var(--white);margin-bottom:28px}
+.finale h2 em{font-style:italic;color:var(--y)}
+.finale p{font-size:17px;color:rgba(255,255,255,.45);margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.65}
+.finale-chips{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:32px}
 .chip{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.4)}
-.chip svg{width:15px;height:15px;stroke:var(--y);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.chip svg{width:14px;height:14px;stroke:var(--y);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-footer{background:#080808;padding:28px 6%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-footer img{height:22px;opacity:.5}
-footer p{font-size:12px;color:rgba(255,255,255,.2)}
-footer a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none}
+/* ── FOOTER ── */
+footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer img{height:20px;opacity:.4}
+footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none}
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
-.reveal.in{opacity:1;transform:none}
-.reveal-delay{transition-delay:.12s}
-.reveal-delay2{transition-delay:.24s}
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.rv1{transition-delay:.1s}
+.rv2{transition-delay:.2s}
+.rv3{transition-delay:.3s}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-right{height:60vw;min-height:280px;order:-1}
-  .hero-right::before{display:none}
-  .hero-left{padding:48px 6% 56px}
-  .review-badge{bottom:20px;left:16px}
-  .split{grid-template-columns:1fr}
-  .split-img{height:320px;order:0}
-  .split .split-body-first{order:-1}
-  .steps{grid-template-columns:1fr}
-  .reviews-row,.faq-grid{grid-template-columns:1fr}
-  .audience-grid{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .dienst-grid{grid-template-columns:1fr}
+  .dienst-card-inner{height:400px}
+  .res-grid{grid-template-columns:1fr}
+  .r-grid{grid-template-columns:1fr}
+  .faq-list{grid-template-columns:1fr}
+  .patrick-stat{bottom:5%;left:5%;right:5%;flex-wrap:wrap;gap:20px}
+  .patrick-content{position:relative;top:auto;left:auto;transform:none;padding:48px 5%;max-width:100%}
+  .patrick-bg{height:auto}
+  .patrick-img{height:60vw;min-height:300px}
+  .patrick-gradient{background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,.5) 50%,transparent 100%)}
 }
 @media(max-width:600px){
-  .proof-strip{flex-wrap:wrap}
-  .proof-item{flex:1 0 50%;border-bottom:1px solid rgba(0,0,0,.08)}
-  .proof-item:nth-child(2n){border-right:none}
+  .stats{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:clamp(52px,14vw,90px)}
 }
 </style>
 </head>
 <body>
 
+<!-- TOPBAR -->
 <nav class="topbar">
   <img src="assets/images/logo-mark-white.png" alt="Fit Up Leiderdorp">
-  <a href="#kennismaking" class="topbar-cta">Gratis kennismaking →</a>
+  <a href="#kennismaking" class="btn-y">Gratis kennismaking →</a>
 </nav>
 
-<!-- HERO: Patrick links, tekst rechts — andersom van gewone pagina -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Leiderdorp · Boutique fitness</div>
-    <h1>Stoppen<br>met<br><span class="accent italic">beginnen.</span></h1>
+<!-- HERO: Patrick foto, grote typografie eroverheen -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="assets/images/ad-patrick.jpg" alt="Fit Up Leiderdorp" id="hero-img">
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="hero-tag-dot"></span>Leiderdorp · Boutique fitness</div>
+    <h1>
+      <span class="line"><span>Stoppen</span></span>
+      <span class="line"><span>met</span></span>
+      <span class="line"><span><em>Beginnen.</em></span></span>
+    </h1>
     <p class="hero-sub">Bij Fit Up train je in een club waar je <strong>echt gezien wordt</strong>. Maximaal 4 mensen per groep, een coach die jou kent en een aanpak die wél blijft werken.</p>
-    <div class="cta-block">
-      <a href="#kennismaking" class="btn-main">
-        Plan jouw gratis kennismaking
-        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/></svg>
-      </a>
+    <div class="hero-ctas">
+      <a href="#kennismaking" class="btn-y btn-y-lg">Plan gratis kennismaking →</a>
       <span class="hero-micro">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
-        Geen verplichtingen. Gratis. Binnen 24 uur reactie.
+        <svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
+        Gratis &amp; vrijblijvend
       </span>
     </div>
   </div>
-  <div class="hero-right">
-    <img src="assets/images/ad-patrick.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp">
-    <div class="review-badge">
-      <div class="rb-num">4.9</div>
-      <div class="rb-right">
-        <div class="rb-stars">
-          <svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg>
-          <svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg>
-          <svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg>
-          <svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg>
-          <svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span class="ticker-item">Personal Training <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Small Group PT <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">24/7 Fitness <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Leiderdorp <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">200+ leden <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">4.9 Google <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">10+ jaar ervaring <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Personal Training <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Small Group PT <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">24/7 Fitness <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Leiderdorp <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">200+ leden <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">4.9 Google <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">10+ jaar ervaring <span class="ticker-sep">·</span></span>
+  </div>
+</div>
+
+<!-- STATS met optellende nummers -->
+<div class="stats">
+  <div class="stat-box rv">
+    <div class="stat-num"><span class="count" data-target="200">0</span><span class="suf">+</span></div>
+    <div class="stat-label">Actieve leden</div>
+  </div>
+  <div class="stat-box rv rv1">
+    <div class="stat-num"><span class="count" data-target="4" data-decimal="1">0</span><span class="suf">★</span></div>
+    <div class="stat-label">Google beoordeling</div>
+  </div>
+  <div class="stat-box rv rv2">
+    <div class="stat-num">24<span class="suf">/7</span></div>
+    <div class="stat-label">Gymtoegang</div>
+  </div>
+  <div class="stat-box rv rv3">
+    <div class="stat-num"><span class="count" data-target="10">0</span><span class="suf">+ jr</span></div>
+    <div class="stat-label">Ervaring</div>
+  </div>
+</div>
+
+<!-- DIENSTEN: 3 kaarten met foto's en hover-reveal -->
+<section class="diensten">
+  <div class="diensten-header rv">
+    <h2>Kies jouw<br><em>aanpak.</em></h2>
+  </div>
+  <div class="dienst-grid">
+
+    <!-- SGPT -->
+    <div class="dienst-card rv">
+      <div class="dienst-card-inner">
+        <img src="assets/images/ad-actie-squat.webp" alt="Small Group PT Fit Up" class="dienst-img">
+        <div class="dienst-overlay"></div>
+        <div class="dienst-badge">Populairste keuze</div>
+        <div class="dienst-body">
+          <div class="dienst-tag">Small Group PT</div>
+          <h3>Samen.<br>Persoonlijk.<br>Resultaat.</h3>
+          <p class="dienst-desc">Max 4 personen per groep. Jij krijgt echte coaching — geen nummer in een grote zaal. De energie van samen trainen, met de aandacht van personal training.</p>
+          <a href="/gratis-intake/" class="dienst-cta">Plan kennismaking SGPT →</a>
         </div>
-        <div class="rb-label">55+ Google reviews</div>
+      </div>
+    </div>
+
+    <!-- 1-op-1 PT -->
+    <div class="dienst-card rv rv1">
+      <div class="dienst-card-inner">
+        <img src="assets/images/ad-actie-cable.webp" alt="Personal Training Fit Up" class="dienst-img">
+        <div class="dienst-overlay"></div>
+        <div class="dienst-badge">Snelste resultaat</div>
+        <div class="dienst-body">
+          <div class="dienst-tag">Personal Training</div>
+          <h3>100%<br>Focus.<br>Op Jou.</h3>
+          <p class="dienst-desc">Elke sessie volledig afgestemd op jouw lichaam, jouw tempo en jouw doelen. De directste weg naar het resultaat dat jij wil.</p>
+          <a href="/gratis-intake/" class="dienst-cta">Plan kennismaking PT →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 24/7 -->
+    <div class="dienst-card rv rv2">
+      <div class="dienst-card-inner">
+        <img src="assets/images/ad-gym-overzicht.webp" alt="24/7 Fitness Fit Up" class="dienst-img">
+        <div class="dienst-overlay"></div>
+        <div class="dienst-badge">Maximale vrijheid</div>
+        <div class="dienst-body">
+          <div class="dienst-tag">24/7 Fitness</div>
+          <h3>Jouw gym.<br>Jouw tijd.<br>Altijd.</h3>
+          <p class="dienst-desc">Toegang op elk moment — ook op feestdagen. Topapparatuur, ruimte en rust. Geen wachtrijen, geen drukte. Gewoon trainen.</p>
+          <a href="/gratis-intake/" class="dienst-cta">Word lid 24/7 →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDITORIAL: squat foto volledige breedte met grote tekst eroverheen -->
+<div class="editorial rv" id="editorial-1">
+  <img src="assets/images/ad-actie-squat.webp" alt="Groepstraining Fit Up" class="editorial-img">
+  <div class="editorial-stamp">SGPT</div>
+  <div class="editorial-content">
+    <div class="editorial-eyebrow">Small Group PT</div>
+    <h2>Max 4.<br><em>Veel aandacht.</em></h2>
+    <p class="editorial-sub">Je traint samen maar wordt individueel begeleid. De energie van een groep, met de focus van personal training.</p>
+  </div>
+</div>
+
+<!-- RESULTATEN -->
+<section class="resultaten">
+  <div class="res-header rv">
+    <h2>Echte mensen.<br><em>Echte cijfers.</em></h2>
+  </div>
+  <div class="res-grid">
+    <div class="res-card rv">
+      <img src="assets/images/ad-result-marja.png" alt="Marja -13kg" class="res-card-img">
+      <div class="res-stamp"><span class="res-stamp-text">-13KG</span></div>
+      <div class="res-label">
+        <strong>-13 KG</strong>
+        <span>Marja · 69 jaar · Meer energie &amp; vertrouwen</span>
+      </div>
+    </div>
+    <div class="res-card rv rv1">
+      <img src="assets/images/ad-result-34kg.png" alt="-34kg resultaat" class="res-card-img">
+      <div class="res-stamp"><span class="res-stamp-text">-34KG</span></div>
+      <div class="res-label">
+        <strong>-34 KG</strong>
+        <span>Transformatie · De fitste versie ooit</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-item"><strong>200+</strong><span>Actieve leden</span></div>
-  <div class="proof-item"><strong>Max 4</strong><span>Per trainingsgroep</span></div>
-  <div class="proof-item"><strong>24/7</strong><span>Gymtoegang</span></div>
-  <div class="proof-item"><strong>10+ jr</strong><span>Ervaring</span></div>
-  <div class="proof-item"><strong>4.9 ★</strong><span>Google</span></div>
-</div>
-
-<!-- VOOR WIE -->
-<section class="voor-wie">
-  <div class="eyebrow reveal">Voor wie is Fit Up?</div>
-  <h2 class="sh2 reveal">Dit is jouw<br><em>moment.</em></h2>
-  <div class="audience-grid">
-    <div class="audience-card reveal">
-      <div class="ac-icon"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14"/><circle cx="18" cy="18" r="7"/><circle cx="18" cy="18" r="2" fill="#0D0D0D" stroke="none"/></svg></div>
-      <div class="ac-title">Afvallen</div>
-      <div class="ac-body">Structureel, niet snel. Begeleiding die écht werkt.</div>
-    </div>
-    <div class="audience-card reveal reveal-delay">
-      <div class="ac-icon"><svg viewBox="0 0 36 36"><rect x="2" y="14" width="5" height="8" rx="1.5"/><rect x="29" y="14" width="5" height="8" rx="1.5"/><rect x="7" y="11" width="4" height="14" rx="1.5"/><rect x="25" y="11" width="4" height="14" rx="1.5"/><line x1="11" y1="18" x2="25" y2="18"/></svg></div>
-      <div class="ac-title">Spieropbouw</div>
-      <div class="ac-body">Sterker worden met een plan dat past bij jouw lichaam.</div>
-    </div>
-    <div class="audience-card reveal reveal-delay">
-      <div class="ac-icon"><svg viewBox="0 0 36 36"><polyline points="20,3 11,19 18,19 16,33 25,17 18,17 20,3"/></svg></div>
-      <div class="ac-title">Meer energie</div>
-      <div class="ac-body">Druk schema? We bouwen iets wat in jouw leven past.</div>
-    </div>
-    <div class="audience-card reveal reveal-delay2">
-      <div class="ac-icon"><svg viewBox="0 0 36 36"><circle cx="18" cy="8" r="5"/><path d="M9 33 L12 22 L18 26 L24 22 L27 33"/><path d="M12 22 L9 15 Q18 11 27 15 L24 22"/></svg></div>
-      <div class="ac-title">40+ Beginners</div>
-      <div class="ac-body">Geen oordeel. We starten waar jij staat.</div>
-    </div>
-    <div class="audience-card reveal reveal-delay2">
-      <div class="ac-icon"><svg viewBox="0 0 36 36"><path d="M18 31 C18 31 5 25 5 12 C5 12 12 6 23 9 C29 10 31 17 29 22 C27 27 18 31 18 31Z"/><line x1="18" y1="31" x2="18" y2="18"/><line x1="18" y1="24" x2="24" y2="17"/><line x1="18" y1="20" x2="12" y2="14"/></svg></div>
-      <div class="ac-title">Gezonde leefstijl</div>
-      <div class="ac-body">Geen extremen. Duurzaam beter voelen.</div>
-    </div>
-  </div>
-</section>
-
-<!-- SPLIT 1: gym overzicht links + tekst rechts -->
-<div class="split reveal">
-  <div class="split-img">
-    <img src="assets/images/ad-gym-overzicht.webp" alt="Krachtruimte Fit Up Leiderdorp" loading="lazy">
-  </div>
-  <div class="split-body off">
-    <div class="eyebrow">De gym</div>
-    <h3>800m² pure<br><em>focus.</em></h3>
-    <p>Geen wachtrijen, geen drukte. Een volledig uitgeruste boutique gym voor mensen die serieus willen trainen. Alles wat je nodig hebt, niets wat je afleidt.</p>
+<!-- EDITORIAL: gym foto met grote tekst -->
+<div class="editorial rv" id="editorial-2">
+  <img src="assets/images/ad-gym-overzicht.webp" alt="Gym Fit Up Leiderdorp" class="editorial-img">
+  <div class="editorial-stamp">800M²</div>
+  <div class="editorial-content">
+    <div class="editorial-eyebrow">De gym</div>
+    <h2>800m²<br><em>Geen excuses.</em></h2>
+    <p class="editorial-sub">Topapparatuur, geen wachtrijen, geen gedoe. Jouw gym — wanneer jij wil.</p>
   </div>
 </div>
 
-<!-- HOW IT WORKS — geen foto, bewuste rust -->
-<section class="how">
-  <div class="eyebrow light reveal">Hoe het werkt</div>
-  <h2 class="sh2 light reveal">Drie stappen.<br><em>Één beslissing.</em></h2>
-  <div class="steps">
-    <div class="step reveal">
-      <div class="step-num">Stap 01</div>
-      <h3>Gratis kennismaking</h3>
-      <p>We praten 30 minuten. Jouw doelen, jouw leven, jouw tempo. Geen verkoopverhaal — gewoon een eerlijk gesprek.</p>
+<!-- PATRICK over foto -->
+<div class="patrick-section">
+  <div class="patrick-bg">
+    <img src="assets/images/ad-patrick.jpg" alt="Patrick eigenaar Fit Up" class="patrick-img">
+    <div class="patrick-gradient"></div>
+    <div class="patrick-content rv">
+      <div class="patrick-eyebrow">De coach</div>
+      <blockquote>"Geen trucjes.<br>Geen beloftes.<br><em>Gewoon resultaat."</em></blockquote>
+      <p>Patrick richtte Fit Up op in 2014 na 13 jaar militaire dienst. Direct, eerlijk, resultaatgericht. Hier ken je je coach — en hij kent jou.</p>
+      <a href="#kennismaking" class="btn-y">Plan gratis kennismaking →</a>
     </div>
-    <div class="step reveal reveal-delay">
-      <div class="step-num">Stap 02</div>
-      <h3>Persoonlijk plan</h3>
-      <p>We bouwen een aanpak die past bij jou — niet bij een standaard schema dat voor iedereen hetzelfde is.</p>
+    <div class="patrick-stat rv">
+      <div class="ps-item"><strong>2014<em></em></strong><span>Opgericht</span></div>
+      <div class="ps-item"><strong>13<em>jr</em></strong><span>Militaire dienst</span></div>
+      <div class="ps-item"><strong>200<em>+</em></strong><span>Actieve leden</span></div>
     </div>
-    <div class="step reveal reveal-delay2">
-      <div class="step-num">Stap 03</div>
-      <h3>Resultaat</h3>
-      <p>Je traint gericht, voelt verschil en ziet progressie. Bijgestuurd wanneer nodig. Gemotiveerd de hele weg.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SPLIT 2: tekst links + squat training rechts -->
-<div class="split reveal">
-  <div class="split-body white split-body-first">
-    <div class="eyebrow">Small Group PT</div>
-    <h3>Max 4 mensen.<br><em>Veel aandacht.</em></h3>
-    <p>Je traint samen maar wordt individueel begeleid. De energie van een groep, met de focus van personal training. En betaalbaarder ook.</p>
-    <a href="#kennismaking" class="btn-main">Probeer het gratis →</a>
-  </div>
-  <div class="split-img">
-    <img src="assets/images/ad-actie-squat.webp" alt="Groepstraining bij Fit Up Leiderdorp" loading="lazy">
-  </div>
-</div>
-
-<!-- SPLIT 3: Marja resultaat links + tekst rechts (donker) -->
-<div class="split reveal">
-  <div class="split-img" style="background:#0D0D0D">
-    <img src="assets/images/ad-result-marja.png" alt="Marja -13kg Fit Up Leiderdorp" loading="lazy" style="object-fit:contain;padding:32px">
-  </div>
-  <div class="split-body dark">
-    <div class="eyebrow light">Bewezen resultaat</div>
-    <h3>Marja.<br>69 jaar.<br><em>-13 kg.</em></h3>
-    <p>Meer energie, meer vertrouwen en zichtbaar resultaat. Dit is geen uitzondering — dit is wat er gebeurt als je de juiste begeleiding krijgt.</p>
-    <a href="#kennismaking" class="btn-main">Ik wil dit ook →</a>
-  </div>
-</div>
-
-<!-- SPLIT 4: lounge sfeer links + tekst rechts -->
-<div class="split reveal">
-  <div class="split-img">
-    <img src="assets/images/ad-gym-lounge.webp" alt="Lounge Fit Up Leiderdorp" loading="lazy">
-  </div>
-  <div class="split-body off">
-    <div class="eyebrow">De sfeer</div>
-    <h3>Geen massale<br><em>sportschool.</em></h3>
-    <p>Geen nummertje, geen anonimiteit. Hier ken je de mensen om je heen en kennen ze jou. Dat maakt het verschil tussen starten en doorgaan.</p>
-  </div>
-</div>
-
-<!-- SPLIT 5: tekst links + cable training rechts -->
-<div class="split reveal">
-  <div class="split-body white split-body-first">
-    <div class="eyebrow">Personal Training</div>
-    <h3>Jij staat<br><em>centraal.</em></h3>
-    <p>Elke training gebouwd rond jouw lichaam en jouw doelen. Maximale aandacht, maximale progressie. De snelste weg naar het resultaat dat jij wil.</p>
-    <a href="#kennismaking" class="btn-main">Plan gratis kennismaking →</a>
-  </div>
-  <div class="split-img">
-    <img src="assets/images/ad-actie-cable.webp" alt="Personal training Fit Up Leiderdorp" loading="lazy">
-  </div>
-</div>
-
-<!-- SPLIT 6: -34kg resultaat links + tekst rechts (donker) -->
-<div class="split reveal">
-  <div class="split-img" style="background:#0D0D0D">
-    <img src="assets/images/ad-result-34kg.png" alt="-34kg resultaat Fit Up Leiderdorp" loading="lazy" style="object-fit:contain;padding:32px">
-  </div>
-  <div class="split-body dark">
-    <div class="eyebrow light">Nog een resultaat</div>
-    <h3>Niet één keer.<br><em>Elke keer.</em></h3>
-    <p>-34 kg. Dit zijn geen trucjes of crash-diëten. Dit is wat consistentie, de juiste begeleiding en een aanpak die bij jou past, doet.</p>
-  </div>
-</div>
-
-<!-- SPLIT 7: cardio ruimte links + Patrick quote rechts -->
-<div class="split reveal">
-  <div class="split-img">
-    <img src="assets/images/ad-gym-cardio.webp" alt="Cardio ruimte Fit Up Leiderdorp" loading="lazy">
-  </div>
-  <div class="split-body dark">
-    <div class="eyebrow light">De coach</div>
-    <h3>"Geen trucjes.<br>Gewoon<br><em>resultaat."</em></h3>
-    <p>Patrick richtte Fit Up op in 2014 na 13 jaar militaire dienst. Direct, eerlijk en altijd gericht op wat echt werkt. Geen opvulling — gewoon doen.</p>
   </div>
 </div>
 
 <!-- REVIEWS -->
-<section class="reviews">
-  <div class="eyebrow reveal">Wat leden zeggen</div>
-  <h2 class="sh2 reveal">Echte mensen.<br><em>Echte resultaten.</em></h2>
-  <div class="reviews-row">
-    <div class="r-card reveal">
+<section class="reviews-section">
+  <h2 class="rv">Wat leden<br><em>zeggen.</em></h2>
+  <div class="r-grid">
+    <div class="r-card rv">
       <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Eindelijk een plek waar je echt gezien wordt. In drie maanden meer bereikt dan in drie jaar daarvoor."</p>
+      <p class="r-text">"Eindelijk een plek waar je echt gezien wordt. In drie maanden meer bereikt dan in drie jaar daarvoor. Patrick weet precies wat je nodig hebt."</p>
       <div class="r-author">Sandra V. — Personal Training</div>
     </div>
-    <div class="r-card reveal reveal-delay">
+    <div class="r-card rv rv1">
       <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Als beginner was ik bang voor grote sportscholen. Kleine groep, veel aandacht en échte resultaten. Had dit eerder willen doen."</p>
+      <p class="r-text">"Als beginner was ik bang voor grote sportscholen. Kleine groep, veel aandacht en echte resultaten. Had dit eerder willen doen."</p>
       <div class="r-author">Mark T. — Small Group PT</div>
     </div>
-    <div class="r-card reveal reveal-delay2">
+    <div class="r-card rv rv2">
       <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"De 24/7 toegang is ideaal. Altijd schoon, goede apparatuur, rustige sfeer. Zou ik iedereen aanraden in de regio Leiden."</p>
+      <p class="r-text">"De 24/7 toegang is ideaal voor mijn drukke schema. Altijd schoon, goede apparatuur. Zou ik iedereen aanraden in de regio Leiden."</p>
       <div class="r-author">Lisa K. — 24/7 Fitness</div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq">
-  <div class="eyebrow reveal">Veelgestelde vragen</div>
-  <h2 class="sh2 reveal">Snel<br><em>antwoord.</em></h2>
-  <div class="faq-grid">
-    <div class="faq-item reveal"><details><summary>Is de kennismaking echt gratis?<span class="faq-icon">+</span></summary><p class="faq-answer">Ja, 100% gratis en vrijblijvend. Geen verkooppraatje, geen druk. Gewoon een gesprek.</p></details></div>
-    <div class="faq-item reveal reveal-delay"><details><summary>Ik heb nooit gesport. Is dat erg?<span class="faq-icon">+</span></summary><p class="faq-answer">Absoluut niet. Een groot deel van onze leden begon hier als beginner. We starten op jouw niveau.</p></details></div>
-    <div class="faq-item reveal"><details><summary>Wat is het verschil tussen PT en SGPT?<span class="faq-icon">+</span></summary><p class="faq-answer">PT is 1-op-1. SGPT is max 4 mensen — persoonlijker dan een groepsles, betaalbaarder dan solo PT.</p></details></div>
-    <div class="faq-item reveal reveal-delay"><details><summary>Hoe werkt de 24/7 toegang?<span class="faq-icon">+</span></summary><p class="faq-answer">Je krijgt een persoonlijke toegangspas. Op elk moment binnen — ook weekenden en feestdagen.</p></details></div>
-    <div class="faq-item reveal"><details><summary>Waar is Fit Up gevestigd?<span class="faq-icon">+</span></summary><p class="faq-answer">Weversbaan 9, Leiderdorp. Goed bereikbaar vanuit Leiden, Oegstgeest, Voorschoten. Ruim parkeren.</p></details></div>
-    <div class="faq-item reveal reveal-delay"><details><summary>Kan ik eerst een proeftraining doen?<span class="faq-icon">+</span></summary><p class="faq-answer">Ja. Na de kennismaking plannen we indien gewenst een proeftraining — zonder verplichtingen.</p></details></div>
+<section class="faq-section">
+  <h2 class="rv">Jouw<br><em>vragen.</em></h2>
+  <div class="faq-list">
+    <div class="faq-item rv"><details><summary>Is de kennismaking echt gratis?<span class="fi">+</span></summary><p class="faq-a">Ja — 100% gratis en vrijblijvend. Geen verkooppraatje, geen druk. Gewoon een eerlijk gesprek over jouw doelen.</p></details></div>
+    <div class="faq-item rv rv1"><details><summary>Ik heb nooit gesport. Is dat erg?<span class="fi">+</span></summary><p class="faq-a">Absoluut niet. Een groot deel van onze leden begon hier als beginner of na jaren niet gesport te hebben. We starten op jouw niveau.</p></details></div>
+    <div class="faq-item rv"><details><summary>Wat is het verschil tussen PT en SGPT?<span class="fi">+</span></summary><p class="faq-a">PT is 1-op-1 met volledige aandacht van de coach. SGPT is max 4 mensen — persoonlijker dan een groepsles, betaalbaarder dan solo PT.</p></details></div>
+    <div class="faq-item rv rv1"><details><summary>Hoe werkt de 24/7 toegang?<span class="fi">+</span></summary><p class="faq-a">Je krijgt een persoonlijke toegangspas. Op elk moment binnen — ook in het weekend en op feestdagen. De ruimte is beveiligd.</p></details></div>
+    <div class="faq-item rv"><details><summary>Waar is Fit Up gevestigd?<span class="fi">+</span></summary><p class="faq-a">Weversbaan 9, Leiderdorp. Goed bereikbaar vanuit Leiden, Oegstgeest en Voorschoten. Ruim parkeren voor de deur.</p></details></div>
+    <div class="faq-item rv rv1"><details><summary>Kan ik eerst een proeftraining doen?<span class="fi">+</span></summary><p class="faq-a">Ja. Na de kennismaking plannen we indien gewenst een proeftraining. Zo ervaar je de sfeer voordat je ergens voor tekent.</p></details></div>
   </div>
 </section>
 
 <!-- FINALE CTA -->
-<section class="final-cta" id="kennismaking">
-  <h2 class="reveal">Nu<br><em>starten.</em></h2>
-  <p class="reveal">Boek jouw gratis kennismaking. We regelen de rest.</p>
-  <a href="/gratis-intake/" class="btn-main reveal" style="margin:0 auto;font-size:17px;padding:20px 44px">
-    Plan jouw gratis kennismaking
-    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/></svg>
-  </a>
-  <div class="final-chips reveal">
-    <span class="chip"><svg viewBox="0 0 15 15"><polyline points="2,7.5 5.5,11 13,3"/></svg>Gratis & vrijblijvend</span>
-    <span class="chip"><svg viewBox="0 0 15 15"><polyline points="2,7.5 5.5,11 13,3"/></svg>Geen verkooppraatje</span>
-    <span class="chip"><svg viewBox="0 0 15 15"><polyline points="2,7.5 5.5,11 13,3"/></svg>Binnen 24 uur reactie</span>
+<section class="finale" id="kennismaking">
+  <div class="finale-bg"></div>
+  <div class="finale-grid-lines"></div>
+  <div class="finale-content">
+    <h2 class="rv">Nu<br><em>starten.</em></h2>
+    <p class="rv rv1">Boek jouw gratis kennismaking. We regelen de rest.</p>
+    <a href="/gratis-intake/" class="btn-y btn-y-lg rv rv1">Plan gratis kennismaking →</a>
+    <div class="finale-chips rv rv2">
+      <span class="chip"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Gratis &amp; vrijblijvend</span>
+      <span class="chip"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Geen verkooppraatje</span>
+      <span class="chip"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Binnen 24 uur reactie</span>
+    </div>
   </div>
 </section>
 
@@ -412,8 +462,58 @@ footer a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none}
 </footer>
 
 <script>
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Reveal on scroll
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)} });
+},{threshold:.08,rootMargin:'0px 0px -48px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Editorial parallax
+const editorials = document.querySelectorAll('.editorial');
+const editIo = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in-view')});
+},{threshold:.1});
+editorials.forEach(el=>editIo.observe(el));
+
+window.addEventListener('scroll',()=>{
+  const sy = window.scrollY;
+  // Hero parallax
+  const himg = document.getElementById('hero-img');
+  if(himg) himg.style.transform = `translateY(${sy*0.3}px)`;
+  // Editorial parallax
+  editorials.forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    const offset = (rect.top / window.innerHeight) * 40;
+    const img = el.querySelector('.editorial-img');
+    if(img) img.style.transform = `scale(1.05) translateY(${offset}px)`;
+  });
+},{passive:true});
+
+// Count-up animatie
+function countUp(el){
+  const target = parseFloat(el.dataset.target);
+  const decimal = el.dataset.decimal ? parseInt(el.dataset.decimal) : 0;
+  const duration = 1800;
+  const start = performance.now();
+  function step(now){
+    const progress = Math.min((now-start)/duration,1);
+    const ease = 1-Math.pow(1-progress,3);
+    const val = target*ease;
+    el.textContent = decimal ? val.toFixed(decimal) : Math.floor(val);
+    if(progress<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const countIo = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.count').forEach(countUp);
+      countIo.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.stats').forEach(el=>countIo.observe(el));
 </script>
 </body>
 </html>
