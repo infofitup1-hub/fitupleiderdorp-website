@@ -217,6 +217,52 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   .other-results{grid-template-columns:1fr}
 }
 
+
+/* ── FORMULIER ── */
+.form-section{padding:100px 5%;background:#0f0f0f;position:relative;overflow:hidden}
+.form-section::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 65%);pointer-events:none}
+.form-inner{max-width:640px;margin:0 auto;position:relative;z-index:2}
+.form-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.form-eyebrow::before{content:'';width:28px;height:2px;background:var(--y)}
+.form-section h2{font-family:var(--font-h);font-size:clamp(44px,6vw,80px);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.03em;color:var(--white);margin-bottom:12px}
+.form-section h2 em{font-style:italic;color:var(--y)}
+.form-sub{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:40px;line-height:1.6}
+
+/* Schaarste badge */
+.schaarste{display:inline-flex;align-items:center;gap:10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;padding:10px 20px;margin-bottom:40px}
+.schaarste-dot{width:8px;height:8px;border-radius:50%;background:var(--y);animation:blink 1.5s ease-in-out infinite;flex-shrink:0}
+.schaarste-text{font-size:13px;font-weight:600;color:var(--y)}
+.schaarste-text span{color:rgba(255,255,255,.5);font-weight:400}
+
+/* Keuze tabs */
+.keuze-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:32px}
+.keuze-tab{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer;transition:all .2s;user-select:none}
+.keuze-tab:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+.keuze-tab.active{background:rgba(200,255,0,.1);border-color:rgba(200,255,0,.4)}
+.keuze-tab-title{font-family:var(--font-h);font-size:16px;font-weight:800;text-transform:uppercase;color:var(--white);display:block;line-height:1;margin-bottom:4px}
+.keuze-tab.active .keuze-tab-title{color:var(--y)}
+.keuze-tab-sub{font-size:11px;color:rgba(255,255,255,.35)}
+.keuze-tab.active .keuze-tab-sub{color:rgba(200,255,0,.6)}
+
+/* Form fields */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field.full{grid-column:span 2}
+.form-field label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.form-field input,.form-field select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;font-size:15px;color:var(--white);font-family:var(--font-b);outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none}
+.form-field input::placeholder{color:rgba(255,255,255,.25)}
+.form-field input:focus,.form-field select:focus{border-color:rgba(200,255,0,.5);background:rgba(255,255,255,.08)}
+.form-field select option{background:#1a1a1a;color:var(--white)}
+.form-submit{margin-top:8px}
+.form-submit .btn-y{width:100%;justify-content:center;font-size:17px;padding:20px;border-radius:14px}
+.form-disclaimer{font-size:12px;color:rgba(255,255,255,.2);text-align:center;margin-top:16px;line-height:1.6}
+
+@media(max-width:600px){
+  .form-grid{grid-template-columns:1fr}
+  .form-field.full{grid-column:span 1}
+  .keuze-tabs{grid-template-columns:1fr}
+}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -260,7 +306,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <!-- HERO: Patrick foto, grote typografie eroverheen -->
 <section class="hero" id="home">
   <div class="hero-bg">
-    <img src="assets/images/ad-patrick.jpg" alt="Fit Up Leiderdorp" id="hero-img">
+    <img src="assets/images/ad-actie-squat.webp" alt="Training bij Fit Up Leiderdorp" id="hero-img">
   </div>
   <div class="hero-content">
     <div class="hero-tag"><span class="hero-tag-dot"></span>Jouw Personal Gym · Leiderdorp</div>
@@ -334,7 +380,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <!-- SGPT -->
     <div class="dienst-card rv">
       <div class="dienst-card-inner">
-        <img src="assets/images/ad-actie-squat.webp" alt="Small Group PT Fit Up" class="dienst-img">
+        <img src="assets/images/ad-gym-lounge.webp" alt="Small Group PT Fit Up" class="dienst-img">
         <div class="dienst-overlay"></div>
         <div class="dienst-badge">Populairste keuze</div>
         <div class="dienst-body">
@@ -381,7 +427,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 
 <!-- EDITORIAL: squat foto volledige breedte met grote tekst eroverheen -->
 <div class="editorial rv" id="editorial-1">
-  <img src="assets/images/ad-gym-lounge.webp" alt="Groepstraining Fit Up" class="editorial-img">
+  <img src="assets/images/ad-patrick.jpg" alt="Karin training Fit Up" class="editorial-img">
   <div class="editorial-stamp">SGPT</div>
   <div class="editorial-content">
     <div class="editorial-eyebrow">Small Group PT</div>
@@ -528,6 +574,84 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
   </div>
 </section>
 
+
+<!-- FORMULIER + SCHAARSTE -->
+<section class="form-section" id="kennismaking">
+  <div class="form-inner">
+    <div class="form-eyebrow rv">Directe aanmelding</div>
+    <h2 class="rv">Start<br><em>vandaag.</em></h2>
+    <p class="form-sub rv">Vul je gegevens in — we nemen binnen 24 uur contact op voor jouw gratis kennismaking.</p>
+
+    <div class="schaarste rv">
+      <div class="schaarste-dot"></div>
+      <div class="schaarste-text">Nog <strong>4 plekken</strong> beschikbaar <span>· deze maand · Leiderdorp</span></div>
+    </div>
+
+    <!-- Keuze -->
+    <div class="keuze-tabs rv" id="keuze-tabs">
+      <div class="keuze-tab active" data-keuze="SGPT" onclick="selectKeuze(this)">
+        <span class="keuze-tab-title">Small Group</span>
+        <span class="keuze-tab-sub">Max 4 personen</span>
+      </div>
+      <div class="keuze-tab" data-keuze="Personal Training" onclick="selectKeuze(this)">
+        <span class="keuze-tab-title">1-op-1 PT</span>
+        <span class="keuze-tab-sub">Volledige focus</span>
+      </div>
+      <div class="keuze-tab" data-keuze="24/7 Fitness" onclick="selectKeuze(this)">
+        <span class="keuze-tab-title">24/7 Fitness</span>
+        <span class="keuze-tab-sub">Jouw tijd</span>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form id="intake-form" onsubmit="submitForm(event)">
+      <input type="hidden" name="interesse" id="interesse-field" value="SGPT">
+      <div class="form-grid rv">
+        <div class="form-field">
+          <label>Voornaam</label>
+          <input type="text" name="voornaam" placeholder="Jouw voornaam" required>
+        </div>
+        <div class="form-field">
+          <label>Achternaam</label>
+          <input type="text" name="achternaam" placeholder="Jouw achternaam" required>
+        </div>
+        <div class="form-field">
+          <label>Telefoonnummer</label>
+          <input type="tel" name="telefoon" placeholder="06 12345678" required>
+        </div>
+        <div class="form-field">
+          <label>E-mailadres</label>
+          <input type="email" name="email" placeholder="jouw@email.nl" required>
+        </div>
+        <div class="form-field full">
+          <label>Wat is jouw doel?</label>
+          <select name="doel">
+            <option value="">Kies jouw doel...</option>
+            <option value="afvallen">Afvallen</option>
+            <option value="spieropbouw">Spieropbouw</option>
+            <option value="meer-energie">Meer energie</option>
+            <option value="gezondere-leefstijl">Gezondere leefstijl</option>
+            <option value="beginnen-met-sporten">Beginnen met sporten</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-submit rv">
+        <button type="submit" class="btn-y btn-y-lg">
+          Plan mijn gratis kennismaking →
+        </button>
+      </div>
+      <p class="form-disclaimer rv">Gratis &amp; vrijblijvend · Geen verkooppraatje · Binnen 24 uur reactie</p>
+    </form>
+
+    <!-- Succes state -->
+    <div id="form-succes" style="display:none;text-align:center;padding:48px 0">
+      <div style="font-family:var(--font-h);font-size:72px;font-weight:900;color:var(--y);line-height:1">✓</div>
+      <div style="font-family:var(--font-h);font-size:36px;font-weight:900;text-transform:uppercase;color:var(--white);margin-top:16px">Aanmelding ontvangen!</div>
+      <p style="font-size:15px;color:rgba(255,255,255,.45);margin-top:12px">We nemen binnen 24 uur contact met je op.</p>
+    </div>
+  </div>
+</section>
+
 <!-- FINALE CTA -->
 <section class="finale" id="kennismaking">
   <div class="finale-bg"></div>
@@ -535,7 +659,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
   <div class="finale-content">
     <h2 class="rv">Jouw gym<br><em>wacht.</em></h2>
     <p class="rv rv1">Kom langs, stel je vragen en voel meteen of het klikt. Geen verplichtingen — gewoon kennismaken met jouw nieuwe gym.</p>
-    <a href="/gratis-intake/" class="btn-y btn-y-lg rv rv1">Plan gratis kennismaking →</a>
+    <a href="#kennismaking" class="btn-y btn-y-lg rv rv1">Plan gratis kennismaking →</a>
     <div class="finale-chips rv rv2">
       <span class="chip"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Gratis &amp; vrijblijvend</span>
       <span class="chip"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Geen verkooppraatje</span>
@@ -616,6 +740,19 @@ const barIo = new IntersectionObserver(entries=>{
   });
 },{threshold:.3});
 document.querySelectorAll('.meter-block').forEach(el=>barIo.observe(el));
+
+
+function selectKeuze(el) {
+  document.querySelectorAll('.keuze-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('interesse-field').value = el.dataset.keuze;
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('intake-form').style.display = 'none';
+  document.getElementById('form-succes').style.display = 'block';
+}
 
 </script>
 </body>
