@@ -338,6 +338,45 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .rgs-link{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid #ddd;padding-bottom:2px;transition:border-color .2s}
 .rgs-link:hover{border-color:var(--ink)}
 @media(max-width:600px){.r-grid{grid-template-columns:1fr}}
+
+/* ── WOW SLIDER ── */
+.wow-slider-wrap{max-width:900px;margin:0 auto 80px}
+.wow-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.wow-slider-label span{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.wow-kg{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#C8FF00 !important;letter-spacing:-.02em}
+.wow-slider{position:relative;border-radius:20px;overflow:hidden;cursor:col-resize;user-select:none;touch-action:none;aspect-ratio:4/3}
+.wow-slider-after,.wow-slider-before{position:absolute;inset:0}
+.wow-slider-after img,.wow-slider-before img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.wow-slider-before{width:50%;overflow:hidden}
+.wow-photo-tag{position:absolute;top:20px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;backdrop-filter:blur(8px)}
+.wow-tag-na{right:20px;background:rgba(200,255,0,.15);border:1px solid rgba(200,255,0,.3);color:#C8FF00}
+.wow-tag-voor{left:20px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7)}
+.wow-handle{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0;z-index:10;pointer-events:none}
+.wow-handle-line{flex:1;width:3px;background:#C8FF00}
+.wow-handle-circle{width:52px;height:52px;border-radius:50%;background:#C8FF00;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(200,255,0,.25);flex-shrink:0;margin:auto 0}
+.wow-handle-circle svg{pointer-events:none}
+
+/* ── WOW EDITORIAL GRID ── */
+.wow-editorial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.wow-editorial{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:default}
+.wow-editorial-img{position:absolute;inset:0}
+.wow-editorial-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:brightness(.45);transition:filter .5s ease,transform .6s ease}
+.wow-editorial:hover .wow-editorial-img img{filter:brightness(.25);transform:scale(1.04)}
+.wow-editorial-text{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px;background:linear-gradient(to top,rgba(10,10,10,.9) 0%,rgba(10,10,10,.2) 60%,transparent 100%)}
+.wow-editorial-name{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:4px}
+.wow-editorial-num{font-family:'Barlow Condensed',sans-serif;font-size:clamp(72px,7vw,110px);font-weight:900;color:#C8FF00;line-height:.85;letter-spacing:-.04em;transition:all .1s}
+.wow-editorial-unit{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:.04em;margin-top:4px}
+.wow-editorial-detail{font-size:12px;color:rgba(255,255,255,.35);margin-top:10px;letter-spacing:.04em}
+
+@media(max-width:900px){
+  .wow-editorial-grid{grid-template-columns:repeat(2,1fr)}
+  .wow-editorial-num{font-size:clamp(56px,10vw,90px)}
+}
+@media(max-width:480px){
+  .wow-editorial-grid{grid-template-columns:1fr 1fr}
+  .wow-slider{aspect-ratio:3/4}
+}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -512,60 +551,118 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 </div>
 
 <!-- RESULTATEN -->
-<section class="resultaten" id="resultaten" style="background:#111">
+<section class="resultaten" id="resultaten" style="background:#0A0A0A;padding:100px 5%">
 
-  <div class="res-header rv">
-    <h2>Jouw resultaat<br><em>staat hier.</em></h2>
-    <p class="res-sub">Leden van Fit Up Leiderdorp. Echte mensen, echte resultaten.</p>
+  <div class="rv" style="margin-bottom:64px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;align-items:center;gap:10px"><span style="display:block;width:28px;height:2px;background:#C8FF00"></span>Bewezen resultaten</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,6vw,80px);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.03em;color:#fff">Jouw resultaat<br><em style="font-style:italic;color:#C8FF00">staat hier.</em></h2>
+    <p style="font-size:16px;color:rgba(255,255,255,.4);margin-top:16px;max-width:480px;line-height:1.6">Geen filters. Geen trucjes. Gewoon wat er gebeurt als je de juiste begeleiding krijgt.</p>
   </div>
 
-  <!-- GRID: alle resultaten -->
-  <div class="res-grid-5">
-    <div class="res-card5 rv">
-      <img src="assets/images/res-karin.jpg" alt="Karin -17kg Fit Up">
-      <div class="res-card5-overlay">
-        <div class="res-card5-num">-17 KG</div>
-        <div class="res-card5-name">Karin · Personal Training</div>
+  <!-- KARIN — voor/na slider -->
+  <div class="wow-slider-wrap rv" style="margin-bottom:80px">
+    <div class="wow-slider-label">
+      <span>Karin · Personal Training</span>
+      <span class="wow-kg">-17 KG</span>
+    </div>
+    <div class="wow-slider" id="karin-slider">
+      <div class="wow-slider-after">
+        <img src="assets/images/ad-karin-na.jpg" alt="Karin na">
+        <div class="wow-photo-tag wow-tag-na">Na</div>
+      </div>
+      <div class="wow-slider-before" id="karin-before">
+        <img src="assets/images/ad-karin-voor.jpg" alt="Karin voor">
+        <div class="wow-photo-tag wow-tag-voor">Voor</div>
+      </div>
+      <div class="wow-handle" id="karin-handle">
+        <div class="wow-handle-line"></div>
+        <div class="wow-handle-circle">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l-5 6 5 6M13 4l5 6-5 6" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="wow-handle-line"></div>
       </div>
     </div>
-    <div class="res-card5 rv rv1">
-      <img src="assets/images/res-mark.jpg" alt="Mark -5kg Fit Up">
-      <div class="res-card5-overlay">
-        <div class="res-card5-num">-5 KG</div>
-        <div class="res-card5-name">Mark · Personal Training</div>
+  </div>
+
+  <!-- EDITORIAL RESULTATEN — grote getallen, dramatisch -->
+  <div class="wow-editorial-grid">
+
+    <div class="wow-editorial rv">
+      <div class="wow-editorial-img">
+        <img src="assets/images/res-irene.jpg" alt="Irene -35kg">
+      </div>
+      <div class="wow-editorial-text">
+        <div class="wow-editorial-name">Irene</div>
+        <div class="wow-editorial-num" data-target="-35">-0</div>
+        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
       </div>
     </div>
-    <div class="res-card5 rv rv2">
-      <img src="assets/images/res-sandra.jpg" alt="Sandra -20kg Fit Up">
-      <div class="res-card5-overlay">
-        <div class="res-card5-num">-20 KG</div>
-        <div class="res-card5-name">Sandra · Personal Training</div>
+
+    <div class="wow-editorial rv rv1">
+      <div class="wow-editorial-img">
+        <img src="assets/images/res-barbara.jpg" alt="Barbara -34kg">
+      </div>
+      <div class="wow-editorial-text">
+        <div class="wow-editorial-name">Barbara</div>
+        <div class="wow-editorial-num" data-target="-34">-0</div>
+        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
       </div>
     </div>
-    <div class="res-card5 rv rv1">
-      <img src="assets/images/res-marja.jpg" alt="Marja -13kg Fit Up">
-      <div class="res-card5-overlay">
-        <div class="res-card5-num">-13 KG</div>
-        <div class="res-card5-name">Marja · 69 jaar</div>
+
+    <div class="wow-editorial rv rv2">
+      <div class="wow-editorial-img">
+        <img src="assets/images/res-sandra.jpg" alt="Sandra -20kg">
+      </div>
+      <div class="wow-editorial-text">
+        <div class="wow-editorial-name">Sandra</div>
+        <div class="wow-editorial-num" data-target="-20">-0</div>
+        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
       </div>
     </div>
-    <div class="res-card5 rv rv2">
-      <img src="assets/images/res-irene.jpg" alt="Irene -35kg Fit Up">
-      <div class="res-card5-overlay">
-        <div class="res-card5-num">-35 KG</div>
-        <div class="res-card5-name">Irene · Personal Training</div>
+
+    <div class="wow-editorial rv">
+      <div class="wow-editorial-img">
+        <img src="assets/images/res-marja.jpg" alt="Marja -13kg">
+      </div>
+      <div class="wow-editorial-text">
+        <div class="wow-editorial-name">Marja</div>
+        <div class="wow-editorial-num" data-target="-13">-0</div>
+        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-detail">69 jaar · Personal Training</div>
       </div>
     </div>
-    <div class="res-card5 rv">
-      <img src="assets/images/res-barbara.jpg" alt="Barbara -34kg Fit Up">
-      <div class="res-card5-overlay">
-        <div class="res-card5-num">-34 KG</div>
-        <div class="res-card5-name">Barbara · Personal Training</div>
+
+    <div class="wow-editorial rv rv1">
+      <div class="wow-editorial-img">
+        <img src="assets/images/res-mark.jpg" alt="Mark -5kg">
+      </div>
+      <div class="wow-editorial-text">
+        <div class="wow-editorial-name">Mark</div>
+        <div class="wow-editorial-num" data-target="-5">-0</div>
+        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-detail">Vetpercentage · 16% → 13.9%</div>
       </div>
     </div>
+
+    <div class="wow-editorial rv rv2">
+      <div class="wow-editorial-img">
+        <img src="assets/images/res-karin.jpg" alt="Karin -17kg">
+      </div>
+      <div class="wow-editorial-text">
+        <div class="wow-editorial-name">Karin</div>
+        <div class="wow-editorial-num" data-target="-17">-0</div>
+        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
+      </div>
+    </div>
+
   </div>
 
 </section>
+
 
 <!-- EDITORIAL: gym foto met grote tekst -->
 <div class="editorial rv" id="editorial-2">
@@ -907,6 +1004,75 @@ function submitForm(e) {
   update();
   setInterval(update, 1000);
 })();
+
+
+// WOW SLIDER
+(function(){
+  const slider = document.getElementById('karin-slider');
+  const before = document.getElementById('karin-before');
+  const handle = document.getElementById('karin-handle');
+  if(!slider) return;
+
+  let dragging = false;
+
+  function setPos(clientX) {
+    const rect = slider.getBoundingClientRect();
+    let pct = (clientX - rect.left) / rect.width;
+    pct = Math.min(Math.max(pct, 0.02), 0.98);
+    before.style.width = (pct * 100) + '%';
+    handle.style.left = (pct * 100) + '%';
+  }
+
+  // Mouse
+  slider.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+  window.addEventListener('mousemove', e => { if(dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup', () => { dragging = false; });
+
+  // Touch
+  slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchmove', e => { if(dragging) setPos(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchend', () => { dragging = false; });
+
+  // Animate intro
+  let introPos = 0.5;
+  let animDir = -1;
+  let introRunning = true;
+  function introAnim() {
+    if(!introRunning) return;
+    introPos += animDir * 0.004;
+    if(introPos < 0.25) animDir = 1;
+    if(introPos > 0.75) animDir = -1;
+    before.style.width = (introPos * 100) + '%';
+    handle.style.left = (introPos * 100) + '%';
+    requestAnimationFrame(introAnim);
+  }
+  setTimeout(introAnim, 800);
+  slider.addEventListener('mousedown', () => { introRunning = false; });
+  slider.addEventListener('touchstart', () => { introRunning = false; }, {passive:true});
+})();
+
+// WOW EDITORIAL COUNT-UP
+const wowIo = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.target);
+    const isNeg = target < 0;
+    const abs = Math.abs(target);
+    const duration = 1200;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const val = Math.round(abs * ease);
+      el.textContent = isNeg ? '-' + val : '+' + val;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    wowIo.unobserve(el);
+  });
+}, {threshold: 0.5});
+document.querySelectorAll('.wow-editorial-num[data-target]').forEach(el => wowIo.observe(el));
 
 </script>
 </body>
