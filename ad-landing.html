@@ -390,6 +390,13 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   margin:0 auto;
 }
 
+/* keyframe: flip in from rotation */
+@keyframes cardFlipIn {
+  0%   { opacity:0; transform:rotate(var(--start-rot)) scale(0.75) translateY(30px); }
+  60%  { opacity:1; }
+  100% { opacity:1; transform:rotate(0deg) scale(1) translateY(0); }
+}
+
 .wow-editorial{
   position:relative;
   overflow:hidden;
@@ -397,30 +404,20 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   cursor:default;
   border-radius:18px;
   box-shadow:0 8px 24px rgba(0,0,0,.35);
-  /* start rotated off-screen, JS adds .card-visible */
-  opacity:0;
-  transform:rotate(var(--start-rot, 0deg)) scale(0.85);
-  transition:
-    opacity .6s cubic-bezier(.16,1,.3,1),
-    transform .7s cubic-bezier(.16,1,.3,1),
-    box-shadow .3s ease;
+  animation: cardFlipIn .7s cubic-bezier(.16,1,.3,1) both;
 }
 
-.wow-editorial:nth-child(1){--start-rot:-12deg; transition-delay:.05s}
-.wow-editorial:nth-child(2){--start-rot:-8deg;  transition-delay:.12s}
-.wow-editorial:nth-child(3){--start-rot:-4deg;  transition-delay:.19s}
-.wow-editorial:nth-child(4){--start-rot: 4deg;  transition-delay:.26s}
-.wow-editorial:nth-child(5){--start-rot: 8deg;  transition-delay:.33s}
-.wow-editorial:nth-child(6){--start-rot:12deg;  transition-delay:.40s}
-
-.wow-editorial.card-visible{
-  opacity:1;
-  transform:rotate(0deg) scale(1);
-}
+.wow-editorial:nth-child(1){--start-rot:-14deg; animation-delay:.1s}
+.wow-editorial:nth-child(2){--start-rot:-8deg;  animation-delay:.2s}
+.wow-editorial:nth-child(3){--start-rot:-3deg;  animation-delay:.3s}
+.wow-editorial:nth-child(4){--start-rot: 3deg;  animation-delay:.4s}
+.wow-editorial:nth-child(5){--start-rot: 8deg;  animation-delay:.5s}
+.wow-editorial:nth-child(6){--start-rot:14deg;  animation-delay:.6s}
 
 .wow-editorial:hover{
   box-shadow:0 20px 48px rgba(0,0,0,.5);
-  transform:rotate(0deg) scale(1.03) translateY(-6px) !important;
+  transform:scale(1.04) translateY(-8px);
+  transition:transform .3s ease, box-shadow .3s ease;
   z-index:10;
 }
 
@@ -1102,17 +1099,6 @@ function submitForm(e) {
   setInterval(update, 1000);
 })();
 
-
-// CARD CLOCK-SPIN ENTRANCE
-const cardIo = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('card-visible');
-      cardIo.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.15});
-document.querySelectorAll('.wow-editorial').forEach(el => cardIo.observe(el));
 
 // COUNT-UP
 const wowIo = new IntersectionObserver(entries => {
