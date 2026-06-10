@@ -278,6 +278,18 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   .ct-sep{font-size:28px}
 }
 
+
+/* RES GRID 5 */
+.res-grid-5{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.res-card5{position:relative;border-radius:16px;overflow:hidden;background:#111;aspect-ratio:1/1}
+.res-card5 img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.res-card5:hover img{transform:scale(1.04)}
+.res-card5-overlay{position:absolute;bottom:0;left:0;right:0;padding:20px 20px 16px;background:linear-gradient(to top,rgba(10,10,10,.95) 0%,transparent 100%)}
+.res-card5-num{font-family:var(--font-h);font-size:32px;font-weight:900;color:var(--y);line-height:1}
+.res-card5-name{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px}
+@media(max-width:700px){.res-grid-5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.res-grid-5{grid-template-columns:1fr}}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -455,20 +467,20 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <section class="resultaten" id="resultaten">
 
   <div class="res-header rv">
-    <h2>Echte mensen.<br><em>Echte cijfers.</em></h2>
-    <p class="res-sub">Geen trucjes, geen filters. Dit zijn leden van Fit Up Leiderdorp.</p>
+    <h2>Jouw resultaat<br><em>staat hier.</em></h2>
+    <p class="res-sub">Leden van Fit Up Leiderdorp. Echte mensen, echte resultaten.</p>
   </div>
 
-  <!-- KARIN voor/na -->
+  <!-- KARIN — featured met prestatiemeter -->
   <div class="karin-block rv">
     <div class="karin-label">Karin · Personal Training · -17 KG</div>
     <div class="karin-photos">
       <div class="karin-photo voor">
-        <img src="assets/images/ad-karin-voor.jpg" alt="Karin voor – Fit Up Leiderdorp">
+        <img src="assets/images/ad-karin-voor.jpg" alt="Karin voor">
         <div class="karin-foto-label">Voor</div>
       </div>
       <div class="karin-photo na">
-        <img src="assets/images/ad-karin-na.jpg" alt="Karin na – Fit Up Leiderdorp">
+        <img src="assets/images/ad-karin-na.jpg" alt="Karin na">
         <div class="karin-foto-label">Na</div>
       </div>
       <div class="karin-badge">
@@ -476,11 +488,9 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <div class="karin-badge-sub">KG</div>
       </div>
     </div>
-
-    <!-- PRESTATIEMETER -->
     <div class="meter-block rv">
       <div class="meter-name">Karin · Prestatiemeter</div>
-      <div class="meter-desc">Personal Training · 6 maanden · Fit Up Leiderdorp</div>
+      <div class="meter-desc">Personal Training · Fit Up Leiderdorp</div>
       <div class="meter-row">
         <div class="meter-item">
           <div class="meter-top"><span class="meter-stat-label">Gewichtsverlies</span><span class="meter-stat-val">-17 KG</span></div>
@@ -502,22 +512,48 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     </div>
   </div>
 
-  <!-- ANDERE RESULTATEN -->
-  <div class="other-results">
-    <div class="other-card rv">
-      <img src="assets/images/ad-result-marja2.webp" alt="Marja resultaat Fit Up">
-      <div class="other-stamp">Marja · -13 KG</div>
-      <div class="other-overlay">
-        <div class="other-num">-13 KG</div>
-        <div class="other-name">Marja · 69 jaar · Personal Training</div>
+  <!-- GRID: 5 andere resultaten -->
+  <div class="res-grid-5">
+    <div class="res-card5 rv">
+      <img src="assets/images/res-karin.jpg" alt="Karin -17kg Fit Up">
+      <div class="res-card5-overlay">
+        <div class="res-card5-num">-17 KG</div>
+        <div class="res-card5-name">Karin · Personal Training</div>
       </div>
     </div>
-    <div class="other-card rv rv1">
-      <img src="assets/images/ad-result-grid.webp" alt="Resultaat Fit Up Leiderdorp">
-      <div class="other-stamp">Barbara · -40 KG</div>
-      <div class="other-overlay">
-        <div class="other-num">-40 KG</div>
-        <div class="other-name">Barbara · Personal Training · Fit Up Leiderdorp</div>
+    <div class="res-card5 rv rv1">
+      <img src="assets/images/res-mark.jpg" alt="Mark -5kg Fit Up">
+      <div class="res-card5-overlay">
+        <div class="res-card5-num">-5 KG</div>
+        <div class="res-card5-name">Mark · Personal Training</div>
+      </div>
+    </div>
+    <div class="res-card5 rv rv2">
+      <img src="assets/images/res-sandra.jpg" alt="Sandra -20kg Fit Up">
+      <div class="res-card5-overlay">
+        <div class="res-card5-num">-20 KG</div>
+        <div class="res-card5-name">Sandra · Personal Training</div>
+      </div>
+    </div>
+    <div class="res-card5 rv rv1">
+      <img src="assets/images/res-marja.jpg" alt="Marja -13kg Fit Up">
+      <div class="res-card5-overlay">
+        <div class="res-card5-num">-13 KG</div>
+        <div class="res-card5-name">Marja · 69 jaar</div>
+      </div>
+    </div>
+    <div class="res-card5 rv rv2">
+      <img src="assets/images/res-irene.jpg" alt="Irene -35kg Fit Up">
+      <div class="res-card5-overlay">
+        <div class="res-card5-num">-35 KG</div>
+        <div class="res-card5-name">Irene · Personal Training</div>
+      </div>
+    </div>
+    <div class="res-card5 rv">
+      <img src="assets/images/res-barbara.jpg" alt="Barbara -34kg Fit Up">
+      <div class="res-card5-overlay">
+        <div class="res-card5-num">-34 KG</div>
+        <div class="res-card5-name">Barbara · Personal Training</div>
       </div>
     </div>
   </div>
