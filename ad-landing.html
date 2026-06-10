@@ -290,6 +290,43 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 @media(max-width:700px){.res-grid-5{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:400px){.res-grid-5{grid-template-columns:1fr}}
 
+
+/* ── TEAM ── */
+.team-section{padding:100px 5%;background:#0f0f0f}
+.team-inner{max-width:1100px;margin:0 auto}
+.team-header{margin-bottom:64px}
+.team-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.team-eyebrow::before{content:'';width:28px;height:2px;background:var(--y)}
+.team-header h2{font-family:var(--font-h);font-size:clamp(40px,5vw,64px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;color:var(--white);margin-bottom:20px}
+.team-header h2 em{font-style:italic;color:var(--y)}
+.team-intro{font-size:15px;color:rgba(255,255,255,.45);line-height:1.7;max-width:620px}
+
+/* Patrick owner block */
+.team-owner{display:flex;align-items:center;gap:28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px;margin-bottom:32px}
+.team-owner-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(200,255,0,.3)}
+.team-owner-photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+.team-owner-name{font-family:var(--font-h);font-size:22px;font-weight:800;text-transform:uppercase;color:var(--white);line-height:1}
+.team-owner-role{font-size:12px;color:var(--y);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:4px;margin-bottom:12px}
+.team-owner-bio{font-size:14px;color:rgba(255,255,255,.45);line-height:1.65}
+
+/* Trainer cards */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.team-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;transition:background .2s}
+.team-card:not(.team-placeholder):hover{background:rgba(255,255,255,.07)}
+.team-card-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.1)}
+.team-card-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.team-card-empty{background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center}
+.team-card-empty svg{width:32px;height:32px}
+.team-card-name{font-family:var(--font-h);font-size:18px;font-weight:800;text-transform:uppercase;color:var(--white);line-height:1}
+.team-placeholder .team-card-name{color:rgba(255,255,255,.25)}
+.team-card-role{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.04em}
+.team-placeholder .team-card-role{color:rgba(255,255,255,.15);font-style:italic}
+
+@media(max-width:700px){
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .team-owner{flex-direction:column;text-align:center}
+}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -365,14 +402,14 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <span class="ticker-item">24/7 Fitness <span class="ticker-sep">·</span></span>
     <span class="ticker-item">Leiderdorp <span class="ticker-sep">·</span></span>
     <span class="ticker-item">200+ leden <span class="ticker-sep">·</span></span>
-    <span class="ticker-item">4.9 Google <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">4.9 ★ Google <span class="ticker-sep">·</span></span>
     <span class="ticker-item">10+ jaar ervaring <span class="ticker-sep">·</span></span>
     <span class="ticker-item">Personal Training <span class="ticker-sep">·</span></span>
     <span class="ticker-item">Small Group PT <span class="ticker-sep">·</span></span>
     <span class="ticker-item">24/7 Fitness <span class="ticker-sep">·</span></span>
     <span class="ticker-item">Leiderdorp <span class="ticker-sep">·</span></span>
     <span class="ticker-item">200+ leden <span class="ticker-sep">·</span></span>
-    <span class="ticker-item">4.9 Google <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">4.9 ★ Google <span class="ticker-sep">·</span></span>
     <span class="ticker-item">10+ jaar ervaring <span class="ticker-sep">·</span></span>
   </div>
 </div>
@@ -531,23 +568,62 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 </div>
 
 <!-- PATRICK over foto -->
-<div class="patrick-section">
-  <div class="patrick-bg">
-    <!-- geen achtergrond foto -- puur typografisch blok -->
-    <div class="patrick-gradient"></div>
-    <div class="patrick-content rv">
-      <div class="patrick-eyebrow">De coach</div>
-      <blockquote>"Bij Fit Up<br>ken ik jouw naam.<br><em>En jouw doel."</em></blockquote>
-      <p>Patrick richtte Fit Up op in 2014. Geen anonieme sportschool — een plek waar jij telt. Hij weet wie je bent, waar je naartoe wilt en wat je daarvoor nodig hebt.</p>
-      <a href="#kennismaking" class="btn-y">Plan gratis kennismaking →</a>
+<!-- TEAM SECTIE -->
+<section class="team-section">
+  <div class="team-inner">
+
+    <div class="team-header rv">
+      <div class="team-eyebrow">Het team</div>
+      <h2>Ontmoet het<br><em>Fit Up Team</em></h2>
+      <p class="team-intro">Bij Fit Up sta je er niet alleen voor. Ons team heeft ervaring met krachttraining, afvallen, looptraining, conditie, hersteltraining en persoonlijke begeleiding. Daardoor krijg jij geen standaard schema, maar begeleiding die past bij jouw doel, niveau en situatie.</p>
     </div>
-    <div class="patrick-stat rv">
-      <div class="ps-item"><strong>2014<em></em></strong><span>Opgericht</span></div>
-      <div class="ps-item"><strong>13<em>jr</em></strong><span>Militaire dienst</span></div>
-      <div class="ps-item"><strong>200<em>+</em></strong><span>Actieve leden</span></div>
+
+    <!-- Patrick — eigenaar, prominent -->
+    <div class="team-owner rv">
+      <div class="team-owner-photo">
+        <img src="assets/images/team-patrick.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp">
+      </div>
+      <div class="team-owner-info">
+        <div class="team-owner-name">Patrick Hollander</div>
+        <div class="team-owner-role">Eigenaar &amp; Personal Trainer</div>
+        <p class="team-owner-bio">"Bij Fit Up ken ik jouw naam — en jouw doel." Patrick richtte Fit Up op in 2014. Geen anonieme sportschool, maar een plek waar jij telt en begeleiding krijgt die écht bij jou past.</p>
+      </div>
     </div>
+
+    <!-- Trainers grid — 4 plekken klaar -->
+    <div class="team-grid">
+      <div class="team-card rv team-placeholder">
+        <div class="team-card-photo team-card-empty">
+          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+        </div>
+        <div class="team-card-name">Trainer</div>
+        <div class="team-card-role">Komt binnenkort</div>
+      </div>
+      <div class="team-card rv rv1 team-placeholder">
+        <div class="team-card-photo team-card-empty">
+          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+        </div>
+        <div class="team-card-name">Trainer</div>
+        <div class="team-card-role">Komt binnenkort</div>
+      </div>
+      <div class="team-card rv rv2 team-placeholder">
+        <div class="team-card-photo team-card-empty">
+          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+        </div>
+        <div class="team-card-name">Trainer</div>
+        <div class="team-card-role">Komt binnenkort</div>
+      </div>
+      <div class="team-card rv rv2 team-placeholder">
+        <div class="team-card-photo team-card-empty">
+          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+        </div>
+        <div class="team-card-name">Trainer</div>
+        <div class="team-card-role">Komt binnenkort</div>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
 <!-- REVIEWS -->
 <section class="reviews-section">
