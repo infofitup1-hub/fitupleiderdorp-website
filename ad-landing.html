@@ -263,6 +263,21 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   .keuze-tabs{grid-template-columns:1fr}
 }
 
+
+/* COUNTDOWN */
+.countdown-wrap{margin-bottom:32px}
+.countdown-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.countdown-timer{display:flex;align-items:center;gap:8px}
+.ct-block{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;min-width:72px}
+.ct-num{font-family:var(--font-h);font-size:42px;font-weight:900;color:var(--y);line-height:1;letter-spacing:-.02em}
+.ct-lbl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px}
+.ct-sep{font-family:var(--font-h);font-size:36px;font-weight:900;color:rgba(255,255,255,.2);line-height:1;margin-bottom:16px}
+@media(max-width:480px){
+  .ct-block{min-width:56px;padding:12px 10px}
+  .ct-num{font-size:32px}
+  .ct-sep{font-size:28px}
+}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -306,7 +321,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <!-- HERO: Patrick foto, grote typografie eroverheen -->
 <section class="hero" id="home">
   <div class="hero-bg">
-    <img src="assets/images/ad-actie-squat.webp" alt="Training bij Fit Up Leiderdorp" id="hero-img">
+    <img src="assets/images/ad-sgpt-squat.webp" alt="Training bij Fit Up Leiderdorp" id="hero-img">
   </div>
   <div class="hero-content">
     <div class="hero-tag"><span class="hero-tag-dot"></span>Jouw Personal Gym · Leiderdorp</div>
@@ -380,7 +395,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <!-- SGPT -->
     <div class="dienst-card rv">
       <div class="dienst-card-inner">
-        <img src="assets/images/ad-gym-lounge.webp" alt="Small Group PT Fit Up" class="dienst-img">
+        <img src="assets/images/ad-sgpt-lunges.webp" alt="Small Group PT Fit Up" class="dienst-img">
         <div class="dienst-overlay"></div>
         <div class="dienst-badge">Populairste keuze</div>
         <div class="dienst-body">
@@ -410,7 +425,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <!-- 24/7 -->
     <div class="dienst-card rv rv2">
       <div class="dienst-card-inner">
-        <img src="assets/images/ad-gym-overzicht.webp" alt="24/7 Fitness Fit Up" class="dienst-img">
+        <img src="assets/images/ad-groep-roeien.webp" alt="24/7 Fitness Fit Up" class="dienst-img">
         <div class="dienst-overlay"></div>
         <div class="dienst-badge">Maximale vrijheid</div>
         <div class="dienst-body">
@@ -427,7 +442,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 
 <!-- EDITORIAL: squat foto volledige breedte met grote tekst eroverheen -->
 <div class="editorial rv" id="editorial-1">
-  <img src="assets/images/ad-patrick.jpg" alt="Karin training Fit Up" class="editorial-img">
+  <img src="assets/images/ad-boks-groep.jpg" alt="Karin training Fit Up" class="editorial-img">
   <div class="editorial-stamp">SGPT</div>
   <div class="editorial-content">
     <div class="editorial-eyebrow">Small Group PT</div>
@@ -511,7 +526,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 
 <!-- EDITORIAL: gym foto met grote tekst -->
 <div class="editorial rv" id="editorial-2">
-  <img src="assets/images/ad-gym-cardio.webp" alt="Gym Fit Up Leiderdorp" class="editorial-img">
+  <img src="assets/images/ad-gym-overzicht.webp" alt="Gym Fit Up Leiderdorp" class="editorial-img">
   <div class="editorial-stamp">400M² Kracht</div>
   <div class="editorial-content">
     <div class="editorial-eyebrow">De gym</div>
@@ -585,6 +600,21 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <div class="schaarste rv">
       <div class="schaarste-dot"></div>
       <div class="schaarste-text">Nog <strong>4 plekken</strong> beschikbaar <span>· deze maand · Leiderdorp</span></div>
+    </div>
+
+
+    <!-- COUNTDOWN TIMER -->
+    <div class="countdown-wrap rv">
+      <div class="countdown-label">Aanbieding sluit over:</div>
+      <div class="countdown-timer" id="countdown">
+        <div class="ct-block"><span class="ct-num" id="cd-days">00</span><span class="ct-lbl">dagen</span></div>
+        <div class="ct-sep">:</div>
+        <div class="ct-block"><span class="ct-num" id="cd-hours">00</span><span class="ct-lbl">uur</span></div>
+        <div class="ct-sep">:</div>
+        <div class="ct-block"><span class="ct-num" id="cd-mins">00</span><span class="ct-lbl">min</span></div>
+        <div class="ct-sep">:</div>
+        <div class="ct-block"><span class="ct-num" id="cd-secs">00</span><span class="ct-lbl">sec</span></div>
+      </div>
     </div>
 
     <!-- Keuze -->
@@ -753,6 +783,31 @@ function submitForm(e) {
   document.getElementById('intake-form').style.display = 'none';
   document.getElementById('form-succes').style.display = 'block';
 }
+
+
+// Countdown timer — eindigt over 3 dagen vanaf nu
+(function(){
+  const end = new Date();
+  end.setDate(end.getDate() + 3);
+  end.setHours(23, 59, 59, 0);
+
+  function update(){
+    const now = new Date();
+    const diff = Math.max(0, end - now);
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2,'0');
+    const d = document;
+    if(d.getElementById('cd-days')) d.getElementById('cd-days').textContent = pad(days);
+    if(d.getElementById('cd-hours')) d.getElementById('cd-hours').textContent = pad(hours);
+    if(d.getElementById('cd-mins')) d.getElementById('cd-mins').textContent = pad(mins);
+    if(d.getElementById('cd-secs')) d.getElementById('cd-secs').textContent = pad(secs);
+  }
+  update();
+  setInterval(update, 1000);
+})();
 
 </script>
 </body>
