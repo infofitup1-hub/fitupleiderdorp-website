@@ -381,16 +381,23 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .wow-handle-circle svg{pointer-events:none}
 
 /* ── WOW EDITORIAL GRID ── */
-.wow-editorial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.wow-editorial{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:default}
+.wow-editorial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0}
+.wow-editorial{position:relative;overflow:hidden;aspect-ratio:2/3;cursor:default;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
 .wow-editorial-img{position:absolute;inset:0}
-.wow-editorial-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:brightness(.45);transition:filter .5s ease,transform .6s ease}
-.wow-editorial:hover .wow-editorial-img img{filter:brightness(.25);transform:scale(1.04)}
-.wow-editorial-text{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px;background:linear-gradient(to top,rgba(10,10,10,.9) 0%,rgba(10,10,10,.2) 60%,transparent 100%)}
-.wow-editorial-name{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:4px}
-.wow-editorial-num{font-family:'Barlow Condensed',sans-serif;font-size:clamp(72px,7vw,110px);font-weight:900;color:#C8FF00;line-height:.85;letter-spacing:-.04em;transition:all .1s}
-.wow-editorial-unit{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:.04em;margin-top:4px}
-.wow-editorial-detail{font-size:12px;color:rgba(255,255,255,.35);margin-top:10px;letter-spacing:.04em}
+.wow-editorial-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:brightness(.5);transition:filter .6s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+.wow-editorial:hover .wow-editorial-img img{filter:brightness(.3);transform:scale(1.06)}
+.wow-editorial-text{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 28px;background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.4) 50%,transparent 100%);transition:background .4s ease}
+.wow-editorial:hover .wow-editorial-text{background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,.6) 60%,transparent 100%)}
+.wow-editorial-name{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:6px;transition:color .3s}
+.wow-editorial:hover .wow-editorial-name{color:rgba(255,255,255,.7)}
+.wow-editorial-num{font-family:'Barlow Condensed',sans-serif;font-size:clamp(80px,8vw,124px);font-weight:900;color:#C8FF00;line-height:.82;letter-spacing:-.04em;text-shadow:0 0 40px rgba(200,255,0,.3);transition:text-shadow .3s}
+.wow-editorial:hover .wow-editorial-num{text-shadow:0 0 60px rgba(200,255,0,.5)}
+.wow-editorial-unit{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-top:6px}
+.wow-editorial-detail{font-size:12px;color:rgba(255,255,255,.3);margin-top:12px;letter-spacing:.05em;transform:translateY(4px);opacity:0;transition:transform .4s ease,opacity .4s ease}
+.wow-editorial:hover .wow-editorial-detail{transform:translateY(0);opacity:1}
+/* accent line top */
+.wow-editorial::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#C8FF00,transparent);z-index:2;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.wow-editorial:hover::before{transform:scaleX(1)}
 
 @media(max-width:900px){
   .wow-editorial-grid{grid-template-columns:repeat(2,1fr)}
