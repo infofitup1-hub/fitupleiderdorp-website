@@ -339,7 +339,23 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .rgs-link:hover{border-color:var(--ink)}
 @media(max-width:600px){.r-grid{grid-template-columns:1fr}}
 
-/* ── WOW SLIDER ── */
+
+/* KARIN FEATURED */
+.wow-karin-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:20px;overflow:hidden;max-width:900px;margin:0 auto}
+.wow-karin-photo{position:relative;aspect-ratio:3/4;overflow:hidden}
+.wow-karin-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.wow-karin-photo:hover img{transform:scale(1.03)}
+.wow-karin-tag{position:absolute;top:20px;left:20px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;backdrop-filter:blur(8px)}
+.wow-karin-tag.voor{background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6)}
+.wow-karin-tag.na{background:rgba(200,255,0,.15);border:1px solid rgba(200,255,0,.3);color:#C8FF00}
+.wow-karin-overlay{position:absolute;bottom:0;left:0;right:0;padding:32px 28px;background:linear-gradient(to top,rgba(10,10,10,.95) 0%,transparent 100%)}
+.wow-karin-name{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:4px}
+.wow-karin-result{font-family:'Barlow Condensed',sans-serif;font-size:clamp(80px,10vw,120px);font-weight:900;color:#C8FF00;line-height:.85;letter-spacing:-.04em}
+.wow-karin-result span{font-size:36px;vertical-align:middle;margin-left:4px;color:rgba(255,255,255,.4)}
+.wow-karin-sub{font-size:12px;color:rgba(255,255,255,.35);margin-top:10px;letter-spacing:.04em}
+@media(max-width:600px){.wow-karin-grid{grid-template-columns:1fr}}
+
+/* ── WOW EDITORIAL GRID ── */
 .wow-slider-wrap{max-width:900px;margin:0 auto 80px}
 .wow-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .wow-slider-label span{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
@@ -559,27 +575,21 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <p style="font-size:16px;color:rgba(255,255,255,.4);margin-top:16px;max-width:480px;line-height:1.6">Geen filters. Geen trucjes. Gewoon wat er gebeurt als je de juiste begeleiding krijgt.</p>
   </div>
 
-  <!-- KARIN — voor/na slider -->
-  <div class="wow-slider-wrap rv" style="margin-bottom:80px">
-    <div class="wow-slider-label">
-      <span>Karin · Personal Training</span>
-      <span class="wow-kg">-17 KG</span>
-    </div>
-    <div class="wow-slider" id="karin-slider">
-      <div class="wow-slider-after">
-        <img src="assets/images/ad-karin-na.jpg" alt="Karin na">
-        <div class="wow-photo-tag wow-tag-na">Na</div>
-      </div>
-      <div class="wow-slider-before" id="karin-before">
+  <!-- KARIN — featured voor/na editorial -->
+  <div class="wow-karin-featured rv" style="margin-bottom:6px">
+    <div class="wow-karin-grid">
+      <div class="wow-karin-photo">
         <img src="assets/images/ad-karin-voor.jpg" alt="Karin voor">
-        <div class="wow-photo-tag wow-tag-voor">Voor</div>
+        <div class="wow-karin-tag voor">Voor</div>
       </div>
-      <div class="wow-handle" id="karin-handle">
-        <div class="wow-handle-line"></div>
-        <div class="wow-handle-circle">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l-5 6 5 6M13 4l5 6-5 6" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="wow-karin-photo">
+        <img src="assets/images/ad-karin-na.jpg" alt="Karin na">
+        <div class="wow-karin-tag na">Na</div>
+        <div class="wow-karin-overlay">
+          <div class="wow-karin-name">Karin</div>
+          <div class="wow-karin-result">-17<span>KG</span></div>
+          <div class="wow-karin-sub">Personal Training · Fit Up Leiderdorp</div>
         </div>
-        <div class="wow-handle-line"></div>
       </div>
     </div>
   </div>
@@ -1005,51 +1015,6 @@ function submitForm(e) {
   setInterval(update, 1000);
 })();
 
-
-// WOW SLIDER
-(function(){
-  const slider = document.getElementById('karin-slider');
-  const before = document.getElementById('karin-before');
-  const handle = document.getElementById('karin-handle');
-  if(!slider) return;
-
-  let dragging = false;
-
-  function setPos(clientX) {
-    const rect = slider.getBoundingClientRect();
-    let pct = (clientX - rect.left) / rect.width;
-    pct = Math.min(Math.max(pct, 0.02), 0.98);
-    before.style.width = (pct * 100) + '%';
-    handle.style.left = (pct * 100) + '%';
-  }
-
-  // Mouse
-  slider.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
-  window.addEventListener('mousemove', e => { if(dragging) setPos(e.clientX); });
-  window.addEventListener('mouseup', () => { dragging = false; });
-
-  // Touch
-  slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, {passive:true});
-  window.addEventListener('touchmove', e => { if(dragging) setPos(e.touches[0].clientX); }, {passive:true});
-  window.addEventListener('touchend', () => { dragging = false; });
-
-  // Animate intro
-  let introPos = 0.5;
-  let animDir = -1;
-  let introRunning = true;
-  function introAnim() {
-    if(!introRunning) return;
-    introPos += animDir * 0.004;
-    if(introPos < 0.25) animDir = 1;
-    if(introPos > 0.75) animDir = -1;
-    before.style.width = (introPos * 100) + '%';
-    handle.style.left = (introPos * 100) + '%';
-    requestAnimationFrame(introAnim);
-  }
-  setTimeout(introAnim, 800);
-  slider.addEventListener('mousedown', () => { introRunning = false; });
-  slider.addEventListener('touchstart', () => { introRunning = false; }, {passive:true});
-})();
 
 // WOW EDITORIAL COUNT-UP
 const wowIo = new IntersectionObserver(entries => {
