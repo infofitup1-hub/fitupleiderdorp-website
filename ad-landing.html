@@ -142,8 +142,8 @@ body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-
 /* ── REVIEWS ── */
 .reviews-section{padding:100px 5%;background:#F4F4F2}
 .reviews-section h2{font-family:var(--font-h);font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:56px;color:var(--ink)}
-.reviews-section h2 em{font-style:italic;color:var(--ink);-webkit-text-stroke:0}
-.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.reviews-section h2 em{font-style:italic;color:var(--ink);-webkit-text-stroke:1.5px #bbb}
+.r-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .r-card{background:#FFFFFF;border:1px solid #E5E5E3;border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:background .25s,transform .25s}
 .r-card:hover{background:#F9F9F7;transform:translateY(-4px)}
 .r-stars{display:flex;gap:3px}
@@ -327,6 +327,17 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   .team-owner{flex-direction:column;text-align:center}
 }
 
+
+/* REVIEWS GOOGLE SCORE */
+.reviews-google-score{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:40px;padding:24px 32px;background:#FFFFFF;border:1px solid #E5E5E3;border-radius:16px;flex-wrap:wrap}
+.rgs-left{display:flex;align-items:center;gap:16px}
+.rgs-num{font-family:var(--font-h);font-size:52px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.rgs-stars{display:flex;gap:3px}
+.rgs-stars svg{width:18px;height:18px;fill:#FFBB00}
+.rgs-label{font-size:13px;color:#888;margin-top:4px}
+.rgs-link{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid #ddd;padding-bottom:2px;transition:border-color .2s}
+.rgs-link:hover{border-color:var(--ink)}
+@media(max-width:600px){.r-grid{grid-template-columns:1fr}}
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -628,21 +639,38 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <!-- REVIEWS -->
 <section class="reviews-section">
   <h2 class="rv">Wat leden<br><em>zeggen.</em></h2>
+  <!-- Google score header -->
+  <div class="reviews-google-score rv">
+    <div class="rgs-left">
+      <div class="rgs-num">4.9</div>
+      <div class="rgs-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
+      <div class="rgs-label">49 Google reviews</div>
+    </div>
+    <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener" class="rgs-link">
+      Bekijk alle reviews op Google →
+    </a>
+  </div>
+
   <div class="r-grid">
     <div class="r-card rv">
       <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Eindelijk een plek waar je echt gezien wordt. In drie maanden meer bereikt dan in drie jaar daarvoor. Patrick weet precies wat je nodig hebt."</p>
-      <div class="r-author">Sandra V. — Personal Training</div>
+      <p class="r-text">"Door te sporten bij Fit Up heb ik mijn doel bereikt: gewicht verliezen. Dat is me nooit eerder gelukt bij een sportschool. Dankzij Patrick met PT en voeding ben ik van 106 naar 70 kilo gegaan. Je wordt heel goed begeleid. Echte aanrader."</p>
+      <div class="r-author">Irene Peters · Google · januari 2024</div>
     </div>
     <div class="r-card rv rv1">
       <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Als beginner was ik bang voor grote sportscholen. Kleine groep, veel aandacht en echte resultaten. Had dit eerder willen doen."</p>
-      <div class="r-author">Mark T. — Small Group PT</div>
+      <p class="r-text">"De trainers kennen je bij naam, houden je voortgang goed bij en motiveren je om het beste uit jezelf te halen. Of je nu net begint of al jaren sport, hier voel je je altijd welkom. De apparatuur is top."</p>
+      <div class="r-author">Google reviewer · september 2024</div>
     </div>
     <div class="r-card rv rv2">
       <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"De 24/7 toegang is ideaal voor mijn drukke schema. Altijd schoon, goede apparatuur. Zou ik iedereen aanraden in de regio Leiden."</p>
-      <div class="r-author">Lisa K. — 24/7 Fitness</div>
+      <p class="r-text">"Goede begeleiding, laagdrempelig en gezellig. Altijd geopend om zelf te trainen en verschillende lessen waar je aan mee kunt doen. Top!"</p>
+      <div class="r-author">Nienke Kelderman · Google</div>
+    </div>
+    <div class="r-card rv">
+      <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
+      <p class="r-text">"Ik sport hier nu ruim een jaar. Lessen, kracht én PT. Persoonlijke benadering en trainers die net dat beetje extra geven."</p>
+      <div class="r-author">Google reviewer · Fit Up Leiderdorp</div>
     </div>
   </div>
 </section>
