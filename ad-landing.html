@@ -310,7 +310,15 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .team-owner-bio{font-size:14px;color:#666;line-height:1.65}
 
 /* Trainer cards */
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.team-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.team-duo-card{background:#FFFFFF;border:1px solid #E5E5E3;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.team-duo-photo{width:80px;height:80px;border-radius:50%;overflow:hidden;border:2px solid rgba(200,255,0,.5);margin-bottom:4px}
+.team-duo-photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+.team-duo-name{font-family:var(--font-h);font-size:24px;font-weight:800;text-transform:uppercase;color:var(--ink);line-height:1}
+.team-duo-role{font-size:11px;color:var(--white);font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);display:inline-flex;padding:4px 12px;border-radius:100px;width:fit-content}
+.team-duo-bio{font-size:14px;color:#666;line-height:1.65}
+@media(max-width:640px){.team-duo{grid-template-columns:1fr}}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .team-card{background:#FFFFFF;border:1px solid #E5E5E3;border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;transition:background .2s}
 .team-card:not(.team-placeholder):hover{background:#F0F0EE}
 .team-card-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.1)}
@@ -696,46 +704,47 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
       <p class="team-intro">Bij Fit Up sta je er niet alleen voor. Ons team heeft ervaring met krachttraining, afvallen, looptraining, conditie, hersteltraining en persoonlijke begeleiding. Daardoor krijg jij geen standaard schema, maar begeleiding die past bij jouw doel, niveau en situatie.</p>
     </div>
 
-    <!-- Patrick — eigenaar, prominent -->
-    <div class="team-owner rv">
-      <div class="team-owner-photo">
-        <img src="assets/images/team-patrick.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp">
+    <!-- Patrick + Benjamin naast elkaar -->
+    <div class="team-duo rv">
+      <div class="team-duo-card">
+        <div class="team-duo-photo">
+          <img src="assets/images/team-patrick.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp">
+        </div>
+        <div class="team-duo-name">Patrick Hollander</div>
+        <div class="team-duo-role">Eigenaar &amp; Personal Trainer</div>
+        <p class="team-duo-bio">"Bij Fit Up ken ik jouw naam — en jouw doel." Patrick richtte Fit Up op in 2014. Een plek waar jij telt en begeleiding krijgt die écht bij jou past.</p>
       </div>
-      <div class="team-owner-info">
-        <div class="team-owner-name">Patrick Hollander</div>
-        <div class="team-owner-role">Eigenaar &amp; Personal Trainer</div>
-        <p class="team-owner-bio">"Bij Fit Up ken ik jouw naam — en jouw doel." Patrick richtte Fit Up op in 2014. Geen anonieme sportschool, maar een plek waar jij telt en begeleiding krijgt die écht bij jou past.</p>
+      <div class="team-duo-card">
+        <div class="team-duo-photo">
+          <img src="assets/images/team-benjamin.jpg" alt="Benjamin – Personal Trainer Fit Up">
+        </div>
+        <div class="team-duo-name">Benjamin</div>
+        <div class="team-duo-role">Personal Trainer</div>
+        <p class="team-duo-bio">Gespecialiseerd in krachttraining en spieropbouw. Energiek, motiverend en altijd gericht op jouw progressie.</p>
       </div>
     </div>
 
-    <!-- Trainers grid — 4 plekken klaar -->
+    <!-- Overige trainers — foto's volgen -->
     <div class="team-grid">
       <div class="team-card rv team-placeholder">
         <div class="team-card-photo team-card-empty">
-          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
         </div>
-        <div class="team-card-name">Benjamin</div>
+        <div class="team-card-name">Foto volgt</div>
         <div class="team-card-role">Personal Trainer</div>
       </div>
       <div class="team-card rv rv1 team-placeholder">
         <div class="team-card-photo team-card-empty">
-          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
         </div>
-        <div class="team-card-name">Mendy</div>
+        <div class="team-card-name">Foto volgt</div>
         <div class="team-card-role">Personal Trainer</div>
       </div>
       <div class="team-card rv rv2 team-placeholder">
         <div class="team-card-photo team-card-empty">
-          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
         </div>
-        <div class="team-card-name">Loyd</div>
-        <div class="team-card-role">Personal Trainer</div>
-      </div>
-      <div class="team-card rv rv2 team-placeholder">
-        <div class="team-card-photo team-card-empty">
-          <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
-        </div>
-        <div class="team-card-name">Pepijn</div>
+        <div class="team-card-name">Foto volgt</div>
         <div class="team-card-role">Personal Trainer</div>
       </div>
     </div>
