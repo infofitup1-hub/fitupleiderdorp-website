@@ -1529,6 +1529,14 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
             <option value="beginnen-met-sporten">Beginnen met sporten</option>
           </select>
         </div>
+        <div class="form-field full">
+          <label>Hoe wil je de kennismaking plannen?</label>
+          <select name="voorkeur" id="voorkeur-field">
+            <option value="bel-mij">Bel mij voor een afspraak</option>
+            <option value="whatsapp">Plan via WhatsApp</option>
+            <option value="agenda">Ik kies zelf een moment in de agenda</option>
+          </select>
+        </div>
       </div>
       <div class="form-submit rv">
         <button type="submit" class="btn-y btn-y-lg">
@@ -1542,7 +1550,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     <div id="form-succes" style="display:none;text-align:center;padding:48px 0">
       <div style="font-family:var(--font-h);font-size:72px;font-weight:900;color:var(--y);line-height:1">✓</div>
       <div style="font-family:var(--font-h);font-size:36px;font-weight:900;text-transform:uppercase;color:var(--white);margin-top:16px">Aanmelding ontvangen!</div>
-      <p style="font-size:15px;color:rgba(255,255,255,.45);margin-top:12px">We nemen binnen 24 uur contact met je op.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,.45);margin-top:12px" id="succes-msg">We nemen binnen 24 uur contact met je op.</p>
+      <div id="succes-actions" style="margin-top:24px;display:none;justify-content:center">
+        <a href="#" id="succes-btn" target="_blank" rel="noopener" class="btn-y" style="display:inline-flex"></a>
+      </div>
     </div>
   </div>
 </section>
@@ -1659,6 +1670,23 @@ function submitForm(e) {
   }).catch(()=>{}).finally(()=>{
     form.style.display = 'none';
     document.getElementById('form-succes').style.display = 'block';
+    const msg = document.getElementById('succes-msg');
+    const actions = document.getElementById('succes-actions');
+    const btn = document.getElementById('succes-btn');
+    if(data.voorkeur === 'whatsapp'){
+      msg.textContent = 'Klik hieronder om direct via WhatsApp een moment te plannen.';
+      btn.textContent = 'Plan via WhatsApp →';
+      btn.href = 'https://wa.me/31648776322?text=' + encodeURIComponent('Hoi Fit Up! Ik heb me net aangemeld (' + (data.voornaam||'') + ') en wil graag een kennismaking inplannen.');
+      actions.style.display = 'flex';
+    } else if(data.voorkeur === 'agenda'){
+      msg.textContent = 'Kies hieronder direct een moment dat jou uitkomt.';
+      btn.textContent = 'Kies een moment in de agenda →';
+      btn.href = 'https://fitupleiderdorp.nl/gratis-intake/';
+      btn.removeAttribute('target');
+      actions.style.display = 'flex';
+    } else {
+      msg.textContent = 'We bellen je binnen 24 uur om een afspraak in te plannen.';
+    }
   });
 }
 
