@@ -1024,6 +1024,38 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
   .stats-premium{grid-template-columns:repeat(2,1fr);gap:36px 12px;padding:64px 5%}
 }
 
+
+/* ════ TICKER 3.0 — lime energie-strip ════ */
+.ticker-wrap{
+  background:#C8FF00;
+  box-shadow:none;
+  padding:18px 0;
+  -webkit-mask-image:none;mask-image:none;
+  position:relative;
+  z-index:2;
+}
+.ticker-item{
+  color:#0A0A0A;
+  font-size:26px;
+  font-style:italic;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+/* om en om: gevulde en outline tekst */
+.ticker-item:nth-child(even){
+  color:transparent;
+  -webkit-text-stroke:1.5px #0A0A0A;
+}
+.ticker-sep{
+  width:10px;height:10px;border-radius:2px;
+  background:#0A0A0A;
+  transform:rotate(45deg);
+  box-shadow:none;
+  animation:sepSpin 3s linear infinite;
+  margin:0 0 0 26px;
+}
+@keyframes sepSpin{from{transform:rotate(45deg)}to{transform:rotate(405deg)}}
+
 </style>
 </head>
 <body>
