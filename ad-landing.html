@@ -595,6 +595,94 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .wm-item.in .wm-bar-fill{width:var(--w,0%)}
 @media(max-width:600px){.weight-meters{grid-template-columns:1fr}}
 
+
+/* ── RESULT CARD GRID ── */
+.res-card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:960px;
+  margin:0 auto;
+}
+.res-card-new{
+  background:#161616;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  transition:transform .3s ease, box-shadow .3s ease;
+  animation:cardFlipIn .7s cubic-bezier(.16,1,.3,1) both;
+}
+.res-card-new:nth-child(1){--start-rot:-14deg;animation-delay:.05s}
+.res-card-new:nth-child(2){--start-rot:-8deg;animation-delay:.15s}
+.res-card-new:nth-child(3){--start-rot:-3deg;animation-delay:.25s}
+.res-card-new:nth-child(4){--start-rot:3deg;animation-delay:.35s}
+.res-card-new:nth-child(5){--start-rot:8deg;animation-delay:.45s}
+.res-card-new:nth-child(6){--start-rot:14deg;animation-delay:.55s}
+.res-card-new:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(0,0,0,.5);
+}
+.res-card-photo{
+  aspect-ratio:1/1;
+  overflow:hidden;
+  position:relative;
+}
+.res-card-photo img{
+  width:100%;height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#1a1a1a;
+  display:block;
+  transition:transform .4s ease;
+}
+.res-card-new:hover .res-card-photo img{transform:scale(1.03)}
+.res-card-meter{
+  padding:14px 16px 18px;
+}
+.rcm-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:10px;
+}
+.rcm-name{
+  font-family:var(--font-h);
+  font-size:16px;font-weight:800;
+  text-transform:uppercase;
+  color:#fff;letter-spacing:.04em;
+}
+.rcm-kg{
+  font-family:var(--font-h);
+  font-size:22px;font-weight:900;
+  color:#C8FF00;letter-spacing:-.01em;
+}
+.rcm-track{
+  height:5px;
+  background:rgba(255,255,255,.08);
+  border-radius:100px;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+.rcm-bar-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,rgba(200,255,0,.5),#C8FF00);
+  border-radius:100px;
+  transition:width 1.3s cubic-bezier(.16,1,.3,1);
+}
+.rcm-detail{
+  font-size:10px;
+  color:rgba(255,255,255,.3);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+@media(max-width:768px){
+  .res-card-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+}
+@media(max-width:420px){
+  .res-card-grid{grid-template-columns:1fr 1fr;gap:8px}
+}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -849,69 +937,98 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 
 
 
-  <!-- EDITORIAL RESULTATEN — grote getallen, dramatisch -->
-  <div class="wow-editorial-grid">
-
-    <div class="wow-editorial rv" data-kg="-35">
-      <div class="wow-editorial-img"><div class="card-accent"></div>
-        <img src="assets/images/res-irene.jpg" alt="Barbara -35kg">
+  <!-- RESULTATEN GRID -->
+  <div class="res-card-grid">
+    <div class="res-card-new rv">
+      <div class="res-card-photo">
+        <img src="assets/images/res-irene.jpg" alt="Barbara -35kg Fit Up">
       </div>
-      <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Barbara · <span style="color:var(--y)">-35 KG</span></div>
-        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
-      </div>
-    </div>
-
-    <div class="wow-editorial rv rv1" data-kg="-34">
-      <div class="wow-editorial-img"><div class="card-accent"></div>
-        <img src="assets/images/res-barbara.jpg" alt="Irene -34kg">
-      </div>
-      <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Irene · <span style="color:var(--y)">-34 KG</span></div>
-        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
+      <div class="res-card-meter">
+        <div class="rcm-header">
+          <span class="rcm-name">Barbara</span>
+          <span class="rcm-kg">-35 KG</span>
+        </div>
+        <div class="rcm-track">
+          <div class="rcm-bar-fill" data-width="100"></div>
+        </div>
+        <div class="rcm-detail">Personal Training</div>
       </div>
     </div>
-
-    <div class="wow-editorial rv rv2" data-kg="-20">
-      <div class="wow-editorial-img"><div class="card-accent"></div>
-        <img src="assets/images/res-sandra.jpg" alt="Sandra -20kg">
+    <div class="res-card-new rv">
+      <div class="res-card-photo">
+        <img src="assets/images/res-barbara.jpg" alt="Irene -34kg Fit Up">
       </div>
-      <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Sandra · <span style="color:var(--y)">-20 KG</span></div>
-        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
-      </div>
-    </div>
-
-    <div class="wow-editorial rv" data-kg="-13">
-      <div class="wow-editorial-img"><div class="card-accent"></div>
-        <img src="assets/images/res-marja.jpg" alt="Marja -13kg">
-      </div>
-      <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Marja · <span style="color:var(--y)">-13 KG</span></div>
-        <div class="wow-editorial-detail">69 jaar · Personal Training</div>
+      <div class="res-card-meter">
+        <div class="rcm-header">
+          <span class="rcm-name">Irene</span>
+          <span class="rcm-kg">-34 KG</span>
+        </div>
+        <div class="rcm-track">
+          <div class="rcm-bar-fill" data-width="97"></div>
+        </div>
+        <div class="rcm-detail">Personal Training</div>
       </div>
     </div>
-
-    <div class="wow-editorial rv rv1" data-kg="-5">
-      <div class="wow-editorial-img"><div class="card-accent"></div>
-        <img src="assets/images/res-mark.jpg" alt="Mark -5kg">
+    <div class="res-card-new rv">
+      <div class="res-card-photo">
+        <img src="assets/images/res-sandra.jpg" alt="Sandra -20kg Fit Up">
       </div>
-      <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Mark · <span style="color:var(--y)">-5 KG</span></div>
-        <div class="wow-editorial-detail">Vetpercentage · 16% → 13.9%</div>
-      </div>
-    </div>
-
-    <div class="wow-editorial rv rv2" data-kg="-17">
-      <div class="wow-editorial-img"><div class="card-accent"></div>
-        <img src="assets/images/res-karin.jpg" alt="Karin -17kg">
-      </div>
-      <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Karin · <span style="color:var(--y)">-17 KG</span></div>
-        <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
+      <div class="res-card-meter">
+        <div class="rcm-header">
+          <span class="rcm-name">Sandra</span>
+          <span class="rcm-kg">-20 KG</span>
+        </div>
+        <div class="rcm-track">
+          <div class="rcm-bar-fill" data-width="57"></div>
+        </div>
+        <div class="rcm-detail">Personal Training</div>
       </div>
     </div>
-
+    <div class="res-card-new rv">
+      <div class="res-card-photo">
+        <img src="assets/images/res-marja.jpg" alt="Marja -13kg Fit Up">
+      </div>
+      <div class="res-card-meter">
+        <div class="rcm-header">
+          <span class="rcm-name">Marja</span>
+          <span class="rcm-kg">-13 KG</span>
+        </div>
+        <div class="rcm-track">
+          <div class="rcm-bar-fill" data-width="37"></div>
+        </div>
+        <div class="rcm-detail">69 jaar · PT</div>
+      </div>
+    </div>
+    <div class="res-card-new rv">
+      <div class="res-card-photo">
+        <img src="assets/images/res-mark.jpg" alt="Mark -5kg Fit Up">
+      </div>
+      <div class="res-card-meter">
+        <div class="rcm-header">
+          <span class="rcm-name">Mark</span>
+          <span class="rcm-kg">-5 KG</span>
+        </div>
+        <div class="rcm-track">
+          <div class="rcm-bar-fill" data-width="14"></div>
+        </div>
+        <div class="rcm-detail">Vetpercentage -2.1%</div>
+      </div>
+    </div>
+    <div class="res-card-new rv">
+      <div class="res-card-photo">
+        <img src="assets/images/res-karin.jpg" alt="Karin -17kg Fit Up">
+      </div>
+      <div class="res-card-meter">
+        <div class="rcm-header">
+          <span class="rcm-name">Karin</span>
+          <span class="rcm-kg">-17 KG</span>
+        </div>
+        <div class="rcm-track">
+          <div class="rcm-bar-fill" data-width="49"></div>
+        </div>
+        <div class="rcm-detail">Personal Training</div>
+      </div>
+    </div>
   </div>
 
 </section>
@@ -1281,6 +1398,20 @@ const wmIo = new IntersectionObserver(entries => {
   });
 }, {threshold: 0.3});
 document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
+
+
+// RESULT METER BARS
+const rcmIo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.rcm-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      rcmIo.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+document.querySelectorAll('.res-card-grid').forEach(el => rcmIo.observe(el));
 
 </script>
 </body>
