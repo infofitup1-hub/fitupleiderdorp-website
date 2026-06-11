@@ -861,6 +861,82 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 .sticky-cta-btn{display:flex;justify-content:center;width:100%;font-size:16px;padding:15px 24px}
 @media(min-width:769px){.sticky-cta{display:none}}
 
+
+/* ════ BATTERIJ 2.0 ════ */
+.hero-battery{gap:16px}
+.battery-body{
+  width:84px;height:32px;
+  border:2px solid rgba(200,255,0,.9);
+  border-radius:7px;
+  box-shadow:0 0 0 3px rgba(0,0,0,.35), 0 0 20px rgba(200,255,0,.15);
+  transition:box-shadow .5s;
+}
+.battery-cap{width:6px;height:14px;border-radius:0 3px 3px 0}
+.battery-fill{
+  /* gradient met vaste breedte: kleur verandert ECHT van rood naar groen tijdens laden */
+  background:linear-gradient(90deg,#ff3b3b 0%,#ff8c00 35%,#ffd000 65%,#C8FF00 100%);
+  background-size:84px 100%;
+  background-position:left center;
+  background-repeat:no-repeat;
+  animation:batteryCharge 3s cubic-bezier(.3,0,.3,1) forwards .4s;
+}
+/* bewegende laad-strepen over de vulling */
+.battery-stripes{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(115deg,transparent 0 8px,rgba(255,255,255,.18) 8px 12px);
+  animation:stripesMove 1s linear infinite;
+}
+@keyframes stripesMove{from{background-position:0 0}to{background-position:24px 0}}
+/* bliksem die knippert tijdens laden */
+.battery-bolt{
+  position:absolute;left:8px;top:50%;transform:translateY(-50%);
+  z-index:3;filter:drop-shadow(0 0 4px rgba(255,255,255,.8));
+  animation:boltBlink 1s ease-in-out infinite;
+}
+@keyframes boltBlink{0%,100%{opacity:1}50%{opacity:.25}}
+.battery-pct{font-size:12px;z-index:4}
+/* VOL: glow-puls, strepen en bliksem stoppen */
+.battery-wrap.charged .battery-body{
+  border-color:#C8FF00;
+  box-shadow:0 0 0 3px rgba(0,0,0,.35), 0 0 26px rgba(200,255,0,.65);
+  animation:chargedPulse 2s ease-in-out infinite;
+}
+.battery-wrap.charged .battery-stripes{animation:none;opacity:0;transition:opacity .4s}
+.battery-wrap.charged .battery-bolt{animation:none;opacity:0;transition:opacity .3s}
+@keyframes chargedPulse{0%,100%{box-shadow:0 0 0 3px rgba(0,0,0,.35),0 0 18px rgba(200,255,0,.45)}50%{box-shadow:0 0 0 3px rgba(0,0,0,.35),0 0 34px rgba(200,255,0,.85)}}
+.battery-label{transition:color .4s}
+.battery-wrap.charged ~ .battery-label, .hero-battery.charged .battery-label{color:#C8FF00}
+
+/* ════ TICKER 2.0 ════ */
+.ticker-wrap{
+  position:relative;
+  border-top:none;border-bottom:none;
+  padding:16px 0;
+  /* gele energielijnen die gloeien */
+  box-shadow:inset 0 2px 0 #C8FF00, inset 0 -2px 0 #C8FF00;
+  /* randen vervagen voor naadloos gevoel */
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+}
+.ticker{animation-duration:26s}
+.ticker-item{
+  font-size:24px;
+  display:inline-flex;align-items:center;
+  transition:color .2s;
+}
+/* gele pulserende scheidings-bollen */
+.ticker-sep{
+  display:inline-block;
+  width:8px;height:8px;border-radius:50%;
+  background:#C8FF00;
+  font-size:0;
+  margin:0 0 0 24px;
+  vertical-align:middle;
+  animation:sepPulse 1.6s ease-in-out infinite;
+  box-shadow:0 0 8px rgba(200,255,0,.7);
+}
+@keyframes sepPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
+
 </style>
 </head>
 <body>
@@ -878,9 +954,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
   </div>
   <div class="hero-content">
     <div class="hero-battery">
-      <div class="battery-wrap">
+      <div class="battery-wrap" id="battery-wrap">
         <div class="battery-body">
-          <div class="battery-fill"></div>
+          <div class="battery-fill"><div class="battery-stripes"></div></div>
+          <svg class="battery-bolt" viewBox="0 0 12 20" width="10" height="16"><path d="M7 0L0 12h4l-1 8 8-13H6l1-7z" fill="#fff"/></svg>
           <div class="battery-pct" id="bat-pct">0%</div>
         </div>
         <div class="battery-cap"></div>
@@ -1539,7 +1616,13 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
     if(p < 0){ requestAnimationFrame(step); return; }
     pct.textContent = Math.round(p * 100) + '%';
     if(p < 1) requestAnimationFrame(step);
-    else pct.textContent = '100%';
+    else {
+      pct.textContent = '100%';
+      const wrap = document.getElementById('battery-wrap');
+      if(wrap){ wrap.classList.add('charged'); wrap.closest('.hero-battery').classList.add('charged'); }
+      const label = document.querySelector('.battery-label');
+      if(label) label.textContent = 'Doel behaald. Zo voelt Fit Up. ⚡';
+    }
   }
   requestAnimationFrame(step);
 })();
