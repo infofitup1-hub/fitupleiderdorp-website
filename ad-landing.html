@@ -668,7 +668,7 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   width:0;
   background:linear-gradient(90deg,rgba(200,255,0,.5),#C8FF00);
   border-radius:100px;
-  transition:width 1.3s cubic-bezier(.16,1,.3,1);
+  transition:width 2.5s cubic-bezier(.16,1,.3,1);
 }
 .rcm-detail{
   font-size:10px;
@@ -1404,8 +1404,10 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
 const rcmIo = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting){
-      e.target.querySelectorAll('.rcm-bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
+      e.target.querySelectorAll('.rcm-bar-fill').forEach((bar, i) => {
+        setTimeout(() => {
+          bar.style.width = bar.dataset.width + '%';
+        }, i * 200);
       });
       rcmIo.unobserve(e.target);
     }
