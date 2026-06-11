@@ -1069,6 +1069,22 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 .dienst-card, .editorial{outline:none;box-shadow:none}
 .diensten{outline:2px solid rgba(255,255,255,.9);outline-offset:0;border-radius:20px}
 
+
+/* ════ FOTO BLOK RESET ════ */
+.diensten{padding:0 5%;outline:none}
+.dienst-grid{gap:0;display:flex;flex-direction:column}
+.dienst-card{border-radius:0;outline:none;box-shadow:none;border:none}
+.dienst-card:first-child{border-radius:20px 20px 0 0}
+.editorial{margin:0 5%;border-radius:0;outline:none;box-shadow:none}
+#editorial-1{border-radius:0}
+#editorial-2{border-radius:0 0 20px 20px}
+
+/* Dubbele lijn: border op eerste en laatste + links en rechts via wrapper */
+.dienst-card:first-child{border-top:2px solid rgba(255,255,255,.85);border-left:2px solid rgba(255,255,255,.85);border-right:2px solid rgba(255,255,255,.85)}
+.dienst-card{border-left:2px solid rgba(255,255,255,.85);border-right:2px solid rgba(255,255,255,.85)}
+#editorial-1{border-left:2px solid rgba(255,255,255,.85);border-right:2px solid rgba(255,255,255,.85)}
+#editorial-2{border-left:2px solid rgba(255,255,255,.85);border-right:2px solid rgba(255,255,255,.85);border-bottom:2px solid rgba(255,255,255,.85)}
+
 </style>
 </head>
 <body>
