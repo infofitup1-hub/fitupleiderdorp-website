@@ -1646,8 +1646,20 @@ function selectKeuze(el) {
 
 function submitForm(e) {
   e.preventDefault();
-  document.getElementById('intake-form').style.display = 'none';
-  document.getElementById('form-succes').style.display = 'block';
+  const form = document.getElementById('intake-form');
+  const btn = form.querySelector('button[type="submit"], .btn-y');
+  if(btn){ btn.disabled = true; btn.textContent = 'Versturen...'; }
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.bron = 'ad-landing';
+  data.datum = new Date().toLocaleString('nl-NL');
+  fetch('https://hook.eu1.make.com/j33pos8etilk6dwdy8dlluj0nr7qnyfi', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  }).catch(()=>{}).finally(()=>{
+    form.style.display = 'none';
+    document.getElementById('form-succes').style.display = 'block';
+  });
 }
 
 
