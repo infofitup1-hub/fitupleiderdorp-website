@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
+<meta name="description" content="Fit Up Leiderdorp – jouw personal gym. Personal training, small group training en 24/7 fitness met persoonlijke begeleiding. Plan een gratis kennismaking.">
+<meta property="og:title" content="Fit Up Leiderdorp – Jouw Personal Gym">
+<meta property="og:description" content="Persoonlijke begeleiding, bewezen resultaten en een club waar jij erbij hoort. Plan je gratis kennismaking.">
+<meta property="og:image" content="https://fitupleiderdorp.nl/assets/images/ad-hero-dumbbells.jpg">
+<meta property="og:url" content="https://fitupleiderdorp.nl/ad-landing.html">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/images/logo-mark-white.png">
 <title>Fit Up Leiderdorp – Jouw gratis kennismaking</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -842,6 +849,18 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
   .rv{opacity:1;transform:none;filter:none}
 }
 
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{position:fixed;bottom:84px;right:16px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:998;box-shadow:0 6px 24px rgba(37,211,102,.45);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+@media(min-width:769px){.wa-float{bottom:28px;right:28px}}
+
+/* ── STICKY MOBILE CTA ── */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(200,255,0,.25);z-index:997;transform:translateY(110%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta-btn{display:flex;justify-content:center;width:100%;font-size:16px;padding:15px 24px}
+@media(min-width:769px){.sticky-cta{display:none}}
+
 </style>
 </head>
 <body>
@@ -945,7 +964,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     <!-- SGPT -->
     <div class="dienst-card rv">
       <div class="dienst-card-inner">
-        <img src="assets/images/ad-sgpt-lunges.webp" alt="Small Group PT Fit Up" class="dienst-img">
+        <img loading="lazy" decoding="async" src="assets/images/ad-sgpt-lunges.webp" alt="Small Group PT Fit Up" class="dienst-img">
         <div class="dienst-overlay"></div>
         <div class="dienst-badge">Populairste keuze</div>
         <div class="dienst-body">
@@ -960,7 +979,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     <!-- 1-op-1 PT -->
     <div class="dienst-card rv rv1">
       <div class="dienst-card-inner">
-        <img src="assets/images/ad-pt-squat.png" alt="Personal Training Fit Up Leiderdorp" class="dienst-img">
+        <img loading="lazy" decoding="async" src="assets/images/ad-pt-squat.png" alt="Personal Training Fit Up Leiderdorp" class="dienst-img">
         <div class="dienst-overlay"></div>
         <div class="dienst-badge">Snelste resultaat</div>
         <div class="dienst-body">
@@ -975,7 +994,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     <!-- 24/7 -->
     <div class="dienst-card rv rv2">
       <div class="dienst-card-inner">
-        <img src="assets/images/ad-gym-kracht.webp" alt="24/7 Fitness Fit Up Leiderdorp" class="dienst-img">
+        <img loading="lazy" decoding="async" src="assets/images/ad-gym-kracht.webp" alt="24/7 Fitness Fit Up Leiderdorp" class="dienst-img">
         <div class="dienst-overlay"></div>
         <div class="dienst-badge">Maximale vrijheid</div>
         <div class="dienst-body">
@@ -992,7 +1011,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 
 <!-- EDITORIAL: boksles groepslessen energie -->
 <div class="editorial rv" id="editorial-1">
-  <img src="assets/images/ad-boks-groep.jpg" alt="Groepslessen Fit Up Leiderdorp" class="editorial-img">
+  <img loading="lazy" decoding="async" src="assets/images/ad-boks-groep.jpg" alt="Groepslessen Fit Up Leiderdorp" class="editorial-img">
   <div class="editorial-stamp">Groepslessen</div>
   <div class="editorial-content" style="align-items:center;text-align:center">
     <div class="editorial-eyebrow" style="justify-content:center">Groepslessen</div>
@@ -1112,18 +1131,18 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     <p style="font-size:15px;color:rgba(255,255,255,.4);margin-top:16px;font-style:italic">Wil je weten hoe ze het hebben gedaan? Vraag het ze zelf.</p>
   </div>
   <div class="res-card-grid">
-    <div class="res-card-new rv"><div class="res-card-photo"><img src="assets/images/res-irene.jpg" alt="Barbara Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Barbara</span><span class="rcm-kg">-35 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
-    <div class="res-card-new rv rv1"><div class="res-card-photo"><img src="assets/images/res-barbara.jpg" alt="Irene Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Irene</span><span class="rcm-kg">-34 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
-    <div class="res-card-new rv rv2"><div class="res-card-photo"><img src="assets/images/res-sandra.jpg" alt="Sandra Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Sandra</span><span class="rcm-kg">-20 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
-    <div class="res-card-new rv"><div class="res-card-photo"><img src="assets/images/res-marja.jpg" alt="Marja Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Marja</span><span class="rcm-kg">-13 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">69 jaar · Personal Training</div></div></div>
-    <div class="res-card-new rv rv1"><div class="res-card-photo"><img src="assets/images/res-mark.jpg" alt="Mark Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Mark</span><span class="rcm-kg">-5 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Vetpercentage · 16% → 13.9%</div></div></div>
-    <div class="res-card-new rv rv2"><div class="res-card-photo"><img src="assets/images/res-karin.jpg" alt="Karin Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Karin</span><span class="rcm-kg">-17 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+    <div class="res-card-new rv"><div class="res-card-photo"><img loading="lazy" decoding="async" src="assets/images/res-irene.jpg" alt="Barbara Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Barbara</span><span class="rcm-kg">-35 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+    <div class="res-card-new rv rv1"><div class="res-card-photo"><img loading="lazy" decoding="async" src="assets/images/res-barbara.jpg" alt="Irene Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Irene</span><span class="rcm-kg">-34 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+    <div class="res-card-new rv rv2"><div class="res-card-photo"><img loading="lazy" decoding="async" src="assets/images/res-sandra.jpg" alt="Sandra Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Sandra</span><span class="rcm-kg">-20 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+    <div class="res-card-new rv"><div class="res-card-photo"><img loading="lazy" decoding="async" src="assets/images/res-marja.jpg" alt="Marja Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Marja</span><span class="rcm-kg">-13 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">69 jaar · Personal Training</div></div></div>
+    <div class="res-card-new rv rv1"><div class="res-card-photo"><img loading="lazy" decoding="async" src="assets/images/res-mark.jpg" alt="Mark Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Mark</span><span class="rcm-kg">-5 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Vetpercentage · 16% → 13.9%</div></div></div>
+    <div class="res-card-new rv rv2"><div class="res-card-photo"><img loading="lazy" decoding="async" src="assets/images/res-karin.jpg" alt="Karin Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Karin</span><span class="rcm-kg">-17 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
   </div>
 </section>
 
 <!-- EDITORIAL: gym foto met grote tekst -->
 <div class="editorial rv" id="editorial-2">
-  <img src="assets/images/ad-gym-overzicht.webp" alt="Gym Fit Up Leiderdorp" class="editorial-img">
+  <img loading="lazy" decoding="async" src="assets/images/ad-gym-overzicht.webp" alt="Gym Fit Up Leiderdorp" class="editorial-img">
   <div class="editorial-stamp">400M² Kracht</div>
   <div class="editorial-content">
     <div class="editorial-eyebrow">De gym</div>
@@ -1147,7 +1166,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     <div class="team-duo rv">
       <div class="team-duo-card">
         <div class="team-duo-photo">
-          <img src="assets/images/team-patrick.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp">
+          <img loading="lazy" decoding="async" src="assets/images/team-patrick.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp">
         </div>
         <div class="team-duo-name">Patrick Hollander</div>
         <div class="team-duo-role">Eigenaar &amp; Personal Trainer</div>
@@ -1155,7 +1174,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
       </div>
       <div class="team-duo-card">
         <div class="team-duo-photo">
-          <img src="assets/images/team-benjamin.jpg" alt="Benjamin – Personal Trainer Fit Up">
+          <img loading="lazy" decoding="async" src="assets/images/team-benjamin.jpg" alt="Benjamin – Personal Trainer Fit Up">
         </div>
         <div class="team-duo-name">Benjamin</div>
         <div class="team-duo-role">Personal Trainer</div>
@@ -1163,7 +1182,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
       </div>
       <div class="team-duo-card">
         <div class="team-duo-photo">
-          <img src="assets/images/team-pepijn.jpg" alt="Pepijn – Trainer Fit Up">
+          <img loading="lazy" decoding="async" src="assets/images/team-pepijn.jpg" alt="Pepijn – Trainer Fit Up">
         </div>
         <div class="team-duo-name">Pepijn</div>
         <div class="team-duo-role">Runner · Loop &amp; Kracht</div>
@@ -1171,7 +1190,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
       </div>
       <div class="team-duo-card">
         <div class="team-duo-photo">
-          <img src="assets/images/team-mendy.jpg" alt="Mendy – Trainer Fit Up">
+          <img loading="lazy" decoding="async" src="assets/images/team-mendy.jpg" alt="Mendy – Trainer Fit Up">
         </div>
         <div class="team-duo-name">Mendy</div>
         <div class="team-duo-role">HIIT · Afval · Kracht voor vrouwen</div>
@@ -1585,6 +1604,36 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
     c.addEventListener('touchstart', ()=>c.style.transform='scale(.985)', {passive:true});
     c.addEventListener('touchend', ()=>c.style.transform='', {passive:true});
   });
+})();
+</script>
+
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/31648776322?text=Hoi%20Fit%20Up!%20Ik%20wil%20graag%20meer%20weten%20over%20een%20gratis%20kennismaking." target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp Fit Up">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.2.6 2.5.9 3.8.9 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.5-.3-4.9 1 1-4.7-.3-.5c-.9-1.5-1.4-3.2-1.4-4.9 0-5.3 4.3-9.6 9.6-9.6s9.6 4.3 9.6 9.6-4.3 9.7-9.6 9.7zm5.3-7.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="#kennismaking" class="btn-y sticky-cta-btn">Plan gratis kennismaking →</a>
+</div>
+
+
+<script>
+(function(){
+  const bar = document.getElementById('sticky-cta');
+  const form = document.getElementById('kennismaking') || document.querySelector('.form-section');
+  if(!bar) return;
+  addEventListener('scroll', ()=>{
+    const pastHero = scrollY > innerHeight * .8;
+    let nearForm = false;
+    if(form){
+      const r = form.getBoundingClientRect();
+      nearForm = r.top < innerHeight && r.bottom > 0;
+    }
+    bar.classList.toggle('show', pastHero && !nearForm);
+  }, {passive:true});
 })();
 </script>
 
