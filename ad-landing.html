@@ -1213,9 +1213,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
       <span class="line"><span>Personal</span></span>
       <span class="line"><span><em>Gym.</em></span></span>
     </h1>
-    <p class="hero-sub">Hier ken je je coach. Je coach kent jou. Geen nummertje, geen grote zaal, gewoon <strong>jouw plek om te trainen en te groeien.</strong></p>
+    <p class="hero-sub">Speciaal voor <strong>vrouwen én mannen van 30 tot 55 jaar</strong> in Leiderdorp e.o. Hier ken je je coach. Geen grote zaal, geen nummertje.</p>
     <div class="hero-ctas">
       <a href="#kennismaking" class="btn-y btn-y-lg">Plan gratis kennismaking →</a>
+      <div class="hero-schaarste"><span class="hs-dot"></span>Nog <strong>4 plekken</strong> beschikbaar voor de 6-weekse challenge</div>
       <span class="hero-micro">
         <svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
         Gratis &amp; vrijblijvend
@@ -1614,6 +1615,27 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 
 
 <!-- FORMULIER + SCHAARSTE -->
+
+<!-- COUNTDOWN BANNER -->
+<div class="cd-banner">
+  <div class="cd-banner-inner">
+    <div class="cd-banner-text">
+      <span class="cd-banner-dot"></span>
+      <strong>Tijdelijk aanbod</strong> — Schrijf je in voor de 6-weekse challenge. Actie geldig nog:
+    </div>
+    <div class="cd-banner-timer">
+      <div class="cd-block"><span class="cd-num" id="cd2-days">00</span><span class="cd-unit">Dagen</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd2-hours">00</span><span class="cd-unit">Uren</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd2-mins">00</span><span class="cd-unit">Min</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd2-secs">00</span><span class="cd-unit">Sec</span></div>
+    </div>
+    <a href="#kennismaking" class="cd-banner-cta">Claim jouw plek →</a>
+  </div>
+</div>
+
 <section class="form-section" id="kennismaking">
   <div class="form-inner">
     <div class="form-eyebrow rv">Directe aanmelding</div>
@@ -2086,6 +2108,23 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
   new IntersectionObserver((es,io)=>{
     es.forEach(e=>{ if(e.isIntersecting){ s.classList.add('in'); io.disconnect(); } });
   },{threshold:.3}).observe(s);
+})();
+</script>
+
+
+<script>
+(function(){
+  const end2 = new Date(); end2.setDate(end2.getDate()+3); end2.setHours(23,59,59,0);
+  function pad(n){ return String(Math.floor(n)).padStart(2,'0'); }
+  function tick(){
+    const d = Math.max(0, end2 - new Date());
+    const el = id => document.getElementById(id);
+    if(el('cd2-days')) el('cd2-days').textContent = pad(d/86400000);
+    if(el('cd2-hours')) el('cd2-hours').textContent = pad((d%86400000)/3600000);
+    if(el('cd2-mins')) el('cd2-mins').textContent = pad((d%3600000)/60000);
+    if(el('cd2-secs')) el('cd2-secs').textContent = pad((d%60000)/1000);
+  }
+  tick(); setInterval(tick,1000);
 })();
 </script>
 
@@ -3300,6 +3339,27 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 .rs-pills span{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:4px 12px;border-radius:100px;letter-spacing:.04em}
 .rs-cta{display:inline-flex;margin-top:8px;font-size:15px;padding:15px 32px}
 
+
+/* ── HERO SCHAARSTE ── */
+.hero-schaarste{display:inline-flex;align-items:center;gap:8px;background:rgba(200,255,0,.1);border:1px solid rgba(200,255,0,.25);border-radius:100px;padding:7px 16px;font-size:12px;color:rgba(255,255,255,.7);margin-bottom:16px;letter-spacing:.02em}
+.hero-schaarste strong{color:#C8FF00}
+.hs-dot{width:7px;height:7px;border-radius:50%;background:#C8FF00;animation:blink 1.4s ease-in-out infinite;flex-shrink:0}
+
+/* ── COUNTDOWN BANNER ── */
+.cd-banner{background:linear-gradient(135deg,#0f1a00,#1a2d00);border-top:1px solid rgba(200,255,0,.2);border-bottom:1px solid rgba(200,255,0,.2);padding:20px 5%}
+.cd-banner-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center}
+.cd-banner-text{font-size:14px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;text-align:center}
+.cd-banner-text strong{color:#fff}
+.cd-banner-dot{width:8px;height:8px;border-radius:50%;background:#C8FF00;box-shadow:0 0 8px #C8FF00;animation:blink 1.4s ease-in-out infinite;flex-shrink:0}
+.cd-banner-timer{display:flex;align-items:center;gap:6px}
+.cd-block{display:flex;flex-direction:column;align-items:center;gap:2px}
+.cd-num{font-family:var(--font-h);font-size:28px;font-weight:900;color:#C8FF00;line-height:1;min-width:36px;text-align:center}
+.cd-unit{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.cd-sep{font-family:var(--font-h);font-size:24px;font-weight:900;color:rgba(200,255,0,.4);margin-bottom:10px}
+.cd-banner-cta{background:#C8FF00;color:#0A0A0A;font-family:var(--font-h);font-weight:800;font-size:13px;text-decoration:none;padding:10px 22px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;transition:transform .2s,box-shadow .2s}
+.cd-banner-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,255,0,.3)}
+@media(max-width:600px){.cd-banner-inner{flex-direction:column;gap:16px}.cd-num{font-size:22px}}
+
 </style>
 </head>
 <body>
@@ -3332,9 +3392,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
       <span class="line"><span>Personal</span></span>
       <span class="line"><span><em>Gym.</em></span></span>
     </h1>
-    <p class="hero-sub">Hier ken je je coach. Je coach kent jou. Geen nummertje, geen grote zaal, gewoon <strong>jouw plek om te trainen en te groeien.</strong></p>
+    <p class="hero-sub">Speciaal voor <strong>vrouwen én mannen van 30 tot 55 jaar</strong> in Leiderdorp e.o. Hier ken je je coach. Geen grote zaal, geen nummertje.</p>
     <div class="hero-ctas">
       <a href="#kennismaking" class="btn-y btn-y-lg">Plan gratis kennismaking →</a>
+      <div class="hero-schaarste"><span class="hs-dot"></span>Nog <strong>4 plekken</strong> beschikbaar voor de 6-weekse challenge</div>
       <span class="hero-micro">
         <svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
         Gratis &amp; vrijblijvend
@@ -3738,6 +3799,27 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 
 
 <!-- FORMULIER + SCHAARSTE -->
+
+<!-- COUNTDOWN BANNER -->
+<div class="cd-banner">
+  <div class="cd-banner-inner">
+    <div class="cd-banner-text">
+      <span class="cd-banner-dot"></span>
+      <strong>Tijdelijk aanbod</strong> — Schrijf je in voor de 6-weekse challenge. Actie geldig nog:
+    </div>
+    <div class="cd-banner-timer">
+      <div class="cd-block"><span class="cd-num" id="cd2-days">00</span><span class="cd-unit">Dagen</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd2-hours">00</span><span class="cd-unit">Uren</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd2-mins">00</span><span class="cd-unit">Min</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd2-secs">00</span><span class="cd-unit">Sec</span></div>
+    </div>
+    <a href="#kennismaking" class="cd-banner-cta">Claim jouw plek →</a>
+  </div>
+</div>
+
 <section class="form-section" id="kennismaking">
   <div class="form-inner">
     <div class="form-eyebrow rv">Directe aanmelding</div>
@@ -4210,6 +4292,23 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
   new IntersectionObserver((es,io)=>{
     es.forEach(e=>{ if(e.isIntersecting){ s.classList.add('in'); io.disconnect(); } });
   },{threshold:.3}).observe(s);
+})();
+</script>
+
+
+<script>
+(function(){
+  const end2 = new Date(); end2.setDate(end2.getDate()+3); end2.setHours(23,59,59,0);
+  function pad(n){ return String(Math.floor(n)).padStart(2,'0'); }
+  function tick(){
+    const d = Math.max(0, end2 - new Date());
+    const el = id => document.getElementById(id);
+    if(el('cd2-days')) el('cd2-days').textContent = pad(d/86400000);
+    if(el('cd2-hours')) el('cd2-hours').textContent = pad((d%86400000)/3600000);
+    if(el('cd2-mins')) el('cd2-mins').textContent = pad((d%3600000)/60000);
+    if(el('cd2-secs')) el('cd2-secs').textContent = pad((d%60000)/1000);
+  }
+  tick(); setInterval(tick,1000);
 })();
 </script>
 
