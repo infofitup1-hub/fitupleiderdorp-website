@@ -189,7 +189,7 @@ body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-
 .reviews-section{padding:100px 5%;background:#F4F4F2}
 .reviews-section h2{font-family:var(--font-h);font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:56px;color:var(--ink)}
 .reviews-section h2 em{font-style:italic;color:var(--ink);-webkit-text-stroke:1.5px #bbb}
-.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.r-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .r-card{background:#FFFFFF;border:1px solid #E5E5E3;border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:background .25s,transform .25s}
 .r-card:hover{background:#F9F9F7;transform:translateY(-4px)}
 .r-stars{display:flex;gap:3px}
@@ -595,134 +595,6 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .wm-item.in .wm-bar-fill{width:var(--w,0%)}
 @media(max-width:600px){.weight-meters{grid-template-columns:1fr}}
 
-
-/* ── RESULT CARD GRID ── */
-.res-intro-text{
-  font-size:15px;
-  color:rgba(255,255,255,.5);
-  font-style:italic;
-  text-align:center;
-  margin-bottom:40px;
-  max-width:560px;
-  margin-left:auto;
-  margin-right:auto;
-  line-height:1.6;
-}
-.res-card-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  max-width:960px;
-  margin:0 auto;
-}
-.res-card-new{
-  background:#161616;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.07);
-  transition:transform .3s ease, box-shadow .3s ease;
-  animation:cardFlipIn .7s cubic-bezier(.16,1,.3,1) both;
-}
-.res-card-new:nth-child(1){--start-rot:-14deg;animation-delay:.05s}
-.res-card-new:nth-child(2){--start-rot:-8deg;animation-delay:.15s}
-.res-card-new:nth-child(3){--start-rot:-3deg;animation-delay:.25s}
-.res-card-new:nth-child(4){--start-rot:3deg;animation-delay:.35s}
-.res-card-new:nth-child(5){--start-rot:8deg;animation-delay:.45s}
-.res-card-new:nth-child(6){--start-rot:14deg;animation-delay:.55s}
-.res-card-new:hover{
-  transform:translateY(-6px);
-  box-shadow:0 16px 40px rgba(0,0,0,.5);
-}
-.res-card-photo{
-  aspect-ratio:1/1;
-  overflow:hidden;
-  position:relative;
-}
-.res-card-photo img{
-  width:100%;height:100%;
-  object-fit:contain;
-  object-position:center;
-  background:#1a1a1a;
-  display:block;
-  transition:transform .4s ease;
-}
-.res-card-new:hover .res-card-photo img{transform:scale(1.03)}
-.res-card-meter{
-  padding:14px 16px 18px;
-}
-.rcm-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  margin-bottom:10px;
-}
-.rcm-name{
-  font-family:var(--font-h);
-  font-size:16px;font-weight:800;
-  text-transform:uppercase;
-  color:#fff;letter-spacing:.04em;
-}
-.rcm-kg{
-  font-family:var(--font-h);
-  font-size:22px;font-weight:900;
-  color:#C8FF00;letter-spacing:-.01em;
-}
-.rcm-track{
-  height:5px;
-  background:rgba(255,255,255,.08);
-  border-radius:100px;
-  overflow:hidden;
-  margin-bottom:8px;
-}
-.rcm-bar-fill{
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,rgba(200,255,0,.5),#C8FF00);
-  border-radius:100px;
-  transition:width 4.5s cubic-bezier(.4,0,.2,1);
-}
-.rcm-ask{
-  font-size:11px;
-  color:rgba(200,255,0,.6);
-  letter-spacing:.04em;
-  margin-top:6px;
-  font-style:italic;
-}
-.rcm-detail{
-  font-size:10px;
-  color:rgba(255,255,255,.3);
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-@media(max-width:768px){
-  .res-intro-text{
-  font-size:15px;
-  color:rgba(255,255,255,.5);
-  font-style:italic;
-  text-align:center;
-  margin-bottom:40px;
-  max-width:560px;
-  margin-left:auto;
-  margin-right:auto;
-  line-height:1.6;
-}
-.res-card-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-}
-@media(max-width:420px){
-  .res-intro-text{
-  font-size:15px;
-  color:rgba(255,255,255,.5);
-  font-style:italic;
-  text-align:center;
-  margin-bottom:40px;
-  max-width:560px;
-  margin-left:auto;
-  margin-right:auto;
-  line-height:1.6;
-}
-.res-card-grid{grid-template-columns:1fr 1fr;gap:8px}
-}
-
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -753,6 +625,68 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
   .stats{grid-template-columns:1fr 1fr}
   .hero h1{font-size:clamp(52px,14vw,90px)}
 }
+
+/* ── RES CARDS ── */
+.res-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
+.res-card-new{background:#161616;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07);transition:transform .3s,box-shadow .3s}
+.res-card-new:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.res-card-photo{aspect-ratio:1/1;overflow:hidden}
+.res-card-photo img{width:100%;height:100%;object-fit:contain;object-position:center;background:#1a1a1a;display:block;transition:transform .4s}
+.res-card-new:hover .res-card-photo img{transform:scale(1.03)}
+.res-card-meter{padding:14px 16px 18px}
+.rcm-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.rcm-name{font-family:var(--font-h);font-size:16px;font-weight:800;text-transform:uppercase;color:#fff;letter-spacing:.04em}
+.rcm-kg{font-family:var(--font-h);font-size:22px;font-weight:900;color:#C8FF00;letter-spacing:-.01em}
+.rcm-track{height:5px;background:rgba(255,255,255,.08);border-radius:100px;overflow:hidden;margin-bottom:8px}
+.rcm-bar-fill{height:100%;width:0;background:linear-gradient(90deg,rgba(200,255,0,.5),#C8FF00);border-radius:100px;transition:width 4.5s cubic-bezier(.4,0,.2,1)}
+.rcm-detail{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:768px){.res-card-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+/* ── HERKEN ── */
+.herken-section{padding:100px 5%;background:#FFFFFF;border-top:1px solid #E5E5E3}
+.herken-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start}
+.herken-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.herken-eyebrow::before{content:'';width:28px;height:2px;background:var(--y)}
+.herken-h2{font-family:var(--font-h);font-size:clamp(40px,4.5vw,64px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;color:var(--ink);margin-bottom:20px}
+.herken-h2 em{font-style:italic;color:var(--ink);-webkit-text-stroke:1.5px #bbb}
+.herken-sub{font-size:15px;color:#666;line-height:1.7;max-width:320px}
+.herken-right{display:flex;flex-direction:column;gap:4px}
+.herken-card{display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-radius:14px;background:#F9F9F7;border:1px solid #EEEEED;transition:background .2s,transform .2s}
+.herken-card:hover{background:#fff;transform:translateX(4px);box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.herken-icon{width:40px;height:40px;border-radius:10px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.herken-icon svg{width:20px;height:20px;stroke:#C8FF00;fill:none}
+.herken-text{display:flex;flex-direction:column;gap:6px}
+.herken-text strong{font-size:15px;font-weight:600;color:var(--ink);line-height:1.3}
+.herken-text span{font-size:13px;color:#777;line-height:1.6}
+@media(max-width:860px){.herken-inner{grid-template-columns:1fr;gap:48px}}
+
+/* ── REVIEWS GRID ── */
+.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.r-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.r-grid{grid-template-columns:1fr}}
+
+/* reviews google score */
+.reviews-google-score{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:40px;padding:24px 32px;background:#FFFFFF;border:1px solid #E5E5E3;border-radius:16px;flex-wrap:wrap}
+.rgs-left{display:flex;align-items:center;gap:16px}
+.rgs-num{font-family:var(--font-h);font-size:52px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.rgs-stars{display:flex;gap:3px}
+.rgs-stars svg{width:18px;height:18px;fill:#FFBB00}
+.rgs-label{font-size:13px;color:#888;margin-top:4px}
+.rgs-link{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid #ddd;padding-bottom:2px}
+
+/* ── TEAM DUO ── */
+.team-duo{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.team-duo-card{background:#FFFFFF;border:1px solid #E5E5E3;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.team-duo-photo{width:120px;height:120px;border-radius:50%;overflow:hidden;border:2px solid rgba(200,255,0,.5);margin-bottom:8px}
+.team-duo-photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+.team-duo-name{font-family:var(--font-h);font-size:24px;font-weight:800;text-transform:uppercase;color:var(--ink);line-height:1}
+.team-duo-role{font-size:11px;color:var(--white);font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);display:inline-flex;padding:4px 12px;border-radius:100px;width:fit-content}
+.team-duo-bio{font-size:14px;color:#666;line-height:1.65}
+@media(max-width:768px){.team-duo{grid-template-columns:1fr}}
+
+/* JS bar trigger */
+.rcm-bar-fill.run{width:100% !important}
+
 </style>
 </head>
 <body>
@@ -769,7 +703,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <img src="assets/images/ad-hero-dumbbells.jpg" alt="Fit Up Leiderdorp gym" id="hero-img">
   </div>
   <div class="hero-content">
-    <div class="hero-tag"><span class="hero-tag-dot"></span>Leiderdorp · De plek waar jij gecoacht wil worden</div>
+    <div class="hero-tag"><span class="hero-tag-dot"></span><span style="color:var(--ink);font-weight:900">Jouw Personal</span>&nbsp;<span style="color:var(--y)">Gym</span> · Leiderdorp</div>
     <h1>
       <span class="line"><span>Jouw</span></span>
       <span class="line"><span>Personal</span></span>
@@ -840,7 +774,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <!-- DIENSTEN: 3 kaarten met foto's en hover-reveal -->
 <section class="diensten">
   <div class="diensten-header rv">
-    <h2>Hier hoor<br>jij <em>erbij.</em></h2>
+    <h2>Jouw persoonlijke<br><em>club.</em></h2>
   </div>
   <div class="dienst-grid">
 
@@ -905,29 +839,6 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 
 
 <!-- HERKEN JIJ DIT -->
-<!-- HOE HET WERKT -->
-<section class="how">
-  <div class="eyebrow light rv">Hoe het werkt</div>
-  <h2 class="sh2 light rv">Drie stappen.<br><em>Eén beslissing.</em></h2>
-  <div class="steps">
-    <div class="step rv">
-      <div class="step-num">Stap 01</div>
-      <h3>Gratis kennismaking</h3>
-      <p>We praten 30 minuten. Jouw doelen, jouw leven, jouw tempo. Geen verkoopverhaal — gewoon een eerlijk gesprek.</p>
-    </div>
-    <div class="step rv rv1">
-      <div class="step-num">Stap 02</div>
-      <h3>Persoonlijk plan</h3>
-      <p>We bouwen een aanpak die past bij jou — niet bij een standaard schema dat voor iedereen hetzelfde is.</p>
-    </div>
-    <div class="step rv rv2">
-      <div class="step-num">Stap 03</div>
-      <h3>Resultaat</h3>
-      <p>Je traint gericht, voelt verschil en ziet progressie. Bijgestuurd wanneer nodig. Gemotiveerd de hele weg.</p>
-    </div>
-  </div>
-</section>
-
 <section class="herken-section">
   <div class="herken-inner">
 
@@ -989,115 +900,62 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
   </div>
 </section>
 
-<!-- RESULTATEN -->
-<section class="resultaten" id="resultaten" style="background:#0A0A0A;padding:100px 5%">
-
-  <div class="rv" style="margin-bottom:64px">
-    <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;align-items:center;gap:10px"><span style="display:block;width:28px;height:2px;background:#C8FF00"></span>Bewezen resultaten</div>
-    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,6vw,80px);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.03em;color:#fff">Jouw resultaat<br><em style="font-style:italic;color:#C8FF00">staat hier.</em></h2>
-    <p style="font-size:16px;color:rgba(255,255,255,.4);margin-top:16px;max-width:480px;line-height:1.6">Geen filters. Geen trucjes. Gewoon wat er gebeurt als je de juiste begeleiding krijgt.</p>
-  </div>
-
-
-
-  <p class="res-intro-text rv">Wil je weten hoe ze het hebben gedaan? Vraag het ze zelf.</p>
-
-  <!-- RESULTATEN GRID -->
-  <div class="res-card-grid">
-    <div class="res-card-new rv">
-      <div class="res-card-photo">
-        <img src="assets/images/res-irene.jpg" alt="Barbara -35kg Fit Up">
-      </div>
-      <div class="res-card-meter">
-        <div class="rcm-header">
-          <span class="rcm-name">Barbara</span>
-          <span class="rcm-kg">-35 KG</span>
-        </div>
-        <div class="rcm-track">
-          <div class="rcm-bar-fill" data-width="100"></div>
-        </div>
-        <div class="rcm-detail">Personal Training</div>
-      </div>
+<!-- HOE HET WERKT -->
+<section class="how">
+  <div class="eyebrow light rv">Hoe het werkt</div>
+  <h2 class="sh2 light rv">Drie stappen.<br><em>Één beslissing.</em></h2>
+  <div class="steps">
+    <div class="step rv">
+      <div class="step-num">Stap 01</div>
+      <h3>Gratis kennismaking</h3>
+      <p>We praten 30 minuten. Jouw doelen, jouw leven, jouw tempo. Geen verkoopverhaal — gewoon een eerlijk gesprek.</p>
     </div>
-    <div class="res-card-new rv">
-      <div class="res-card-photo">
-        <img src="assets/images/res-barbara.jpg" alt="Irene -34kg Fit Up">
-      </div>
-      <div class="res-card-meter">
-        <div class="rcm-header">
-          <span class="rcm-name">Irene</span>
-          <span class="rcm-kg">-34 KG</span>
-        </div>
-        <div class="rcm-track">
-          <div class="rcm-bar-fill" data-width="100"></div>
-        </div>
-        <div class="rcm-detail">Personal Training</div>
-      </div>
+    <div class="step rv rv1">
+      <div class="step-num">Stap 02</div>
+      <h3>Persoonlijk plan</h3>
+      <p>We bouwen een aanpak die past bij jou — niet bij een standaard schema dat voor iedereen hetzelfde is.</p>
     </div>
-    <div class="res-card-new rv">
-      <div class="res-card-photo">
-        <img src="assets/images/res-sandra.jpg" alt="Sandra -20kg Fit Up">
-      </div>
-      <div class="res-card-meter">
-        <div class="rcm-header">
-          <span class="rcm-name">Sandra</span>
-          <span class="rcm-kg">-20 KG</span>
-        </div>
-        <div class="rcm-track">
-          <div class="rcm-bar-fill" data-width="100"></div>
-        </div>
-        <div class="rcm-detail">Personal Training</div>
-      </div>
-    </div>
-    <div class="res-card-new rv">
-      <div class="res-card-photo">
-        <img src="assets/images/res-marja.jpg" alt="Marja -13kg Fit Up">
-      </div>
-      <div class="res-card-meter">
-        <div class="rcm-header">
-          <span class="rcm-name">Marja</span>
-          <span class="rcm-kg">-13 KG</span>
-        </div>
-        <div class="rcm-track">
-          <div class="rcm-bar-fill" data-width="100"></div>
-        </div>
-        <div class="rcm-detail">69 jaar · PT</div>
-      </div>
-    </div>
-    <div class="res-card-new rv">
-      <div class="res-card-photo">
-        <img src="assets/images/res-mark.jpg" alt="Mark -5kg Fit Up">
-      </div>
-      <div class="res-card-meter">
-        <div class="rcm-header">
-          <span class="rcm-name">Mark</span>
-          <span class="rcm-kg">-5 KG</span>
-        </div>
-        <div class="rcm-track">
-          <div class="rcm-bar-fill" data-width="100"></div>
-        </div>
-        <div class="rcm-detail">Vetpercentage -2.1%</div>
-      </div>
-    </div>
-    <div class="res-card-new rv">
-      <div class="res-card-photo">
-        <img src="assets/images/res-karin.jpg" alt="Karin -17kg Fit Up">
-      </div>
-      <div class="res-card-meter">
-        <div class="rcm-header">
-          <span class="rcm-name">Karin</span>
-          <span class="rcm-kg">-17 KG</span>
-        </div>
-        <div class="rcm-track">
-          <div class="rcm-bar-fill" data-width="100"></div>
-        </div>
-        <div class="rcm-detail">Personal Training</div>
-      </div>
+    <div class="step rv rv2">
+      <div class="step-num">Stap 03</div>
+      <h3>Resultaat</h3>
+      <p>Je traint gericht, voelt verschil en ziet progressie. Bijgestuurd wanneer nodig. Gemotiveerd de hele weg.</p>
     </div>
   </div>
-
 </section>
-
+<!-- HERKEN JIJ DIT -->
+<section class="herken-section">
+  <div class="herken-inner">
+    <div class="herken-left rv">
+      <div class="herken-eyebrow">Klinkt dit bekend?</div>
+      <h2 class="herken-h2">We kennen<br>het gevoel.<br><em>Echt.</em></h2>
+      <p class="herken-sub">Bij Fit Up horen we dit elke week. En we weten precies wat je nodig hebt om het wél te laten werken.</p>
+      <a href="#kennismaking" class="btn-y" style="margin-top:32px">Plan gratis kennismaking →</a>
+    </div>
+    <div class="herken-right">
+      <div class="herken-card rv"><div class="herken-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><path d="M16 9v7l4 4"/></svg></div><div class="herken-text"><strong>"Ik heb geen tijd voor lange workouts"</strong><span>We bouwen een schema van 2-3x per week dat wél past bij jouw drukke leven.</span></div></div>
+      <div class="herken-card rv rv1"><div class="herken-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="10" r="4"/><path d="M8 28v-2a2 2 0 012-2h12a2 2 0 012 2v2"/></svg></div><div class="herken-text"><strong>"Ik wil 5 à 10 kilo kwijt maar diëten werkt niet"</strong><span>Met voedingscoaching leer je eten op een manier die wél volhoudt.</span></div></div>
+      <div class="herken-card rv rv1"><div class="herken-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="24" height="24" rx="4"/><path d="M4 12h24M12 4v8M20 4v8"/></svg></div><div class="herken-text"><strong>"Ik heb al van alles geprobeerd, maar niks houdt"</strong><span>Dat komt omdat er geen persoonlijk plan was. Wij starten met jouw situatie.</span></div></div>
+      <div class="herken-card rv rv2"><div class="herken-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 16s3-9 13-9 13 9 13 9-3 9-13 9S3 16 3 16z"/><circle cx="16" cy="16" r="4"/></svg></div><div class="herken-text"><strong>"Grote sportscholen voelen anoniem en intimiderend"</strong><span>Hier kent iedereen jouw naam. Maximaal 4 mensen per groep. Geen oordeel.</span></div></div>
+      <div class="herken-card rv rv2"><div class="herken-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="16" r="12"/><path d="M16 12v4l3 3"/></svg></div><div class="herken-text"><strong>"Ik eet toch al gezond, maar kom niet verder"</strong><span>Voeding is 70% van je resultaat. Met onze voedingscoaching ontdek je wat voor jóuw lichaam werkt.</span></div></div>
+    </div>
+  </div>
+</section>
+<!-- RESULTATEN -->
+<section class="resultaten" id="resultaten" style="background:#0A0A0A;padding:80px 5%">
+  <div class="rv" style="margin-bottom:48px;max-width:960px;margin-left:auto;margin-right:auto">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;align-items:center;gap:10px"><span style="display:block;width:28px;height:2px;background:#C8FF00"></span>Bewezen resultaten</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,6vw,72px);font-weight:900;text-transform:uppercase;line-height:.9;color:#fff">Jouw resultaat<br><em style="color:#C8FF00">staat hier.</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.4);margin-top:16px;font-style:italic">Wil je weten hoe ze het hebben gedaan? Vraag het ze zelf.</p>
+  </div>
+  <div class="res-card-grid">
+    <div class="res-card-new rv"><div class="res-card-photo"><img src="assets/images/res-irene.jpg" alt="Barbara Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Barbara</span><span class="rcm-kg">-35 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+    <div class="res-card-new rv rv1"><div class="res-card-photo"><img src="assets/images/res-barbara.jpg" alt="Irene Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Irene</span><span class="rcm-kg">-34 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+    <div class="res-card-new rv rv2"><div class="res-card-photo"><img src="assets/images/res-sandra.jpg" alt="Sandra Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Sandra</span><span class="rcm-kg">-20 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+    <div class="res-card-new rv"><div class="res-card-photo"><img src="assets/images/res-marja.jpg" alt="Marja Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Marja</span><span class="rcm-kg">-13 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">69 jaar · Personal Training</div></div></div>
+    <div class="res-card-new rv rv1"><div class="res-card-photo"><img src="assets/images/res-mark.jpg" alt="Mark Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Mark</span><span class="rcm-kg">-5 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Vetpercentage · 16% → 13.9%</div></div></div>
+    <div class="res-card-new rv rv2"><div class="res-card-photo"><img src="assets/images/res-karin.jpg" alt="Karin Fit Up"></div><div class="res-card-meter"><div class="rcm-header"><span class="rcm-name">Karin</span><span class="rcm-kg">-17 KG</span></div><div class="rcm-track"><div class="rcm-bar-fill" data-width="100"></div></div><div class="rcm-detail">Personal Training</div></div></div>
+  </div>
+</section>
 
 <!-- EDITORIAL: gym foto met grote tekst -->
 <div class="editorial rv" id="editorial-2">
@@ -1154,53 +1012,27 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-section">
-  <h2 class="rv">Wat leden<br><em>zeggen.</em></h2>
-  <!-- Google score header -->
-  <div class="reviews-google-score rv">
-    <div class="rgs-left">
-      <div class="rgs-num">4.9</div>
-      <div class="rgs-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <div class="rgs-label">59 Google reviews</div>
+<section class="reviews-section" id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-google-score rv">
+      <div class="rgs-left">
+        <div class="rgs-num">4.9</div>
+        <div class="rgs-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
+        <div class="rgs-label">59 Google reviews</div>
+      </div>
+      <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener" class="rgs-link">Bekijk alle reviews op Google →</a>
     </div>
-    <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener" class="rgs-link">
-      Bekijk alle reviews op Google →
-    </a>
-  </div>
-
-  <div class="r-grid">
-    <div class="r-card rv">
-      <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Ik sport inmiddels al 2,5 jaar met veel plezier bij deze fijne sportschool. Onder begeleiding van Patrick ben ik binnen een half jaar 20 kilo afgevallen. Patrick maakt net dat verschil om door te zetten en je resultaten te behouden."</p>
-      <div class="r-author">Sandra · Google · deze week</div>
-    </div>
-    <div class="r-card rv rv1">
-      <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Fijne en huiselijke sportschool. Alles aanwezig om sportief te worden of te blijven. Goed personeel die je zeer goed begeleiden. Ook veel keus om te sporten in groepsverband."</p>
-      <div class="r-author">Ronald · Google · een week geleden</div>
-    </div>
-    <div class="r-card rv rv2">
-      <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Een hele fijne sportschool, netjes en schoon. Hele goede begeleiding, lekker kleinschalig en een hele goede stok achter de deur. Prettige sfeer, iedereen helpt elkaar en heel laagdrempelig."</p>
-      <div class="r-author">Madeleine · Google · een week geleden</div>
-    </div>
-    <div class="r-card rv">
-      <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"De beste sportschool waar ik tot nu toe ben geweest. Lekker rustig, 24/7 open, de apparaten zijn erg goed. De baas is erg aardig en vaak aanwezig om te helpen."</p>
-      <div class="r-author">Mark · Google · 2 maanden geleden</div>
-    </div>
-    <div class="r-card rv rv1">
-      <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Aanrader! Fijne gym met leuke mensen. Losse sfeer. Niet te groot maar wel gezellig. Diverse leuke groepslessen. Een plek waar je je op je gemak voelt tijdens het sporten."</p>
-      <div class="r-author">Joyce · Google · 4 maanden geleden</div>
-    </div>
-    <div class="r-card rv rv2">
-      <div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div>
-      <p class="r-text">"Ik train bij Fit Up en ben echt super tevreden! De sfeer is motiverend en professioneel. Patrick begeleidt je op een fijne en persoonlijke manier. Zeker een aanrader."</p>
-      <div class="r-author">Google reviewer · 3 maanden geleden</div>
+    <div class="r-grid">
+      <div class="r-card rv"><div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div><p class="r-text">"Ik sport inmiddels al 2,5 jaar met veel plezier bij deze fijne sportschool. Onder begeleiding van Patrick ben ik binnen een half jaar 20 kilo afgevallen. Patrick maakt net dat verschil."</p><div class="r-author">Sandra · Google · deze week</div></div>
+      <div class="r-card rv rv1"><div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div><p class="r-text">"Fijne en huiselijke sportschool. Alles aanwezig om sportief te worden of te blijven. Goed personeel die je zeer goed begeleiden. Ook veel keus om te sporten in groepsverband."</p><div class="r-author">Ronald · Google · een week geleden</div></div>
+      <div class="r-card rv rv2"><div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div><p class="r-text">"Een hele fijne sportschool, netjes en schoon. Kleinschalig en een hele goede stok achter de deur. Prettige sfeer, iedereen helpt elkaar en heel laagdrempelig."</p><div class="r-author">Madeleine · Google · een week geleden</div></div>
+      <div class="r-card rv"><div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div><p class="r-text">"De beste sportschool waar ik tot nu toe ben geweest. Lekker rustig, 24/7 open, de apparaten zijn erg goed. De baas is erg aardig en vaak aanwezig om te helpen."</p><div class="r-author">Mark · Google · 2 maanden geleden</div></div>
+      <div class="r-card rv rv1"><div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div><p class="r-text">"Aanrader! Fijne gym met leuke mensen. Losse sfeer. Niet te groot maar wel gezellig. Diverse leuke groepslessen. Een plek waar je je op je gemak voelt tijdens het sporten."</p><div class="r-author">Joyce · Google · 4 maanden geleden</div></div>
+      <div class="r-card rv rv2"><div class="r-stars"><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg><svg viewBox="0 0 12 12"><polygon points="6,.5 7.5,4.5 12,4.5 8.5,7.5 9.5,11.5 6,9 2.5,11.5 3.5,7.5 0,4.5 4.5,4.5"/></svg></div><p class="r-text">"Ik train bij Fit Up en ben echt super tevreden! De sfeer is motiverend en professioneel. Patrick begeleidt je op een fijne en persoonlijke manier. Zeker een aanrader."</p><div class="r-author">Google reviewer · 3 maanden geleden</div></div>
     </div>
   </div>
 </section>
+
 
 <!-- FAQ -->
 <section class="faq-section">
@@ -1476,19 +1308,34 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
 
 
 // RESULT METER BARS
-const rcmIo = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.rcm-bar-fill').forEach((bar, i) => {
-        setTimeout(() => {
-          bar.style.width = bar.dataset.width + '%';
-        }, i * 200);
-      });
-      rcmIo.unobserve(e.target);
-    }
-  });
-},{threshold:.2});
-document.querySelectorAll('.res-card-grid').forEach(el => rcmIo.observe(el));
+(function(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.rcm-bar-fill').forEach((bar,i)=>{
+          setTimeout(()=>{ bar.style.width=bar.dataset.width+'%'; },i*200);
+        });
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.2});
+  document.querySelectorAll('.res-card-grid').forEach(el=>io.observe(el));
+})();
+
+// COUNTDOWN TIMER
+(function(){
+  const end=new Date(); end.setDate(end.getDate()+3); end.setHours(23,59,59,0);
+  function update(){
+    const diff=Math.max(0,end-new Date());
+    const pad=n=>String(Math.floor(n)).padStart(2,'0');
+    const d=document;
+    if(d.getElementById('cd-days')) d.getElementById('cd-days').textContent=pad(diff/86400000);
+    if(d.getElementById('cd-hours')) d.getElementById('cd-hours').textContent=pad((diff%86400000)/3600000);
+    if(d.getElementById('cd-mins')) d.getElementById('cd-mins').textContent=pad((diff%3600000)/60000);
+    if(d.getElementById('cd-secs')) d.getElementById('cd-secs').textContent=pad((diff%60000)/1000);
+  }
+  update(); setInterval(update,1000);
+})();
 
 </script>
 </body>
