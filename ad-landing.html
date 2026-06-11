@@ -1053,6 +1053,22 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 #editorial-1{border-radius:20px 20px 0 0}
 #editorial-2{border-radius:0 0 20px 20px;margin-bottom:24px}
 
+
+/* ════ ALLE FOTOS NAADLOOS AANEENGESLOTEN ════ */
+.diensten{padding:0 5% 0}
+.dienst-grid{gap:0;display:flex;flex-direction:column}
+.dienst-card{border-radius:0;margin:0}
+.dienst-card:first-child{border-radius:20px 20px 0 0}
+.dienst-card:last-child{border-radius:0 0 0 0}
+
+.editorial{margin:0 5% 0;border-radius:0}
+#editorial-1{border-radius:0}
+#editorial-2{border-radius:0 0 20px 20px;margin-bottom:0}
+
+/* outline alleen op het hele blok, niet elke kaart apart */
+.dienst-card, .editorial{outline:none;box-shadow:none}
+.diensten{outline:2px solid rgba(255,255,255,.9);outline-offset:0;border-radius:20px}
+
 </style>
 </head>
 <body>
