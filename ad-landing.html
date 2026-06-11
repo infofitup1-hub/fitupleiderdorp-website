@@ -745,6 +745,103 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 /* JS bar trigger */
 .rcm-bar-fill.run{width:100% !important}
 
+
+/* ════════ PREMIUM POLISH LAYER ════════ */
+html{scroll-behavior:smooth}
+
+/* Scroll progress bar */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#C8FF00,#e8ff66);z-index:9999;box-shadow:0 0 12px rgba(200,255,0,.6)}
+
+/* ── HERO cinematic ── */
+.hero-bg img{transform:scale(1.08);transition:none;will-change:transform}
+.hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,transparent 40%,rgba(0,0,0,.35) 100%);z-index:1;pointer-events:none}
+.hero-content{position:relative;z-index:2}
+.hero h1 .line span{animation-duration:.9s}
+.btn-y{position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.btn-y:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 32px rgba(200,255,0,.35)}
+.btn-y::after{content:'';position:absolute;top:0;left:-120%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:btnShine 3.5s ease-in-out infinite}
+@keyframes btnShine{0%,60%{left:-120%}85%,100%{left:180%}}
+
+/* CTA pulse glow op primaire knop */
+.btn-y-lg{animation:ctaPulse 2.6s ease-in-out infinite}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,255,0,.45)}50%{box-shadow:0 0 0 14px rgba(200,255,0,0)}}
+
+/* ── Ticker: vloeiender + pauze op hover ── */
+.ticker:hover{animation-play-state:paused}
+
+/* ── Stats premium hover ── */
+.sp-item{transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.sp-item:hover{transform:translateY(-4px);background:#FFFFFF}
+.sp-num{transition:letter-spacing .3s}
+.sp-item:hover .sp-num{letter-spacing:0}
+
+/* ── Dienst-kaarten: lift + glare + badge glow ── */
+.dienst-card{transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;will-change:transform}
+.dienst-card:hover{transform:translateY(-10px);box-shadow:0 24px 56px rgba(0,0,0,.55)}
+.dienst-card::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.07) 50%,transparent 58%);transform:translateX(-130%);transition:transform .7s ease;pointer-events:none;z-index:3}
+.dienst-card:hover::after{transform:translateX(130%)}
+.dienst-badge{animation:badgeFloat 3.2s ease-in-out infinite}
+@keyframes badgeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+/* ── Editorials: diepte ── */
+.editorial{overflow:hidden}
+.editorial-img{will-change:transform;transition:none}
+.editorial-content h2{text-shadow:0 4px 32px rgba(0,0,0,.5)}
+
+/* ── Result cards: glow border + foto reveal ── */
+.res-card-new{position:relative}
+.res-card-new::before{content:'';position:absolute;inset:-1px;border-radius:17px;padding:1px;background:linear-gradient(135deg,rgba(200,255,0,.5),transparent 40%,transparent 60%,rgba(200,255,0,.25));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none;z-index:2}
+.res-card-new:hover::before{opacity:1}
+.rcm-kg{display:inline-block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.res-card-new:hover .rcm-kg{transform:scale(1.12)}
+
+/* ── Herken-kaarten: stagger feel ── */
+.herken-card{will-change:transform}
+.herken-card:hover .herken-icon{transform:rotate(-6deg) scale(1.08)}
+.herken-icon{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+
+/* ── Team: foto zoom ── */
+.team-duo-card{transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s}
+.team-duo-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,.12)}
+.team-duo-photo img{transition:transform .5s ease}
+.team-duo-card:hover .team-duo-photo img{transform:scale(1.08)}
+
+/* ── Reviews: kaart-tilt feel ── */
+.r-card{will-change:transform;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,background .25s}
+.r-card:hover{transform:translateY(-6px) rotate(.4deg);box-shadow:0 18px 40px rgba(0,0,0,.1)}
+.r-stars svg{transition:transform .25s}
+.r-card:hover .r-stars svg{transform:scale(1.15)}
+.r-card:hover .r-stars svg:nth-child(1){transition-delay:0s}
+.r-card:hover .r-stars svg:nth-child(2){transition-delay:.04s}
+.r-card:hover .r-stars svg:nth-child(3){transition-delay:.08s}
+.r-card:hover .r-stars svg:nth-child(4){transition-delay:.12s}
+.r-card:hover .r-stars svg:nth-child(5){transition-delay:.16s}
+
+/* ── FAQ smooth ── */
+details .faq-a{animation:faqOpen .35s ease}
+@keyframes faqOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+details summary{transition:background .25s,padding-left .25s}
+details[open] summary{padding-left:30px}
+
+/* ── Formulier focus glow ── */
+input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !important;box-shadow:0 0 0 3px rgba(200,255,0,.18)}
+
+/* ── Countdown blokken puls ── */
+.ct-num{animation:ctTick 1s ease-in-out infinite alternate}
+@keyframes ctTick{from{opacity:.92}to{opacity:1}}
+
+/* ── Reveal: zachter en met lichte blur ── */
+.rv{opacity:0;transform:translateY(36px);filter:blur(6px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1),filter .8s ease}
+.rv.in{opacity:1;transform:none;filter:blur(0)}
+.rv1{transition-delay:.12s}
+.rv2{transition-delay:.24s}
+
+/* ── Reduced motion respect ── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .rv{opacity:1;transform:none;filter:none}
+}
+
 </style>
 </head>
 <body>
@@ -1429,5 +1526,67 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
 })();
 
 </script>
+
+<script>
+// ════════ PREMIUM INTERACTIONS ════════
+(function(){
+  // Scroll progress bar
+  const bar = document.createElement('div');
+  bar.id = 'scroll-progress';
+  document.body.appendChild(bar);
+
+  // Parallax targets
+  const heroImg = document.querySelector('.hero-bg img');
+  const editorialImgs = document.querySelectorAll('.editorial-img');
+
+  let ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(()=>{
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.width = (max>0 ? (y/max*100) : 0) + '%';
+
+      // Hero parallax + subtiele zoom-out
+      if(heroImg){
+        const p = Math.min(y/innerHeight,1);
+        heroImg.style.transform = 'scale(' + (1.08 - p*.06) + ') translateY(' + (y*.25) + 'px)';
+      }
+      // Editorial parallax
+      editorialImgs.forEach(img=>{
+        const r = img.getBoundingClientRect();
+        if(r.bottom>0 && r.top<innerHeight){
+          const prog = (innerHeight - r.top)/(innerHeight + r.height);
+          img.style.transform = 'translateY(' + ((prog-.5)*40) + 'px) scale(1.08)';
+        }
+      });
+      ticking = false;
+    });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Magnetic CTA (desktop)
+  if(matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.btn-y').forEach(btn=>{
+      btn.addEventListener('mousemove', e=>{
+        const r = btn.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width/2)/r.width;
+        const dy = (e.clientY - r.top - r.height/2)/r.height;
+        btn.style.transform = 'translate(' + (dx*6) + 'px,' + (dy*6 - 3) + 'px) scale(1.02)';
+      });
+      btn.addEventListener('mouseleave', ()=>{ btn.style.transform=''; });
+    });
+  }
+
+  // Tap-feedback mobiel op kaarten
+  document.querySelectorAll('.res-card-new,.r-card,.dienst-card,.team-duo-card').forEach(c=>{
+    c.addEventListener('touchstart', ()=>c.style.transform='scale(.985)', {passive:true});
+    c.addEventListener('touchend', ()=>c.style.transform='', {passive:true});
+  });
+})();
+</script>
+
 </body>
 </html>
