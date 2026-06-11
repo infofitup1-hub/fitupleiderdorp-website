@@ -1153,6 +1153,34 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 .challenge-result strong{color:#fff}
 .cr-icon{color:#C8FF00;font-size:16px;flex-shrink:0;margin-top:1px}
 
+
+/* cp-result */
+.cp-result{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:20px;line-height:1.5}
+.cp-result strong{color:rgba(255,255,255,.6)}
+
+/* ════ TRAJECTEN ════ */
+.trajecten{max-width:1100px;margin-left:auto;margin-right:auto}
+.traj-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);text-align:center;margin-bottom:32px}
+.traj-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.traj-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:40px;position:relative;transition:border-color .3s,transform .3s}
+.traj-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.15)}
+.traj-active{border-color:rgba(200,255,0,.3);background:rgba(200,255,0,.04)}
+.traj-active:hover{border-color:rgba(200,255,0,.5)}
+.traj-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#C8FF00;color:#0A0A0A;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:100px;white-space:nowrap}
+.traj-icon{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.traj-icon svg{width:24px;height:24px;stroke:rgba(255,255,255,.5)}
+.traj-active .traj-icon svg{stroke:#C8FF00}
+.traj-card h3{font-family:var(--font-h);font-size:26px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:12px;letter-spacing:-.01em}
+.traj-card p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:24px}
+.traj-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.traj-list li{font-size:13px;color:rgba(255,255,255,.5);padding-left:20px;position:relative}
+.traj-list li::before{content:'✓';position:absolute;left:0;color:#C8FF00;font-weight:700}
+.traj-cta{display:flex;justify-content:center;width:100%;font-size:15px;padding:14px 20px}
+.btn-dark{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);color:#fff;font-family:var(--font-h);font-weight:700;text-decoration:none;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;font-size:14px;transition:background .25s,transform .25s}
+.btn-dark:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+.traj-footnote{text-align:center;font-size:13px;color:rgba(255,255,255,.2);margin-top:24px}
+@media(max-width:680px){.traj-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -1384,10 +1412,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     <div class="challenge-eyebrow rv">Beperkt beschikbaar</div>
     <h2 class="challenge-h2 rv">6 weken.<br><em>Alles verandert.</em></h2>
     <p class="challenge-sub rv">Geen losse lessen. Geen half plan. Gewoon een volledig programma dat werkt.</p>
-    <div class="challenge-result rv">
-      <span class="cr-icon">★</span>
-      Veel van onze leden verliezen in de eerste 6 weken al <strong>3 tot 6 kilo</strong> — wat jij bereikt hangt af van jouw startpunt en inzet.
-    </div>
+
 
     <div class="challenge-grid">
 
@@ -1413,6 +1438,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
             <span class="cp-amount">199</span>
           </div>
           <div class="cp-per">voor het volledige programma</div>
+          <div class="cp-result">Veel leden verliezen in 6 weken <strong>3 tot 6 kilo</strong>.</div>
           <div class="cp-value">
             <div class="cp-value-row"><span>Normaal SGPT per 4 weken</span><span>€149</span></div>
             <div class="cp-value-row"><span>Voedings- en trainingsplan</span><span>€ p.m.</span></div>
@@ -1429,6 +1455,48 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
       </div>
 
     </div>
+
+      <!-- Twee trajecten vergelijken -->
+      <div class="trajecten rv" style="margin-top:64px">
+        <div class="traj-label">Of kies het traject dat bij jou past</div>
+        <div class="traj-grid">
+
+          <div class="traj-card traj-active">
+            <div class="traj-badge">Meest gekozen</div>
+            <div class="traj-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="16" r="4"/><circle cx="22" cy="16" r="4"/><path d="M14 16h4"/></svg>
+            </div>
+            <h3>6-weekse Challenge</h3>
+            <p>Small Group PT (max 4), voedings- en trainingsplan op maat, onbeperkt groepslessen en 24/7 fitness.</p>
+            <ul class="traj-list">
+              <li>1-2× per week SGPT</li>
+              <li>Onbeperkt groepslessen</li>
+              <li>Onbeperkt 24/7 fitness</li>
+              <li>Voedings- en trainingsplan</li>
+              <li>Wekelijkse check-in</li>
+            </ul>
+            <a href="#kennismaking" class="btn-y traj-cta">Start de challenge →</a>
+          </div>
+
+          <div class="traj-card">
+            <div class="traj-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="10" r="4"/><path d="M8 28v-2a8 8 0 0116 0v2"/></svg>
+            </div>
+            <h3>1-op-1 Personal Training</h3>
+            <p>Volledig op jou gericht. Maximale aandacht, maximaal resultaat. Voor wie sneller wil gaan.</p>
+            <ul class="traj-list">
+              <li>Persoonlijke sessies met jouw coach</li>
+              <li>Voedings- en trainingsplan op maat</li>
+              <li>Onbeperkt 24/7 fitness</li>
+              <li>Directe feedback elke sessie</li>
+              <li>Wekelijkse check-in</li>
+            </ul>
+            <a href="#kennismaking" class="btn-dark traj-cta">Vraag de mogelijkheden →</a>
+          </div>
+
+        </div>
+        <p class="traj-footnote">Bespreek tijdens de gratis kennismaking welk traject het beste bij jou past. Geen verplichtingen.</p>
+      </div>
   </div>
 </section>
 
