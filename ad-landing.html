@@ -88,8 +88,11 @@ body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-
   color:var(--white);
   line-height:1;
   letter-spacing:-.03em;
+  border-bottom:2px solid rgba(255,255,255,.1);
+  padding-bottom:12px;
+  margin-bottom:4px;
 }
-.sp-suf{color:var(--y)}
+.sp-suf{color:var(--y);font-size:.7em}
 .sp-bar{
   width:100%;
   height:3px;
@@ -110,7 +113,8 @@ body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-
   font-weight:600;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.35);
+  color:rgba(255,255,255,.5);
+  margin-top:4px;
 }
 .sp-divider{
   width:1px;
@@ -157,7 +161,7 @@ body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-
 .editorial h2 em{font-style:italic;color:var(--y)}
 .editorial-sub{font-size:17px;color:rgba(255,255,255,.6);margin-top:24px;max-width:520px;line-height:1.6}
 /* big number stamp over photo */
-.editorial-stamp{position:absolute;top:5%;right:5%;font-family:var(--font-h);font-size:clamp(80px,14vw,200px);font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(200,255,0,.25);letter-spacing:-.04em;pointer-events:none;animation:floatY 6s ease-in-out infinite}
+.editorial-stamp{display:none}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 
 /* ── RESULTATEN ── */
@@ -590,6 +594,18 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
   .herken-sub{max-width:100%}
 }
 
+
+/* GEWICHTSVERLIES METERS */
+.weight-meters{display:grid;grid-template-columns:1fr 1fr;gap:16px 48px;margin-top:48px;max-width:800px;margin-left:auto;margin-right:auto}
+.wm-item{display:flex;flex-direction:column;gap:8px}
+.wm-header{display:flex;justify-content:space-between;align-items:center}
+.wm-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.04em}
+.wm-kg{font-family:var(--font-h);font-size:20px;font-weight:800;color:#C8FF00;letter-spacing:-.01em}
+.wm-bar-bg{height:4px;background:rgba(255,255,255,.08);border-radius:100px;overflow:hidden}
+.wm-bar-fill{height:100%;width:0;background:linear-gradient(90deg,rgba(200,255,0,.5),#C8FF00);border-radius:100px;transition:width 1.4s cubic-bezier(.16,1,.3,1) .3s}
+.wm-item.in .wm-bar-fill{width:var(--w,0%)}
+@media(max-width:600px){.weight-meters{grid-template-columns:1fr}}
+
 /* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(255,255,255,.06);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:20px;opacity:.4}
@@ -636,7 +652,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <img src="assets/images/ad-hero-dumbbells.jpg" alt="Fit Up Leiderdorp gym" id="hero-img">
   </div>
   <div class="hero-content">
-    <div class="hero-tag"><span class="hero-tag-dot"></span>Jouw Personal Gym · Leiderdorp</div>
+    <div class="hero-tag"><span class="hero-tag-dot"></span><span style="color:var(--ink);font-weight:900">Jouw Personal</span>&nbsp;<span style="color:var(--y)">Gym</span> · Leiderdorp</div>
     <h1>
       <span class="line"><span>Jouw</span></span>
       <span class="line"><span>Personal</span></span>
@@ -763,10 +779,10 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <div class="editorial rv" id="editorial-1">
   <img src="assets/images/ad-boks-groep.jpg" alt="Groepslessen Fit Up Leiderdorp" class="editorial-img">
   <div class="editorial-stamp">Groepslessen</div>
-  <div class="editorial-content">
-    <div class="editorial-eyebrow">Groepslessen</div>
+  <div class="editorial-content" style="align-items:center;text-align:center">
+    <div class="editorial-eyebrow" style="justify-content:center">Groepslessen</div>
     <h2>Pure<br><em>energie.</em></h2>
-    <p class="editorial-sub">Samen trainen geeft een boost die je solo nooit haalt. Van boksen tot HIIT — onze groepslessen geven je de energie om door te gaan.</p>
+    <p class="editorial-sub" style="margin:0 auto">Samen trainen geeft een boost die je solo nooit haalt. Van boksen tot HIIT — onze groepslessen geven je de energie om door te gaan.</p>
   </div>
 </div>
 
@@ -852,9 +868,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <img src="assets/images/res-irene.jpg" alt="Barbara -35kg">
       </div>
       <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Barbara</div>
-        <div class="wow-editorial-num" data-target="-35">-0</div>
-        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-name">Barbara · <span style="color:var(--y)">-35 KG</span></div>
         <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
       </div>
     </div>
@@ -864,9 +878,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <img src="assets/images/res-barbara.jpg" alt="Irene -34kg">
       </div>
       <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Irene</div>
-        <div class="wow-editorial-num" data-target="-34">-0</div>
-        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-name">Irene · <span style="color:var(--y)">-34 KG</span></div>
         <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
       </div>
     </div>
@@ -876,9 +888,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <img src="assets/images/res-sandra.jpg" alt="Sandra -20kg">
       </div>
       <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Sandra</div>
-        <div class="wow-editorial-num" data-target="-20">-0</div>
-        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-name">Sandra · <span style="color:var(--y)">-20 KG</span></div>
         <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
       </div>
     </div>
@@ -888,9 +898,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <img src="assets/images/res-marja.jpg" alt="Marja -13kg">
       </div>
       <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Marja</div>
-        <div class="wow-editorial-num" data-target="-13">-0</div>
-        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-name">Marja · <span style="color:var(--y)">-13 KG</span></div>
         <div class="wow-editorial-detail">69 jaar · Personal Training</div>
       </div>
     </div>
@@ -900,9 +908,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <img src="assets/images/res-mark.jpg" alt="Mark -5kg">
       </div>
       <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Mark</div>
-        <div class="wow-editorial-num" data-target="-5">-0</div>
-        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-name">Mark · <span style="color:var(--y)">-5 KG</span></div>
         <div class="wow-editorial-detail">Vetpercentage · 16% → 13.9%</div>
       </div>
     </div>
@@ -912,9 +918,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <img src="assets/images/res-karin.jpg" alt="Karin -17kg">
       </div>
       <div class="wow-editorial-text">
-        <div class="wow-editorial-name">Karin</div>
-        <div class="wow-editorial-num" data-target="-17">-0</div>
-        <div class="wow-editorial-unit">KG</div>
+        <div class="wow-editorial-name">Karin · <span style="color:var(--y)">-17 KG</span></div>
         <div class="wow-editorial-detail">Personal Training · Fit Up Leiderdorp</div>
       </div>
     </div>
@@ -1274,6 +1278,20 @@ const wowIo = new IntersectionObserver(entries => {
   });
 }, {threshold: 0.5});
 document.querySelectorAll('.wow-editorial-num[data-target]').forEach(el => wowIo.observe(el));
+
+
+// WEIGHT METERS
+const wmIo = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.querySelectorAll('.wm-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      wmIo.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.3});
+document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
 
 </script>
 </body>
