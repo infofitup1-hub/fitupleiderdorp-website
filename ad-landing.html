@@ -993,6 +993,37 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
   .sp-item{padding:32px 14px 28px;border-radius:16px}
 }
 
+
+/* ════ STATS 4.0 — energie-ringen ════ */
+.stats-premium{background:#0A0A0A;border:none;padding:80px 5%;gap:18px;grid-template-columns:repeat(4,1fr)}
+.sp-item{background:none;border:none !important;border-radius:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:18px;box-shadow:none}
+.sp-item:hover{transform:none;box-shadow:none;background:none}
+.sp-item::before,.sp-item::after{display:none}
+.sp-bar,.sp-divider{display:none}
+.sp-ring-wrap{position:relative;width:clamp(120px,14vw,160px);aspect-ratio:1}
+.sp-ring{width:100%;height:100%;transform:rotate(-90deg)}
+.sp-ring-bg{fill:none;stroke:rgba(255,255,255,.07);stroke-width:5}
+.sp-ring-fill{
+  fill:none;stroke:#C8FF00;stroke-width:5;stroke-linecap:round;
+  stroke-dasharray:326.7;stroke-dashoffset:326.7;
+  filter:drop-shadow(0 0 6px rgba(200,255,0,.5));
+  transition:stroke-dashoffset 2.2s cubic-bezier(.3,0,.2,1);
+}
+.sp-ring-wrap::after{
+  content:'';position:absolute;inset:12%;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,0,.07),transparent 70%);
+}
+.sp-num{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-h);font-weight:900;color:#fff;
+  font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1;
+}
+.sp-suf{color:#C8FF00;font-size:.62em;margin-left:2px}
+.sp-label{color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-align:center}
+@media(max-width:768px){
+  .stats-premium{grid-template-columns:repeat(2,1fr);gap:36px 12px;padding:64px 5%}
+}
+
 </style>
 </head>
 <body>
@@ -1063,26 +1094,43 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
 <!-- STATS met optellende nummers -->
 <div class="stats-premium">
   <div class="sp-item">
-    <div class="sp-num"><span class="count" data-target="200">0</span><span class="sp-suf">+</span></div>
-    <div class="sp-bar"><div class="sp-bar-fill" style="width:80%"></div></div>
+    <div class="sp-ring-wrap">
+      <svg class="sp-ring" viewBox="0 0 120 120">
+        <circle class="sp-ring-bg" cx="60" cy="60" r="52"/>
+        <circle class="sp-ring-fill" cx="60" cy="60" r="52" data-pct="80"/>
+      </svg>
+      <div class="sp-num"><span class="count" data-target="200">0</span><span class="sp-suf">+</span></div>
+    </div>
     <div class="sp-label">Actieve leden</div>
   </div>
-  <div class="sp-divider"></div>
   <div class="sp-item">
-    <div class="sp-num"><span class="count" data-target="4.9" data-decimal="1">0</span><span class="sp-suf">★</span></div>
-    <div class="sp-bar"><div class="sp-bar-fill" style="width:98%"></div></div>
+    <div class="sp-ring-wrap">
+      <svg class="sp-ring" viewBox="0 0 120 120">
+        <circle class="sp-ring-bg" cx="60" cy="60" r="52"/>
+        <circle class="sp-ring-fill" cx="60" cy="60" r="52" data-pct="98"/>
+      </svg>
+      <div class="sp-num"><span class="count" data-target="4.9" data-decimal="1">0</span><span class="sp-suf">★</span></div>
+    </div>
     <div class="sp-label">Google beoordeling</div>
   </div>
-  <div class="sp-divider"></div>
   <div class="sp-item">
-    <div class="sp-num">24<span class="sp-suf">/7</span></div>
-    <div class="sp-bar"><div class="sp-bar-fill" style="width:100%"></div></div>
+    <div class="sp-ring-wrap">
+      <svg class="sp-ring" viewBox="0 0 120 120">
+        <circle class="sp-ring-bg" cx="60" cy="60" r="52"/>
+        <circle class="sp-ring-fill" cx="60" cy="60" r="52" data-pct="100"/>
+      </svg>
+      <div class="sp-num">24<span class="sp-suf">/7</span></div>
+    </div>
     <div class="sp-label">Gymtoegang</div>
   </div>
-  <div class="sp-divider"></div>
   <div class="sp-item">
-    <div class="sp-num"><span class="count" data-target="10">0</span><span class="sp-suf">+ jr</span></div>
-    <div class="sp-bar"><div class="sp-bar-fill" style="width:70%"></div></div>
+    <div class="sp-ring-wrap">
+      <svg class="sp-ring" viewBox="0 0 120 120">
+        <circle class="sp-ring-bg" cx="60" cy="60" r="52"/>
+        <circle class="sp-ring-fill" cx="60" cy="60" r="52" data-pct="70"/>
+      </svg>
+      <div class="sp-num"><span class="count" data-target="10">0</span><span class="sp-suf">+jr</span></div>
+    </div>
     <div class="sp-label">Ervaring</div>
   </div>
 </div>
@@ -1773,6 +1821,27 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
     }
     bar.classList.toggle('show', pastHero && !nearForm);
   }, {passive:true});
+})();
+</script>
+
+
+<script>
+// STATS RINGEN
+(function(){
+  const C = 326.7;
+  const rings = document.querySelectorAll('.sp-ring-fill');
+  if(!rings.length) return;
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        const r = e.target;
+        requestAnimationFrame(()=>{ r.style.strokeDashoffset = C - (C * (+r.dataset.pct/100)); });
+        io.unobserve(r);
+      }
+    });
+  },{threshold:.4});
+  rings.forEach(r=>io.observe(r));
+  setTimeout(()=>rings.forEach(r=>{ if(getComputedStyle(r).strokeDashoffset === '326.7px') r.style.strokeDashoffset = C - (C * (+r.dataset.pct/100)); }),2500);
 })();
 </script>
 
