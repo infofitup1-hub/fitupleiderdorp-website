@@ -1098,6 +1098,56 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
   .sp-item:nth-child(even){border-left:1px solid #E3E3E0 !important}
 }
 
+
+/* ════ 6-WEEKSE CHALLENGE ════ */
+.challenge-section{background:#0A0A0A;padding:100px 5%;position:relative;overflow:hidden}
+.challenge-section::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.06),transparent 65%);pointer-events:none}
+.challenge-inner{max-width:1100px;margin:0 auto}
+.challenge-eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C8FF00;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.challenge-eyebrow::before{content:'';width:28px;height:2px;background:#C8FF00}
+.challenge-h2{font-family:var(--font-h);font-size:clamp(44px,6vw,80px);font-weight:900;text-transform:uppercase;line-height:.88;color:#fff;margin-bottom:20px}
+.challenge-h2 em{color:#C8FF00;font-style:italic}
+.challenge-sub{font-size:16px;color:rgba(255,255,255,.45);line-height:1.7;max-width:560px;margin-bottom:56px}
+.challenge-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+
+/* includes list */
+.challenge-includes{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:24px;padding:40px}
+.ci-title{font-family:var(--font-h);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:28px}
+.ci-list{list-style:none;display:flex;flex-direction:column;gap:20px}
+.ci-list li{display:flex;align-items:flex-start;gap:16px}
+.ci-check{width:26px;height:26px;border-radius:50%;background:#C8FF00;color:#0A0A0A;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ci-list li div{display:flex;flex-direction:column;gap:3px}
+.ci-list li strong{font-size:15px;color:#fff;font-weight:600}
+.ci-list li span{font-size:13px;color:rgba(255,255,255,.35);line-height:1.5}
+
+/* price card */
+.challenge-price-wrap{position:sticky;top:100px}
+.challenge-price-card{background:linear-gradient(160deg,rgba(200,255,0,.1),rgba(200,255,0,.03));border:1px solid rgba(200,255,0,.3);border-radius:24px;padding:40px;box-shadow:0 0 60px rgba(200,255,0,.08)}
+.cp-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C8FF00;margin-bottom:20px}
+.cp-price{display:flex;align-items:flex-start;gap:4px;line-height:1;margin-bottom:8px}
+.cp-currency{font-family:var(--font-h);font-size:32px;font-weight:900;color:#fff;margin-top:8px}
+.cp-amount{font-family:var(--font-h);font-size:88px;font-weight:900;color:#fff;line-height:.9;letter-spacing:-.04em}
+.cp-per{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:28px}
+.cp-value{background:rgba(0,0,0,.3);border-radius:12px;padding:20px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+.cp-value-row{display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.4)}
+.cp-value-row span:last-child{font-weight:600;color:rgba(255,255,255,.6)}
+.cp-value-row--total{padding-top:10px;border-top:1px solid rgba(255,255,255,.08)}
+.cp-value-row--total span{color:#fff;font-weight:700;font-size:15px}
+.cp-highlight{color:#C8FF00 !important}
+.cp-perweek{text-align:center;font-size:14px;color:rgba(255,255,255,.4);margin-bottom:24px}
+.cp-perweek strong{color:#fff}
+.cp-cta{display:flex;justify-content:center;width:100%;font-size:16px;padding:16px 24px;margin-bottom:14px}
+.cp-footnote{text-align:center;font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.04em}
+.challenge-spots{display:flex;align-items:center;gap:10px;margin-top:16px;justify-content:center;font-size:13px;color:rgba(255,255,255,.4)}
+.challenge-spots strong{color:#fff}
+.cs-dot{width:8px;height:8px;border-radius:50%;background:#C8FF00;box-shadow:0 0 8px #C8FF00;animation:blink 1.4s ease-in-out infinite}
+
+@media(max-width:860px){
+  .challenge-grid{grid-template-columns:1fr}
+  .challenge-price-wrap{position:static}
+  .cp-amount{font-size:72px}
+}
+
 </style>
 </head>
 <body>
@@ -1321,6 +1371,58 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#C8FF00 !impor
     </div>
   </div>
 </section>
+
+<!-- 6-WEEKSE CHALLENGE -->
+<section class="challenge-section">
+  <div class="challenge-inner">
+
+    <div class="challenge-eyebrow rv">Beperkt beschikbaar</div>
+    <h2 class="challenge-h2 rv">6 weken.<br><em>Alles verandert.</em></h2>
+    <p class="challenge-sub rv">Geen losse lessen. Geen half plan. Gewoon een volledig programma dat werkt — voor minder dan een gemiddeld sportschoolabonnement.</p>
+
+    <div class="challenge-grid">
+
+      <!-- Wat je krijgt -->
+      <div class="challenge-includes rv">
+        <div class="ci-title">Wat zit er in?</div>
+        <ul class="ci-list">
+          <li><span class="ci-check">✓</span><div><strong>Voedingsplan op maat</strong><span>Geen dieet. Wel een aanpak die past bij jouw leven.</span></div></li>
+          <li><span class="ci-check">✓</span><div><strong>Trainingsplan op maat</strong><span>Gebouwd rond jouw doelen, jouw tempo en jouw schema.</span></div></li>
+          <li><span class="ci-check">✓</span><div><strong>1-2× per week Small Group PT</strong><span>Max 4 personen. Persoonlijke aandacht in groepsverband.</span></div></li>
+          <li><span class="ci-check">✓</span><div><strong>Onbeperkt groepslessen</strong><span>HIIT, boksen, kracht — ga zo vaak als je wilt.</span></div></li>
+          <li><span class="ci-check">✓</span><div><strong>Onbeperkt 24/7 fitness</strong><span>Train wanneer het jou uitkomt. Dag en nacht open.</span></div></li>
+          <li><span class="ci-check">✓</span><div><strong>Wekelijkse check-in</strong><span>We houden je scherp en sturen bij waar nodig.</span></div></li>
+        </ul>
+      </div>
+
+      <!-- Prijs-blok -->
+      <div class="challenge-price-wrap rv rv1">
+        <div class="challenge-price-card">
+          <div class="cp-label">6 weken alles-in-één</div>
+          <div class="cp-price">
+            <span class="cp-currency">€</span>
+            <span class="cp-amount">199</span>
+          </div>
+          <div class="cp-per">voor het volledige programma</div>
+          <div class="cp-value">
+            <div class="cp-value-row"><span>Normaal SGPT per 4 weken</span><span>€149</span></div>
+            <div class="cp-value-row"><span>Voedings- en trainingsplan</span><span>€ p.m.</span></div>
+            <div class="cp-value-row cp-value-row--total"><span>Jij betaalt nu</span><span class="cp-highlight">€199</span></div>
+          </div>
+          <div class="cp-perweek">Minder dan <strong>€33 per week</strong> voor alles.</div>
+          <a href="#kennismaking" class="btn-y cp-cta">Start jouw 6 weken →</a>
+          <div class="cp-footnote">Gratis kennismaking eerst. Geen verplichtingen.</div>
+        </div>
+        <div class="challenge-spots">
+          <span class="cs-dot"></span>
+          Nog <strong>4 plekken</strong> beschikbaar deze maand
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- HERKEN JIJ DIT -->
 
 <!-- RESULTATEN -->
