@@ -626,6 +626,47 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
   .hero h1{font-size:clamp(52px,14vw,90px)}
 }
 
+
+/* ── HERO BATTERY ── */
+.hero-battery{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.battery-wrap{display:flex;align-items:center;gap:0}
+.battery-body{
+  width:64px;height:26px;
+  border:2px solid #C8FF00;
+  border-radius:4px;
+  position:relative;
+  overflow:hidden;
+  background:rgba(0,0,0,.3);
+}
+.battery-fill{
+  position:absolute;
+  top:0;left:0;bottom:0;
+  width:0%;
+  background:linear-gradient(90deg,rgba(200,255,0,.6),#C8FF00);
+  border-radius:2px;
+  animation:batteryCharge 2.5s cubic-bezier(.4,0,.2,1) forwards .3s;
+}
+.battery-pct{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-h);font-size:11px;font-weight:900;
+  color:#fff;letter-spacing:.04em;
+  mix-blend-mode:difference;
+}
+.battery-cap{
+  width:5px;height:12px;
+  background:#C8FF00;
+  border-radius:0 2px 2px 0;
+  margin-left:-1px;
+}
+.battery-label{
+  font-size:11px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.6);
+}
+@keyframes batteryCharge{
+  0%{width:0%} 100%{width:100%}
+}
+
 /* ── HOE HET WERKT ── */
 .how{background:#0A0A0A;padding:96px 5%}
 .how .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;align-items:center;gap:10px}
@@ -720,7 +761,16 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
     <img src="assets/images/ad-hero-dumbbells.jpg" alt="Fit Up Leiderdorp gym" id="hero-img">
   </div>
   <div class="hero-content">
-    <div class="hero-tag"><span class="hero-tag-dot"></span>De club waar jouw doelen uitkomen</div>
+    <div class="hero-battery">
+      <div class="battery-wrap">
+        <div class="battery-body">
+          <div class="battery-fill"></div>
+          <div class="battery-pct" id="bat-pct">0%</div>
+        </div>
+        <div class="battery-cap"></div>
+      </div>
+      <span class="battery-label">Jouw energie. Opladen bij Fit Up.</span>
+    </div>
     <h1>
       <span class="line"><span>Jouw</span></span>
       <span class="line"><span>Personal</span></span>
@@ -1352,6 +1402,22 @@ document.querySelectorAll('.weight-meters').forEach(el => wmIo.observe(el));
     if(d.getElementById('cd-secs')) d.getElementById('cd-secs').textContent=pad((diff%60000)/1000);
   }
   update(); setInterval(update,1000);
+})();
+
+
+// BATTERY CHARGE ANIMATION
+(function(){
+  const pct = document.getElementById('bat-pct');
+  if(!pct) return;
+  const dur = 2500, start = performance.now();
+  function step(now){
+    const p = Math.min((now - start - 300) / dur, 1);
+    if(p < 0){ requestAnimationFrame(step); return; }
+    pct.textContent = Math.round(p * 100) + '%';
+    if(p < 1) requestAnimationFrame(step);
+    else pct.textContent = '100%';
+  }
+  requestAnimationFrame(step);
 })();
 
 </script>
