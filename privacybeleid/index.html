@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacybeleid | Fit Up Leiderdorp</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0A0A0A;
+      --mid: #111111;
+      --accent: #C8FF00;
+      --white: #FFFFFF;
+      --gray: rgba(255,255,255,0.5);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    .nav {
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Barlow Condensed', 'Impact', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      padding: 80px 40px 60px;
+      border-bottom: 1px solid var(--border);
+      max-width: 860px;
+    }
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', 'Impact', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .hero p {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 600px;
+    }
+    .update-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,255,0,0.08);
+      border: 1px solid rgba(200,255,0,0.2);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-top: 24px;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    .section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-num {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: 'Barlow Condensed', 'Impact', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 16px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 16px;
+    }
+    li {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      line-height: 1.8;
+      padding: 6px 0 6px 24px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    li:last-child { border-bottom: none; }
+    li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    .highlight-box {
+      background: rgba(200,255,0,0.04);
+      border: 1px solid rgba(200,255,0,0.15);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box p {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+    .highlight-box strong {
+      color: var(--accent);
+    }
+
+    .contact-card {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-top: 24px;
+    }
+    .contact-card p {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .contact-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 20px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th {
+      background: rgba(200,255,0,0.08);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 16px;
+      color: rgba(255,255,255,0.7);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--mid);
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: var(--gray);
+      margin: 0;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .nav { padding: 16px 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .content { padding: 40px 20px 80px; }
+      footer { padding: 32px 20px; }
+      .contact-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://www.fitupleiderdorp.nl" class="logo">FIT<span>UP</span></a>
+  <a href="https://www.fitupleiderdorp.nl" class="nav-back">← Terug naar website</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" style="margin:0 auto;padding-left:max(40px, calc((100vw - 860px)/2));padding-right:max(40px, calc((100vw - 860px)/2))">
+  <div class="hero-label">Juridisch</div>
+  <h1>Privacy<em>beleid</em></h1>
+  <p>Fit Up Leiderdorp gaat zorgvuldig om met jouw persoonsgegevens. In dit document leggen we uit welke gegevens we verzamelen, waarom en hoe we ze gebruiken.</p>
+  <div class="update-badge">Laatste update: 9 juni 2025</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- 1. Wie wij zijn -->
+  <div class="section">
+    <div class="section-num">01</div>
+    <h2>Wie wij zijn</h2>
+    <p>Fit Up Leiderdorp is een kleinschalige sportschool en personal training studio gevestigd in Leiderdorp. Wij bieden diensten aan op het gebied van personal training, small group personal training, 24/7 fitness, groepslessen en online coaching.</p>
+    <div class="contact-card">
+      <p><strong>Bedrijfsnaam:</strong> Fit Up Leiderdorp</p>
+      <p><strong>Adres:</strong> Weversbaan 9, Leiderdorp</p>
+      <p><strong>Website:</strong> <a href="https://www.fitupleiderdorp.nl">www.fitupleiderdorp.nl</a></p>
+      <p><strong>E-mail:</strong> <a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></p>
+      <p><strong>Telefoon:</strong> 06 48776322</p>
+    </div>
+    <p style="margin-top:16px">Fit Up Leiderdorp is de verwerkingsverantwoordelijke in de zin van de Algemene Verordening Gegevensbescherming (AVG/GDPR).</p>
+  </div>
+
+  <!-- 2. Welke gegevens -->
+  <div class="section">
+    <div class="section-num">02</div>
+    <h2>Welke persoonsgegevens wij verzamelen</h2>
+    <p>Afhankelijk van hoe je contact met ons opneemt of gebruik maakt van onze diensten, verzamelen wij de volgende gegevens:</p>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Categorie</th>
+          <th>Gegevens</th>
+          <th>Via</th>
+        </tr>
+        <tr>
+          <td>Contactgegevens</td>
+          <td>Naam, e-mailadres, telefoonnummer</td>
+          <td>Contactformulier, WhatsApp, intake</td>
+        </tr>
+        <tr>
+          <td>Gezondheids- en fitnessinformatie</td>
+          <td>Fitnessdoelen, ervaring, beperkingen</td>
+          <td>Fitcheck, intakeformulier</td>
+        </tr>
+        <tr>
+          <td>Communicatiegegevens</td>
+          <td>Berichten, vragen, voorkeuren</td>
+          <td>E-mail, WhatsApp, formulieren</td>
+        </tr>
+        <tr>
+          <td>Gedragsgegevens</td>
+          <td>Paginabezoeken, klikgedrag, apparaatinformatie</td>
+          <td>Google Analytics, Meta Pixel</td>
+        </tr>
+        <tr>
+          <td>Advertentiereacties</td>
+          <td>Naam, e-mail, telefoonnummer</td>
+          <td>Meta/Facebook leadformulieren</td>
+        </tr>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p><strong>Let op:</strong> Wij verzamelen nooit meer gegevens dan strikt noodzakelijk voor het doel waarvoor ze worden gevraagd.</p>
+    </div>
+  </div>
+
+  <!-- 3. Waarom -->
+  <div class="section">
+    <div class="section-num">03</div>
+    <h2>Waarom wij deze gegevens verzamelen</h2>
+    <p>Wij verwerken persoonsgegevens uitsluitend voor de volgende doeleinden:</p>
+    <ul>
+      <li>Het beantwoorden van jouw vragen via contactformulier, e-mail of WhatsApp</li>
+      <li>Het plannen en uitvoeren van een gratis intake of kennismaking</li>
+      <li>Het verwerken van jouw fitcheck en het aanbieden van een passend trainingsadvies</li>
+      <li>Het versturen van nieuwsbrieven of aanbiedingen, alleen als je daar toestemming voor hebt gegeven</li>
+      <li>Het verbeteren van onze website en dienstverlening via websitestatistieken</li>
+      <li>Het tonen van relevante advertenties via Meta (Facebook/Instagram) en Google</li>
+      <li>Het nakomen van onze wettelijke verplichtingen</li>
+    </ul>
+    <p>De rechtsgronden die wij hiervoor gebruiken zijn: uitvoering van een overeenkomst, toestemming, gerechtvaardigd belang of wettelijke verplichting.</p>
+  </div>
+
+  <!-- 4. Bewaartermijnen -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <h2>Hoe lang wij gegevens bewaren</h2>
+    <p>Wij bewaren jouw gegevens niet langer dan noodzakelijk voor het doel waarvoor ze zijn verzameld:</p>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Gegevenstype</th>
+          <th>Bewaartermijn</th>
+        </tr>
+        <tr>
+          <td>Contactformulieren en intakegegevens</td>
+          <td>2 jaar na laatste contact</td>
+        </tr>
+        <tr>
+          <td>Nieuwsbrief inschrijvingen</td>
+          <td>Tot uitschrijving + 1 jaar</td>
+        </tr>
+        <tr>
+          <td>Fitcheck resultaten</td>
+          <td>1 jaar</td>
+        </tr>
+        <tr>
+          <td>Leadgegevens via Meta advertenties</td>
+          <td>90 dagen na ontvangst, tenzij contact volgt</td>
+        </tr>
+        <tr>
+          <td>Websitestatistieken (geanonimiseerd)</td>
+          <td>14 maanden (Google Analytics standaard)</td>
+        </tr>
+        <tr>
+          <td>Boekhoudkundige gegevens</td>
+          <td>7 jaar (wettelijke verplichting)</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5. Derden -->
+  <div class="section">
+    <div class="section-num">05</div>
+    <h2>Delen van gegevens met derden</h2>
+    <p>Fit Up Leiderdorp verkoopt jouw gegevens nooit aan derden. Wij kunnen gegevens wel delen met de volgende partijen, uitsluitend voor de beschreven doeleinden:</p>
+    <ul>
+      <li><strong>Brevo (Sendinblue)</strong> — e-mailprovider voor het versturen van bevestigingen en nieuwsbrieven</li>
+      <li><strong>Google Analytics</strong> — websitestatistieken (geanonimiseerd)</li>
+      <li><strong>Meta (Facebook/Instagram)</strong> — advertentieplatform voor leadgeneratie en retargeting</li>
+      <li><strong>Make (Integromat)</strong> — automatiseringstool voor het verwerken van formulierinzendingen</li>
+      <li><strong>Google Calendar</strong> — voor het inplannen van afspraken en intakes</li>
+      <li><strong>WhatsApp (Meta)</strong> — voor directe communicatie op jouw verzoek</li>
+    </ul>
+    <p>Met alle dienstverleners die persoonsgegevens namens ons verwerken zijn verwerkersovereenkomsten gesloten, of zijn standaard contractuele bepalingen van toepassing.</p>
+    <div class="highlight-box">
+      <p><strong>Doorgifte buiten de EU:</strong> Sommige van bovenstaande dienstverleners (zoals Google en Meta) verwerken gegevens buiten de Europese Unie. Zij doen dit op basis van de door de Europese Commissie goedgekeurde standaard contractuele bepalingen (SCC's).</p>
+    </div>
+  </div>
+
+  <!-- 6. Cookies -->
+  <div class="section">
+    <div class="section-num">06</div>
+    <h2>Cookies en tracking</h2>
+    <p>Onze website maakt gebruik van cookies en vergelijkbare technologieën. We onderscheiden de volgende categorieën:</p>
+    <ul>
+      <li><strong>Noodzakelijke cookies</strong> — vereist voor de werking van de website. Geen toestemming vereist.</li>
+      <li><strong>Analytische cookies (Google Analytics)</strong> — wij meten het websiteverkeer anoniem om onze website te verbeteren. IP-adressen worden geanonimiseerd.</li>
+      <li><strong>Marketing cookies (Meta Pixel)</strong> — wij gebruiken de Meta Pixel om de effectiviteit van onze advertenties te meten en om relevante advertenties te tonen op Facebook en Instagram.</li>
+    </ul>
+    <p>Bij jouw eerste bezoek aan onze website vragen wij toestemming voor het plaatsen van niet-noodzakelijke cookies. Je kunt deze toestemming altijd intrekken via de cookie-instellingen op onze website of via de instellingen van je browser.</p>
+    <div class="highlight-box">
+      <p><strong>Meta Pixel:</strong> Via de Meta Pixel kunnen wij zien welke pagina's je bezoekt en of je actie onderneemt na het zien van een advertentie. Je kunt je hiervoor afmelden via <a href="https://www.facebook.com/settings?tab=ads" style="color:var(--accent)" target="_blank">Facebook advertentie-instellingen</a>.</p>
+    </div>
+  </div>
+
+  <!-- 7. Beveiliging -->
+  <div class="section">
+    <div class="section-num">07</div>
+    <h2>Beveiliging van persoonsgegevens</h2>
+    <p>Wij nemen de bescherming van jouw gegevens serieus en nemen passende technische en organisatorische maatregelen om misbruik, verlies, onbevoegde toegang en ongewenste openbaarmaking te voorkomen. Onder andere:</p>
+    <ul>
+      <li>Onze website maakt gebruik van een beveiligde HTTPS-verbinding (SSL)</li>
+      <li>Toegang tot persoonsgegevens is beperkt tot medewerkers die deze gegevens nodig hebben voor hun werkzaamheden</li>
+      <li>Wij gebruiken betrouwbare en AVG-conforme dienstverleners</li>
+      <li>Formuliergegevens worden versleuteld verzonden</li>
+    </ul>
+    <p>Mocht er ondanks onze maatregelen toch een datalek optreden waarbij jouw persoonsgegevens zijn betrokken, dan informeren wij jou hierover zodra dit wettelijk vereist is.</p>
+  </div>
+
+  <!-- 8. Rechten -->
+  <div class="section">
+    <div class="section-num">08</div>
+    <h2>Jouw rechten volgens de AVG</h2>
+    <p>Op grond van de AVG heb je de volgende rechten met betrekking tot jouw persoonsgegevens:</p>
+    <ul>
+      <li><strong>Recht op inzage</strong> — je kunt opvragen welke gegevens wij van jou hebben</li>
+      <li><strong>Recht op correctie</strong> — onjuiste gegevens mag je laten aanpassen</li>
+      <li><strong>Recht op verwijdering</strong> — je kunt vragen jouw gegevens te verwijderen ("recht op vergetelheid")</li>
+      <li><strong>Recht op beperking van verwerking</strong> — je kunt verzoeken de verwerking tijdelijk te beperken</li>
+      <li><strong>Recht op dataportabiliteit</strong> — je kunt jouw gegevens in een leesbaar formaat opvragen</li>
+      <li><strong>Recht van bezwaar</strong> — je kunt bezwaar maken tegen de verwerking van jouw gegevens voor marketingdoeleinden</li>
+      <li><strong>Recht om toestemming in te trekken</strong> — eerder gegeven toestemming kun je altijd intrekken</li>
+    </ul>
+    <p>Om gebruik te maken van een van deze rechten kun je contact met ons opnemen via onderstaande contactgegevens. Wij reageren binnen 30 dagen op jouw verzoek.</p>
+    <div class="highlight-box">
+      <p><strong>Klacht indienen:</strong> Ben je niet tevreden over hoe wij met jouw gegevens omgaan? Dan heb je het recht een klacht in te dienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl" style="color:var(--accent)" target="_blank">Autoriteit Persoonsgegevens</a>.</p>
+    </div>
+  </div>
+
+  <!-- 9. Contact -->
+  <div class="section">
+    <div class="section-num">09</div>
+    <h2>Contact voor privacyverzoeken</h2>
+    <p>Voor vragen over dit privacybeleid of voor het uitoefenen van jouw rechten kun je contact opnemen via:</p>
+    <div class="contact-card">
+      <p><strong>Fit Up Leiderdorp</strong></p>
+      <p>Weversbaan 9, Leiderdorp</p>
+      <p>E-mail: <a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></p>
+      <p>Telefoon: <a href="tel:+31648776322">06 48776322</a></p>
+      <p>WhatsApp: <a href="https://wa.me/31648776322" target="_blank">Stuur een bericht</a></p>
+    </div>
+  </div>
+
+  <!-- 10. Wijzigingen -->
+  <div class="section">
+    <div class="section-num">10</div>
+    <h2>Wijzigingen in dit privacybeleid</h2>
+    <p>Fit Up Leiderdorp behoudt zich het recht voor dit privacybeleid te wijzigen. Wijzigingen worden gepubliceerd op deze pagina met een bijgewerkte datum. Wij raden je aan dit beleid regelmatig te raadplegen.</p>
+    <p>Bij ingrijpende wijzigingen die jou direct raken, zullen wij je hierover actief informeren via e-mail of via een melding op onze website.</p>
+    <div class="highlight-box">
+      <p><strong>Laatste update:</strong> 9 juni 2025 &nbsp;·&nbsp; <strong>Versie:</strong> 1.0</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Fit Up Leiderdorp · Weversbaan 9, Leiderdorp · <a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
