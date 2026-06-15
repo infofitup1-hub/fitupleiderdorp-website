@@ -1,0 +1,55 @@
+name: AutoSEO Agent
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (geen wijzigingen)"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  autoseo:
+    name: "AutoSEO - Scan, Fix, Rapporteer & Mail"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run AutoSEO Agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SEO_ISSUE_NUMBER: ${{ vars.SEO_ISSUE_NUMBER }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          REPORT_EMAIL: ${{ vars.REPORT_EMAIL }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: node .github/autoseo.js
+
+      - name: Commit auto-fixes
+        run: |
+          git config user.name "AutoSEO Bot"
+          git config user.email "autoseo@fitupleiderdorp.nl"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Geen wijzigingen."
+          else
+            git commit -m "AutoSEO: wekelijkse auto-fix $(date +%Y-%m-%d)"
+            git push
+            echo "Fixes live op Netlify!"
+          fi
