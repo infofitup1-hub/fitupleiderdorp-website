@@ -2,6 +2,23 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1319457633346909');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <meta name="description" content="Fit Up Leiderdorp – jouw personal gym. Personal training, small group training en 24/7 fitness met persoonlijke begeleiding. Plan een gratis kennismaking.">
@@ -1683,6 +1700,7 @@ function submitForm(e) {
   if(btn){ btn.disabled=true; btn.textContent='Versturen...'; }
   const data = Object.fromEntries(new FormData(form).entries());
   data.bron='ad-landing'; data.datum=new Date().toLocaleString('nl-NL');
+  if(typeof fbq==='function') fbq('track','Lead');
   fetch('https://hook.eu1.make.com/j33pos8etilk6dwdy8dlluj0nr7qnyfi',{
     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
   }).catch(()=>{}).finally(()=>{
