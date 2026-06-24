@@ -262,6 +262,24 @@ function detectContentGaps(results) {
   return gaps;
 }
 
+
+// ── 6. AUTOBLOG — schrijf automatisch een nieuw artikel ─────────────────────
+async function runAutoBlog() {
+  try {
+    console.log("\n✍️  Stap 6: AutoBlog...");
+    // Dynamisch inladen om fouten te isoleren
+    const { writeBlog } = require("./autoblog.js");
+    const result = await writeBlog();
+    if (result) {
+      return `\n### ✍️ Nieuw blogartikel gepubliceerd\n\n📄 **[${result.topic.title_focus}](${result.url})**\nKeyword: \`${result.topic.keyword}\` · ${result.topic.volume} zoekopdrachten/mnd\n`;
+    }
+    return "\n### ✍️ AutoBlog\n\nGeen nieuw artikel deze week (onderwerp bestaat al of volgende week).\n";
+  } catch(e) {
+    console.log("  ⚠️  AutoBlog overgeslagen:", e.message);
+    return "";
+  }
+}
+
 // ── MAIN ──────────────────────────────────────────────────────────────────────
 async function main() {
   const startTime = Date.now();
@@ -347,6 +365,9 @@ Direct en actionabel. Geen inleiding.`;
     if (aiInsights) console.log("  ✅ AI analyse klaar");
   }
 
+  // ── 5b. AUTOBLOG ─────────────────────────────────────────────────────────────
+  const blogSection = await runAutoBlog();
+
   // ── 5. RAPPORT SAMENSTELLEN ─────────────────────────────────────────────────
   console.log("\n📊 Stap 5: Rapport samenstellen...");
 
@@ -430,6 +451,9 @@ ${gaps.length > 5 ? `\n_+ ${gaps.length - 5} meer content kansen beschikbaar_\n`
 Top zoekwoorden om te domineren:
 \`sportschool leiderdorp\` · \`fitness leiderdorp\` · \`personal trainer leiderdorp\` · \`personal training leiderdorp\` · \`hyrox leiderdorp\` · \`afvallen leiderdorp\`
 ${aiSection}
+---
+
+${blogSection}
 ---
 
 *🤖 Volledig automatisch · Elke maandag 08:00 · [Bekijk Actions](https://github.com/${REPO}/actions) · Volgende scan: volgende maandag*`;
