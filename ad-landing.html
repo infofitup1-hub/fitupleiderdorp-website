@@ -60,7 +60,7 @@ body{font-family:var(--font-b);background:var(--ink);color:var(--white);-webkit-
 /* HERO */
 .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;padding-bottom:80px}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transform-origin:center;will-change:transform;transform:scale(1.08)}
+.hero-bg img,.hero-bg video{width:100%;height:100%;object-fit:cover;object-position:center 20%;transform-origin:center;will-change:transform;transform:scale(1.08)}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.1) 40%,rgba(0,0,0,.65) 100%)}
 .hero-content{position:relative;z-index:2;padding:0 5%;width:100%}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(200,255,0,.35);color:var(--y);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}
@@ -328,7 +328,9 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg">
-    <img src="assets/images/hero-banner-vrouwen.jpg" alt="Vrouwen trainen bij Fit Up Leiderdorp" id="hero-img">
+    <video autoplay muted loop playsinline poster="assets/images/hero-banner-vrouwen.jpg" id="hero-img">
+      <source src="assets/images/hero-banner-vrouwen.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero-content">
     <div class="hero-tag">
