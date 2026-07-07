@@ -247,16 +247,18 @@ details[open] .fi{background:var(--y);color:var(--ink);border-color:var(--y)}
 .form-section h2{font-size:clamp(36px,6vw,64px);color:#fff;margin-bottom:12px}
 .form-sub{font-size:16px;color:rgba(255,255,255,.4);margin-bottom:40px;line-height:1.6}
 .form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 .form-field label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.form-field input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:17px 18px;font-size:16px;color:var(--white);font-family:var(--font-b);outline:none;transition:border-color .2s,background .2s;width:100%}
+.form-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:18px}
+.form-field input,.form-field select{background-color:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:17px 18px;font-size:16px;color:var(--white);font-family:var(--font-b);outline:none;transition:border-color .2s,background .2s;width:100%}
 .form-field input::placeholder{color:rgba(255,255,255,.25)}
-.form-field input:focus{border-color:rgba(200,255,0,.5);background:rgba(255,255,255,.07);box-shadow:0 0 0 3px rgba(200,255,0,.14)}
+.form-field input:focus,.form-field select:focus{border-color:rgba(200,255,0,.5);background:rgba(255,255,255,.07);box-shadow:0 0 0 3px rgba(200,255,0,.14)}
 /* Licht invulblad: het formulier komt op een lichte kaart te staan zodat het duidelijk opvalt */
 .form-card{background:#f5f5f2;border-radius:22px;padding:34px 30px;margin-top:8px;box-shadow:0 24px 60px rgba(0,0,0,.45),0 2px 0 rgba(255,255,255,.06) inset;border:1px solid rgba(255,255,255,.08)}
 .form-card .form-field label{color:#5a5a55}
-.form-card .form-field input{background:#fff;border:1.5px solid #d9d9d2;color:#111;border-radius:12px}
+.form-card .form-field input,.form-card .form-field select{background-color:#fff;border:1.5px solid #d9d9d2;color:#111;border-radius:12px}
 .form-card .form-field input::placeholder{color:#a3a39a}
-.form-card .form-field input:focus{border-color:#8fb500;background:#fff;box-shadow:0 0 0 3px rgba(200,255,0,.28)}
+.form-card .form-field input:focus,.form-card .form-field select:focus{border-color:#8fb500;background:#fff;box-shadow:0 0 0 3px rgba(200,255,0,.28)}
 .form-card .form-disclaimer{color:#77776e}
 .form-card-note{display:flex;align-items:center;gap:8px;justify-content:center;font-size:13px;font-weight:600;color:#111;background:var(--y);border-radius:100px;padding:9px 18px;width:fit-content;margin:0 auto 22px}
 /* Hero proof */
@@ -339,7 +341,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
       Small Group Personal Training · Leiderdorp e.o.
     </div>
     <h1>Nooit de juiste<br><em>begeleiding</em> gehad.</h1>
-    <p class="hero-sub">Je bent niet lui — je had alleen nog nooit de juiste hulp. Small Group Personal Training voor vrouwen die het deze keer wél volhouden.</p>
+    <p class="hero-sub">Je bent niet lui. Je had alleen nog nooit de juiste hulp. Small Group Personal Training voor vrouwen die het deze keer wél volhouden.</p>
     <div class="hero-ctas">
       <a href="#kennismaking" class="btn-y btn-y-lg">Plan gratis kennismaking<span class="arrow"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       <span class="hero-micro">
@@ -356,27 +358,75 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
   </div>
 </section>
 
-<!-- 2. WAAROM LUKT HET HIER WEL -->
-<section class="waarom">
-  <div class="waarom-grid">
-    <div class="waarom-text">
-      <div class="section-eyebrow waarom-eyebrow rv">Waarom Fit Up</div>
-      <h2 class="rv">Bij Fit Up hoef je het<br>niet alleen <em>te doen.</em></h2>
-      <p class="rv">Niet omdat wij een betere sportschool zijn.</p>
-      <p class="rv rv1">Maar omdat je het hier niet alleen doet. Een kleine groep. Een vaste coach. <strong>Iemand die het merkt</strong> als je een week mist.</p>
-      <p class="rv rv2">Dat is het verschil tussen proberen — en volhouden.</p>
-    </div>
-    <div class="waarom-photo-wrap rv rv1">
-      <div class="waarom-photo">
-        <img loading="lazy" decoding="async" src="assets/images/ad-foto-4x5.jpg" alt="Coach begeleidt lid bij Fit Up Leiderdorp" width="1862" height="2327">
+<!-- 2. PLAN DIRECT -->
+<section class="form-section" id="kennismaking">
+  <div class="form-inner">
+    <div class="section-eyebrow form-eyebrow rv">Plan direct</div>
+    <h2 class="rv">Kies jouw<br><em>moment.</em></h2>
+    <p class="form-sub rv">Kies wanneer het jou uitkomt. Wij bevestigen je gratis kennismaking dezelfde dag nog.</p>
+
+    <form id="intake-form" onsubmit="submitForm(event)" class="form-card">
+      <!-- Werk maand + aantal elke maand bij zodat dit klopt en geloofwaardig blijft -->
+      <div class="form-card-note rv">🔥 Nog enkele plekken in de groep van deze maand</div>
+      <div class="form-field rv">
+        <label>Voornaam</label>
+        <input type="text" name="voornaam" placeholder="Jouw voornaam" required autocomplete="given-name">
       </div>
-      <div class="waarom-caption">
-        <div class="wc-num">4<span>/4</span></div>
-        <div class="wc-text">Maximale groepsgrootte — altijd persoonlijk contact</div>
+      <div class="form-field rv rv1">
+        <label>Telefoonnummer</label>
+        <input type="tel" name="telefoon" placeholder="06 12345678" required autocomplete="tel" inputmode="tel" pattern="^(\+31|0031|0)\s?6[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$" title="Vul een geldig Nederlands 06-nummer in">
       </div>
+      <div class="form-field rv rv2">
+        <label>E-mailadres</label>
+        <input type="email" name="email" placeholder="jouw@email.nl" required autocomplete="email">
+      </div>
+      <div class="form-row rv rv3">
+        <div class="form-field" style="margin-bottom:0">
+          <label>Voorkeursdag</label>
+          <select name="voorkeursdag" required>
+            <option value="" disabled selected>Kies een dag</option>
+            <option>Maandag</option>
+            <option>Dinsdag</option>
+            <option>Woensdag</option>
+            <option>Donderdag</option>
+            <option>Vrijdag</option>
+            <option>Zaterdag</option>
+            <option>Weet ik nog niet</option>
+          </select>
+        </div>
+        <div class="form-field" style="margin-bottom:0">
+          <label>Dagdeel</label>
+          <select name="dagdeel" required>
+            <option value="" disabled selected>Kies dagdeel</option>
+            <option>Ochtend</option>
+            <option>Middag</option>
+            <option>Avond</option>
+            <option>Maakt niet uit</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-submit rv rv3">
+        <button type="submit" class="btn-y btn-y-lg">Ja, plan mijn gratis kennismaking<span class="arrow"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+      </div>
+      <p class="form-disclaimer rv">Gratis &amp; vrijblijvend · Geen verkooppraatje · Zelfde dag bevestiging</p>
+    </form>
+    <p class="form-max-note rv">Elke maand starten maximaal 4 nieuwe leden in een kleine groep.</p>
+
+    <div id="form-succes" style="display:none;text-align:center;padding:48px 0">
+      <div style="font-size:52px;margin-bottom:8px">💪</div>
+      <div style="font-family:var(--font-h);font-size:42px;font-weight:900;text-transform:uppercase;color:var(--y);line-height:1">Goed bezig!</div>
+      <div style="font-family:var(--font-h);font-size:28px;font-weight:700;text-transform:uppercase;color:var(--white);margin-top:12px" id="succes-msg">Je kennismaking is aangevraagd.</div>
+      <p style="font-size:15px;color:rgba(255,255,255,.6);margin-top:16px;line-height:1.7;max-width:340px;margin-left:auto;margin-right:auto">Je eerste stap is gezet. We bevestigen jouw gekozen moment vandaag nog per telefoon of WhatsApp. Welkom bij Fit Up!</p>
+      <a href="https://wa.me/31648776322?text=Hoi%20Fit%20Up!%20Ik%20heb%20net%20het%20formulier%20ingevuld%20en%20wil%20graag%20starten." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:#25D366;color:#fff;font-family:var(--font-b);font-weight:700;font-size:15px;padding:14px 28px;border-radius:100px;text-decoration:none">
+        <svg viewBox="0 0 32 32" width="20" height="20" fill="#fff"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.2.6 2.5.9 3.8.9 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.5-.3-4.9 1 1-4.7-.3-.5c-.9-1.5-1.4-3.2-1.4-4.9 0-5.3 4.3-9.6 9.6-9.6s9.6 4.3 9.6 9.6-4.3 9.7-9.6 9.7zm5.3-7.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+        Stuur ons een berichtje
+      </a>
     </div>
   </div>
 </section>
+
+<!-- 2. WAAROM LUKT HET HIER WEL -->
+
 
 <!-- 3. DIT KRIJG JE -->
 <section class="section krijg">
@@ -400,23 +450,11 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
       <div class="krijg-mini rv rv2">
         <div class="krijg-mini-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
         <h3>We laten je niet vallen</h3>
-        <p>Blijf je een keer weg? Dan sturen we een berichtje. Niet om te pushen — om er te zijn.</p>
+        <p>Blijf je een keer weg? Dan sturen we een berichtje. Niet om te pushen, maar om er te zijn.</p>
       </div>
-      <div class="krijg-mini rv">
-        <div class="krijg-mini-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3>Een schema dat past</h3>
-        <p>Opgebouwd rond jouw week en jouw lijf — niet een standaardplan dat je toch niet volhoudt.</p>
-      </div>
-      <div class="krijg-mini rv rv1">
-        <div class="krijg-mini-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
-        <h3>Eten zonder dieet-gedoe</h3>
-        <p>Praktische voeding die in je leven past. Je coach denkt mee, ook op de moeilijke dagen.</p>
-      </div>
-      <div class="krijg-mini rv rv2">
-        <div class="krijg-mini-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6c-1.6-1.6-4.2-1.6-5.8 0L12 7.5 9 4.6c-1.6-1.6-4.2-1.6-5.8 0-1.6 1.6-1.6 4.2 0 5.8l8.8 8.8 8.8-8.8c1.6-1.6 1.6-4.2 0-5.8z"/></svg></div>
-        <h3>Een plek waar je jezelf mag zijn</h3>
-        <p>Geen spiegelparade, geen oordeel. Gewoon vrouwen die samen aan de slag zijn.</p>
-      </div>
+      
+      
+      
     </div>
 
     <div class="krijg-cta rv" data-cta-anchor>
@@ -426,92 +464,17 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 </section>
 
 <!-- 4. TRAJECT -->
-<section class="route-section">
-  <div class="route-inner">
-    <div class="section-eyebrow route-eyebrow rv">Jouw traject</div>
-    <h2 class="route-h2 rv">Zo ziet jouw<br><em>traject</em> eruit.</h2>
-    <div class="route-map">
-      <div class="route-step rv">
-        <span class="rs-ghost">01</span>
-        <div class="rs-left"><div class="rs-dot"></div><div class="rs-line"></div></div>
-        <div class="rs-content">
-          <div class="rs-tag">Stap 1</div>
-          <h3>Kennismaking</h3>
-          <p>Jij vertelt waar je nu staat, waar je tegenaan loopt en wat je wilt bereiken.</p>
-          <p>Wij luisteren, stellen vragen en laten zien hoe wij jou persoonlijk gaan begeleiden.</p>
-          <p>Geen verplichtingen. Geen verkooppraatje. Alleen eerlijk advies.</p>
-        </div>
-      </div>
-      <div class="route-step rv rv1">
-        <span class="rs-ghost">02</span>
-        <div class="rs-left"><div class="rs-dot"></div><div class="rs-line"></div></div>
-        <div class="rs-content">
-          <div class="rs-tag">Stap 2</div>
-          <h3>Jouw plan, niet een schema</h3>
-          <p>We stemmen alles af op jouw leven, jouw doel en jouw agenda. Geen kopieerwerk van een ander.</p>
-        </div>
-      </div>
-      <div class="route-step rv rv2">
-        <span class="rs-ghost">03</span>
-        <div class="rs-left"><div class="rs-dot rs-dot--end"></div></div>
-        <div class="rs-content">
-          <div class="rs-tag rs-tag--end">Stap 3</div>
-          <h3>En dan: gaan!</h3>
-          <p>Je begint, wij staan ernaast. Elke training, elke week, tot je doel echt dichterbij komt.</p>
-          <a href="#kennismaking" class="btn-y rs-cta" data-cta-anchor>Plan gratis kennismaking<span class="arrow"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- 5. COACHES -->
-<section class="team-section">
-  <div class="team-inner">
-    <div class="team-header rv">
-      <div class="section-eyebrow team-eyebrow">Het team</div>
-      <h2>Dit zijn de mensen<br>die dat traject <em>met je lopen.</em></h2>
-      <p>Coaches die dit al met tientallen vrouwen hebben gedaan.</p>
-    </div>
-    <div class="team-coaches">
-      <div class="team-coach-card rv">
-        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-patrick.jpg" alt="Patrick, eigenaar en personal trainer Fit Up Leiderdorp" width="1200" height="1145"></div>
-        <div class="team-coach-body">
-          <div class="team-coach-name">Patrick</div>
-          <div class="team-coach-role">Eigenaar &amp; Personal Trainer</div>
-        </div>
-      </div>
-      <div class="team-coach-card rv rv1">
-        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-benjamin.jpg" alt="Benjamin, personal trainer Fit Up" width="1080" height="1259"></div>
-        <div class="team-coach-body">
-          <div class="team-coach-name">Benjamin</div>
-          <div class="team-coach-role">Personal Trainer</div>
-        </div>
-      </div>
-      <div class="team-coach-card rv rv2">
-        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-pepijn.jpg" alt="Pepijn, trainer Fit Up" width="1200" height="1309"></div>
-        <div class="team-coach-body">
-          <div class="team-coach-name">Pepijn</div>
-          <div class="team-coach-role">Loop &amp; Kracht</div>
-        </div>
-      </div>
-      <div class="team-coach-card rv rv3">
-        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-mendy.jpg" alt="Mendy, trainer Fit Up" width="1005" height="1506"></div>
-        <div class="team-coach-body">
-          <div class="team-coach-name">Mendy</div>
-          <div class="team-coach-role">HIIT · Afvallen · Kracht</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- 6. RESULTATEN -->
 <section class="resultaten" id="resultaten">
   <div class="res-header rv">
     <div class="section-eyebrow res-eyebrow">Zij gingen je voor</div>
     <h2>Dit hebben zij<br><em>bereikt.</em></h2>
-    <p>Vijf vrouwen die ooit op dezelfde plek stonden als jij vandaag.</p>
+    <p>Vier vrouwen die ooit op dezelfde plek stonden als jij vandaag.</p>
   </div>
   <div class="res-card-grid">
     <div class="res-card-new rv">
@@ -528,13 +491,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
         <div class="rcm-detail">Personal Training</div>
       </div>
     </div>
-    <div class="res-card-new rv rv2">
-      <div class="res-photo"><img loading="lazy" decoding="async" src="assets/images/res-karin.webp" alt="Voor en na transformatie van Karin bij Fit Up Leiderdorp"><span class="res-vn-badge">Voor → Na</span></div>
-      <div class="res-card-meter">
-        <div class="rcm-header"><span class="rcm-name">Karin</span><span class="rcm-kg">-17 KG</span></div>
-        <div class="rcm-detail">Personal Training</div>
-      </div>
-    </div>
+    
     <div class="res-card-new rv">
       <div class="res-photo"><img loading="lazy" decoding="async" src="assets/images/res-sandra.webp" alt="Voor en na transformatie van Sandra bij Fit Up Leiderdorp"><span class="res-vn-badge">Voor → Na</span></div>
       <div class="res-card-meter">
@@ -553,20 +510,7 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
 </section>
 
 <!-- 6b. SFEER GALERIJ -->
-<section class="sfeer-section">
-  <div class="sfeer-inner">
-    <div class="section-eyebrow sfeer-eyebrow rv">Bij ons in de zaak</div>
-    <h2 class="sfeer-title rv">Zo ziet <em>jouw training</em> eruit</h2>
-    <p class="sfeer-sub rv">Gewone vrouwen die gewoon begonnen zijn — precies zoals jij straks. Geen sixpacks nodig, geen ervaring vereist.</p>
-    <p class="sfeer-swipe-hint rv">← veeg voor meer →</p>
-  </div>
-  <div class="sfeer-scroll">
-    <figure class="sfeer-item rv"><img src="assets/images/training-samen.webp" alt="Twee vrouwen trainen samen tijdens Small Group Personal Training bij Fit Up Leiderdorp" loading="lazy"></figure>
-    <figure class="sfeer-item rv rv1"><img src="assets/images/training-lunge.webp" alt="Vrouw traint lunges met dumbbells bij Fit Up Leiderdorp" loading="lazy"></figure>
-    <figure class="sfeer-item rv rv2"><img src="assets/images/training-ropes.webp" alt="Vrouwen trainen met battle ropes bij Fit Up" loading="lazy"></figure>
-    <figure class="sfeer-item rv rv3"><img src="assets/images/training-kettlebell.webp" alt="Kettlebell-training in kleine groep" loading="lazy"></figure>
-  </div>
-</section>
+
 
 <!-- 7. REVIEWS + FAQ -->
 <section class="reviews-section" id="reviews">
@@ -615,92 +559,54 @@ footer p,footer a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none
   </div>
 </section>
 
-<section class="faq-section">
-  <div class="faq-inner">
-    <div class="section-eyebrow faq-eyebrow rv">Veelgestelde vragen</div>
-    <h2 class="rv">Jouw <em>vragen.</em></h2>
-    <div class="faq-list">
-      <div class="faq-item rv">
-        <details>
-          <summary>Ik ben geen sporter. Kan ik dit ook? <span class="fi">+</span></summary>
-          <div class="faq-a">Absoluut. De meeste leden beginnen zonder ervaring. Onze coaches stemmen alles af op jouw niveau. Je hoeft niets te kunnen, alleen bereid te zijn te starten.</div>
-        </details>
+<!-- 6. HET TEAM -->
+<section class="team-section">
+  <div class="team-inner">
+    <div class="team-header rv">
+      <div class="section-eyebrow team-eyebrow">Het team</div>
+      <h2>Dit zijn de mensen<br>die <em>met je meelopen.</em></h2>
+      <p>Coaches die dit al met tientallen vrouwen hebben gedaan.</p>
+    </div>
+    <div class="team-coaches">
+      <div class="team-coach-card rv">
+        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-patrick.jpg" alt="Patrick, eigenaar en personal trainer Fit Up Leiderdorp" width="1200" height="1145"></div>
+        <div class="team-coach-body">
+          <div class="team-coach-name">Patrick</div>
+          <div class="team-coach-role">Eigenaar &amp; Personal Trainer</div>
+        </div>
       </div>
-      <div class="faq-item rv rv1">
-        <details>
-          <summary>Wat is Small Group Personal Training precies? <span class="fi">+</span></summary>
-          <div class="faq-a">Trainen in een groep van maximaal 4 personen onder begeleiding van een vaste coach. Je hebt de energie van samen sporten, maar wel de persoonlijke aandacht die je nodig hebt.</div>
-        </details>
+      <div class="team-coach-card rv rv1">
+        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-benjamin.jpg" alt="Benjamin, personal trainer Fit Up" width="1080" height="1259"></div>
+        <div class="team-coach-body">
+          <div class="team-coach-name">Benjamin</div>
+          <div class="team-coach-role">Personal Trainer</div>
+        </div>
       </div>
-      <div class="faq-item rv rv2">
-        <details>
-          <summary>Hoe werkt de voedingscoaching? <span class="fi">+</span></summary>
-          <div class="faq-a">Je houdt je voeding bij en je coach geeft persoonlijk advies op calorieën en macro's, afgestemd op jouw doel. Geen generiek schema, maar begeleiding die bij jouw leven past.</div>
-        </details>
+      <div class="team-coach-card rv rv2">
+        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-pepijn.jpg" alt="Pepijn, trainer Fit Up" width="1200" height="1309"></div>
+        <div class="team-coach-body">
+          <div class="team-coach-name">Pepijn</div>
+          <div class="team-coach-role">Loop &amp; Kracht</div>
+        </div>
       </div>
-      <div class="faq-item rv">
-        <details>
-          <summary>Wat gebeurt er tijdens de gratis kennismaking? <span class="fi">+</span></summary>
-          <div class="faq-a">We leren elkaar kennen. Jij vertelt wat je wil bereiken, wij laten zien hoe Fit Up werkt. Geen verkooppraatje, geen verplichtingen. Duurt ongeveer 30 minuten.</div>
-        </details>
+      <div class="team-coach-card rv rv3">
+        <div class="team-coach-photo"><img loading="lazy" decoding="async" src="assets/images/team-mendy.jpg" alt="Mendy, trainer Fit Up" width="1005" height="1506"></div>
+        <div class="team-coach-body">
+          <div class="team-coach-name">Mendy</div>
+          <div class="team-coach-role">HIIT · Afvallen · Kracht</div>
+        </div>
       </div>
-      <div class="faq-item rv rv1">
-        <details>
-          <summary>Hoe snel zie ik resultaat? <span class="fi">+</span></summary>
-          <div class="faq-a">De meeste leden merken al na 2 tot 3 weken verschil in energie en hoe ze zich voelen. Zichtbaar resultaat hangt af van je doel en consistentie, maar met begeleiding op training én voeding ga je sneller dan alleen.</div>
-        </details>
-      </div>
-      <div class="faq-item rv rv2">
-        <details>
-          <summary>Is er parkeergelegenheid? <span class="fi">+</span></summary>
-          <div class="faq-a">Ja, gratis parkeren voor de deur aan Weversbaan 9 in Leiderdorp. Goed bereikbaar vanuit Leiden, Zoeterwoude, Alphen aan den Rijn en Voorschoten.</div>
-        </details>
-      </div>
+    </div>
+    <div class="krijg-cta rv" data-cta-anchor>
+      <a href="#kennismaking" class="btn-y btn-y-lg">Plan gratis kennismaking<span class="arrow"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     </div>
   </div>
 </section>
+
+
 
 <!-- 8. LAATSTE CTA -->
-<section class="form-section" id="kennismaking">
-  <div class="form-inner">
-    <div class="section-eyebrow form-eyebrow rv">Laatste stap</div>
-    <h2 class="rv">Klaar voor<br><em>het gesprek?</em></h2>
-    <p class="form-sub rv">Vul je naam en nummer in. We bellen je vandaag nog terug.</p>
 
-    <form id="intake-form" onsubmit="submitForm(event)" class="form-card">
-      <!-- Werk maand + aantal elke maand bij zodat dit klopt en geloofwaardig blijft -->
-      <div class="form-card-note rv">🔥 Nog enkele plekken in de groep van deze maand</div>
-      <div class="form-field rv">
-        <label>Voornaam</label>
-        <input type="text" name="voornaam" placeholder="Jouw voornaam" required autocomplete="given-name">
-      </div>
-      <div class="form-field rv rv1">
-        <label>Telefoonnummer</label>
-        <input type="tel" name="telefoon" placeholder="06 12345678" required autocomplete="tel" inputmode="tel" pattern="^(\+31|0031|0)\s?6[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$" title="Vul een geldig Nederlands 06-nummer in">
-      </div>
-      <div class="form-field rv rv2">
-        <label>E-mailadres</label>
-        <input type="email" name="email" placeholder="jouw@email.nl" required autocomplete="email">
-      </div>
-      <div class="form-submit rv rv3">
-        <button type="submit" class="btn-y btn-y-lg">Ja, plan mijn gratis kennismaking<span class="arrow"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-      </div>
-      <p class="form-disclaimer rv">Gratis &amp; vrijblijvend · Geen verkooppraatje · We bellen vandaag terug</p>
-    </form>
-    <p class="form-max-note rv">Elke maand starten maximaal 4 nieuwe leden in een kleine groep.</p>
-
-    <div id="form-succes" style="display:none;text-align:center;padding:48px 0">
-      <div style="font-size:52px;margin-bottom:8px">💪</div>
-      <div style="font-family:var(--font-h);font-size:42px;font-weight:900;text-transform:uppercase;color:var(--y);line-height:1">Goed bezig!</div>
-      <div style="font-family:var(--font-h);font-size:28px;font-weight:700;text-transform:uppercase;color:var(--white);margin-top:12px" id="succes-msg">We bellen je vandaag nog terug.</div>
-      <p style="font-size:15px;color:rgba(255,255,255,.6);margin-top:16px;line-height:1.7;max-width:340px;margin-left:auto;margin-right:auto">Je eerste stap is gezet. Wij nemen zo snel mogelijk contact met je op voor een gratis en vrijblijvend kennismakingsgesprek. Welkom bij Fit Up!</p>
-      <a href="https://wa.me/31648776322?text=Hoi%20Fit%20Up!%20Ik%20heb%20net%20het%20formulier%20ingevuld%20en%20wil%20graag%20starten." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:#25D366;color:#fff;font-family:var(--font-b);font-weight:700;font-size:15px;padding:14px 28px;border-radius:100px;text-decoration:none">
-        <svg viewBox="0 0 32 32" width="20" height="20" fill="#fff"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.2.6 2.5.9 3.8.9 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.5-.3-4.9 1 1-4.7-.3-.5c-.9-1.5-1.4-3.2-1.4-4.9 0-5.3 4.3-9.6 9.6-9.6s9.6 4.3 9.6 9.6-4.3 9.7-9.6 9.7zm5.3-7.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
-        Stuur ons een berichtje
-      </a>
-    </div>
-  </div>
-</section>
 
 <footer>
   <a href="#home" class="brand-logo brand-logo-lg" aria-label="Fit Up Leiderdorp"><span class="bl-fit">FIT</span><span class="bl-up">UP</span></a>
