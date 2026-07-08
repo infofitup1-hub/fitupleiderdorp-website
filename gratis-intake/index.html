@@ -327,6 +327,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     var mail = document.getElementById('email').value.trim();
     var doel = document.getElementById('doel').value;
     var bericht = document.getElementById('bericht').value.trim();
+    if(typeof fbq==='function') fbq('track','Lead');
     var msg = 'Hi Fit Up, ik wil graag een gratis intake.\n\n' +
               'Naam: ' + naam + '\n' +
               (tel ? 'Telefoon: ' + tel + '\n' : '') +
