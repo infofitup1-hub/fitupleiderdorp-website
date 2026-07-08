@@ -445,6 +445,7 @@ function kiesGeslacht(g){
 }
 
 function naarFormulier(){
+  if(typeof fbq==='function') fbq('track','Lead');
   const bpKey=bepaal();
   document.getElementById('bp-naam').textContent=BP[bpKey];
   gaNaar(6);
