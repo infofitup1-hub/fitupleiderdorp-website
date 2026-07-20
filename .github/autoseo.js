@@ -268,7 +268,7 @@ async function runAutoBlog() {
   try {
     console.log("\n✍️  Stap 6: AutoBlog...");
     // Dynamisch inladen om fouten te isoleren
-    const { writeBlog } = require("./autoblog.js");
+    const { writeBlog } = require(require("path").join(__dirname, "autoblog.js"));
     const result = await writeBlog();
     if (result) {
       return `\n### ✍️ Nieuw blogartikel gepubliceerd\n\n📄 **[${result.topic.title_focus}](${result.url})**\nKeyword: \`${result.topic.keyword}\` · ${result.topic.volume} zoekopdrachten/mnd\n`;
