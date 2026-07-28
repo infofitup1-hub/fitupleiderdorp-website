@@ -390,7 +390,7 @@ Direct en actionabel. Geen inleiding.`;
     return `| ${c.name} | ${c.dist} | ${status} | ${schema} | ${c.title?.slice(0,40) || "—"} |`;
   }).join("\n");
 
-  const gapList = gaps.slice(0, 5).map(g => `- 📄 **${g.label}** → \`/${g.slug}/\``).join("\n");
+  const gapList = gaps.slice(0, 5).map(g => `- **${g.label}** → /${g.slug}/`).join("\n");
 
   const fixSection = fixes.length > 0
     ? `\n### ⚡ Auto-fixes uitgevoerd (${fixCount})\n\n${fixes.join("\n")}\n`
