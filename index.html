@@ -51,7 +51,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --black:#0c0c0c; --mid:#161616; --dark:#111;
+    --black:#0c0c0c; --mid:#161616; --dark:#111; --charcoal:#18191b;
     --white:#fff; --off:#f0ede8; --accent:#d4ff00;
     --gray:#888; --lgray:#2a2a2a;
     --fd:'Barlow Condensed',sans-serif; --fb:'DM Sans',sans-serif;
@@ -117,10 +117,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
 
   /* HERO */
-  .hero{min-height:100svh;display:flex;flex-direction:column;position:relative;overflow:hidden}
-  .hero-video-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-  .hero-video-bg video{width:100%;height:100%;object-fit:cover;display:block}
-  .hero-video-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
+  .hero{background:var(--charcoal);position:relative;overflow:hidden}
+  .hero-inner{max-width:1240px;margin:0 auto;padding:150px 40px 96px;display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
+  .hero-media{position:relative;height:clamp(420px,58vh,580px);overflow:hidden;border-radius:6px;opacity:0;animation:fadeUp .7s ease .5s forwards}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(155deg,transparent 55%,rgba(12,12,12,.35));pointer-events:none}
+  .hero-ctas .btn-accent{padding:14px 24px;font-size:14px;letter-spacing:.8px}
 
   .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:46vh;overflow:hidden}
   .photo-cell{position:relative;overflow:hidden;background:var(--lgray);opacity:0;animation:fadeIn .9s ease forwards}
@@ -132,12 +134,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .photo-cell:hover img{transform:scale(1.03)}
   .photo-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(12,12,12,.5) 100%);pointer-events:none}
 
-  .hero-text{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 40px 56px;position:relative;z-index:1}
+  .hero-text{position:relative;z-index:1;max-width:600px}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;opacity:0;animation:fadeUp .6s ease .5s forwards}
   .eyebrow-line{width:24px;height:2px;background:var(--accent);flex-shrink:0}
 
-  h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(46px,8vw,82px);line-height:.9;letter-spacing:-.5px;margin-bottom:24px;opacity:0;animation:fadeUp .6s ease .7s forwards}
-  h1 em{font-style:normal;color:var(--accent);display:block}
+  h1{font-family:var(--fb);font-weight:700;text-transform:none;font-size:clamp(30px,4.2vw,50px);line-height:1.13;letter-spacing:-.015em;margin-bottom:20px;opacity:0;animation:fadeUp .6s ease .7s forwards}
+  h1 em{font-style:normal;color:var(--accent);display:inline}
 
   .hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:400px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .9s forwards}
   .hero-sub strong{color:var(--white);font-weight:500}
@@ -154,7 +156,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .hr-stars svg{width:17px;height:17px;display:block}
   .hr-text{font-size:14px;color:rgba(255,255,255,.7);font-weight:400;letter-spacing:.3px}
   .hr-text strong{color:#fff;font-weight:900;font-family:var(--fd);font-size:18px;letter-spacing:.5px;margin-right:3px}
-  .hero-usp{margin-top:22px;font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);opacity:0;animation:fadeUp .6s ease 1s forwards}
+  .hero-usp{margin-top:20px;font-family:var(--fb);font-weight:600;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.82);opacity:0;animation:fadeUp .6s ease 1s forwards}
   .hero-reassure{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;max-width:440px;margin-top:16px;opacity:0;animation:fadeUp .6s ease 1.15s forwards}
   .hero-reassure::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:middle}
 
@@ -397,8 +399,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .photo-strip{grid-template-columns:repeat(2,1fr);height:auto;aspect-ratio:auto}
     .photo-cell{aspect-ratio:1/1}
 
-    .hero-text{padding:36px 24px 44px}
-    h1{font-size:clamp(40px,9vw,60px)}
+    .hero-inner{grid-template-columns:1fr;gap:30px;padding:104px 24px 52px}
+    .hero-media{height:clamp(300px,46vh,400px)}
+    h1{font-size:clamp(28px,6.5vw,38px)}
     .hero-sub{font-size:15px;max-width:none}
     .hero-rating{margin-top:36px}
 
@@ -465,8 +468,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .problem-photos .prob-ticker{display:block;grid-column:1 / -1}
 
     .photo-strip{grid-template-columns:repeat(2,1fr)}
-    .hero-text{padding:32px 20px 40px}
-    h1{font-size:clamp(36px,10vw,50px);line-height:.94}
+    .hero-inner{padding:96px 18px 44px}
+    h1{font-size:clamp(26px,7vw,34px);line-height:1.16}
     .hero-sub{font-size:14px;line-height:1.7;margin-bottom:28px}
     .hero-ctas{gap:14px}
     .hero-ctas .btn-accent{width:100%;justify-content:center}
@@ -496,7 +499,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .prob-caption-text{font-size:10px}
   }
 </style>
-<style>.h1-kicker{display:flex;align-items:center;gap:10px;font-size:.16em;letter-spacing:3px;color:var(--accent);margin-bottom:16px;line-height:1;font-weight:700;text-transform:uppercase}</style>
+<style>.h1-kicker{display:flex;align-items:center;gap:10px;font-family:var(--fb);font-size:12px;letter-spacing:2px;color:var(--accent);margin-bottom:20px;line-height:1;font-weight:600;text-transform:uppercase}</style>
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/main.js" defer></script>
 <script type="application/ld+json">
@@ -705,22 +708,17 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </div>
 
 <header class="hero" role="banner">
-  <div class="hero-video-bg" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="auto">
-      <source src="assets/videos/hero-video.mp4" type="video/mp4">
-    </video>
-  </div>
-
+  <div class="hero-inner">
   <div class="hero-text">
     <h1><span class="h1-kicker"><span class="eyebrow-line"></span>Personal training &amp; small-group coaching</span>Sterker, fitter en gezonder met <em>persoonlijke coaching</em></h1>
     <p class="hero-sub">
       Personal training en small-group training in Leiderdorp voor volwassenen die
-      gericht willen werken aan hun <strong>gezondheid, kracht en resultaat</strong>.
+      gericht willen werken aan hun <strong>gezondheid, kracht en dagelijkse fitheid</strong>.
     </p>
     <div class="hero-usp">Persoonlijke begeleiding · Kleine groepen · Trainen op jouw niveau</div>
     <div class="hero-ctas">
       <a href="#intake-plannen" class="btn-accent">
-        Plan een kennismakingsgesprek
+        Plan een vrijblijvende kennismaking
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="trainingsaanbod/index.html" class="btn-ghost">
@@ -728,7 +726,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
-    <p class="hero-reassure">Vrijblijvend. Tijdens het gesprek bespreken we je doelen en welke begeleiding het beste bij je past.</p>
+    <p class="hero-reassure">We bespreken je doelen en adviseren welke begeleiding het beste bij je past.</p>
     <div class="hero-rating" aria-label="Beoordeeld met 4,9 van 5 sterren op basis van 65 Google-reviews">
       <span class="hr-stars" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -739,6 +737,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       </span>
       <span class="hr-text"><strong>4,9</strong> uit 65 Google-reviews</span>
     </div>
+  </div>
+  <div class="hero-media">
+    <img src="assets/images/ad-sgpt-lunges.webp" width="1200" height="2636" alt="Coach begeleidt twee volwassen leden tijdens een small-group training bij Fit Up Leiderdorp" fetchpriority="high" decoding="async">
+  </div>
   </div>
 </header>
 
