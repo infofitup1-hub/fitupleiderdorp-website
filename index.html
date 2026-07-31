@@ -691,7 +691,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     <li><a href="tarieven/index.html">Tarieven</a></li>
     <li><a href="fitcheck/index.html">Fitcheck</a></li>
     <li><a href="contact/index.html">Contact</a></li>
-    <li><a href="gratis-intake/index.html" class="nav-btn">Gratis intake</a></li>
+    <li><a href="#intake-plannen" class="nav-btn">Gratis intake</a></li>
   </ul>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
     <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -712,7 +712,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <a href="tarieven/index.html">Tarieven</a>
   <a href="fitcheck/index.html">Fitcheck</a>
   <a href="contact/index.html">Contact</a>
-  <a href="gratis-intake/index.html" class="drawer-cta">Gratis intake</a>
+  <a href="#intake-plannen" class="drawer-cta">Gratis intake</a>
 </div>
 
 <header class="hero" role="banner">
@@ -759,6 +759,54 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     <span class="proof-item">Geen inschrijfgeld</span>
   </div>
 </div>
+
+<!-- VOOR WIE -->
+<section class="audience" aria-labelledby="audience-heading">
+  <style>
+    .audience{background:var(--black)}
+    .audience-head{max-width:640px;margin:0 0 44px}
+    .audience-head p{color:rgba(255,255,255,.5);font-weight:300;line-height:1.75;margin-top:16px;font-size:15px}
+    .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .aud-col{border:1px solid rgba(255,255,255,.08);padding:34px 32px;background:var(--mid)}
+    .aud-col.fit{border-color:rgba(212,255,0,.28)}
+    .aud-col h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:1px;line-height:1.05;margin-bottom:22px;color:var(--white)}
+    .aud-col.fit h3 em{font-style:normal;color:var(--accent)}
+    .aud-list{list-style:none;display:flex;flex-direction:column;gap:15px}
+    .aud-list li{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.55;color:rgba(255,255,255,.8)}
+    .aud-list .ic{flex-shrink:0;width:22px;height:22px;display:grid;place-items:center;margin-top:1px}
+    .aud-col.fit .ic{color:var(--accent)}
+    .aud-col.nofit li{color:rgba(255,255,255,.5)}
+    .aud-col.nofit .ic{color:rgba(255,255,255,.35)}
+    @media(max-width:760px){.audience-grid{grid-template-columns:1fr;gap:16px}.aud-col{padding:28px 24px}}
+  </style>
+  <div class="container">
+    <div class="audience-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Voor wie</div>
+      <h2 id="audience-heading" class="reveal d1">Eerlijk: <em>voor wie</em> is Fit Up?</h2>
+      <p class="reveal d2">We zijn bewust kleinschalig en persoonlijk. Dat past perfect bij de één, en minder bij de ander. Zo weet je meteen of dit jouw club is.</p>
+    </div>
+    <div class="audience-grid">
+      <div class="aud-col fit reveal d1">
+        <h3>Dit is <em>jouw club</em> als je&hellip;</h3>
+        <ul class="aud-list">
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>persoonlijke begeleiding wilt, geen anoniem sportpaleis</li>
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>net begint óf na jaren weer instapt — alle niveaus zijn welkom</li>
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>wilt afvallen, sterker of fitter worden mét een plan en meting</li>
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>graag traint op je eigen moment — 24/7 open, altijd rustig</li>
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>een coach zoekt die je naam en je doel kent</li>
+        </ul>
+      </div>
+      <div class="aud-col nofit reveal d2">
+        <h3>Waarschijnlijk niet je plek als je&hellip;</h3>
+        <ul class="aud-list">
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>puur de laagste maandprijs zoekt, zonder begeleiding</li>
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>een enorme, drukke gym met honderden toestellen wilt</li>
+          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>het liefst volledig anoniem traint, zonder contact</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="problem" aria-labelledby="problem-heading">
   <div class="container">
@@ -1014,7 +1062,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.75) 100%)"></div>
   <div style="position:relative;z-index:1;text-align:center;padding:0 24px;max-width:700px">
     <p style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px">Plan je start</p>
-    <h2 style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;line-height:1.1;color:#fff;margin:0">Klaar voor een sportschool<br><em style="color:var(--accent)">die werkt?</em></h2>
+    <h2 style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;line-height:1.1;color:#fff;margin:0">Jouw resultaat begint<br>met <em style="color:var(--accent)">één gesprek</em></h2>
   </div>
 </section>
 
