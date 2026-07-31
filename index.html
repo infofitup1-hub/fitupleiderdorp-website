@@ -1056,8 +1056,70 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- TEAM -->
+<section class="team" aria-labelledby="team-heading">
+  <style>
+    .team{background:var(--mid)}
+    .team-head{max-width:640px;margin:0 0 44px}
+    .team-head p{color:rgba(255,255,255,.5);font-weight:300;line-height:1.75;margin-top:16px;font-size:15px}
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .team-card{background:var(--black);border:1px solid rgba(255,255,255,.08);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s}
+    .team-card:hover{border-color:rgba(212,255,0,.28)}
+    .team-photo{aspect-ratio:4/5;overflow:hidden;background:var(--lgray)}
+    .team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+    .team-card:hover .team-photo img{transform:scale(1.04)}
+    .team-body{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+    .team-name{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:23px;letter-spacing:1px;line-height:1;color:var(--white)}
+    .team-role{color:var(--accent);font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:10px}
+    .team-blurb{color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;margin-top:14px;font-weight:300}
+    @media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr;gap:16px}}
+    @media(max-width:540px){.team-grid{grid-template-columns:1fr 1fr;gap:12px}.team-body{padding:16px 16px 20px}.team-name{font-size:19px}.team-blurb{font-size:13px}}
+  </style>
+  <div class="container">
+    <div class="team-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Het team</div>
+      <h2 id="team-heading" class="reveal d1">Coaches die je <em>naam kennen</em></h2>
+      <p class="reveal d2">Bij Fit Up train je niet met een willekeurige instructeur, maar met een vast team dat weet waar je aan werkt. Van personal training en looptraining tot groepslessen &mdash; je vindt hier de juiste coach voor jouw doel.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team-card reveal d1">
+        <div class="team-photo"><img src="assets/images/team-patrick.jpg" alt="Patrick, eigenaar en personal trainer bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="team-body">
+          <div class="team-name">Patrick</div>
+          <div class="team-role">Eigenaar · Personal trainer · Groepslessen</div>
+          <p class="team-blurb">Oud-Defensie en sinds 2014 het gezicht van Fit Up. Coacht 1-op-1, staat voor de groep en kent iedereen bij naam. Discipline en persoonlijke aandacht in één.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d2">
+        <div class="team-photo"><img src="assets/images/team-benjamin.jpg" alt="Benjamin, personal trainer bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="team-body">
+          <div class="team-name">Benjamin</div>
+          <div class="team-role">Personal trainer</div>
+          <p class="team-blurb">Begeleidt je 1-op-1 met een schema en techniek die kloppen voor jouw doel en niveau &mdash; of je nu net begint of een niveau hoger wilt.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d3">
+        <div class="team-photo"><img src="assets/images/team-mendy.jpg" alt="Mendy, groepslesdocent en HIIT-specialist bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="team-body">
+          <div class="team-name">Mendy</div>
+          <div class="team-role">Groepslesdocent · HIIT</div>
+          <p class="team-blurb">Brengt de energie in de zaal. Specialist in HIIT: kort, intensief en voor elk niveau te schalen. Je gaat er altijd voldaan weer uit.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d4">
+        <div class="team-photo"><img src="assets/images/team-pepijn.jpg" alt="Pepijn, personal trainer en looptrainer bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="team-body">
+          <div class="team-name">Pepijn</div>
+          <div class="team-role">Personal trainer · Looptraining</div>
+          <p class="team-blurb">Van je eerste 5 km tot een 100 km ultramarathon. Pepijn bouwt je loopschema stap voor stap op &mdash; slim, blessurevrij en op jouw tempo.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section style="position:relative;overflow:hidden;height:380px;display:flex;align-items:center;justify-content:center">
-  <img src="assets/images/gym-sfeer-1.jpg" alt="Fit Up Leiderdorp balie" 
+  <img src="assets/images/gym-sfeer-1.jpg" alt="Fit Up Leiderdorp balie"
        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%">
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.75) 100%)"></div>
   <div style="position:relative;z-index:1;text-align:center;padding:0 24px;max-width:700px">
