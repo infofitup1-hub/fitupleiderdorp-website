@@ -155,18 +155,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .stat-num{font-family:var(--fd);font-size:36px;font-weight:900;line-height:1;letter-spacing:1px}
   .stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:4px;font-weight:500}
 
-  /* PROOFBAR (static, replaces scrolling ticker) */
-  .proofbar{background:var(--accent);padding:15px 0}
-  .proofbar-inner{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 40px}
-  .proof-item{position:relative;font-family:var(--fd);font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--black)}
-  .proof-item::before{content:"";position:absolute;left:-21px;top:50%;width:5px;height:5px;background:rgba(0,0,0,.32);border-radius:50%;transform:translateY(-50%)}
-  .proof-item:first-child::before{display:none}
-  @media (max-width:560px){
-    .proofbar{padding:13px 0}
-    .proofbar-inner{gap:8px 22px}
-    .proof-item{font-size:11.5px;letter-spacing:1.2px}
-    .proof-item::before{left:-13px}
-  }
 
   /* SECTIONS */
   section{padding:100px 0}
@@ -750,15 +738,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <!-- OVER PATRICK -->
 
 
-
-<div class="proofbar">
-  <div class="container proofbar-inner">
-    <span class="proof-item">24/7 toegang</span>
-    <span class="proof-item">Max. 4 per groep</span>
-    <span class="proof-item">Voeding via app</span>
-    <span class="proof-item">Geen inschrijfgeld</span>
-  </div>
-</div>
 
 <!-- VOOR WIE -->
 <section class="audience" aria-labelledby="audience-heading">
