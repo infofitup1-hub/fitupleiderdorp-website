@@ -517,18 +517,23 @@
       var marketingEl = document.getElementById('fu-cl-marketing');
       var hpEl = document.getElementById('fu-cl-hp-field');
 
-      // ---- Spamcontrole (silent: geen foutmelding tonen, geen hints aan bots geven) ----
-      var honeypotFilled = hpEl && hpEl.value.trim() !== '';
-      var elapsedMs = Date.now() - (state.formRenderedAt || 0);
-      var tooFast = elapsedMs < CFG.antiSpam.minFillSeconds * 1000;
-      if (honeypotFilled || tooFast) {
-        tracking.event('conversion_lead_spam_blocked', {
-          reason: honeypotFilled ? 'honeypot' : 'too_fast'
-        });
-        // Doe alsof het gelukt is: geen data versturen, geen data bewaren,
-        // niets weglekken over de detectie.
-        state.screen = 'success';
-        renderSuccess(naamEl.value.trim());
+      // ---- Spamsignalen verzamelen ----
+      // Belangrijk: alleen de honeypot is een betrouwbaar signaal (een mens kan dat
+      // veld praktisch niet per ongeluk invullen) en mag daarom direct blokkeren.
+      // Een snelle invultijd kan legitiem zijn (browser-autofill) en mag NOOIT alleen
+      // op basis daarvan client-side blokkeren -> altijd naar de webhook sturen en
+      // de server laten meewegen/beslissen.
+      var honeypotFilled = !!(hpEl && hpEl.value.trim() !== '');
+      var formFillDurationMs = Date.now() - (state.formRenderedAt || Date.now());
+      var spamSignals = [];
+      if (formFillDurationMs < CFG.antiSpam.minFillSeconds * 1000) {
+        spamSignals.push('fast_submission');
+      }
+
+      if (honeypotFilled) {
+        tracking.event('conversion_lead_spam_blocked', { reason: 'honeypot' });
+        // Geen webhook-call, geen success- en geen foutscherm: dit is geen
+        // echte inzending, dus er verandert niets zichtbaars voor de indiener.
         return;
       }
 
@@ -567,30 +572,39 @@
 
       var payload = form.buildPayload({
         naam: naam, tel: tel, email: email,
-        moment: moment, marketing: marketingEl.checked
+        moment: moment, marketing: marketingEl.checked,
+        formFillDurationMs: formFillDurationMs,
+        honeypotFilled: honeypotFilled,
+        spamSignals: spamSignals
       });
 
       tracking.event('conversion_lead_submitted');
+      if (spamSignals.length) {
+        tracking.event('conversion_lead_flagged', { signals: spamSignals.join(',') });
+      }
 
       var submitBtn = els.body.querySelector('.fu-cl-submit');
       submitBtn.disabled = true;
       submitBtn.textContent = 'Bezig met versturen...';
 
       form.send(payload).then(function () {
+        // Alleen hier belanden we als de webhook expliciet success:true teruggaf.
         storage.markConverted();
         storage.clearPendingLead(); // verwijdert alle tijdelijke persoonsgegevens
         tracking.event('conversion_lead_success');
         tracking.lead();
         state.screen = 'success';
         renderSuccess(naam);
-      }).catch(function () {
-        tracking.event('conversion_lead_error');
+      }).catch(function (err) {
+        // Netwerkfout, HTTP-fout, ontbrekende/onjuiste JSON, of expliciete
+        // afwijzing (success: false) -> nooit een vals bedankscherm tonen.
+        tracking.event('conversion_lead_error', { reason: (err && err.reason) || 'unknown' });
         storage.savePendingLead(payload);
         submitBtn.disabled = false;
         submitBtn.textContent = CFG.contactForm.submitLabel;
         var errEl = document.getElementById('fu-cl-submit-error');
         errEl.hidden = false;
-        errEl.textContent = 'Verzenden lukt op dit moment niet. Probeer het opnieuw of neem rechtstreeks contact met ons op.';
+        errEl.textContent = 'Verzenden lukt op dit moment niet. Controleer je gegevens en probeer het opnieuw, of neem rechtstreeks contact met ons op.';
       });
     },
 
@@ -616,23 +630,46 @@
         apparaatCategorie: /Mobi|Android/i.test(navigator.userAgent) ? 'mobiel' : 'desktop',
         toestemmingContact: true,
         toestemmingMarketing: !!fields.marketing,
-        leadbron: 'website_conversion_layer'
+        leadbron: 'website_conversion_layer',
+        formFillDurationMs: fields.formFillDurationMs,
+        honeypotFilled: !!fields.honeypotFilled,
+        spamSignals: fields.spamSignals || []
       };
     },
 
     send: function (payload) {
       if (!CFG.webhookUrl) {
-        // Nog geen webhook geconfigureerd -> direct nette foutafhandeling,
-        // data blijft bewaard (zie savePendingLead in de catch van handleSubmit).
-        return Promise.reject(new Error('no webhook configured'));
+        // Nog geen webhook geconfigureerd -> nette foutafhandeling, data blijft
+        // bewaard (zie savePendingLead in de catch van handleSubmit). Er wordt
+        // hier bewust NOOIT een successcherm getoond zonder bevestiging.
+        var noUrlErr = new Error('no webhook configured');
+        noUrlErr.reason = 'not_configured';
+        return Promise.reject(noUrlErr);
       }
       return fetch(CFG.webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(function (res) {
-        if (!res.ok) throw new Error('webhook error ' + res.status);
-        return res;
+        if (!res.ok) {
+          var httpErr = new Error('webhook http error ' + res.status);
+          httpErr.reason = 'network';
+          throw httpErr;
+        }
+        return res.json().catch(function () {
+          var parseErr = new Error('webhook response was not valid JSON');
+          parseErr.reason = 'invalid_response';
+          throw parseErr;
+        });
+      }).then(function (body) {
+        // Het bedankscherm mag uitsluitend verschijnen wanneer de server
+        // expliciet bevestigt dat de lead is geaccepteerd.
+        if (!body || body.success !== true) {
+          var rejectedErr = new Error('webhook did not confirm success');
+          rejectedErr.reason = 'rejected';
+          throw rejectedErr;
+        }
+        return body;
       });
     }
   };
