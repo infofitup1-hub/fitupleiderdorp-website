@@ -53,8 +53,8 @@ window.FU_CL_CONFIG = {
   /* Spambeveiliging. Dezelfde regels moeten server-side (Make) worden
      herhaald zodra de webhook actief is — vertrouw de browser nooit blind. */
   antiSpam: {
-    honeypotFieldName: 'website',   // verborgen veld; ingevuld = bot
-    minFillSeconds: 3,              // formulier sneller dan dit ingevuld = bot
+    honeypotFieldName: 'website',   // verborgen veld; ingevuld = betrouwbaar spamsignaal, wordt direct geblokkeerd
+    minFillSeconds: 3,              // sneller dan dit = signaal "fast_submission" (GEEN harde blokkade; kan door autofill komen, dus altijd naar de webhook sturen en de server laten beslissen)
     maxLengths: { naam: 60, tel: 20, email: 100 },
     patterns: {
       naam: '^[\\p{L}\\s\'-]{2,60}$',
