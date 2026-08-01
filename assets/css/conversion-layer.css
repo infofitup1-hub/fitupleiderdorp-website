@@ -284,3 +284,12 @@
 
 /* Lock scroll achter open dialoog */
 body.fu-cl-lock { overflow: hidden; }
+
+/* Honeypot: buiten beeld, maar bewust niet display:none (bots negeren dat vaak) */
+.fu-cl-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
