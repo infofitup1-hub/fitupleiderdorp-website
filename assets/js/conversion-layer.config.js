@@ -6,6 +6,11 @@
    ============================================================= */
 window.FU_CL_CONFIG = {
 
+  /* Zet op false om de volledige conversielaag uit te schakelen
+     zonder de script-tags uit index.html te verwijderen.
+     Er wordt dan niets gerenderd, niets getriggerd en niets getrackt. */
+  enabled: true,
+
   /* Webhook waar leads naartoe gestuurd worden.
      Nog niet ingesteld -> laat leeg. Zodra er een Make-scenario
      klaarstaat, plaats de webhook-URL hier. Zolang dit leeg is,
@@ -39,8 +44,23 @@ window.FU_CL_CONFIG = {
     sessionShownKey: 'fu_cl_shown_session',   // max 1x per sessie (sessionStorage)
     dismissedAtKey: 'fu_cl_dismissed_at',     // 7-dagen cooldown (localStorage)
     convertedKey: 'fu_cl_converted',          // nooit meer automatisch na succes (localStorage)
-    pendingLeadKey: 'fu_cl_pending_lead',     // bewaarde data bij mislukte verzending
-    cooldownDays: 7
+    pendingPersonalKey: 'fu_cl_pending_personal', // tijdelijk, sessionStorage, PII, TTL 30 min
+    pendingMetaKey: 'fu_cl_pending_meta',         // niet-persoonlijk, mag langer bewaard blijven (localStorage)
+    cooldownDays: 7,
+    pendingPersonalTtlMinutes: 30
+  },
+
+  /* Spambeveiliging. Dezelfde regels moeten server-side (Make) worden
+     herhaald zodra de webhook actief is — vertrouw de browser nooit blind. */
+  antiSpam: {
+    honeypotFieldName: 'website',   // verborgen veld; ingevuld = bot
+    minFillSeconds: 3,              // formulier sneller dan dit ingevuld = bot
+    maxLengths: { naam: 60, tel: 20, email: 100 },
+    patterns: {
+      naam: '^[\\p{L}\\s\'-]{2,60}$',
+      tel: '^(?=(?:.*[0-9]){9,})[0-9+\\-\\s()]{6,20}$',
+      email: '^[^\\s@]{1,64}@[^\\s@]{1,190}\\.[^\\s@]{2,24}$'
+    }
   },
 
   /* STAP 1 — hoofdvraag */
@@ -110,13 +130,15 @@ window.FU_CL_CONFIG = {
     },
     afvallen: {
       followUps: ['begeleiding', 'start'],
-      /* Aanbeveling hangt af van het antwoord op "begeleiding" */
+      /* Aanbeveling hangt af van het antwoord op "begeleiding".
+         Personal Training wordt via deze route nooit meer geadviseerd:
+         PT is voorbehouden aan de route "persoonlijk" (expliciete 1-op-1 keuze). */
       recommendationByAnswer: {
         zelfstandig: {
-          title: 'Voedings- en leefstijlcoaching',
-          message: 'Je krijgt een duidelijke aanpak, persoonlijke bijsturing en een plan dat past bij jouw niveau en dagelijkse leven.',
-          benefit: 'Coaching op voeding en leefstijl, te combineren met zelfstandig trainen.',
-          link: 'onlineCoaching'
+          title: '24/7 Fitness + Voedingscoaching',
+          message: 'Je traint zelfstandig wanneer het jou uitkomt, met een duidelijk voedingsplan erbij zodat resultaat niet afhangt van toeval.',
+          benefit: 'Altijd toegang tot de club, gecombineerd met persoonlijke voedingsbegeleiding via de app.',
+          link: 'fitness247'
         },
         'af-en-toe': {
           title: 'Small Group Personal Training',
@@ -125,10 +147,10 @@ window.FU_CL_CONFIG = {
           link: 'sgpt'
         },
         veel: {
-          title: 'Personal Training',
-          message: 'Je krijgt een duidelijke aanpak, persoonlijke bijsturing en een plan dat past bij jouw niveau en dagelijkse leven.',
-          benefit: 'Eén-op-één begeleiding met training en voeding volledig op maat.',
-          link: 'personalTraining'
+          title: 'Small Group Personal Training + Coaching',
+          message: 'Je krijgt intensieve begeleiding: training in een kleine groep, aangevuld met persoonlijke voedings- en leefstijlcoaching.',
+          benefit: 'Maximale begeleiding zonder de prijs van volledige 1-op-1 personal training.',
+          link: 'sgpt'
         }
       }
     },
