@@ -75,10 +75,50 @@
       storage.setLocal(CFG.storage.dismissedAtKey, String(Date.now()));
     },
     savePendingLead: function (payload) {
-      try { localStorage.setItem(CFG.storage.pendingLeadKey, JSON.stringify(payload)); } catch (e) {}
+      var personal = {
+        voornaam: payload.voornaam,
+        telefoonnummer: payload.telefoonnummer,
+        email: payload.email,
+        voorkeursmomentContact: payload.voorkeursmomentContact
+      };
+      var meta = {};
+      Object.keys(payload).forEach(function (k) {
+        if (!(k in personal)) meta[k] = payload[k];
+      });
+      // Persoonsgegevens: alleen kort in sessionStorage, met bewaartermijn
+      try {
+        sessionStorage.setItem(
+          CFG.storage.pendingPersonalKey,
+          JSON.stringify({ data: personal, savedAt: Date.now() })
+        );
+      } catch (e) {}
+      // Niet-persoonlijke route/campagnedata: mag langer blijven staan (geen PII)
+      try {
+        localStorage.setItem(CFG.storage.pendingMetaKey, JSON.stringify(meta));
+      } catch (e) {}
+    },
+    prunePendingPersonal: function () {
+      try {
+        var raw = sessionStorage.getItem(CFG.storage.pendingPersonalKey);
+        if (!raw) return;
+        var parsed = JSON.parse(raw);
+        var ageMinutes = (Date.now() - parsed.savedAt) / 60000;
+        if (ageMinutes > CFG.storage.pendingPersonalTtlMinutes) {
+          sessionStorage.removeItem(CFG.storage.pendingPersonalKey);
+        }
+      } catch (e) {}
+    },
+    getPendingPersonal: function () {
+      storage.prunePendingPersonal();
+      try {
+        var raw = sessionStorage.getItem(CFG.storage.pendingPersonalKey);
+        if (!raw) return null;
+        return JSON.parse(raw).data;
+      } catch (e) { return null; }
     },
     clearPendingLead: function () {
-      storage.removeLocal(CFG.storage.pendingLeadKey);
+      try { sessionStorage.removeItem(CFG.storage.pendingPersonalKey); } catch (e) {}
+      try { localStorage.removeItem(CFG.storage.pendingMetaKey); } catch (e) {}
     }
   };
 
@@ -180,6 +220,18 @@
       if (e.key === 'Escape') close(true);
       if (e.key === 'Tab') trapFocus(e);
     });
+
+    // Voorkom overlap met het mobiele menu (nav-drawer, z-index 190):
+    // verberg de vaste knop zolang het menu open staat.
+    var updateFabVisibility = function () {
+      els.fab.style.display = document.body.classList.contains('nav-open') ? 'none' : '';
+    };
+    updateFabVisibility();
+    if (window.MutationObserver) {
+      new MutationObserver(updateFabVisibility).observe(document.body, {
+        attributes: true, attributeFilter: ['class']
+      });
+    }
   }
 
   function trapFocus(e) {
@@ -281,25 +333,33 @@
   }
 
   function renderForm() {
+    var ml = CFG.antiSpam.maxLengths;
     var html = '<h2 id="fu-cl-title" class="fu-cl-heading">Bijna klaar</h2>';
     html += '<p class="fu-cl-sub">Laat je gegevens achter, dan neemt Patrick persoonlijk contact met je op.</p>';
     html += '<form id="fu-cl-form" novalidate>';
 
+    // Honeypot: onzichtbaar voor mensen, aantrekkelijk voor bots. Niet display:none
+    // (sommige bots negeren dat), wel buiten beeld en uit de tabvolgorde/screenreader.
+    html += '<div class="fu-cl-hp" aria-hidden="true">';
+    html += '<label for="fu-cl-hp-field">Laat dit veld leeg</label>';
+    html += '<input type="text" id="fu-cl-hp-field" name="' + CFG.antiSpam.honeypotFieldName + '" tabindex="-1" autocomplete="off">';
+    html += '</div>';
+
     html += '<div class="fu-cl-field">';
     html += '<label for="fu-cl-naam">Voornaam</label>';
-    html += '<input type="text" id="fu-cl-naam" name="naam" autocomplete="given-name" required>';
+    html += '<input type="text" id="fu-cl-naam" name="naam" autocomplete="given-name" maxlength="' + ml.naam + '" required>';
     html += '<span class="fu-cl-error" id="fu-cl-err-naam" role="alert"></span>';
     html += '</div>';
 
     html += '<div class="fu-cl-field">';
     html += '<label for="fu-cl-tel">Mobiel telefoonnummer</label>';
-    html += '<input type="tel" id="fu-cl-tel" name="tel" autocomplete="tel" required>';
+    html += '<input type="tel" id="fu-cl-tel" name="tel" autocomplete="tel" maxlength="' + ml.tel + '" required>';
     html += '<span class="fu-cl-error" id="fu-cl-err-tel" role="alert"></span>';
     html += '</div>';
 
     html += '<div class="fu-cl-field">';
     html += '<label for="fu-cl-email">E-mailadres <span class="fu-cl-optional">(optioneel)</span></label>';
-    html += '<input type="email" id="fu-cl-email" name="email" autocomplete="email">';
+    html += '<input type="email" id="fu-cl-email" name="email" autocomplete="email" maxlength="' + ml.email + '">';
     html += '<span class="fu-cl-error" id="fu-cl-err-email" role="alert"></span>';
     html += '</div>';
 
@@ -332,6 +392,19 @@
     html += '<button type="button" class="fu-cl-back">&larr; Vorige vraag</button>';
 
     els.body.innerHTML = html;
+
+    // Herstel eerder ingevulde gegevens als die nog vers zijn (max. 30 min, deze sessie)
+    var restored = storage.getPendingPersonal();
+    if (restored) {
+      if (restored.voornaam) document.getElementById('fu-cl-naam').value = restored.voornaam;
+      if (restored.telefoonnummer) document.getElementById('fu-cl-tel').value = restored.telefoonnummer;
+      if (restored.email) document.getElementById('fu-cl-email').value = restored.email;
+      if (restored.voorkeursmomentContact) document.getElementById('fu-cl-moment').value = restored.voorkeursmomentContact;
+    }
+
+    // Tijdstip waarop het formulier zichtbaar werd, voor de minimale-invultijd-check
+    state.formRenderedAt = Date.now();
+
     els.body.querySelector('#fu-cl-form').addEventListener('submit', form.handleSubmit);
     els.body.querySelector('.fu-cl-back').addEventListener('click', function () {
       state.screen = 'result';
@@ -442,25 +515,49 @@
       var momentEl = document.getElementById('fu-cl-moment');
       var consentEl = document.getElementById('fu-cl-consent');
       var marketingEl = document.getElementById('fu-cl-marketing');
+      var hpEl = document.getElementById('fu-cl-hp-field');
+
+      // ---- Spamcontrole (silent: geen foutmelding tonen, geen hints aan bots geven) ----
+      var honeypotFilled = hpEl && hpEl.value.trim() !== '';
+      var elapsedMs = Date.now() - (state.formRenderedAt || 0);
+      var tooFast = elapsedMs < CFG.antiSpam.minFillSeconds * 1000;
+      if (honeypotFilled || tooFast) {
+        tracking.event('conversion_lead_spam_blocked', {
+          reason: honeypotFilled ? 'honeypot' : 'too_fast'
+        });
+        // Doe alsof het gelukt is: geen data versturen, geen data bewaren,
+        // niets weglekken over de detectie.
+        state.screen = 'success';
+        renderSuccess(naamEl.value.trim());
+        return;
+      }
 
       var valid = true;
       clearErrors();
+      var p = CFG.antiSpam.patterns;
+      var ml = CFG.antiSpam.maxLengths;
 
-      var naam = naamEl.value.trim();
-      if (!naam) { showError('naam', 'Vul je voornaam in.'); valid = false; }
+      var naam = naamEl.value.trim().slice(0, ml.naam);
+      if (!naam) {
+        showError('naam', 'Vul je voornaam in.'); valid = false;
+      } else if (!new RegExp(p.naam, 'u').test(naam)) {
+        showError('naam', 'Gebruik alleen letters, spaties of een koppelteken.'); valid = false;
+      }
 
-      var tel = telEl.value.trim();
-      var telDigits = tel.replace(/[^0-9+]/g, '');
+      var tel = telEl.value.trim().slice(0, ml.tel);
       if (!tel) {
         showError('tel', 'Vul je telefoonnummer in.'); valid = false;
-      } else if (telDigits.length < 9) {
+      } else if (!new RegExp(p.tel).test(tel)) {
         showError('tel', 'Controleer je telefoonnummer.'); valid = false;
       }
 
-      var email = emailEl.value.trim();
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      var email = emailEl.value.trim().slice(0, ml.email);
+      if (email && !new RegExp(p.email).test(email)) {
         showError('email', 'Controleer je e-mailadres.'); valid = false;
       }
+
+      var allowedMoments = ['', 'ochtend', 'middag', 'avond'];
+      var moment = allowedMoments.indexOf(momentEl.value) === -1 ? '' : momentEl.value;
 
       if (!consentEl.checked) {
         showError('consent', 'Bevestig dat we contact met je mogen opnemen.'); valid = false;
@@ -470,7 +567,7 @@
 
       var payload = form.buildPayload({
         naam: naam, tel: tel, email: email,
-        moment: momentEl.value, marketing: marketingEl.checked
+        moment: moment, marketing: marketingEl.checked
       });
 
       tracking.event('conversion_lead_submitted');
@@ -481,7 +578,7 @@
 
       form.send(payload).then(function () {
         storage.markConverted();
-        storage.clearPendingLead();
+        storage.clearPendingLead(); // verwijdert alle tijdelijke persoonsgegevens
         tracking.event('conversion_lead_success');
         tracking.lead();
         state.screen = 'success';
@@ -647,6 +744,8 @@
      INIT
      ----------------------------------------------------------- */
   function init() {
+    if (CFG.enabled === false) return; // volledig uitgeschakeld, niets wordt gerenderd of getrackt
+    storage.prunePendingPersonal();     // ruim verlopen persoonsgegevens (>30 min) direct op
     buildSkeleton();
     initAutoTriggers();
   }
