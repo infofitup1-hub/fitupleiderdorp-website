@@ -16,7 +16,7 @@ window.FU_CL_CONFIG = {
      klaarstaat, plaats de webhook-URL hier. Zolang dit leeg is,
      wordt de lead lokaal bewaard (localStorage) en krijgt de
      bezoeker een nette foutmelding i.p.v. een stille mislukking. */
-  webhookUrl: '', // TIJDELIJK LEEG - doelwebhook nog niet productieklaar (2026-08-03)
+  webhookUrl: 'https://hook.eu1.make.com/qw741ixpqwexef7vdaqrglxodnspbrzu',
 
   /* Bestaand officieel Fit Up WhatsApp-nummer (uit de site zelf) */
   whatsappNumber: '31648776322',
