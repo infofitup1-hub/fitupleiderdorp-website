@@ -9,7 +9,7 @@ window.FU_CL_CONFIG = {
   /* Zet op false om de volledige conversielaag uit te schakelen
      zonder de script-tags uit index.html te verwijderen.
      Er wordt dan niets gerenderd, niets getriggerd en niets getrackt. */
-  enabled: false, // TIJDELIJK UITGESCHAKELD - blokkeerde mobiele pagina 2026-08-01
+  enabled: true,
 
   /* Webhook waar leads naartoe gestuurd worden.
      Nog niet ingesteld -> laat leeg. Zodra er een Make-scenario
