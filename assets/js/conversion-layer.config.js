@@ -34,7 +34,7 @@ window.FU_CL_CONFIG = {
 
   /* Wanneer de automatische uitnodiging mag verschijnen */
   triggers: {
-    timeSeconds: 5,
+    timeSeconds: 0,
     scrollPercent: 45,
     exitIntentDesktop: true
   },
