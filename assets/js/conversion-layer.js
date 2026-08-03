@@ -198,7 +198,9 @@
       '<div id="fu-cl-overlay" class="fu-cl-overlay" hidden>' +
         '<div id="fu-cl-dialog" class="fu-cl-dialog" role="dialog" aria-modal="true" aria-labelledby="fu-cl-title">' +
           '<button type="button" id="fu-cl-close" class="fu-cl-close" aria-label="Sluiten">&times;</button>' +
-          '<div id="fu-cl-body" class="fu-cl-body"></div>' +
+          '<div class="fu-cl-dialog-scroll">' +
+            '<div id="fu-cl-body" class="fu-cl-body"></div>' +
+          '</div>' +
         '</div>' +
       '</div>';
     document.body.appendChild(wrap);
