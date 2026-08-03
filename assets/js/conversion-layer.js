@@ -704,6 +704,13 @@
 
     els.overlay.hidden = false;
     document.body.classList.add('fu-cl-lock');
+    // Pauzeer de hero-video: backdrop-filter blur boven een lopende video
+    // veroorzaakt op sommige Android/Chrome-toestellen een volledig zwart,
+    // onklikbaar vlak i.p.v. een correcte blur. Pauzeren voorkomt dit.
+    try {
+      var heroVid = document.querySelector('.hero-video-bg video');
+      if (heroVid && !heroVid.paused) { heroVid.dataset.fuClWasPlaying = '1'; heroVid.pause(); }
+    } catch (e) {}
     renderMain();
     storage.markShownThisSession();
 
@@ -716,6 +723,13 @@
     state.open = false;
     els.overlay.hidden = true;
     document.body.classList.remove('fu-cl-lock');
+    try {
+      var heroVid2 = document.querySelector('.hero-video-bg video');
+      if (heroVid2 && heroVid2.dataset.fuClWasPlaying === '1') {
+        delete heroVid2.dataset.fuClWasPlaying;
+        heroVid2.play().catch(function () {});
+      }
+    } catch (e) {}
     if (state.lastFocusedEl && typeof state.lastFocusedEl.focus === 'function') {
       state.lastFocusedEl.focus();
     }
@@ -757,7 +771,11 @@
     window.addEventListener('scroll', scrollHandler, { passive: true });
 
     // Exit-intent (alleen desktop: fijne pointer + brede viewport)
-    if (CFG.triggers.exitIntentDesktop && window.matchMedia('(min-width: 900px) and (pointer: fine)').matches) {
+    var isDesktopPointer = false;
+    try {
+      isDesktopPointer = !!(window.matchMedia && window.matchMedia('(min-width: 900px) and (pointer: fine)').matches);
+    } catch (e) {}
+    if (CFG.triggers.exitIntentDesktop && isDesktopPointer) {
       var exitHandler = function (e) {
         if (!canAutoOpen()) { document.removeEventListener('mouseout', exitHandler); return; }
         if (e.clientY <= 0) {
