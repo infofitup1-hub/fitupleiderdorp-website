@@ -69,7 +69,7 @@ const BLOG_TOPICS = [
     volume: 900,
     persona: "mensen die lang niet gesport hebben",
     dienst: "24/7 fitness en personal training",
-    internal_links: ["/fitness-40-plus-leiderdorp/", "/gratis-intake/", "/fitcheck/"]
+    internal_links: ["/fitness-40-plus-leiderdorp/", "/gratis-intake/"]
   },
   {
     slug: "voeding-spiermassa",
@@ -230,7 +230,8 @@ function buildBlogPage(topic, aiContent, nav, footer) {
   <meta name="twitter:title" content="${seoTitle.slice(0,60)}">
   <meta name="twitter:description" content="${metaDesc.slice(0,160)}">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

@@ -18,7 +18,7 @@ const DRY_RUN = process.env.DRY_RUN === "true";
 
 const ALL_PAGES = [
   "index.html","afvallen-leiderdorp/index.html","calorie-calculator/index.html",
-  "contact/index.html","fitcheck/index.html","fitness-40-plus-leiderdorp/index.html",
+  "contact/index.html","fitness-40-plus-leiderdorp/index.html",
   "fitness-voor-beginners-leiderdorp/index.html","fitnessclub-leiderdorp/index.html",
   "gratis-intake/index.html","hyrox-training-leiderdorp/index.html",
   "krachttraining-leiderdorp/index.html","online-coaching/index.html",

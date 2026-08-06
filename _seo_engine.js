@@ -23,7 +23,6 @@ const NAV=`<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
     </li>
     <li><a href="../online-coaching/index.html">Online Coaching</a></li>
     <li><a href="../tarieven/index.html">Tarieven</a></li>
-    <li><a href="../fitcheck/index.html">Fitcheck</a></li>
     <li><a href="../contact/index.html">Contact</a></li>
     <li><a href="../gratis-intake/index.html" class="nav-btn">Gratis intake</a></li>
   </ul>
@@ -44,7 +43,6 @@ const NAV=`<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   </div>
   <a href="../online-coaching/index.html">Online Coaching</a>
   <a href="../tarieven/index.html">Tarieven</a>
-  <a href="../fitcheck/index.html">Fitcheck</a>
   <a href="../contact/index.html">Contact</a>
   <a href="${PAYN}" target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
 </div>`;
