@@ -69,7 +69,7 @@ const BLOG_TOPICS = [
     volume: 900,
     persona: "mensen die lang niet gesport hebben",
     dienst: "24/7 fitness en personal training",
-    internal_links: ["/fitness-40-plus-leiderdorp/", "/gratis-intake/", "/fitcheck/"]
+    internal_links: ["/fitness-40-plus-leiderdorp/", "/gratis-intake/"]
   },
   {
     slug: "voeding-spiermassa",
@@ -230,7 +230,8 @@ function buildBlogPage(topic, aiContent, nav, footer) {
   <meta name="twitter:title" content="${seoTitle.slice(0,60)}">
   <meta name="twitter:description" content="${metaDesc.slice(0,160)}">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -258,13 +259,13 @@ ${nav}
 <main>
   <section style="background:#0c0c0c;padding:100px 0 60px;text-align:center;">
     <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C8F400;margin-bottom:16px;">Fit Up Leiderdorp · ${dateStr}</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:16px;">Fit Up Leiderdorp · ${dateStr}</div>
       <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,7vw,72px);font-weight:900;color:#fff;line-height:1;margin-bottom:24px;text-transform:uppercase;">${h1}</h1>
       <p style="font-size:18px;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto;line-height:1.7;">${intro}</p>
     </div>
   </section>
 
-  <div style="background:#C8F400;padding:12px 0;text-align:center;">
+  <div style="background:#d4ff00;padding:12px 0;text-align:center;">
     <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#000;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;">
       <span>★★★★★</span><span>4,9 · 55 Google Reviews — Fit Up Leiderdorp</span>
@@ -280,17 +281,17 @@ ${nav}
     </section>` : ""}
   </article>
 
-  <section style="background:#C8F400;padding:80px 0;text-align:center;">
+  <section style="background:#d4ff00;padding:80px 0;text-align:center;">
     <div style="max-width:700px;margin:0 auto;padding:0 24px;">
       <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;">Klaar om te starten?</h2>
       <p style="color:rgba(0,0,0,0.7);font-size:16px;margin-bottom:32px;line-height:1.7;">Plan een gratis intake bij Fit Up Leiderdorp. Geen verplichtingen — wel eerlijk advies over wat bij jouw doel past.</p>
-      <a href="/gratis-intake/" style="background:#000;color:#C8F400;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
+      <a href="/gratis-intake/" style="background:#000;color:#d4ff00;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
     </div>
   </section>
 
   <section style="background:#111;padding:48px 0;text-align:center;">
     <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C8F400;margin-bottom:16px;">Lees ook</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:16px;">Lees ook</div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
         ${internalLinksHtml}
       </div>

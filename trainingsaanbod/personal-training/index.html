@@ -29,20 +29,20 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <meta property="og:type" content="website">
 <meta property="og:description" content="Personal training in Leiderdorp voor afvallen, sterker worden, fitter worden en duurzame resultaten. Plan je intake bij Fit Up.">
 <meta property="og:url" content="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/">
-<meta property="og:image" content="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/assets/images/logo-mark-on-dark.png">
+<meta property="og:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Personal Training bij Fit Up Leiderdorp | Jouw Coach">
 <meta name="twitter:description" content="Personal training in Leiderdorp voor afvallen, sterker worden, fitter worden en duurzame resultaten. Plan je intake bij Fit Up.">
-<meta name="twitter:image" content="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/assets/images/logo-mark-on-dark.png">
+<meta name="twitter:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
 <link rel="canonical" href="https://fitupleiderdorp.nl/trainingsaanbod/personal-training/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--black:#0c0c0c;--mid:#161616;--dark:#111;--white:#fff;--accent:#d4ff00;--gray:#888;--lgray:#2a2a2a;--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace}
+  :root{--black:#0c0c0c;--mid:#161616;--dark:#111;--white:#fff;--accent:#d4ff00;--gray:#888;--lgray:#2a2a2a;--charcoal:#18191b;--paper:#fff;--paper2:#f3f4f0;--ink:#141611;--ink-soft:#3c3f37;--ink-mute:#575b4e;--line:rgba(20,22,17,.08);--accent-ink:#4a5900;--r-btn:10px;--r-card:18px;--sh-2:0 1px 2px rgba(20,22,17,.04),0 24px 50px -22px rgba(20,22,17,.18);--sh-hover:0 2px 6px rgba(20,22,17,.05),0 40px 80px -28px rgba(20,22,17,.28);--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:var(--fb);overflow-x:hidden}
   nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
   nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
   .logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
@@ -54,18 +54,22 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .nav-btn:hover{background:var(--white)!important}
   section{padding:100px 0}
   .container{max-width:1240px;margin:0 auto;padding:0 40px}
-  .sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--ink-mute);margin-bottom:18px}
   .sec-label-line{width:24px;height:1.5px;background:var(--accent)}
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
   h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
-  h2 em{font-style:normal;color:var(--accent)}
+  h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
+  .page-hero h1 em,.final-cta h2 em,.spotter-content h3 em,.try-title em{background:none;padding:0;color:var(--accent)}
   h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
-  .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);transition:all .25s;white-space:nowrap}
+  .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-accent:hover{background:transparent;color:var(--accent)}
-  .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
-  .btn-ghost:hover{color:var(--white);border-color:var(--white)}
-  .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--black);transition:all .25s;white-space:nowrap}
-  .btn-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);text-decoration:none;font-size:13.5px;font-weight:600;border-bottom:1px solid rgba(20,22,17,.25);padding-bottom:2px;transition:all .2s}
+  .btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
+  .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--black);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
+  .btn-dark:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
+  /* btn-ghost op donkere hero blijft licht */
+  .page-hero .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
+  .page-hero .btn-ghost:hover{color:var(--white);border-color:var(--white)}
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
   .reveal.in{opacity:1;transform:none}
   .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
@@ -74,23 +78,30 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 
   /* PAGE HERO */
-  .page-hero{min-height:78vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px}
+  .page-hero{min-height:78vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:var(--charcoal)}
   .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
   .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-  .page-hero h1{font-size:clamp(56px,7.5vw,96px);margin-bottom:24px;opacity:0;animation:fadeUp .6s ease .4s forwards}
+  .page-hero h1{font-family:var(--fd);font-weight:800;text-transform:none;font-size:clamp(40px,5vw,66px);line-height:1;margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
   .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
   .page-hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
   .page-hero-sub strong{color:var(--white);font-weight:500}
   .page-hero-stats{display:flex;gap:32px;margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .7s forwards;flex-wrap:wrap}
   .ph-stat{border-left:2px solid var(--accent);padding-left:16px}
-  .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1}
-  .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:4px}
+  .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;color:var(--white)}
+  .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
   .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
-  .page-hero-right{position:relative;overflow:hidden;background:var(--lgray)}
-  .page-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;animation:fadeIn 1s ease .3s forwards}
-  .page-hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,transparent 25%),linear-gradient(to top,rgba(12,12,12,.8) 0%,transparent 35%);pointer-events:none}
-  .hero-badge{position:absolute;bottom:32px;right:32px;background:var(--accent);color:var(--black);padding:14px 18px;font-family:var(--fd);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
+  .page-hero-right{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;justify-self:center;align-self:center;padding:20px;width:100%;height:100%;background-image:radial-gradient(rgba(212,255,0,.2) 1.5px,transparent 1.5px);background-size:26px 26px;background-position:-6px -6px}
+  .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;background:radial-gradient(ellipse,rgba(212,255,0,.22) 0%,transparent 62%);pointer-events:none;z-index:0}
+  .pt-dot{position:absolute;border-radius:50%;pointer-events:none;z-index:1}
+  .pt-dot-1{top:14%;left:10%;width:10px;height:10px;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
+  .pt-dot-2{bottom:12%;right:8%;width:16px;height:16px;border:1.5px solid rgba(212,255,0,.5);animation:pulse 3s ease-in-out infinite .4s}
+  .pt-dot-3{top:20%;right:14%;width:6px;height:6px;background:rgba(212,255,0,.6)}
+  .pt-photo-accent{position:absolute;width:90%;max-width:400px;aspect-ratio:3/4;background:var(--accent);border-radius:18px;transform:rotate(7deg) translate(16px,10px);z-index:1}
+  .pt-photo-card{position:relative;z-index:2;width:100%;max-width:480px;aspect-ratio:3/4;overflow:hidden;border-radius:18px;background:var(--lgray);box-shadow:0 30px 70px -24px rgba(0,0,0,.65);transform:rotate(-3deg)}
+  .page-hero-right img,.page-hero-right video{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;animation:fadeIn 1s ease .3s forwards}
+  .pt-photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.55) 0%,transparent 30%);pointer-events:none}
+  .hero-badge{position:absolute;bottom:16px;right:16px;background:var(--accent);color:var(--black);padding:10px 14px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
 
   /* PHOTO PLACEHOLDER (hero) — striped, monospace caption, no faked imagery */
   .photo-placeholder{position:absolute;inset:0;background:
@@ -111,67 +122,67 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* SECTION HEADERS */
   .sec-head{text-align:center;margin-bottom:56px}
   .sec-head .sec-label{justify-content:center}
-  .sec-head p{max-width:580px;margin:18px auto 0;font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75}
+  .sec-head p{max-width:580px;margin:18px auto 0;font-size:15px;color:var(--ink-soft);font-weight:400;line-height:1.75}
 
   /* HIGHLIGHT BAND */
-  .hbar{background:var(--mid);padding:36px 0;border-top:1px solid rgba(212,255,0,.08);border-bottom:1px solid rgba(212,255,0,.08)}
+  .hbar{background:var(--paper2);padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .hbar-inner{display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:center}
-  .hbar-eyebrow{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:12px;white-space:nowrap}
+  .hbar-eyebrow{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-ink);display:flex;align-items:center;gap:12px;white-space:nowrap}
   .hbar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
   .hbar-item{display:flex;flex-direction:column;gap:4px}
-  .hbar-label{font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
-  .hbar-value{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--white)}
-  .hbar-value em{color:var(--accent);font-style:normal}
+  .hbar-label{font-size:11px;color:var(--ink-mute);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+  .hbar-value{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--ink)}
+  .hbar-value em{color:var(--accent-ink);font-style:normal}
 
   /* WHAT IS PT — centered narrative + includes list */
   .what-wrap{max-width:880px;margin:0 auto}
   .what-head{text-align:center;margin-bottom:48px}
   .what-head .sec-label{justify-content:center}
   .what-head h2{font-size:clamp(48px,6.4vw,76px)}
-  .what-head p{font-size:16px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.75;margin:20px auto 0;max-width:560px}
+  .what-head p{font-size:16px;color:var(--ink-soft);font-weight:400;line-height:1.75;margin:20px auto 0;max-width:560px}
   .what-wrap .includes-list{margin-top:0}
   .what-wrap .include-item{padding:22px 4px}
   .includes-list{display:flex;flex-direction:column;gap:0;margin-top:32px}
-  .include-item{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid rgba(255,255,255,.06);transition:padding .25s}
-  .include-item:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+  .include-item{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid var(--line);transition:padding .25s}
+  .include-item:last-child{border-bottom:1px solid var(--line)}
   .include-item:hover{padding-left:6px}
-  .check{width:24px;height:24px;background:rgba(212,255,0,.1);border:1px solid rgba(212,255,0,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--accent)}
-  .include-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px}
-  .include-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
+  .check{width:24px;height:24px;border-radius:6px;background:rgba(212,255,0,.18);border:1px solid rgba(110,130,0,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--accent-ink)}
+  .include-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px;color:var(--ink)}
+  .include-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
 
   /* SPOTTER STRIP — full-bleed editorial moment about being spotted */
-  .spotter{background:var(--black);padding:80px 0;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
-  .spotter-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:0;background:var(--mid);overflow:hidden}
-  .spotter-photo{position:relative;min-height:420px;background:var(--lgray)}
+  .spotter{background:var(--paper2);padding:100px 0}
+  .spotter-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden}
+  .spotter-photo{position:relative;min-height:440px;background:var(--lgray)}
   .spotter-photo .photo-placeholder{padding:28px}
   .spotter-content{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
-  .spotter-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .spotter-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px;display:flex;align-items:center;gap:10px}
   .spotter-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent)}
-  .spotter-content h3{font-family:var(--fd);font-size:clamp(34px,4.4vw,52px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.3px;margin-bottom:18px}
-  .spotter-content h3 em{font-style:normal;color:var(--accent)}
-  .spotter-content p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.75;font-weight:300;max-width:520px;margin-bottom:20px}
+  .spotter-content h3{font-family:var(--fd);font-size:clamp(34px,4.4vw,52px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.3px;margin-bottom:18px;color:var(--ink)}
+  .spotter-content h3 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
+  .spotter-content p{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:400;max-width:520px;margin-bottom:20px}
   .spotter-bullets{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-  .spotter-bullets span{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:12px;align-items:center;font-weight:400}
+  .spotter-bullets span{font-size:13.5px;color:var(--ink-soft);display:flex;gap:12px;align-items:center;font-weight:400}
   .spotter-bullets span::before{content:'';width:18px;height:1.5px;background:var(--accent);flex-shrink:0}
 
   /* NUTRITION APP STRIP */
-  .nutri{background:var(--mid);padding:100px 0;position:relative;overflow:hidden}
+  .nutri{background:var(--paper2);padding:120px 0;position:relative;overflow:hidden}
   .nutri::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 65%);pointer-events:none}
   .nutri-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
   .nutri-copy h2{font-size:clamp(40px,5.2vw,62px);margin-bottom:22px}
-  .nutri-copy>p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.75;font-weight:300;max-width:480px;margin-bottom:32px}
-  .nutri-features{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;border-top:1px solid rgba(255,255,255,.06)}
-  .nutri-feat{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-  .nutri-feat:nth-child(odd){padding-right:24px;border-right:1px solid rgba(255,255,255,.06)}
+  .nutri-copy>p{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:400;max-width:480px;margin-bottom:32px}
+  .nutri-features{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;border-top:1px solid var(--line)}
+  .nutri-feat{padding:20px 0;border-bottom:1px solid var(--line)}
+  .nutri-feat:nth-child(odd){padding-right:24px;border-right:1px solid var(--line)}
   .nutri-feat:nth-child(even){padding-left:24px}
-  .nutri-feat-num{font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2.5px;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .nutri-feat-num{font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2.5px;color:var(--accent-ink);margin-bottom:8px;display:flex;align-items:center;gap:8px}
   .nutri-feat-num::before{content:'';width:14px;height:1.5px;background:var(--accent)}
-  .nutri-feat-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px}
-  .nutri-feat-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
+  .nutri-feat-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;color:var(--ink)}
+  .nutri-feat-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
   .nutri-phone{display:flex;justify-content:center;align-items:center;position:relative;min-height:560px}
   .nutri-phone::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;height:520px;background:radial-gradient(ellipse,rgba(212,255,0,.1) 0%,transparent 60%);pointer-events:none;z-index:0}
   .nutri-phone-stack{position:relative;width:100%;max-width:520px;height:560px}
-  .nutri-phone-stack img{position:absolute;max-width:300px;width:65%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.55));transition:transform .4s ease}
+  .nutri-phone-stack img{position:absolute;max-width:300px;width:65%;height:auto;display:block;border-radius:34px;filter:drop-shadow(0 30px 60px rgba(0,0,0,.55));transition:transform .4s ease}
   .nutri-phone-stack .ph-back{top:0;right:0;transform:rotate(4deg)}
   .nutri-phone-stack .ph-front{bottom:0;left:0;transform:rotate(-4deg);z-index:2}
   .nutri-phone-stack:hover .ph-back{transform:rotate(6deg) translateY(-6px)}
@@ -182,73 +193,79 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .nutri-phone-label.l-front{bottom:24px;left:14px}
 
   /* STEPS */
-  .how{background:var(--mid)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-  .step{background:var(--black);padding:44px 32px 36px;position:relative;overflow:hidden;border-bottom:3px solid transparent;transition:all .3s}
-  .step:hover{border-bottom-color:var(--accent);transform:translateY(-4px);background:var(--lgray)}
-  .step-num{font-family:var(--fd);font-size:110px;font-weight:900;color:rgba(212,255,0,.07);position:absolute;top:-14px;right:14px;line-height:1;pointer-events:none}
-  .step-icon{width:46px;height:46px;border:1px solid rgba(212,255,0,.22);background:rgba(212,255,0,.06);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:22px;position:relative;z-index:1}
-  .step h3{font-family:var(--fd);font-size:24px;font-weight:900;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px}
-  .step p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300}
+  .how{background:var(--paper)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:44px 32px 36px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+  .step:hover{transform:translateY(-6px);box-shadow:var(--sh-hover)}
+  .step-num{font-family:var(--fd);font-size:110px;font-weight:900;color:rgba(20,22,17,.05);position:absolute;top:-14px;right:14px;line-height:1;pointer-events:none}
+  .step-icon{width:46px;height:46px;border-radius:10px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.16);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);margin-bottom:22px;position:relative;z-index:1}
+  .step h3{font-family:var(--fd);font-size:24px;font-weight:900;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;color:var(--ink)}
+  .step p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;font-weight:400}
 
   /* PRICING */
-  .pricing{background:var(--black);padding:100px 0}
-  .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:3px;align-items:stretch;max-width:880px;margin:0 auto}
-  .tarief-card{background:var(--mid);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:all .3s;border-top:3px solid transparent}
+  .pricing{background:var(--paper);padding:120px 0}
+  .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;max-width:880px;margin:0 auto}
+  .tarief-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;border-top:3px solid transparent}
   .tarief-card:hover{transform:translateY(-4px);border-top-color:var(--accent)}
   .tarief-card.hot{background:var(--accent);color:var(--black);border-top-color:var(--black);box-shadow:0 24px 60px -20px rgba(212,255,0,.3)}
   .tarief-card.hot:hover{border-top-color:rgba(0,0,0,.85)}
   .tarief-card .ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);background:var(--black);color:var(--accent);padding:6px 14px;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;border:1px solid var(--accent)}
-  .t-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .t-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:8px}
   .tarief-card.hot .t-label{color:rgba(0,0,0,.55)}
   .t-name{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;margin-bottom:18px;line-height:.95;letter-spacing:.3px}
   .t-price-wrap{display:flex;align-items:baseline;gap:2px;margin-bottom:4px;font-family:var(--fd);font-weight:900;line-height:1}
-  .t-price-wrap .currency{font-size:24px;color:var(--accent);margin-right:6px}
+  .t-price-wrap .currency{font-size:24px;color:var(--accent-ink);margin-right:6px}
+  .t-name{color:var(--ink)}
   .tarief-card.hot .t-price-wrap .currency{color:rgba(0,0,0,.6)}
   .t-price-wrap .num{font-size:62px;letter-spacing:-1px}
-  .t-period{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:24px;letter-spacing:.3px}
+  .t-period{font-size:12px;color:var(--ink-soft);margin-bottom:24px;letter-spacing:.3px}
   .tarief-card.hot .t-period{color:rgba(0,0,0,.5)}
-  .t-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:24px 0 28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.06);flex-grow:1}
+  .t-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:24px 0 28px;padding-top:22px;border-top:1px solid var(--line);flex-grow:1}
   .tarief-card.hot .t-features{border-top-color:rgba(0,0,0,.12)}
-  .t-features li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.78);font-weight:300}
+  .t-features li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-soft);font-weight:400}
   .tarief-card.hot .t-features li{color:rgba(0,0,0,.78)}
-  .t-features li svg{color:var(--accent);flex-shrink:0;margin-top:3px}
+  .t-features li svg{color:var(--accent-ink);flex-shrink:0;margin-top:3px}
+  .tarief-card.hot .t-name,.tarief-card.hot .t-price-wrap .num{color:var(--black)}
   .tarief-card.hot .t-features li svg{color:var(--black)}
   .t-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .25s;border:2px solid}
   .t-cta-dark{background:var(--black);color:var(--accent);border-color:var(--black)}
   .t-cta-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
-  .t-cta-outline{background:transparent;color:var(--white);border-color:rgba(255,255,255,.18)}
+  .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(20,22,17,.2)}
   .t-cta-outline:hover{border-color:var(--accent);color:var(--accent)}
-  .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--gray);letter-spacing:.5px}
+  .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
 
   /* FOR WHO */
-  .forwho{background:var(--mid)}
+  .forwho{background:var(--paper2)}
   .forwho-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
   .forwho-list{margin-top:32px;display:flex;flex-direction:column;gap:0}
-  .forwho-item{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.06);transition:padding .3s}
-  .forwho-item:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+  .forwho-item{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid var(--line);transition:padding .3s}
+  .forwho-item:last-child{border-bottom:1px solid var(--line)}
   .forwho-item:hover{padding-left:8px}
-  .forwho-num{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--accent);letter-spacing:1.5px;min-width:24px;line-height:1.5}
-  .forwho-text{font-size:15px;color:rgba(255,255,255,.78);line-height:1.55;font-weight:400}
+  .forwho-num{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--accent-ink);letter-spacing:1.5px;min-width:24px;line-height:1.5}
+  .forwho-text{font-size:15px;color:var(--ink-soft);line-height:1.55;font-weight:400}
+  .forwho-photo{border-radius:var(--r-card);box-shadow:var(--sh-2)}
+  .try-title em{color:var(--black);background:none}
+  .final-cta .btn-dark{background:var(--accent);color:var(--black);border-color:var(--accent)}
+  .final-cta .btn-dark:hover{background:transparent;color:var(--accent)}
   .forwho-photo{aspect-ratio:4/3;overflow:hidden;background:var(--lgray);position:relative}
   .forwho-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform .6s}
   .forwho-photo:hover img{transform:scale(1.04)}
   .forwho-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.85) 0%,transparent 55%)}
 
   /* RESULTS */
-  .results{background:var(--black);padding:100px 0;position:relative}
+  .results{background:var(--paper);padding:120px 0;position:relative}
   .results-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:48px;flex-wrap:wrap}
   .results-head .sec-label{margin-bottom:14px}
   .results-head h2{font-size:clamp(40px,5vw,60px)}
-  .results-head p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300;max-width:420px}
+  .results-head p{font-size:14px;color:var(--ink-soft);line-height:1.7;font-weight:400;max-width:420px}
   .results-stats{display:flex;gap:32px;flex-wrap:wrap}
   .res-stat{border-left:2px solid var(--accent);padding-left:14px}
-  .res-stat-num{font-family:var(--fd);font-size:34px;font-weight:900;line-height:1}
-  .res-stat-num em{color:var(--accent);font-style:normal}
-  .res-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:4px}
+  .res-stat-num{font-family:var(--fd);font-size:34px;font-weight:900;line-height:1;color:var(--ink)}
+  .res-stat-num em{color:var(--accent-ink);font-style:normal}
+  .res-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);margin-top:4px}
   .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-  .result-card{background:var(--mid);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s;position:relative}
-  .result-card:hover{transform:translateY(-4px)}
+  .result-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;position:relative}
+  .result-card:hover{transform:translateY(-6px);box-shadow:var(--sh-hover)}
   .result-banner{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:14px 18px;background:var(--lgray);border-bottom:2px solid var(--accent)}
   .result-banner-kg{font-family:var(--fd);font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-.5px}
   .result-banner-sub{font-family:var(--fd);font-size:11px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;line-height:1.1;text-align:right;opacity:.85}
@@ -256,27 +273,29 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .result-img img{width:100%;height:100%;object-fit:contain;display:block}
   .result-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:12px}
   .result-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-  .result-name{font-family:var(--fd);font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:.3px;line-height:1}
-  .result-name span{display:block;font-size:10.5px;font-weight:500;letter-spacing:1px;color:var(--gray);margin-top:5px;font-family:var(--fb);text-transform:none;line-height:1.4}
-  .result-weeks{font-family:var(--fd);font-size:10px;font-weight:800;color:var(--accent);letter-spacing:2px;background:rgba(212,255,0,.08);border:1px solid rgba(212,255,0,.25);padding:5px 8px;white-space:nowrap}
-  .result-deltas{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.07);padding-top:12px}
+  .result-name{font-family:var(--fd);font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:.3px;line-height:1;color:var(--ink)}
+  .result-name span{display:block;font-size:10.5px;font-weight:500;letter-spacing:1px;color:var(--ink-mute);margin-top:5px;font-family:var(--fb);text-transform:none;line-height:1.4}
+  .result-weeks{font-family:var(--fd);font-size:10px;font-weight:800;color:var(--accent-ink);letter-spacing:2px;background:rgba(212,255,0,.18);border:1px solid rgba(110,130,0,.3);padding:5px 8px;white-space:nowrap}
+  /* inline tekst-links in lichte content leesbaar */
+  .what-wrap a,.spotter-content a,.nutri a,.faq-a a,.results-foot a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+  .result-deltas{display:flex;gap:0;border-top:1px solid var(--line);padding-top:12px}
   .result-delta{flex:1;display:flex;flex-direction:column;gap:2px;padding-right:10px}
-  .result-delta+.result-delta{border-left:1px solid rgba(255,255,255,.07);padding-left:10px}
-  .result-delta-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);font-weight:600}
-  .result-delta-value{font-family:var(--fd);font-size:15px;font-weight:900}
-  .result-delta-value em{color:var(--accent);font-style:normal}
-  .result-quote{font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;font-weight:300;font-style:italic;padding-top:6px;border-top:1px dashed rgba(255,255,255,.06)}
+  .result-delta+.result-delta{border-left:1px solid var(--line);padding-left:10px}
+  .result-delta-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
+  .result-delta-value{font-family:var(--fd);font-size:15px;font-weight:900;color:var(--ink)}
+  .result-delta-value em{color:var(--accent-ink);font-style:normal}
+  .result-quote{font-size:12px;color:var(--ink-soft);line-height:1.55;font-weight:400;font-style:italic;padding-top:6px;border-top:1px dashed var(--line)}
   .result-quote::before{content:'\201C';color:var(--accent);font-family:var(--fd);font-size:24px;font-weight:900;line-height:0;margin-right:4px;position:relative;top:6px}
-  .results-foot{margin-top:28px;text-align:center;font-size:12px;color:var(--gray);letter-spacing:.3px}
-  .results-foot a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .results-foot{margin-top:28px;text-align:center;font-size:12px;color:var(--ink-soft);letter-spacing:.3px}
+  .results-foot a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
 
   /* FAQ */
-  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-  .faq-item{background:var(--mid);padding:32px 28px;border-left:3px solid transparent;transition:all .25s}
-  .faq-item:hover{border-left-color:var(--accent);background:var(--lgray)}
-  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:flex-start}
-  .faq-q::before{content:'?';color:var(--accent);font-family:var(--fd);font-weight:900;flex-shrink:0}
-  .faq-a{font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;font-weight:300}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:32px 28px;border-left:3px solid transparent;transition:transform .3s,box-shadow .3s,border-color .25s}
+  .faq-item:hover{border-left-color:var(--accent);transform:translateY(-3px);box-shadow:var(--sh-hover)}
+  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:flex-start;color:var(--ink)}
+  .faq-q::before{content:'?';color:var(--accent-ink);font-family:var(--fd);font-weight:900;flex-shrink:0}
+  .faq-a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;font-weight:400}
 
   /* TRY STRIP */
   .try-strip{background:var(--accent);padding:64px 0}
@@ -288,14 +307,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* FINAL CTA */
   .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
   .final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 70%);pointer-events:none}
-  .final-cta h2{font-size:clamp(52px,8vw,92px);margin-bottom:24px}
+  .final-cta h2{font-size:clamp(52px,8vw,92px);margin-bottom:24px;color:var(--white)}
   .final-cta p{font-size:16px;color:rgba(255,255,255,.55);max-width:460px;margin:0 auto 44px;font-weight:300;line-height:1.75}
   .cta-actions{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap}
 
   /* FOOTER */
   footer{background:var(--mid);border-top:1px solid rgba(255,255,255,.05);padding:64px 0 32px}
   .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-  .f-brand .f-logo{font-family:var(--fd);font-size:26px;font-weight:900;letter-spacing:4px;margin-bottom:14px}
+  .f-brand .f-logo{font-family:var(--fd);font-size:26px;font-weight:900;letter-spacing:4px;margin-bottom:14px;color:var(--white)}
+  .faq-section{background:var(--paper2)}
+  .final-cta .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.25)}
+  .final-cta .btn-ghost:hover{color:var(--white);border-color:var(--white)}
+  .f-bottom p{color:rgba(255,255,255,.4)}
   .f-brand .f-logo span{color:var(--accent)}
   .f-brand p{font-size:13px;color:var(--gray);line-height:1.7;max-width:260px}
   .f-col h4{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:18px}
@@ -308,7 +331,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @media (max-width:980px){
     .page-hero{grid-template-columns:1fr;min-height:auto}
     .page-hero-left{padding:40px}
-    .page-hero-right{min-height:380px}
+    .page-hero-right{min-height:0;margin:0 auto;padding:36px 20px}
     .what-grid,.forwho-grid{grid-template-columns:1fr;gap:48px}
     .steps{grid-template-columns:1fr}
     .tarief-cards{grid-template-columns:1fr}
@@ -347,7 +370,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     h2{font-size:clamp(34px,9vw,48px)!important}
 
     .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
-    .page-hero-right,.fu-page-hero-right{min-height:300px!important}
+    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:24px!important}
+    .pt-photo-card{max-width:260px!important}
+    .pt-photo-accent{max-width:220px!important}
     .page-hero-sub,.fu-page-hero-sub{font-size:15px}
     .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
     .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
@@ -386,7 +411,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .contact-grid,.fu-contact-grid{grid-template-columns:1fr!important;gap:40px}
     .contact-right,.fu-contact-right{position:static!important}
 
-    .fitcheck-inner,.fu-fitcheck-inner{flex-direction:column;align-items:flex-start;gap:20px;text-align:left}
   }
 
   @media (max-width:420px){
@@ -449,24 +473,18 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <link rel="stylesheet" href="../../assets/css/style.css">
 <script src="../../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Trainingsaanbod","item":"https://fitupleiderdorp.nl/trainingsaanbod/"},{"@type":"ListItem","position":3,"name":"Personal Training","item":"https://fitupleiderdorp.nl/trainingsaanbod/personal-training/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Personal Training Leiderdorp","description":"1-op-1 personal training bij Fit Up Leiderdorp: vaste trainer, persoonlijk schema en voedingsbegeleiding via de app.","url":"https://fitupleiderdorp.nl/trainingsaanbod/personal-training/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"areaServed":{"@type":"City","name":"Leiderdorp"},"offers":[{"@type":"Offer","name":"Personal Training","price":"300","priceCurrency":"EUR","description":"4 sessies van 60 minuten 1-op-1 per 4 weken"},{"@type":"Offer","name":"Personal Training Plus","price":"350","priceCurrency":"EUR","description":"4 sessies van 60 minuten 1-op-1 per 4 weken, inclusief onbeperkt 24/7 Fitness en groepslessen"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat is het verschil tussen PT en SGPT?","acceptedAnswer":{"@type":"Answer","text":"Bij Personal Training ben je volledig 1-op-1 met je trainer — alle aandacht voor jou. Bij Small Group PT train je in een vaste groep van maximaal 4 personen met coaching én groepsmotivatie. PT is intensiever en persoonlijker; SGPT is voordeliger."}},{"@type":"Question","name":"Hoe vaak per maand train ik?","acceptedAnswer":{"@type":"Answer","text":"Standaard 4 sessies van 60 minuten per 4 weken — ongeveer wekelijks. Wil je vaker? Dat kan: extra sessies zijn los bij te boeken vanaf €75 per sessie."}},{"@type":"Question","name":"Wat zit er bij PT Plus extra in?","acceptedAnswer":{"@type":"Answer","text":"PT Plus is je PT-pakket plus onbeperkte toegang tot 24/7 Fitness én alle groepslessen. Voor €50 extra per 4 weken kun je dus ook tussen je sessies door onbeperkt komen trainen of meedoen met Bodypump, Boksfit, HIIT & Hyrox en Powerhour."}},{"@type":"Question","name":"Is voedingsbegeleiding inbegrepen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Bij beide PT-pakketten krijg je voedingsbegeleiding via onze app — calorieplan, macro-doelen en aanpassingen elke 4 weken op basis van je meting."}},{"@type":"Question","name":"Kan ik kiezen wie mijn trainer wordt?","acceptedAnswer":{"@type":"Answer","text":"Bij de intake bespreken we jouw doel en voorkeur, en koppelen we je aan de trainer die daar het beste bij past. Klikt het niet? Dan wisselen we — jouw vertrouwen in je coach is wat het verschil maakt."}},{"@type":"Question","name":"Kan ik eerst kennismaken?","acceptedAnswer":{"@type":"Answer","text":"Ja. We starten altijd met een gratis intake. Geen verkooppraatje — wel een eerlijk gesprek over of PT bij jou past en welke aanpak past bij jouw doel."}}]}</script>
 </head>
 <body>
 
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
-  <a href="../../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <a href="../../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../../assets/images/logo-mark-on-dark.png" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
-    <li class="has-sub">
-      <a href="../../trainingsaanbod/index.html" class="active" aria-haspopup="true">Trainingsaanbod</a>
-      <ul class="nav-submenu" role="menu">
-        <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
-        <li><a href="../../trainingsaanbod/personal-training/index.html" class="active">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
-        <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
-        <li><a href="../../trainingsaanbod/groepslessen/index.html">Groepslessen<small>Spinning · bootcamp · HIIT</small></a></li>
-      </ul>
-    </li>
+    <li><a href="../../trainingsaanbod/index.html" class="active">Trainingsaanbod</a></li>
     <li><a href="../../online-coaching/index.html">Online Coaching</a></li>
     <li><a href="../../tarieven/index.html">Tarieven</a></li>
-    <li><a href="../../fitcheck/index.html">Fitcheck</a></li>
     <li><a href="../../contact/index.html">Contact</a></li>
     <li><a href="../../contact/index.html" class="nav-btn">Gratis intake</a></li>
   </ul>
@@ -476,18 +494,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </button>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-  <div class="drawer-group">
-    <a href="../../trainingsaanbod/index.html">Trainingsaanbod</a>
-    <ul class="drawer-sub">
-      <li><a href="../../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
-      <li><a href="../../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
-      <li><a href="../../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
-      <li><a href="../../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
-    </ul>
-  </div>
+  <a href="../../trainingsaanbod/index.html">Trainingsaanbod</a>
   <a href="../../online-coaching/index.html">Online Coaching</a>
   <a href="../../tarieven/index.html">Tarieven</a>
-  <a href="../../fitcheck/index.html">Fitcheck</a>
   <a href="../../contact/index.html">Contact</a>
   <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
 </div>
@@ -496,7 +505,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <header class="page-hero" data-screen-label="Hero PT">
   <div class="page-hero-left">
     <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Personal Training</div>
-    <h1><span class="h1-kicker">Personal Training Leiderdorp</span>Eén trainer.<br>Eén plan.<br><em>Jouw resultaat.</em></h1>
+    <h1>Personal Training<br><em>Leiderdorp</em></h1>
     <p class="page-hero-sub">
       Volledig <strong>1-op-1 coaching</strong> met je eigen vaste trainer. Jouw schema,
       jouw tempo, jouw doel — met techniekcheck op elke herhaling en voedingsbegeleiding
@@ -505,16 +514,22 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="page-hero-stats">
       <div class="ph-stat"><div class="ph-stat-num">1-op-1</div><div class="ph-stat-label">Vaste trainer</div></div>
       <div class="ph-stat"><div class="ph-stat-num">4×</div><div class="ph-stat-label">Sessies p/4 wkn</div></div>
-      <div class="ph-stat"><div class="ph-stat-num">€75</div><div class="ph-stat-label">Vanaf per week</div></div>
+      <div class="ph-stat"><div class="ph-stat-num">€300</div><div class="ph-stat-label">Vanaf per 4 weken</div></div>
     </div>
     <div class="page-hero-ctas">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#tarieven" class="btn-ghost">Of: bekijk tarieven →</a>
     </div>
   </div>
   <div class="page-hero-right">
-    <img src="../../assets/images/pt-squat-spot.png" alt="Personal trainer spot een klant tijdens een barbell back-squat bij Fit Up Leiderdorp">
-    <div class="hero-badge">★ 1-op-1 coaching</div>
+    <div class="pt-dot pt-dot-1" aria-hidden="true"></div>
+    <div class="pt-dot pt-dot-2" aria-hidden="true"></div>
+    <div class="pt-dot pt-dot-3" aria-hidden="true"></div>
+    <div class="pt-photo-accent" aria-hidden="true"></div>
+    <div class="pt-photo-card">
+      <img src="../../assets/images/pt-dumbbell-spot.jpg" alt="Personal trainer spot een klant tijdens een dumbbell bench press bij Fit Up Leiderdorp" width="900" height="1200" fetchpriority="high" decoding="async">
+      <div class="hero-badge">★ 1-op-1 coaching</div>
+    </div>
   </div>
 </header>
 
@@ -523,7 +538,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <div class="container">
     <div class="hbar-inner">
       <div class="hbar-eyebrow">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Wat krijg je
       </div>
       <div class="hbar-grid">
@@ -547,23 +562,23 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
       <div class="includes-list">
           <div class="include-item reveal d1">
-            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div><div class="include-title">Jouw eigen vaste trainer</div><div class="include-desc">Eén coach die jouw naam, doel en blessuregeschiedenis kent. Geen wisselingen.</div></div>
           </div>
           <div class="include-item reveal d2">
-            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div><div class="include-title">Volledige techniekcoaching</div><div class="include-desc">Squat, deadlift, bench — alles met spot en correctie op de millimeter. Veilig zwaar trainen.</div></div>
           </div>
           <div class="include-item reveal d3">
-            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div><div class="include-title">Persoonlijk trainingsschema</div><div class="include-desc">Volledig op maat gemaakt — voor afvallen, opbouwen of sportspecifieke prestaties.</div></div>
           </div>
           <div class="include-item reveal d4">
-            <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div><div class="include-title">Voedingsbegeleiding via app</div><div class="include-desc">Calorieën en macro's op maat, elke 4 weken bijgesteld op basis van je meting.</div></div>
           </div>
         <div class="include-item reveal d5">
-          <div class="check"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div><div class="include-title">Progressiemeting elke 4 weken</div><div class="include-desc">Gewicht, vetpercentage en spiermassa — je weet altijd waar je staat en wat de volgende stap is.</div></div>
         </div>
       </div>
@@ -576,7 +591,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <div class="container">
     <div class="spotter-inner reveal">
       <div class="spotter-photo">
-        <img src="../../assets/images/pt-coach.png" alt="Coach van Fit Up Leiderdorp begeleidt een klant tijdens krachttraining" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block">
+        <video autoplay muted loop playsinline preload="auto" poster="../../assets/images/pt-hero-spot-poster.jpg" aria-label="Coach van Fit Up Leiderdorp begeleidt een klant tijdens krachttraining" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block">
+          <source src="../../assets/videos/pt-hero-spot.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="spotter-content">
         <div class="spotter-eyebrow">De waarde van een spotter</div>
@@ -625,9 +642,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
       <div class="nutri-phone reveal d1">
         <div class="nutri-phone-stack">
-          <img src="../../assets/images/trainingsapp.png" alt="Trainingsapp van Fit Up — schema met oefeningen, video en sets" class="ph-back" loading="lazy">
+          <img src="../../assets/images/app-hibrad-dashboard.png" alt="Trainingsapp van Fit Up — dagelijkse doelen voor stappen, cardio en kracht" class="ph-back" width="700" height="1244" loading="lazy" decoding="async">
           <div class="nutri-phone-label l-back">Trainings­schema</div>
-          <img src="../../assets/images/voedingsapp.png" alt="Voedingsapp van Fit Up — kcal, macro's en maaltijden per dag" class="ph-front" loading="lazy">
+          <img src="../../assets/images/app-foodscanner.png" alt="Voedingsapp van Fit Up — maaltijd scannen met kcal en macro's per gerecht" class="ph-front" width="700" height="1115" loading="lazy" decoding="async">
           <div class="nutri-phone-label l-front">Voedings­plan</div>
         </div>
       </div>
@@ -646,7 +663,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="steps">
       <div class="step reveal">
         <div class="step-num">01</div>
-        <div class="step-icon">
+        <div class="step-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
         </div>
         <h3>Gratis intake</h3>
@@ -654,7 +671,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
       <div class="step reveal d1">
         <div class="step-num">02</div>
-        <div class="step-icon">
+        <div class="step-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
         <h3>Schema &amp; voeding</h3>
@@ -662,7 +679,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
       <div class="step reveal d2">
         <div class="step-num">03</div>
-        <div class="step-icon">
+        <div class="step-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
         <h3>Trainen &amp; meten</h3>
@@ -685,13 +702,13 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="tarief-card reveal">
         <div class="t-label">Alleen PT</div>
         <div class="t-name">Personal<br>Training</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num">75</span></div>
-        <div class="t-period">per week · 4 sessies van 60 min p/4 wkn</div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num">300</span></div>
+        <div class="t-period">per 4 weken · 4 sessies van 60 min</div>
         <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
         </ul>
         <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training" class="t-cta t-cta-outline">Aanmelden →</a>
       </div>
@@ -700,19 +717,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="ribbon">★ Aanrader</div>
         <div class="t-label">PT + alles inbegrepen</div>
         <div class="t-name">Personal<br>Training Plus</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num">86</span></div>
-        <div class="t-period">per week · incl. 24/7 + groepslessen</div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num">350</span></div>
+        <div class="t-period">per 4 weken · incl. 24/7 + groepslessen</div>
         <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 Fitness</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 Fitness</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
         </ul>
-        <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="t-cta t-cta-dark">Aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="t-cta t-cta-dark">Aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
-    <p class="tarief-foot">Geen inschrijfgeld · Losse PT-sessie? Vanaf €80 per sessie via de <a href="../../tarieven/index.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">tarievenpagina</a></p>
+    <p class="tarief-foot">Geen inschrijfgeld · Losse PT-sessie? Vanaf €75 per sessie via de <a href="../../tarieven/index.html" style="color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px">tarievenpagina</a></p>
   </div>
 </section>
 
@@ -733,7 +750,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         </div>
       </div>
       <div class="forwho-photo reveal d2">
-        <img src="../../assets/images/pt-gym-interior.png" alt="Interieur van Fit Up Leiderdorp — ruime gym met kabeltoren, racks en sprintbaan" loading="lazy">
+        <img src="../../assets/images/pt-squat-spot.jpg" alt="Personal trainer spot een klant tijdens een zware squat bij Fit Up Leiderdorp" width="1440" height="1048" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -759,7 +776,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <article class="result-card reveal">
         <div class="result-banner"><span class="result-banner-kg">−13 kg</span><span class="result-banner-sub">Marja · 69 jaar</span></div>
         <div class="result-img">
-          <img src="../../assets/images/result-marja.png" alt="Marja, 69 jaar — voor en na haar transformatie van 13 kg afgevallen bij Fit Up Leiderdorp" loading="lazy">
+          <img src="../../assets/images/result-marja.png" alt="Marja, 69 jaar — voor en na haar transformatie van 13 kg afgevallen bij Fit Up Leiderdorp" width="347" height="255" loading="lazy" decoding="async">
         </div>
         <div class="result-body">
           <div class="result-top">
@@ -779,7 +796,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <article class="result-card reveal d1">
         <div class="result-banner"><span class="result-banner-kg">−34 kg</span><span class="result-banner-sub">Irene · 1 jaar</span></div>
         <div class="result-img">
-          <img src="../../assets/images/result-34kg.png" alt="Irene — 34 kilo afgevallen onder begeleiding van een vaste personal trainer bij Fit Up Leiderdorp" loading="lazy">
+          <img src="../../assets/images/result-34kg.png" alt="Irene — 34 kilo afgevallen onder begeleiding van een vaste personal trainer bij Fit Up Leiderdorp" width="347" height="268" loading="lazy" decoding="async">
         </div>
         <div class="result-body">
           <div class="result-top">
@@ -799,7 +816,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <article class="result-card reveal d2">
         <div class="result-banner"><span class="result-banner-kg">−35 kg</span><span class="result-banner-sub">Barbara · fitste versie ooit</span></div>
         <div class="result-img">
-          <img src="../../assets/images/result-35kg.png" alt="Barbara — 35 kilo afgevallen, de fitste versie ooit, bij Fit Up Leiderdorp" loading="lazy">
+          <img src="../../assets/images/result-35kg.png" alt="Barbara — 35 kilo afgevallen, de fitste versie ooit, bij Fit Up Leiderdorp" width="347" height="276" loading="lazy" decoding="async">
         </div>
         <div class="result-body">
           <div class="result-top">
@@ -819,7 +836,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <article class="result-card reveal d3">
         <div class="result-banner"><span class="result-banner-kg">−5 kg</span><span class="result-banner-sub">Mark · 8 weken · 16% → 13,9%</span></div>
         <div class="result-img">
-          <img src="../../assets/images/result-5kg.png" alt="Mark — 5 kilo afgevallen in 8 weken, vetpercentage van 16 naar 13,9 bij Fit Up Leiderdorp" loading="lazy">
+          <img src="../../assets/images/result-5kg.png" alt="Mark — 5 kilo afgevallen in 8 weken, vetpercentage van 16 naar 13,9 bij Fit Up Leiderdorp" width="347" height="280" loading="lazy" decoding="async">
         </div>
         <div class="result-body">
           <div class="result-top">
@@ -839,7 +856,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <article class="result-card reveal d4">
         <div class="result-banner"><span class="result-banner-kg">−17 kg</span><span class="result-banner-sub">Karin · afgevallen &amp; reisklaar</span></div>
         <div class="result-img">
-          <img src="../../assets/images/result-karin.png" alt="Karin — 17 kilo afgevallen onder begeleiding van Fit Up Leiderdorp" loading="lazy">
+          <img src="../../assets/images/result-karin.png" alt="Karin — 17 kilo afgevallen onder begeleiding van Fit Up Leiderdorp" width="347" height="295" loading="lazy" decoding="async">
         </div>
         <div class="result-body">
           <div class="result-top">
@@ -861,7 +878,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </section>
 
 <!-- FAQ -->
-<section style="background:var(--black)" aria-labelledby="faq-heading">
+<section class="faq-section" aria-labelledby="faq-heading">
   <div class="container">
     <div class="sec-head">
       <div class="sec-label reveal"><span class="sec-label-line"></span>Veelgestelde vragen</div>
@@ -869,8 +886,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </div>
     <div class="faq-grid">
       <div class="faq-item reveal"><div class="faq-q">Wat is het verschil tussen PT en SGPT?</div><div class="faq-a">Bij Personal Training ben je volledig 1-op-1 met je trainer — alle aandacht voor jou. Bij Small Group PT train je in een vaste groep van maximaal 4 personen met coaching én groepsmotivatie. PT is intensiever en persoonlijker; SGPT is voordeliger.</div></div>
-      <div class="faq-item reveal d1"><div class="faq-q">Hoe vaak per maand train ik?</div><div class="faq-a">Standaard 4 sessies van 60 minuten per 4 weken — ongeveer wekelijks. Wil je vaker? Dat kan: extra sessies zijn los bij te boeken vanaf €80 per sessie.</div></div>
-      <div class="faq-item reveal d2"><div class="faq-q">Wat zit er bij PT Plus extra in?</div><div class="faq-a">PT Plus is je PT-pakket plus onbeperkte toegang tot 24/7 Fitness én alle groepslessen. Voor €43 extra per 4 weken kun je dus ook tussen je sessies door onbeperkt komen trainen of meedoen met Bodypump, Boksfit, HIIT &amp; Hyrox en Powerhour.</div></div>
+      <div class="faq-item reveal d1"><div class="faq-q">Hoe vaak per maand train ik?</div><div class="faq-a">Standaard 4 sessies van 60 minuten per 4 weken — ongeveer wekelijks. Wil je vaker? Dat kan: extra sessies zijn los bij te boeken vanaf €75 per sessie.</div></div>
+      <div class="faq-item reveal d2"><div class="faq-q">Wat zit er bij PT Plus extra in?</div><div class="faq-a">PT Plus is je PT-pakket plus onbeperkte toegang tot 24/7 Fitness én alle groepslessen. Voor €50 extra per 4 weken kun je dus ook tussen je sessies door onbeperkt komen trainen of meedoen met Bodypump, Boksfit, HIIT &amp; Hyrox en Powerhour.</div></div>
       <div class="faq-item reveal d3"><div class="faq-q">Is voedingsbegeleiding inbegrepen?</div><div class="faq-a">Ja. Bij beide PT-pakketten krijg je voedingsbegeleiding via onze app — calorieplan, macro-doelen en aanpassingen elke 4 weken op basis van je meting.</div></div>
       <div class="faq-item reveal d4"><div class="faq-q">Kan ik kiezen wie mijn trainer wordt?</div><div class="faq-a">Bij de intake bespreken we jouw doel en voorkeur, en koppelen we je aan de trainer die daar het beste bij past. Klikt het niet? Dan wisselen we — jouw vertrouwen in je coach is wat het verschil maakt.</div></div>
       <div class="faq-item reveal d5"><div class="faq-q">Kan ik eerst kennismaken?</div><div class="faq-a">Ja. We starten altijd met een gratis intake. Geen verkooppraatje — wel een eerlijk gesprek over of PT bij jou past en welke aanpak past bij jouw doel.</div></div>
@@ -887,7 +904,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="try-title">Start met een<br>gratis intake</div>
         <p class="try-sub">Een uur waarin we jouw doel, startpunt en aanpak doornemen. Zonder verplichtingen, zonder verkooppraatje — wel met een concreet advies.</p>
       </div>
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 </section>
@@ -898,7 +915,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <h2 class="reveal">Klaar om<br><em>zwaarder te tillen?</em></h2>
     <p class="reveal d1">Plan een gratis intake bij Fit Up Leiderdorp. We kijken samen of Personal Training bij jou past — zonder verplichtingen.</p>
     <div class="cta-actions reveal d2">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="../../tarieven/index.html" class="btn-ghost">Of: bekijk alle tarieven →</a>
     </div>
   </div>
@@ -922,8 +939,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <li><a href="../../index.html">Home</a></li>
         <li><a href="../../trainingsaanbod/index.html">Trainingsaanbod</a></li>
         <li><a href="../../tarieven/index.html">Tarieven</a></li>
-        <li><a href="../../fitcheck/index.html">Fitcheck</a></li>
-        <li><a href="../../contact/index.html">Contact</a></li>
+            <li><a href="../../contact/index.html">Contact</a></li>
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
         <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>

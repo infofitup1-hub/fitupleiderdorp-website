@@ -14,6 +14,10 @@
 /gratis-intake                                /gratis-intake/                                301
 /bedankt                                      /bedankt/                                      301
 
+# Oude Fitcheck-pagina bestaat niet meer — keuzehulp staat nu op de homepage
+/fitcheck                                     /#fitcheck                                     301
+/fitcheck/                                    /#fitcheck                                     301
+
 # Common alternate spellings → canonical
 /sgpt                                         /small-group-personal-training-leiderdorp/     301
 /sgpt-leiderdorp                              /small-group-personal-training-leiderdorp/     301
