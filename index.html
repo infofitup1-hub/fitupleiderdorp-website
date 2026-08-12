@@ -57,7 +57,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     --fd:'Barlow Condensed',sans-serif; --fb:'DM Sans',sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden}
 
   /* NAV */
@@ -116,12 +116,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .nav-drawer .drawer-sub a::after{display:none}
   .nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
 
-  /* HERO */
-  .hero{background:var(--charcoal);position:relative;overflow:hidden}
-  .hero-inner{max-width:1240px;margin:0 auto;padding:150px 40px 96px;display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
-  .hero-media{position:relative;height:clamp(420px,58vh,580px);overflow:hidden;border-radius:16px;opacity:0;animation:fadeUp .7s ease .5s forwards}
-  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
-  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(155deg,transparent 55%,rgba(12,12,12,.35));pointer-events:none}
+  /* HERO — full-bleed video, zoals sportcity */
+  .hero{background:var(--charcoal);position:relative;overflow:hidden;min-height:86vh;display:flex;align-items:center}
+  .hero-video-wrap{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--charcoal)}
+  .hero-video{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;opacity:0;animation:fadeIn 1.1s ease .1s forwards}
+  .hero-video-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,12,.6) 0%,rgba(12,12,12,.4) 42%,rgba(12,12,12,.8) 100%);pointer-events:none}
+  .hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:140px 40px 80px;display:block;text-align:center}
   .hero-ctas .btn-accent{padding:15px 30px;font-size:15px;letter-spacing:1.5px}
 
   .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:46vh;overflow:hidden}
@@ -134,29 +134,28 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .photo-cell:hover img{transform:scale(1.03)}
   .photo-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(12,12,12,.5) 100%);pointer-events:none}
 
-  .hero-text{position:relative;z-index:1;max-width:600px}
+  .hero-text{position:relative;z-index:1;max-width:none}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;opacity:0;animation:fadeUp .6s ease .5s forwards}
   .eyebrow-line{width:24px;height:2px;background:var(--accent);flex-shrink:0}
 
-  h1{font-family:var(--fd);font-weight:800;text-transform:none;font-size:clamp(36px,5vw,62px);line-height:1;letter-spacing:-.5px;margin-bottom:20px;opacity:0;animation:fadeUp .6s ease .7s forwards}
+  h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(34px,4.6vw,58px);line-height:.96;letter-spacing:.4px;margin-bottom:20px;opacity:0;animation:fadeUp .6s ease .7s forwards}
   h1 em{font-style:normal;color:var(--accent);display:inline}
 
-  .hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:400px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .9s forwards}
+  .hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.75;max-width:520px;margin:0 auto 28px;opacity:0;animation:fadeUp .6s ease .9s forwards}
   .hero-sub strong{color:var(--white);font-weight:500}
 
-  .hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease 1.05s forwards}
+  .hero-ctas{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease 1.05s forwards}
 
   .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--accent);border-radius:10px;transition:all .25s}
   .btn-accent:hover{background:transparent;color:var(--accent)}
   .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
   .btn-ghost:hover{color:var(--white);border-color:var(--white)}
 
-  .hero-rating{display:inline-flex;align-items:center;gap:12px;margin-top:44px;opacity:0;animation:fadeUp .6s ease 1.2s forwards}
+  .hero-rating{display:inline-flex;align-items:center;gap:12px;margin-top:26px;opacity:0;animation:fadeUp .6s ease 1.2s forwards}
   .hr-stars{display:inline-flex;gap:3px;color:var(--accent);flex-shrink:0}
   .hr-stars svg{width:17px;height:17px;display:block}
   .hr-text{font-size:14px;color:rgba(255,255,255,.7);font-weight:400;letter-spacing:.3px}
   .hr-text strong{color:#fff;font-weight:900;font-family:var(--fd);font-size:18px;letter-spacing:.5px;margin-right:3px}
-
 
   /* SECTIONS */
   section{padding:120px 0}
@@ -179,7 +178,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .p-title{font-size:16px;font-weight:600;margin-bottom:5px}
   .p-desc{font-size:13px;color:var(--gray);line-height:1.65}
 
-  .problem-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px;position:sticky;top:120px}
+  .problem-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:sticky;top:120px}
   .prob-photo{overflow:hidden;background:var(--lgray);position:relative}
   .prob-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s;display:block}
   .prob-photo:hover img{transform:scale(1.04)}
@@ -482,11 +481,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .photo-strip{grid-template-columns:repeat(2,1fr);height:auto;aspect-ratio:auto}
     .photo-cell{aspect-ratio:1/1}
 
-    .hero-inner{grid-template-columns:1fr;gap:30px;padding:104px 24px 52px}
-    .hero-media{height:clamp(300px,46vh,400px)}
+    .hero{min-height:78vh}
+    .hero-inner{padding:96px 24px 44px}
     h1{font-size:clamp(32px,8vw,44px)}
-    .hero-sub{font-size:15px;max-width:none}
-    .hero-rating{margin-top:36px}
+    .hero-sub{font-size:15px;max-width:none;margin-bottom:22px}
+    .hero-rating{margin-top:22px}
 
     section{padding:76px 0}
     .lite,.audience,.reviews{padding:82px 0}
@@ -549,13 +548,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .problem-photos .prob-ticker{display:block;grid-column:1 / -1}
 
     .photo-strip{grid-template-columns:repeat(2,1fr)}
-    .hero-inner{padding:96px 18px 44px}
+    .hero{min-height:0}
+    .hero-inner{padding:88px 18px 36px}
     h1{font-size:clamp(30px,8.5vw,40px);line-height:1.02}
-    .hero-sub{font-size:14px;line-height:1.7;margin-bottom:28px}
+    .hero-sub{font-size:14px;line-height:1.7;margin-bottom:20px}
     .hero-ctas{gap:14px}
     .hero-ctas .btn-accent{width:100%;justify-content:center}
 
-    .hero-rating{margin-top:30px;gap:10px}
+    .hero-rating{margin-top:20px;gap:10px}
     .hr-stars svg{width:15px;height:15px}
     .hr-text{font-size:13px}
     .hr-text strong{font-size:16px}
@@ -580,8 +580,22 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .prob-caption-num{font-size:24px}
     .prob-caption-text{font-size:10px}
   }
+
+  /* FAQ (homepage) */
+  .faq-home{background:var(--off)}
+  .faq-wrap{max-width:760px;margin:0 auto}
+  .faq-item{border-top:1px solid rgba(12,12,12,.1)}
+  .faq-item:last-child{border-bottom:1px solid rgba(12,12,12,.1)}
+  .faq-q{width:100%;background:none;border:none;color:var(--black);text-align:left;padding:22px 0;font-family:var(--fd);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:color .2s}
+  .faq-q:hover{color:#5f7000}
+  .faq-q .plus{width:30px;height:30px;border-radius:8px;border:1px solid rgba(110,130,0,.28);display:flex;align-items:center;justify-content:center;color:#5f7000;transition:all .25s;flex-shrink:0}
+  .faq-item.open .faq-q .plus{background:var(--accent);color:var(--black);border-color:var(--accent);transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:14px;color:rgba(12,12,12,.6);line-height:1.75}
+  .faq-item.open .faq-a{max-height:300px}
+  .faq-a-inner{padding:0 0 22px;padding-right:50px}
+  .faq-a-inner a{color:#5f7000}
 </style>
-<style>.h1-kicker{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:13px;letter-spacing:2.5px;color:var(--accent);margin-bottom:18px;line-height:1;font-weight:700;text-transform:uppercase}</style>
+<style>.h1-kicker{display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--fd);font-size:13px;letter-spacing:2.5px;color:var(--accent);margin-bottom:18px;line-height:1;font-weight:700;text-transform:uppercase}</style>
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/main.js" defer></script>
 <script type="application/ld+json">
@@ -751,21 +765,53 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wat kost Fit Up Leiderdorp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dat hangt af van de begeleiding die bij je past: Small Group PT vanaf €149, Personal Training vanaf €300 en 24/7 Fitness vanaf €48,50 — steeds per 4 weken. Bekijk de volledige tarieven of vraag het tijdens je gratis intake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Fit Up Leiderdorp 24 uur per dag open?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Met een 24/7 Fitness-abonnement wel: je traint dag en nacht met je persoonlijke QR-code. Personal training en groepslessen volgen een vast rooster."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat is een gratis intake bij Fit Up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een vrijblijvend gesprek waarin we je doel, situatie en agenda bespreken. Daarna adviseren we eerlijk welke vorm van begeleiding het beste bij je past — zonder verplichtingen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waar is Fit Up Leiderdorp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Weversbaan 9 in Leiderdorp, met gratis parkeren voor de deur. Goed bereikbaar vanuit Leiden, Zoeterwoude, Alphen aan den Rijn en Voorschoten."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
-  <a href="index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <a href="index.html" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="assets/images/logo-mark-on-dark.png" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
-    <li class="has-sub">
-      <a href="trainingsaanbod/index.html" aria-haspopup="true">Trainingsaanbod</a>
-      <ul class="nav-submenu" role="menu">
-        <li><a href="trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
-        <li><a href="trainingsaanbod/personal-training/index.html">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
-        <li><a href="trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
-        <li><a href="trainingsaanbod/groepslessen/index.html">Groepslessen<small>Spinning · bootcamp · HIIT</small></a></li>
-      </ul>
-    </li>
+    <li><a href="trainingsaanbod/index.html">Trainingsaanbod</a></li>
     <li><a href="online-coaching/index.html">Online Coaching</a></li>
     <li><a href="tarieven/index.html">Tarieven</a></li>
     <li><a href="contact/index.html">Contact</a></li>
@@ -777,15 +823,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </button>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-  <div class="drawer-group">
-    <a href="trainingsaanbod/index.html">Trainingsaanbod</a>
-    <ul class="drawer-sub">
-      <li><a href="trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
-      <li><a href="trainingsaanbod/personal-training/index.html">Personal Training</a></li>
-      <li><a href="trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
-      <li><a href="trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
-    </ul>
-  </div>
+  <a href="trainingsaanbod/index.html">Trainingsaanbod</a>
   <a href="online-coaching/index.html">Online Coaching</a>
   <a href="tarieven/index.html">Tarieven</a>
   <a href="contact/index.html">Contact</a>
@@ -793,12 +831,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </div>
 
 <header class="hero" role="banner">
+  <div class="hero-video-wrap" aria-hidden="true">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/moment-hero-final-poster.jpg">
+      <source src="assets/videos/moment-hero-final.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
   <div class="hero-inner">
   <div class="hero-text">
-    <h1><span class="h1-kicker"><span class="eyebrow-line"></span>Personal training &amp; small-group coaching</span>Sterker, fitter en gezonder met <em>persoonlijke coaching</em></h1>
+    <h1><span class="h1-kicker"><span class="eyebrow-line"></span>Personal training in Leiderdorp</span>Sterker en fitter, met <em>persoonlijke coaching</em></h1>
     <p class="hero-sub">
-      Personal training en small-group training in Leiderdorp voor volwassenen die
-      gericht willen werken aan hun <strong>gezondheid, kracht en dagelijkse fitheid</strong>.
+      Voor volwassenen die gericht willen werken aan hun
+      <strong>gezondheid, kracht en dagelijkse fitheid</strong> — 1-op-1 of in een kleine groep.
     </p>
     <div class="hero-ctas">
       <a href="#intake-plannen" class="btn-accent">
@@ -806,7 +850,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="trainingsaanbod/index.html" class="btn-ghost">
-        Bekijk onze coachingstrajecten
+        Bekijk ons trainingsaanbod
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -821,15 +865,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <span class="hr-text"><strong>4,9</strong> uit 65 Google-reviews</span>
     </div>
   </div>
-  <div class="hero-media">
-    <img src="assets/images/hero-lunges-coaching.webp" width="860" height="840" alt="Coach begeleidt een klant tijdens uitvalspassen bij Fit Up Leiderdorp" fetchpriority="high" decoding="async">
-  </div>
   </div>
 </header>
-
-<!-- OVER PATRICK -->
-
-
 
 <!-- VOOR WIE -->
 <section class="audience" aria-labelledby="audience-heading">
@@ -884,7 +921,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
 <section class="problem lite" aria-labelledby="problem-heading">
   <div class="container">
-    <div class="problem-grid">
+    <div class="problem-grid" style="grid-template-columns:1fr;max-width:760px;margin:0 auto">
       <div>
         <div class="sec-label reveal"><span class="sec-label-line"></span>Herken jij dit?</div>
         <h2 id="problem-heading" class="reveal d1">Waarom de meeste mensen<br><em>niet vooruitgaan</em></h2>
@@ -910,28 +947,110 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           </div>
         </div>
       </div>
-      <div class="problem-photos reveal d2" aria-hidden="true">
-        <div class="prob-photo tall">
-          <img src="assets/images/gym-sfeer-2.jpg"
-               width="694" height="412" loading="lazy" decoding="async" style="object-fit:cover;object-position:center 70%;width:100%;height:100%"
-               alt="Krachtruimte Fit Up Leiderdorp">
-          </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.fitcheck{background:var(--off)}
+.fitcheck .section-header p{color:rgba(12,12,12,.6)}
+.fc-wrap{max-width:760px;margin:0 auto}
+.fc-step{margin-bottom:36px}
+.fc-step-label{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:1.5px;color:var(--black);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.fc-step-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--black);color:var(--accent);font-size:11px;flex-shrink:0}
+.fc-options{display:flex;flex-wrap:wrap;gap:10px}
+.fc-option{font-family:var(--fb);background:var(--white);border:1px solid rgba(12,12,12,.14);border-radius:999px;padding:12px 20px;font-size:14px;color:var(--black);cursor:pointer;transition:all .2s;font-weight:500}
+.fc-option:hover{border-color:var(--black)}
+.fc-option.active{background:var(--black);color:var(--accent);border-color:var(--black)}
+.fc-result{max-width:760px;margin:8px auto 0;background:var(--white);border:1px solid rgba(12,12,12,.08);border-radius:16px;padding:32px;display:none}
+.fc-result.show{display:block;animation:fadeUp .5s ease}
+.fc-result-title{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:18px;letter-spacing:.5px;color:var(--black);margin-bottom:10px}
+.fc-result-text{font-size:14px;color:rgba(12,12,12,.65);line-height:1.7;margin-bottom:20px}
+.fc-result-actions{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){.fc-options{gap:8px}.fc-option{padding:10px 16px;font-size:13px}.fc-result{padding:24px}}
+</style>
+<section class="fitcheck lite" id="fitcheck" aria-labelledby="fitcheck-heading">
+  <div class="container">
+    <div class="section-header">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Even scherp krijgen</div>
+      <h2 id="fitcheck-heading" class="reveal d1">Waar sta je nu en waar wil je <em>naartoe</em>?</h2>
+      <p class="reveal d2">Niet iedereen heeft hetzelfde doel of dezelfde begeleiding nodig. Misschien wil je fitter worden, afvallen, sterker worden of eindelijk een ritme vinden dat je volhoudt. Door eerst te kijken waar je nu staat en waar je naartoe wilt, wordt duidelijker wat daarbij past.</p>
+    </div>
+    <div class="fc-wrap reveal d2">
+      <div class="fc-step">
+        <div class="fc-step-label"><span class="fc-step-num">1</span>Waar sta je nu?</div>
+        <div class="fc-options" id="fc-step1" role="group" aria-label="Waar sta je nu">
+          <button type="button" class="fc-option" data-value="none">Ik train nog niet</button>
+          <button type="button" class="fc-option" data-value="unstructured">Ik train wel, maar zonder duidelijke structuur</button>
+          <button type="button" class="fc-option" data-value="active">Ik ben actief maar wil gerichter vooruitgang boeken</button>
         </div>
-        <div class="prob-ticker" aria-hidden="true">
-          <div class="prob-ticker-track">
-            <span><span class="pt-num">800m²</span> Sportvloer</span>
-            <span>Kracht</span><span>Cardio</span><span>Functioneel</span>
-            <span>Life Fitness</span><span>Vrije gewichten tot 40 kg</span>
-            <span>24/7 toegang</span>
-            <span><span class="pt-num">800m²</span> Sportvloer</span>
-            <span>Kracht</span><span>Cardio</span><span>Functioneel</span>
-            <span>Life Fitness</span><span>Vrije gewichten tot 40 kg</span>
-            <span>24/7 toegang</span>
-          </div>
+      </div>
+      <div class="fc-step">
+        <div class="fc-step-label"><span class="fc-step-num">2</span>Waar wil je naartoe?</div>
+        <div class="fc-options" id="fc-step2" role="group" aria-label="Waar wil je naartoe">
+          <button type="button" class="fc-option" data-value="afvallen">Afvallen</button>
+          <button type="button" class="fc-option" data-value="sterker">Sterker worden</button>
+          <button type="button" class="fc-option" data-value="spiermassa">Spiermassa opbouwen</button>
+          <button type="button" class="fc-option" data-value="fitter">Fitter worden</button>
+          <button type="button" class="fc-option" data-value="structuur">Meer structuur</button>
+          <button type="button" class="fc-option" data-value="zelfstandig">Zelfstandig trainen</button>
+        </div>
+      </div>
+      <div class="fc-result" id="fc-result">
+        <div class="fc-result-title" id="fc-result-title"></div>
+        <p class="fc-result-text" id="fc-result-text"></p>
+        <div class="fc-result-actions">
+          <a href="gratis-intake/index.html" class="btn-accent">Bespreek je doel met ons</a>
+          <a href="#" id="fc-result-link" class="btn-ghost">Bekijk trainingsvorm</a>
         </div>
       </div>
     </div>
+  </div>
 </section>
+<script>
+(function(){
+  var fcData = {
+    afvallen: {title:'Afvallen', text:'Voor afvallen werkt een combinatie van training en voedingsbegeleiding meestal het best. Dat vind je terug bij Small Group PT en Personal Training — allebei inclusief persoonlijke voedingscoaching.', href:'trainingsaanbod/sgpt-small-group-personal-training/index.html', label:'Bekijk Small Group PT'},
+    sterker: {title:'Sterker worden', text:'Sterker worden vraagt vooral om gestructureerde krachttraining met rustige opbouw. Dat past goed bij Small Group PT of, met nog meer maatwerk, Personal Training.', href:'trainingsaanbod/personal-training/index.html', label:'Bekijk Personal Training'},
+    spiermassa: {title:'Spiermassa opbouwen', text:'Spiermassa opbouwen vraagt om consistente krachttraining, voldoende eiwitten en herstel. Personal Training of Small Group PT geven je daarbij de begeleiding en het schema dat nodig is.', href:'trainingsaanbod/personal-training/index.html', label:'Bekijk Personal Training'},
+    fitter: {title:'Fitter worden', text:'Voor conditie en energie werkt een combinatie van groepslessen en zelfstandig trainen vaak goed — genoeg afwisseling om het vol te houden.', href:'trainingsaanbod/groepslessen/index.html', label:'Bekijk groepslessen'},
+    structuur: {title:'Meer structuur', text:'Structuur en een vast ritme ontstaan meestal het snelst met een vaste afspraak en een coach die met je meedenkt. Small Group PT of Personal Training passen daar goed bij.', href:'trainingsaanbod/sgpt-small-group-personal-training/index.html', label:'Bekijk Small Group PT'},
+    zelfstandig: {title:'Zelfstandig trainen', text:'Wil je vooral zelfstandig trainen, met af en toe wat hulp? Dan past 24/7 Fitness goed bij je, eventueel aangevuld met groepslessen voor wat extra structuur.', href:'trainingsaanbod/24-7-fitness/index.html', label:'Bekijk 24/7 Fitness'}
+  };
+  var intros = {
+    none: 'Nog niet eerder getraind? Geen probleem, we bouwen rustig op. ',
+    unstructured: 'Je traint al, dus er is een basis om op voort te bouwen. ',
+    active: 'Je bent al actief, dus het gaat vooral om gerichter trainen. '
+  };
+  var state = {step1:null, step2:null};
+  function selectOption(group, btn){
+    group.querySelectorAll('.fc-option').forEach(function(o){ o.classList.remove('active'); o.setAttribute('aria-pressed','false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed','true');
+  }
+  function updateResult(){
+    var result = document.getElementById('fc-result');
+    if(!state.step1 || !state.step2){ result.classList.remove('show'); return; }
+    var data = fcData[state.step2];
+    document.getElementById('fc-result-title').textContent = data.title;
+    document.getElementById('fc-result-text').textContent = (intros[state.step1]||'') + data.text;
+    var link = document.getElementById('fc-result-link');
+    link.href = data.href;
+    link.textContent = data.label;
+    result.classList.add('show');
+  }
+  var step1 = document.getElementById('fc-step1');
+  var step2 = document.getElementById('fc-step2');
+  if(step1) step1.querySelectorAll('.fc-option').forEach(function(btn){
+    btn.setAttribute('aria-pressed','false');
+    btn.addEventListener('click', function(){ selectOption(step1, btn); state.step1 = btn.dataset.value; updateResult(); });
+  });
+  if(step2) step2.querySelectorAll('.fc-option').forEach(function(btn){
+    btn.setAttribute('aria-pressed','false');
+    btn.addEventListener('click', function(){ selectOption(step2, btn); state.step2 = btn.dataset.value; updateResult(); });
+  });
+})();
+</script>
 
 <section class="services lite" aria-labelledby="services-heading">
   <div class="container">
@@ -992,17 +1111,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
 <section class="why lite" aria-labelledby="why-heading">
   <div class="container">
-    <div class="why-grid" style="grid-template-columns:1fr">
-      
-        <div class="why-main-photo" style="width:100%;height:480px;overflow:hidden">
-          <img src="assets/images/gym-sfeer-3.jpg"
-               width="1240" height="480" style="object-position:center 60%" loading="lazy" decoding="async"
-               alt="Trainingsruimte Fit Up Leiderdorp">
-        </div>
-      </div>
+    <div class="why-grid" style="grid-template-columns:1fr;max-width:760px;margin:0 auto">
       <div class="why-content">
         <div class="sec-label reveal"><span class="sec-label-line"></span>Waarom Fit Up Leiderdorp</div>
-        <h2 id="why-heading" class="reveal d1">Geen nummer.<br><em>Wel resultaat.</em></h2>
+        <h2 id="why-heading" class="reveal d1">Klein van opzet.<br><em>Persoonlijk in aanpak.</em></h2>
         <p class="reveal d2">Fit Up Leiderdorp is bewust kleinschalig. Waar grote sportscholen honderden leden hebben, kiezen wij voor persoonlijke aandacht, kwaliteit en een omgeving waar jij jezelf kunt zijn. Voor fitness in Leiderdorp ben je bij dé sportschool die resultaat levert.</p>
         <div class="why-features">
           <div class="why-feat reveal d1">
@@ -1011,7 +1123,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           </div>
           <div class="why-feat reveal d2">
             <div class="feat-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div><div class="feat-title">Kleine groepen: maximaal 4 personen bij SGPT</div><div class="feat-desc">Je trainer kent je naam, je doel en je voortgang. Geen anonimiteit, wel echte aandacht.</div></div>
+            <div><div class="feat-title">Kleine groepen: maximaal 4 personen bij SGPT</div><div class="feat-desc">Vaste trainer, geen wisselende gezichten.</div></div>
           </div>
           <div class="why-feat reveal d3">
             <div class="feat-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
@@ -1024,6 +1136,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         </div>
       </div>
     </div>
+  </div>
 </section>
 
 <section class="reviews" aria-labelledby="reviews-heading">
@@ -1090,7 +1203,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <section class="lite" style="background:var(--white);padding:132px 0">
   <style>
     .patrick-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .patrick-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+    .patrick-photos{display:grid;grid-template-columns:3fr 2fr;gap:16px;align-items:stretch}
     .patrick-photos .p-main,.patrick-photos .p-side{overflow:hidden;border-radius:16px}
     .patrick-photos .p-main img,.patrick-photos .p-side img{width:100%;height:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center 22%}
     .patrick-text h2{font-family:var(--fd);font-size:clamp(38px,5vw,58px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:28px;color:var(--white)}
@@ -1105,7 +1218,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           <img src="assets/images/patrick-eigenaar.jpg" alt="Patrick – eigenaar Fit Up Leiderdorp" width="1848" height="1764" loading="lazy" decoding="async">
         </div>
         <div class="p-side">
-          <img src="assets/images/patrick-defensie.png" alt="Patrick tijdens uitzending bij Defensie" width="744" height="801" loading="lazy" decoding="async">
+          <img src="assets/images/patrick-defensie.jpg" alt="Patrick tijdens uitzending bij Defensie" width="744" height="801" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="patrick-text">
@@ -1181,16 +1294,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section style="position:relative;overflow:hidden;height:380px;display:flex;align-items:center;justify-content:center">
-  <img src="assets/images/gym-sfeer-1.jpg" alt="Fit Up Leiderdorp balie" width="1152" height="2048" loading="lazy" decoding="async"
-       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.75) 100%)"></div>
-  <div style="position:relative;z-index:1;text-align:center;padding:0 24px;max-width:700px">
-    <p style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px">Plan je start</p>
-    <h2 style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;line-height:1.1;color:#fff;margin:0">Jouw resultaat begint<br>met <em style="color:var(--accent)">één gesprek</em></h2>
-  </div>
-</section>
-
 <section class="intake-booking" id="intake-plannen" aria-labelledby="iw-heading-1" style="background:var(--black);padding:108px 0">
   <div class="container">
     <div class="intake-widget reveal">
@@ -1201,15 +1304,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           <p>Kies een dag en beschikbaar tijdstip. We nemen contact op ter bevestiging. Geen verplichtingen, geen inschrijfgeld.</p>
           <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px">
             <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.5)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f400" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4ff00" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Weversbaan 9, Leiderdorp
             </div>
             <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.5)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f400" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4ff00" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
               Duur: 60 minuten
             </div>
             <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.5)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8f400" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4ff00" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               Gratis parkeren voor de deur
             </div>
           </div>
@@ -1278,40 +1381,100 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </section>
 
 <!-- LOKALE PAGINA'S -->
-<section style="background:var(--mid);padding:116px 0" aria-labelledby="lokaal-heading">
+<section style="background:var(--mid);padding:64px 0" aria-labelledby="lokaal-heading">
   <style>
-    .seo-linklist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px; }
-    .seo-linklist a { background: var(--black); padding: 22px 24px; text-decoration: none; color: var(--white); display: flex; flex-direction: column; gap: 6px; border-bottom: 2px solid transparent; transition: all .25s; border-left: 2px solid rgba(212,255,0,.15); }
-    .seo-linklist a:hover { background: var(--lgray); border-bottom-color: var(--accent); border-left-color: var(--accent); transform: translateY(-2px); }
-    .seo-ll-title { font-family: var(--fd); font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--white); }
-    .seo-ll-sub { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.5; }
-    .seo-linklist a:hover .seo-ll-title { color: var(--accent); }
-    @media (max-width: 980px) { .seo-linklist { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px) { .seo-linklist { grid-template-columns: 1fr; } }
+    .seo-ll-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; margin-top: 36px; }
+    .seo-ll-group-label { font-family: var(--fd); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; }
+    .seo-ll-group ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .seo-ll-group a { color: rgba(255,255,255,.7); text-decoration: none; font-size: 13.5px; line-height: 1.4; transition: color .2s; }
+    .seo-ll-group a:hover { color: var(--accent); }
+    @media (max-width: 780px) { .seo-ll-groups { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .seo-ll-groups { grid-template-columns: 1fr; } }
   </style>
   <div class="container">
-    <div style="text-align:center;max-width:680px;margin:0 auto">
-      <div class="sec-label reveal" style="justify-content:center"><span class="sec-label-line"></span>Lokaal &amp; specifiek</div>
-      <h2 id="lokaal-heading" class="reveal d1" style="font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(40px,5.5vw,64px);line-height:.92;letter-spacing:.5px">Onze pagina&apos;s voor<br><em style="font-style:normal;color:var(--accent)">jouw doel of locatie</em></h2>
-      <p class="reveal d2" style="font-size:15px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.75;margin-top:18px">Op zoek naar een trainer in Leiden, een afvaltraject of een voedingscoach? Hieronder onze landingspagina&apos;s met specifiek advies per doel en regio.</p>
+    <div class="sec-label reveal"><span class="sec-label-line"></span>Meer lezen</div>
+    <h2 id="lokaal-heading" class="reveal d1" style="font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.5px;color:rgba(255,255,255,.85)">Pagina&apos;s per doel en regio</h2>
+    <div class="seo-ll-groups reveal d2">
+      <div class="seo-ll-group">
+        <div class="seo-ll-group-label">Trainingsvormen</div>
+        <ul>
+          <li><a href="sportschool-leiderdorp/index.html">Sportschool Leiderdorp</a></li>
+          <li><a href="fitnessclub-leiderdorp/index.html">Fitnessclub Leiderdorp</a></li>
+          <li><a href="personal-training-leiderdorp/index.html">Personal Training Leiderdorp</a></li>
+          <li><a href="small-group-personal-training-leiderdorp/index.html">Small Group PT Leiderdorp</a></li>
+          <li><a href="krachttraining-leiderdorp/index.html">Krachttraining Leiderdorp</a></li>
+          <li><a href="calorie-calculator/index.html">Calorie calculator</a></li>
+        </ul>
+      </div>
+      <div class="seo-ll-group">
+        <div class="seo-ll-group-label">Voor jouw doel</div>
+        <ul>
+          <li><a href="fitness-voor-beginners-leiderdorp/index.html">Fitness voor beginners</a></li>
+          <li><a href="fitness-40-plus-leiderdorp/index.html">Fitness 40+</a></li>
+          <li><a href="vrouwen-fitness-leiderdorp/index.html">Vrouwen fitness</a></li>
+          <li><a href="spiermassa-opbouwen-leiderdorp/index.html">Spiermassa opbouwen</a></li>
+          <li><a href="hyrox-training-leiderdorp/index.html">Hyrox training</a></li>
+          <li><a href="afvallen-leiderdorp/index.html">Afvallen Leiderdorp</a></li>
+          <li><a href="voedingscoach-leiderdorp/index.html">Voedingscoach Leiderdorp</a></li>
+          <li><a href="krachttraining-vrouwen-40-plus/index.html">Krachttraining vrouwen 40+</a></li>
+          <li><a href="spieropbouw-na-40/index.html">Spieropbouw na je 40e</a></li>
+          <li><a href="afvallen-na-40/index.html">Afvallen na 40</a></li>
+          <li><a href="afvallen-tijdens-overgang/index.html">Afvallen tijdens de overgang</a></li>
+          <li><a href="hyrox-voorbereiding-schema/index.html">Hyrox voorbereiding schema</a></li>
+          <li><a href="kosten-personal-trainer/index.html">Kosten personal trainer</a></li>
+          <li><a href="beste-personal-trainer-leiderdorp/index.html">Beste personal trainer Leiderdorp</a></li>
+        </ul>
+      </div>
+      <div class="seo-ll-group">
+        <div class="seo-ll-group-label">In de regio</div>
+        <ul>
+          <li><a href="personal-trainer-leiderdorp/index.html">Personal trainer Leiderdorp</a></li>
+          <li><a href="personal-trainer-leiden/index.html">Personal trainer Leiden</a></li>
+          <li><a href="personal-trainer-oegstgeest/index.html">Personal trainer Oegstgeest</a></li>
+          <li><a href="personal-trainer-voorschoten/index.html">Personal trainer Voorschoten</a></li>
+          <li><a href="personal-trainer-alphen-aan-den-rijn/index.html">Personal trainer Alphen aan den Rijn</a></li>
+          <li><a href="sportschool-zoeterwoude/index.html">Sportschool Zoeterwoude</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="seo-linklist">
-      <a href="sportschool-leiderdorp/index.html"><span class="seo-ll-title">Sportschool Leiderdorp</span><span class="seo-ll-sub">Alles onder één dak</span></a>
-      <a href="fitnessclub-leiderdorp/index.html"><span class="seo-ll-title">Fitnessclub Leiderdorp</span><span class="seo-ll-sub">Premium club · 24/7 toegang</span></a>
-      <a href="fitness-voor-beginners-leiderdorp/index.html"><span class="seo-ll-title">Fitness voor beginners</span><span class="seo-ll-sub">Drempelvrij starten</span></a>
-      <a href="fitness-40-plus-leiderdorp/index.html"><span class="seo-ll-title">Fitness 40+</span><span class="seo-ll-sub">Sterk en fit blijven</span></a>
-      <a href="vrouwen-fitness-leiderdorp/index.html"><span class="seo-ll-title">Vrouwen fitness</span><span class="seo-ll-sub">Sterker in een fijne sfeer</span></a>
-      <a href="spiermassa-opbouwen-leiderdorp/index.html"><span class="seo-ll-title">Spiermassa opbouwen</span><span class="seo-ll-sub">Methodisch · meetbaar</span></a>
-      <a href="hyrox-training-leiderdorp/index.html"><span class="seo-ll-title">Hyrox training</span><span class="seo-ll-sub">Race-fit worden</span></a>
-      <a href="personal-training-leiderdorp/index.html"><span class="seo-ll-title">Personal Training Leiderdorp</span><span class="seo-ll-sub">1-op-1 met je eigen vaste coach</span></a>
-      <a href="small-group-personal-training-leiderdorp/index.html"><span class="seo-ll-title">Small Group PT Leiderdorp</span><span class="seo-ll-sub">Max. 4 personen · vanaf €149 p/4 wkn</span></a>
-      <a href="afvallen-leiderdorp/index.html"><span class="seo-ll-title">Afvallen Leiderdorp</span><span class="seo-ll-sub">Programma voor blijvend resultaat</span></a>
-      <a href="voedingscoach-leiderdorp/index.html"><span class="seo-ll-title">Voedingscoach Leiderdorp</span><span class="seo-ll-sub">Eetplan en macro-coaching via app</span></a>
-      <a href="krachttraining-leiderdorp/index.html"><span class="seo-ll-title">Krachttraining Leiderdorp</span><span class="seo-ll-sub">Sterker worden, methodisch</span></a>
-      <a href="calorie-calculator/index.html"><span class="seo-ll-title">Calorie calculator</span><span class="seo-ll-sub">Bereken kcal en macro-doel · 30 sec</span></a>
-      <a href="personal-trainer-leiden/index.html"><span class="seo-ll-title">Personal trainer Leiden</span><span class="seo-ll-sub">10 min van Leiden centrum</span></a>
-      <a href="personal-trainer-oegstgeest/index.html"><span class="seo-ll-title">Personal trainer Oegstgeest</span><span class="seo-ll-sub">12 min via de N446</span></a>
-      <a href="personal-trainer-voorschoten/index.html"><span class="seo-ll-title">Personal trainer Voorschoten</span><span class="seo-ll-sub">15 min via de A4</span></a>
+  </div>
+</section>
+
+<section class="faq-home lite" aria-labelledby="faq-home-heading">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="sec-label reveal" style="justify-content:center"><span class="sec-label-line"></span>Veelgestelde vragen</div>
+      <h2 id="faq-home-heading" class="reveal d1">Goed om <em>te weten</em></h2>
+    </div>
+    <div class="faq-wrap reveal d2">
+      <div class="faq-item open">
+        <button class="faq-q" aria-expanded="true">
+          Wat kost Fit Up Leiderdorp?
+          <span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Dat hangt af van de begeleiding die bij je past: Small Group PT vanaf €149, Personal Training vanaf €300 en 24/7 Fitness vanaf €48,50 — steeds per 4 weken. Bekijk de <a href="tarieven/index.html">volledige tarieven</a> of vraag het tijdens je gratis intake.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Is Fit Up Leiderdorp 24 uur per dag open?
+          <span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Met een 24/7 Fitness-abonnement wel: je traint dag en nacht met je persoonlijke QR-code. Personal training en groepslessen volgen een vast rooster.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Wat is een gratis intake bij Fit Up?
+          <span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Een vrijblijvend gesprek waarin we je doel, situatie en agenda bespreken. Daarna adviseren we eerlijk welke vorm van begeleiding het beste bij je past — zonder verplichtingen.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Waar is Fit Up Leiderdorp?
+          <span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Weversbaan 9 in Leiderdorp, met gratis parkeren voor de deur. Goed bereikbaar vanuit Leiden, Zoeterwoude, Alphen aan den Rijn en Voorschoten.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1333,6 +1496,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <a href="tarieven/index.html" class="btn-ghost">Bekijk tarieven <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <p class="reveal d3" style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.4);font-weight:300">Personal training, small-group training en coaching afgestemd op jouw niveau.</p>
+  </div>
+</section>
+
+<section style="padding:0" aria-hidden="true">
+  <style>@media(max-width:640px){.club-strip-grid{grid-template-columns:repeat(2,1fr)!important}}</style>
+  <div class="club-strip-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px">
+    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-1.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Trainingsruimte Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-2.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Krachttoestellen Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-3.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Vrije gewichten Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-4.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Loungehoek Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
   </div>
 </section>
 
@@ -1368,7 +1541,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <p>Sportschool Leiderdorp · Personal trainer Leiderdorp · Groepslessen Leiderdorp</p>
     </div>
     <div style="text-align:center;padding:16px 0 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:16px">
-    <a href="/privacybeleid/" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color .2s" onmouseover="this.style.color='#C8FF00'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacybeleid</a>
+    <a href="/privacybeleid/" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color .2s" onmouseover="this.style.color='#d4ff00'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacybeleid</a>
   </div>
 </div>
 </footer>
@@ -1457,10 +1630,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         // Succesmelding tonen
         if (typeof fbq === 'function') fbq('track', 'Lead');
         btn.textContent = '✓ Intake aangevraagd!';
-        btn.style.background = '#c8f400';
+        btn.style.background = '#d4ff00';
         if (form) {
           const note = form.querySelector('.iw-note');
-          if (note) { note.textContent = '✓ Je aanvraag is ontvangen. We bevestigen je intake zo snel mogelijk!'; note.style.color = '#c8f400'; }
+          if (note) { note.textContent = '✓ Je aanvraag is ontvangen. We bevestigen je intake zo snel mogelijk!'; note.style.color = '#d4ff00'; }
         }
       } catch(e) {
         // Fallback naar WhatsApp als webhook faalt
@@ -1499,6 +1672,19 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Hero-video iets vertraagd afspelen (rustiger, cinematisch)
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) heroVideo.playbackRate = 0.75;
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open);
+    });
+  });
 </script>
 </body>
 </html>

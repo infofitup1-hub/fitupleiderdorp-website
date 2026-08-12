@@ -112,7 +112,7 @@ async function claudeChat(prompt) {
 function markdownToHtml(md) {
   // Lightweight markdown → HTML voor email
   let html = md;
-  html = html.replace(/^## (.+)$/gm, '<h2 style="font-family:Arial,sans-serif;color:#111;border-bottom:2px solid #C8F400;padding-bottom:8px;">$1</h2>');
+  html = html.replace(/^## (.+)$/gm, '<h2 style="font-family:Arial,sans-serif;color:#111;border-bottom:2px solid #d4ff00;padding-bottom:8px;">$1</h2>');
   html = html.replace(/^### (.+)$/gm, '<h3 style="font-family:Arial,sans-serif;color:#111;margin-top:24px;">$1</h3>');
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/`(.+?)`/g, '<code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;font-size:13px;">$1</code>');
@@ -127,7 +127,7 @@ function markdownToHtml(md) {
       const cells = line.split("|").slice(1, -1).map(c => c.trim());
       const isHeader = i > 0 && /^\|[\s-:|]+\|$/.test((lines[i+1]||"").trim());
       const tag = isHeader ? "th" : "td";
-      const style = isHeader ? "background:#111;color:#C8F400;padding:8px 10px;text-align:left;" : "padding:8px 10px;border-bottom:1px solid #eee;";
+      const style = isHeader ? "background:#111;color:#d4ff00;padding:8px 10px;text-align:left;" : "padding:8px 10px;border-bottom:1px solid #eee;";
       out.push("<tr>" + cells.map(c => `<${tag} style="${style}">${c}</${tag}>`).join("") + "</tr>");
     } else {
       if (inTable) { out.push("</table>"); inTable = false; }
@@ -154,7 +154,7 @@ async function sendEmailReport(subject, markdownBody) {
   const htmlBody = `
     <div style="max-width:680px;margin:0 auto;font-family:Arial,sans-serif;">
       <div style="background:#0c0c0c;padding:24px;text-align:center;">
-        <span style="font-family:Arial,sans-serif;font-size:24px;font-weight:900;letter-spacing:4px;color:#fff;">FIT<span style="color:#C8F400;">UP</span></span>
+        <span style="font-family:Arial,sans-serif;font-size:24px;font-weight:900;letter-spacing:4px;color:#fff;">FIT<span style="color:#d4ff00;">UP</span></span>
         <div style="color:#888;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:4px;">AutoSEO Weekrapport</div>
       </div>
       <div style="padding:24px;background:#fff;">

@@ -88,17 +88,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <body>
 
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
-  <a href="../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage">FIT<span>UP</span></a>
+  <a href="../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../assets/images/logo-mark-on-dark.png" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
-    <li class="has-sub">
-      <a href="../trainingsaanbod/index.html" aria-haspopup="true">Trainingsaanbod</a>
-      <ul class="nav-submenu" role="menu">
-        <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT<small>Max. 4 personen · coach · resultaat</small></a></li>
-        <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training<small>1-op-1 met je eigen coach</small></a></li>
-        <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness<small>Zelfstandig trainen · altijd open</small></a></li>
-        <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen<small>Bodypump · boksfit · HIIT</small></a></li>
-      </ul>
-    </li>
+    <li><a href="../trainingsaanbod/index.html">Trainingsaanbod</a></li>
     <li><a href="../online-coaching/index.html">Online Coaching</a></li>
     <li><a href="../tarieven/index.html">Tarieven</a></li>
     <li><a href="../contact/index.html">Contact</a></li>
@@ -110,15 +102,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </button>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-  <div class="drawer-group">
-    <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
-    <ul class="drawer-sub">
-      <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group PT</a></li>
-      <li><a href="../trainingsaanbod/personal-training/index.html">Personal Training</a></li>
-      <li><a href="../trainingsaanbod/24-7-fitness/index.html">24/7 Fitness</a></li>
-      <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
-    </ul>
-  </div>
+  <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
   <a href="../online-coaching/index.html">Online Coaching</a>
   <a href="../tarieven/index.html">Tarieven</a>
   <a href="../contact/index.html">Contact</a>
@@ -139,7 +123,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <div class="container">
     <div style="max-width:780px;margin:0 auto;text-align:center">
       <div class="hero-eyebrow" style="display:inline-flex;justify-content:center"><span class="eyebrow-dot"></span>Zonder verplichtingen · Eerlijk advies</div>
-      <h1 style="font-size:clamp(54px,7vw,92px);margin-bottom:24px"><span class="h1-kicker">Plan een gratis intake</span>Gratis Intake<br><em>Fit Up Leiderdorp</em></h1>
+      <h1 style="font-size:clamp(54px,7vw,92px);margin-bottom:24px">Gratis Intake<br><em>Fit Up Leiderdorp</em></h1>
       <p class="seo-hero-sub" style="margin:0 auto 0;max-width:560px">
         Een uur waarin we <strong>doel, leefstijl, blessuregeschiedenis en agenda</strong> doornemen. We adviseren eerlijk welk traject bij jou past — of dat nu Personal Training, SGPT, 24/7 Fitness of online coaching is.
       </p>
@@ -241,7 +225,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </section>
 
 <!-- VOOR WIE -->
-<section style="background:var(--mid)" aria-labelledby="vw">
+<section aria-labelledby="vw">
   <div class="container">
     <div class="sec-head">
       <div class="sec-label reveal"><span class="sec-label-line"></span>Voor wie</div>
@@ -330,9 +314,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
               (mail ? 'E-mail: ' + mail + '\n' : '') +
               'Doel: ' + doel +
               (bericht ? '\n\nBericht: ' + bericht : '');
-    window.location.href = 'https://wa.me/31648776322?text=' + encodeURIComponent(msg);
-    // After ~2s, send the user to the bedankt-page
-    setTimeout(function(){ window.location.href = '../bedankt/index.html'; }, 1500);
+    // Open WhatsApp in a new tab so this tab stays alive to redirect to de bedankt-pagina
+    window.open('https://wa.me/31648776322?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    window.location.href = '../bedankt/index.html';
   });
 
   const nav = document.getElementById('nav');

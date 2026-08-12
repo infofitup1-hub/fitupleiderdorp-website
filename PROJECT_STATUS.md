@@ -151,3 +151,60 @@ Gevonden en opgelost:
 - Andere pagina's gebruiken deels een eigen stylesheet (assets/css/seo.css); homepage heeft
   inline CSS. Design-system nog niet gedeeld over alle pagina's.
 - Deploy-pad (Netlify?) nog niet geverifieerd; vóór livegang controleren.
+
+## Design-system rollout — ACTUELE STAAT (2026-08-07)
+Homepage is de **design source of truth**. Ritme overal: **Dark hero → Light body → Dark CTA/footer.**
+
+**Al omgezet naar licht premium (op branch, NIET gecommit):**
+- `index.html` (homepage) — al eerder gecommit.
+- `trainingsaanbod/index.html` (hub) — donkere centered hero.
+- `trainingsaanbod/personal-training/index.html` — donkere split-hero + echte foto.
+- `trainingsaanbod/24-7-fitness/index.html` — donkere split-hero.
+
+**Nog NIET omgezet (nog volledig donker) — batch 1 restant:**
+- `trainingsaanbod/groepslessen/index.html`
+- `trainingsaanbod/sgpt-small-group-personal-training/index.html`
+- `tarieven/index.html`
+- `contact/index.html`
+- `online-coaching/index.html` (later; koppelt aan Virtuagym)
+- De ~18 SEO-landingspagina's via `assets/css/seo.css` (seo.css is nog donker; transformeren
+  van dat ene bestand zet alle landingspagina's in één keer om — grote hefboom, nog te doen).
+
+**Conversie-recept per bespoke pagina (inline `<style>`):**
+- Voeg aan `:root` toe: `--charcoal:#18191b;--paper:#fff;--paper2:#f3f4f0;--ink:#141611;`
+  `--ink-soft:#3c3f37;--ink-mute:#575b4e;--line:rgba(20,22,17,.08);--accent-ink:#4a5900;`
+  `--r-btn:10px;--r-card:18px;--sh-2:0 1px 2px rgba(20,22,17,.04),0 24px 50px -22px rgba(20,22,17,.18);`
+  `--sh-hover:0 2px 6px rgba(20,22,17,.05),0 40px 80px -28px rgba(20,22,17,.28);`
+- `body` → `background:var(--paper);color:var(--ink)`.
+- Hero (`.page-hero`) blijft **donker**: `background:var(--charcoal)`, tekst wit, `h1` sentence-case
+  Barlow `clamp(40px,5vw,66px)`, `h1 em` lime, `ph-stat-num` wit, `ph-stat-label` rgba(255,255,255,.5).
+  Split-variant met echte foto rechts; centered-variant voor tarieven/contact.
+- Knoppen: `padding:15px 30px;font-size:15px;letter-spacing:1.5px;border-radius:10px`.
+- `h2 em` → lime-highlight `background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%)`,
+  MAAR op donkere secties (`.page-hero h1 em,.final-cta h2 em`) → gewoon `color:var(--accent)`.
+- `.sec-label` → `color:var(--ink-mute)`. Body/muted tekst → `--ink-soft`. Lime-op-licht (labels,
+  iconen, `svg`, inline links, `?::before`, `em` in stats) → **`--accent-ink`** (niet lime).
+- Cards (svc/for/gear/tarief/faq/step/result/access) → `background:#fff;border:1px solid var(--line);`
+  `border-radius:18px;box-shadow:var(--sh-2)`, hover `translateY(-6px)+var(--sh-hover)`, grid-gap 16–20px.
+  Featured servicekaart → charcoal; featured tariefkaart (`.hot`) → blijft lime (zwarte tekst).
+- CTA-sectie onderaan (`.final-cta`/`.cta`) → **donker** (charcoal/`--dark`) houden.
+- Footer → **donker** houden; `.f-brand .f-logo` moet `color:var(--white)` krijgen (anders onzichtbaar);
+  `.f-bottom p` → rgba(255,255,255,.4).
+- **Let op valkuilen:** (1) inline `style="background:var(--black|mid)"` op `<section>`-tags → naar
+  `var(--paper)`/`var(--paper2)`; (2) inline `style="color:var(--accent)"` links → `--accent-ink`;
+  (3) `ph-stat-num` erft anders donker-op-donker in de hero.
+- **Verificatie per pagina:** lokale server `python -m http.server 3210` in de repo, dan de
+  contrast-scan (zoekt tekst met contrast <2.6 = onleesbaar) + check horizontale overflow. Foto-hero
+  fade-in kan bij snelle screenshot even leeg lijken (puur timing).
+
+**Open contentvragen (niet zelf gokken):**
+- **m²-inconsistentie:** homepage zegt 800 m², 24/7-pagina zegt 400 m². Patrick moet bevestigen
+  welk getal klopt (mogelijk 400 = fitnessvloer, 800 = totale club) → daarna gelijktrekken.
+- Fotografie: hero's gebruiken bestaande foto's; ideale "coach + volwassen klant"-shoot nog wenselijk.
+
+**Instructies / niet doen:** niet committen en niet deployen tot Patrick het zegt. Werk vanuit dit
+design system (geen pagina's los "opnieuw creëren"). Na batch 1: kwaliteitsrapport, dan pas batch 2 (blogs).
+
+**Resume in nieuwe chat:** "Lees CLAUDE.md (bestaat niet) + PROJECT_STATUS.md. Ga verder met batch 1
+van de design-system rollout: Groepslessen, dan SGPT, Tarieven, Contact — volgens het conversie-recept.
+Niet committen/deployen."
