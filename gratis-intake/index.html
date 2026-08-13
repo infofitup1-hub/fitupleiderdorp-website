@@ -133,6 +133,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
 <section style="padding-top:20px">
   <div class="container">
+    <div id="fc-banner" style="display:none;max-width:820px;margin:0 auto 32px;background:rgba(212,255,0,.06);border:1px solid rgba(212,255,0,.2);border-radius:14px;padding:20px 24px">
+      <div style="font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Jouw Fitcheck-advies</div>
+      <div id="fc-banner-title" style="font-family:var(--fd);font-size:20px;font-weight:800;text-transform:uppercase;margin-bottom:6px"></div>
+      <p id="fc-banner-text" style="font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.6;margin:0"></p>
+    </div>
     <div class="intake-grid">
 
       <!-- LEFT: WHAT TO EXPECT + FORM -->
@@ -318,6 +323,21 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     window.open('https://wa.me/31648776322?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     window.location.href = '../bedankt/index.html';
   });
+
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    var fc = params.get('fc'), fct = params.get('fct'), fcr = params.get('fcr'), fcg = params.get('fcg');
+    if (!fc) return;
+    var banner = document.getElementById('fc-banner');
+    document.getElementById('fc-banner-title').textContent = fct || fc;
+    var reasons = fcr ? fcr.split(' | ').map(function(r){ return r.charAt(0).toUpperCase() + r.slice(1) + '.'; }).join(' ') : '';
+    document.getElementById('fc-banner-text').textContent = reasons || 'Op basis van je Fitcheck-antwoorden past dit het best bij jouw situatie.';
+    banner.style.display = 'block';
+    var doelSelect = document.getElementById('doel');
+    if (fcg && doelSelect) doelSelect.value = fcg;
+    var bericht = document.getElementById('bericht');
+    if (bericht && !bericht.value) bericht.value = 'Fitcheck-advies: ' + (fct || fc) + (fcr ? ' — ' + fcr.split(' | ').join(', ') : '');
+  })();
 
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});

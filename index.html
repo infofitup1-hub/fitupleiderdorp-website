@@ -956,101 +956,299 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <style>
 .fitcheck{background:var(--off)}
 .fitcheck .section-header p{color:rgba(12,12,12,.6)}
-.fc-wrap{max-width:760px;margin:0 auto}
-.fc-step{margin-bottom:36px}
-.fc-step-label{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:1.5px;color:var(--black);margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.fc-step-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--black);color:var(--accent);font-size:11px;flex-shrink:0}
-.fc-options{display:flex;flex-wrap:wrap;gap:10px}
-.fc-option{font-family:var(--fb);background:var(--white);border:1px solid rgba(12,12,12,.14);border-radius:999px;padding:12px 20px;font-size:14px;color:var(--black);cursor:pointer;transition:all .2s;font-weight:500}
-.fc-option:hover{border-color:var(--black)}
-.fc-option.active{background:var(--black);color:var(--accent);border-color:var(--black)}
-.fc-result{max-width:760px;margin:8px auto 0;background:var(--white);border:1px solid rgba(12,12,12,.08);border-radius:16px;padding:32px;display:none}
+.fc-wrap{max-width:640px;margin:0 auto;background:var(--white);border:1px solid rgba(12,12,12,.08);border-radius:18px;padding:36px;box-shadow:0 1px 2px rgba(12,12,12,.04),0 24px 50px -22px rgba(12,12,12,.18)}
+.fc-progress{display:flex;gap:5px;margin-bottom:8px}
+.fc-progress i{flex:1;height:4px;border-radius:2px;background:rgba(12,12,12,.1);overflow:hidden;display:block;position:relative}
+.fc-progress i::after{content:'';position:absolute;inset:0;background:var(--black);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.fc-progress i.done::after{transform:scaleX(1);background:var(--accent)}
+.fc-progress i.active::after{transform:scaleX(1)}
+.fc-counter{font-size:12px;color:rgba(12,12,12,.45);margin-bottom:22px;font-weight:500;letter-spacing:.3px}
+.fc-step{display:none}
+.fc-step.active{display:block;animation:fadeUp .35s ease}
+.fc-q{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.3px;color:var(--black);line-height:1.15;margin-bottom:20px}
+.fc-options{display:flex;flex-direction:column;gap:10px}
+.fc-option{font-family:var(--fb);background:var(--off);border:1.5px solid transparent;border-radius:12px;padding:15px 18px;font-size:14.5px;color:var(--black);cursor:pointer;transition:all .15s;font-weight:500;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.fc-option:hover{border-color:rgba(12,12,12,.18)}
+.fc-option.active{background:var(--black);color:var(--white);border-color:var(--black)}
+.fc-option .chk{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(12,12,12,.25);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.fc-option.active .chk{border-color:var(--accent);background:var(--accent)}
+.fc-back{background:none;border:none;font-size:13px;color:rgba(12,12,12,.5);cursor:pointer;padding:0;margin-top:20px;display:inline-flex;align-items:center;gap:6px}
+.fc-back:hover{color:var(--black)}
+.fc-result{display:none}
 .fc-result.show{display:block;animation:fadeUp .5s ease}
-.fc-result-title{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:18px;letter-spacing:.5px;color:var(--black);margin-bottom:10px}
-.fc-result-text{font-size:14px;color:rgba(12,12,12,.65);line-height:1.7;margin-bottom:20px}
+.fc-result-eyebrow{font-family:var(--fd);font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:2px;color:#5f7000;margin-bottom:8px}
+.fc-result-title{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:26px;letter-spacing:.3px;color:var(--black);margin-bottom:16px;line-height:1.05}
+.fc-result-reasons{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+.fc-result-reasons li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:rgba(12,12,12,.72);line-height:1.55}
+.fc-result-reasons li svg{flex-shrink:0;margin-top:3px;color:#5f7000}
+.fc-result-alt{font-size:13px;color:rgba(12,12,12,.55);line-height:1.6;margin-bottom:22px;padding-top:14px;border-top:1px solid rgba(12,12,12,.08)}
+.fc-result-alt a{color:#5f7000;font-weight:600}
 .fc-result-actions{display:flex;gap:12px;flex-wrap:wrap}
-@media (max-width:640px){.fc-options{gap:8px}.fc-option{padding:10px 16px;font-size:13px}.fc-result{padding:24px}}
+.fc-restart{background:none;border:none;font-size:12px;color:rgba(12,12,12,.4);cursor:pointer;margin-top:16px;text-decoration:underline}
+@media (max-width:640px){.fc-wrap{padding:26px 22px}.fc-q{font-size:18px}.fc-result-title{font-size:22px}}
 </style>
 <section class="fitcheck lite" id="fitcheck" aria-labelledby="fitcheck-heading">
   <div class="container">
     <div class="section-header">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Even scherp krijgen</div>
-      <h2 id="fitcheck-heading" class="reveal d1">Waar sta je nu en waar wil je <em>naartoe</em>?</h2>
-      <p class="reveal d2">Niet iedereen heeft hetzelfde doel of dezelfde begeleiding nodig. Misschien wil je fitter worden, afvallen, sterker worden of eindelijk een ritme vinden dat je volhoudt. Door eerst te kijken waar je nu staat en waar je naartoe wilt, wordt duidelijker wat daarbij past.</p>
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Doe de Fitcheck</div>
+      <h2 id="fitcheck-heading" class="reveal d1">Wat past <em>bij jou</em>?</h2>
+      <p class="reveal d2">Zes korte vragen, direct een persoonlijk advies. Geen naam of e-mail nodig.</p>
     </div>
     <div class="fc-wrap reveal d2">
-      <div class="fc-step">
-        <div class="fc-step-label"><span class="fc-step-num">1</span>Waar sta je nu?</div>
-        <div class="fc-options" id="fc-step1" role="group" aria-label="Waar sta je nu">
-          <button type="button" class="fc-option" data-value="none">Ik train nog niet</button>
-          <button type="button" class="fc-option" data-value="unstructured">Ik train wel, maar zonder duidelijke structuur</button>
-          <button type="button" class="fc-option" data-value="active">Ik ben actief maar wil gerichter vooruitgang boeken</button>
+      <div class="fc-progress" id="fc-progress" aria-hidden="true"></div>
+      <div class="fc-counter" id="fc-counter">Vraag 1 van 6</div>
+
+      <div class="fc-step active" data-step="1">
+        <div class="fc-q">Wat is je huidige situatie?</div>
+        <div class="fc-options" data-q="q1">
+          <button type="button" class="fc-option" data-value="none">Ik train momenteel niet<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="little_result">Ik train wel, maar zie weinig resultaat<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="structure">Ik wil weer structuur opbouwen<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="optimize">Ik train goed, maar wil meer uit mezelf halen<span class="chk"></span></button>
         </div>
       </div>
-      <div class="fc-step">
-        <div class="fc-step-label"><span class="fc-step-num">2</span>Waar wil je naartoe?</div>
-        <div class="fc-options" id="fc-step2" role="group" aria-label="Waar wil je naartoe">
-          <button type="button" class="fc-option" data-value="afvallen">Afvallen</button>
-          <button type="button" class="fc-option" data-value="sterker">Sterker worden</button>
-          <button type="button" class="fc-option" data-value="spiermassa">Spiermassa opbouwen</button>
-          <button type="button" class="fc-option" data-value="fitter">Fitter worden</button>
-          <button type="button" class="fc-option" data-value="structuur">Meer structuur</button>
-          <button type="button" class="fc-option" data-value="zelfstandig">Zelfstandig trainen</button>
+
+      <div class="fc-step" data-step="2">
+        <div class="fc-q">Wat is je hoofddoel?</div>
+        <div class="fc-options" data-q="q2">
+          <button type="button" class="fc-option" data-value="afvallen">Afvallen<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="sterker">Sterker worden<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="spiermassa">Spiermassa opbouwen<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="strakker">Strakker worden<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="conditie">Conditie verbeteren<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="energie">Fitter en energieker worden<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="gezond">Gezond blijven en lekker bewegen<span class="chk"></span></button>
         </div>
+        <button type="button" class="fc-back">← Vorige</button>
       </div>
+
+      <div class="fc-step" data-step="3">
+        <div class="fc-q">Hoeveel begeleiding wil je?</div>
+        <div class="fc-options" data-q="q3">
+          <button type="button" class="fc-option" data-value="max1op1">Maximale 1-op-1 begeleiding<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="coaching">Persoonlijke coaching, maar niet volledig 1-op-1<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="kleine_groep">Begeleiding in een kleine groep<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="zelfstandig">Vooral zelfstandig<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="groepslessen">Vooral groepslessen<span class="chk"></span></button>
+        </div>
+        <button type="button" class="fc-back">← Vorige</button>
+      </div>
+
+      <div class="fc-step" data-step="4">
+        <div class="fc-q">Hoe vaak wil of kun je trainen?</div>
+        <div class="fc-options" data-q="q4">
+          <button type="button" class="fc-option" data-value="1x">1× per week<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="2x">2× per week<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="3x">3× of vaker<span class="chk"></span></button>
+        </div>
+        <button type="button" class="fc-back">← Vorige</button>
+      </div>
+
+      <div class="fc-step" data-step="5">
+        <div class="fc-q">En voeding en leefstijl?</div>
+        <div class="fc-options" data-q="q5">
+          <button type="button" class="fc-option" data-value="wil_begeleiding">Daar wil ik ook begeleiding bij<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="misschien">Misschien<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="alleen_training">Alleen training is voldoende<span class="chk"></span></button>
+        </div>
+        <button type="button" class="fc-back">← Vorige</button>
+      </div>
+
+      <div class="fc-step" data-step="6">
+        <div class="fc-q">Nog een voorkeur voor de vorm van trainen?</div>
+        <div class="fc-options" data-q="q6">
+          <button type="button" class="fc-option" data-value="individueel">Individueel<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="kleine_groep">Kleine groep<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="groepslessen">Groepslessen<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="zelfstandig">Zelfstandig<span class="chk"></span></button>
+          <button type="button" class="fc-option" data-value="geen">Geen voorkeur<span class="chk"></span></button>
+        </div>
+        <button type="button" class="fc-back">← Vorige</button>
+      </div>
+
       <div class="fc-result" id="fc-result">
+        <div class="fc-result-eyebrow">Dit past waarschijnlijk het beste bij jou</div>
         <div class="fc-result-title" id="fc-result-title"></div>
-        <p class="fc-result-text" id="fc-result-text"></p>
+        <ul class="fc-result-reasons" id="fc-result-reasons"></ul>
+        <div class="fc-result-alt" id="fc-result-alt" style="display:none"></div>
         <div class="fc-result-actions">
-          <a href="gratis-intake/index.html" class="btn-accent">Bespreek je doel met ons</a>
-          <a href="#" id="fc-result-link" class="btn-ghost">Bekijk trainingsvorm</a>
+          <a href="#" id="fc-result-cta" class="btn-accent">Bespreek mijn advies</a>
+          <a href="#" id="fc-result-link" class="btn-ghost">Bekijk deze trainingsvorm</a>
         </div>
+        <button type="button" class="fc-restart" id="fc-restart">Opnieuw beginnen</button>
       </div>
     </div>
   </div>
 </section>
 <script>
 (function(){
-  var fcData = {
-    afvallen: {title:'Afvallen', text:'Voor afvallen werkt een combinatie van training en voedingsbegeleiding meestal het best. Dat vind je terug bij Small Group PT en Personal Training — allebei inclusief persoonlijke voedingscoaching.', href:'trainingsaanbod/sgpt-small-group-personal-training/index.html', label:'Bekijk Small Group PT'},
-    sterker: {title:'Sterker worden', text:'Sterker worden vraagt vooral om gestructureerde krachttraining met rustige opbouw. Dat past goed bij Small Group PT of, met nog meer maatwerk, Personal Training.', href:'trainingsaanbod/personal-training/index.html', label:'Bekijk Personal Training'},
-    spiermassa: {title:'Spiermassa opbouwen', text:'Spiermassa opbouwen vraagt om consistente krachttraining, voldoende eiwitten en herstel. Personal Training of Small Group PT geven je daarbij de begeleiding en het schema dat nodig is.', href:'trainingsaanbod/personal-training/index.html', label:'Bekijk Personal Training'},
-    fitter: {title:'Fitter worden', text:'Voor conditie en energie werkt een combinatie van groepslessen en zelfstandig trainen vaak goed — genoeg afwisseling om het vol te houden.', href:'trainingsaanbod/groepslessen/index.html', label:'Bekijk groepslessen'},
-    structuur: {title:'Meer structuur', text:'Structuur en een vast ritme ontstaan meestal het snelst met een vaste afspraak en een coach die met je meedenkt. Small Group PT of Personal Training passen daar goed bij.', href:'trainingsaanbod/sgpt-small-group-personal-training/index.html', label:'Bekijk Small Group PT'},
-    zelfstandig: {title:'Zelfstandig trainen', text:'Wil je vooral zelfstandig trainen, met af en toe wat hulp? Dan past 24/7 Fitness goed bij je, eventueel aangevuld met groepslessen voor wat extra structuur.', href:'trainingsaanbod/24-7-fitness/index.html', label:'Bekijk 24/7 Fitness'}
-  };
-  var intros = {
-    none: 'Nog niet eerder getraind? Geen probleem, we bouwen rustig op. ',
-    unstructured: 'Je traint al, dus er is een basis om op voort te bouwen. ',
-    active: 'Je bent al actief, dus het gaat vooral om gerichter trainen. '
-  };
-  var state = {step1:null, step2:null};
-  function selectOption(group, btn){
-    group.querySelectorAll('.fc-option').forEach(function(o){ o.classList.remove('active'); o.setAttribute('aria-pressed','false'); });
-    btn.classList.add('active');
-    btn.setAttribute('aria-pressed','true');
+  var TOTAL = 6;
+  var state = {};
+  var current = 1;
+
+  var progressWrap = document.getElementById('fc-progress');
+  for (var i=1;i<=TOTAL;i++){ var bar=document.createElement('i'); bar.dataset.i=i; progressWrap.appendChild(bar); }
+
+  function renderProgress(){
+    progressWrap.querySelectorAll('i').forEach(function(bar){
+      var n = parseInt(bar.dataset.i,10);
+      bar.classList.toggle('done', n < current);
+      bar.classList.toggle('active', n === current);
+    });
+    document.getElementById('fc-counter').textContent = 'Vraag ' + Math.min(current,TOTAL) + ' van ' + TOTAL;
   }
-  function updateResult(){
-    var result = document.getElementById('fc-result');
-    if(!state.step1 || !state.step2){ result.classList.remove('show'); return; }
-    var data = fcData[state.step2];
-    document.getElementById('fc-result-title').textContent = data.title;
-    document.getElementById('fc-result-text').textContent = (intros[state.step1]||'') + data.text;
+
+  function goToStep(n){
+    document.querySelectorAll('.fc-step').forEach(function(s){ s.classList.toggle('active', parseInt(s.dataset.step,10) === n); });
+    current = n;
+    renderProgress();
+  }
+
+  document.querySelectorAll('.fc-step').forEach(function(stepEl){
+    var n = parseInt(stepEl.dataset.step,10);
+    var group = stepEl.querySelector('.fc-options');
+    var qKey = group.dataset.q;
+    group.querySelectorAll('.fc-option').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        group.querySelectorAll('.fc-option').forEach(function(o){ o.classList.remove('active'); });
+        btn.classList.add('active');
+        state[qKey] = btn.dataset.value;
+        setTimeout(function(){
+          if (n < TOTAL) { goToStep(n+1); } else { showResult(); }
+        }, 220);
+      });
+    });
+    var back = stepEl.querySelector('.fc-back');
+    if (back) back.addEventListener('click', function(){ goToStep(n-1); });
+  });
+
+  var SERVICES = {
+    sgpt: {title:'Small Group Personal Training', href:'trainingsaanbod/sgpt-small-group-personal-training/index.html', label:'Bekijk Small Group PT'},
+    pt: {title:'Personal Training', href:'trainingsaanbod/personal-training/index.html', label:'Bekijk Personal Training'},
+    s247: {title:'24/7 Fitness', href:'trainingsaanbod/24-7-fitness/index.html', label:'Bekijk 24/7 Fitness'},
+    groep: {title:'Groepslessen (All-Inclusive)', href:'trainingsaanbod/groepslessen/index.html', label:'Bekijk groepslessen'}
+  };
+  var GOAL_LABEL = {afvallen:'afvallen',sterker:'sterker worden',spiermassa:'spiermassa opbouwen',strakker:'strakker worden',conditie:'conditie verbeteren',energie:'fitter en energieker worden',gezond:'gezond blijven en lekker bewegen'};
+  var GOAL_TO_DOEL = {afvallen:'afvallen',strakker:'afvallen',sterker:'spier',spiermassa:'spier',conditie:'conditie',energie:'conditie',gezond:'onderhoud'};
+
+  function computeAdvice(){
+    var s = {sgpt:0, pt:0, s247:0, groep:0};
+    var q1=state.q1, q2=state.q2, q3=state.q3, q4=state.q4, q5=state.q5, q6=state.q6;
+
+    if (q1==='none'){ s.sgpt+=1; s.pt+=1; }
+    if (q1==='little_result'){ s.pt+=2; s.sgpt+=1; }
+    if (q1==='structure'){ s.sgpt+=2; s.pt+=1; }
+    if (q1==='optimize'){ s.pt+=2; s.sgpt+=1; }
+
+    if (q2==='afvallen'||q2==='strakker'){ s.sgpt+=1; s.pt+=1; }
+    if (q2==='sterker'){ s.pt+=1; s.sgpt+=1; }
+    if (q2==='spiermassa'){ s.pt+=2; s.sgpt+=1; }
+    if (q2==='conditie'||q2==='energie'||q2==='gezond'){ s.groep+=2; s.s247+=1; }
+
+    if (q3==='max1op1') s.pt+=4;
+    if (q3==='coaching') s.sgpt+=4;
+    if (q3==='kleine_groep'){ s.sgpt+=3; s.groep+=1; }
+    if (q3==='zelfstandig') s.s247+=4;
+    if (q3==='groepslessen') s.groep+=4;
+
+    if (q4==='1x'){ s.pt+=1; s.groep+=1; }
+    if (q4==='2x'){ s.sgpt+=1; s.groep+=1; }
+    if (q4==='3x'){ s.s247+=1; s.sgpt+=1; }
+
+    var nutritionWanted = q5==='wil_begeleiding';
+    if (nutritionWanted){ s.pt+=1; s.sgpt+=1; }
+
+    if (q6==='individueel') s.pt+=2;
+    if (q6==='kleine_groep') s.sgpt+=2;
+    if (q6==='groepslessen') s.groep+=2;
+    if (q6==='zelfstandig') s.s247+=2;
+
+    var order = Object.keys(s).sort(function(a,b){ return s[b]-s[a]; });
+    var primary = order[0], secondary = order[1];
+
+    var reasonBank = {
+      pt: [
+        {cond: q3==='max1op1', text:'je wilt maximale 1-op-1 begeleiding'},
+        {cond: q6==='individueel', text:'je gaf aan het liefst individueel te trainen'},
+        {cond: q1==='little_result'||q1==='optimize', text:'je wilt gerichter resultaat boeken dan nu lukt'},
+        {cond: q2==='spiermassa'||q2==='sterker', text:'voor dit doel werkt een volledig op jou afgestemd schema het best'},
+        {cond: nutritionWanted, text:'Personal Training bevat voedingsbegeleiding, dus dat is meteen geregeld'}
+      ],
+      sgpt: [
+        {cond: q3==='coaching'||q3==='kleine_groep', text:'je wilt persoonlijke coaching, maar in een kleine groep'},
+        {cond: q6==='kleine_groep', text:'je gaf aan het liefst in een kleine groep te trainen'},
+        {cond: q1==='structure', text:'je wilt weer structuur opbouwen — dat lukt goed met een vaste afspraak'},
+        {cond: q2==='afvallen'||q2==='sterker'||q2==='spiermassa'||q2==='strakker', text:'je hebt een concreet doel waar gerichte begeleiding bij helpt'},
+        {cond: nutritionWanted, text:'Small Group PT bevat voedingsbegeleiding, dus dat is meteen geregeld'},
+        {cond: q4==='2x'||q4==='3x', text:'je trainingsfrequentie past goed bij een vast groepsritme'}
+      ],
+      s247: [
+        {cond: q3==='zelfstandig', text:'je wilt vooral zelfstandig trainen'},
+        {cond: q6==='zelfstandig', text:'je gaf aan het liefst zelfstandig te trainen'},
+        {cond: q4==='3x', text:'je wilt vaak trainen — met 24/7 toegang kan dat altijd'},
+        {cond: q2==='conditie'||q2==='energie'||q2==='gezond', text:'voor dit doel is vaak en flexibel trainen belangrijker dan intensieve begeleiding'}
+      ],
+      groep: [
+        {cond: q3==='groepslessen', text:'je wilt het liefst in een groepsles trainen'},
+        {cond: q6==='groepslessen', text:'je gaf aan het liefst in een groepsles te trainen'},
+        {cond: q2==='conditie'||q2==='energie'||q2==='gezond', text:'voor dit doel werken sociale motivatie en afwisseling goed'},
+        {cond: q1==='none', text:'groepslessen zijn een laagdrempelige manier om te beginnen'}
+      ]
+    };
+    var reasons = reasonBank[primary].filter(function(r){return r.cond;}).map(function(r){return r.text;}).slice(0,3);
+    if (reasons.length < 2) reasons.push('op basis van je antwoorden past dit het best bij jouw situatie');
+
+    var altText = '';
+    if ((primary==='s247'||primary==='groep') && (nutritionWanted || q5==='misschien')){
+      altText = 'Je gaf ook aan interesse te hebben in voeding en leefstijl. Overweeg om <a href="online-coaching/index.html">Voedings- en leefstijlcoaching</a> toe te voegen aan je route.';
+    } else if (secondary && s[secondary] >= s[primary]-1 && s[secondary] > 0){
+      altText = 'Twijfel je nog? <a href="' + SERVICES[secondary].href + '">' + SERVICES[secondary].title + '</a> kan ook goed bij je passen.';
+    }
+
+    return {primary:primary, reasons:reasons, altText:altText, goal:q2};
+  }
+
+  function showResult(){
+    document.querySelectorAll('.fc-step').forEach(function(s){ s.classList.remove('active'); });
+    var advice = computeAdvice();
+    var svc = SERVICES[advice.primary];
+    document.getElementById('fc-result-title').textContent = svc.title;
+    var list = document.getElementById('fc-result-reasons');
+    list.innerHTML = '';
+    advice.reasons.forEach(function(r){
+      var li = document.createElement('li');
+      li.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>' + r.charAt(0).toUpperCase() + r.slice(1) + '.</span>';
+      list.appendChild(li);
+    });
+    var altBox = document.getElementById('fc-result-alt');
+    if (advice.altText){ altBox.innerHTML = advice.altText; altBox.style.display = 'block'; } else { altBox.style.display = 'none'; }
+
+    var reasonsText = advice.reasons.join(' | ');
+    var doel = GOAL_TO_DOEL[advice.goal] || '';
+    var ctaUrl = 'gratis-intake/index.html?fc=' + encodeURIComponent(advice.primary) +
+      '&fct=' + encodeURIComponent(svc.title) +
+      '&fcr=' + encodeURIComponent(reasonsText) +
+      (doel ? '&fcg=' + encodeURIComponent(doel) : '');
+    document.getElementById('fc-result-cta').href = ctaUrl;
     var link = document.getElementById('fc-result-link');
-    link.href = data.href;
-    link.textContent = data.label;
+    link.href = svc.href;
+    link.textContent = svc.label;
+
+    var result = document.getElementById('fc-result');
     result.classList.add('show');
+    progressWrap.querySelectorAll('i').forEach(function(bar){ bar.classList.add('done'); });
+    document.getElementById('fc-counter').textContent = 'Klaar — jouw advies';
+    if (typeof fbq === 'function') fbq('trackCustom', 'FitcheckCompleted', {advies: advice.primary});
   }
-  var step1 = document.getElementById('fc-step1');
-  var step2 = document.getElementById('fc-step2');
-  if(step1) step1.querySelectorAll('.fc-option').forEach(function(btn){
-    btn.setAttribute('aria-pressed','false');
-    btn.addEventListener('click', function(){ selectOption(step1, btn); state.step1 = btn.dataset.value; updateResult(); });
+
+  document.getElementById('fc-restart').addEventListener('click', function(){
+    state = {};
+    document.querySelectorAll('.fc-option.active').forEach(function(o){ o.classList.remove('active'); });
+    document.getElementById('fc-result').classList.remove('show');
+    goToStep(1);
   });
-  if(step2) step2.querySelectorAll('.fc-option').forEach(function(btn){
-    btn.setAttribute('aria-pressed','false');
-    btn.addEventListener('click', function(){ selectOption(step2, btn); state.step2 = btn.dataset.value; updateResult(); });
-  });
+
+  renderProgress();
 })();
 </script>
 
