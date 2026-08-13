@@ -162,7 +162,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* FOR WHO — quiet text list */
   .forwho{background:var(--paper2)}
-  .forwho-grid{max-width:600px}
+  .forwho-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .forwho-photo{width:100%;aspect-ratio:4/5;border-radius:var(--r-card);overflow:hidden;background:var(--paper)}
+  .forwho-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
   .forwho-list{margin-top:32px;display:flex;flex-direction:column;gap:0}
   .forwho-item{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid var(--line);transition:padding .3s}
   .forwho-item:last-child{border-bottom:1px solid var(--line)}
@@ -453,6 +455,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <div class="forwho-item reveal d4"><div class="forwho-num">04</div><div class="forwho-text">Je wilt niet in een massale sportschool staan — maar wél begeleiding</div></div>
           <div class="forwho-item reveal d5"><div class="forwho-num">05</div><div class="forwho-text">Je wilt meetbaar resultaat en precies weten waar je staat</div></div>
         </div>
+      </div>
+      <div class="forwho-photo reveal d2">
+        <img src="../../assets/images/why-highfive-duo.webp" alt="Twee leden die elkaar motiveren tijdens een Small Group PT-sessie bij Fit Up Leiderdorp" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
