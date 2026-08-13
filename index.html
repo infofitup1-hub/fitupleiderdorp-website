@@ -225,12 +225,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* WHY */
   .why{background:var(--white)}
   .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-  .why-photo-block{position:relative}
-  .why-main-photo{width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--lgray)}
-  .why-main-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .6s}
-  .why-main-photo:hover img{transform:scale(1.03)}
-  .why-inset{position:absolute;bottom:-24px;right:-24px;background:var(--black);border:3px solid var(--mid);width:52%;aspect-ratio:1;overflow:hidden}
-  .why-inset img{width:100%;height:100%;object-fit:cover;object-position:center top}
+  .why-photo-block{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .why-main-photo,.why-inset{width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--lgray);border:0;position:static}
+  .why-main-photo img,.why-inset img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s}
+  .why-main-photo:hover img,.why-inset:hover img{transform:scale(1.03)}
   .why-content{padding-top:16px}
   .why-content p{font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75;margin-top:20px;margin-bottom:40px}
   .why-features{display:flex;flex-direction:column}
@@ -364,7 +362,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .lite .feat-desc{color:rgba(12,12,12,.58)}
   .lite .feat-icon{border-color:rgba(110,130,0,.35);color:#5f7000;background:rgba(212,255,0,.16)}
   .lite .why-feat:hover .feat-icon{background:rgba(212,255,0,.28);border-color:rgba(110,130,0,.5)}
-  .lite .why-inset{border-color:var(--white);background:var(--off)}
+  .lite .why-inset{background:var(--off)}
   /* patrick */
   .lite .patrick-text h2{color:var(--black)}
   .lite .patrick-text h2 em{color:var(--accent);text-shadow:-1px -1px 0 var(--black),1px -1px 0 var(--black),-1px 1px 0 var(--black),1px 1px 0 var(--black)}
@@ -463,8 +461,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     nav.scrolled{padding:12px 20px}
     /* WHY sectie - foto boven tekst op mobiel */
     .why-grid{grid-template-columns:1fr!important;gap:32px}
-    .why-main-photo{width:100%!important;height:280px!important;overflow:hidden;border-radius:8px}
-    .why-main-photo img{width:100%!important;height:100%!important;object-fit:cover}
+    .why-photo-block{gap:10px}
 
     /* PROBLEM sectie - foto netjes op mobiel */
     .problem-grid{grid-template-columns:1fr;gap:0}
@@ -505,8 +502,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .svc-desc{font-size:13px}
 
     .why-grid{grid-template-columns:1fr;gap:56px}
-    .why-main-photo{aspect-ratio:4/3}
-    .why-inset{width:44%;bottom:-18px;right:-18px}
 
     .reviews-header{flex-direction:column;align-items:flex-start;gap:24px;text-align:left}
     .reviews-grid{grid-template-columns:1fr;gap:2px}
@@ -535,7 +530,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .logo{font-size:22px;letter-spacing:2px}
     .nav-toggle{width:42px;height:42px}
     /* Kleine telefoons */
-    .why-main-photo{height:220px!important}
     .patrick-photos{grid-template-columns:1fr}
     .p-main,.p-side{height:220px}
 
@@ -572,7 +566,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .f-brand{grid-column:auto}
     .f-brand p{max-width:none}
 
-    .why-inset{width:40%}
 
     .prob-caption{padding:10px 14px}
     .prob-caption-num{font-size:24px}
@@ -1318,7 +1311,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <div class="container">
     <div class="why-grid">
       <div class="why-photo-block reveal">
-        <div class="why-main-photo"><img src="assets/images/why-coach-klant.webp" alt="Coach begeleidt klant tijdens krachttraining bij Fit Up Leiderdorp" loading="lazy" decoding="async" style="object-position:center 78%"></div>
+        <div class="why-main-photo"><img src="assets/images/why-coach-klant.webp" alt="Coach begeleidt klant tijdens krachttraining bij Fit Up Leiderdorp" loading="lazy" decoding="async"></div>
         <div class="why-inset"><img src="assets/images/why-highfive-duo.webp" alt="Twee leden die elkaar motiveren tijdens een training bij Fit Up Leiderdorp" loading="lazy" decoding="async"></div>
       </div>
       <div class="why-content">
