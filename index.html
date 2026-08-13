@@ -168,7 +168,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* PROBLEM */
   .problem{background:var(--white)}
-  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"head photo" "list photo";gap:40px 80px;align-items:start}
+  .problem-head{grid-area:head}
+  .problem-grid>.problem-photos{grid-area:photo}
+  .problem-grid>div:last-child{grid-area:list}
   .problem-intro p{font-size:15px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75;margin-top:20px;max-width:400px}
   .problem-list{margin-top:40px;display:flex;flex-direction:column}
   .problem-item{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-top:1px solid rgba(255,255,255,.06);transition:all .3s}
@@ -493,7 +496,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     h2{font-size:clamp(30px,7vw,44px)}
     .section-header{margin-bottom:40px}
 
-    .problem-grid{grid-template-columns:1fr;gap:48px}
+    .problem-grid{grid-template-columns:1fr;grid-template-areas:"head" "photo" "list";gap:28px}
     .problem-photos{position:static;grid-template-columns:1fr 1fr}
     .prob-photo.tall{grid-row:auto;min-height:0;aspect-ratio:1}
     .problem-intro p{max-width:none}
@@ -924,12 +927,19 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <section class="problem lite" aria-labelledby="problem-heading">
   <div class="container">
     <div class="problem-grid">
-      <div>
+      <div class="problem-head">
         <div class="sec-label reveal"><span class="sec-label-line"></span>Herken jij dit?</div>
         <h2 id="problem-heading" class="reveal d1">Waarom de meeste mensen<br><em>niet vooruitgaan</em></h2>
         <div class="problem-intro">
           <p class="reveal d2">Bij Fit Up Leiderdorp lossen we dit structureel op met een persoonlijk plan, een trainer die jou kent en voedingsbegeleiding via de app.</p>
         </div>
+      </div>
+      <div class="problem-photos reveal d2" style="grid-template-columns:1fr">
+        <div class="prob-photo tall" style="min-height:0;aspect-ratio:3/4">
+          <img src="assets/images/problem-frustratie.webp" alt="Teleurgesteld op de bank na wegen en meten zonder resultaat" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div>
         <div class="problem-list">
           <div class="problem-item reveal d1">
             <div class="p-num">01</div>
@@ -947,11 +957,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
             <div class="p-num">04</div>
             <div><div class="p-title">Drukke, massale sportschool</div><div class="p-desc">Je wacht op apparaten, voelt je verloren en haalt het meeste niet uit je training.</div></div>
           </div>
-        </div>
-      </div>
-      <div class="problem-photos reveal d2" style="grid-template-columns:1fr">
-        <div class="prob-photo tall" style="min-height:0;aspect-ratio:3/4">
-          <img src="assets/images/problem-frustratie.webp" alt="Teleurgesteld op de bank na wegen en meten zonder resultaat" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
