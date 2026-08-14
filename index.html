@@ -794,28 +794,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
 <header class="hero" role="banner">
   <div class="hero-video-wrap" aria-hidden="true">
-    <video class="hero-video" id="hero-video" muted loop playsinline preload="none" poster="assets/images/moment-hero-final-poster.webp">
-      <source data-src="assets/videos/moment-hero-final-mobile-9x16.mp4" type="video/mp4" media="(max-width: 767px)">
-      <source data-src="assets/videos/moment-hero-final-desktop-16x9.mp4" type="video/mp4">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/moment-hero-final-poster.webp">
+      <source src="assets/videos/moment-hero-final-mobile-9x16.mp4" type="video/mp4" media="(max-width: 767px)">
+      <source src="assets/videos/moment-hero-final-desktop-16x9.mp4" type="video/mp4">
     </video>
-    <script>
-      (function(){
-        var v = document.getElementById('hero-video');
-        if (!v) return;
-        function startHeroVideo(){
-          var sources = v.querySelectorAll('source[data-src]');
-          for (var i = 0; i < sources.length; i++) {
-            sources[i].src = sources[i].getAttribute('data-src');
-          }
-          v.load();
-          var p = v.play();
-          if (p && p.catch) p.catch(function(){});
-        }
-        requestAnimationFrame(function(){
-          requestAnimationFrame(startHeroVideo);
-        });
-      })();
-    </script>
     <div class="hero-video-overlay"></div>
   </div>
   <div class="hero-inner">
