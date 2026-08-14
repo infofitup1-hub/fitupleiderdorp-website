@@ -46,9 +46,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <meta name="twitter:description" content="Fit Up Leiderdorp is jouw coachingclub voor personal training, small group PT, 24/7 fitness, groepslessen en online coaching. Plan je gratis intake.">
 <meta name="twitter:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
 <link rel="canonical" href="https://fitupleiderdorp.nl/">
+<link rel="preload" as="image" href="assets/images/moment-hero-final-poster.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"></noscript>
 <style>
   :root {
     --black:#0c0c0c; --mid:#161616; --dark:#111; --charcoal:#18191b;
@@ -722,7 +724,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 }
 </script>
 
-<link rel="stylesheet" href="assets/css/conversion-layer.css">
+<link rel="stylesheet" href="assets/css/conversion-layer.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="assets/css/conversion-layer.css"></noscript>
 
 <script type="application/ld+json">
 {
@@ -791,7 +794,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
 <header class="hero" role="banner">
   <div class="hero-video-wrap" aria-hidden="true">
-    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/moment-hero-final-poster.jpg">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/moment-hero-final-poster.webp">
       <source src="assets/videos/moment-hero-final.mp4" type="video/mp4">
     </video>
     <div class="hero-video-overlay"></div>
@@ -1853,7 +1856,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     });
   });
 </script>
-<script src="assets/js/conversion-layer.config.js"></script>
+<script src="assets/js/conversion-layer.config.js" defer></script>
 <script src="assets/js/conversion-layer.js" defer></script>
 </body>
 </html>
