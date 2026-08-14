@@ -87,7 +87,7 @@ const BLOG_TOPICS = [
     volume: 500,
     persona: "mensen die twijfelen",
     dienst: "personal training en 24/7 fitness",
-    internal_links: ["/personal-trainer-leiderdorp/", "/trainingsaanbod/24-7-fitness/", "/gratis-intake/"]
+    internal_links: ["/personal-training-leiderdorp/", "/trainingsaanbod/24-7-fitness/", "/gratis-intake/"]
   },
 ];
 

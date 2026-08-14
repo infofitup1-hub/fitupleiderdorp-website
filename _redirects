@@ -26,3 +26,7 @@
 /groepslessen                                 /trainingsaanbod/groepslessen/                 301
 /intake                                       /gratis-intake/                                301
 /calculator                                   /calorie-calculator/                           301
+
+# 301-consolidatie: dubbele lokale PT-pagina samengevoegd met de primaire pagina
+/personal-trainer-leiderdorp                  /personal-training-leiderdorp/                 301!
+/personal-trainer-leiderdorp/                 /personal-training-leiderdorp/                 301!

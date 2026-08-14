@@ -126,7 +126,7 @@ const L={
   voed:{h:'../voedingscoach-leiderdorp/index.html',t:'Voedingscoach Leiderdorp',s:'Eetplan en macro-coaching'},
   sport:{h:'../sportschool-leiderdorp/index.html',t:'Sportschool Leiderdorp',s:'Kleinschalig · 24/7 · persoonlijk'},
   club:{h:'../fitnessclub-leiderdorp/index.html',t:'Fitnessclub Leiderdorp',s:'Premium club · alles onder één dak'},
-  ptr:{h:'../personal-trainer-leiderdorp/index.html',t:'Personal Trainer Leiderdorp',s:'Je eigen coach, vaste begeleiding'},
+  ptr:{h:'../personal-training-leiderdorp/index.html',t:'Personal Trainer Leiderdorp',s:'Je eigen coach, vaste begeleiding'},
   begin:{h:'../fitness-voor-beginners-leiderdorp/index.html',t:'Fitness voor beginners',s:'Rustig en begeleid starten'},
   veertig:{h:'../fitness-40-plus-leiderdorp/index.html',t:'Fitness 40+ Leiderdorp',s:'Sterk en fit blijven na je 40e'},
   vrouw:{h:'../vrouwen-fitness-leiderdorp/index.html',t:'Vrouwen fitness Leiderdorp',s:'Krachttraining in vertrouwde sfeer'},
