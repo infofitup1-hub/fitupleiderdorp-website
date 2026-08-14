@@ -9,18 +9,24 @@ Sitemap: https://fitupleiderdorp.nl/sitemap.xml
 # AI crawlers — toegang toegestaan voor GEO optimalisatie
 User-agent: GPTBot
 Allow: /
+Disallow: /bedankt/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /bedankt/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /bedankt/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /bedankt/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /bedankt/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /bedankt/
