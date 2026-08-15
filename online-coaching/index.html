@@ -169,15 +169,19 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .nutri-feat-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;color:var(--ink)}
   .nutri-feat-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
 
-  /* STEPS */
+  /* ROUTE — scroll-linked stappenlijn */
   .how{background:var(--paper)}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .step{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:36px 24px 30px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
-  .step:hover{transform:translateY(-6px);box-shadow:var(--sh-hover)}
-  .step-num{font-family:var(--fd);font-size:90px;font-weight:900;color:rgba(20,22,17,.05);position:absolute;top:-10px;right:12px;line-height:1;pointer-events:none}
-  .step-icon{width:44px;height:44px;border-radius:10px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.16);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);margin-bottom:20px;position:relative;z-index:1}
-  .step h3{font-family:var(--fd);font-size:21px;font-weight:900;text-transform:uppercase;margin-bottom:10px;letter-spacing:.3px;color:var(--ink)}
-  .step p{font-size:13px;color:var(--ink-soft);line-height:1.7;font-weight:400}
+  .route{position:relative;max-width:640px;margin:0 auto}
+  .route-line{position:absolute;top:6px;bottom:6px;left:19px;width:2px;background:var(--line);border-radius:2px}
+  .route-fill{position:absolute;top:0;left:0;width:100%;height:0;background:var(--accent);border-radius:2px}
+  .route-steps{display:flex;flex-direction:column;gap:44px;position:relative}
+  .route-step{display:flex;gap:26px;align-items:flex-start}
+  .route-dot{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--white);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:900;font-size:14px;color:var(--ink-mute);transition:border-color .3s,background .3s,color .3s,transform .3s;position:relative;z-index:1}
+  .route-step.active .route-dot{border-color:var(--accent);background:var(--accent);color:var(--black);transform:scale(1.08)}
+  .route-content{padding-top:2px}
+  .route-content h3{margin-bottom:8px;transition:color .3s}
+  .route-step.active .route-content h3{color:var(--accent-ink)}
+  .route-content p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;max-width:440px}
 
   /* PRICING */
   .pricing{background:var(--paper);padding:100px 0}
@@ -275,7 +279,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .app-phone-front{width:210px}
     .app-phone-back{width:164px;left:8px;top:44px}
     .forwho-grid-list{grid-template-columns:1fr;gap:0}
-    .steps{grid-template-columns:1fr 1fr}
     .tarief-cards{grid-template-columns:1fr}
     .where-inner{padding:40px 28px}
     .where-top{grid-template-columns:1fr;gap:32px}
@@ -293,10 +296,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .nav-links{display:none}
     .nav-links li:last-child{display:block}
   }
-  @media (max-width:680px){
-    .steps{grid-template-columns:1fr}
-  }
-
 
   /* ───── MOBILE (smartphone) ───── */
   @media (max-width:640px){
@@ -338,7 +337,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps,.voordelen-grid{grid-template-columns:1fr!important}
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.voordelen-grid{grid-template-columns:1fr!important}
 
     .reviews-grid{grid-template-columns:1fr!important}
     .services-grid,.fu-services-grid{grid-template-columns:1fr!important;gap:2px}
@@ -624,38 +623,37 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h2 id="how-heading" class="reveal d1">Van intake tot <em>PR</em></h2>
       <p class="reveal d2">In vier stappen weet je waar je staat, wat je doel is en hoe je er komt — vanaf de app.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <div class="step-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <div class="route" id="route">
+      <div class="route-line" aria-hidden="true"><div class="route-fill" id="routeFill"></div></div>
+      <div class="route-steps">
+        <div class="route-step">
+          <div class="route-dot">01</div>
+          <div class="route-content">
+            <h3>Gratis intake</h3>
+            <p>Doel, leefstijl en trainingsplek — via WhatsApp of videocall.</p>
+          </div>
         </div>
-        <h3>Gratis intake</h3>
-        <p>Via WhatsApp of videocall: doel, leefstijl, blessures en welke trainingsplek bij jou past.</p>
-      </div>
-      <div class="step reveal d1">
-        <div class="step-num">02</div>
-        <div class="step-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <div class="route-step">
+          <div class="route-dot">02</div>
+          <div class="route-content">
+            <h3>Schema in de app</h3>
+            <p>Binnen 3 werkdagen je trainings- en voedingsplan, met techniekvideo's.</p>
+          </div>
         </div>
-        <h3>Schema in de app</h3>
-        <p>Binnen 3 werkdagen staan jouw trainings- en voedingsplan klaar — met techniekvideo's bij elke oefening.</p>
-      </div>
-      <div class="step reveal d2">
-        <div class="step-num">03</div>
-        <div class="step-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div class="route-step">
+          <div class="route-dot">03</div>
+          <div class="route-content">
+            <h3>Wekelijkse check-in</h3>
+            <p>Gewicht, foto's en gevoel — je coach stuurt bij en motiveert.</p>
+          </div>
         </div>
-        <h3>Wekelijkse check-in</h3>
-        <p>Elke week stuur je gewicht, foto's en hoe je je voelt. Je coach reageert met aanpassingen en motivatie.</p>
-      </div>
-      <div class="step reveal d3">
-        <div class="step-num">04</div>
-        <div class="step-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <div class="route-step">
+          <div class="route-dot">04</div>
+          <div class="route-content">
+            <h3>Meten &amp; bijsturen</h3>
+            <p>Elke 4 weken bijgesteld, zodat je vooruitgang blijft boeken.</p>
+          </div>
         </div>
-        <h3>Meten &amp; bijsturen</h3>
-        <p>Elke 4 weken een grote evaluatie: schema en macro's worden bijgesteld zodat de progressie blijft komen.</p>
       </div>
     </div>
   </div>
@@ -887,6 +885,36 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
 })();
 /* === END NAV DRAWER TOGGLE === */
+</script>
+
+<script>
+/* === ROUTE SCROLL PROGRESS (Hoe werkt het) === */
+(function(){
+  var route = document.getElementById('route');
+  var fill = document.getElementById('routeFill');
+  if(!route || !fill) return;
+  var steps = Array.prototype.slice.call(route.querySelectorAll('.route-step'));
+  var dots = steps.map(function(s){ return s.querySelector('.route-dot'); });
+  var ticking = false;
+  function update(){
+    var rect = route.getBoundingClientRect();
+    var trigger = window.innerHeight * 0.55;
+    var h = Math.max(0, Math.min(rect.height, trigger - rect.top));
+    fill.style.height = h + 'px';
+    steps.forEach(function(step, i){
+      var dotOffset = dots[i].getBoundingClientRect().top - rect.top + dots[i].offsetHeight / 2;
+      step.classList.toggle('active', h >= dotOffset);
+    });
+    ticking = false;
+  }
+  function onScroll(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+/* === END ROUTE SCROLL PROGRESS === */
 </script>
 </body>
 </html>
