@@ -546,8 +546,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
       <div class="app-demo-visual reveal d1">
         <div class="app-demo-phone">
-          <video class="app-demo-video" muted playsinline loop preload="metadata" aria-label="Demo van het persoonlijke trainingsschema in de Fit Up-app">
-            <source src="../assets/videos/app-training-demo.mp4" type="video/mp4">
+          <video class="app-demo-video" muted playsinline loop preload="none" aria-label="Demo van het persoonlijke trainingsschema in de Fit Up-app">
+            <source data-src="../assets/videos/app-training-demo.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -561,8 +561,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="app-demo-grid visual-first">
       <div class="app-demo-visual reveal">
         <div class="app-demo-phone">
-          <video class="app-demo-video" muted playsinline loop preload="metadata" aria-label="Demo van voeding bijhouden in de Fit Up-app">
-            <source src="../assets/videos/app-voeding-demo.mp4" type="video/mp4">
+          <video class="app-demo-video" muted playsinline loop preload="none" aria-label="Demo van voeding bijhouden in de Fit Up-app">
+            <source data-src="../assets/videos/app-voeding-demo.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1034,17 +1034,51 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </script>
 
 <script>
-/* === APP DEMO VIDEOS: play alleen terwijl zichtbaar === */
+/* === APP DEMO VIDEOS: preload vóór beeld, autoplay vanaf 10% zichtbaar === */
 (function(){
   var vids = document.querySelectorAll('.app-demo-video');
   if(!vids.length) return;
-  var io = new IntersectionObserver(function(entries){
+
+  function ensureLoaded(video){
+    if(video.dataset.loaded === '1') return;
+    var source = video.querySelector('source[data-src]');
+    if(!source) return;
+    video.dataset.loaded = '1';
+    source.src = source.dataset.src;
+    video.load();
+  }
+
+  function attemptPlay(video){
+    ensureLoaded(video);
+    video.muted = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    var playPromise = video.play();
+    if(playPromise && typeof playPromise.catch === 'function'){
+      playPromise.catch(function(){});
+    }
+  }
+
+  var preloadObserver = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
-      if(entry.isIntersecting){ entry.target.play().catch(function(){}); }
+      if(entry.isIntersecting){
+        ensureLoaded(entry.target);
+        preloadObserver.unobserve(entry.target);
+      }
+    });
+  }, {rootMargin:'500px 0px', threshold:0});
+
+  var playObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ attemptPlay(entry.target); }
       else { entry.target.pause(); }
     });
-  }, {threshold:0.4});
-  vids.forEach(function(v){ io.observe(v); });
+  }, {rootMargin:'0px', threshold:0.1});
+
+  vids.forEach(function(v){
+    preloadObserver.observe(v);
+    playObserver.observe(v);
+  });
 })();
 /* === END APP DEMO VIDEOS === */
 </script>
