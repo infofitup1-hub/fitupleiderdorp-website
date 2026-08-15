@@ -1044,8 +1044,18 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     var source = video.querySelector('source[data-src]');
     if(!source) return;
     video.dataset.loaded = '1';
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
     source.src = source.dataset.src;
     video.load();
+  }
+
+  function doPlay(video){
+    var playPromise = video.play();
+    if(playPromise && typeof playPromise.catch === 'function'){
+      playPromise.catch(function(){});
+    }
   }
 
   function attemptPlay(video){
@@ -1053,9 +1063,10 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     video.muted = true;
     video.playsInline = true;
     video.autoplay = true;
-    var playPromise = video.play();
-    if(playPromise && typeof playPromise.catch === 'function'){
-      playPromise.catch(function(){});
+    if(video.readyState >= 2){
+      doPlay(video);
+    } else {
+      video.addEventListener('loadeddata', function(){ doPlay(video); }, {once:true});
     }
   }
 
