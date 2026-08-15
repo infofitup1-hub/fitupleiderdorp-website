@@ -57,7 +57,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--ink-mute);margin-bottom:18px}
   .sec-label-line{width:24px;height:1.5px;background:var(--accent)}
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
-  h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
+  h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(36px,4.8vw,56px);line-height:.95;letter-spacing:.3px}
   h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
   .page-hero h1 em,.final-cta h2 em{background:none;padding:0;color:var(--accent)}
   h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
@@ -79,45 +79,43 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 
   /* PAGE HERO */
-  .page-hero{min-height:78vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:var(--charcoal)}
+  .page-hero{min-height:72vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:linear-gradient(160deg,#0a0a0a 0%,#151516 55%,#0d0d0e 100%)}
   .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
   .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-  .page-hero h1{font-size:clamp(56px,7.5vw,96px);margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
-  .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
-  .page-hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
+  .page-hero h1{font-size:clamp(32px,3.6vw,46px);font-weight:800;text-transform:none;letter-spacing:0;line-height:1.18;margin-bottom:22px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards;max-width:480px}
+  .page-hero h1 em{font-style:normal;color:var(--accent)}
+  .page-hero-lead{font-size:17px;font-weight:600;color:var(--white);margin-bottom:10px;opacity:0;animation:fadeUp .6s ease .55s forwards}
+  .page-hero-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;max-width:420px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
   .page-hero-sub strong{color:var(--white);font-weight:500}
-  .page-hero-stats{display:flex;gap:32px;margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .7s forwards;flex-wrap:wrap}
-  .ph-stat{border-left:2px solid var(--accent);padding-left:16px}
-  .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;color:var(--white)}
-  .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
-  .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
-  .page-hero-right{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px;background-image:radial-gradient(rgba(212,255,0,.2) 1.5px,transparent 1.5px);background-size:26px 26px;background-position:-6px -6px}
-  .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;background:radial-gradient(ellipse,rgba(212,255,0,.22) 0%,transparent 62%);pointer-events:none;z-index:0}
-  .app-phone-pair{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:20px;transform:translateX(-70px)}
-  .app-phone{position:relative;z-index:1;width:360px;max-width:100%;aspect-ratio:9/19.5;background:#0c0c0c;border-radius:44px;padding:12px;box-shadow:0 40px 90px -28px rgba(0,0,0,.65),inset 0 0 0 2px rgba(255,255,255,.06);opacity:0;animation:fadeUp .6s ease .3s forwards}
-  .app-phone-pair .app-phone{width:260px}
-  .app-phone::before{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:36%;height:20px;background:#0c0c0c;border-radius:0 0 14px 14px;z-index:2}
-  .app-phone-screen{position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:var(--white)}
+  .page-hero-ctas{display:flex;gap:24px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .75s forwards}
+  .page-hero-right{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:48px 40px}
+  .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:460px;height:460px;background:radial-gradient(ellipse,rgba(212,255,0,.09) 0%,transparent 68%);pointer-events:none;z-index:0}
+  .app-visual{position:relative;z-index:1;width:100%;max-width:400px;height:560px}
+  .app-phone{position:absolute;background:#0c0c0c;border-radius:40px;padding:11px;box-shadow:0 30px 70px -24px rgba(0,0,0,.6),inset 0 0 0 2px rgba(255,255,255,.06);opacity:0;animation:fadeUp .7s ease forwards}
+  .app-phone::before{content:'';position:absolute;top:11px;left:50%;transform:translateX(-50%);width:36%;height:18px;background:#0c0c0c;border-radius:0 0 12px 12px;z-index:2}
+  .app-phone-screen{position:relative;width:100%;height:100%;border-radius:29px;overflow:hidden;background:var(--white)}
   .app-phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .app-phone-back{width:196px;aspect-ratio:9/19.5;left:18px;top:52px;z-index:1;filter:brightness(.82);animation-delay:.25s}
+  .app-phone-front{width:250px;aspect-ratio:9/19.5;right:14px;top:0;z-index:2;animation-delay:.4s}
   .app-showcase{position:relative;z-index:1;width:100%;max-width:480px;border-radius:20px;overflow:hidden;box-shadow:0 40px 90px -28px rgba(0,0,0,.65)}
   .app-showcase img{width:100%;height:auto;display:block}
-  .hero-badge{position:absolute;bottom:32px;right:32px;background:var(--accent);color:var(--black);padding:14px 18px;font-family:var(--fd);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
+  .hero-badge{position:absolute;bottom:16px;right:8px;background:var(--accent);color:var(--black);padding:12px 16px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;z-index:3;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
 
   /* SECTION HEADERS */
   .sec-head{text-align:center;margin-bottom:56px}
   .sec-head .sec-label{justify-content:center}
   .sec-head p{max-width:580px;margin:18px auto 0;font-size:15px;color:var(--ink-soft);font-weight:400;line-height:1.75}
 
-  /* HIGHLIGHT BAND */
-  .hbar{background:var(--paper2);padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .hbar-inner{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
-  .hbar-eyebrow{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-ink);display:flex;align-items:center;gap:12px;white-space:nowrap}
-  .hbar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-  .hbar-item{display:flex;flex-direction:column;gap:4px}
-  .hbar-label{font-size:11px;color:var(--ink-mute);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
-  .hbar-value{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--ink)}
-  .hbar-value em{color:var(--accent-ink);font-style:normal}
+  /* VOORDELEN — light section direct onder hero */
+  .voordelen{background:var(--paper);padding:90px 0}
+  .voordelen .sec-head h2{max-width:760px;margin-left:auto;margin-right:auto}
+  .voordelen-meta{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);margin-top:18px}
+  .voordelen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;border-top:1px solid var(--line);padding-top:40px}
+  .voordelen-card{display:flex;flex-direction:column;gap:14px}
+  .voordelen-icon{width:42px;height:42px;border-radius:10px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.14);display:flex;align-items:center;justify-content:center;color:var(--accent-ink)}
+  .voordelen-card h3{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:var(--ink)}
+  .voordelen-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
 
   /* WHAT IS — centered narrative + includes list */
   .what-wrap{max-width:880px;margin:0 auto}
@@ -183,33 +181,25 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* PRICING */
   .pricing{background:var(--paper);padding:100px 0}
-  .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:3px;align-items:stretch;max-width:880px;margin:0 auto}
-  .tarief-card{background:var(--black);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:all .3s;border-top:3px solid transparent}
-  .tarief-card:hover{transform:translateY(-4px);border-top-color:var(--accent)}
-  .tarief-card.hot{background:var(--accent);color:var(--black);border-top-color:var(--black);box-shadow:0 24px 60px -20px rgba(212,255,0,.3)}
-  .tarief-card.hot:hover{border-top-color:rgba(0,0,0,.85)}
+  .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;max-width:880px;margin:0 auto}
+  .tarief-card{background:var(--white);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:all .3s;border:1px solid var(--line);border-top:3px solid transparent;border-radius:var(--r-card);box-shadow:var(--sh-2)}
+  .tarief-card:hover{transform:translateY(-4px);border-top-color:var(--accent);box-shadow:var(--sh-hover)}
+  .tarief-card.hot{background:linear-gradient(180deg,rgba(212,255,0,.08),rgba(212,255,0,.01) 45%,var(--white) 100%);border-color:rgba(110,130,0,.22);border-top-color:var(--accent);box-shadow:0 24px 60px -26px rgba(20,22,17,.22)}
   .tarief-card .ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);background:var(--black);color:var(--accent);padding:6px 14px;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;border:1px solid var(--accent)}
-  .t-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-  .tarief-card.hot .t-label{color:rgba(0,0,0,.55)}
+  .t-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:8px}
   .t-name{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;margin-bottom:18px;line-height:.95;letter-spacing:.3px;color:var(--ink)}
   .t-price-wrap{display:flex;align-items:baseline;gap:2px;margin-bottom:4px;font-family:var(--fd);font-weight:900;line-height:1}
   .t-price-wrap .currency{font-size:24px;color:var(--accent-ink);margin-right:6px}
-  .tarief-card.hot .t-price-wrap .currency{color:rgba(0,0,0,.6)}
-  .t-price-wrap .num{font-size:62px;letter-spacing:-1px}
+  .t-price-wrap .num{font-size:62px;letter-spacing:-1px;color:var(--ink)}
   .t-period{font-size:12px;color:var(--ink-soft);margin-bottom:24px;letter-spacing:.3px}
-  .tarief-card.hot .t-period{color:rgba(0,0,0,.5)}
   .t-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:24px 0 28px;padding-top:22px;border-top:1px solid var(--line);flex-grow:1}
-  .tarief-card.hot .t-features{border-top-color:rgba(0,0,0,.12)}
   .t-features li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-soft);font-weight:400}
-  .tarief-card.hot .t-features li{color:rgba(0,0,0,.78)}
   .t-features li svg{color:var(--accent-ink);flex-shrink:0;margin-top:3px}
-  .tarief-card.hot .t-name,.tarief-card.hot .t-price-wrap .num{color:var(--black)}
-  .tarief-card.hot .t-features li svg{color:var(--black)}
-  .t-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .25s;border:2px solid}
+  .t-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .25s;border:2px solid;border-radius:var(--r-btn)}
   .t-cta-dark{background:var(--black);color:var(--accent);border-color:var(--black)}
   .t-cta-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
   .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(20,22,17,.2)}
-  .t-cta-outline:hover{border-color:var(--accent);color:var(--accent)}
+  .t-cta-outline:hover{border-color:var(--accent-ink);color:var(--accent-ink);background:rgba(212,255,0,.08)}
   .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
 
   /* FOR WHO */
@@ -280,7 +270,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .page-hero{grid-template-columns:1fr;min-height:auto}
     .page-hero-left{padding:40px}
     .page-hero-right{min-height:0;padding:36px 20px}
-    .app-phone-pair{transform:none}
+    .app-visual{height:475px;max-width:340px}
+    .app-phone-front{width:210px}
+    .app-phone-back{width:164px;left:8px;top:44px}
     .forwho-grid-list{grid-template-columns:1fr;gap:0}
     .steps{grid-template-columns:1fr 1fr}
     .tarief-cards{grid-template-columns:1fr}
@@ -293,8 +285,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .nutri-features{grid-template-columns:1fr}
     .nutri-feat:nth-child(odd){padding-right:0;border-right:none}
     .nutri-feat:nth-child(even){padding-left:0}
-    .hbar-inner{grid-template-columns:1fr;gap:24px;text-align:left}
-    .hbar-grid{grid-template-columns:1fr 1fr}
+    .voordelen-grid{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:32px}
     .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
     .compare-table{grid-template-columns:1.2fr .9fr .9fr;font-size:12px}
     .ct-cell{padding:14px 14px}
@@ -318,19 +309,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     section{padding:56px 0}
     h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
     h2{font-size:clamp(34px,9vw,48px)!important}
+    .page-hero h1{font-size:clamp(28px,8vw,38px)!important;line-height:1.2!important;max-width:none}
 
-    .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
-    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:24px!important}
-    .app-phone{width:250px!important}
-    .app-phone-pair{gap:10px}
-    .app-phone-pair .app-phone{width:150px!important}
+    .page-hero-left,.fu-page-hero-left{padding:110px 20px 40px!important}
+    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:8px 20px 40px!important}
+    .app-visual{height:390px;max-width:280px}
+    .app-phone-front{width:172px}
+    .app-phone-back{width:134px;left:2px;top:36px}
+    .hero-badge{bottom:2px;right:0;font-size:10px;padding:10px 14px}
     .app-showcase{max-width:100%!important}
-    .page-hero-sub,.fu-page-hero-sub{font-size:15px}
-    .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
-    .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
-    .ph-stat-num,.fu-ph-stat-num{font-size:22px}
-    .ph-stat-label,.fu-ph-stat-label{font-size:9px;letter-spacing:1px}
-    .page-hero-ctas,.fu-page-hero-ctas{flex-direction:column;align-items:stretch;gap:12px}
+    .page-hero-lead,.fu-page-hero-lead{font-size:16px}
+    .page-hero-sub,.fu-page-hero-sub{font-size:14px}
+    .page-hero-ctas,.fu-page-hero-ctas{flex-direction:column;align-items:stretch;gap:14px}
     .page-hero-ctas .btn-accent,.fu-page-hero-ctas .btn-accent{justify-content:center;width:100%}
 
     .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
@@ -347,9 +337,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
-    .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
-    .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps,.voordelen-grid{grid-template-columns:1fr!important}
 
     .reviews-grid{grid-template-columns:1fr!important}
     .services-grid,.fu-services-grid{grid-template-columns:1fr!important;gap:2px}
@@ -456,32 +444,24 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <header class="page-hero" data-screen-label="Hero Online Coaching">
   <div class="page-hero-left">
     <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Online Coaching</div>
-    <h1>Online Coaching<br><em>Fit Up Leiderdorp</em></h1>
-    <p class="page-hero-sub">
-      <strong>Persoonlijk schema, voedingsplan en wekelijkse check-in</strong> met je vaste
-      coach — alles in dezelfde app die we bij Fit Up Leiderdorp gebruiken. Train thuis,
-      bij ons of in je eigen sportschool. Resultaat zonder dat je elke week op afspraak hoeft.
-    </p>
-    <div class="page-hero-stats">
-      <div class="ph-stat"><div class="ph-stat-num">100%</div><div class="ph-stat-label">Op maat</div></div>
-      <div class="ph-stat"><div class="ph-stat-num">1×</div><div class="ph-stat-label">Check-in p/week</div></div>
-      <div class="ph-stat"><div class="ph-stat-num">€50</div><div class="ph-stat-label">Vanaf p/4 wkn</div></div>
-    </div>
+    <h1>Online Coaching bij <em>Fit Up Leiderdorp</em></h1>
+    <p class="page-hero-lead">Persoonlijk plan. Wekelijkse coaching. Train waar je wilt.</p>
+    <p class="page-hero-sub">Train met een persoonlijk trainingsschema, voedingsplan en vaste wekelijkse check-in — volledig via de Fit Up-app.</p>
     <div class="page-hero-ctas">
       <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Online%20Coaching" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#tarieven" class="btn-ghost">Of: bekijk tarieven →</a>
+      <a href="#tarieven" class="btn-ghost">Bekijk pakketten →</a>
     </div>
   </div>
   <div class="page-hero-right">
-    <div class="app-phone-pair">
-      <div class="app-phone">
-        <div class="app-phone-screen">
-          <img src="../assets/images/app-startscherm-coaching.jpg" alt="Startscherm van de Fit Up online coaching-app met je coach en club" width="640" height="1280" fetchpriority="high" decoding="async">
-        </div>
-      </div>
-      <div class="app-phone">
+    <div class="app-visual">
+      <div class="app-phone app-phone-back">
         <div class="app-phone-screen">
           <img src="../assets/images/app-doelen-coaching.jpg" alt="Doelenscherm van de Fit Up online coaching-app met gewichtsdoel en voortgang" width="640" height="1408" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="app-phone app-phone-front">
+        <div class="app-phone-screen">
+          <img src="../assets/images/app-startscherm-coaching.jpg" alt="Startscherm van de Fit Up online coaching-app met je coach en club" width="640" height="1280" fetchpriority="high" decoding="async">
         </div>
       </div>
     </div>
@@ -489,19 +469,34 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </div>
 </header>
 
-<!-- HIGHLIGHT BAND -->
-<section class="hbar" style="padding:36px 0">
+<!-- VOORDELEN -->
+<section class="voordelen" aria-labelledby="voordelen-heading">
   <div class="container">
-    <div class="hbar-inner">
-      <div class="hbar-eyebrow">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Wat krijg je
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Wat krijg je</div>
+      <h2 id="voordelen-heading" class="reveal d1">Alles wat je nodig hebt om zelfstandig te trainen — <em>zonder het alleen te hoeven doen.</em></h2>
+      <p class="voordelen-meta reveal d2">100% op maat · 1× check-in per week · vanaf €50 per 4 weken</p>
+    </div>
+    <div class="voordelen-grid">
+      <div class="voordelen-card reveal">
+        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+        <h3>Persoonlijk trainingsplan</h3>
+        <p>Op jouw niveau, doel en beschikbare trainingsmogelijkheden.</p>
       </div>
-      <div class="hbar-grid">
-        <div class="hbar-item"><div class="hbar-label">Schema</div><div class="hbar-value"><em>Op maat</em></div></div>
-        <div class="hbar-item"><div class="hbar-label">Voeding</div><div class="hbar-value">Plan <em>via app</em></div></div>
-        <div class="hbar-item"><div class="hbar-label">Check-in</div><div class="hbar-value"><em>Wekelijks</em></div></div>
-        <div class="hbar-item"><div class="hbar-label">Meting</div><div class="hbar-value">Elke <em>4 weken</em></div></div>
+      <div class="voordelen-card reveal d1">
+        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Voeding</h3>
+        <p>Duidelijke richtlijnen en een plan dat praktisch vol te houden is.</p>
+      </div>
+      <div class="voordelen-card reveal d2">
+        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Wekelijkse check-in</h3>
+        <p>Vaste evaluatie en bijsturing met je coach.</p>
+      </div>
+      <div class="voordelen-card reveal d3">
+        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3>Voortgang</h3>
+        <p>Training, voeding en resultaten overzichtelijk in dezelfde app.</p>
       </div>
     </div>
   </div>
