@@ -185,6 +185,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* PRICING */
   .pricing{background:var(--paper);padding:100px 0}
+  .price-toggle{display:inline-flex;gap:4px;background:var(--paper2);border:1px solid var(--line);border-radius:999px;padding:4px;margin-top:24px}
+  .price-toggle-btn{border:0;background:transparent;padding:10px 18px;border-radius:999px;font-family:var(--fd);font-weight:800;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+  .price-toggle-btn.is-active{background:var(--black);color:var(--accent)}
+  .price-toggle-badge{background:var(--accent);color:var(--black);font-size:9.5px;font-weight:800;padding:3px 8px;border-radius:999px;letter-spacing:.5px}
+  .t-day{font-size:12px;font-weight:600;color:var(--ink-mute);margin-bottom:6px}
+  .t-period-note.is-hidden{display:none}
   .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;max-width:880px;margin:0 auto}
   .tarief-card{background:var(--white);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:all .3s;border:1px solid var(--line);border-top:3px solid transparent;border-radius:var(--r-card);box-shadow:var(--sh-2)}
   .tarief-card:hover{transform:translateY(-4px);border-top-color:var(--accent);box-shadow:var(--sh-hover)}
@@ -413,7 +419,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <script src="../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Online Coaching","item":"https://fitupleiderdorp.nl/online-coaching/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Coaching Fit Up Leiderdorp","description":"Persoonlijk trainings- en voedingsschema, wekelijkse check-in en techniek-coaching op video, overal ter wereld.","url":"https://fitupleiderdorp.nl/online-coaching/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"offers":[{"@type":"Offer","name":"Online Coaching","price":"50","priceCurrency":"EUR","description":"per 4 weken, maandelijks opzegbaar"},{"@type":"Offer","name":"Hybride Coaching","price":"75","priceCurrency":"EUR","description":"per 4 weken, online begeleiding plus fysieke check-ins in de club"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Coaching Fit Up Leiderdorp","description":"Persoonlijk trainings- en voedingsschema, wekelijkse check-in en techniek-coaching op video, overal ter wereld.","url":"https://fitupleiderdorp.nl/online-coaching/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"offers":[{"@type":"Offer","name":"Online Coaching · 12 weken","price":"50","priceCurrency":"EUR","description":"per 4 weken bij 12 weken vooruit betalen (€150 totaal)"},{"@type":"Offer","name":"Online Coaching · Flexibel","price":"60","priceCurrency":"EUR","description":"per 4 weken, maandelijks opzegbaar"},{"@type":"Offer","name":"Hybride Coaching · 12 weken","price":"75","priceCurrency":"EUR","description":"per 4 weken bij 12 weken vooruit betalen (€225 totaal), online begeleiding plus fysieke check-ins in de club"},{"@type":"Offer","name":"Hybride Coaching · Flexibel","price":"90","priceCurrency":"EUR","description":"per 4 weken, maandelijks opzegbaar, online begeleiding plus fysieke check-ins in de club"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Moet ik in Leiderdorp wonen?","acceptedAnswer":{"@type":"Answer","text":"Nee. Online Coaching werkt overal in Nederland (en daarbuiten). We hebben klanten die thuis trainen, in een Basic-Fit om de hoek of zelfs vanuit Spanje. Het Hybride-pakket is alleen interessant als je af en toe in onze club in Leiderdorp wil trainen."}},{"@type":"Question","name":"Hoe vaak heb ik contact met mijn coach?","acceptedAnswer":{"@type":"Answer","text":"Elke week stuur je een check-in (gewicht, foto's, hoe je je voelt) en krijg je daar persoonlijk antwoord op. Tussendoor kun je altijd vragen stellen via de chat — gemiddeld reageert je coach binnen een werkdag."}},{"@type":"Question","name":"Wat als ik geen ervaring heb met krachttraining?","acceptedAnswer":{"@type":"Answer","text":"Geen probleem. Elke oefening heeft een techniekvideo, en je kunt je eigen sets op video opnemen voor feedback. Heb je écht weinig ervaring, dan adviseren we vaak om eerst een paar PT-sessies te doen voor de basis — daarna draait Online Coaching prima."}},{"@type":"Question","name":"Welk schema krijg ik — gym of thuis?","acceptedAnswer":{"@type":"Answer","text":"Wat het beste bij jouw situatie past. We vragen in de intake welke apparaten/spullen je hebt en bouwen daar je schema omheen. Verander je van sportschool of ga je op reis? Stuur het door en we passen het schema aan."}},{"@type":"Question","name":"Kan ik tussentijds switchen naar Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Ja. Veel klanten starten met Online Coaching en stappen over naar PT (of andersom). We rekenen geen extra inschrijfkosten — je betaalt vanaf het moment van switchen het nieuwe tarief."}},{"@type":"Question","name":"Wat is de minimale looptijd?","acceptedAnswer":{"@type":"Answer","text":"Maand-tot-maand. Eerste 4 weken niet tevreden? Stop kosteloos. Voor blijvend resultaat raden we wel minimaal 3 maanden aan — minder is meestal te kort om écht door je metingen heen te kijken."}}]}</script>
 </head>
 <body>
@@ -666,14 +672,22 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="sec-label reveal"><span class="sec-label-line"></span>Tarieven Online Coaching</div>
       <h2 id="pricing-heading" class="reveal d1">Kies jouw <em>pakket</em></h2>
       <p class="reveal d2">Beide pakketten: persoonlijk trainings- en voedingsschema, wekelijkse check-in en chat met je coach via de app.</p>
+      <div class="price-toggle reveal d2" role="tablist" aria-label="Betaalperiode" id="priceToggle">
+        <button type="button" class="price-toggle-btn" data-period="4" role="tab" aria-selected="false">Flexibel · 4 weken</button>
+        <button type="button" class="price-toggle-btn is-active" data-period="12" role="tab" aria-selected="true">12 weken <span class="price-toggle-badge">Voordeligst</span></button>
+      </div>
     </div>
     <div class="tarief-cards">
       <!-- Online Coaching -->
-      <div class="tarief-card reveal">
+      <div class="tarief-card reveal" data-price-4="60" data-price-12="50" data-day-4="2,14" data-day-12="1,79">
         <div class="t-label">Alleen Online</div>
         <div class="t-name">Online<br>Coaching</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">50</span></div>
-        <div class="t-period">per 4 weken · maandelijks opzegbaar</div>
+        <div class="t-day">±€1,79 per dag</div>
+        <div class="t-period">per 4 weken
+          <span class="t-period-note note-4 is-hidden">· maandelijks opzegbaar</span>
+          <span class="t-period-note note-12">· gefactureerd per 12 weken (€150 totaal)</span>
+        </div>
         <ul class="t-features">
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volledig op maat gemaakt trainingsschema</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk doel ingesteld in Virtuagym Food</li>
@@ -688,12 +702,16 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Online%20Coaching" class="t-cta t-cta-outline">Aanmelden →</a>
       </div>
       <!-- Hybride -->
-      <div class="tarief-card hot reveal d1">
+      <div class="tarief-card hot reveal d1" data-price-4="90" data-price-12="75" data-day-4="3,21" data-day-12="2,68">
         <div class="ribbon">★ Aanrader</div>
         <div class="t-label">Online + in de club</div>
         <div class="t-name">Hybride<br>Coaching</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">75</span></div>
-        <div class="t-period">per 4 weken · online begeleiding + fysieke check-ins</div>
+        <div class="t-day">±€2,68 per dag</div>
+        <div class="t-period">per 4 weken
+          <span class="t-period-note note-4 is-hidden">· online begeleiding + fysieke check-ins</span>
+          <span class="t-period-note note-12">· gefactureerd per 12 weken (€225 totaal)</span>
+        </div>
         <ul class="t-features">
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit Online Coaching</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fysieke check-in in de club</li>
@@ -704,7 +722,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Hybride%20Coaching" class="t-cta t-cta-dark">Aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
-    <p class="tarief-foot">Maandelijks opzegbaar · Geen lange contracten · Eerste 4 weken niet tevreden? Stop kosteloos.</p>
+    <p class="tarief-foot">Bij 12 weken betaal je altijd minder per 4 weken dan bij Flexibel · Eerste 4 weken niet tevreden? Stop kosteloos.</p>
   </div>
 </section>
 
@@ -915,6 +933,35 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   update();
 })();
 /* === END ROUTE SCROLL PROGRESS === */
+</script>
+
+<script>
+/* === PRICE PERIOD TOGGLE (Flexibel / 12 weken) === */
+(function(){
+  var toggle = document.getElementById('priceToggle');
+  if(!toggle) return;
+  var btns = Array.prototype.slice.call(toggle.querySelectorAll('.price-toggle-btn'));
+  var cards = document.querySelectorAll('.tarief-card');
+  function setPeriod(period){
+    btns.forEach(function(btn){
+      var active = btn.getAttribute('data-period') === period;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    cards.forEach(function(card){
+      var num = card.querySelector('.t-price-wrap .num');
+      var day = card.querySelector('.t-day');
+      if(num) num.textContent = card.getAttribute('data-price-' + period);
+      if(day) day.textContent = '±€' + card.getAttribute('data-day-' + period) + ' per dag';
+      card.querySelectorAll('.note-4').forEach(function(el){ el.classList.toggle('is-hidden', period !== '4'); });
+      card.querySelectorAll('.note-12').forEach(function(el){ el.classList.toggle('is-hidden', period !== '12'); });
+    });
+  }
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){ setPeriod(btn.getAttribute('data-period')); });
+  });
+})();
+/* === END PRICE PERIOD TOGGLE === */
 </script>
 </body>
 </html>
