@@ -24,15 +24,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Online Coaching | Training, Voeding & Persoonlijke Coach | Fit Up</title>
-<meta name="description" content="Online coaching met een persoonlijk trainingsplan, voedingsbegeleiding en wekelijkse check-ins. Train waar je wilt, met een vaste coach van Fit Up.">
+<meta name="description" content="Online coaching vanaf €50 per 4 weken met persoonlijk trainingsplan, voedingsbegeleiding, wekelijkse check-ins en een vaste coach. Beschikbaar door heel Nederland.">
 <meta property="og:title" content="Online Coaching | Training, Voeding & Persoonlijke Coach | Fit Up">
 <meta property="og:type" content="website">
-<meta property="og:description" content="Online coaching met een persoonlijk trainingsplan, voedingsbegeleiding en wekelijkse check-ins. Train waar je wilt, met een vaste coach van Fit Up.">
+<meta property="og:description" content="Online coaching vanaf €50 per 4 weken met persoonlijk trainingsplan, voedingsbegeleiding, wekelijkse check-ins en een vaste coach. Beschikbaar door heel Nederland.">
 <meta property="og:url" content="https://fitupleiderdorp.nl/online-coaching/">
 <meta property="og:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Online Coaching | Training, Voeding & Persoonlijke Coach | Fit Up">
-<meta name="twitter:description" content="Online coaching met een persoonlijk trainingsplan, voedingsbegeleiding en wekelijkse check-ins. Train waar je wilt, met een vaste coach van Fit Up.">
+<meta name="twitter:description" content="Online coaching vanaf €50 per 4 weken met persoonlijk trainingsplan, voedingsbegeleiding, wekelijkse check-ins en een vaste coach. Beschikbaar door heel Nederland.">
 <meta name="twitter:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
 <link rel="canonical" href="https://fitupleiderdorp.nl/online-coaching/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,6 +115,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .voordelen-icon{width:42px;height:42px;border-radius:10px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.14);display:flex;align-items:center;justify-content:center;color:var(--accent-ink)}
   .voordelen-card h3{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:var(--ink)}
   .voordelen-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
+
+  /* COACHES — Benjamin & Patrick */
+  .coaches{background:var(--paper2);padding:100px 0}
+  .coaches .sec-head p{max-width:600px}
+  .coaches-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:860px;margin:0 auto}
+  .coach-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;display:flex;flex-direction:column}
+  .coach-photo{aspect-ratio:4/5;background:var(--paper2);overflow:hidden}
+  .coach-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .coach-body{padding:26px 28px 30px}
+  .coach-name{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:26px;letter-spacing:.3px;line-height:1;color:var(--ink)}
+  .coach-role{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);margin-top:10px;margin-bottom:14px}
+  .coach-bio{font-size:14px;color:var(--ink-soft);line-height:1.7;font-weight:400}
 
   /* APP DEMO — echte video's van training & voeding in de app */
   .app-demo{padding:90px 0}
@@ -246,6 +258,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(20,22,17,.2)}
   .t-cta-outline:hover{border-color:var(--accent-ink);color:var(--accent-ink);background:rgba(212,255,0,.08)}
   .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
+  .price-toggle-wrap{text-align:center;margin:0 0 40px}
+  .price-toggle{display:inline-flex;background:var(--paper2);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
+  .toggle-btn{border:0;background:transparent;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);padding:10px 24px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+  .toggle-btn.active{background:var(--black);color:var(--accent)}
+  .toggle-btn:hover:not(.active){color:var(--ink)}
+  .toggle-btn:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+  .toggle-note{font-size:11.5px;color:var(--ink-mute);margin-top:12px;max-width:360px;margin-left:auto;margin-right:auto;line-height:1.5}
+  .price-trust{text-align:center;margin-top:16px;font-size:12.5px;color:var(--ink-soft)}
 
   /* FOR WHO */
   .forwho{background:var(--paper2)}
@@ -379,7 +399,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.voordelen-grid,.why-grid,.proof-grid{grid-template-columns:1fr!important}
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.voordelen-grid,.why-grid,.proof-grid,.coaches-grid{grid-template-columns:1fr!important}
+    .toggle-btn{padding:9px 18px;font-size:12px}
     .compare-table-wrap{margin-left:-20px;margin-right:-20px;width:calc(100% + 40px);border-radius:0}
     .compare-table{border-radius:0;border-left:none;border-right:none}
     .ct-cell{padding:14px 16px;font-size:12.5px}
@@ -465,7 +486,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Online Coaching","item":"https://fitupleiderdorp.nl/online-coaching/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Coaching Fit Up Leiderdorp","description":"Persoonlijk trainings- en voedingsschema, wekelijkse check-in en techniek-coaching op video, overal ter wereld.","url":"https://fitupleiderdorp.nl/online-coaching/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"offers":[{"@type":"Offer","name":"Online Coaching","price":"50","priceCurrency":"EUR","description":"per 4 weken, bij minimaal 3 maanden"},{"@type":"Offer","name":"Hybride Coaching","price":"75","priceCurrency":"EUR","description":"per 4 weken, bij minimaal 3 maanden, online begeleiding plus fysieke check-ins in de club"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Moet ik in Leiderdorp wonen?","acceptedAnswer":{"@type":"Answer","text":"Nee. Online Coaching werkt overal in Nederland (en daarbuiten). We hebben klanten die thuis trainen, in een Basic-Fit om de hoek of zelfs vanuit Spanje. Het Hybride-pakket is alleen interessant als je af en toe in onze club in Leiderdorp wil trainen."}},{"@type":"Question","name":"Hoe vaak heb ik contact met mijn coach?","acceptedAnswer":{"@type":"Answer","text":"Elke week stuur je een check-in (gewicht, foto's, hoe je je voelt) en krijg je daar persoonlijk antwoord op. Tussendoor kun je altijd vragen stellen via de chat — gemiddeld reageert je coach binnen een werkdag."}},{"@type":"Question","name":"Wat als ik geen ervaring heb met krachttraining?","acceptedAnswer":{"@type":"Answer","text":"Geen probleem. Elke oefening heeft een techniekvideo, en je kunt je eigen sets op video opnemen voor feedback. Heb je écht weinig ervaring, dan adviseren we vaak om eerst een paar PT-sessies te doen voor de basis — daarna draait Online Coaching prima."}},{"@type":"Question","name":"Welk schema krijg ik — gym of thuis?","acceptedAnswer":{"@type":"Answer","text":"Wat het beste bij jouw situatie past. We vragen in de intake welke apparaten/spullen je hebt en bouwen daar je schema omheen. Verander je van sportschool of ga je op reis? Stuur het door en we passen het schema aan."}},{"@type":"Question","name":"Kan ik tussentijds switchen naar Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Ja. Veel klanten starten met Online Coaching en stappen over naar PT (of andersom). We rekenen geen extra inschrijfkosten — je betaalt vanaf het moment van switchen het nieuwe tarief."}},{"@type":"Question","name":"Wat is de minimale looptijd?","acceptedAnswer":{"@type":"Answer","text":"Het standaardtarief (€50 / €75 per 4 weken) geldt bij minimaal 3 maanden — die periode heb je nodig om écht door je eerste metingen heen te kijken. Liever flexibel? Dan is maandelijks opzegbaar ook mogelijk, tegen een hoger tarief. We bespreken dit graag tijdens de gratis intake."}},{"@type":"Question","name":"Moet ik lid zijn van Fit Up Leiderdorp?","acceptedAnswer":{"@type":"Answer","text":"Nee. Voor Online Coaching heb je geen lidmaatschap van de fysieke club nodig."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost online coaching?","acceptedAnswer":{"@type":"Answer","text":"Online Coaching kost €50 per 4 weken. Voor 12 weken is dat in totaal €150."}},{"@type":"Question","name":"Wat krijg ik voor €50 per 4 weken?","acceptedAnswer":{"@type":"Answer","text":"Een persoonlijk trainingsplan, voedingsbegeleiding, een wekelijkse check-in en techniekfeedback van je vaste coach — Benjamin of Patrick — die je voortgang volgt en waar nodig bijstuurt."}},{"@type":"Question","name":"Kan ik bij mijn eigen sportschool blijven trainen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Je kunt trainen bij je eigen sportschool, thuis of op een andere locatie. Je schema wordt afgestemd op jouw trainingsomgeving en beschikbare materiaal."}},{"@type":"Question","name":"Is Online Coaching hetzelfde als Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Nee. Bij Personal Training staat je coach fysiek naast je tijdens de training. Bij Online Coaching train je zelfstandig en krijg je op afstand persoonlijke planning, feedback en bijsturing."}},{"@type":"Question","name":"Is Online Coaching door heel Nederland beschikbaar?","acceptedAnswer":{"@type":"Answer","text":"Ja. De begeleiding vindt online plaats en is daardoor niet gebonden aan Leiderdorp."}},{"@type":"Question","name":"Moet ik in Leiderdorp wonen?","acceptedAnswer":{"@type":"Answer","text":"Nee. Online Coaching werkt overal in Nederland (en daarbuiten). We hebben klanten die thuis trainen, in een Basic-Fit om de hoek of zelfs vanuit Spanje. Het Hybride-pakket is alleen interessant als je af en toe in onze club in Leiderdorp wil trainen."}},{"@type":"Question","name":"Hoe vaak heb ik contact met mijn coach?","acceptedAnswer":{"@type":"Answer","text":"Elke week stuur je een check-in (gewicht, foto's, hoe je je voelt) en krijg je daar persoonlijk antwoord op. Tussendoor kun je altijd vragen stellen via de chat — gemiddeld reageert je coach binnen een werkdag."}},{"@type":"Question","name":"Wat als ik geen ervaring heb met krachttraining?","acceptedAnswer":{"@type":"Answer","text":"Geen probleem. Elke oefening heeft een techniekvideo, en je kunt je eigen sets op video opnemen voor feedback. Heb je écht weinig ervaring, dan adviseren we vaak om eerst een paar PT-sessies te doen voor de basis — daarna draait Online Coaching prima."}},{"@type":"Question","name":"Welk schema krijg ik — gym of thuis?","acceptedAnswer":{"@type":"Answer","text":"Wat het beste bij jouw situatie past. We vragen in de intake welke apparaten/spullen je hebt en bouwen daar je schema omheen. Verander je van sportschool of ga je op reis? Stuur het door en we passen het schema aan."}},{"@type":"Question","name":"Kan ik tussentijds switchen naar Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Ja. Veel klanten starten met Online Coaching en stappen over naar PT (of andersom). We rekenen geen extra inschrijfkosten — je betaalt vanaf het moment van switchen het nieuwe tarief."}},{"@type":"Question","name":"Wat is de minimale looptijd?","acceptedAnswer":{"@type":"Answer","text":"Het standaardtarief (€50 / €75 per 4 weken) geldt bij minimaal 3 maanden — die periode heb je nodig om écht door je eerste metingen heen te kijken. Liever flexibel? Dan is maandelijks opzegbaar ook mogelijk, tegen een hoger tarief. We bespreken dit graag tijdens de gratis intake."}},{"@type":"Question","name":"Moet ik lid zijn van Fit Up Leiderdorp?","acceptedAnswer":{"@type":"Answer","text":"Nee. Voor Online Coaching heb je geen lidmaatschap van de fysieke club nodig."}}]}</script>
 </head>
 <body>
 
@@ -553,6 +574,36 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </div>
 </section>
 
+<!-- COACHES -->
+<section class="coaches" aria-labelledby="coaches-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Je coach</div>
+      <h2 id="coaches-heading" class="reveal d1">Je wordt begeleid door <em>Benjamin of Patrick</em></h2>
+      <p class="reveal d2">Geen anonieme app of standaard schema. Bij Fit Up Online Coaching heb je een vaste coach die je training, voeding en voortgang persoonlijk volgt en bijstuurt.</p>
+    </div>
+    <!-- Bio's hergebruikt uit de teamsectie op de homepage (index.html). Later uit te breiden met meer specialisaties/coachingstijl zodra beschikbaar. -->
+    <div class="coaches-grid">
+      <div class="coach-card reveal">
+        <div class="coach-photo"><img src="../assets/images/team-benjamin.jpg" alt="Benjamin — Online Coach bij Fit Up" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="coach-body">
+          <h3 class="coach-name">Benjamin</h3>
+          <div class="coach-role">Online Coach</div>
+          <p class="coach-bio">Begeleidt je 1-op-1 met een schema en techniek die kloppen voor jouw doel en niveau — of je nu net begint of een niveau hoger wilt.</p>
+        </div>
+      </div>
+      <div class="coach-card reveal d1">
+        <div class="coach-photo"><img src="../assets/images/team-patrick.jpg" alt="Patrick — Eigenaar, Online Coach en Personal Trainer bij Fit Up" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="coach-body">
+          <h3 class="coach-name">Patrick</h3>
+          <div class="coach-role">Eigenaar &middot; Online Coach &amp; Personal Trainer</div>
+          <p class="coach-bio">Oud-Defensie en sinds 2014 eigenaar en het gezicht van Fit Up. Coacht 1-op-1 en kent zijn klanten bij naam — discipline en persoonlijke aandacht in één.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="tarieven" class="pricing" aria-labelledby="pricing-heading">
   <div class="container">
@@ -560,15 +611,22 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="sec-label reveal"><span class="sec-label-line"></span>Tarieven</div>
       <h2 id="pricing-heading" class="reveal d1">Kies jouw <em>pakket</em></h2>
     </div>
+    <div class="price-toggle-wrap reveal">
+      <div class="price-toggle" role="group" aria-label="Weergaveperiode kiezen">
+        <button type="button" class="toggle-btn active" data-period="4" aria-pressed="true">4 weken</button>
+        <button type="button" class="toggle-btn" data-period="12" aria-pressed="false">12 weken</button>
+      </div>
+      <p class="toggle-note">12 weken = 3 periodes van 4 weken. Geen prijsverschil, alleen een andere weergave.</p>
+    </div>
     <div class="tarief-cards">
       <!-- Online Coaching -->
       <div class="tarief-card reveal">
         <div class="t-label">Alleen Online</div>
         <div class="t-name">Online<br>Coaching</div>
         <div class="t-price-tag">Voordeligste keuze · 3 maanden</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num">50</span></div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="50" data-price12="150">50</span></div>
         <div class="t-day">± €1,79 per dag</div>
-        <div class="t-period">per 4 weken · bij minimaal 3 maanden</div>
+        <div class="t-period" data-period4="per 4 weken · bij minimaal 3 maanden" data-period12="totaalprijs voor 12 weken (3 maanden)">per 4 weken · bij minimaal 3 maanden</div>
         <!-- TODO (eigenaar): vul hier de maandelijks opzegbare (flexibele) prijs in — dit is nog niet bekend en mag niet verzonnen worden. Zodra bekend: prijs invullen in de tekst hieronder. -->
         <p class="t-flex-note">Liever flexibel? Maandelijks opzegbaar mogelijk — vraag ernaar bij de intake.</p>
         <ul class="t-features">
@@ -586,9 +644,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-label">Online + in de club</div>
         <div class="t-name">Hybride<br>Coaching</div>
         <div class="t-price-tag">Online + fysieke begeleiding · 3 maanden</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num">75</span></div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="75" data-price12="225">75</span></div>
         <div class="t-day">± €2,68 per dag</div>
-        <div class="t-period">per 4 weken · bij minimaal 3 maanden</div>
+        <div class="t-period" data-period4="per 4 weken · bij minimaal 3 maanden" data-period12="totaalprijs voor 12 weken (3 maanden)">per 4 weken · bij minimaal 3 maanden</div>
         <!-- TODO (eigenaar): vul hier de maandelijks opzegbare (flexibele) prijs in — dit is nog niet bekend en mag niet verzonnen worden. Zodra bekend: prijs invullen in de tekst hieronder. -->
         <p class="t-flex-note">Liever flexibel? Maandelijks opzegbaar mogelijk — vraag ernaar bij de intake.</p>
         <ul class="t-features">
@@ -601,6 +659,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
     </div>
     <p class="tarief-foot">Bij 3 maanden · maandelijks opzegbaar kan ook, tegen een hoger tarief.</p>
+    <p class="price-trust">Eerst kennismaken? Plan een gratis intake via WhatsApp of videocall.</p>
   </div>
 </section>
 
@@ -953,6 +1012,24 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </div>
 </section>
 
+<!-- WAT KRIJG JE (GEO/AI) -->
+<section class="faq-section" id="wat-krijg-je" aria-labelledby="watkrijgje-heading" style="background:var(--paper)">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Kort &amp; duidelijk</div>
+      <h2 id="watkrijgje-heading" class="reveal d1">Wat krijg je bij <em>Online Coaching van Fit Up?</em></h2>
+      <p class="reveal d2">De belangrijkste vragen over prijs, inhoud en werkwijze in het kort.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><div class="faq-q">Wat kost online coaching?</div><div class="faq-a">Online Coaching kost €50 per 4 weken. Voor 12 weken is dat in totaal €150.</div></div>
+      <div class="faq-item reveal d1"><div class="faq-q">Wat krijg ik voor €50 per 4 weken?</div><div class="faq-a">Een persoonlijk trainingsplan, voedingsbegeleiding, een wekelijkse check-in en techniekfeedback van je vaste coach — Benjamin of Patrick — die je voortgang volgt en waar nodig bijstuurt.</div></div>
+      <div class="faq-item reveal d2"><div class="faq-q">Kan ik bij mijn eigen sportschool blijven trainen?</div><div class="faq-a">Ja. Je kunt trainen bij je eigen sportschool, thuis of op een andere locatie. Je schema wordt afgestemd op jouw trainingsomgeving en beschikbare materiaal.</div></div>
+      <div class="faq-item reveal d3"><div class="faq-q">Is Online Coaching hetzelfde als Personal Training?</div><div class="faq-a">Nee. Bij Personal Training staat je coach fysiek naast je tijdens de training. Bij Online Coaching train je zelfstandig en krijg je op afstand persoonlijke planning, feedback en bijsturing.</div></div>
+      <div class="faq-item reveal d4"><div class="faq-q">Is Online Coaching door heel Nederland beschikbaar?</div><div class="faq-a">Ja. De begeleiding vindt online plaats en is daardoor niet gebonden aan Leiderdorp.</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq-section" aria-labelledby="faq-heading">
   <div class="container">
@@ -1043,6 +1120,30 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </a>
   </div>
 </section>
+
+<script>
+/* === PRICING: 4/12 weken toggle === */
+(function(){
+  var toggle = document.querySelector('.price-toggle');
+  if(!toggle) return;
+  var btns = toggle.querySelectorAll('.toggle-btn');
+  var nums = document.querySelectorAll('.tarief-card .num[data-price4]');
+  var periods = document.querySelectorAll('.tarief-card .t-period[data-period4]');
+  function setPeriod(period){
+    btns.forEach(function(b){
+      var active = b.dataset.period === period;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    nums.forEach(function(n){ n.textContent = n.dataset['price' + period]; });
+    periods.forEach(function(p){ p.textContent = p.dataset['period' + period]; });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ setPeriod(b.dataset.period); });
+  });
+})();
+/* === END PRICING TOGGLE === */
+</script>
 
 <script>
 /* === RESULTATEN: interactieve fasen-grafiek === */
