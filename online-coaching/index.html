@@ -201,6 +201,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .if-radio-group{display:flex;gap:20px;flex-wrap:wrap}
   .if-radio{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);cursor:pointer}
   .if-radio input{accent-color:var(--accent-ink)}
+  .if-price-hint{font-size:11.5px;color:var(--ink-mute);margin-top:10px;line-height:1.6}
   .if-submit{width:100%;justify-content:center;border:0;cursor:pointer}
   .if-submit:disabled{opacity:.6;cursor:not-allowed}
   .if-success{margin-top:20px;padding:16px 18px;background:rgba(212,255,0,.14);border:1px solid rgba(110,130,0,.28);border-radius:10px;font-size:14px;color:var(--ink);line-height:1.6}
@@ -275,6 +276,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .toggle-btn{padding:9px 18px;font-size:12px}
 
     .intake-card{padding:28px 22px}
+    .if-radio-group{flex-direction:column;gap:10px}
   }
 
   @media (max-width:420px){
@@ -602,22 +604,22 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <fieldset>
           <legend>Persoonlijk</legend>
           <div class="if-grid if-grid-2">
-            <div class="if-field"><label for="if-voornaam">Voornaam</label><input type="text" id="if-voornaam" name="voornaam" autocomplete="given-name" required></div>
-            <div class="if-field"><label for="if-achternaam">Achternaam</label><input type="text" id="if-achternaam" name="achternaam" autocomplete="family-name" required></div>
-            <div class="if-field"><label for="if-email">E-mail</label><input type="email" id="if-email" name="email" autocomplete="email" required></div>
-            <div class="if-field"><label for="if-telefoon">Telefoon</label><input type="tel" id="if-telefoon" name="telefoon" autocomplete="tel" required></div>
-            <div class="if-field"><label for="if-leeftijd">Leeftijd</label><input type="number" id="if-leeftijd" name="leeftijd" min="14" max="99" required></div>
-            <div class="if-field"><label for="if-lengte">Lengte (cm)</label><input type="number" id="if-lengte" name="lengte" min="120" max="230"></div>
-            <div class="if-field"><label for="if-gewicht">Gewicht (kg)</label><input type="number" id="if-gewicht" name="gewicht" min="30" max="300"></div>
+            <div class="if-field"><label for="if-voornaam">Voornaam</label><input type="text" id="if-voornaam" name="Voornaam" autocomplete="given-name" required></div>
+            <div class="if-field"><label for="if-achternaam">Achternaam</label><input type="text" id="if-achternaam" name="Achternaam" autocomplete="family-name" required></div>
+            <div class="if-field"><label for="if-email">E-mail</label><input type="email" id="if-email" name="E-mailadres" autocomplete="email" required></div>
+            <div class="if-field"><label for="if-telefoon">Telefoon</label><input type="tel" id="if-telefoon" name="Telefoonnummer" autocomplete="tel" required></div>
+            <div class="if-field"><label for="if-leeftijd">Leeftijd</label><input type="number" id="if-leeftijd" name="Leeftijd" min="14" max="99" required></div>
+            <div class="if-field"><label for="if-lengte">Lengte (cm)</label><input type="number" id="if-lengte" name="Lengte" min="120" max="230"></div>
+            <div class="if-field"><label for="if-gewicht">Gewicht (kg)</label><input type="number" id="if-gewicht" name="Huidig gewicht" min="30" max="300"></div>
           </div>
         </fieldset>
 
         <fieldset>
           <legend>Doel</legend>
-          <div class="if-field"><label for="if-doel">Wat wil je bereiken?</label><textarea id="if-doel" name="doel" rows="3" required></textarea></div>
+          <div class="if-field"><label for="if-doel">Wat wil je bereiken?</label><textarea id="if-doel" name="Belangrijkste doel" rows="3" required></textarea></div>
           <div class="if-grid if-grid-2">
-            <div class="if-field"><label for="if-doelgewicht">Doelgewicht (kg, optioneel)</label><input type="number" id="if-doelgewicht" name="doelgewicht" min="30" max="300"></div>
-            <div class="if-field"><label for="if-uitdaging">Grootste uitdaging</label><input type="text" id="if-uitdaging" name="uitdaging"></div>
+            <div class="if-field"><label for="if-doelgewicht">Doelgewicht (kg, optioneel)</label><input type="number" id="if-doelgewicht" name="Doelgewicht" min="30" max="300"></div>
+            <div class="if-field"><label for="if-uitdaging">Grootste uitdaging</label><input type="text" id="if-uitdaging" name="Grootste uitdaging"></div>
           </div>
         </fieldset>
 
@@ -625,36 +627,65 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <legend>Training</legend>
           <div class="if-grid if-grid-2">
             <div class="if-field"><label for="if-freq-nu">Hoe vaak train je nu?</label>
-              <select id="if-freq-nu" name="frequentie_nu">
+              <select id="if-freq-nu" name="Huidige trainingsfrequentie">
                 <option value="">— Kies —</option>
                 <option>Niet</option><option>1x per week</option><option>2-3x per week</option><option>4x of vaker</option>
               </select>
             </div>
             <div class="if-field"><label for="if-freq-wil">Hoe vaak wil/kun je trainen?</label>
-              <select id="if-freq-wil" name="frequentie_gewenst">
+              <select id="if-freq-wil" name="Gewenste trainingsfrequentie">
                 <option value="">— Kies —</option>
                 <option>1x per week</option><option>2-3x per week</option><option>4x of vaker</option>
               </select>
             </div>
-            <div class="if-field"><label for="if-locatie">Waar train je?</label><input type="text" id="if-locatie" name="locatie" placeholder="Thuis, sportschool, Fit Up..."></div>
-            <div class="if-field"><label for="if-blessures">Blessures of beperkingen</label><input type="text" id="if-blessures" name="blessures" placeholder="Geen, of omschrijf kort"></div>
+            <div class="if-field"><label for="if-locatie">Waar train je?</label><input type="text" id="if-locatie" name="Trainingslocatie" placeholder="Thuis, sportschool, Fit Up..."></div>
+            <div class="if-field"><label for="if-blessures">Blessures of beperkingen</label><input type="text" id="if-blessures" name="Blessures / beperkingen" placeholder="Geen, of omschrijf kort"></div>
           </div>
         </fieldset>
 
         <fieldset>
           <legend>Begeleiding</legend>
           <div class="if-radio-group" role="radiogroup" aria-label="Gewenste begeleiding">
-            <label class="if-radio"><input type="radio" name="begeleiding" value="Volledig online" required> Volledig online</label>
-            <label class="if-radio"><input type="radio" name="begeleiding" value="Hybride"> Hybride</label>
-            <label class="if-radio"><input type="radio" name="begeleiding" value="Nog niet zeker"> Nog niet zeker</label>
+            <label class="if-radio"><input type="radio" name="Voorkeur begeleiding" value="Volledig online" required> Volledig online</label>
+            <label class="if-radio"><input type="radio" name="Voorkeur begeleiding" value="Hybride"> Hybride</label>
+            <label class="if-radio"><input type="radio" name="Voorkeur begeleiding" value="Nog niet zeker"> Nog niet zeker</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pakketvoorkeur</legend>
+          <div class="if-radio-group" role="radiogroup" aria-label="Welk pakket heeft je voorkeur?">
+            <label class="if-radio"><input type="radio" name="Pakketvoorkeur" value="Basis" required> Basis</label>
+            <label class="if-radio"><input type="radio" name="Pakketvoorkeur" value="Plus"> Plus</label>
+            <label class="if-radio"><input type="radio" name="Pakketvoorkeur" value="Nog niet zeker"> Nog niet zeker</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Betaalvoorkeur</legend>
+          <div class="if-radio-group" role="radiogroup" aria-label="Hoe wil je het liefst betalen?">
+            <label class="if-radio"><input type="radio" name="Betaalvoorkeur" value="Per 4 weken" required> Per 4 weken</label>
+            <label class="if-radio"><input type="radio" name="Betaalvoorkeur" value="12 weken in één keer met korting"> 12 weken in één keer met korting</label>
+            <label class="if-radio"><input type="radio" name="Betaalvoorkeur" value="Nog niet zeker"> Nog niet zeker</label>
+          </div>
+          <p class="if-price-hint">Basis: €50 per 4 weken · €135 voor 12 weken &nbsp;|&nbsp; Plus: €75 per 4 weken · €199 voor 12 weken</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Voorkeur intakegesprek</legend>
+          <div class="if-radio-group" role="radiogroup" aria-label="Hoe wil je het intakegesprek het liefst doen?">
+            <label class="if-radio"><input type="radio" name="Voorkeur intakegesprek" value="WhatsApp" required> WhatsApp</label>
+            <label class="if-radio"><input type="radio" name="Voorkeur intakegesprek" value="Telefonisch gesprek"> Telefonisch gesprek</label>
+            <label class="if-radio"><input type="radio" name="Voorkeur intakegesprek" value="Videocall"> Videocall</label>
+            <label class="if-radio"><input type="radio" name="Voorkeur intakegesprek" value="Geen voorkeur"> Geen voorkeur</label>
           </div>
         </fieldset>
 
         <fieldset>
           <legend>Extra</legend>
           <div class="if-grid if-grid-2">
-            <div class="if-field"><label for="if-startdatum">Gewenste startdatum</label><input type="date" id="if-startdatum" name="startdatum"></div>
-            <div class="if-field"><label for="if-herkomst">Hoe ben je bij Fit Up terechtgekomen?</label><input type="text" id="if-herkomst" name="herkomst"></div>
+            <div class="if-field"><label for="if-startdatum">Gewenste startdatum</label><input type="date" id="if-startdatum" name="Gewenste startdatum"></div>
+            <div class="if-field"><label for="if-herkomst">Hoe ben je bij Fit Up terechtgekomen?</label><input type="text" id="if-herkomst" name="Hoe bij Fit Up terechtgekomen"></div>
           </div>
         </fieldset>
 
@@ -825,11 +856,11 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     if(!form.checkValidity()){ form.reportValidity(); return; }
 
     var fd = new FormData(form);
-    var data = { bron: 'Online Coaching intakeformulier' };
+    var data = { 'Aanvraag via': 'Online Coaching intakeformulier' };
     fd.forEach(function(value, key){ data[key] = value; });
     var payload = JSON.stringify(data);
     var emailData = Object.assign({}, data, {
-      _subject: 'Nieuwe intake: ' + (data.voornaam || '') + ' ' + (data.achternaam || ''),
+      _subject: 'Nieuwe intake: ' + (data['Voornaam'] || '') + ' ' + (data['Achternaam'] || ''),
       _template: 'table',
       _captcha: 'false'
     });
