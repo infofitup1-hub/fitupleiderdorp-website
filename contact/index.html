@@ -508,6 +508,18 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   /* INTAKE WIDGET – contactpagina → Make webhook → Google Calendar + WhatsApp */
   const MAKE_WEBHOOK = 'https://hook.eu1.make.com/2gu1t19yn3tdkd9hz2ylf2jitg4r6y37';
   const MAKE_EMAIL   = 'https://hook.eu1.make.com/95kilo0637shjh5ygzuk9t95dgbo1nde';
+  const FORM_EMAIL   = 'https://formsubmit.co/ajax/fitupleiderdorp@gmail.com';
+
+  // FormSubmit geeft altijd HTTP 200 terug, ook bij "needs Activation" of een fout.
+  // Alleen success:true/"true" in de JSON-body betekent dat de mail echt is afgeleverd.
+  function postFormSubmit(url, data){
+    return fetch(url, { method: 'POST', headers: {'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data) })
+      .then(function(res){
+        return res.json().then(function(json){
+          return { ok: !!json && (json.success === true || json.success === 'true') };
+        });
+      });
+  }
 
   const INTAKE_SLOTS = {
     maandag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','19:00','21:00'],
@@ -574,10 +586,13 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 
     try {
       const payload = JSON.stringify({ naam, tel, email, dag: dagLabel, datum, tijd, doel: '' });
-      await Promise.all([
+      const results = await Promise.allSettled([
         fetch(MAKE_WEBHOOK, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: payload }),
-        fetch(MAKE_EMAIL,   { method: 'POST', headers: {'Content-Type': 'application/json'}, body: payload })
+        fetch(MAKE_EMAIL,   { method: 'POST', headers: {'Content-Type': 'application/json'}, body: payload }),
+        postFormSubmit(FORM_EMAIL, { naam, tel, email, dag: dagLabel, datum, tijd, _subject: 'Nieuwe intake-aanvraag: ' + naam, _template: 'table', _captcha: 'false' })
       ]);
+      const ok = results.some(r => r.status === 'fulfilled' && r.value.ok);
+      if (!ok) throw new Error('Alle verzendkanalen faalden');
       btn.textContent = '✓ Intake aangevraagd!';
       btn.style.background = 'var(--black)';
       btn.style.color = '#d4ff00';

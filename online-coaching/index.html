@@ -804,9 +804,21 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   if(!form) return;
   var MAKE_WEBHOOK = 'https://hook.eu1.make.com/2gu1t19yn3tdkd9hz2ylf2jitg4r6y37';
   var MAKE_EMAIL   = 'https://hook.eu1.make.com/95kilo0637shjh5ygzuk9t95dgbo1nde';
+  var FORM_EMAIL   = 'https://formsubmit.co/ajax/fitupleiderdorp@gmail.com';
   var btn = document.getElementById('if-submit-btn');
   var success = document.getElementById('if-success');
   var errorBox = document.getElementById('if-error');
+
+  // FormSubmit geeft altijd HTTP 200 terug, ook bij "needs Activation" of een fout.
+  // Alleen success:true/"true" in de JSON-body betekent dat de mail echt is afgeleverd.
+  function postFormSubmit(url, data){
+    return fetch(url, { method: 'POST', headers: {'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data) })
+      .then(function(res){
+        return res.json().then(function(json){
+          return { ok: !!json && (json.success === true || json.success === 'true') };
+        });
+      });
+  }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -816,22 +828,31 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     var data = { bron: 'Online Coaching intakeformulier' };
     fd.forEach(function(value, key){ data[key] = value; });
     var payload = JSON.stringify(data);
+    var emailData = Object.assign({}, data, {
+      _subject: 'Nieuwe intake: ' + (data.voornaam || '') + ' ' + (data.achternaam || ''),
+      _template: 'table',
+      _captcha: 'false'
+    });
 
     btn.disabled = true;
     btn.textContent = 'Versturen...';
     errorBox.hidden = true;
 
-    Promise.all([
+    Promise.allSettled([
       fetch(MAKE_WEBHOOK, { method: 'POST', headers: {'Content-Type':'application/json'}, body: payload }),
-      fetch(MAKE_EMAIL,   { method: 'POST', headers: {'Content-Type':'application/json'}, body: payload })
-    ]).then(function(){
-      form.hidden = true;
-      success.hidden = false;
-      success.scrollIntoView({behavior:'smooth', block:'center'});
-    }).catch(function(){
-      errorBox.hidden = false;
-      btn.disabled = false;
-      btn.textContent = 'Verstuur mijn intake';
+      fetch(MAKE_EMAIL,   { method: 'POST', headers: {'Content-Type':'application/json'}, body: payload }),
+      postFormSubmit(FORM_EMAIL, emailData)
+    ]).then(function(results){
+      var ok = results.some(function(r){ return r.status === 'fulfilled' && r.value.ok; });
+      if(ok){
+        form.hidden = true;
+        success.hidden = false;
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        errorBox.hidden = false;
+        btn.disabled = false;
+        btn.textContent = 'Verstuur mijn intake';
+      }
     });
   });
 })();
