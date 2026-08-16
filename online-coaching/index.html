@@ -59,7 +59,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
   h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(36px,4.8vw,56px);line-height:.95;letter-spacing:.3px}
   h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
-  .page-hero h1 em,.final-cta h2 em{background:none;padding:0;color:var(--accent)}
+  .page-hero h1 em{background:none;padding:0;color:var(--accent)}
   h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
   .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-accent:hover{background:transparent;color:var(--accent)}
@@ -67,26 +67,22 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
   .page-hero .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
   .page-hero .btn-ghost:hover{color:var(--white);border-color:var(--white)}
-  .final-cta .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.25)}
-  .final-cta .btn-ghost:hover{color:var(--white);border-color:var(--white)}
   .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--black);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-dark:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
   .reveal.in{opacity:1;transform:none}
   .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 
   /* PAGE HERO */
-  .page-hero{min-height:72vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:linear-gradient(160deg,#0a0a0a 0%,#151516 55%,#0d0d0e 100%)}
+  .page-hero{min-height:62vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:linear-gradient(160deg,#0a0a0a 0%,#151516 55%,#0d0d0e 100%)}
   .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
   .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
   .page-hero h1{font-size:clamp(44px,5.5vw,72px);margin-bottom:22px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
   .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
   .page-hero-sub{font-size:17px;font-weight:500;color:rgba(255,255,255,.7);line-height:1.6;max-width:420px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
-  .page-hero-sub strong{color:var(--white);font-weight:500}
   .page-hero-ctas{display:flex;gap:24px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .75s forwards}
   .page-hero-right{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:48px 40px}
   .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:460px;height:460px;background:radial-gradient(ellipse,rgba(212,255,0,.09) 0%,transparent 68%);pointer-events:none;z-index:0}
@@ -97,8 +93,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .app-phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
   .app-phone-back{width:196px;aspect-ratio:9/19.5;left:18px;top:52px;z-index:1;filter:brightness(.82);animation-delay:.25s}
   .app-phone-front{width:250px;aspect-ratio:9/19.5;right:14px;top:0;z-index:2;animation-delay:.4s}
-  .app-showcase{position:relative;z-index:1;width:100%;max-width:480px;border-radius:20px;overflow:hidden;box-shadow:0 40px 90px -28px rgba(0,0,0,.65)}
-  .app-showcase img{width:100%;height:auto;display:block}
   .hero-badge{position:absolute;bottom:16px;right:8px;background:var(--accent);color:var(--black);padding:12px 16px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;z-index:3;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
 
   /* SECTION HEADERS */
@@ -106,94 +100,17 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .sec-head .sec-label{justify-content:center}
   .sec-head p{max-width:580px;margin:18px auto 0;font-size:15px;color:var(--ink-soft);font-weight:400;line-height:1.75}
 
-  /* VOORDELEN — light section direct onder hero */
+  /* WAT KRIJG JE */
   .voordelen{background:var(--paper);padding:90px 0}
   .voordelen .sec-head h2{max-width:760px;margin-left:auto;margin-right:auto}
-  .voordelen-meta{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);margin-top:18px}
-  .voordelen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;border-top:1px solid var(--line);padding-top:40px}
+  .voordelen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 32px;border-top:1px solid var(--line);padding-top:40px}
   .voordelen-card{display:flex;flex-direction:column;gap:14px}
   .voordelen-icon{width:42px;height:42px;border-radius:10px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.14);display:flex;align-items:center;justify-content:center;color:var(--accent-ink)}
   .voordelen-card h3{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:var(--ink)}
   .voordelen-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
 
-  /* COACHES — Benjamin & Patrick */
-  .coaches{background:var(--paper2);padding:100px 0}
-  .coaches .sec-head p{max-width:600px}
-  .coaches-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:860px;margin:0 auto}
-  .coach-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;display:flex;flex-direction:column}
-  .coach-photo{aspect-ratio:4/5;background:var(--paper2);overflow:hidden}
-  .coach-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-  .coach-body{padding:26px 28px 30px}
-  .coach-name{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:26px;letter-spacing:.3px;line-height:1;color:var(--ink)}
-  .coach-role{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);margin-top:10px;margin-bottom:14px}
-  .coach-bio{font-size:14px;color:var(--ink-soft);line-height:1.7;font-weight:400}
-
-  /* APP DEMO — echte video's van training & voeding in de app */
-  .app-demo{padding:90px 0}
-  .app-demo.tint{background:var(--paper2)}
-  .app-demo-grid{display:grid;grid-template-columns:1fr .8fr;gap:56px;align-items:center;max-width:960px;margin:0 auto}
-  .app-demo-grid.visual-first{grid-template-columns:.8fr 1fr}
-  .app-demo-visual{display:flex;justify-content:center}
-  .app-demo-phone{position:relative;width:230px;aspect-ratio:9/19.5;background:#0c0c0c;border-radius:36px;padding:10px;box-shadow:0 30px 70px -24px rgba(20,22,17,.35),inset 0 0 0 2px rgba(255,255,255,.06)}
-  .app-demo-phone::before{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:36%;height:16px;background:#0c0c0c;border-radius:0 0 12px 12px;z-index:2}
-  .app-demo-video{width:100%;height:100%;border-radius:27px;object-fit:cover;display:block;background:#000}
-  .app-demo-copy h2{margin-bottom:16px}
-  .app-demo-copy p{font-size:15px;color:var(--ink-soft);line-height:1.75;max-width:420px}
-
-  /* WHAT IS — centered narrative + includes list */
-  .what-wrap{max-width:880px;margin:0 auto}
-  .what-head{text-align:center;margin-bottom:48px}
-  .what-head .sec-label{justify-content:center}
-  .what-head h2{font-size:clamp(48px,6.4vw,76px)}
-  .what-head p{font-size:16px;color:var(--ink-soft);font-weight:400;line-height:1.75;margin:20px auto 0;max-width:560px}
-  .what-wrap .includes-list{margin-top:0}
-  .what-wrap .include-item{padding:22px 4px}
-  .includes-list{display:flex;flex-direction:column;gap:0;margin-top:32px}
-  .include-item{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid var(--line);transition:padding .25s}
-  .include-item:last-child{border-bottom:1px solid var(--line)}
-  .include-item:hover{padding-left:6px}
-  .check{width:24px;height:24px;border-radius:6px;background:rgba(212,255,0,.18);border:1px solid rgba(110,130,0,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--accent-ink)}
-  .include-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px;color:var(--ink)}
-  .include-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
-
-  /* WHERE — train waar je wilt */
-  .where{background:var(--paper2);padding:100px 0}
-  .where-inner{max-width:1000px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:56px 48px}
-  .where-top{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-  .where-content{display:flex;flex-direction:column}
-  .where-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-  .where-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent)}
-  .where-content h3{font-family:var(--fd);font-size:clamp(34px,4.4vw,52px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.3px;margin-bottom:18px;color:var(--ink)}
-  .where-content h3 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
-  .where-content p{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:400;max-width:480px}
-  .where-visual{position:relative}
-  .where-visual .app-showcase{max-width:100%;margin:0}
-  .where-locations{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);margin-top:40px;width:100%}
-  .where-loc{padding:24px 20px 4px;border-right:1px solid var(--line);text-align:left}
-  .where-loc:last-child{border-right:none}
-  .where-loc-icon{width:32px;height:32px;border-radius:8px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.16);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);margin-bottom:12px}
-  .where-loc-title{font-family:var(--fd);font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;color:var(--ink)}
-  .where-loc-desc{font-size:11.5px;color:var(--ink-soft);line-height:1.55;font-weight:400}
-
-  /* APP STRIP */
-  .nutri{background:var(--paper2);padding:100px 0;position:relative;overflow:hidden}
-  .nutri::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(ellipse,rgba(212,255,0,.1) 0%,transparent 65%);pointer-events:none}
-  .nutri-grid{max-width:840px;margin:0 auto;position:relative}
-  .nutri-copy{text-align:center}
-  .nutri-copy h2{font-size:clamp(40px,5.2vw,62px);margin-bottom:22px}
-  .nutri-copy .sec-label{justify-content:center}
-  .nutri-copy>p{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:400;max-width:520px;margin:0 auto 32px}
-  .nutri-features{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;border-top:1px solid var(--line);text-align:left}
-  .nutri-feat{padding:20px 0;border-bottom:1px solid var(--line)}
-  .nutri-feat:nth-child(odd){padding-right:24px;border-right:1px solid var(--line)}
-  .nutri-feat:nth-child(even){padding-left:24px}
-  .nutri-feat-num{font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2.5px;color:var(--accent-ink);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-  .nutri-feat-num::before{content:'';width:14px;height:1.5px;background:var(--accent)}
-  .nutri-feat-title{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;color:var(--ink)}
-  .nutri-feat-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
-
-  /* ROUTE — scroll-linked stappenlijn */
-  .how{background:var(--paper)}
+  /* ROUTE — hoe werkt het */
+  .how{background:var(--paper2)}
   .route{position:relative;max-width:640px;margin:0 auto}
   .route-line{position:absolute;top:6px;bottom:6px;left:19px;width:2px;background:var(--line);border-radius:2px}
   .route-fill{position:absolute;top:0;left:0;width:100%;height:0;background:var(--accent);border-radius:2px}
@@ -206,94 +123,58 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .route-step.active .route-content h3{color:var(--accent-ink)}
   .route-content p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;max-width:440px}
 
-  /* WAAROM FIT UP */
-  .why-fitup{background:var(--paper2);padding:90px 0}
-  .why-fitup .sec-head p{max-width:620px}
-  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid var(--line);padding-top:36px;max-width:820px;margin:0 auto}
+  /* ONLINE OF HYBRIDE */
+  .modes{background:var(--paper);padding:90px 0}
+  .modes-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:880px;margin:0 auto}
+  .mode-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:36px 32px}
+  .mode-card.hot{border-color:rgba(110,130,0,.22);box-shadow:0 24px 60px -26px rgba(20,22,17,.22)}
+  .mode-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:12px}
+  .mode-card h3{margin-bottom:14px}
+  .mode-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.7}
 
-  /* RESULTATEN */
-  .proof{background:var(--paper);padding:90px 0}
-  .progress-card{background:linear-gradient(160deg,#0a0a0a 0%,#151516 55%,#0d0d0e 100%);border-radius:var(--r-card);padding:44px 32px 24px;max-width:820px;margin:0 auto 40px;box-shadow:var(--sh-2)}
-  .progress-chart-wrap{position:relative}
-  .progress-chart-svg{width:100%;height:auto;display:block}
-  .progress-nodes{position:absolute;inset:0}
-  .phase-node{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:8px;margin:-8px;cursor:pointer;color:inherit;-webkit-tap-highlight-color:transparent}
-  .phase-dot{width:24px;height:24px;border-radius:50%;background:#0c0c0c;border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:11px;color:#fff;transition:all .2s}
-  .phase-label{font-family:var(--fd);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.55);white-space:nowrap;transition:color .2s}
-  .phase-node:hover .phase-dot,.phase-node.active .phase-dot{border-color:var(--accent);background:var(--accent);color:#0c0c0c;transform:scale(1.12)}
-  .phase-node:hover .phase-label,.phase-node.active .phase-label{color:#fff}
-  .progress-detail-panel{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:14px;color:rgba(255,255,255,.85);font-weight:500;min-height:20px}
-  .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:0 auto}
-  .proof-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden}
-  .proof-img{position:relative;aspect-ratio:347/295;background:var(--paper2)}
-  .proof-img img{width:100%;height:100%;object-fit:contain;display:block}
-  .proof-badge{position:absolute;top:14px;left:14px;background:var(--black);color:var(--accent);font-family:var(--fd);font-weight:900;font-size:13px;letter-spacing:.5px;padding:6px 12px;border-radius:8px}
-  .proof-body{padding:22px 22px 26px}
-  .proof-name{font-family:var(--fd);font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink);margin-bottom:8px}
-  .proof-quote{font-size:13px;color:var(--ink-soft);line-height:1.65;font-style:italic}
+  /* COACHES */
+  .coaches{background:var(--paper2);padding:100px 0}
+  .coaches-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:860px;margin:0 auto}
+  .coach-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;display:flex;flex-direction:column}
+  .coach-photo{aspect-ratio:4/5;background:var(--paper2);overflow:hidden}
+  .coach-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .coach-body{padding:22px 26px 26px}
+  .coach-name{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:24px;letter-spacing:.3px;line-height:1;color:var(--ink)}
+  .coach-desc{font-size:12.5px;font-weight:700;letter-spacing:.5px;color:var(--accent-ink);margin-top:8px}
+  .coaches-note{max-width:640px;margin:32px auto 0;text-align:center;font-size:14px;color:var(--ink-soft);line-height:1.7}
 
   /* PRICING */
   .pricing{background:var(--paper);padding:100px 0}
-  .t-price-tag{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--accent-ink);margin-bottom:10px}
   .t-day{font-size:12px;font-weight:600;color:var(--ink-mute);margin-bottom:6px}
-  .t-flex-note{font-size:11.5px;color:var(--ink-mute);line-height:1.5;margin:0 0 20px}
   .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;max-width:880px;margin:0 auto}
   .tarief-card{background:var(--white);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:all .3s;border:1px solid var(--line);border-top:3px solid transparent;border-radius:var(--r-card);box-shadow:var(--sh-2)}
   .tarief-card:hover{transform:translateY(-4px);border-top-color:var(--accent);box-shadow:var(--sh-hover)}
   .tarief-card.hot{background:linear-gradient(180deg,rgba(212,255,0,.08),rgba(212,255,0,.01) 45%,var(--white) 100%);border-color:rgba(110,130,0,.22);border-top-color:var(--accent);box-shadow:0 24px 60px -26px rgba(20,22,17,.22)}
   .tarief-card .ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);background:var(--black);color:var(--accent);padding:6px 14px;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;border:1px solid var(--accent)}
   .t-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:8px}
-  .t-name{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;margin-bottom:18px;line-height:.95;letter-spacing:.3px;color:var(--ink)}
-  .t-price-wrap{display:flex;align-items:baseline;gap:2px;margin-bottom:4px;font-family:var(--fd);font-weight:900;line-height:1}
+  .t-name{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;margin-bottom:6px;line-height:.95;letter-spacing:.3px;color:var(--ink)}
+  .t-tagline{font-size:12.5px;color:var(--ink-mute);margin-bottom:18px}
+  .t-price-wrap{display:flex;align-items:baseline;gap:2px;margin-bottom:2px;font-family:var(--fd);font-weight:900;line-height:1}
   .t-price-wrap .currency{font-size:24px;color:var(--accent-ink);margin-right:6px}
   .t-price-wrap .num{font-size:62px;letter-spacing:-1px;color:var(--ink)}
+  .t-old-price{display:none;font-family:var(--fb);font-size:15px;font-weight:500;color:var(--ink-mute);text-decoration:line-through;margin-bottom:4px}
+  .t-save-badge{display:none;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent-ink);background:rgba(212,255,0,.18);border:1px solid rgba(110,130,0,.28);border-radius:999px;padding:4px 10px;margin-bottom:10px}
+  .tarief-card.period-12 .t-old-price,.tarief-card.period-12 .t-save-badge{display:inline-block}
   .t-period{font-size:12px;color:var(--ink-soft);margin-bottom:24px;letter-spacing:.3px}
-  .t-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:24px 0 28px;padding-top:22px;border-top:1px solid var(--line);flex-grow:1}
+  .t-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:0 0 28px;padding-top:22px;border-top:1px solid var(--line);flex-grow:1}
   .t-features li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-soft);font-weight:400}
   .t-features li svg{color:var(--accent-ink);flex-shrink:0;margin-top:3px}
-  .t-note{font-size:11.5px;font-style:italic;color:var(--ink-mute);line-height:1.5;margin:-8px 0 20px}
   .t-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .25s;border:2px solid;border-radius:var(--r-btn)}
   .t-cta-dark{background:var(--black);color:var(--accent);border-color:var(--black)}
   .t-cta-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
   .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(20,22,17,.2)}
   .t-cta-outline:hover{border-color:var(--accent-ink);color:var(--accent-ink);background:rgba(212,255,0,.08)}
-  .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
   .price-toggle-wrap{text-align:center;margin:0 0 40px}
   .price-toggle{display:inline-flex;background:var(--paper2);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
   .toggle-btn{border:0;background:transparent;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);padding:10px 24px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
   .toggle-btn.active{background:var(--black);color:var(--accent)}
   .toggle-btn:hover:not(.active){color:var(--ink)}
   .toggle-btn:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
-  .toggle-note{font-size:11.5px;color:var(--ink-mute);margin-top:12px;max-width:360px;margin-left:auto;margin-right:auto;line-height:1.5}
-  .price-trust{text-align:center;margin-top:16px;font-size:12.5px;color:var(--ink-soft)}
-
-  /* FOR WHO */
-  .forwho{background:var(--paper2)}
-  .forwho-single{max-width:1040px;margin:0 auto}
-  .forwho-head{text-align:center;margin-bottom:48px}
-  .forwho-head .sec-label{justify-content:center}
-  .forwho-head h2{font-size:clamp(40px,5.6vw,66px);max-width:880px;margin:0 auto}
-  .forwho-head p{font-size:15px;color:var(--ink-soft);font-weight:400;line-height:1.75;margin:18px auto 0;max-width:540px}
-  .forwho-grid-list{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;border-top:1px solid var(--line)}
-  .forwho-item{display:flex;align-items:flex-start;gap:18px;padding:22px 4px;border-bottom:1px solid var(--line);transition:padding .3s}
-  .forwho-item:hover{padding-left:10px}
-  .forwho-num{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--accent-ink);letter-spacing:1.5px;min-width:24px;line-height:1.5}
-  .forwho-text{font-size:15px;color:var(--ink-soft);line-height:1.55;font-weight:400}
-
-  /* COMPARE STRIP — Online vs PT */
-  .compare{background:var(--paper);padding:100px 0}
-  .compare-table-wrap{max-width:980px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-card);box-shadow:var(--sh-2)}
-  .compare-table{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;min-width:600px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden}
-  .compare-scroll-hint{display:none;text-align:center;font-size:11px;letter-spacing:1px;color:var(--ink-mute);margin-top:10px}
-  .ct-cell{padding:18px 22px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);font-size:13.5px;color:var(--ink-soft);font-weight:400;display:flex;align-items:center;gap:10px}
-  .ct-cell:nth-child(3n){border-right:none}
-  .ct-head{font-family:var(--fd);text-transform:uppercase;font-weight:900;letter-spacing:1px;color:var(--ink);background:var(--paper2);padding:20px 22px;font-size:14px}
-  .ct-head.online{color:var(--accent-ink)}
-  .ct-row-label{font-family:var(--fd);text-transform:uppercase;font-weight:800;letter-spacing:.5px;font-size:14px;color:var(--ink)}
-  .ct-yes{color:var(--accent-ink);font-family:var(--fd);font-weight:900;letter-spacing:1px;font-size:12px;text-transform:uppercase}
-  .ct-no{color:var(--ink-mute);font-family:var(--fm);font-size:11px;letter-spacing:1px}
-  .ct-partial{color:var(--ink);font-size:12px}
-  .ct-partial em{font-style:normal;color:var(--accent-ink);font-family:var(--fd);font-weight:800;letter-spacing:.5px}
 
   /* FAQ */
   .faq-section{background:var(--paper2)}
@@ -304,21 +185,27 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .faq-q::before{content:'?';color:var(--accent-ink);font-family:var(--fd);font-weight:900;flex-shrink:0}
   .faq-a{font-size:13px;color:var(--ink-soft);line-height:1.75;font-weight:400}
 
-  /* TRY STRIP */
-  .try-strip{background:var(--accent);padding:64px 0}
-  .try-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-  .try-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:10px}
-  .try-title{font-family:var(--fd);font-size:clamp(30px,4vw,48px);font-weight:900;text-transform:uppercase;color:var(--black);line-height:1;letter-spacing:.5px}
-  .try-sub{font-size:15px;color:rgba(0,0,0,.55);margin-top:12px;max-width:480px;line-height:1.6}
-
-  /* FINAL CTA */
-  .final-cta{background:var(--dark);padding:150px 0;text-align:center;position:relative;overflow:hidden;isolation:isolate}
-  .final-cta-photo{position:absolute;inset:0;z-index:-1}
-  .final-cta-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
-  .final-cta-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.55) 0%,rgba(17,17,17,.4) 45%,rgba(17,17,17,.75) 100%)}
-  .final-cta h2{font-size:clamp(52px,8vw,92px);margin-bottom:24px;color:var(--white);text-shadow:0 4px 30px rgba(0,0,0,.5)}
-  .final-cta p{font-size:16px;color:rgba(255,255,255,.85);max-width:460px;margin:0 auto 44px;font-weight:300;line-height:1.75;text-shadow:0 2px 12px rgba(0,0,0,.6)}
-  .cta-actions{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap}
+  /* INTAKE FORM */
+  .intake{background:var(--paper);padding:100px 0}
+  .intake-card{max-width:720px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:44px 40px}
+  .intake-form fieldset{border:0;padding:0;margin:0 0 30px}
+  .intake-form legend{font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:16px;padding:0;width:100%}
+  .if-grid{display:grid;gap:16px}
+  .if-grid-2{grid-template-columns:1fr 1fr}
+  .if-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .if-field:last-child{margin-bottom:0}
+  .if-field label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-mute)}
+  .if-field input,.if-field select,.if-field textarea{background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-family:var(--fb);font-size:14px;color:var(--ink);transition:border-color .2s;width:100%}
+  .if-field input:focus,.if-field select:focus,.if-field textarea:focus{outline:none;border-color:var(--accent-ink)}
+  .if-field textarea{resize:vertical;min-height:72px}
+  .if-radio-group{display:flex;gap:20px;flex-wrap:wrap}
+  .if-radio{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+  .if-radio input{accent-color:var(--accent-ink)}
+  .if-submit{width:100%;justify-content:center;border:0;cursor:pointer}
+  .if-submit:disabled{opacity:.6;cursor:not-allowed}
+  .if-success{margin-top:20px;padding:16px 18px;background:rgba(212,255,0,.14);border:1px solid rgba(110,130,0,.28);border-radius:10px;font-size:14px;color:var(--ink);line-height:1.6}
+  .if-error{margin-top:16px;padding:14px 16px;background:rgba(200,40,40,.08);border:1px solid rgba(200,40,40,.25);border-radius:10px;font-size:13px;color:#7a1f1f;line-height:1.6}
+  .if-error a{color:inherit;text-decoration:underline}
 
   /* FOOTER */
   footer{background:var(--mid);border-top:1px solid rgba(255,255,255,.05);padding:64px 0 32px}
@@ -340,23 +227,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .app-visual{height:475px;max-width:340px}
     .app-phone-front{width:210px}
     .app-phone-back{width:164px;left:8px;top:44px}
-    .forwho-grid-list{grid-template-columns:1fr;gap:0}
     .tarief-cards{grid-template-columns:1fr}
-    .where-inner{padding:40px 28px}
-    .where-top{grid-template-columns:1fr;gap:32px}
-    .app-demo-grid,.app-demo-grid.visual-first{grid-template-columns:1fr;gap:32px}
-    .where-locations{grid-template-columns:1fr;border-top:1px solid var(--line)}
-    .where-loc{border-right:none;border-bottom:1px solid var(--line);padding:18px 0!important}
-    .where-loc:last-child{border-bottom:none}
+    .modes-grid{grid-template-columns:1fr}
     .faq-grid{grid-template-columns:1fr}
-    .nutri-features{grid-template-columns:1fr}
-    .nutri-feat:nth-child(odd){padding-right:0;border-right:none}
-    .nutri-feat:nth-child(even){padding-left:0}
     .voordelen-grid{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:32px}
-    .why-grid{grid-template-columns:1fr 1fr;gap:28px}
     .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-    .compare-table{grid-template-columns:1.2fr .9fr .9fr;font-size:12px}
-    .ct-cell{padding:14px 14px}
+    .if-grid-2{grid-template-columns:1fr}
     .nav-links{display:none}
     .nav-links li:last-child{display:block}
   }
@@ -374,16 +250,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
     h2{font-size:clamp(34px,9vw,48px)!important}
 
-    .page-hero-left,.fu-page-hero-left{padding:110px 20px 40px!important}
-    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:8px 20px 40px!important}
+    .page-hero-left{padding:110px 20px 40px!important}
+    .page-hero-right{min-height:0!important;padding:8px 20px 40px!important}
     .app-visual{height:390px;max-width:280px}
     .app-phone-front{width:172px}
     .app-phone-back{width:134px;left:2px;top:36px}
     .hero-badge{bottom:2px;right:0;font-size:10px;padding:10px 14px}
-    .app-showcase{max-width:100%!important}
-    .page-hero-sub,.fu-page-hero-sub{font-size:15px}
-    .page-hero-ctas,.fu-page-hero-ctas{flex-direction:column;align-items:stretch;gap:14px}
-    .page-hero-ctas .btn-accent,.fu-page-hero-ctas .btn-accent{justify-content:center;width:100%}
+    .page-hero-sub{font-size:15px}
+    .page-hero-ctas{flex-direction:column;align-items:stretch;gap:14px}
+    .page-hero-ctas .btn-accent{justify-content:center;width:100%}
 
     .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
     .f-brand{grid-column:auto!important}
@@ -391,38 +266,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .f-bottom{flex-direction:column;gap:10px;text-align:center}
     .f-bottom p{text-align:center}
 
-    .hours-grid,.fu-hours-grid{grid-template-columns:1fr!important}
-    .sec-head h2,.fu-sec-head h2{font-size:clamp(30px,8vw,42px)!important}
+    .sec-head h2{font-size:clamp(30px,8vw,42px)!important}
 
     .btn-accent{padding:14px 22px;font-size:13px;letter-spacing:1.5px}
     .btn-dark{padding:14px 22px;font-size:13px}
 
-    .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
-
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.voordelen-grid,.why-grid,.proof-grid,.coaches-grid{grid-template-columns:1fr!important}
+    .faq-grid,.tarief-cards,.voordelen-grid,.modes-grid,.coaches-grid{grid-template-columns:1fr!important}
     .toggle-btn{padding:9px 18px;font-size:12px}
-    .compare-table-wrap{margin-left:-20px;margin-right:-20px;width:calc(100% + 40px);border-radius:0}
-    .compare-table{border-radius:0;border-left:none;border-right:none}
-    .ct-cell{padding:14px 16px;font-size:12.5px}
-    .ct-head{padding:16px}
-    .compare-scroll-hint{display:block}
 
-    .progress-card{padding:34px 18px 18px}
-    .phase-label{font-size:9.5px}
-    .progress-detail-panel{font-size:13px}
-
-    .reviews-grid{grid-template-columns:1fr!important}
-    .services-grid,.fu-services-grid{grid-template-columns:1fr!important;gap:2px}
-    .why-grid,.fu-why-grid{grid-template-columns:1fr!important;gap:48px}
-    .problem-grid,.fu-problem-grid{grid-template-columns:1fr!important;gap:48px}
-
-    .price-grid,.fu-price-grid{grid-template-columns:1fr!important;gap:24px}
-    .student-band,.fu-student-band{grid-template-columns:1fr!important;gap:24px;padding:32px 22px!important}
-    .stu-item,.fu-stu-item{border-left:none!important;border-top:1px solid rgba(255,255,255,.08)!important;padding:20px 0 0!important}
-
-    .contact-grid,.fu-contact-grid{grid-template-columns:1fr!important;gap:40px}
-    .contact-right,.fu-contact-right{position:static!important}
-
+    .intake-card{padding:28px 22px}
   }
 
   @media (max-width:420px){
@@ -485,8 +337,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <script src="../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Online Coaching","item":"https://fitupleiderdorp.nl/online-coaching/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Coaching Fit Up Leiderdorp","description":"Persoonlijk trainings- en voedingsschema, wekelijkse check-in en techniek-coaching op video, overal ter wereld.","url":"https://fitupleiderdorp.nl/online-coaching/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"offers":[{"@type":"Offer","name":"Online Coaching","price":"50","priceCurrency":"EUR","description":"per 4 weken, bij minimaal 3 maanden"},{"@type":"Offer","name":"Hybride Coaching","price":"75","priceCurrency":"EUR","description":"per 4 weken, bij minimaal 3 maanden, online begeleiding plus fysieke check-ins in de club"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost online coaching?","acceptedAnswer":{"@type":"Answer","text":"Online Coaching kost €50 per 4 weken. Voor 12 weken is dat in totaal €150."}},{"@type":"Question","name":"Wat krijg ik voor €50 per 4 weken?","acceptedAnswer":{"@type":"Answer","text":"Een persoonlijk trainingsplan, voedingsbegeleiding, een wekelijkse check-in en techniekfeedback van je vaste coach — Benjamin of Patrick — die je voortgang volgt en waar nodig bijstuurt."}},{"@type":"Question","name":"Kan ik bij mijn eigen sportschool blijven trainen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Je kunt trainen bij je eigen sportschool, thuis of op een andere locatie. Je schema wordt afgestemd op jouw trainingsomgeving en beschikbare materiaal."}},{"@type":"Question","name":"Is Online Coaching hetzelfde als Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Nee. Bij Personal Training staat je coach fysiek naast je tijdens de training. Bij Online Coaching train je zelfstandig en krijg je op afstand persoonlijke planning, feedback en bijsturing."}},{"@type":"Question","name":"Is Online Coaching door heel Nederland beschikbaar?","acceptedAnswer":{"@type":"Answer","text":"Ja. De begeleiding vindt online plaats en is daardoor niet gebonden aan Leiderdorp."}},{"@type":"Question","name":"Moet ik in Leiderdorp wonen?","acceptedAnswer":{"@type":"Answer","text":"Nee. Online Coaching werkt overal in Nederland (en daarbuiten). We hebben klanten die thuis trainen, in een Basic-Fit om de hoek of zelfs vanuit Spanje. Het Hybride-pakket is alleen interessant als je af en toe in onze club in Leiderdorp wil trainen."}},{"@type":"Question","name":"Hoe vaak heb ik contact met mijn coach?","acceptedAnswer":{"@type":"Answer","text":"Elke week stuur je een check-in (gewicht, foto's, hoe je je voelt) en krijg je daar persoonlijk antwoord op. Tussendoor kun je altijd vragen stellen via de chat — gemiddeld reageert je coach binnen een werkdag."}},{"@type":"Question","name":"Wat als ik geen ervaring heb met krachttraining?","acceptedAnswer":{"@type":"Answer","text":"Geen probleem. Elke oefening heeft een techniekvideo, en je kunt je eigen sets op video opnemen voor feedback. Heb je écht weinig ervaring, dan adviseren we vaak om eerst een paar PT-sessies te doen voor de basis — daarna draait Online Coaching prima."}},{"@type":"Question","name":"Welk schema krijg ik — gym of thuis?","acceptedAnswer":{"@type":"Answer","text":"Wat het beste bij jouw situatie past. We vragen in de intake welke apparaten/spullen je hebt en bouwen daar je schema omheen. Verander je van sportschool of ga je op reis? Stuur het door en we passen het schema aan."}},{"@type":"Question","name":"Kan ik tussentijds switchen naar Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Ja. Veel klanten starten met Online Coaching en stappen over naar PT (of andersom). We rekenen geen extra inschrijfkosten — je betaalt vanaf het moment van switchen het nieuwe tarief."}},{"@type":"Question","name":"Wat is de minimale looptijd?","acceptedAnswer":{"@type":"Answer","text":"Het standaardtarief (€50 / €75 per 4 weken) geldt bij minimaal 3 maanden — die periode heb je nodig om écht door je eerste metingen heen te kijken. Liever flexibel? Dan is maandelijks opzegbaar ook mogelijk, tegen een hoger tarief. We bespreken dit graag tijdens de gratis intake."}},{"@type":"Question","name":"Moet ik lid zijn van Fit Up Leiderdorp?","acceptedAnswer":{"@type":"Answer","text":"Nee. Voor Online Coaching heb je geen lidmaatschap van de fysieke club nodig."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Coaching Fit Up Leiderdorp","description":"Persoonlijk trainings- en voedingsschema, wekelijkse check-in en techniek-coaching op video, overal ter wereld.","url":"https://fitupleiderdorp.nl/online-coaching/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"offers":[{"@type":"Offer","name":"Basis (Online Coaching)","price":"50","priceCurrency":"EUR","description":"per 4 weken"},{"@type":"Offer","name":"Basis (Online Coaching) — 12-weken traject","price":"135","priceCurrency":"EUR","description":"12-weken traject, normaal €150"},{"@type":"Offer","name":"Plus (Hybride Coaching)","price":"75","priceCurrency":"EUR","description":"per 4 weken, online begeleiding plus fysieke check-ins in de club"},{"@type":"Offer","name":"Plus (Hybride Coaching) — 12-weken traject","price":"199","priceCurrency":"EUR","description":"12-weken traject, normaal €225, online begeleiding plus fysieke check-ins in de club"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Moet ik in Leiderdorp wonen?","acceptedAnswer":{"@type":"Answer","text":"Nee. Online Coaching werkt overal in Nederland en je hoeft geen lid te zijn van de fysieke club. Voor Hybride kom je af en toe langs bij Fit Up Leiderdorp."}},{"@type":"Question","name":"Is Online Coaching hetzelfde als Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Nee. Bij Personal Training staat je coach fysiek naast je tijdens de training. Bij Online Coaching train je zelfstandig en krijg je op afstand planning en feedback."}},{"@type":"Question","name":"Wat als ik geen ervaring heb met krachttraining?","acceptedAnswer":{"@type":"Answer","text":"Geen probleem. Elke oefening heeft een techniekvideo en je kunt je sets op video insturen voor feedback."}},{"@type":"Question","name":"Kan ik tussentijds switchen naar Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Ja, zonder extra inschrijfkosten. Je betaalt vanaf het moment van switchen het nieuwe tarief."}}]}</script>
 </head>
 <body>
 
@@ -497,7 +349,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <li><a href="../online-coaching/index.html" class="active">Online Coaching</a></li>
     <li><a href="../tarieven/index.html">Tarieven</a></li>
     <li><a href="../contact/index.html">Contact</a></li>
-    <li><a href="../contact/index.html" class="nav-btn">Gratis intake</a></li>
+    <li><a href="#intake" class="nav-btn">Gratis intake</a></li>
   </ul>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
     <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -509,19 +361,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <a href="../online-coaching/index.html">Online Coaching</a>
   <a href="../tarieven/index.html">Tarieven</a>
   <a href="../contact/index.html">Contact</a>
-  <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
+  <a href="#intake" class="drawer-cta">Gratis intake</a>
 </div>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <header class="page-hero" data-screen-label="Hero Online Coaching">
   <div class="page-hero-left">
     <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Fit Up Online Coaching</div>
-    <h1>Online coaching voor training,<br>voeding en <em>blijvend resultaat</em></h1>
-    <p class="page-hero-sub">Een persoonlijk trainings- en voedingsplan, wekelijkse check-ins en directe begeleiding van je vaste coach — waar in Nederland je ook traint.</p>
-    <p style="font-size:14px;font-weight:400;color:rgba(255,255,255,.55);line-height:1.6;max-width:420px;margin:0 0 32px;opacity:0;animation:fadeUp .6s ease .68s forwards">Train thuis, bij je eigen sportschool of onderweg. Je hoeft geen lid te zijn van Fit Up Leiderdorp.</p>
+    <h1>Online coaching<br>van <em>Fit Up</em></h1>
+    <p class="page-hero-sub">Persoonlijke begeleiding bij training, voeding en leefstijl — volledig online of gecombineerd met begeleiding en meten op de club.</p>
     <div class="page-hero-ctas">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Online%20Coaching" class="btn-accent">Start met Online Coaching <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#hoe-werkt" class="btn-ghost">Bekijk hoe het werkt →</a>
+      <a href="#intake" class="btn-accent">Start met je intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
   <div class="page-hero-right">
@@ -541,70 +391,141 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </div>
 </header>
 
-<!-- VOORDELEN -->
+<!-- 2. WAT KRIJG JE -->
 <section class="voordelen" aria-labelledby="voordelen-heading">
   <div class="container">
     <div class="sec-head">
       <div class="sec-label reveal"><span class="sec-label-line"></span>Wat krijg je</div>
-      <h2 id="voordelen-heading" class="reveal d1">Alles wat je nodig hebt om zelfstandig te trainen — <em>zonder het alleen te hoeven doen.</em></h2>
-      <p class="voordelen-meta reveal d2">100% op maat · 1× check-in per week · vanaf €50 per 4 weken (bij 3 maanden)</p>
+      <h2 id="voordelen-heading" class="reveal d1">Wat krijg je?</h2>
     </div>
     <div class="voordelen-grid">
       <div class="voordelen-card reveal">
         <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
-        <h3>Persoonlijk trainingsplan</h3>
-        <p>Op jouw niveau, doel en beschikbare trainingsmogelijkheden.</p>
+        <h3>Persoonlijk trainingsschema</h3>
+        <p>Afgestemd op jouw doel, niveau en trainingsomgeving.</p>
       </div>
       <div class="voordelen-card reveal d1">
         <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>Voeding</h3>
-        <p>Duidelijke richtlijnen en een plan dat praktisch vol te houden is.</p>
+        <h3>Voedingsbegeleiding</h3>
+        <p>Praktisch en haalbaar, geen strak dieet.</p>
       </div>
       <div class="voordelen-card reveal d2">
-        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></div>
         <h3>Wekelijkse check-in</h3>
         <p>Vaste evaluatie en bijsturing met je coach.</p>
       </div>
       <div class="voordelen-card reveal d3">
         <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h3>Voortgang</h3>
-        <p>Training, voeding en resultaten overzichtelijk in dezelfde app.</p>
+        <h3>Voortgang bijhouden</h3>
+        <p>Gewicht, foto's en resultaten overzichtelijk op één plek.</p>
+      </div>
+      <div class="voordelen-card reveal d4">
+        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></div>
+        <h3>Direct contact met je coach</h3>
+        <p>Vragen? Een appje naar je vaste coach is genoeg.</p>
+      </div>
+      <div class="voordelen-card reveal d5">
+        <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3>Alles in onze eigen Fit Up-app</h3>
+        <p>Training, voeding, check-ins en coach-contact centraal op één plek.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COACHES -->
+<!-- 3. HOE WERKT HET -->
+<section class="how" id="hoe-werkt" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Hoe werkt het?</div>
+      <h2 id="how-heading" class="reveal d1">Hoe werkt het?</h2>
+    </div>
+    <div class="route" id="route">
+      <div class="route-line" aria-hidden="true"><div class="route-fill" id="routeFill"></div></div>
+      <div class="route-steps">
+        <div class="route-step">
+          <div class="route-dot">01</div>
+          <div class="route-content">
+            <h3>Intake</h3>
+            <p>Je vertelt ons waar je nu staat en wat je wilt bereiken.</p>
+          </div>
+        </div>
+        <div class="route-step">
+          <div class="route-dot">02</div>
+          <div class="route-content">
+            <h3>Persoonlijk plan</h3>
+            <p>Patrick of Benjamin bekijkt je intake en bespreekt wat bij je past.</p>
+          </div>
+        </div>
+        <div class="route-step">
+          <div class="route-dot">03</div>
+          <div class="route-content">
+            <h3>Start in onze app</h3>
+            <p>We richten je training, voeding en coaching in.</p>
+          </div>
+        </div>
+        <div class="route-step">
+          <div class="route-dot">04</div>
+          <div class="route-content">
+            <h3>Wekelijks bijsturen</h3>
+            <p>We volgen je voortgang en passen je plan aan waar nodig.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ONLINE OF GECOMBINEERD MET DE CLUB -->
+<section class="modes" aria-labelledby="modes-heading">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Waar train je</div>
+      <h2 id="modes-heading" class="reveal d1">Online of gecombineerd met <em>de club</em></h2>
+    </div>
+    <div class="modes-grid">
+      <div class="mode-card reveal">
+        <div class="mode-label">Online</div>
+        <h3>Volledig online</h3>
+        <p>Alles verloopt via onze eigen app. Geschikt als je thuis, buiten of in een andere sportschool traint.</p>
+      </div>
+      <div class="mode-card hot reveal d1">
+        <div class="mode-label">Hybride</div>
+        <h3>Online + club</h3>
+        <p>Dezelfde online begeleiding, maar gecombineerd met bijvoorbeeld wegen, meten of persoonlijk contact bij Fit Up Leiderdorp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. COACHES -->
 <section class="coaches" aria-labelledby="coaches-heading">
   <div class="container">
     <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Je coach</div>
-      <h2 id="coaches-heading" class="reveal d1">Je wordt begeleid door <em>Benjamin of Patrick</em></h2>
-      <p class="reveal d2">Geen anonieme app of standaard schema. Bij Fit Up Online Coaching heb je een vaste coach die je training, voeding en voortgang persoonlijk volgt en bijstuurt.</p>
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Coaches</div>
+      <h2 id="coaches-heading" class="reveal d1">Je coach: <em>Patrick of Benjamin</em></h2>
     </div>
-    <!-- Bio's hergebruikt uit de teamsectie op de homepage (index.html). Later uit te breiden met meer specialisaties/coachingstijl zodra beschikbaar. -->
     <div class="coaches-grid">
       <div class="coach-card reveal">
-        <div class="coach-photo"><img src="../assets/images/team-benjamin.jpg" alt="Benjamin — Online Coach bij Fit Up" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="coach-photo"><img src="../assets/images/team-patrick.jpg" alt="Patrick — Eigenaar Fit Up en online coach" width="480" height="600" loading="lazy" decoding="async"></div>
         <div class="coach-body">
-          <h3 class="coach-name">Benjamin</h3>
-          <div class="coach-role">Online Coach</div>
-          <p class="coach-bio">Begeleidt je 1-op-1 met een schema en techniek die kloppen voor jouw doel en niveau — of je nu net begint of een niveau hoger wilt.</p>
+          <h3 class="coach-name">Patrick</h3>
+          <div class="coach-desc">Eigenaar Fit Up &amp; online coach</div>
         </div>
       </div>
       <div class="coach-card reveal d1">
-        <div class="coach-photo"><img src="../assets/images/team-patrick.jpg" alt="Patrick — Eigenaar, Online Coach en Personal Trainer bij Fit Up" width="480" height="600" loading="lazy" decoding="async"></div>
+        <div class="coach-photo"><img src="../assets/images/team-benjamin.jpg" alt="Benjamin — Head Coach bij Fit Up en online coach" width="480" height="600" loading="lazy" decoding="async"></div>
         <div class="coach-body">
-          <h3 class="coach-name">Patrick</h3>
-          <div class="coach-role">Eigenaar &middot; Online Coach &amp; Personal Trainer</div>
-          <p class="coach-bio">Oud-Defensie en sinds 2014 eigenaar en het gezicht van Fit Up. Coacht 1-op-1 en kent zijn klanten bij naam — discipline en persoonlijke aandacht in één.</p>
+          <h3 class="coach-name">Benjamin</h3>
+          <div class="coach-desc">Head Coach bij Fit Up &amp; online coach</div>
         </div>
       </div>
     </div>
+    <p class="coaches-note reveal d2">Onze online coaching komt rechtstreeks uit de dagelijkse praktijk op de club. Geen anoniem online platform, maar begeleiding door coaches die dagelijks met klanten werken.</p>
   </div>
 </section>
 
-<!-- PRICING -->
+<!-- 6. PAKKETTEN -->
 <section id="tarieven" class="pricing" aria-labelledby="pricing-heading">
   <div class="container">
     <div class="sec-head">
@@ -613,419 +534,41 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </div>
     <div class="price-toggle-wrap reveal">
       <div class="price-toggle" role="group" aria-label="Weergaveperiode kiezen">
-        <button type="button" class="toggle-btn active" data-period="4" aria-pressed="true">4 weken</button>
+        <button type="button" class="toggle-btn active" data-period="4" aria-pressed="true">Per 4 weken</button>
         <button type="button" class="toggle-btn" data-period="12" aria-pressed="false">12 weken</button>
       </div>
-      <p class="toggle-note">12 weken = 3 periodes van 4 weken. Geen prijsverschil, alleen een andere weergave.</p>
     </div>
     <div class="tarief-cards">
-      <!-- Online Coaching -->
+      <!-- Basis -->
       <div class="tarief-card reveal">
-        <div class="t-label">Alleen Online</div>
+        <div class="t-label">Basis</div>
         <div class="t-name">Online<br>Coaching</div>
-        <div class="t-price-tag">Voordeligste keuze · 3 maanden</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="50" data-price12="150">50</span></div>
-        <div class="t-day">± €1,79 per dag</div>
-        <div class="t-period" data-period4="per 4 weken · bij minimaal 3 maanden" data-period12="totaalprijs voor 12 weken (3 maanden)">per 4 weken · bij minimaal 3 maanden</div>
-        <!-- TODO (eigenaar): vul hier de maandelijks opzegbare (flexibele) prijs in — dit is nog niet bekend en mag niet verzonnen worden. Zodra bekend: prijs invullen in de tekst hieronder. -->
-        <p class="t-flex-note">Liever flexibel? Maandelijks opzegbaar mogelijk — vraag ernaar bij de intake.</p>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainingsschema</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kcal- &amp; macrodoelen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Training &amp; voeding bijhouden via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Wekelijkse check-in</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bijsturen wanneer nodig</li>
-        </ul>
-        <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Online%20Coaching" class="t-cta t-cta-outline">Start met Online Coaching →</a>
+        <div class="t-tagline">Volledig online</div>
+        <div class="t-old-price">Normaal €150</div>
+        <div class="t-save-badge">€15 voordeel</div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="50" data-price12="135">50</span></div>
+        <div class="t-day" data-day4="± €1,79 per dag" data-day12="± €1,61 per dag">± €1,79 per dag</div>
+        <div class="t-period" data-period4="per 4 weken" data-period12="12-weken traject">per 4 weken</div>
+        <a href="#intake" class="t-cta t-cta-outline">Start met je intake →</a>
       </div>
-      <!-- Hybride -->
+      <!-- Plus -->
       <div class="tarief-card hot reveal d1">
         <div class="ribbon">★ Aanrader</div>
-        <div class="t-label">Online + in de club</div>
+        <div class="t-label">Plus</div>
         <div class="t-name">Hybride<br>Coaching</div>
-        <div class="t-price-tag">Online + fysieke begeleiding · 3 maanden</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="75" data-price12="225">75</span></div>
-        <div class="t-day">± €2,68 per dag</div>
-        <div class="t-period" data-period4="per 4 weken · bij minimaal 3 maanden" data-period12="totaalprijs voor 12 weken (3 maanden)">per 4 weken · bij minimaal 3 maanden</div>
-        <!-- TODO (eigenaar): vul hier de maandelijks opzegbare (flexibele) prijs in — dit is nog niet bekend en mag niet verzonnen worden. Zodra bekend: prijs invullen in de tekst hieronder. -->
-        <p class="t-flex-note">Liever flexibel? Maandelijks opzegbaar mogelijk — vraag ernaar bij de intake.</p>
+        <div class="t-tagline">Online + in de club</div>
+        <div class="t-old-price">Normaal €225</div>
+        <div class="t-save-badge">€26 voordeel</div>
+        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="75" data-price12="199">75</span></div>
+        <div class="t-day" data-day4="± €2,68 per dag" data-day12="± €2,37 per dag">± €2,68 per dag</div>
+        <div class="t-period" data-period4="per 4 weken" data-period12="12-weken traject">per 4 weken</div>
         <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit Online Coaching</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fysieke check-in in de club</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit Basis</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fysieke check-in &amp; metingen bij Fit Up</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Techniek live beoordeeld</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Schema bijgesteld op voortgang</li>
         </ul>
-        <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Hybride%20Coaching" class="t-cta t-cta-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#intake" class="t-cta t-cta-dark">Start met je intake →</a>
       </div>
-    </div>
-    <p class="tarief-foot">Bij 3 maanden · maandelijks opzegbaar kan ook, tegen een hoger tarief.</p>
-    <p class="price-trust">Eerst kennismaken? Plan een gratis intake via WhatsApp of videocall.</p>
-  </div>
-</section>
-
-<!-- APP DEMO: TRAINING -->
-<section class="app-demo" aria-labelledby="training-demo-heading">
-  <div class="container">
-    <div class="app-demo-grid">
-      <div class="app-demo-copy">
-        <div class="sec-label reveal"><span class="sec-label-line"></span>Training in de app</div>
-        <h2 id="training-demo-heading" class="reveal d1">Je training altijd <em>bij de hand</em></h2>
-        <p class="reveal d2">Persoonlijk schema, overzichtelijk in de app.</p>
-      </div>
-      <div class="app-demo-visual reveal d1">
-        <div class="app-demo-phone">
-          <video class="app-demo-video" muted playsinline loop preload="none" aria-label="Demo van het persoonlijke trainingsschema in de Fit Up-app">
-            <source data-src="../assets/videos/app-training-demo.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- APP DEMO: VOEDING -->
-<section class="app-demo tint" aria-labelledby="voeding-demo-heading">
-  <div class="container">
-    <div class="app-demo-grid visual-first">
-      <div class="app-demo-visual reveal">
-        <div class="app-demo-phone">
-          <video class="app-demo-video" muted playsinline loop preload="none" aria-label="Demo van voeding bijhouden in de Fit Up-app">
-            <source data-src="../assets/videos/app-voeding-demo.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="app-demo-copy reveal d1">
-        <div class="sec-label reveal"><span class="sec-label-line"></span>Voeding in de app</div>
-        <h2 id="voeding-demo-heading" class="reveal d2">Grip op je voeding <em>zonder ingewikkeld gedoe</em></h2>
-        <p class="reveal d3">Kcal- en macrodoelen op maat, bijhouden in één tik.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT IS ONLINE COACHING -->
-<section aria-labelledby="what-heading">
-  <div class="container">
-    <div class="what-wrap">
-      <div class="what-head">
-        <div class="sec-label reveal"><span class="sec-label-line"></span>Wat is Online Coaching?</div>
-        <h2 id="what-heading" class="reveal d1">Dezelfde aanpak.<br><em>Zonder vaste afspraak.</em></h2>
-        <p class="reveal d2">Zelfde maatwerk als Personal Training — jij bepaalt wanneer.</p>
-      </div>
-      <div class="includes-list">
-        <div class="include-item reveal d1">
-          <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="include-title">Jouw eigen vaste coach</div><div class="include-desc">Eén coach die jouw doel, schema en voortgang kent. Korte lijn via chat, geen wisselingen.</div></div>
-        </div>
-        <div class="include-item reveal d2">
-          <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="include-title">Persoonlijk trainingsschema</div><div class="include-desc">Train je bij Basic-Fit, SportCity, een andere sportschool of thuis? Je coach bouwt je schema rondom jouw trainingsomgeving, beschikbare materiaal en doel. Elke oefening met techniekvideo.</div></div>
-        </div>
-        <div class="include-item reveal d3">
-          <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="include-title">Voedingsplan met kcal &amp; macro's</div><div class="include-desc">Calorie- en macrodoelen op maat, dagelijks afvinken in de app. Bijgesteld op basis van je voortgang.</div></div>
-        </div>
-        <div class="include-item reveal d4">
-          <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="include-title">Wekelijkse check-in</div><div class="include-desc">Elke week stuur je je gewicht, foto's en hoe je je voelt. Je coach kijkt mee, stuurt bij en motiveert.</div></div>
-        </div>
-        <div class="include-item reveal d5">
-          <div class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="include-title">Techniek-check op video</div><div class="include-desc">Stuur je squat of deadlift op video door de app — je coach kijkt mee en geeft concrete cues.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHERE -->
-<section class="where" aria-labelledby="where-heading">
-  <div class="container">
-    <div class="where-inner reveal">
-      <div class="where-top">
-        <div class="where-content">
-          <div class="where-eyebrow">Train waar je wilt</div>
-          <h3 id="where-heading">Eén schema,<br><em>drie plekken.</em></h3>
-          <p>Je locatie bepaalt niet je begeleiding. Je trainingsplan, voeding, check-ins en coaching gaan met je mee — thuis, in je eigen gym of bij Fit Up. Online Coaching is beschikbaar door heel Nederland.</p>
-        </div>
-        <div class="where-visual">
-          <div class="app-showcase">
-            <img src="../assets/images/app-showcase-3phones.jpg" alt="De Fit Up online coaching-app — trainingsschema, voedingsplan en groepslessen" width="900" height="505" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-        <div class="where-locations">
-          <div class="where-loc">
-            <div class="where-loc-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div class="where-loc-title">Thuis</div>
-            <div class="where-loc-desc">Schema met dumbbells, banden of bodyweight — geschikt voor woonkamer of garage.</div>
-          </div>
-          <div class="where-loc">
-            <div class="where-loc-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M7 6V4M17 6V4M3 12h18"/></svg>
-            </div>
-            <div class="where-loc-title">Jouw gym</div>
-            <div class="where-loc-desc">Basic-Fit, SportCity of een andere sportschool — we passen het schema aan op de apparaten die er staan.</div>
-          </div>
-          <div class="where-loc">
-            <div class="where-loc-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-            </div>
-            <div class="where-loc-title">Bij Fit Up</div>
-            <div class="where-loc-desc">Wil je af en toe alsnog in onze club trainen? Kies dan voor het Hybride pakket — €25 extra per 4 weken.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-</section>
-
-<!-- APP -->
-<section class="nutri" aria-labelledby="nutri-heading">
-  <div class="container">
-    <div class="nutri-grid">
-      <div class="nutri-copy">
-        <div class="sec-label reveal"><span class="sec-label-line"></span>Voeding &amp; training in één app</div>
-        <h2 id="nutri-heading" class="reveal d1">Alles in <em>één plek</em></h2>
-        <p class="reveal d2">Bij Online Coaching is de app je trainingsvloer: alles op één plek, altijd up-to-date.</p>
-        <div class="nutri-features">
-          <div class="nutri-feat reveal d1">
-            <div class="nutri-feat-num">01 · Training</div>
-            <div class="nutri-feat-title">Schema met video</div>
-            <div class="nutri-feat-desc">Elke oefening met techniekvideo, sets, reps en gewicht — duidelijk wat je doet en hoe.</div>
-          </div>
-          <div class="nutri-feat reveal d2">
-            <div class="nutri-feat-num">02 · Voeding</div>
-            <div class="nutri-feat-title">Kcal &amp; macro's</div>
-            <div class="nutri-feat-desc">Plan op maat met dagelijkse kcal- en macrotelling. Maaltijden afvinken en je weet direct waar je staat.</div>
-          </div>
-          <div class="nutri-feat reveal d3">
-            <div class="nutri-feat-num">03 · Chat</div>
-            <div class="nutri-feat-title">Korte lijn met je coach</div>
-            <div class="nutri-feat-desc">Vragen over een oefening, een week vol stress of een feestje in het weekend? Even een berichtje.</div>
-          </div>
-          <div class="nutri-feat reveal d4">
-            <div class="nutri-feat-num">04 · Inzicht</div>
-            <div class="nutri-feat-title">Voortgang real-time</div>
-            <div class="nutri-feat-desc">Gewicht, foto's en kracht­getallen in één overzicht. Je coach kijkt elke week mee.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how" id="hoe-werkt" aria-labelledby="how-heading">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Hoe werkt het?</div>
-      <h2 id="how-heading" class="reveal d1">Van intake tot <em>resultaat</em></h2>
-      <p class="reveal d2">Van intake tot resultaat, in vijf stappen.</p>
-    </div>
-    <div class="route" id="route">
-      <div class="route-line" aria-hidden="true"><div class="route-fill" id="routeFill"></div></div>
-      <div class="route-steps">
-        <div class="route-step">
-          <div class="route-dot">01</div>
-          <div class="route-content">
-            <h3>Intake &amp; profiel</h3>
-            <p>We brengen je doel, niveau, ervaring en uitgangssituatie in kaart.</p>
-          </div>
-        </div>
-        <div class="route-step">
-          <div class="route-dot">02</div>
-          <div class="route-content">
-            <h3>Jouw plan</h3>
-            <p>Wij maken je trainingsschema en stellen je persoonlijke voedingsdoelen in.</p>
-          </div>
-        </div>
-        <div class="route-step">
-          <div class="route-dot">03</div>
-          <div class="route-content">
-            <h3>Train &amp; registreer</h3>
-            <p>Via de app heb je je trainingen, voeding en voortgang bij de hand.</p>
-          </div>
-        </div>
-        <div class="route-step">
-          <div class="route-dot">04</div>
-          <div class="route-content">
-            <h3>Wekelijkse check-in</h3>
-            <p>We beoordelen je voortgang, gewicht en feedback.</p>
-          </div>
-        </div>
-        <div class="route-step">
-          <div class="route-dot">05</div>
-          <div class="route-content">
-            <h3>Bijsturen</h3>
-            <p>Loopt iets niet zoals verwacht? Dan passen we het plan aan.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WAAROM FIT UP -->
-<section class="why-fitup" aria-labelledby="why-heading">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Waarom Fit Up</div>
-      <h2 id="why-heading" class="reveal d1">Online, maar nooit <em>onpersoonlijk</em></h2>
-      <p class="reveal d2">Jouw coach maakt het plan, volgt je voortgang en stuurt bij.</p>
-    </div>
-    <div class="why-grid">
-      <div class="voordelen-card reveal">
-        <h3>Persoonlijk</h3>
-        <p>Schema en voedingsdoelen afgestemd op jou.</p>
-      </div>
-      <div class="voordelen-card reveal d1">
-        <h3>Wekelijks contact</h3>
-        <p>Geen wekenlang wachten voordat iemand naar je resultaten kijkt.</p>
-      </div>
-      <div class="voordelen-card reveal d2">
-        <h3>Bijsturen op resultaat</h3>
-        <p>Gewicht, voortgang en feedback bepalen wat de volgende stap wordt.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTATEN -->
-<section class="proof" aria-labelledby="proof-heading">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Resultaten</div>
-      <h2 id="proof-heading" class="reveal d1">Jouw <em>traject</em></h2>
-    </div>
-    <div class="progress-card reveal">
-      <div class="progress-chart-wrap">
-        <svg class="progress-chart-svg" viewBox="0 0 800 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <line x1="30" y1="190" x2="770" y2="190" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-          <path d="M30,165 C 140,158 190,145 270,132 C 350,119 400,100 480,82 C 560,64 610,45 690,32 L770,24" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
-        </svg>
-        <div class="progress-nodes">
-          <button type="button" class="phase-node active" style="left:3.75%;top:75%" data-detail="0-meting, doel en aanpak bepalen.">
-            <span class="phase-dot">1</span><span class="phase-label">Intake</span>
-          </button>
-          <button type="button" class="phase-node" style="left:33.75%;top:60%" data-detail="Trainings- en voedingsschema op maat.">
-            <span class="phase-dot">2</span><span class="phase-label">Schema</span>
-          </button>
-          <button type="button" class="phase-node" style="left:60%;top:37%" data-detail="Elke week bijsturen met je coach.">
-            <span class="phase-dot">3</span><span class="phase-label">Check-ins</span>
-          </button>
-          <button type="button" class="phase-node" style="left:96.25%;top:11%" data-detail="Na 3 maanden geëvalueerd en bijgesteld.">
-            <span class="phase-dot">4</span><span class="phase-label">Resultaat</span>
-          </button>
-        </div>
-      </div>
-      <p class="progress-detail-panel" aria-live="polite">0-meting, doel en aanpak bepalen.</p>
-    </div>
-    <div class="proof-grid">
-      <div class="proof-card reveal">
-        <div class="proof-img">
-          <img src="../assets/images/result-5kg.png" alt="Mark — 5 kilo afgevallen in 8 weken, vetpercentage van 16 naar 13,9% bij Fit Up Leiderdorp" width="347" height="295" loading="lazy" decoding="async">
-          <div class="proof-badge">−5 kg · 8 weken</div>
-        </div>
-        <div class="proof-body">
-          <div class="proof-name">Mark</div>
-          <p class="proof-quote">"Met een schema op maat en strakke voedingsbegeleiding zag ik binnen acht weken écht verschil."</p>
-        </div>
-      </div>
-      <div class="proof-card reveal d1">
-        <div class="proof-img">
-          <img src="../assets/images/result-karin.png" alt="Karin — 17 kilo afgevallen onder begeleiding van Fit Up Leiderdorp" width="347" height="295" loading="lazy" decoding="async">
-          <div class="proof-badge">−17 kg</div>
-        </div>
-        <div class="proof-body">
-          <div class="proof-name">Karin</div>
-          <p class="proof-quote">"Ik kan nu dingen die ik me jaren niet voor kon stellen — wandelen, hiken, gewoon meedoen."</p>
-        </div>
-      </div>
-    </div>
-    <p class="tarief-foot" style="margin-top:28px">Resultaten verschillen per persoon. <a href="../trainingsaanbod/personal-training/index.html" style="color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px">Bekijk meer resultaten →</a></p>
-  </div>
-</section>
-
-<!-- FOR WHO -->
-<section class="forwho" aria-labelledby="forwho-heading">
-  <div class="container">
-    <div class="forwho-single">
-      <div class="forwho-head">
-        <div class="sec-label reveal"><span class="sec-label-line"></span>Voor wie is online coaching?</div>
-        <h2 id="forwho-heading" class="reveal d1">Online Coaching is voor jou <em>als…</em></h2>
-        <p class="reveal d2">Geen vast blok, geen reistijd — wel structuur en een coach die meekijkt.</p>
-      </div>
-      <div class="forwho-grid-list">
-        <div class="forwho-item reveal d1"><div class="forwho-num">01</div><div class="forwho-text">Je hebt een onregelmatige agenda en wil zelf kiezen wanneer je traint</div></div>
-        <div class="forwho-item reveal d2"><div class="forwho-num">02</div><div class="forwho-text">Je wilt met een vaste Fit Up-coach werken, ongeacht waar in Nederland je woont of traint</div></div>
-        <div class="forwho-item reveal d3"><div class="forwho-num">03</div><div class="forwho-text">Je weet wat je doet in de gym maar mist een plan dat klopt</div></div>
-        <div class="forwho-item reveal d4"><div class="forwho-num">04</div><div class="forwho-text">Je wil voedingsbegeleiding zonder elke week op gesprek te hoeven</div></div>
-        <div class="forwho-item reveal d5"><div class="forwho-num">05</div><div class="forwho-text">Je reist veel en wil een schema dat met je meebeweegt</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARE -->
-<section class="compare" aria-labelledby="compare-heading">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Online Coaching vs Personal Training</div>
-      <h2 id="compare-heading" class="reveal d1">Welke past <em>bij jou?</em></h2>
-      <p class="reveal d2">Zelfde coaches, zelfde app — verschil zit in begeleiding en agenda.</p>
-    </div>
-    <div class="compare-table-wrap">
-    <div class="compare-table reveal">
-      <div class="ct-head">Onderdeel</div>
-      <div class="ct-head online">Online Coaching</div>
-      <div class="ct-head">Personal Training</div>
-
-      <div class="ct-cell ct-row-label">Persoonlijk schema</div>
-      <div class="ct-cell ct-yes">✓ Inbegrepen</div>
-      <div class="ct-cell ct-yes">✓ Inbegrepen</div>
-
-      <div class="ct-cell ct-row-label">Voedingsplan via app</div>
-      <div class="ct-cell ct-yes">✓ Inbegrepen</div>
-      <div class="ct-cell ct-yes">✓ Inbegrepen</div>
-
-      <div class="ct-cell ct-row-label">Sessies met je coach</div>
-      <div class="ct-cell ct-partial"><em>Wekelijkse check-in</em> via app</div>
-      <div class="ct-cell ct-partial"><em>4× 60 min</em> 1-op-1 per maand</div>
-
-      <div class="ct-cell ct-row-label">Techniekcoaching</div>
-      <div class="ct-cell ct-partial">Video door je coach</div>
-      <div class="ct-cell ct-yes">✓ Live, elke set</div>
-
-      <div class="ct-cell ct-row-label">Trainingsplek</div>
-      <div class="ct-cell ct-partial">Thuis · eigen gym · Fit Up</div>
-      <div class="ct-cell ct-partial">Fit Up Leiderdorp</div>
-
-      <div class="ct-cell ct-row-label">Prijs vanaf</div>
-      <div class="ct-cell ct-partial"><em>€50</em> / 4 weken · 3 mnd</div>
-      <div class="ct-cell ct-partial"><em>€300</em> / 4 weken</div>
-    </div>
-    </div>
-    <p class="compare-scroll-hint">← Swipe voor alle kolommen →</p>
-    <p class="tarief-foot" style="margin-top:28px">Twijfel? In de gratis intake adviseren we eerlijk welke aanpak bij jouw doel en agenda past. <a href="../trainingsaanbod/personal-training/index.html" style="color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px">Bekijk Personal Training →</a></p>
-  </div>
-</section>
-
-<!-- WAT KRIJG JE (GEO/AI) -->
-<section class="faq-section" id="wat-krijg-je" aria-labelledby="watkrijgje-heading" style="background:var(--paper)">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Kort &amp; duidelijk</div>
-      <h2 id="watkrijgje-heading" class="reveal d1">Wat krijg je bij <em>Online Coaching van Fit Up?</em></h2>
-      <p class="reveal d2">De belangrijkste vragen over prijs, inhoud en werkwijze in het kort.</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item reveal"><div class="faq-q">Wat kost online coaching?</div><div class="faq-a">Online Coaching kost €50 per 4 weken. Voor 12 weken is dat in totaal €150.</div></div>
-      <div class="faq-item reveal d1"><div class="faq-q">Wat krijg ik voor €50 per 4 weken?</div><div class="faq-a">Een persoonlijk trainingsplan, voedingsbegeleiding, een wekelijkse check-in en techniekfeedback van je vaste coach — Benjamin of Patrick — die je voortgang volgt en waar nodig bijstuurt.</div></div>
-      <div class="faq-item reveal d2"><div class="faq-q">Kan ik bij mijn eigen sportschool blijven trainen?</div><div class="faq-a">Ja. Je kunt trainen bij je eigen sportschool, thuis of op een andere locatie. Je schema wordt afgestemd op jouw trainingsomgeving en beschikbare materiaal.</div></div>
-      <div class="faq-item reveal d3"><div class="faq-q">Is Online Coaching hetzelfde als Personal Training?</div><div class="faq-a">Nee. Bij Personal Training staat je coach fysiek naast je tijdens de training. Bij Online Coaching train je zelfstandig en krijg je op afstand persoonlijke planning, feedback en bijsturing.</div></div>
-      <div class="faq-item reveal d4"><div class="faq-q">Is Online Coaching door heel Nederland beschikbaar?</div><div class="faq-a">Ja. De begeleiding vindt online plaats en is daardoor niet gebonden aan Leiderdorp.</div></div>
     </div>
   </div>
 </section>
@@ -1035,44 +578,102 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <div class="container">
     <div class="sec-head">
       <div class="sec-label reveal"><span class="sec-label-line"></span>Veelgestelde vragen</div>
-      <h2 id="faq-heading" class="reveal d1">Over <em>Online Coaching</em></h2>
+      <h2 id="faq-heading" class="reveal d1">Nog <em>vragen?</em></h2>
     </div>
     <div class="faq-grid">
-      <div class="faq-item reveal"><div class="faq-q">Moet ik in Leiderdorp wonen?</div><div class="faq-a">Nee. Online Coaching werkt overal in Nederland (en daarbuiten). We hebben klanten die thuis trainen, in een Basic-Fit om de hoek of zelfs vanuit Spanje. Het Hybride-pakket is alleen interessant als je af en toe in onze club in Leiderdorp wil trainen.</div></div>
-      <div class="faq-item reveal d1"><div class="faq-q">Hoe vaak heb ik contact met mijn coach?</div><div class="faq-a">Elke week stuur je een check-in (gewicht, foto's, hoe je je voelt) en krijg je daar persoonlijk antwoord op. Tussendoor kun je altijd vragen stellen via de chat — gemiddeld reageert je coach binnen een werkdag.</div></div>
-      <div class="faq-item reveal d2"><div class="faq-q">Wat als ik geen ervaring heb met krachttraining?</div><div class="faq-a">Geen probleem. Elke oefening heeft een techniekvideo, en je kunt je eigen sets op video opnemen voor feedback. Heb je écht weinig ervaring, dan adviseren we vaak om eerst een paar PT-sessies te doen voor de basis — daarna draait Online Coaching prima.</div></div>
-      <div class="faq-item reveal d3"><div class="faq-q">Welk schema krijg ik — gym of thuis?</div><div class="faq-a">Wat het beste bij jouw situatie past. We vragen in de intake welke apparaten/spullen je hebt en bouwen daar je schema omheen. Verander je van sportschool of ga je op reis? Stuur het door en we passen het schema aan.</div></div>
-      <div class="faq-item reveal d4"><div class="faq-q">Kan ik tussentijds switchen naar Personal Training?</div><div class="faq-a">Ja. Veel klanten starten met Online Coaching en stappen over naar PT (of andersom). We rekenen geen extra inschrijfkosten — je betaalt vanaf het moment van switchen het nieuwe tarief.</div></div>
-      <div class="faq-item reveal d5"><div class="faq-q">Wat is de minimale looptijd?</div><div class="faq-a">Het standaardtarief (€50 / €75 per 4 weken) geldt bij minimaal 3 maanden — die periode heb je nodig om écht door je eerste metingen heen te kijken. Liever flexibel? Dan is maandelijks opzegbaar ook mogelijk, tegen een hoger tarief. We bespreken dit graag tijdens de gratis intake.</div></div>
-      <div class="faq-item reveal d5"><div class="faq-q">Moet ik lid zijn van Fit Up Leiderdorp?</div><div class="faq-a">Nee. Voor Online Coaching heb je geen lidmaatschap van de fysieke club nodig.</div></div>
+      <div class="faq-item reveal"><div class="faq-q">Moet ik in Leiderdorp wonen?</div><div class="faq-a">Nee. Online Coaching werkt overal in Nederland en je hoeft geen lid te zijn van de fysieke club. Voor Hybride kom je af en toe langs bij Fit Up Leiderdorp.</div></div>
+      <div class="faq-item reveal d1"><div class="faq-q">Is Online Coaching hetzelfde als Personal Training?</div><div class="faq-a">Nee. Bij Personal Training staat je coach fysiek naast je tijdens de training. Bij Online Coaching train je zelfstandig en krijg je op afstand planning en feedback.</div></div>
+      <div class="faq-item reveal d2"><div class="faq-q">Wat als ik geen ervaring heb met krachttraining?</div><div class="faq-a">Geen probleem. Elke oefening heeft een techniekvideo en je kunt je sets op video insturen voor feedback.</div></div>
+      <div class="faq-item reveal d3"><div class="faq-q">Kan ik tussentijds switchen naar Personal Training?</div><div class="faq-a">Ja, zonder extra inschrijfkosten. Je betaalt vanaf het moment van switchen het nieuwe tarief.</div></div>
     </div>
   </div>
 </section>
 
-<!-- TRY STRIP -->
-<section class="try-strip">
+<!-- INTAKEFORMULIER -->
+<section class="intake" id="intake" aria-labelledby="intake-heading">
   <div class="container">
-    <div class="try-inner">
-      <div>
-        <div class="try-label">Nog geen klant?</div>
-        <div class="try-title">Start met een<br>gratis intake</div>
-        <p class="try-sub">Een gesprek via WhatsApp of videocall: doel, startpunt en aanpak. Zonder verplichtingen — wel met een eerlijk advies of online coaching bij jou past.</p>
-      </div>
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Online%20Coaching" class="btn-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="sec-head">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Aanmelden</div>
+      <h2 id="intake-heading" class="reveal d1">Start met <em>je intake</em></h2>
+      <p class="reveal d2">Patrick of Benjamin bekijkt je intake persoonlijk en neemt contact met je op.</p>
+    </div>
+    <div class="intake-card reveal">
+      <form class="intake-form" id="intake-form" novalidate>
+        <fieldset>
+          <legend>Persoonlijk</legend>
+          <div class="if-grid if-grid-2">
+            <div class="if-field"><label for="if-voornaam">Voornaam</label><input type="text" id="if-voornaam" name="voornaam" autocomplete="given-name" required></div>
+            <div class="if-field"><label for="if-achternaam">Achternaam</label><input type="text" id="if-achternaam" name="achternaam" autocomplete="family-name" required></div>
+            <div class="if-field"><label for="if-email">E-mail</label><input type="email" id="if-email" name="email" autocomplete="email" required></div>
+            <div class="if-field"><label for="if-telefoon">Telefoon</label><input type="tel" id="if-telefoon" name="telefoon" autocomplete="tel" required></div>
+            <div class="if-field"><label for="if-leeftijd">Leeftijd</label><input type="number" id="if-leeftijd" name="leeftijd" min="14" max="99" required></div>
+            <div class="if-field"><label for="if-lengte">Lengte (cm)</label><input type="number" id="if-lengte" name="lengte" min="120" max="230"></div>
+            <div class="if-field"><label for="if-gewicht">Gewicht (kg)</label><input type="number" id="if-gewicht" name="gewicht" min="30" max="300"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Doel</legend>
+          <div class="if-field"><label for="if-doel">Wat wil je bereiken?</label><textarea id="if-doel" name="doel" rows="3" required></textarea></div>
+          <div class="if-grid if-grid-2">
+            <div class="if-field"><label for="if-doelgewicht">Doelgewicht (kg, optioneel)</label><input type="number" id="if-doelgewicht" name="doelgewicht" min="30" max="300"></div>
+            <div class="if-field"><label for="if-uitdaging">Grootste uitdaging</label><input type="text" id="if-uitdaging" name="uitdaging"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Training</legend>
+          <div class="if-grid if-grid-2">
+            <div class="if-field"><label for="if-freq-nu">Hoe vaak train je nu?</label>
+              <select id="if-freq-nu" name="frequentie_nu">
+                <option value="">— Kies —</option>
+                <option>Niet</option><option>1x per week</option><option>2-3x per week</option><option>4x of vaker</option>
+              </select>
+            </div>
+            <div class="if-field"><label for="if-freq-wil">Hoe vaak wil/kun je trainen?</label>
+              <select id="if-freq-wil" name="frequentie_gewenst">
+                <option value="">— Kies —</option>
+                <option>1x per week</option><option>2-3x per week</option><option>4x of vaker</option>
+              </select>
+            </div>
+            <div class="if-field"><label for="if-locatie">Waar train je?</label><input type="text" id="if-locatie" name="locatie" placeholder="Thuis, sportschool, Fit Up..."></div>
+            <div class="if-field"><label for="if-blessures">Blessures of beperkingen</label><input type="text" id="if-blessures" name="blessures" placeholder="Geen, of omschrijf kort"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Begeleiding</legend>
+          <div class="if-radio-group" role="radiogroup" aria-label="Gewenste begeleiding">
+            <label class="if-radio"><input type="radio" name="begeleiding" value="Volledig online" required> Volledig online</label>
+            <label class="if-radio"><input type="radio" name="begeleiding" value="Hybride"> Hybride</label>
+            <label class="if-radio"><input type="radio" name="begeleiding" value="Nog niet zeker"> Nog niet zeker</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Extra</legend>
+          <div class="if-grid if-grid-2">
+            <div class="if-field"><label for="if-startdatum">Gewenste startdatum</label><input type="date" id="if-startdatum" name="startdatum"></div>
+            <div class="if-field"><label for="if-herkomst">Hoe ben je bij Fit Up terechtgekomen?</label><input type="text" id="if-herkomst" name="herkomst"></div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn-accent if-submit" id="if-submit-btn">Verstuur mijn intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </form>
+      <p class="if-success" id="if-success" role="status" hidden>Bedankt! Patrick of Benjamin bekijkt je intake persoonlijk en neemt contact met je op. Daarna richten we jouw coaching in onze Fit Up-app in.</p>
+      <p class="if-error" id="if-error" role="alert" hidden>Er ging iets mis bij het versturen. Probeer het opnieuw, of app ons direct via <a href="https://wa.me/31648776322" target="_blank" rel="noopener">WhatsApp</a>.</p>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-cta-photo" aria-hidden="true"><img src="../assets/images/cta-highfive.jpg" alt="" loading="lazy" decoding="async"></div>
-  <div class="container">
-    <h2 class="reveal">Klaar om<br><em>te beginnen?</em></h2>
-    <p class="reveal d1">Plan een gratis intake. We kijken samen of online coaching bij jouw doel, agenda en trainingsplek past — zonder verplichtingen.</p>
-    <div class="cta-actions reveal d2">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Online%20Coaching" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="../tarieven/index.html" class="btn-ghost">Of: bekijk alle tarieven →</a>
-    </div>
+<!-- Interne link naar gerelateerd artikel -->
+<section style="background:#111;padding:40px 0;">
+  <div style="max-width:800px;margin:0 auto;padding:0 24px;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:12px;">Lees ook</div>
+    <a href="/afvallen-tijdens-overgang/" style="display:block;background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);padding:24px;text-decoration:none;border-left:3px solid #d4ff00;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Afvallen tijdens de overgang →</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Online coaching is ideaal als je in de overgang zit en begeleiding wil op jouw eigen tempo.</div>
+    </a>
   </div>
 </section>
 
@@ -1110,57 +711,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </div>
 </footer>
 
-<!-- Interne link naar gerelateerd artikel -->
-<section style="background:#111;padding:40px 0;">
-  <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:12px;">Lees ook</div>
-    <a href="/afvallen-tijdens-overgang/" style="display:block;background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);padding:24px;text-decoration:none;border-left:3px solid #d4ff00;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Afvallen tijdens de overgang →</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Online coaching is ideaal als je in de overgang zit en begeleiding wil op jouw eigen tempo.</div>
-    </a>
-  </div>
-</section>
-
-<script>
-/* === PRICING: 4/12 weken toggle === */
-(function(){
-  var toggle = document.querySelector('.price-toggle');
-  if(!toggle) return;
-  var btns = toggle.querySelectorAll('.toggle-btn');
-  var nums = document.querySelectorAll('.tarief-card .num[data-price4]');
-  var periods = document.querySelectorAll('.tarief-card .t-period[data-period4]');
-  function setPeriod(period){
-    btns.forEach(function(b){
-      var active = b.dataset.period === period;
-      b.classList.toggle('active', active);
-      b.setAttribute('aria-pressed', active ? 'true' : 'false');
-    });
-    nums.forEach(function(n){ n.textContent = n.dataset['price' + period]; });
-    periods.forEach(function(p){ p.textContent = p.dataset['period' + period]; });
-  }
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){ setPeriod(b.dataset.period); });
-  });
-})();
-/* === END PRICING TOGGLE === */
-</script>
-
-<script>
-/* === RESULTATEN: interactieve fasen-grafiek === */
-(function(){
-  var nodes = document.querySelectorAll('.phase-node');
-  var panel = document.querySelector('.progress-detail-panel');
-  if(!nodes.length || !panel) return;
-  nodes.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      nodes.forEach(function(n){ n.classList.remove('active'); });
-      btn.classList.add('active');
-      panel.textContent = btn.dataset.detail;
-    });
-  });
-})();
-</script>
-
 <script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
@@ -1187,67 +737,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
 })();
 /* === END NAV DRAWER TOGGLE === */
-</script>
-
-<script>
-/* === APP DEMO VIDEOS: preload vóór beeld, autoplay vanaf 10% zichtbaar === */
-(function(){
-  var vids = document.querySelectorAll('.app-demo-video');
-  if(!vids.length) return;
-
-  function ensureLoaded(video){
-    if(video.dataset.loaded === '1') return;
-    var source = video.querySelector('source[data-src]');
-    if(!source) return;
-    video.dataset.loaded = '1';
-    video.muted = true;
-    video.playsInline = true;
-    video.preload = 'auto';
-    source.src = source.dataset.src;
-    video.load();
-  }
-
-  function doPlay(video){
-    var playPromise = video.play();
-    if(playPromise && typeof playPromise.catch === 'function'){
-      playPromise.catch(function(){});
-    }
-  }
-
-  function attemptPlay(video){
-    ensureLoaded(video);
-    video.muted = true;
-    video.playsInline = true;
-    video.autoplay = true;
-    if(video.readyState >= 2){
-      doPlay(video);
-    } else {
-      video.addEventListener('loadeddata', function(){ doPlay(video); }, {once:true});
-    }
-  }
-
-  var preloadObserver = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        ensureLoaded(entry.target);
-        preloadObserver.unobserve(entry.target);
-      }
-    });
-  }, {rootMargin:'500px 0px', threshold:0});
-
-  var playObserver = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){ attemptPlay(entry.target); }
-      else { entry.target.pause(); }
-    });
-  }, {rootMargin:'0px', threshold:0.1});
-
-  vids.forEach(function(v){
-    preloadObserver.observe(v);
-    playObserver.observe(v);
-  });
-})();
-/* === END APP DEMO VIDEOS === */
 </script>
 
 <script>
@@ -1278,6 +767,75 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   update();
 })();
 /* === END ROUTE SCROLL PROGRESS === */
+</script>
+
+<script>
+/* === PRICING: 4 weken / 12 weken toggle === */
+(function(){
+  var toggle = document.querySelector('.price-toggle');
+  if(!toggle) return;
+  var btns = toggle.querySelectorAll('.toggle-btn');
+  var cards = document.querySelectorAll('.tarief-card');
+  var nums = document.querySelectorAll('.tarief-card .num[data-price4]');
+  var periods = document.querySelectorAll('.tarief-card .t-period[data-period4]');
+  var days = document.querySelectorAll('.tarief-card .t-day[data-day4]');
+  function setPeriod(period){
+    btns.forEach(function(b){
+      var active = b.dataset.period === period;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    cards.forEach(function(c){ c.classList.toggle('period-12', period === '12'); });
+    nums.forEach(function(n){ n.textContent = n.dataset['price' + period]; });
+    periods.forEach(function(p){ p.textContent = p.dataset['period' + period]; });
+    days.forEach(function(d){ d.textContent = d.dataset['day' + period]; });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ setPeriod(b.dataset.period); });
+  });
+})();
+/* === END PRICING TOGGLE === */
+</script>
+
+<script>
+/* === INTAKEFORMULIER: verstuurt naar dezelfde Make.com-webhooks als het contactformulier === */
+(function(){
+  var form = document.getElementById('intake-form');
+  if(!form) return;
+  var MAKE_WEBHOOK = 'https://hook.eu1.make.com/2gu1t19yn3tdkd9hz2ylf2jitg4r6y37';
+  var MAKE_EMAIL   = 'https://hook.eu1.make.com/95kilo0637shjh5ygzuk9t95dgbo1nde';
+  var btn = document.getElementById('if-submit-btn');
+  var success = document.getElementById('if-success');
+  var errorBox = document.getElementById('if-error');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+
+    var fd = new FormData(form);
+    var data = { bron: 'Online Coaching intakeformulier' };
+    fd.forEach(function(value, key){ data[key] = value; });
+    var payload = JSON.stringify(data);
+
+    btn.disabled = true;
+    btn.textContent = 'Versturen...';
+    errorBox.hidden = true;
+
+    Promise.all([
+      fetch(MAKE_WEBHOOK, { method: 'POST', headers: {'Content-Type':'application/json'}, body: payload }),
+      fetch(MAKE_EMAIL,   { method: 'POST', headers: {'Content-Type':'application/json'}, body: payload })
+    ]).then(function(){
+      form.hidden = true;
+      success.hidden = false;
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    }).catch(function(){
+      errorBox.hidden = false;
+      btn.disabled = false;
+      btn.textContent = 'Verstuur mijn intake';
+    });
+  });
+})();
+/* === END INTAKEFORMULIER === */
 </script>
 
 </body>
