@@ -583,57 +583,90 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </div>
 </section>
 
-<!-- RESULTAATCASE — Ronald -->
+<!-- RESULTAATCASES — Ronald & Marja -->
 <section class="rescase" aria-labelledby="rescase-heading">
   <style>
     .rescase{background:var(--paper);padding:100px 0}
     .rescase .sec-head p{color:var(--ink-soft)}
-    .rescase-card{max-width:920px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;display:grid;grid-template-columns:260px 1fr;transition:box-shadow .3s}
+    .rescase-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1080px;margin:0 auto}
+    .rescase-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;display:grid;grid-template-columns:220px 1fr;transition:box-shadow .3s}
     .rescase-card:hover{box-shadow:var(--sh-hover)}
-    .rescase-stat{background:var(--black);color:#fff;padding:40px 32px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-    .rescase-mono{position:absolute;top:-18px;right:-10px;font-family:var(--fd);font-size:170px;font-weight:900;line-height:1;color:rgba(255,255,255,.05);pointer-events:none;user-select:none}
-    .rescase-kg{font-family:var(--fd);font-size:54px;font-weight:900;line-height:1;color:var(--accent);position:relative}
-    .rescase-kg small{font-size:19px;font-weight:700;margin-left:3px;text-transform:uppercase}
-    .rescase-name{font-family:var(--fd);font-size:21px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-top:18px;position:relative}
-    .rescase-range{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:5px;position:relative}
-    .rescase-body{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;position:relative}
+    .rescase-stat{background:var(--black);color:#fff;padding:32px 26px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+    .rescase-mono{position:absolute;top:-18px;right:-10px;font-family:var(--fd);font-size:150px;font-weight:900;line-height:1;color:rgba(255,255,255,.05);pointer-events:none;user-select:none}
+    .rescase-kg{font-family:var(--fd);font-size:46px;font-weight:900;line-height:1;color:var(--accent);position:relative}
+    .rescase-kg small{font-size:17px;font-weight:700;margin-left:3px;text-transform:uppercase}
+    .rescase-name{font-family:var(--fd);font-size:19px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-top:16px;position:relative}
+    .rescase-range{font-size:12px;color:rgba(255,255,255,.55);margin-top:5px;position:relative}
+    .rescase-stat.has-photo{padding:0}
+    .rescase-photo-banner{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:14px 18px;background:var(--black);border-bottom:2px solid var(--accent);position:relative;z-index:1}
+    .rescase-photo-banner .rescase-kg{font-size:26px}
+    .rescase-photo-banner .rescase-name{margin-top:0;font-size:13px}
+    .rescase-photo-frame{flex:1;background:#0e0e0e;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .rescase-photo-frame img{width:100%;height:100%;object-fit:contain;display:block}
+    .rescase-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;position:relative}
     .rescase-quote-mark{font-family:var(--fd);font-size:52px;font-weight:900;color:var(--accent);opacity:.7;line-height:.5;margin-bottom:10px}
-    .rescase-text{font-size:15.5px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.75}
-    .rescase-foot{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;flex-wrap:wrap;gap:10px}
-    .rescase-tag{font-family:var(--fd);font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);background:rgba(212,255,0,.16);border:1px solid rgba(110,130,0,.25);padding:6px 12px;border-radius:999px}
-    @media(max-width:860px){
+    .rescase-text{font-size:15px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.72}
+    .rescase-foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+    .rescase-tag{font-family:var(--fd);font-size:10px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent-ink);background:rgba(212,255,0,.16);border:1px solid rgba(110,130,0,.25);padding:6px 11px;border-radius:999px}
+    @media(max-width:980px){
+      .rescase-grid{grid-template-columns:1fr;max-width:520px}
+    }
+    @media(max-width:640px){
       .rescase{padding:64px 0}
       .rescase-card{grid-template-columns:1fr;border-radius:14px}
-      .rescase-stat{padding:26px 22px;flex-direction:row;align-items:center;gap:16px}
+      .rescase-stat{padding:24px 22px;flex-direction:row;align-items:center;gap:16px}
+      .rescase-stat.has-photo{flex-direction:column;padding:0}
       .rescase-mono{display:none}
-      .rescase-kg{font-size:38px}
+      .rescase-kg{font-size:36px}
       .rescase-name{margin-top:0}
+      .rescase-photo-frame{aspect-ratio:347/255}
       .rescase-body{padding:24px 20px 28px}
     }
   </style>
   <div class="container">
     <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Resultaat · Ronald</div>
-      <h2 id="rescase-heading" class="reveal d1">Van 100 naar 85 kg <em>bij Fit Up Leiderdorp</em></h2>
-      <p class="reveal d2">Persoonlijke trainingsbegeleiding en voedingsbegeleiding in een kleinschalige sportschool — dat maakte voor Ronald het verschil bij afvallen in Leiderdorp.</p>
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Resultaten · klanten van Fit Up</div>
+      <h2 id="rescase-heading" class="reveal d1">Resultaten die <em>voor zich spreken</em></h2>
+      <p class="reveal d2">Persoonlijke trainingsbegeleiding en voedingsbegeleiding in een kleinschalige sportschool — dat is waarom afvallen in Leiderdorp bij Fit Up wél werkt.</p>
     </div>
-    <article class="rescase-card reveal d2">
-      <div class="rescase-stat">
-        <span class="rescase-mono" aria-hidden="true">R</span>
-        <div class="rescase-kg">−15<small>kg</small></div>
-        <div>
-          <div class="rescase-name">Ronald</div>
-          <div class="rescase-range">Van 100 kg naar 85 kg</div>
+    <div class="rescase-grid">
+      <article class="rescase-card reveal d2">
+        <div class="rescase-stat">
+          <span class="rescase-mono" aria-hidden="true">R</span>
+          <div class="rescase-kg">−15<small>kg</small></div>
+          <div>
+            <div class="rescase-name">Ronald</div>
+            <div class="rescase-range">Van 100 kg naar 85 kg</div>
+          </div>
         </div>
-      </div>
-      <div class="rescase-body">
-        <div class="rescase-quote-mark" aria-hidden="true">&ldquo;</div>
-        <blockquote class="rescase-text">Ik was veel te zwaar, voelde me futloos en had al verschillende dingen geprobeerd. […] Bij Fit Up vond ik juist die kleinschalige, huiselijke omgeving en persoonlijke aandacht. De begeleiding met zowel sport als voeding is veel meer op mij afgestemd en dat motiveert mij om te blijven trainen. Ik ben inmiddels van 100 kg naar 85 kg gegaan. […] ik voel me nu al veel fitter en vooral veel beter.</blockquote>
-        <div class="rescase-foot">
-          <span class="rescase-tag">Training &amp; voedingsbegeleiding</span>
+        <div class="rescase-body">
+          <div class="rescase-quote-mark" aria-hidden="true">&ldquo;</div>
+          <blockquote class="rescase-text">Ik was veel te zwaar, voelde me futloos en had al verschillende dingen geprobeerd. […] Bij Fit Up vond ik juist die kleinschalige, huiselijke omgeving en persoonlijke aandacht. De begeleiding met zowel sport als voeding is veel meer op mij afgestemd en dat motiveert mij om te blijven trainen. Ik ben inmiddels van 100 kg naar 85 kg gegaan. […] ik voel me nu al veel fitter en vooral veel beter.</blockquote>
+          <div class="rescase-foot">
+            <span class="rescase-tag">Training &amp; voedingsbegeleiding</span>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+
+      <article class="rescase-card reveal d3">
+        <div class="rescase-stat has-photo">
+          <div class="rescase-photo-banner">
+            <span class="rescase-kg">−13<small>kg</small></span>
+            <span class="rescase-name">Marja</span>
+          </div>
+          <div class="rescase-photo-frame">
+            <img src="../assets/images/result-marja.png" alt="Marja — voor en na 13 kilo afvallen bij Fit Up Leiderdorp" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="rescase-body">
+          <div class="rescase-quote-mark" aria-hidden="true">&ldquo;</div>
+          <blockquote class="rescase-text">Waag die poging bij Fit Up. Met de juiste begeleiding, training en voeding kun je echt tot mooie resultaten komen.</blockquote>
+          <div class="rescase-foot">
+            <span class="rescase-tag">Meer energie &amp; plezier in sporten terug</span>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
