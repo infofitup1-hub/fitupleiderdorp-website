@@ -222,6 +222,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .if-radio{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);cursor:pointer}
   .if-radio input{accent-color:var(--accent-ink)}
   .if-price-hint{font-size:11.5px;color:var(--ink-mute);margin-top:10px;line-height:1.6}
+  .if-app-intro{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:16px}
+  .if-app-download{margin-top:18px}
+  .if-app-btn{display:inline-flex}
+  .if-app-note{font-size:12.5px;color:var(--ink-mute);margin-top:10px;line-height:1.6}
   .if-submit{width:100%;justify-content:center;border:0;cursor:pointer}
   .if-submit:disabled{opacity:.6;cursor:not-allowed}
   .if-success{margin-top:20px;padding:16px 18px;background:rgba(212,255,0,.14);border:1px solid rgba(110,130,0,.28);border-radius:10px;font-size:14px;color:var(--ink);line-height:1.6}
@@ -740,6 +744,25 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           </div>
         </fieldset>
 
+        <fieldset>
+          <legend>Download alvast de app</legend>
+          <p class="if-app-intro">Voor je coaching gebruiken we een app. Hierin vind je straks onder andere je trainingsschema, voeding, voortgang en check-ins.</p>
+          <div class="if-radio-group" role="radiogroup" aria-label="Welke telefoon gebruik je?">
+            <label class="if-radio"><input type="radio" name="phone_platform" value="Android" id="if-platform-android"> Android</label>
+            <label class="if-radio"><input type="radio" name="phone_platform" value="iPhone" id="if-platform-iphone"> iPhone</label>
+          </div>
+
+          <div class="if-app-download" id="if-app-android" hidden>
+            <a class="btn-accent if-app-btn" href="https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.fitup1&pcampaignid=web_share" target="_blank" rel="noopener">Download de Fit Up-app</a>
+            <p class="if-app-note">Met Android kun je direct onze Fit Up-app installeren.</p>
+          </div>
+
+          <div class="if-app-download" id="if-app-iphone" hidden>
+            <a class="btn-accent if-app-btn" href="https://apps.apple.com/us/app/virtuagym-fitness-workouts/id808207399" target="_blank" rel="noopener">Download Virtuagym</a>
+            <p class="if-app-note">Onze eigen Fit Up-app is voor Apple nog niet gekoppeld. Maak daarom voorlopig een account aan in de Virtuagym-app. Na ontvangst van je intake voegen wij je handmatig toe aan Fit Up.</p>
+          </div>
+        </fieldset>
+
         <button type="submit" class="btn-accent if-submit" id="if-submit-btn">Verstuur mijn intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </form>
       <p class="if-success" id="if-success" role="status" hidden>Bedankt! Patrick of Benjamin bekijkt je intake persoonlijk en neemt contact met je op. Daarna richten we jouw coaching in onze Fit Up-app in.</p>
@@ -939,6 +962,22 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   });
 })();
 /* === END INTAKEFORMULIER === */
+
+/* === APP-DOWNLOAD KEUZE: toont Fit Up-app (Android) of Virtuagym (iPhone) === */
+(function(){
+  var androidRadio = document.getElementById('if-platform-android');
+  var iphoneRadio = document.getElementById('if-platform-iphone');
+  var androidBox = document.getElementById('if-app-android');
+  var iphoneBox = document.getElementById('if-app-iphone');
+  if(!androidRadio || !iphoneRadio || !androidBox || !iphoneBox) return;
+  function update(){
+    androidBox.hidden = !androidRadio.checked;
+    iphoneBox.hidden = !iphoneRadio.checked;
+  }
+  androidRadio.addEventListener('change', update);
+  iphoneRadio.addEventListener('change', update);
+})();
+/* === END APP-DOWNLOAD KEUZE === */
 </script>
 
 </body>
