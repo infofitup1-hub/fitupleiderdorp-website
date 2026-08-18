@@ -91,12 +91,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;color:var(--white)}
   .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
   .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
-  .page-hero-right{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:center;align-self:center;gap:16px;padding:16px;width:100%;height:100%;background-image:radial-gradient(rgba(212,255,0,.11) 1.5px,transparent 1.5px);background-size:30px 30px;background-position:-6px -6px}
-  .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;height:440px;background:radial-gradient(ellipse,rgba(212,255,0,.13) 0%,transparent 62%);pointer-events:none;z-index:0}
+  .page-hero-right{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:center;align-self:center;gap:16px;padding:16px;width:100%;height:100%}
   .pt-photo-wrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
-  .pt-dot{position:absolute;border-radius:50%;pointer-events:none;z-index:1}
-  .pt-dot-1{top:4%;left:6%;width:9px;height:9px;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
-  .pt-dot-2{bottom:4%;right:4%;width:13px;height:13px;border:1.5px solid rgba(212,255,0,.4);animation:pulse 3s ease-in-out infinite .4s}
   .pt-photo-card{position:relative;z-index:2;width:100%;max-width:410px;aspect-ratio:3/4;overflow:hidden;border-radius:18px;background:var(--lgray);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
   .pt-photo-track{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .pt-photo-track::-webkit-scrollbar{display:none}
@@ -520,8 +516,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </div>
   <div class="page-hero-right">
     <div class="pt-photo-wrap">
-      <div class="pt-dot pt-dot-1" aria-hidden="true"></div>
-      <div class="pt-dot pt-dot-2" aria-hidden="true"></div>
       <div class="pt-photo-card">
         <div class="pt-photo-track" id="pt-hero-track">
           <img src="../../assets/images/pt-dumbbell-spot.jpg" alt="Personal trainer spot een klant tijdens een dumbbell bench press bij Fit Up Leiderdorp" width="900" height="1200" fetchpriority="high" decoding="async" class="pt-slide">
