@@ -44,19 +44,20 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
   .calc-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+  .calc-wrap > * { min-width: 0; }
   .calc-form { background: var(--mid); padding: 40px; border-left: 3px solid var(--accent); }
   .calc-form h2 { margin-bottom: 28px; font-size: clamp(28px, 3.4vw, 36px); }
-  .field-group { margin-bottom: 22px; }
+  .field-group { margin-bottom: 22px; min-width: 0; }
   .field-group label { display: block; font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .seg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid rgba(255,255,255,.15); }
-  .seg button { padding: 14px; background: transparent; color: rgba(255,255,255,.6); border: none; font-family: var(--fb); font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; border-right: 1px solid rgba(255,255,255,.08); }
+  .seg button { min-width: 0; padding: 14px 6px; background: transparent; color: rgba(255,255,255,.6); border: none; font-family: var(--fb); font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; border-right: 1px solid rgba(255,255,255,.08); }
   .seg button:last-child { border-right: none; }
   .seg button.active { background: var(--accent); color: var(--black); font-weight: 700; }
   .seg-3 { grid-template-columns: repeat(3, 1fr); }
   .seg-5 { grid-template-columns: repeat(5, 1fr); }
   .seg-4 { grid-template-columns: repeat(4, 1fr); }
-  @media(max-width:640px){ .seg-5{grid-template-columns:repeat(3,1fr)} }
+  @media(max-width:640px){ .seg-5{grid-template-columns:repeat(3,1fr)} .seg button{font-size:11px;letter-spacing:.3px;padding:12px 4px} }
   input.field { width: 100%; padding: 14px 16px; background: var(--black); color: var(--white); border: 1px solid rgba(255,255,255,.15); font-family: var(--fb); font-size: 16px; outline: none; transition: border-color .2s; }
   input.field:focus { border-color: var(--accent); }
   .field-suffix { position: relative; }
