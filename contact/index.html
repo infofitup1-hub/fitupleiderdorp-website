@@ -107,26 +107,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .faq-item{background:var(--black);padding:28px}
   .faq-q{font-size:15px;font-weight:600;margin-bottom:10px}
   .faq-a{font-size:13px;color:var(--gray);line-height:1.7}
-  /* INTAKE WIDGET */
-  .intake-widget{background:var(--lgray);border:1px solid rgba(212,255,0,.12);padding:36px;position:relative;overflow:hidden;margin-top:0}
-  .intake-widget::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
-  .iw-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-  .iw-label::before{content:'';width:20px;height:1.5px;background:var(--accent)}
-  .iw-form-row{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-  .iw-form-row label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45)}
-  .iw-select{appearance:none;-webkit-appearance:none;background:var(--black);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:13px 44px 13px 16px;font-family:var(--fb);font-size:14px;width:100%;cursor:pointer;transition:border-color .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c8f400' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
-  .iw-select:focus{outline:none;border-color:var(--accent)}
-  .iw-select:disabled{opacity:.35;cursor:not-allowed}
-  .iw-select option{background:var(--black)}
-  .iw-input{background:var(--black);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:13px 16px;font-family:var(--fb);font-size:14px;width:100%;transition:border-color .2s}
-  .iw-input::placeholder{color:rgba(255,255,255,.3)}
-  .iw-input:focus{outline:none;border-color:var(--accent)}
-  .iw-fields-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .iw-submit{background:var(--black);color:var(--accent);border:2px solid var(--black);padding:15px 24px;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;width:100%;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px}
-  .iw-submit:hover{background:transparent;color:var(--black);border-color:var(--black)}
-  .iw-submit:disabled{opacity:.4;cursor:not-allowed}
-  .iw-note{font-size:11px;color:rgba(255,255,255,.4);text-align:center;margin-top:8px}
-  @media(max-width:480px){.iw-fields-2col{grid-template-columns:1fr}}
+  /* QUICK CONTACT ACTIONS */
+  .contact-method.contact-method-primary{background:var(--accent);border-color:var(--accent);color:var(--black)}
+  .contact-method.contact-method-primary .contact-icon{background:rgba(0,0,0,.12);border-color:rgba(0,0,0,.25);color:var(--black)}
+  .contact-method.contact-method-primary .contact-label{color:rgba(0,0,0,.6)}
+  .contact-method.contact-method-primary:hover{border-bottom-color:var(--black);box-shadow:var(--sh-hover)}
 
   .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
   .final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(212,255,0,.05) 0%,transparent 70%);pointer-events:none}
@@ -331,7 +316,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <li><a href="../online-coaching/index.html">Online Coaching</a></li>
     <li><a href="../tarieven/index.html">Tarieven</a></li>
     <li><a href="../contact/index.html" class="active">Contact</a></li>
-    <li><a href="../contact/index.html" class="nav-btn">Gratis intake</a></li>
+    <li><a href="../gratis-intake/index.html" class="nav-btn">Gratis intake</a></li>
   </ul>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
     <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -349,8 +334,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <header style="background:var(--charcoal);padding:160px 0 80px" data-screen-label="Hero Contact">
     <div class="container">
       <div class="sec-label" style="opacity:0;animation:fadeUp .6s ease .2s forwards;color:rgba(255,255,255,.5)"><span class="sec-label-line"></span>Contact</div>
-      <h1 style="font-size:clamp(60px,10vw,100px);margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards">Contact<br><em>Fit Up Leiderdorp</em></h1>
-      <p style="font-size:17px;color:rgba(255,255,255,.55);font-weight:300;max-width:480px;line-height:1.75;opacity:0;animation:fadeUp .6s ease .6s forwards">Laat je gegevens achter of neem direct contact op. Dan kijken we samen welke training het beste past bij jouw doel.</p>
+      <h1 style="font-size:clamp(60px,10vw,100px);margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards">Contact<br><em style="color:var(--accent);font-style:normal">Fit Up Leiderdorp</em></h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.55);font-weight:300;max-width:480px;line-height:1.75;opacity:0;animation:fadeUp .6s ease .6s forwards">Snel een vraag? Neem direct contact op via WhatsApp, telefoon of e-mail — we reageren meestal binnen een paar uur.</p>
     </div>
   </header>
 
@@ -358,11 +343,11 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="container">
       <div class="contact-grid">
         <div>
-          <div class="sec-label reveal"><span class="sec-label-line"></span>Neem contact op</div>
+          <div class="sec-label reveal"><span class="sec-label-line"></span>Direct contact</div>
           <h2 class="reveal d1">Stuur een <em>bericht</em></h2>
           <p class="reveal d2" style="font-size:15px;color:var(--ink-soft);font-weight:400;line-height:1.75;margin-top:16px;margin-bottom:36px">De snelste manier is via WhatsApp. We reageren gemiddeld binnen een paar uur.</p>
           <div class="contact-methods">
-            <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20informatie%20over%20trainen%20bij%20jullie" class="contact-method reveal d1" target="_blank" rel="noopener">
+            <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20informatie%20over%20trainen%20bij%20jullie" class="contact-method contact-method-primary reveal d1" target="_blank" rel="noopener">
               <div class="contact-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
               <div><div class="contact-label">WhatsApp — Snelste reactie</div><div class="contact-value">Stuur een bericht →</div></div>
             </a>
@@ -374,76 +359,32 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
               <div class="contact-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
               <div><div class="contact-label">E-mail</div><div class="contact-value">info.fitup1@gmail.com</div></div>
             </a>
-            <a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" class="contact-method reveal d4" target="_blank" rel="noopener">
-              <div class="contact-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-              <div><div class="contact-label">Adres</div><div class="contact-value">Weversbaan 9, Leiderdorp →</div></div>
-            </a>
           </div>
         </div>
         <div class="contact-right">
           <div class="info-block reveal d1">
-            <div class="info-title">Openingstijden</div>
+            <div class="info-title">Bezoek Fit Up</div>
             <ul class="info-list">
-              <li><div class="info-dot"></div><div><strong style="color:var(--ink)">Fitness (24/7)</strong><br>Altijd open — ook in het weekend en op feestdagen</div></li>
-              <li><div class="info-dot"></div><div><strong style="color:var(--ink)">Groepslessen &amp; begeleiding</strong><br>Rooster en reserveren via de Fit Up-app</div></li>
-            </ul>
-          </div>
-          <div class="info-block reveal d2">
-            <div class="info-title">Bereikbaarheid</div>
-            <ul class="info-list">
-              <li><div class="info-dot"></div>Weversbaan 9, Leiderdorp</li>
+              <li><div class="info-dot"></div><div><strong style="color:var(--ink)">Weversbaan 9, Leiderdorp</strong><br><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener" style="color:var(--accent-ink);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(110,130,0,.35)">Open route in Google Maps →</a></div></li>
               <li><div class="info-dot"></div>Gratis parkeren voor de deur</li>
-              <li><div class="info-dot"></div>Op loopafstand centrum Leiderdorp</li>
-              <li><div class="info-dot"></div>Bereikbaar vanuit Leiden, Zoeterwoude, Alphen aan den Rijn en Voorschoten</li>
+              <li><div class="info-dot"></div><div><strong style="color:var(--ink)">Fitness:</strong> 24/7 open — ook in het weekend en op feestdagen</div></li>
+              <li><div class="info-dot"></div><div><strong style="color:var(--ink)">Groepslessen &amp; begeleiding:</strong> rooster en reserveren via de Fit Up-app</div></li>
             </ul>
-          </div>
-          <div class="info-block reveal d3" style="background:var(--accent);padding:0;overflow:hidden">
-            <div style="padding:28px 28px 20px">
-              <div class="info-title" style="color:var(--black)">Plan je gratis intake</div>
-              <p style="font-size:13px;color:rgba(0,0,0,.55);line-height:1.65;margin-bottom:0">Kies een dag en tijdstip — direct bevestiging via WhatsApp.</p>
-            </div>
-            <div class="intake-widget" style="margin:0 16px 16px;padding:24px">
-              <div class="iw-form-row">
-                <label for="iw-dag-c" style="color:rgba(255,255,255,.45)">Kies een dag</label>
-                <select class="iw-select" id="iw-dag-c" aria-label="Kies een dag">
-                  <option value="">— Selecteer dag —</option>
-                  <option value="maandag">Maandag</option>
-                  <option value="dinsdag">Dinsdag</option>
-                  <option value="woensdag">Woensdag</option>
-                  <option value="donderdag">Donderdag</option>
-                  <option value="vrijdag">Vrijdag</option>
-                  <option value="zaterdag">Zaterdag</option>
-                  <option value="zondag">Zondag</option>
-                </select>
-              </div>
-              <div class="iw-form-row">
-                <label for="iw-tijd-c" style="color:rgba(255,255,255,.45)">Kies een tijdstip</label>
-                <select class="iw-select" id="iw-tijd-c" disabled aria-label="Kies een tijdstip">
-                  <option value="">— Kies eerst een dag —</option>
-                </select>
-              </div>
-              <div class="iw-fields-2col">
-                <div class="iw-form-row">
-                  <label for="iw-naam-c" style="color:rgba(255,255,255,.45)">Voornaam</label>
-                  <input type="text" class="iw-input" id="iw-naam-c" placeholder="Jouw naam" autocomplete="given-name" required>
-                </div>
-                <div class="iw-form-row">
-                  <label for="iw-tel-c" style="color:rgba(255,255,255,.45)">Telefoon</label>
-                  <input type="tel" class="iw-input" id="iw-tel-c" placeholder="06 —" autocomplete="tel" required>
-                </div>
-                <div class="iw-form-row" style="grid-column:span 2">
-                  <label for="iw-email-c" style="color:rgba(255,255,255,.45)">E-mailadres <span style="font-weight:400">(voor bevestiging)</span></label>
-                  <input type="email" class="iw-input" id="iw-email-c" placeholder="jouw@email.nl" autocomplete="email">
-                </div>
-              </div>
-              <button class="iw-submit" id="iw-btn-c" disabled>
-                Aanvragen via WhatsApp
-                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-              <p class="iw-note">Wij bevestigen binnen 24 uur · Gratis &amp; vrijblijvend</p>
-            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="reveal">Wil je <em>kennismaken?</em></h2>
+      <p class="reveal d1">Plan een gratis intake — dat is de centrale plek waar we samen dag, tijd en jouw doel bespreken.</p>
+      <div class="cta-actions reveal d2">
+        <a href="../gratis-intake/index.html" class="btn-accent">
+          Plan gratis intake
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -508,109 +449,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
 })();
 /* === END NAV DRAWER TOGGLE === */
-</script>
-<script>
-  /* INTAKE WIDGET – contactpagina → Make webhook → Google Calendar + WhatsApp */
-  const MAKE_WEBHOOK = 'https://hook.eu1.make.com/2gu1t19yn3tdkd9hz2ylf2jitg4r6y37';
-  const MAKE_EMAIL   = 'https://hook.eu1.make.com/95kilo0637shjh5ygzuk9t95dgbo1nde';
-  const FORM_EMAIL   = 'https://formsubmit.co/ajax/fitupleiderdorp@gmail.com';
-
-  // FormSubmit geeft altijd HTTP 200 terug, ook bij "needs Activation" of een fout.
-  // Alleen success:true/"true" in de JSON-body betekent dat de mail echt is afgeleverd.
-  function postFormSubmit(url, data){
-    return fetch(url, { method: 'POST', headers: {'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data) })
-      .then(function(res){
-        return res.json().then(function(json){
-          return { ok: !!json && (json.success === true || json.success === 'true') };
-        });
-      });
-  }
-
-  const INTAKE_SLOTS = {
-    maandag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','19:00','21:00'],
-    dinsdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','20:00','21:00'],
-    woensdag:  ['12:00','13:00','14:00','15:00','16:00','17:00','18:00','21:00'],
-    donderdag: ['13:00','14:00','15:00'],
-    vrijdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'],
-    zaterdag:  ['12:00'],
-    zondag:    ['12:00']
-  };
-
-  function getNextDate(dagNaam) {
-    const dagen = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
-    const target = dagen.indexOf(dagNaam.toLowerCase());
-    const now = new Date();
-    let diff = target - now.getDay();
-    if (diff <= 0) diff += 7;
-    const next = new Date(now);
-    next.setDate(now.getDate() + diff);
-    return next.toISOString().split('T')[0];
-  }
-
-  const dagSel  = document.getElementById('iw-dag-c');
-  const tijdSel = document.getElementById('iw-tijd-c');
-  const naamInp = document.getElementById('iw-naam-c');
-  const telInp  = document.getElementById('iw-tel-c');
-  const btn     = document.getElementById('iw-btn-c');
-
-  function checkFormValid() {
-    btn.disabled = !(tijdSel.value && naamInp.value.trim() && telInp.value.trim());
-  }
-
-  dagSel.addEventListener('change', function() {
-    const dag = this.value;
-    tijdSel.innerHTML = '';
-    tijdSel.disabled = true;
-    checkFormValid();
-    if (!dag) { tijdSel.innerHTML = '<option value="">— Kies eerst een dag —</option>'; return; }
-    const slots = INTAKE_SLOTS[dag] || [];
-    tijdSel.innerHTML = '<option value="">— Selecteer tijdstip —</option>';
-    slots.forEach(t => {
-      const opt = document.createElement('option');
-      opt.value = t; opt.textContent = t + ' uur';
-      tijdSel.appendChild(opt);
-    });
-    tijdSel.disabled = false;
-  });
-
-  tijdSel.addEventListener('change', checkFormValid);
-  naamInp.addEventListener('input', checkFormValid);
-  telInp.addEventListener('input', checkFormValid);
-
-  btn.addEventListener('click', async function() {
-    const dag   = dagSel.value;
-    const tijd  = tijdSel.value;
-    const naam  = document.getElementById('iw-naam-c').value || '';
-    const tel   = document.getElementById('iw-tel-c').value || '';
-    const email = document.getElementById('iw-email-c') ? document.getElementById('iw-email-c').value || '' : '';
-    const datum = getNextDate(dag);
-    const dagLabel = dag.charAt(0).toUpperCase() + dag.slice(1);
-
-    btn.disabled = true;
-    btn.textContent = 'Bezig met inplannen...';
-
-    try {
-      const payload = JSON.stringify({ naam, tel, email, dag: dagLabel, datum, tijd, doel: '' });
-      const results = await Promise.allSettled([
-        fetch(MAKE_WEBHOOK, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: payload }),
-        fetch(MAKE_EMAIL,   { method: 'POST', headers: {'Content-Type': 'application/json'}, body: payload }),
-        postFormSubmit(FORM_EMAIL, { naam, tel, email, dag: dagLabel, datum, tijd, _subject: 'Nieuwe intake-aanvraag: ' + naam, _template: 'table', _captcha: 'false' })
-      ]);
-      const ok = results.some(r => r.status === 'fulfilled' && r.value.ok);
-      if (!ok) throw new Error('Alle verzendkanalen faalden');
-      btn.textContent = '✓ Intake aangevraagd!';
-      btn.style.background = 'var(--black)';
-      btn.style.color = '#d4ff00';
-      document.querySelector('.iw-note').textContent = '✓ Aanvraag ontvangen! We bevestigen zo snel mogelijk.';
-    } catch(e) {
-      let msg = `Hi Fit Up! Ik wil graag een gratis intake inplannen.%0A%0A📅 Dag: ${dagLabel}%0A🕐 Tijd: ${tijd} uur%0A`;
-      if (naam) msg += `👤 Naam: ${naam}%0A`;
-      if (tel)  msg += `📱 Tel: ${tel}%0A`;
-      window.open(`https://wa.me/31645280679?text=${msg}`, '_blank');
-      btn.disabled = false;
-      btn.textContent = 'Aanvragen via WhatsApp';
-    }
-  });
 </script>
 </body>
 </html>
