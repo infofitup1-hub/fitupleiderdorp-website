@@ -78,8 +78,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 
   /* PAGE HERO */
-  .page-hero{min-height:78vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:var(--charcoal)}
-  .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
+  .page-hero{min-height:66vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:var(--charcoal)}
+  .page-hero-left{padding:46px 64px 46px 40px;display:flex;flex-direction:column;justify-content:center}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
   .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
   .page-hero h1{font-family:var(--fd);font-weight:800;text-transform:none;font-size:clamp(40px,5vw,66px);line-height:1;margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
@@ -91,17 +91,23 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;color:var(--white)}
   .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
   .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
-  .page-hero-right{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;justify-self:center;align-self:center;padding:20px;width:100%;height:100%;background-image:radial-gradient(rgba(212,255,0,.2) 1.5px,transparent 1.5px);background-size:26px 26px;background-position:-6px -6px}
-  .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;background:radial-gradient(ellipse,rgba(212,255,0,.22) 0%,transparent 62%);pointer-events:none;z-index:0}
+  .page-hero-right{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:center;align-self:center;gap:16px;padding:16px;width:100%;height:100%;background-image:radial-gradient(rgba(212,255,0,.11) 1.5px,transparent 1.5px);background-size:30px 30px;background-position:-6px -6px}
+  .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;height:440px;background:radial-gradient(ellipse,rgba(212,255,0,.13) 0%,transparent 62%);pointer-events:none;z-index:0}
+  .pt-photo-wrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
   .pt-dot{position:absolute;border-radius:50%;pointer-events:none;z-index:1}
-  .pt-dot-1{top:14%;left:10%;width:10px;height:10px;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
-  .pt-dot-2{bottom:12%;right:8%;width:16px;height:16px;border:1.5px solid rgba(212,255,0,.5);animation:pulse 3s ease-in-out infinite .4s}
-  .pt-dot-3{top:20%;right:14%;width:6px;height:6px;background:rgba(212,255,0,.6)}
-  .pt-photo-accent{position:absolute;width:90%;max-width:400px;aspect-ratio:3/4;background:var(--accent);border-radius:18px;transform:rotate(7deg) translate(16px,10px);z-index:1}
-  .pt-photo-card{position:relative;z-index:2;width:100%;max-width:480px;aspect-ratio:3/4;overflow:hidden;border-radius:18px;background:var(--lgray);box-shadow:0 30px 70px -24px rgba(0,0,0,.65);transform:rotate(-3deg)}
+  .pt-dot-1{top:4%;left:6%;width:9px;height:9px;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
+  .pt-dot-2{bottom:4%;right:4%;width:13px;height:13px;border:1.5px solid rgba(212,255,0,.4);animation:pulse 3s ease-in-out infinite .4s}
+  .pt-photo-card{position:relative;z-index:2;width:100%;max-width:410px;aspect-ratio:3/4;overflow:hidden;border-radius:18px;background:var(--lgray);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+  .pt-photo-track{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .pt-photo-track::-webkit-scrollbar{display:none}
   .page-hero-right img,.page-hero-right video{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;animation:fadeIn 1s ease .3s forwards}
-  .pt-photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.55) 0%,transparent 30%);pointer-events:none}
+  .pt-photo-track .pt-slide{flex:0 0 100%;scroll-snap-align:start}
+  .pt-photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.55) 0%,transparent 30%);pointer-events:none;z-index:1}
   .hero-badge{position:absolute;bottom:16px;right:16px;background:var(--accent);color:var(--black);padding:10px 14px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
+  .pt-pagination{display:flex;align-items:center;gap:9px;position:relative;z-index:2}
+  .pt-page-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.28);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+  .pt-page-dot.is-active{background:var(--accent);transform:scale(1.25)}
+  .pt-page-dot:hover{background:rgba(255,255,255,.5)}
 
   /* PHOTO PLACEHOLDER (hero) — striped, monospace caption, no faked imagery */
   .photo-placeholder{position:absolute;inset:0;background:
@@ -323,7 +329,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @media (max-width:980px){
     .page-hero{grid-template-columns:1fr;min-height:auto}
     .page-hero-left{padding:40px}
-    .page-hero-right{min-height:0;margin:0 auto;padding:36px 20px}
+    .page-hero-right{min-height:0;margin:0 auto;padding:28px 20px}
     .what-grid,.forwho-grid{grid-template-columns:1fr;gap:48px}
     .steps{grid-template-columns:1fr}
     .tarief-cards{grid-template-columns:1fr}
@@ -362,9 +368,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     h2{font-size:clamp(34px,9vw,48px)!important}
 
     .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
-    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:24px!important}
-    .pt-photo-card{max-width:260px!important}
-    .pt-photo-accent{max-width:220px!important}
+    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:20px!important;gap:12px!important}
+    .pt-photo-card{max-width:320px!important}
     .page-hero-sub,.fu-page-hero-sub{font-size:15px}
     .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
     .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
@@ -514,13 +519,22 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </div>
   </div>
   <div class="page-hero-right">
-    <div class="pt-dot pt-dot-1" aria-hidden="true"></div>
-    <div class="pt-dot pt-dot-2" aria-hidden="true"></div>
-    <div class="pt-dot pt-dot-3" aria-hidden="true"></div>
-    <div class="pt-photo-accent" aria-hidden="true"></div>
-    <div class="pt-photo-card">
-      <img src="../../assets/images/pt-dumbbell-spot.jpg" alt="Personal trainer spot een klant tijdens een dumbbell bench press bij Fit Up Leiderdorp" width="900" height="1200" fetchpriority="high" decoding="async">
-      <div class="hero-badge">★ 1-op-1 coaching</div>
+    <div class="pt-photo-wrap">
+      <div class="pt-dot pt-dot-1" aria-hidden="true"></div>
+      <div class="pt-dot pt-dot-2" aria-hidden="true"></div>
+      <div class="pt-photo-card">
+        <div class="pt-photo-track" id="pt-hero-track">
+          <img src="../../assets/images/pt-dumbbell-spot.jpg" alt="Personal trainer spot een klant tijdens een dumbbell bench press bij Fit Up Leiderdorp" width="900" height="1200" fetchpriority="high" decoding="async" class="pt-slide">
+          <img src="../../assets/images/pt-squat-spot.jpg" alt="Personal trainer spot een klant tijdens een squat bij Fit Up Leiderdorp" width="1440" height="1048" loading="lazy" decoding="async" class="pt-slide">
+          <img src="../../assets/images/pt-hero-spot-poster.jpg" alt="Personal trainer begeleidt klanten tijdens kabeltraining bij Fit Up Leiderdorp" width="2160" height="3840" loading="lazy" decoding="async" class="pt-slide">
+        </div>
+        <div class="hero-badge">★ 1-op-1 coaching</div>
+      </div>
+    </div>
+    <div class="pt-pagination" id="pt-hero-pagination" role="tablist" aria-label="Foto's van Personal Training">
+      <button type="button" class="pt-page-dot is-active" aria-label="Foto 1" aria-selected="true"></button>
+      <button type="button" class="pt-page-dot" aria-label="Foto 2" aria-selected="false"></button>
+      <button type="button" class="pt-page-dot" aria-label="Foto 3" aria-selected="false"></button>
     </div>
   </div>
 </header>
@@ -956,6 +970,38 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
 })();
 /* === END NAV DRAWER TOGGLE === */
+</script>
+
+<script>
+/* === HERO PHOTO CAROUSEL (PT) === */
+(function(){
+  var track = document.getElementById('pt-hero-track');
+  var pagination = document.getElementById('pt-hero-pagination');
+  if(!track || !pagination) return;
+  var slides = track.querySelectorAll('.pt-slide');
+  var dots = pagination.querySelectorAll('.pt-page-dot');
+  function setActive(i){
+    dots.forEach(function(d,idx){
+      var active = idx === i;
+      d.classList.toggle('is-active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        setActive(Array.prototype.indexOf.call(slides, entry.target));
+      }
+    });
+  }, {root:track, threshold:0.6});
+  slides.forEach(function(s){ io.observe(s); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      slides[i].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
+    });
+  });
+})();
+/* === END HERO PHOTO CAROUSEL === */
 </script>
 </body>
 </html>
