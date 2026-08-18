@@ -706,6 +706,14 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       d.setAttribute('aria-selected', active ? 'true' : 'false');
     });
   }
+  if (window.matchMedia('(max-width:640px)').matches) {
+    var hot = track.querySelector('.hot');
+    var hotIdx = hot ? Array.prototype.indexOf.call(slides, hot) : -1;
+    if (hotIdx > 0) {
+      track.scrollLeft = hot.offsetLeft - track.offsetLeft;
+      setActive(hotIdx);
+    }
+  }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if (entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));

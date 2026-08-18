@@ -116,7 +116,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .hbar-value em{color:var(--accent-ink);font-style:normal}
 
   /* CLASS CARDS — quiet text blocks, no photography */
-  .classes{background:var(--paper)}
+  .classes{background:var(--paper);padding:60px 0 100px}
   .class-block{margin-bottom:16px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;transition:box-shadow .35s}
   .class-block:hover{box-shadow:var(--sh-hover)}
   .class-content{padding:44px 48px;max-width:680px;display:flex;flex-direction:column}
@@ -208,6 +208,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .hero-strip-photo{flex:0 0 82%;scroll-snap-align:start}
     .hero-strip-pagination{display:flex}
     .class-content{padding:36px 28px;max-width:none}
+    .classes{padding:48px 0 64px}
     .price-inner{grid-template-columns:1fr;padding:36px 28px;gap:32px}
     .faq-grid{grid-template-columns:1fr}
     .hbar-inner{grid-template-columns:1fr;gap:24px;text-align:left}
@@ -269,6 +270,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .price-strip,.final-cta{padding:48px 0}
+    .classes{padding:40px 0 56px}
     .classes-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
     .classes-track::-webkit-scrollbar{display:none}
     .class-block{flex:0 0 92%;scroll-snap-align:start;margin-bottom:0}
@@ -432,7 +434,12 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </section>
 
 <!-- INTRO -->
-<section style="padding:100px 0 40px">
+<section class="gl-intro">
+  <style>
+    .gl-intro{padding:100px 0 40px}
+    @media(max-width:980px){.gl-intro{padding:64px 0 32px}}
+    @media(max-width:640px){.gl-intro{padding:48px 0 24px}}
+  </style>
   <div class="container">
     <div class="sec-head" style="margin-bottom:0">
       <div class="sec-label reveal"><span class="sec-label-line"></span>Vier lessen, één doel</div>
@@ -443,7 +450,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </section>
 
 <!-- CLASSES -->
-<section class="classes" style="padding:60px 0 100px" aria-labelledby="classes-heading">
+<section class="classes" aria-labelledby="classes-heading">
   <h2 id="classes-heading" style="position:absolute;left:-9999px">Onze groepslessen</h2>
   <div class="container">
   <div class="classes-track" data-swipe-track="classes">

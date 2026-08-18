@@ -260,7 +260,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .nav-links li:last-child{display:block}
     .addon-row{grid-template-columns:auto 1fr;gap:16px}
     .addon-price{grid-column:2;text-align:left;margin-top:8px}
-    .addon-cta{grid-column:1/-1;justify-content:center}
+    .addon-cta{grid-column:1/-1;justify-content:center;padding:15px 16px}
   }
 
 
@@ -933,6 +933,14 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       d.classList.toggle('is-active', active);
       d.setAttribute('aria-selected', active ? 'true' : 'false');
     });
+  }
+  if (window.matchMedia('(max-width:640px)').matches) {
+    var featured = track.querySelector('.featured');
+    var featuredIdx = featured ? Array.prototype.indexOf.call(slides, featured) : -1;
+    if (featuredIdx > 0) {
+      track.scrollLeft = featured.offsetLeft - track.offsetLeft;
+      setActive(featuredIdx);
+    }
   }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
