@@ -180,13 +180,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .t-cta-outline:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
   .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
 
-  /* FAQ */
+  /* FAQ — native <details>/<summary> accordion: content stays in the DOM for SEO, collapsed visually */
   .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:0}
-  .faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:32px 28px;border-left:3px solid transparent;transition:transform .3s,box-shadow .3s,border-color .25s}
+  .faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:0;border-left:3px solid transparent;transition:transform .3s,box-shadow .3s,border-color .25s}
   .faq-item:hover{border-left-color:var(--accent);transform:translateY(-3px);box-shadow:var(--sh-hover)}
-  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:flex-start;color:var(--ink)}
+  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:center;color:var(--ink);padding:22px 26px;cursor:pointer;list-style:none}
+  .faq-q::-webkit-details-marker{display:none}
   .faq-q::before{content:'?';color:var(--accent-ink);font-family:var(--fd);font-weight:900;flex-shrink:0}
-  .faq-a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;font-weight:400}
+  .faq-q::after{content:'';margin-left:auto;width:9px;height:9px;border-right:2px solid var(--ink-mute);border-bottom:2px solid var(--ink-mute);transform:rotate(-45deg);transition:transform .25s;flex-shrink:0}
+  .faq-item[open] .faq-q::after{transform:rotate(45deg)}
+  .faq-a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;font-weight:400;padding:0 26px 24px}
 
   /* FINAL CTA */
   .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
@@ -276,6 +279,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .contact-grid,.fu-contact-grid{grid-template-columns:1fr!important;gap:40px}
     .contact-right,.fu-contact-right{position:static!important}
+
+    /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
+    .for-who,.tarief-strip{padding:48px 0!important}
+    .gear-card{padding:22px 20px}
+    .for-card{padding:24px 20px}
+    .access-item{padding:16px 16px}
+    .tarief-card{padding:26px 22px 24px}
+    .faq-q{padding:18px 18px;font-size:15px}
+    .faq-a{padding:0 18px 18px}
 
   }
 
@@ -577,10 +589,10 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h2 id="faq-heading" class="reveal d1">Alles over <em>24/7 Fitness</em></h2>
     </div>
     <div class="faq-grid">
-      <div class="faq-item reveal"><div class="faq-q">Is er toezicht aanwezig?</div><div class="faq-a">Ja — via cameratoezicht en noodknoppen door de hele ruimte, plus een AED op locatie. Daarnaast is er regelmatig een trainer aanwezig (wisselende tijden — vraag het via WhatsApp). Buiten die momenten train je zelfstandig in een veilige omgeving.</div></div>
-      <div class="faq-item reveal d1"><div class="faq-q">Kan ik upgraden naar All-Inclusive of SGPT?</div><div class="faq-a">Ja. Je kunt op elk moment overstappen of upgraden naar een All-Inclusive abonnement of SGPT pakket. Neem contact op via WhatsApp voor de mogelijkheden.</div></div>
-      <div class="faq-item reveal d2"><div class="faq-q">Hoe kom ik binnen?</div><div class="faq-a">Je krijgt bij aanmelding een persoonlijke QR-code. Daarmee heb je 24 uur per dag, 7 dagen per week toegang — elke dag van het jaar.</div></div>
-      <div class="faq-item reveal d3"><div class="faq-q">Waar is Fit Up Leiderdorp?</div><div class="faq-a">Weversbaan 9, Leiderdorp. Gratis parkeren voor de deur. Goed bereikbaar vanuit Leiden, Zoeterwoude en Alphen aan den Rijn.</div></div>
+      <details class="faq-item reveal"><summary class="faq-q">Is er toezicht aanwezig?</summary><div class="faq-a">Ja — via cameratoezicht en noodknoppen door de hele ruimte, plus een AED op locatie. Daarnaast is er regelmatig een trainer aanwezig (wisselende tijden — vraag het via WhatsApp). Buiten die momenten train je zelfstandig in een veilige omgeving.</div></details>
+      <details class="faq-item reveal d1"><summary class="faq-q">Kan ik upgraden naar All-Inclusive of SGPT?</summary><div class="faq-a">Ja. Je kunt op elk moment overstappen of upgraden naar een All-Inclusive abonnement of SGPT pakket. Neem contact op via WhatsApp voor de mogelijkheden.</div></details>
+      <details class="faq-item reveal d2"><summary class="faq-q">Hoe kom ik binnen?</summary><div class="faq-a">Je krijgt bij aanmelding een persoonlijke QR-code. Daarmee heb je 24 uur per dag, 7 dagen per week toegang — elke dag van het jaar.</div></details>
+      <details class="faq-item reveal d3"><summary class="faq-q">Waar is Fit Up Leiderdorp?</summary><div class="faq-a">Weversbaan 9, Leiderdorp. Gratis parkeren voor de deur. Goed bereikbaar vanuit Leiden, Zoeterwoude en Alphen aan den Rijn.</div></details>
     </div>
   </div>
 </section>

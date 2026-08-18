@@ -253,7 +253,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .hero-phones{max-width:400px}
     .hero-feature-visual{grid-template-columns:1fr;gap:22px}
     .hero-feature-visual .hero-phones{order:1;width:100%;max-width:400px;margin:0 auto}
-    .hero-features{order:2;width:100%}
+    .hero-features{order:2;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .tarief-cards{grid-template-columns:1fr}
     .modes-grid{grid-template-columns:1fr}
     .faq-grid{grid-template-columns:1fr}
@@ -265,10 +265,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   }
 
   @media (max-width:768px){
-    .hero-feature{padding:9px 16px 9px 8px;gap:12px}
-    .hero-feature-icon{width:36px;height:36px}
-    .hero-feature-icon svg{width:18px;height:18px}
-    .hero-feature-title{font-size:13.5px}
+    .hero-feature{padding:11px 12px;gap:9px;border-radius:14px}
+    .hero-feature-icon{width:28px;height:28px}
+    .hero-feature-icon svg{width:14px;height:14px}
+    .hero-feature-title{font-size:12px;white-space:normal;line-height:1.2}
   }
 
   /* ───── MOBILE (smartphone) ───── */
@@ -306,8 +306,17 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .faq-grid,.tarief-cards,.voordelen-grid,.modes-grid,.coaches-grid{grid-template-columns:1fr!important}
     .toggle-btn{padding:9px 18px;font-size:12px}
 
-    .intake-card{padding:28px 22px}
+    .intake-card{padding:24px 20px}
     .if-radio-group{flex-direction:column;gap:10px}
+
+    /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
+    .voordelen,.modes,.coaches,.pricing,.intake{padding:48px 0}
+    .voordelen-grid{gap:24px;padding-top:24px}
+    .sec-head{margin-bottom:36px}
+    .mode-card{padding:22px 20px}
+    .tarief-card{padding:26px 22px 24px}
+    .faq-item{padding:20px 18px}
+    .coach-body{padding:18px 20px 20px}
   }
 
   @media (max-width:420px){

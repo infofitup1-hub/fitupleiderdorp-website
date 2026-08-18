@@ -283,13 +283,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .results-foot{margin-top:28px;text-align:center;font-size:12px;color:var(--ink-soft);letter-spacing:.3px}
   .results-foot a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
 
-  /* FAQ */
+  /* FAQ — native <details>/<summary> accordion: content stays in the DOM for SEO, collapsed visually */
   .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:32px 28px;border-left:3px solid transparent;transition:transform .3s,box-shadow .3s,border-color .25s}
+  .faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:0;border-left:3px solid transparent;transition:transform .3s,box-shadow .3s,border-color .25s}
   .faq-item:hover{border-left-color:var(--accent);transform:translateY(-3px);box-shadow:var(--sh-hover)}
-  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:flex-start;color:var(--ink)}
+  .faq-q{font-family:var(--fd);font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.15;display:flex;gap:10px;align-items:center;color:var(--ink);padding:22px 26px;cursor:pointer;list-style:none}
+  .faq-q::-webkit-details-marker{display:none}
   .faq-q::before{content:'?';color:var(--accent-ink);font-family:var(--fd);font-weight:900;flex-shrink:0}
-  .faq-a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;font-weight:400}
+  .faq-q::after{content:'';margin-left:auto;width:9px;height:9px;border-right:2px solid var(--ink-mute);border-bottom:2px solid var(--ink-mute);transform:rotate(-45deg);transition:transform .25s;flex-shrink:0}
+  .faq-item[open] .faq-q::after{transform:rotate(45deg)}
+  .faq-a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;font-weight:400;padding:0 26px 24px}
 
   /* TRY STRIP */
   .try-strip{background:var(--accent);padding:64px 0}
@@ -404,6 +407,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .contact-grid,.fu-contact-grid{grid-template-columns:1fr!important;gap:40px}
     .contact-right,.fu-contact-right{position:static!important}
 
+    /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
+    .pricing,.results,.final-cta,.nutri,.spotter{padding:48px 0}
+    .step{padding:24px 20px 22px}
+    .tarief-card{padding:26px 22px 24px}
+    .faq-q{padding:18px 18px;font-size:15px}
+    .faq-a{padding:0 18px 18px}
+    .result-body{padding:14px 16px 18px}
+    .sec-head{margin-bottom:36px}
   }
 
   @media (max-width:420px){
@@ -882,12 +893,12 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h2 id="faq-heading" class="reveal d1">Over <em>PT</em></h2>
     </div>
     <div class="faq-grid">
-      <div class="faq-item reveal"><div class="faq-q">Wat is het verschil tussen PT en SGPT?</div><div class="faq-a">Bij Personal Training ben je volledig 1-op-1 met je trainer — alle aandacht voor jou. Bij Small Group PT train je in een vaste groep van maximaal 4 personen met coaching én groepsmotivatie. PT is intensiever en persoonlijker; SGPT is voordeliger.</div></div>
-      <div class="faq-item reveal d1"><div class="faq-q">Hoe vaak per maand train ik?</div><div class="faq-a">Standaard 4 sessies van 60 minuten per 4 weken — ongeveer wekelijks. Wil je vaker? Dat kan: extra sessies zijn los bij te boeken vanaf €75 per sessie.</div></div>
-      <div class="faq-item reveal d2"><div class="faq-q">Wat zit er bij PT Plus extra in?</div><div class="faq-a">PT Plus is je PT-pakket plus onbeperkte toegang tot 24/7 Fitness én alle groepslessen. Voor €50 extra per 4 weken kun je dus ook tussen je sessies door onbeperkt komen trainen of meedoen met Bodypump, Boksfit, HIIT &amp; Hyrox en Powerhour. Voor groepslessen reserveer je vooraf je plek via de app.</div></div>
-      <div class="faq-item reveal d3"><div class="faq-q">Is voedingsbegeleiding inbegrepen?</div><div class="faq-a">Ja. Bij beide PT-pakketten krijg je voedingsbegeleiding via onze app — calorieplan, macro-doelen en aanpassingen elke 4 weken op basis van je meting.</div></div>
-      <div class="faq-item reveal d4"><div class="faq-q">Kan ik kiezen wie mijn trainer wordt?</div><div class="faq-a">Bij de intake bespreken we jouw doel en voorkeur, en koppelen we je aan de trainer die daar het beste bij past. Klikt het niet? Dan wisselen we — jouw vertrouwen in je coach is wat het verschil maakt.</div></div>
-      <div class="faq-item reveal d5"><div class="faq-q">Kan ik eerst kennismaken?</div><div class="faq-a">Ja. We starten altijd met een gratis intake. Geen verkooppraatje — wel een eerlijk gesprek over of PT bij jou past en welke aanpak past bij jouw doel.</div></div>
+      <details class="faq-item reveal"><summary class="faq-q">Wat is het verschil tussen PT en SGPT?</summary><div class="faq-a">Bij Personal Training ben je volledig 1-op-1 met je trainer — alle aandacht voor jou. Bij Small Group PT train je in een vaste groep van maximaal 4 personen met coaching én groepsmotivatie. PT is intensiever en persoonlijker; SGPT is voordeliger.</div></details>
+      <details class="faq-item reveal d1"><summary class="faq-q">Hoe vaak per maand train ik?</summary><div class="faq-a">Standaard 4 sessies van 60 minuten per 4 weken — ongeveer wekelijks. Wil je vaker? Dat kan: extra sessies zijn los bij te boeken vanaf €75 per sessie.</div></details>
+      <details class="faq-item reveal d2"><summary class="faq-q">Wat zit er bij PT Plus extra in?</summary><div class="faq-a">PT Plus is je PT-pakket plus onbeperkte toegang tot 24/7 Fitness én alle groepslessen. Voor €50 extra per 4 weken kun je dus ook tussen je sessies door onbeperkt komen trainen of meedoen met Bodypump, Boksfit, HIIT &amp; Hyrox en Powerhour. Voor groepslessen reserveer je vooraf je plek via de app.</div></details>
+      <details class="faq-item reveal d3"><summary class="faq-q">Is voedingsbegeleiding inbegrepen?</summary><div class="faq-a">Ja. Bij beide PT-pakketten krijg je voedingsbegeleiding via onze app — calorieplan, macro-doelen en aanpassingen elke 4 weken op basis van je meting.</div></details>
+      <details class="faq-item reveal d4"><summary class="faq-q">Kan ik kiezen wie mijn trainer wordt?</summary><div class="faq-a">Bij de intake bespreken we jouw doel en voorkeur, en koppelen we je aan de trainer die daar het beste bij past. Klikt het niet? Dan wisselen we — jouw vertrouwen in je coach is wat het verschil maakt.</div></details>
+      <details class="faq-item reveal d5"><summary class="faq-q">Kan ik eerst kennismaken?</summary><div class="faq-a">Ja. We starten altijd met een gratis intake. Geen verkooppraatje — wel een eerlijk gesprek over of PT bij jou past en welke aanpak past bij jouw doel.</div></details>
     </div>
   </div>
 </section>

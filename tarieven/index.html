@@ -209,18 +209,17 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .addon-cta{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--line);padding:10px 16px;border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .addon-cta:hover{border-color:var(--accent);color:var(--accent-ink)}
 
-  /* FAQ */
+  /* FAQ — native <details>/<summary> accordion: content stays in the DOM for SEO, collapsed visually */
   .faq{background:var(--paper);padding:100px 0}
   .faq-wrap{max-width:820px;margin:48px auto 0}
   .faq-item{border-top:1px solid var(--line)}
   .faq-item:last-child{border-bottom:1px solid var(--line)}
-  .faq-q{width:100%;background:none;border:none;color:var(--ink);text-align:left;padding:24px 0;font-family:var(--fd);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:color .2s}
+  .faq-q{width:100%;color:var(--ink);padding:24px 0;font-family:var(--fd);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:color .2s;list-style:none}
+  .faq-q::-webkit-details-marker{display:none}
   .faq-q:hover{color:var(--accent-ink)}
   .faq-q .plus{width:32px;height:32px;border-radius:8px;border:1px solid rgba(110,130,0,.28);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);transition:all .25s;flex-shrink:0}
-  .faq-item.open .faq-q .plus{background:var(--accent);color:var(--black);border-color:var(--accent);transform:rotate(45deg)}
-  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:14px;color:var(--ink-soft);line-height:1.75}
-  .faq-item.open .faq-a{max-height:400px}
-  .faq-a-inner{padding:0 0 24px;padding-right:56px}
+  .faq-item[open] .faq-q .plus{background:var(--accent);color:var(--black);border-color:var(--accent);transform:rotate(45deg)}
+  .faq-a{font-size:14px;color:var(--ink-soft);line-height:1.75;padding:0 0 24px}
 
   .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:16px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--black);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-dark:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
@@ -276,6 +275,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     section{padding:56px 0}
     h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
     h2{font-size:clamp(34px,9vw,48px)!important}
+
+    .hero{padding:100px 0 40px}
+    .pricing,.student,.pt-section,.always,.addons,.faq,.final-cta{padding:48px 0}
+    .price-card{padding:24px 20px 20px}
+    .price-card.featured{padding-top:44px}
+    .pt-card{padding:24px 20px}
+    .always-card{padding:22px 20px}
 
     .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
     .page-hero-right,.fu-page-hero-right{min-height:300px!important}
@@ -729,75 +735,75 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </div>
 
     <div class="faq-wrap reveal d2">
-      <div class="faq-item open">
-        <button class="faq-q" aria-expanded="true">
+      <details class="faq-item" open>
+        <summary class="faq-q">
           Zit er een opzegtermijn aan mijn abonnement?
           <span class="plus" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Bij een 6- of 12-maanden abonnement zit je vast aan die looptijd; daarna kun je opzeggen met vier weken opzegtermijn. Koos je voor het flexibele abonnement, dan geldt die opzegtermijn van vier weken vanaf dag 1. Opzeggen kan altijd per mail of WhatsApp.</div></div>
-      </div>
+        </summary>
+        <div class="faq-a">Bij een 6- of 12-maanden abonnement zit je vast aan die looptijd; daarna kun je opzeggen met vier weken opzegtermijn. Koos je voor het flexibele abonnement, dan geldt die opzegtermijn van vier weken vanaf dag 1. Opzeggen kan altijd per mail of WhatsApp.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+      <details class="faq-item">
+        <summary class="faq-q">
           Is er een inschrijfgeld of administratiekosten?
           <span class="plus" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Nee. Je betaalt alleen je abonnement — geen inschrijfgeld, geen administratiekosten, geen verborgen kosten.</div></div>
-      </div>
+        </summary>
+        <div class="faq-a">Nee. Je betaalt alleen je abonnement — geen inschrijfgeld, geen administratiekosten, geen verborgen kosten.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+      <details class="faq-item">
+        <summary class="faq-q">
           Wat is het verschil tussen 12 maanden, 6 maanden en flexibel?
           <span class="plus" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">12 maanden = het scherpste tarief: 24/7 Fitness vanaf €48,50 en All-Inclusive vanaf €53,50. 6 maanden is iets hoger: €53,50 voor Fitness en €58,50 voor All-Inclusive. Liever per maand opzegbaar? Dat kan met het flexibele All-Inclusive abonnement van €68,50 per 4 weken.</div></div>
-      </div>
+        </summary>
+        <div class="faq-a">12 maanden = het scherpste tarief: 24/7 Fitness vanaf €48,50 en All-Inclusive vanaf €53,50. 6 maanden is iets hoger: €53,50 voor Fitness en €58,50 voor All-Inclusive. Liever per maand opzegbaar? Dat kan met het flexibele All-Inclusive abonnement van €68,50 per 4 weken.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+      <details class="faq-item">
+        <summary class="faq-q">
           Kan ik mijn abonnement pauzeren bij vakantie of blessure?
           <span class="plus" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Ja. Bij vakantie kun je tot 4 weken per jaar gratis pauzeren. Bij langdurige blessure met doktersverklaring volledig.</div></div>
-      </div>
+        </summary>
+        <div class="faq-a">Ja. Bij vakantie kun je tot 4 weken per jaar gratis pauzeren. Bij langdurige blessure met doktersverklaring volledig.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+      <details class="faq-item">
+        <summary class="faq-q">
           Is er studentenkorting?
           <span class="plus" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Ja. Met een geldige studentenpas train je 24/7 Fitness voor €38,50 en All-Inclusive voor €43,50 per 4 weken. Laat je pas zien bij de intake.</div></div>
-      </div>
+        </summary>
+        <div class="faq-a">Ja. Met een geldige studentenpas train je 24/7 Fitness voor €38,50 en All-Inclusive voor €43,50 per 4 weken. Laat je pas zien bij de intake.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+      <details class="faq-item">
+        <summary class="faq-q">
           Wat als ik niet zeker weet welk abonnement bij me past?
           <span class="plus" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Plan een gratis intake. We adviseren altijd het abonnement dat past bij jouw doel — niet bij ons hoogste tarief.</div></div>
-      </div>
+        </summary>
+        <div class="faq-a">Plan een gratis intake. We adviseren altijd het abonnement dat past bij jouw doel — niet bij ons hoogste tarief.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+      <details class="faq-item">
+        <summary class="faq-q">
           Hoe verloopt de betaling?
           <span class="plus" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Automatische incasso, elke 4 weken. Eenvoudig en transparant.</div></div>
-      </div>
+        </summary>
+        <div class="faq-a">Automatische incasso, elke 4 weken. Eenvoudig en transparant.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -880,14 +886,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     });
   }
 
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const open = item.classList.toggle('open');
-      q.setAttribute('aria-expanded', open);
-    });
-  });
 </script>
 <script>
 /* === NAV DRAWER TOGGLE (FIT UP) === */
