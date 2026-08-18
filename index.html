@@ -262,6 +262,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .review-avatar{width:38px;height:38px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:20px;font-weight:900;color:var(--black);flex-shrink:0}
   .review-name{font-size:14px;font-weight:600;color:var(--black)}
   .review-meta{font-size:11px;color:rgba(12,12,12,.62);margin-top:2px}
+  .reviews-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:22px}
+  .reviews-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(12,12,12,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+  .reviews-dots .dot.is-active{background:var(--black);transform:scale(1.25)}
   .review-quote-mark{position:absolute;top:20px;right:24px;font-family:var(--fd);font-size:90px;font-weight:900;color:var(--accent);opacity:.12;line-height:1;pointer-events:none}
   .reviews .btn-ghost{color:rgba(12,12,12,.65);border-bottom-color:rgba(12,12,12,.25)}
   .reviews .btn-ghost:hover{color:var(--black);border-color:var(--black)}
@@ -556,6 +559,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .services-grid{grid-template-columns:1fr;gap:2px}
     .svc-card{padding:26px 22px 68px}
+
+    .reviews-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
+    .reviews-grid::-webkit-scrollbar{display:none}
+    .review-card{flex:0 0 84%;scroll-snap-align:start}
+    .reviews-dots{display:flex}
 
     .problem-photos{grid-template-columns:1fr 1fr;gap:2px}
     .problem-photos .prob-photo:nth-child(3){display:none}
@@ -1330,10 +1338,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         </div>
       </div>
     </div>
-    <div class="reviews-grid">
+    <div class="reviews-grid" data-swipe-track="reviews">
 
       <!-- Featured review — biggest result, spans visually -->
-      <article class="review-card reveal" style="border-left:3px solid var(--accent);">
+      <article class="review-card swipe-slide reveal" style="border-left:3px solid var(--accent);">
         <div class="review-quote-mark" aria-hidden="true">"</div>
         <div class="review-stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
         <!-- Result badge -->
@@ -1345,20 +1353,25 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="review-author"><div class="review-avatar" aria-hidden="true">I</div><div><div class="review-name">Irene Peters</div><div class="review-meta">Google · januari 2024</div></div></div>
       </article>
 
-      <article class="review-card reveal d1">
+      <article class="review-card swipe-slide reveal d1">
         <div class="review-quote-mark" aria-hidden="true">"</div>
         <div class="review-stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
         <blockquote class="review-text">De trainers kennen je bij naam, houden je voortgang goed bij en motiveren je om het beste uit jezelf te halen. Of je nu net begint of al jaren sport, hier voel je je altijd welkom. De apparatuur is top en er zijn genoeg opties voor zowel krachttraining als cardio.</blockquote>
         <div class="review-author"><div class="review-avatar" aria-hidden="true">★</div><div><div class="review-name">Google reviewer</div><div class="review-meta">Google · september 2024</div></div></div>
       </article>
 
-      <article class="review-card reveal d2">
+      <article class="review-card swipe-slide reveal d2">
         <div class="review-quote-mark" aria-hidden="true">"</div>
         <div class="review-stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
         <blockquote class="review-text">Goede begeleiding, laagdrempelig en gezellig. Altijd geopend om zelf te trainen en verschillende lessen waar je aan mee kunt doen. Top!</blockquote>
         <div class="review-author"><div class="review-avatar" aria-hidden="true">N</div><div><div class="review-name">Nienke Kelderman</div><div class="review-meta">Google · 9 weken geleden</div></div></div>
       </article>
 
+    </div>
+    <div class="reviews-dots" data-swipe-dots="reviews" role="tablist" aria-label="Reviews">
+      <button type="button" class="dot is-active" aria-label="Review 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Review 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Review 3" aria-selected="false"></button>
     </div>
     <div style="text-align:center;margin-top:36px;" class="reveal d3">
       <a href="https://share.google/LzpqWN4mAFxA6ZDuG" class="btn-ghost" target="_blank" rel="noopener">
@@ -1417,8 +1430,17 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .team-name{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:23px;letter-spacing:1px;line-height:1;color:var(--white)}
     .team-role{color:var(--accent);font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:10px}
     .team-blurb{color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;margin-top:14px;font-weight:300}
+    .team-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:18px}
+    .team-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(12,12,12,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+    .team-dots .dot.is-active{background:var(--black);transform:scale(1.25)}
     @media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr;gap:16px}}
-    @media(max-width:540px){.team-grid{grid-template-columns:1fr 1fr;gap:12px}.team-body{padding:16px 16px 20px}.team-name{font-size:19px}.team-blurb{font-size:13px}}
+    @media(max-width:540px){
+      .team-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
+      .team-grid::-webkit-scrollbar{display:none}
+      .team-card{flex:0 0 68%;scroll-snap-align:start}
+      .team-body{padding:16px 16px 20px}.team-name{font-size:19px}.team-blurb{font-size:13px}
+      .team-dots{display:flex}
+    }
   </style>
   <div class="container">
     <div class="team-head">
@@ -1426,8 +1448,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <h2 id="team-heading" class="reveal d1">Coaches die je <em>naam kennen</em></h2>
       <p class="reveal d2">Bij Fit Up train je niet met een willekeurige instructeur, maar met een vast team dat weet waar je aan werkt. Van personal training en looptraining tot groepslessen &mdash; je vindt hier de juiste coach voor jouw doel.</p>
     </div>
-    <div class="team-grid">
-      <article class="team-card reveal d1">
+    <div class="team-grid" data-swipe-track="team">
+      <article class="team-card swipe-slide reveal d1">
         <div class="team-photo"><img src="assets/images/team-patrick.jpg" alt="Patrick, eigenaar en personal trainer bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
         <div class="team-body">
           <div class="team-name">Patrick</div>
@@ -1435,7 +1457,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           <p class="team-blurb">Oud-Defensie en sinds 2014 het gezicht van Fit Up. Coacht 1-op-1, staat voor de groep en kent iedereen bij naam. Discipline en persoonlijke aandacht in één.</p>
         </div>
       </article>
-      <article class="team-card reveal d2">
+      <article class="team-card swipe-slide reveal d2">
         <div class="team-photo"><img src="assets/images/team-benjamin.jpg" alt="Benjamin, headcoach bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
         <div class="team-body">
           <div class="team-name">Benjamin</div>
@@ -1443,7 +1465,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           <p class="team-blurb">Begeleidt je 1-op-1 met een schema en techniek die kloppen voor jouw doel en niveau &mdash; of je nu net begint of een niveau hoger wilt.</p>
         </div>
       </article>
-      <article class="team-card reveal d3">
+      <article class="team-card swipe-slide reveal d3">
         <div class="team-photo"><img src="assets/images/team-mendy.jpg" alt="Mendy, groepslesdocent en HIIT-specialist bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
         <div class="team-body">
           <div class="team-name">Mendy</div>
@@ -1451,7 +1473,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           <p class="team-blurb">Brengt de energie in de zaal. Specialist in HIIT: kort, intensief en voor elk niveau te schalen. Je gaat er altijd voldaan weer uit.</p>
         </div>
       </article>
-      <article class="team-card reveal d4">
+      <article class="team-card swipe-slide reveal d4">
         <div class="team-photo"><img src="assets/images/team-pepijn.jpg" alt="Pepijn, personal trainer en looptrainer bij Fit Up Leiderdorp" width="480" height="600" loading="lazy" decoding="async"></div>
         <div class="team-body">
           <div class="team-name">Pepijn</div>
@@ -1459,6 +1481,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           <p class="team-blurb">Van je eerste 5 km tot een 100 km ultramarathon. Pepijn bouwt je loopschema stap voor stap op &mdash; slim, blessurevrij en op jouw tempo.</p>
         </div>
       </article>
+    </div>
+    <div class="team-dots" data-swipe-dots="team" role="tablist" aria-label="Coaches">
+      <button type="button" class="dot is-active" aria-label="Coach 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Coach 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Coach 3" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Coach 4" aria-selected="false"></button>
     </div>
   </div>
 </section>
@@ -1502,6 +1530,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .frame-person-name{font-family:var(--fd);font-weight:800;font-size:16px;font-style:italic;text-transform:uppercase;color:var(--black)}
     .frame-person-line{font-size:12.5px;color:rgba(12,12,12,.6)}
     .frame-card--hero .frame-badge{font-size:25px;padding:10px 15px}
+    .rwall-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:28px}
+    .rwall-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(12,12,12,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+    .rwall-dots .dot.is-active{background:var(--black);transform:scale(1.25)}
 
     .rwall-cta{text-align:center;margin-top:84px}
     .rwall-cta h3{font-family:var(--fd);font-size:clamp(28px,4vw,42px);font-weight:900;text-transform:uppercase;color:var(--black);line-height:1.05}
@@ -1520,7 +1551,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     }
     @media(max-width:640px){
       .rwall{padding:56px 0}
-      .frame-wall{margin-top:48px;gap:32px}
+      .frame-wall{margin-top:48px;gap:14px;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:none}
+      .frame-wall::-webkit-scrollbar{display:none}
+      .frame-card{flex:0 0 82%;scroll-snap-align:start}
       .frame-cap{padding:22px 16px 18px}
       .frame-card--hero .frame-cap{padding:24px 18px 20px}
       .frame-cap--story{padding:28px 24px 26px}
@@ -1528,6 +1561,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       .rwall-cta-actions{flex-direction:column;align-items:stretch;width:100%}
       .rwall-cta-actions .btn-accent{justify-content:center}
       .rwall-cta-actions .btn-ghost{justify-content:center}
+      .rwall-dots{display:flex}
     }
   </style>
   <div class="container">
@@ -1537,9 +1571,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <p class="reveal d2">Geen standaard aanpak. We kijken naar jouw doel, jouw leven en wat jij nodig hebt om resultaat vol te houden.</p>
     </div>
 
-    <div class="frame-wall">
+    <div class="frame-wall" data-swipe-track="resultaten">
       <!-- Ronald — geen foto beschikbaar: bewust een puur verhaal, geen stockfoto/AI-persoon en geen dicht paneel -->
-      <figure class="frame-card frame-card--story reveal d2" style="--rot:-1.6deg;--mt:44px">
+      <figure class="frame-card frame-card--story swipe-slide reveal d2" style="--rot:-1.6deg;--mt:44px">
         <figcaption class="frame-cap frame-cap--story">
           <span class="frame-badge frame-badge--static">−15<small>kg</small></span>
           <div class="frame-name">Ronald</div>
@@ -1550,7 +1584,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       </figure>
 
       <!-- Julia & Monique — samen gestart, hier het centrale/grootste fotolijstje -->
-      <figure class="frame-card frame-card--hero reveal d1" style="--rot:0.8deg;--mt:0px">
+      <figure class="frame-card frame-card--hero swipe-slide reveal d1" style="--rot:0.8deg;--mt:0px">
         <div class="frame-photo">
           <img src="assets/images/result-julia-monique.jpg" alt="Julia en Monique samen met coach Patrick bij Fit Up Leiderdorp" width="760" height="950" loading="lazy" decoding="async">
           <span class="frame-badge">−4<small>kg</small></span>
@@ -1574,7 +1608,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       </figure>
 
       <!-- Marja — bestaande voor/na-foto, zachter en persoonlijker uitgelicht -->
-      <figure class="frame-card frame-card--photo reveal d3" style="--rot:-1deg;--mt:30px">
+      <figure class="frame-card frame-card--photo swipe-slide reveal d3" style="--rot:-1deg;--mt:30px">
         <div class="frame-photo frame-photo--wide">
           <img src="assets/images/result-marja.png" alt="Marja — voor en na 13 kilo afvallen bij Fit Up Leiderdorp" width="347" height="255" loading="lazy" decoding="async">
           <span class="frame-badge">−13<small>kg</small></span>
@@ -1586,6 +1620,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           <blockquote class="frame-quote">Ik heb mijn zin in sporten weer teruggevonden.</blockquote>
         </figcaption>
       </figure>
+    </div>
+    <div class="rwall-dots" data-swipe-dots="resultaten" role="tablist" aria-label="Resultaten van klanten">
+      <button type="button" class="dot is-active" aria-label="Resultaat 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Resultaat 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Resultaat 3" aria-selected="false"></button>
     </div>
 
     <div class="rwall-cta reveal d4">
@@ -2003,6 +2042,34 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       const item = q.parentElement;
       const open = item.classList.toggle('open');
       q.setAttribute('aria-expanded', open);
+    });
+  });
+
+  // Mobile swipe-carousels (team, resultaten, reviews): sync pagination dots to scroll position
+  ['team', 'resultaten', 'reviews'].forEach(id => {
+    const track = document.querySelector(`[data-swipe-track="${id}"]`);
+    const dotsWrap = document.querySelector(`[data-swipe-dots="${id}"]`);
+    if (!track || !dotsWrap) return;
+    const slides = track.querySelectorAll('.swipe-slide');
+    const dots = dotsWrap.querySelectorAll('.dot');
+    if (!slides.length || !dots.length) return;
+    function setActive(i){
+      dots.forEach((d, idx) => {
+        const active = idx === i;
+        d.classList.toggle('is-active', active);
+        d.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));
+      });
+    }, {root: track, threshold: 0.6});
+    slides.forEach(s => io.observe(s));
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        slides[i].scrollIntoView({behavior: 'smooth', inline: 'start', block: 'nearest'});
+      });
     });
   });
 </script>

@@ -282,6 +282,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .result-quote::before{content:'\201C';color:var(--accent);font-family:var(--fd);font-size:24px;font-weight:900;line-height:0;margin-right:4px;position:relative;top:6px}
   .results-foot{margin-top:28px;text-align:center;font-size:12px;color:var(--ink-soft);letter-spacing:.3px}
   .results-foot a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+  .results-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:24px}
+  .results-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+  .results-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
 
   /* FAQ — native <details>/<summary> accordion: content stays in the DOM for SEO, collapsed visually */
   .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -414,6 +417,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
     .result-body{padding:14px 16px 18px}
+    .results-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:14px}
+    .results-grid::-webkit-scrollbar{display:none}
+    .result-card{flex:0 0 82%;scroll-snap-align:start}
+    .results-dots{display:flex}
     .sec-head{margin-bottom:36px}
   }
 
@@ -778,10 +785,10 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="res-stat"><div class="res-stat-num"><em>5</em></div><div class="res-stat-label">Klantverhalen</div></div>
       </div>
     </div>
-    <div class="results-grid">
+    <div class="results-grid" id="pt-results-track">
 
       <!-- Marja -->
-      <article class="result-card reveal">
+      <article class="result-card swipe-slide reveal">
         <div class="result-banner"><span class="result-banner-kg">−13 kg</span><span class="result-banner-sub">Marja · 69 jaar</span></div>
         <div class="result-img">
           <img src="../../assets/images/result-marja.png" alt="Marja, 69 jaar — voor en na haar transformatie van 13 kg afgevallen bij Fit Up Leiderdorp" width="347" height="255" loading="lazy" decoding="async">
@@ -801,7 +808,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </article>
 
       <!-- Irene -->
-      <article class="result-card reveal d1">
+      <article class="result-card swipe-slide reveal d1">
         <div class="result-banner"><span class="result-banner-kg">−34 kg</span><span class="result-banner-sub">Irene · 1 jaar</span></div>
         <div class="result-img">
           <img src="../../assets/images/result-34kg.png" alt="Irene — 34 kilo afgevallen onder begeleiding van een vaste personal trainer bij Fit Up Leiderdorp" width="347" height="268" loading="lazy" decoding="async">
@@ -821,7 +828,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </article>
 
       <!-- Barbara -->
-      <article class="result-card reveal d2">
+      <article class="result-card swipe-slide reveal d2">
         <div class="result-banner"><span class="result-banner-kg">−35 kg</span><span class="result-banner-sub">Barbara · fitste versie ooit</span></div>
         <div class="result-img">
           <img src="../../assets/images/result-35kg.png" alt="Barbara — 35 kilo afgevallen, de fitste versie ooit, bij Fit Up Leiderdorp" width="347" height="276" loading="lazy" decoding="async">
@@ -841,7 +848,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </article>
 
       <!-- Mark -->
-      <article class="result-card reveal d3">
+      <article class="result-card swipe-slide reveal d3">
         <div class="result-banner"><span class="result-banner-kg">−5 kg</span><span class="result-banner-sub">Mark · 8 weken · 16% → 13,9%</span></div>
         <div class="result-img">
           <img src="../../assets/images/result-5kg.png" alt="Mark — 5 kilo afgevallen in 8 weken, vetpercentage van 16 naar 13,9 bij Fit Up Leiderdorp" width="347" height="280" loading="lazy" decoding="async">
@@ -861,7 +868,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </article>
 
       <!-- Karin -->
-      <article class="result-card reveal d4">
+      <article class="result-card swipe-slide reveal d4">
         <div class="result-banner"><span class="result-banner-kg">−17 kg</span><span class="result-banner-sub">Karin · afgevallen &amp; reisklaar</span></div>
         <div class="result-img">
           <img src="../../assets/images/result-karin.png" alt="Karin — 17 kilo afgevallen onder begeleiding van Fit Up Leiderdorp" width="347" height="295" loading="lazy" decoding="async">
@@ -880,6 +887,13 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         </div>
       </article>
 
+    </div>
+    <div class="results-dots" id="pt-results-dots" role="tablist" aria-label="Resultaten van klanten">
+      <button type="button" class="dot is-active" aria-label="Resultaat 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Resultaat 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Resultaat 3" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Resultaat 4" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Resultaat 5" aria-selected="false"></button>
     </div>
     <p class="results-foot">Resultaten verschillen per persoon. Gemiddelde looptijd PT-traject: 6–12 maanden. <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training">Plan jouw gratis intake →</a></p>
   </div>
@@ -1007,6 +1021,34 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   });
 })();
 /* === END HERO PHOTO CAROUSEL === */
+
+/* === RESULTATEN SWIPE-CAROUSEL PAGINATION (mobile only) === */
+(function(){
+  var track = document.getElementById('pt-results-track');
+  var pagination = document.getElementById('pt-results-dots');
+  if(!track || !pagination || !window.matchMedia('(max-width:640px)').matches) return;
+  var slides = track.querySelectorAll('.swipe-slide');
+  var dots = pagination.querySelectorAll('.dot');
+  function setActive(i){
+    dots.forEach(function(d, idx){
+      var active = idx === i;
+      d.classList.toggle('is-active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));
+    });
+  }, {root: track, threshold: 0.6});
+  slides.forEach(function(s){ io.observe(s); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      slides[i].scrollIntoView({behavior: 'smooth', inline: 'start', block: 'nearest'});
+    });
+  });
+})();
+/* === END RESULTATEN SWIPE-CAROUSEL PAGINATION === */
 </script>
 </body>
 </html>
