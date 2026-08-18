@@ -181,16 +181,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .nutri-feat-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
   .nutri-phone{display:flex;justify-content:center;align-items:center;position:relative;min-height:560px}
   .nutri-phone::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;height:520px;background:radial-gradient(ellipse,rgba(212,255,0,.1) 0%,transparent 60%);pointer-events:none;z-index:0}
-  .nutri-phone-stack{position:relative;width:100%;max-width:520px;height:560px}
-  .nutri-phone-stack img{position:absolute;max-width:300px;width:65%;height:auto;display:block;border-radius:34px;filter:drop-shadow(0 30px 60px rgba(0,0,0,.55));transition:transform .4s ease}
-  .nutri-phone-stack .ph-back{top:0;right:0;transform:rotate(4deg)}
-  .nutri-phone-stack .ph-front{bottom:0;left:0;transform:rotate(-4deg);z-index:2}
-  .nutri-phone-stack:hover .ph-back{transform:rotate(6deg) translateY(-6px)}
-  .nutri-phone-stack:hover .ph-front{transform:rotate(-6deg) translateY(-6px)}
-  .nutri-phone-label{position:absolute;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:rgba(12,12,12,.85);padding:6px 10px;border:1px solid rgba(212,255,0,.3);z-index:3;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px}
-  .nutri-phone-label::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%}
-  .nutri-phone-label.l-back{top:24px;right:14px}
-  .nutri-phone-label.l-front{bottom:24px;left:14px}
+  .nutri-phone-stack{position:relative;width:100%;max-width:480px}
+  .nutri-phone-stack img{display:block;width:100%;height:auto;position:relative;z-index:1;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45))}
 
   /* STEPS */
   .how{background:var(--paper)}
@@ -642,10 +634,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
       <div class="nutri-phone reveal d1">
         <div class="nutri-phone-stack">
-          <img src="../../assets/images/app-hibrad-dashboard.png" alt="Trainingsapp van Fit Up — dagelijkse doelen voor stappen, cardio en kracht" class="ph-back" width="700" height="1244" loading="lazy" decoding="async">
-          <div class="nutri-phone-label l-back">Trainings­schema</div>
-          <img src="../../assets/images/app-foodscanner.png" alt="Voedingsapp van Fit Up — maaltijd scannen met kcal en macro's per gerecht" class="ph-front" width="700" height="1115" loading="lazy" decoding="async">
-          <div class="nutri-phone-label l-front">Voedings­plan</div>
+          <img src="../../assets/images/app-phones-hero.png" alt="Twee smartphones met de Fit Up app — trainingsschema en voedingsplan in één overzicht" width="1351" height="1164" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
