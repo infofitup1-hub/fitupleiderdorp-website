@@ -23,18 +23,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>Plan een Gratis Intake | Fit Up Leiderdorp</title>
-<meta name="description" content="Plan een gratis intake bij Fit Up Leiderdorp. Eerlijk advies over training, voeding en aanpak — zonder verplichtingen of verkooppraat.">
-<meta name="keywords" content="gratis intake leiderdorp, gratis kennismaking sportschool, fit up afspraak">
+<title>Gratis Intake &amp; Contact | Fit Up Leiderdorp</title>
+<meta name="description" content="Plan een gratis intake bij Fit Up Leiderdorp of neem direct contact op via WhatsApp, telefoon of e-mail. Bel 06 45280679, mail info.fitup1@gmail.com of kom langs aan de Weversbaan 9.">
+<meta name="keywords" content="gratis intake leiderdorp, contact fit up leiderdorp, gratis kennismaking sportschool, fit up afspraak">
 <link rel="canonical" href="https://fitupleiderdorp.nl/gratis-intake/">
-<meta property="og:title" content="Plan een Gratis Intake | Fit Up Leiderdorp">
-<meta property="og:description" content="Plan een gratis intake bij Fit Up Leiderdorp. Eerlijk advies over training, voeding en aanpak — zonder verplichtingen of verkooppraat.">
+<meta property="og:title" content="Gratis Intake &amp; Contact | Fit Up Leiderdorp">
+<meta property="og:description" content="Plan een gratis intake bij Fit Up Leiderdorp of neem direct contact op via WhatsApp, telefoon of e-mail.">
 <meta property="og:url" content="https://fitupleiderdorp.nl/gratis-intake/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Plan een Gratis Intake | Fit Up Leiderdorp">
-<meta name="twitter:description" content="Plan een gratis intake bij Fit Up Leiderdorp. Eerlijk advies over training, voeding en aanpak — zonder verplichtingen of verkooppraat.">
+<meta name="twitter:title" content="Gratis Intake &amp; Contact | Fit Up Leiderdorp">
+<meta name="twitter:description" content="Plan een gratis intake bij Fit Up Leiderdorp of neem direct contact op via WhatsApp, telefoon of e-mail.">
 <meta name="twitter:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
 <meta property="og:locale" content="nl_NL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,44 +43,71 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link rel="stylesheet" href="../assets/css/seo.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
-  .intake-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
-  @media (max-width: 980px) { .intake-grid { grid-template-columns: 1fr; gap: 40px; } }
+  /* SNELLE KEUZE */
+  .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .choice-card { background: var(--mid); color: var(--white); padding: 32px 30px; border-radius: var(--r-card); border: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; }
+  .choice-card.is-primary { border-color: rgba(212,255,0,.3); background: linear-gradient(160deg, #1c1f0f, var(--mid) 60%); }
+  .choice-label { font-family: var(--fd); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .choice-title { font-family: var(--fd); font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: .3px; margin-bottom: 8px; line-height: 1; }
+  .choice-desc { font-size: 13.5px; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+  .choice-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .choice-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.85); text-decoration: none; padding: 10px 14px; border-radius: 100px; font-size: 12.5px; font-weight: 600; min-height: 44px; transition: all .2s; }
+  .choice-pill.is-whatsapp { background: var(--accent); border-color: var(--accent); color: var(--black); font-weight: 700; }
+  .choice-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .choice-pill.is-whatsapp:hover { background: transparent; color: var(--accent); }
 
-  .intake-card { background: var(--mid); padding: 40px; border-left: 3px solid var(--accent); }
-  .intake-card h2 { margin-bottom: 22px; font-size: clamp(28px, 3.4vw, 38px); }
-  .intake-card p { color: rgba(255,255,255,.65); line-height: 1.75; font-size: 15px; margin-bottom: 16px; }
-  .intake-form { display: grid; gap: 16px; margin-top: 22px; }
-  .intake-form label { display: block; font-family: var(--fd); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-  .intake-form input, .intake-form textarea, .intake-form select { width: 100%; padding: 14px 16px; background: var(--black); color: var(--white); border: 1px solid rgba(255,255,255,.15); font-family: var(--fb); font-size: 15px; outline: none; transition: border-color .2s; }
-  .intake-form textarea { min-height: 100px; resize: vertical; font-family: var(--fb); }
-  .intake-form input:focus, .intake-form textarea:focus, .intake-form select:focus { border-color: var(--accent); }
-  .intake-form .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  /* 4 STAPPEN */
+  .step-list { display: flex; flex-direction: column; max-width: 720px; margin: 0 auto; }
+  .step-item { display: flex; align-items: flex-start; gap: 20px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .step-item:last-child { border-bottom: 1px solid var(--line); }
+  .step-num { font-family: var(--fd); font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--accent-ink); flex-shrink: 0; padding-top: 3px; min-width: 30px; }
+  .step-title { font-family: var(--fd); font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: .3px; margin-bottom: 2px; color: var(--ink); }
+  .step-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+
+  /* PLANNER */
+  .planner-card { max-width: 640px; margin: 0 auto; background: var(--mid); padding: 40px; border-left: 3px solid var(--accent); border-radius: var(--r-card); }
+  .planner-card h2 { color: var(--white); margin-bottom: 10px; font-size: clamp(26px, 3.4vw, 34px); }
+  .planner-card > p { color: rgba(255,255,255,.6); line-height: 1.65; font-size: 14.5px; margin-bottom: 24px; }
+  .intake-form { display: grid; gap: 14px; }
+  .intake-form label { display: block; font-family: var(--fd); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+  .intake-form input, .intake-form select { width: 100%; padding: 14px 16px; min-height: 48px; background: var(--black); color: var(--white); border: 1px solid rgba(255,255,255,.15); font-family: var(--fb); font-size: 15px; outline: none; transition: border-color .2s; appearance: none; -webkit-appearance: none; }
+  .intake-form select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d4ff00' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; }
+  .intake-form select:disabled { opacity: .4; cursor: not-allowed; }
+  .intake-form input:focus, .intake-form select:focus { border-color: var(--accent); }
+  .intake-form .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .intake-form .row-2 > * { min-width: 0; }
-  .intake-form button { padding: 16px 28px; background: var(--accent); color: var(--black); border: none; font-family: var(--fd); font-weight: 800; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all .2s; margin-top: 12px; }
+  .intake-form button { padding: 16px 28px; min-height: 52px; background: var(--accent); color: var(--black); border: none; border-radius: var(--r-btn); font-family: var(--fd); font-weight: 800; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all .2s; margin-top: 6px; display: flex; align-items: center; justify-content: center; gap: 10px; }
   .intake-form button:hover { background: var(--white); }
-  .intake-note { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 8px; line-height: 1.55; }
+  .intake-note { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 10px; line-height: 1.55; text-align: center; }
 
-  .channels { display: grid; gap: 14px; }
-  .channel { background: var(--mid); padding: 24px 28px; display: flex; gap: 18px; align-items: center; border-left: 2px solid var(--accent); transition: all .25s; text-decoration: none; }
+  /* DIRECT CONTACT + BEZOEK */
+  .split-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: start; }
+  .channels { display: grid; gap: 12px; }
+  .channel { background: var(--mid); padding: 18px 22px; min-height: 48px; display: flex; gap: 16px; align-items: center; border-left: 2px solid var(--accent); transition: all .2s; text-decoration: none; border-radius: var(--r-md); }
   .channel:hover { background: var(--lgray); transform: translateX(4px); }
-  .ch-icon { width: 44px; height: 44px; flex-shrink: 0; background: rgba(212,255,0,.1); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; }
-  .ch-label { font-family: var(--fd); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-  .ch-value { font-family: var(--fd); font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: .5px; text-transform: uppercase; }
+  .channel.is-primary { background: var(--accent); border-left-color: var(--black); }
+  .channel.is-primary .ch-icon { background: rgba(0,0,0,.12); color: var(--black); }
+  .channel.is-primary .ch-label { color: rgba(0,0,0,.55); }
+  .channel.is-primary .ch-value { color: var(--black); }
+  .ch-icon { width: 40px; height: 40px; flex-shrink: 0; background: rgba(212,255,0,.1); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; }
+  .ch-label { font-family: var(--fd); font-size: 10.5px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+  .ch-value { font-family: var(--fd); font-size: 18px; font-weight: 900; color: var(--white); letter-spacing: .3px; }
 
-  .expect { display: grid; gap: 14px; margin-top: 22px; }
-  .ex-item { display: flex; gap: 14px; align-items: flex-start; }
-  .ex-num { font-family: var(--fd); font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--accent); flex-shrink: 0; padding-top: 4px; min-width: 28px; }
-  .ex-title { font-family: var(--fd); font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
-  .ex-desc { font-size: 13.5px; color: rgba(255,255,255,.6); line-height: 1.65; }
+  .visit-card { background: var(--mid); padding: 26px 28px; border-radius: var(--r-card); height: 100%; }
+  .visit-card h3 { color: var(--white); margin-bottom: 14px; }
+  .visit-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .visit-list li { font-size: 13.5px; color: rgba(255,255,255,.65); display: flex; gap: 9px; align-items: flex-start; line-height: 1.5; }
+  .visit-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
 
+  @media (max-width: 980px) {
+    .choice-grid, .split-grid { grid-template-columns: 1fr; }
+  }
   @media (max-width: 640px) {
-    .intake-card { padding: 26px 22px; }
-    .intake-form { gap: 12px; }
-    .intake-form input, .intake-form textarea, .intake-form select { padding: 12px 14px; }
+    .choice-card { padding: 24px 22px; }
+    .planner-card { padding: 26px 22px; }
     .intake-form .row-2 { gap: 12px; }
-    .channel { padding: 12px 18px; gap: 14px; }
-    .ch-icon { width: 36px; height: 36px; }
-    .ch-value { font-size: 18px; }
+    .channel { padding: 14px 18px; }
+    .visit-card { padding: 22px 20px; }
   }
 </style>
 
@@ -90,7 +117,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fitupleiderdorp.nl/"},
-    {"@type": "ListItem", "position": 2, "name": "Gratis intake", "item": "https://fitupleiderdorp.nl/gratis-intake/"}
+    {"@type": "ListItem", "position": 2, "name": "Gratis intake & contact", "item": "https://fitupleiderdorp.nl/gratis-intake/"}
   ]
 }
 </script>
@@ -104,7 +131,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     <li><a href="../trainingsaanbod/index.html">Trainingsaanbod</a></li>
     <li><a href="../online-coaching/index.html">Online Coaching</a></li>
     <li><a href="../tarieven/index.html">Tarieven</a></li>
-    <li><a href="../contact/index.html">Contact</a></li>
     <li><a href="../gratis-intake/index.html" class="nav-btn active">Gratis intake</a></li>
   </ul>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
@@ -116,8 +142,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
   <a href="../online-coaching/index.html">Online Coaching</a>
   <a href="../tarieven/index.html">Tarieven</a>
-  <a href="../contact/index.html">Contact</a>
-  <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="drawer-cta">Gratis intake</a>
+  <a href="#planner" class="drawer-cta">Gratis intake</a>
 </div>
 
 <section class="crumb">
@@ -125,152 +150,180 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     <nav class="crumb-inner" aria-label="Kruimelpad">
       <a href="../index.html">Home</a>
       <span class="crumb-sep">/</span>
-      <span class="crumb-cur">Gratis intake</span>
+      <span class="crumb-cur">Gratis intake &amp; contact</span>
     </nav>
   </div>
 </section>
 
-<header class="seo-hero" style="padding-bottom:40px">
+<header class="seo-hero" style="padding-bottom:56px">
   <div class="container">
     <div style="max-width:780px;margin:0 auto;text-align:center">
       <div class="hero-eyebrow" style="display:inline-flex;justify-content:center"><span class="eyebrow-dot"></span>Zonder verplichtingen · Eerlijk advies</div>
-      <h1 style="font-size:clamp(54px,7vw,92px);margin-bottom:24px">Gratis Intake<br><em>Fit Up Leiderdorp</em></h1>
-      <p class="seo-hero-sub" style="margin:0 auto 0;max-width:560px">
-        Een uur waarin we <strong>doel, leefstijl, blessuregeschiedenis en agenda</strong> doornemen. We adviseren eerlijk welk traject bij jou past — of dat nu Personal Training, SGPT, 24/7 Fitness of online coaching is.
+      <h1 style="font-size:clamp(40px,7vw,66px);margin-bottom:20px">Gratis Intake<br><em>&amp; Contact</em></h1>
+      <p class="seo-hero-sub" style="margin:0 auto 32px;max-width:560px">
+        Wil je kennismaken of heb je eerst een vraag? Plan direct een gratis intake of neem contact met ons op.
       </p>
+      <div class="seo-hero-ctas" style="justify-content:center">
+        <a href="#planner" class="btn-accent">
+          Plan gratis intake
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn-outline">Direct contact</a>
+      </div>
     </div>
   </div>
 </header>
 
-<section style="padding-top:20px">
+<!-- SNELLE KEUZE -->
+<section aria-labelledby="kiezen" style="background:var(--charcoal);padding-top:0">
   <div class="container">
-    <div id="fc-banner" style="display:none;max-width:820px;margin:0 auto 32px;background:rgba(212,255,0,.06);border:1px solid rgba(212,255,0,.2);border-radius:14px;padding:20px 24px">
+    <div class="choice-grid">
+      <div class="choice-card is-primary reveal">
+        <div class="choice-label">Kennismaken</div>
+        <div class="choice-title">Plan gratis intake</div>
+        <div class="choice-desc">Voor wie wil kennismaken en persoonlijk advies wil.</div>
+        <a href="#planner" class="btn-accent" style="align-self:flex-start">
+          Plan intake
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="choice-card reveal d1">
+        <div class="choice-label">Een vraag?</div>
+        <div class="choice-title">Direct contact</div>
+        <div class="choice-desc">Voor een korte vraag.</div>
+        <div class="choice-pills">
+          <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20heb%20een%20vraag." target="_blank" rel="noopener" class="choice-pill is-whatsapp" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.885-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.982zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:0645280679" class="choice-pill" aria-label="Bellen">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Bellen
+          </a>
+          <a href="mailto:info.fitup1@gmail.com" class="choice-pill" aria-label="E-mail">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Mail
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAT GEBEURT ER -->
+<section aria-labelledby="stappen">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:36px">
+      <div class="sec-label reveal"><span class="sec-label-line"></span>De intake</div>
+      <h2 id="stappen" class="reveal d1">Wat gebeurt er<br><em>tijdens de intake?</em></h2>
+    </div>
+    <div class="step-list">
+      <div class="step-item reveal"><div class="step-num">01</div><div><div class="step-title">Kennismaken</div><div class="step-desc">Waar sta je nu?</div></div></div>
+      <div class="step-item reveal d1"><div class="step-num">02</div><div><div class="step-title">Doel bepalen</div><div class="step-desc">Wat wil je bereiken?</div></div></div>
+      <div class="step-item reveal d2"><div class="step-num">03</div><div><div class="step-title">Persoonlijk advies</div><div class="step-desc">Welke begeleiding past het beste?</div></div></div>
+      <div class="step-item reveal d3"><div class="step-num">04</div><div><div class="step-title">Start wanneer jij wilt</div><div class="step-desc">Geen verplichting.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTAKEPLANNER -->
+<section id="planner" aria-labelledby="planner-h" style="background:var(--charcoal)">
+  <div class="container">
+    <div id="fc-banner" style="display:none;max-width:640px;margin:0 auto 28px;background:rgba(212,255,0,.06);border:1px solid rgba(212,255,0,.2);border-radius:14px;padding:20px 24px">
       <div style="font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Jouw Fitcheck-advies</div>
-      <div id="fc-banner-title" style="font-family:var(--fd);font-size:20px;font-weight:800;text-transform:uppercase;margin-bottom:6px"></div>
+      <div id="fc-banner-title" style="font-family:var(--fd);font-size:20px;font-weight:800;text-transform:uppercase;margin-bottom:6px;color:var(--white)"></div>
       <p id="fc-banner-text" style="font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.6;margin:0"></p>
     </div>
-    <div class="intake-grid">
-
-      <!-- LEFT: WHAT TO EXPECT + FORM -->
-      <div>
-        <div class="intake-card reveal">
-          <h2>Wat kun je<br><em>verwachten?</em></h2>
-          <p>Geen verkooppraatje, geen druk. Wel een eerlijk gesprek over jouw doel, startpunt en aanpak. Als wij niet de juiste oplossing voor je hebben, zeggen we dat ook.</p>
-          <div class="expect">
-            <div class="ex-item"><div class="ex-num">01</div><div><div class="ex-title">Korte rondleiding</div><div class="ex-desc">Eerst zien hoe de gym eruit ziet — apparatuur, ruimte, sfeer. Dat geeft een eerlijk beeld voor je iets afspreekt.</div></div></div>
-            <div class="ex-item"><div class="ex-num">02</div><div><div class="ex-title">Doel + startpunt</div><div class="ex-desc">We bespreken jouw doel (afvallen, sterker, fitter, revalidatie), eerdere ervaring, blessures en hoeveel tijd je beschikbaar hebt.</div></div></div>
-            <div class="ex-item"><div class="ex-num">03</div><div><div class="ex-title">Eerlijk advies</div><div class="ex-desc">We adviseren het traject dat het beste bij jou past — dat is niet altijd onze duurste optie. Voor 95% van onze leden is SGPT de slimste mix.</div></div></div>
-            <div class="ex-item"><div class="ex-num">04</div><div><div class="ex-title">Volgende stap</div><div class="ex-desc">Wil je starten? We plannen je eerste training en zetten je gegevens in onze app. Wil je nadenken? Geen probleem — je hoort niets meer van ons.</div></div></div>
+    <div class="planner-card reveal">
+      <h2 id="planner-h">Plan je <em style="font-style:normal;color:var(--accent)">gratis intake</em></h2>
+      <p>Kies een geschikt moment en laat je gegevens achter.</p>
+      <form class="intake-form" id="intakeForm">
+        <div>
+          <label for="plan-dag">Kies een dag</label>
+          <select id="plan-dag" name="dag" required>
+            <option value="">— Selecteer dag —</option>
+            <option value="maandag">Maandag</option>
+            <option value="dinsdag">Dinsdag</option>
+            <option value="woensdag">Woensdag</option>
+            <option value="donderdag">Donderdag</option>
+            <option value="vrijdag">Vrijdag</option>
+            <option value="zaterdag">Zaterdag</option>
+            <option value="zondag">Zondag</option>
+          </select>
+        </div>
+        <div>
+          <label for="plan-tijd">Kies een tijdstip</label>
+          <select id="plan-tijd" name="tijd" disabled required>
+            <option value="">— Kies eerst een dag —</option>
+          </select>
+        </div>
+        <div class="row-2">
+          <div>
+            <label for="plan-naam">Naam</label>
+            <input id="plan-naam" name="naam" type="text" required autocomplete="name" placeholder="Jouw naam">
+          </div>
+          <div>
+            <label for="plan-tel">Telefoon</label>
+            <input id="plan-tel" name="telefoon" type="tel" required autocomplete="tel" placeholder="06...">
           </div>
         </div>
+        <div>
+          <label for="plan-email">E-mail</label>
+          <input id="plan-email" name="email" type="email" autocomplete="email" placeholder="je@email.nl">
+        </div>
+        <div>
+          <label for="plan-doel">Mijn doel</label>
+          <select id="plan-doel" name="doel">
+            <option value="afvallen">Afvallen / vetverlies</option>
+            <option value="spier">Sterker worden / spieropbouw</option>
+            <option value="conditie">Conditie en energie</option>
+            <option value="onderhoud">Fit blijven</option>
+            <option value="anders">Anders / nog niet zeker</option>
+          </select>
+        </div>
+        <button type="submit" id="plan-btn">
+          Plan gratis intake
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="intake-note">Bevestiging via WhatsApp · Gratis &amp; vrijblijvend</p>
+      </form>
+    </div>
+  </div>
+</section>
 
-        <!-- SIMPLE INTAKE FORM -->
-        <div class="intake-card reveal d1" style="margin-top:24px">
-          <h2>Of vul<br><em>het formulier in</em></h2>
-          <p>We nemen binnen 1 werkdag contact op om een tijd af te spreken die voor jou werkt.</p>
-          <form class="intake-form" id="intakeForm" action="https://wa.me/31645280679" method="get">
-            <div>
-              <label for="naam">Naam</label>
-              <input id="naam" name="naam" type="text" required autocomplete="name" placeholder="Jouw naam">
-            </div>
-            <div class="row-2">
-              <div>
-                <label for="telefoon">Telefoon</label>
-                <input id="telefoon" name="telefoon" type="tel" required autocomplete="tel" placeholder="06...">
-              </div>
-              <div>
-                <label for="email">E-mail</label>
-                <input id="email" name="email" type="email" autocomplete="email" placeholder="je@email.nl">
-              </div>
-            </div>
-            <div>
-              <label for="doel">Mijn doel</label>
-              <select id="doel" name="doel">
-                <option value="afvallen">Afvallen / vetverlies</option>
-                <option value="spier">Sterker worden / spieropbouw</option>
-                <option value="conditie">Conditie en energie</option>
-                <option value="onderhoud">Fit blijven</option>
-                <option value="anders">Anders / nog niet zeker</option>
-              </select>
-            </div>
-            <div>
-              <label for="bericht">Bericht (optioneel)</label>
-              <textarea id="bericht" name="bericht" placeholder="Voorkeurstijd, vragen, of iets dat we moeten weten…"></textarea>
-            </div>
-            <button type="submit">Verstuur intake-aanvraag <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="vertical-align:middle;margin-left:8px"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <p class="intake-note">Door te verzenden ga je akkoord met het feit dat we contact opnemen voor een gratis intake. Geen nieuwsbrief, geen spam.</p>
-          </form>
+<!-- DIRECT CONTACT + BEZOEK -->
+<section id="contact" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="split-grid">
+      <div>
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Liever eerst iets vragen?</div>
+        <h2 id="contact-h" class="reveal d1" style="font-size:clamp(28px,3.6vw,38px);margin-bottom:20px">Direct <em>contact</em></h2>
+        <div class="channels">
+          <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20informatie%20over%20trainen%20bij%20jullie" target="_blank" rel="noopener" class="channel is-primary reveal d1">
+            <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.885-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.982zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></div>
+            <div><div class="ch-label">WhatsApp — snelste reactie</div><div class="ch-value">06 45280679</div></div>
+          </a>
+          <a href="tel:0645280679" class="channel reveal d2">
+            <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="ch-label">Bellen</div><div class="ch-value">06 45280679</div></div>
+          </a>
+          <a href="mailto:info.fitup1@gmail.com" class="channel reveal d3">
+            <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="ch-label">E-mail</div><div class="ch-value" style="font-size:15px;letter-spacing:0">info.fitup1@gmail.com</div></div>
+          </a>
         </div>
       </div>
 
-      <!-- RIGHT: DIRECT CONTACT -->
-      <aside>
-        <div class="hero-stats-card reveal" style="margin-bottom:24px">
-          <div class="hsc-label">Sneller? Direct contact</div>
-          <div class="hsc-title">Wij <em style="font-style:normal;color:var(--accent)">staan klaar</em></div>
-          <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px">De snelste route: stuur ons even een appje. We reageren meestal binnen het uur.</p>
-          <div class="channels">
-            <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="channel">
-              <div class="ch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.885-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.982zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></div>
-              <div><div class="ch-label">WhatsApp · snelst</div><div class="ch-value">06 45280679</div></div>
-            </a>
-            <a href="tel:0645280679" class="channel">
-              <div class="ch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-              <div><div class="ch-label">Bel direct</div><div class="ch-value">06 45280679</div></div>
-            </a>
-            <a href="mailto:info.fitup1@gmail.com" class="channel">
-              <div class="ch-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div><div class="ch-label">Mail</div><div class="ch-value" style="font-size:16px;text-transform:none;letter-spacing:0">info.fitup1@gmail.com</div></div>
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-stats-card reveal d1">
-          <div class="hsc-label">Locatie</div>
-          <div class="hsc-title">Weversbaan 9<br><em style="font-style:normal;color:var(--accent)">Leiderdorp</em></div>
-          <div class="hsc-stats" style="grid-template-columns:1fr;gap:14px">
-            <div><div class="hsc-stat-num" style="font-size:24px">Gratis</div><div class="hsc-stat-label">Parkeren bij de deur</div></div>
-            <div><div class="hsc-stat-num" style="font-size:24px">24/7</div><div class="hsc-stat-label">Persoonlijke QR-code</div></div>
-            <div><div class="hsc-stat-num" style="font-size:24px">10 min</div><div class="hsc-stat-label">Vanuit Leiden centrum</div></div>
-          </div>
-          <a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:24px">Open in Google Maps →</a>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- VOOR WIE -->
-<section aria-labelledby="vw">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Voor wie</div>
-      <h2 id="vw" class="reveal d1">Voor wie is<br><em>de gratis intake?</em></h2>
-      <p class="reveal d2">Iedereen mag langskomen — maar deze intake werkt het best als je serieus overweegt te starten. Geen prijscheckers, wel oprechte interesse.</p>
-    </div>
-    <div class="for-grid">
-      <div class="for-card reveal"><div class="for-num">01</div><div class="for-title">Beginners</div><div class="for-desc">Nooit getraind of net opnieuw begonnen? Geen probleem. We bouwen rustig op met techniek en kleine gewichten.</div></div>
-      <div class="for-card reveal d1"><div class="for-num">02</div><div class="for-title">Comeback-leden</div><div class="for-desc">Eerder gestopt, nu klaar voor de doorstart? We pakken het anders aan dan vorige keer — met plan en accountability.</div></div>
-      <div class="for-card reveal d2"><div class="for-num">03</div><div class="for-title">Doelgericht</div><div class="for-desc">Afvallen, sterker worden, klaar voor een evenement? We meten elke 4 weken — geen ruimte voor giswerk.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- LINKS -->
-<section aria-labelledby="meer">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Aanbod bekijken</div>
-      <h2 id="meer" class="reveal d1">Onze trainingen</h2>
-    </div>
-    <div class="linklist">
-      <a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html"><span class="linklist-title">Small Group PT</span><span class="linklist-sub">Max. 4 personen · vanaf €149 p/4 wkn</span></a>
-      <a href="../trainingsaanbod/personal-training/index.html"><span class="linklist-title">Personal Training</span><span class="linklist-sub">1-op-1 met je eigen coach</span></a>
-      <a href="../trainingsaanbod/24-7-fitness/index.html"><span class="linklist-title">24/7 Fitness</span><span class="linklist-sub">Zelfstandig trainen — altijd open</span></a>
-      <a href="../trainingsaanbod/groepslessen/index.html"><span class="linklist-title">Groepslessen</span><span class="linklist-sub">Bodypump, boksfit, HIIT</span></a>
-      <a href="../online-coaching/index.html"><span class="linklist-title">Online Coaching</span><span class="linklist-sub">Coach in je app</span></a>
-      <a href="../tarieven/index.html"><span class="linklist-title">Tarieven</span><span class="linklist-sub">Volledige prijslijst</span></a>
-      <a href="../calorie-calculator/index.html"><span class="linklist-title">Calorie calculator</span><span class="linklist-sub">Bereken kcal en macro-doel</span></a>      <a href="../afvallen-leiderdorp/index.html"><span class="linklist-title">Afvallen Leiderdorp</span><span class="linklist-sub">Programma voor blijvend resultaat</span></a>
+      <div class="visit-card reveal d2">
+        <h3>Bezoek Fit Up</h3>
+        <ul class="visit-list">
+          <li><div class="visit-dot"></div>Fit Up Leiderdorp</li>
+          <li><div class="visit-dot"></div>Weversbaan 9, Leiderdorp</li>
+          <li><div class="visit-dot"></div>Gratis parkeren voor de deur</li>
+          <li><div class="visit-dot"></div>Fitness 24/7 open · groepslessen via de app</li>
+        </ul>
+        <a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener" class="btn-ghost" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.25)">Bekijk route →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -315,22 +368,63 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  // Build a WhatsApp URL from form values, then navigate.
+  const INTAKE_SLOTS = {
+    maandag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','19:00','21:00'],
+    dinsdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','20:00','21:00'],
+    woensdag:  ['12:00','13:00','14:00','15:00','16:00','17:00','18:00','21:00'],
+    donderdag: ['13:00','14:00','15:00'],
+    vrijdag:   ['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'],
+    zaterdag:  ['12:00'],
+    zondag:    ['12:00']
+  };
+
+  function getNextDate(dagNaam) {
+    const dagen = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+    const target = dagen.indexOf(dagNaam.toLowerCase());
+    const now = new Date();
+    let diff = target - now.getDay();
+    if (diff <= 0) diff += 7;
+    const next = new Date(now);
+    next.setDate(now.getDate() + diff);
+    return next.toISOString().split('T')[0];
+  }
+
+  const dagSel  = document.getElementById('plan-dag');
+  const tijdSel = document.getElementById('plan-tijd');
+
+  dagSel.addEventListener('change', function() {
+    const dag = this.value;
+    tijdSel.innerHTML = '';
+    tijdSel.disabled = true;
+    if (!dag) { tijdSel.innerHTML = '<option value="">— Kies eerst een dag —</option>'; return; }
+    const slots = INTAKE_SLOTS[dag] || [];
+    tijdSel.innerHTML = '<option value="">— Selecteer tijdstip —</option>';
+    slots.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = t; opt.textContent = t + ' uur';
+      tijdSel.appendChild(opt);
+    });
+    tijdSel.disabled = false;
+  });
+
   document.getElementById('intakeForm').addEventListener('submit', function(e){
     e.preventDefault();
-    var naam = document.getElementById('naam').value.trim();
-    var tel = document.getElementById('telefoon').value.trim();
-    var mail = document.getElementById('email').value.trim();
-    var doel = document.getElementById('doel').value;
-    var bericht = document.getElementById('bericht').value.trim();
+    var dag = dagSel.value;
+    var tijd = tijdSel.value;
+    var naam = document.getElementById('plan-naam').value.trim();
+    var tel = document.getElementById('plan-tel').value.trim();
+    var mail = document.getElementById('plan-email').value.trim();
+    var doel = document.getElementById('plan-doel').value;
+    var datum = dag ? getNextDate(dag) : '';
+    var dagLabel = dag ? dag.charAt(0).toUpperCase() + dag.slice(1) : '';
     if(typeof fbq==='function') fbq('track','Lead');
     var msg = 'Hi Fit Up, ik wil graag een gratis intake.\n\n' +
+              (dagLabel ? 'Dag: ' + dagLabel + (datum ? ' (' + datum + ')' : '') + '\n' : '') +
+              (tijd ? 'Tijd: ' + tijd + ' uur\n' : '') +
               'Naam: ' + naam + '\n' +
               (tel ? 'Telefoon: ' + tel + '\n' : '') +
               (mail ? 'E-mail: ' + mail + '\n' : '') +
-              'Doel: ' + doel +
-              (bericht ? '\n\nBericht: ' + bericht : '');
-    // Open WhatsApp in a new tab so this tab stays alive to redirect to de bedankt-pagina
+              'Doel: ' + doel;
     window.open('https://wa.me/31645280679?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     window.location.href = '../bedankt/index.html';
   });
@@ -344,10 +438,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     var reasons = fcr ? fcr.split(' | ').map(function(r){ return r.charAt(0).toUpperCase() + r.slice(1) + '.'; }).join(' ') : '';
     document.getElementById('fc-banner-text').textContent = reasons || 'Op basis van je Fitcheck-antwoorden past dit het best bij jouw situatie.';
     banner.style.display = 'block';
-    var doelSelect = document.getElementById('doel');
+    var doelSelect = document.getElementById('plan-doel');
     if (fcg && doelSelect) doelSelect.value = fcg;
-    var bericht = document.getElementById('bericht');
-    if (bericht && !bericht.value) bericht.value = 'Fitcheck-advies: ' + (fct || fc) + (fcr ? ' — ' + fcr.split(' | ').join(', ') : '');
   })();
 
   const nav = document.getElementById('nav');
