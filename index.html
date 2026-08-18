@@ -1526,10 +1526,25 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .frame-card--hero .frame-cap{padding:36px 20px 30px}
     .frame-kop{font-family:var(--fd);font-weight:900;font-size:25px;text-transform:uppercase;letter-spacing:.2px;color:var(--black);line-height:1.08}
-    .frame-person{display:flex;align-items:baseline;gap:10px;margin-top:16px;flex-wrap:wrap}
+    .frame-card--hero .frame-lead{margin-top:12px}
+    .frame-people{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+    .frame-person{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
     .frame-person-name{font-family:var(--fd);font-weight:800;font-size:16px;font-style:italic;text-transform:uppercase;color:var(--black)}
     .frame-person-line{font-size:12.5px;color:rgba(12,12,12,.6)}
     .frame-card--hero .frame-badge{font-size:25px;padding:10px 15px}
+    .frame-badge--right{left:auto;right:16px}
+    .frame-card--hero .frame-quote{margin-top:16px}
+    .frame-card--hero .frame-quote + .frame-quote{margin-top:12px;padding-top:12px}
+    .frame-quote-who{display:block;margin-top:6px;font-family:var(--fb);font-style:normal;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:rgba(12,12,12,.4)}
+    .frame-more{margin-top:18px}
+    .frame-more summary{font-family:var(--fd);font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(12,12,12,.55);cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+    .frame-more summary::-webkit-details-marker{display:none}
+    .frame-more summary::after{content:'→';font-weight:400;transition:transform .2s}
+    .frame-more:hover summary{color:var(--black)}
+    .frame-more[open] summary::after{transform:rotate(90deg)}
+    .frame-more-body{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+    .frame-more-body p{font-size:13px;color:rgba(12,12,12,.68);line-height:1.7;font-weight:400}
+    .frame-more-body p:last-child{font-style:italic;color:rgba(12,12,12,.85)}
     .rwall-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:28px}
     .rwall-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(12,12,12,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
     .rwall-dots .dot.is-active{background:var(--black);transform:scale(1.25)}
@@ -1583,27 +1598,37 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         </figcaption>
       </figure>
 
-      <!-- Julia & Monique — samen gestart, hier het centrale/grootste fotolijstje -->
+      <!-- Julia & Monique — moeder-dochtercase, samen gestart, hier het centrale/grootste fotolijstje -->
       <figure class="frame-card frame-card--hero swipe-slide reveal d1" style="--rot:0.8deg;--mt:0px">
         <div class="frame-photo">
-          <img src="assets/images/result-julia-monique.jpg" alt="Julia en Monique samen met coach Patrick bij Fit Up Leiderdorp" width="760" height="950" loading="lazy" decoding="async">
+          <img src="assets/images/result-julia-monique.jpg" alt="Julia en Monique samen tijdens personal training bij Fit Up Leiderdorp" width="760" height="950" loading="lazy" decoding="async">
           <span class="frame-badge">−4<small>kg</small></span>
+          <span class="frame-badge frame-badge--right">−15<small>kg</small></span>
         </div>
         <figcaption class="frame-cap">
           <div class="frame-kop">Samen gestart. Ieder een eigen plan.</div>
-          <div class="frame-person">
-            <span class="frame-person-name">Julia</span>
-            <span class="frame-person-line">Meer energie · fitter · meer vertrouwen</span>
+          <p class="frame-lead">Samen trainen. Elkaar motiveren. Ieder een plan dat past bij je eigen leven.</p>
+          <div class="frame-people">
+            <div class="frame-person">
+              <span class="frame-person-name">Julia</span>
+              <span class="frame-person-line">−4 kg · fitter · meer energie · meer vertrouwen</span>
+            </div>
+            <div class="frame-person">
+              <span class="frame-person-name">Monique</span>
+              <span class="frame-person-line">−15 kg · meer energie · betere conditie · meer zelfvertrouwen</span>
+            </div>
           </div>
-          <!--
-            MONIQUE — resultaat/verhaal volgt nog, bewust geen placeholder tonen.
-            Zodra bekend, hier toevoegen:
-            1) een tweede <span class="frame-badge"> in .frame-photo hierboven (bv. rechts uitgelijnd i.p.v. links, of onder Julia's badge), met haar −X KG;
-            2) een tweede .frame-person blok hieronder: <div class="frame-person"><span class="frame-person-name">Monique</span><span class="frame-person-line">...haar kernboodschap...</span></div>
-            3) evt. haar eigen quote als extra <blockquote class="frame-quote"> onder die van Julia.
-            De groepsfoto toont haar al, dus er is geen nieuwe foto nodig — alleen tekst/badge aanvullen.
-          -->
-          <blockquote class="frame-quote">Voorheen begon ik iedere maandag opnieuw. Nu weet ik wat voor mij werkt en kan ik het volhouden.</blockquote>
+          <blockquote class="frame-quote">Voorheen begon ik iedere maandag opnieuw. Nu weet ik wat voor mij werkt en kan ik het volhouden.<span class="frame-quote-who">— Julia</span></blockquote>
+          <blockquote class="frame-quote">Ik weet zeker dat ik dit niet in mijn eentje had volgehouden.<span class="frame-quote-who">— Monique</span></blockquote>
+          <details class="frame-more">
+            <summary>Lees hun verhaal</summary>
+            <div class="frame-more-body">
+              <p>Monique was degene die als eerste bij Fit Up begon. Na lange tijd weinig aan sport te hebben gedaan, wilde ze fitter worden, afvallen en eindelijk weer structuur krijgen. Krachttraining met persoonlijke begeleiding gaf haar precies de stok achter de deur die ze nodig had.</p>
+              <p>Ze dacht eerst dat afvallen vooral betekende dat ze minder moest eten. Inmiddels weet ze dat het juist gaat om beter eten, voldoende eiwitten en een structuur die ze kan volhouden. Patrick denkt met haar mee hoe ze dat zo eenvoudig mogelijk volhoudt, en helpt haar weer op weg als ze haar structuur even kwijt is — zonder dat het voelt als pushen.</p>
+              <p>Julia zag die verandering van dichtbij en besloot zelf ook te beginnen. Samen trainen bleek voor allebei een groot voordeel: als één van hen geen zin heeft, zegt de ander gewoon &ldquo;kom op, we gaan sporten.&rdquo; Toch volgen ze niet hetzelfde plan — Julia wilde af van het patroon waarin iedere maandag opnieuw een streng dieet begon en zocht een aanpak die past bij haar eigen leven. Training, voeding en begeleiding worden daarom voor allebei apart afgestemd op leeftijd, lichaam en doelen.</p>
+              <p>&ldquo;Anders was ik waarschijnlijk alweer afgehaakt en sponsorde ik alleen nog maar de sportschool,&rdquo; lacht Monique.</p>
+            </div>
+          </details>
         </figcaption>
       </figure>
 
