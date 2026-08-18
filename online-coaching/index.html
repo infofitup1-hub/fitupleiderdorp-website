@@ -626,6 +626,14 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       .rescase-photo-frame{aspect-ratio:347/255}
       .rescase-body{padding:24px 20px 28px}
     }
+    .rescase-hint,.rescase-dots{display:none}
+    @media(max-width:980px){
+      .rescase-hint{display:block;text-align:center;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-mute);margin-top:16px;transition:opacity .4s ease}
+      .rescase-hint.hide{opacity:0}
+      .rescase-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+      .rescase-dot{width:7px;height:7px;border-radius:50%;background:var(--line-2);border:1px solid var(--line);transition:background .25s,transform .25s}
+      .rescase-dot.active{background:var(--accent);border-color:var(--accent);transform:scale(1.35)}
+    }
   </style>
   <div class="container">
     <div class="sec-head">
@@ -633,7 +641,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h2 id="rescase-heading" class="reveal d1">Resultaten die <em>voor zich spreken</em></h2>
       <p class="reveal d2">Persoonlijke trainingsbegeleiding en voedingsbegeleiding in een kleinschalige sportschool — dat is waarom afvallen in Leiderdorp bij Fit Up wél werkt.</p>
     </div>
-    <div class="rescase-grid">
+    <div class="rescase-grid" id="rescase-grid">
       <article class="rescase-card reveal d2">
         <div class="rescase-stat">
           <span class="rescase-mono" aria-hidden="true">R</span>
@@ -671,6 +679,11 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           </div>
         </div>
       </article>
+    </div>
+    <p class="rescase-hint" id="rescase-hint">Swipe voor meer &rarr;</p>
+    <div class="rescase-dots" id="rescase-dots" aria-hidden="true">
+      <span class="rescase-dot active"></span>
+      <span class="rescase-dot"></span>
     </div>
   </div>
 </section>
@@ -1073,6 +1086,34 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   iphoneRadio.addEventListener('change', update);
 })();
 /* === END APP-DOWNLOAD KEUZE === */
+
+/* === RESULTATEN-CARROUSEL: pagination dots op mobiel === */
+(function(){
+  var grid = document.getElementById('rescase-grid');
+  var dots = grid ? Array.prototype.slice.call(document.querySelectorAll('#rescase-dots .rescase-dot')) : [];
+  var hint = document.getElementById('rescase-hint');
+  if (!grid || dots.length < 2) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.rescase-card'));
+  var ticking = false;
+  function updateActiveDot(){
+    var center = grid.scrollLeft + grid.clientWidth / 2;
+    var idx = 0, min = Infinity;
+    cards.forEach(function(card, i){
+      var mid = card.offsetLeft + card.offsetWidth / 2;
+      var dist = Math.abs(mid - center);
+      if (dist < min) { min = dist; idx = i; }
+    });
+    dots.forEach(function(dot, i){ dot.classList.toggle('active', i === idx); });
+  }
+  grid.addEventListener('scroll', function(){
+    if (hint) hint.classList.add('hide');
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(function(){ updateActiveDot(); ticking = false; });
+    }
+  }, { passive: true });
+})();
+/* === END RESULTATEN-CARROUSEL === */
 </script>
 
 </body>
