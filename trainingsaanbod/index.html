@@ -93,6 +93,9 @@ h1 em{font-style:normal;color:var(--accent)}
 .svc-card:hover .svc-more{gap:10px}
 .svc-more svg{transition:transform .25s}
 .svc-card:hover .svc-more svg{transform:translateX(3px)}
+.services-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:22px}
+.services-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+.services-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
 
 /* GOAL FINDER (keuzesectie) */
 .goal-finder{padding:0 40px 40px;max-width:1400px;margin:0 auto}
@@ -168,8 +171,11 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
   .page-hero{padding:64px 0 60px}
   .page-hero .hero-wrap{padding:0 20px}
   .hero-photo-diagonal{height:clamp(260px,80vw,420px);clip-path:polygon(0 0,100% 0,100% 80%,0 96%);margin-bottom:12px}
-  .services{padding:30px 20px 80px}
-  .svc-card{padding:24px 22px}
+  .services{padding:30px 0 80px}
+  .services-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding:0 20px}
+  .services-grid::-webkit-scrollbar{display:none}
+  .svc-card{flex:0 0 80%;scroll-snap-align:start;padding:24px 22px}
+  .services-dots{display:flex}
   .goal-finder{padding:0 20px 30px}
   .gf-inner{padding:30px 24px}
   .gf-row{flex-direction:column;align-items:flex-start;gap:10px}
@@ -293,8 +299,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </header>
 
 <section class="services">
-  <div class="services-grid">
-    <a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html" class="svc-card">
+  <div class="services-grid" data-swipe-track="services">
+    <a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html" class="svc-card swipe-slide">
       <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="14" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 34c0-5.523 4.477-10 10-10h12c5.523 0 10 4.477 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       <div class="svc-tag">⭐ Meest gekozen</div>
@@ -304,7 +310,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </a>
 
-    <a href="../trainingsaanbod/personal-training/index.html" class="svc-card">
+    <a href="../trainingsaanbod/personal-training/index.html" class="svc-card swipe-slide">
       <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 34c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       <div class="svc-tag">1-op-1</div>
@@ -314,7 +320,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </a>
 
-    <a href="../trainingsaanbod/24-7-fitness/index.html" class="svc-card">
+    <a href="../trainingsaanbod/24-7-fitness/index.html" class="svc-card swipe-slide">
       <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 11v9l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       <div class="svc-tag">Altijd open</div>
@@ -324,7 +330,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </a>
 
-    <a href="../trainingsaanbod/groepslessen/index.html" class="svc-card">
+    <a href="../trainingsaanbod/groepslessen/index.html" class="svc-card swipe-slide">
       <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 30V20l12-8 12 8v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="22" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
       <div class="svc-tag">Samen trainen</div>
@@ -334,7 +340,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </a>
 
-    <a href="../online-coaching/index.html" class="svc-card">
+    <a href="../online-coaching/index.html" class="svc-card swipe-slide">
       <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="12" y="6" width="16" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="30" r="1" fill="currentColor"/></svg></div>
       <div class="svc-tag">Overal trainen</div>
@@ -343,6 +349,13 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="svc-price">vanaf <strong>€50</strong> per 4 weken</div>
       <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </a>
+  </div>
+  <div class="services-dots" data-swipe-dots="services" role="tablist" aria-label="Trainingsaanbod">
+    <button type="button" class="dot is-active" aria-label="Optie 1" aria-selected="true"></button>
+    <button type="button" class="dot" aria-label="Optie 2" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Optie 3" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Optie 4" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Optie 5" aria-selected="false"></button>
   </div>
 </section>
 
@@ -446,6 +459,36 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
 })();
 /* === END NAV DRAWER TOGGLE === */
+</script>
+
+<script>
+/* Mobiele swipe-carousel (trainingsaanbod): pagination dots syncen met scrollpositie */
+(function(){
+  var track = document.querySelector('[data-swipe-track="services"]');
+  var dotsWrap = document.querySelector('[data-swipe-dots="services"]');
+  if (!track || !dotsWrap) return;
+  var slides = track.querySelectorAll('.swipe-slide');
+  var dots = dotsWrap.querySelectorAll('.dot');
+  if (!slides.length || !dots.length) return;
+  function setActive(i){
+    dots.forEach(function(d, idx){
+      var active = idx === i;
+      d.classList.toggle('is-active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));
+    });
+  }, {root: track, threshold: 0.6});
+  slides.forEach(function(s){ io.observe(s); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      slides[i].scrollIntoView({behavior: 'smooth', inline: 'start', block: 'nearest'});
+    });
+  });
+})();
 </script>
 </body>
 </html>

@@ -193,6 +193,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .step:hover{transform:translateY(-6px);box-shadow:var(--sh-hover)}
   .step-num{font-family:var(--fd);font-size:110px;font-weight:900;color:rgba(20,22,17,.05);position:absolute;top:-14px;right:14px;line-height:1;pointer-events:none}
   .step-icon{width:46px;height:46px;border-radius:10px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.16);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);margin-bottom:22px;position:relative;z-index:1}
+  .steps-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:22px}
+  .steps-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+  .steps-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
   .step h3{font-family:var(--fd);font-size:24px;font-weight:900;text-transform:uppercase;margin-bottom:12px;letter-spacing:.3px;color:var(--ink)}
   .step p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;font-weight:400}
 
@@ -394,7 +397,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.fu-steps{grid-template-columns:1fr!important}
     .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
     .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
 
@@ -412,7 +415,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .pricing,.results,.final-cta,.nutri,.spotter{padding:48px 0}
-    .step{padding:24px 20px 22px}
+    .steps{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
+    .steps::-webkit-scrollbar{display:none}
+    .step{flex:0 0 80%;scroll-snap-align:start;padding:24px 20px 22px}
+    .steps-dots{display:flex}
     .tarief-card{padding:26px 22px 24px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
@@ -675,8 +681,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h2 id="how-heading" class="reveal d1">Van intake tot <em>PR</em></h2>
       <p class="reveal d2">In drie stappen weet je waar je staat, wat je doel is en hoe je er komt.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal">
+    <div class="steps" id="pt-steps-track">
+      <div class="step swipe-slide reveal">
         <div class="step-num">01</div>
         <div class="step-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
@@ -684,7 +690,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <h3>Gratis intake</h3>
         <p>Een uur waarin we jouw doel, blessuregeschiedenis en leefstijl in kaart brengen. Daarna kiezen we samen de juiste trainer voor jou.</p>
       </div>
-      <div class="step reveal d1">
+      <div class="step swipe-slide reveal d1">
         <div class="step-num">02</div>
         <div class="step-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
@@ -692,7 +698,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <h3>Schema &amp; voeding</h3>
         <p>Jij krijgt een trainingsschema en voedingsplan op maat. Via de app houd je calorieën, macro's en progressie real-time bij.</p>
       </div>
-      <div class="step reveal d2">
+      <div class="step swipe-slide reveal d2">
         <div class="step-num">03</div>
         <div class="step-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
@@ -700,6 +706,11 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <h3>Trainen &amp; meten</h3>
         <p>Vier sessies per maand 1-op-1. Elke 4 weken meten we gewicht, vetpercentage en spiermassa en sturen we het plan bij.</p>
       </div>
+    </div>
+    <div class="steps-dots" id="pt-steps-dots" role="tablist" aria-label="Stappen">
+      <button type="button" class="dot is-active" aria-label="Stap 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Stap 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Stap 3" aria-selected="false"></button>
     </div>
   </div>
 </section>
@@ -1049,6 +1060,34 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   });
 })();
 /* === END RESULTATEN SWIPE-CAROUSEL PAGINATION === */
+
+/* === STAPPEN SWIPE-CAROUSEL PAGINATION (mobile only) === */
+(function(){
+  var track = document.getElementById('pt-steps-track');
+  var pagination = document.getElementById('pt-steps-dots');
+  if(!track || !pagination || !window.matchMedia('(max-width:640px)').matches) return;
+  var slides = track.querySelectorAll('.swipe-slide');
+  var dots = pagination.querySelectorAll('.dot');
+  function setActive(i){
+    dots.forEach(function(d, idx){
+      var active = idx === i;
+      d.classList.toggle('is-active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));
+    });
+  }, {root: track, threshold: 0.6});
+  slides.forEach(function(s){ io.observe(s); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      slides[i].scrollIntoView({behavior: 'smooth', inline: 'start', block: 'nearest'});
+    });
+  });
+})();
+/* === END STAPPEN SWIPE-CAROUSEL PAGINATION === */
 </script>
 </body>
 </html>

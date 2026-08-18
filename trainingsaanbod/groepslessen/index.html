@@ -138,6 +138,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .int-bar{display:flex;gap:3px}
   .int-bar span{width:18px;height:6px;background:var(--line)}
   .int-bar span.on{background:var(--accent-ink)}
+  .classes-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:6px}
+  .classes-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+  .classes-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
 
   /* PRICE STRIP — bold charcoal card afgezet tegen lichte pagina */
   .price-strip{background:var(--paper2);padding:80px 0}
@@ -266,6 +269,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .price-strip,.final-cta{padding:48px 0}
+    .classes-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
+    .classes-track::-webkit-scrollbar{display:none}
+    .class-block{flex:0 0 92%;scroll-snap-align:start;margin-bottom:0}
+    .classes-dots{display:flex}
     .class-content{padding:26px 22px}
     .price-inner{padding:28px 22px}
     .faq-q{padding:18px 18px;font-size:15px}
@@ -439,9 +446,10 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <section class="classes" style="padding:60px 0 100px" aria-labelledby="classes-heading">
   <h2 id="classes-heading" style="position:absolute;left:-9999px">Onze groepslessen</h2>
   <div class="container">
+  <div class="classes-track" data-swipe-track="classes">
 
     <!-- BODYPUMP -->
-    <article class="class-block reveal">
+    <article class="class-block swipe-slide reveal">
       <div class="class-content">
         <div class="class-eyebrow">Les 01 · Barbell workout</div>
         <h3 class="class-title">Body<em>pump</em></h3>
@@ -466,7 +474,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </article>
 
     <!-- BOKSFIT -->
-    <article class="class-block reveal">
+    <article class="class-block swipe-slide reveal">
       <div class="class-content">
         <div class="class-eyebrow">Les 02 · Boxing conditioning</div>
         <h3 class="class-title">Boks<em>fit</em></h3>
@@ -491,7 +499,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </article>
 
     <!-- HIIT & HYROX -->
-    <article class="class-block reveal">
+    <article class="class-block swipe-slide reveal">
       <div class="class-content">
         <div class="class-eyebrow">Les 03 · Functional fitness</div>
         <h3 class="class-title">HIIT<br>& <em>Hyrox</em></h3>
@@ -517,7 +525,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </article>
 
     <!-- POWERHOUR -->
-    <article class="class-block reveal">
+    <article class="class-block swipe-slide reveal">
       <div class="class-content">
         <div class="class-eyebrow">Les 04 · Heavy strength</div>
         <h3 class="class-title">Power<em>hour</em></h3>
@@ -542,6 +550,13 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
     </article>
 
+  </div>
+  <div class="classes-dots" data-swipe-dots="classes" role="tablist" aria-label="Groepslessen">
+    <button type="button" class="dot is-active" aria-label="Les 1" aria-selected="true"></button>
+    <button type="button" class="dot" aria-label="Les 2" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Les 3" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Les 4" aria-selected="false"></button>
+  </div>
   </div>
 </section>
 
@@ -719,6 +734,36 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   });
 })();
 /* === END HERO PHOTO CAROUSEL === */
+</script>
+
+<script>
+/* === CLASSES SWIPE-CAROUSEL (mobiel): pagination dots syncen met scrollpositie === */
+(function(){
+  var track = document.querySelector('[data-swipe-track="classes"]');
+  var dotsWrap = document.querySelector('[data-swipe-dots="classes"]');
+  if (!track || !dotsWrap) return;
+  var slides = track.querySelectorAll('.swipe-slide');
+  var dots = dotsWrap.querySelectorAll('.dot');
+  if (!slides.length || !dots.length) return;
+  function setActive(i){
+    dots.forEach(function(d, idx){
+      var active = idx === i;
+      d.classList.toggle('is-active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));
+    });
+  }, {root: track, threshold: 0.6});
+  slides.forEach(function(s){ io.observe(s); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      slides[i].scrollIntoView({behavior: 'smooth', inline: 'start', block: 'nearest'});
+    });
+  });
+})();
 </script>
 </body>
 </html>

@@ -119,6 +119,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .gear-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);padding:36px 32px;border-bottom:3px solid transparent;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .25s;position:relative;overflow:hidden}
   .gear-card::before{content:attr(data-num);position:absolute;top:18px;right:24px;font-family:var(--fd);font-size:48px;font-weight:900;color:rgba(20,22,17,.05);line-height:1}
   .gear-card:hover{border-bottom-color:var(--accent);transform:translateY(-6px);box-shadow:var(--sh-hover)}
+  .swipe-dots{display:none}
   .gear-icon{color:var(--accent-ink);margin-bottom:18px;position:relative;z-index:1}
   .gear-name{font-family:var(--fd);font-size:22px;font-weight:900;text-transform:uppercase;margin-bottom:10px;letter-spacing:.5px;color:var(--ink)}
   .gear-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.7;font-weight:400}
@@ -264,7 +265,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.for-grid,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
     .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
     .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
 
@@ -282,10 +283,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .for-who,.tarief-strip{padding:48px 0!important}
-    .gear-card{padding:22px 20px}
+    .gear-grid,.tarief-cards{display:flex!important;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
+    .gear-grid::-webkit-scrollbar,.tarief-cards::-webkit-scrollbar{display:none}
+    .gear-card{flex:0 0 78%;scroll-snap-align:start;padding:22px 20px}
+    .tarief-card{flex:0 0 82%;scroll-snap-align:start;padding:26px 22px 24px}
+    .tarief-card.hot{transform:none}
+    .swipe-dots{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px}
+    .swipe-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+    .swipe-dots .dot.is-active{background:var(--ink,#141611);transform:scale(1.25)}
     .for-card{padding:24px 20px}
     .access-item{padding:16px 16px}
-    .tarief-card{padding:26px 22px 24px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
 
@@ -459,32 +466,39 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h2 id="gear-heading" class="reveal d1">Alles wat je nodig hebt.<br><em>Niks wat je niet nodig hebt.</em></h2>
       <p class="reveal d2">Premium apparatuur in een rustige, kleinschalige setting. Geen wachtrijen, geen drukte — gewoon trainen op jouw tempo.</p>
     </div>
-    <div class="gear-grid">
-      <div class="gear-card reveal" data-num="01">
+    <div class="gear-grid" data-swipe-track="gear">
+      <div class="gear-card swipe-slide reveal" data-num="01">
         <div class="gear-icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="26" x2="34" y2="26" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="17" r="1.5" fill="currentColor"/><circle cx="30" cy="23" r="1.5" fill="currentColor"/></svg></div>
         <div class="gear-name">Pin-loaded krachtapparatuur</div>
         <div class="gear-desc">Gecontroleerde, veilige spieropbouw. Geen gepriegel met platen — pin erin, gewicht kiezen en trainen.</div>
       </div>
-      <div class="gear-card reveal d1" data-num="02">
+      <div class="gear-card swipe-slide reveal d1" data-num="02">
         <div class="gear-icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 40 40" fill="none"><circle cx="10" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="20" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="20" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="20" x2="24" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
         <div class="gear-name">Plate-loaded apparatuur</div>
         <div class="gear-desc">Voor zwaardere belasting en natuurlijke bewegingsbanen. Squat rack, hack squat, leg press, chest press en meer.</div>
       </div>
-      <div class="gear-card reveal d2" data-num="03">
+      <div class="gear-card swipe-slide reveal d2" data-num="03">
         <div class="gear-icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 40 40" fill="none"><circle cx="12" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/><circle cx="28" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="17" x2="20" y2="23" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
         <div class="gear-name">Vrije gewichten</div>
         <div class="gear-desc">Dumbbells tot 40 kg, barbells en functionele materialen voor serieuze krachtopbouw.</div>
       </div>
-      <div class="gear-card reveal" data-num="04">
+      <div class="gear-card swipe-slide reveal" data-num="04">
         <div class="gear-icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 12v8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="gear-name">Cardio apparatuur</div>
         <div class="gear-desc">Moderne loopbanden en crosstrainers voor warming-up, conditie en herstel.</div>
       </div>
-      <div class="gear-card reveal d1" data-num="05">
+      <div class="gear-card swipe-slide reveal d1" data-num="05">
         <div class="gear-icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M14 10V8M26 10V8M10 20h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="gear-name">Functionele trainingsruimte</div>
         <div class="gear-desc">Ruimte voor core, mobiliteit, circuittraining en oefeningen met eigen lichaamsgewicht.</div>
       </div>
+    </div>
+    <div class="swipe-dots" data-swipe-dots="gear" role="tablist" aria-label="Faciliteiten">
+      <button type="button" class="dot is-active" aria-label="Item 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Item 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Item 3" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Item 4" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Item 5" aria-selected="false"></button>
     </div>
   </div>
 </section>
@@ -531,9 +545,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h2 id="tarief-heading" class="reveal d1">Kies het abonnement<br><em>dat bij jou past</em></h2>
       <p class="reveal d2">Geen inschrijfgeld. Geen verborgen kosten. Een gratis intake voor je start.</p>
     </div>
-    <div class="tarief-cards">
+    <div class="tarief-cards" data-swipe-track="tarief247">
       <!-- 6 maanden -->
-      <div class="tarief-card reveal">
+      <div class="tarief-card swipe-slide reveal">
         <div class="t-label">Kortere looptijd</div>
         <div class="t-name">Fitness<br>6 maanden</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">53</span><span class="frac">,50</span></div>
@@ -547,7 +561,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
 
       <!-- 12 maanden (HOT) -->
-      <div class="tarief-card hot reveal d1">
+      <div class="tarief-card hot swipe-slide reveal d1">
         <div class="ribbon">★ Beste prijs</div>
         <div class="t-label">Voordeligste tarief</div>
         <div class="t-name">Fitness<br>12 maanden</div>
@@ -563,7 +577,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
 
       <!-- ALL INCLUSIVE -->
-      <div class="tarief-card reveal d2" style="background:rgba(212,255,0,.04);border:1px solid rgba(212,255,0,.12)">
+      <div class="tarief-card swipe-slide reveal d2" style="background:rgba(212,255,0,.04);border:1px solid rgba(212,255,0,.12)">
         <div class="t-label">Upgrade · meest gekozen</div>
         <div class="t-name">All-<br>Inclusive</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">53</span><span class="frac">,50</span></div>
@@ -576,6 +590,11 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         </ul>
         <a href="../../contact/index.html" class="t-cta t-cta-primary">Direct aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
+    </div>
+    <div class="swipe-dots" data-swipe-dots="tarief247" role="tablist" aria-label="Abonnementen">
+      <button type="button" class="dot is-active" aria-label="Optie 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Optie 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Optie 3" aria-selected="false"></button>
     </div>
     <p class="tarief-foot">Studententarief beschikbaar (vanaf €38,50) · Bekijk alle tarieven op de <a href="../../tarieven/index.html" style="color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px">tarievenpagina</a></p>
   </div>
@@ -669,6 +688,36 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setNavOpen(false); });
 })();
 /* === END NAV DRAWER TOGGLE === */
+</script>
+
+<script>
+/* Mobiele swipe-carousels: pagination dots syncen met scrollpositie */
+['gear', 'tarief247'].forEach(function(id){
+  var track = document.querySelector('[data-swipe-track="' + id + '"]');
+  var dotsWrap = document.querySelector('[data-swipe-dots="' + id + '"]');
+  if (!track || !dotsWrap) return;
+  var slides = track.querySelectorAll('.swipe-slide');
+  var dots = dotsWrap.querySelectorAll('.dot');
+  if (!slides.length || !dots.length) return;
+  function setActive(i){
+    dots.forEach(function(d, idx){
+      var active = idx === i;
+      d.classList.toggle('is-active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));
+    });
+  }, {root: track, threshold: 0.6});
+  slides.forEach(function(s){ io.observe(s); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      slides[i].scrollIntoView({behavior: 'smooth', inline: 'start', block: 'nearest'});
+    });
+  });
+});
 </script>
 </body>
 </html>

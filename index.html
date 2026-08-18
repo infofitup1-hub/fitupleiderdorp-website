@@ -223,6 +223,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .svc-card:hover .svc-arrow{background:var(--accent);border-color:var(--accent);color:var(--black)}
   .svc-card.hot .svc-arrow{border-color:rgba(0,0,0,.2);color:var(--black);background:rgba(0,0,0,.08)}
   .svc-card.hot:hover .svc-arrow{background:var(--black);border-color:var(--black);color:var(--accent)}
+  .services-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:22px}
+  .services-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(12,12,12,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+  .services-dots .dot.is-active{background:var(--black);transform:scale(1.25)}
 
   /* WHY */
   .why{background:var(--white)}
@@ -557,8 +560,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .lite,.audience,.reviews,.final-cta{padding:56px 0}
     .container{padding:0 20px}
 
-    .services-grid{grid-template-columns:1fr;gap:2px}
-    .svc-card{padding:26px 22px 68px}
+    .services-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
+    .services-grid::-webkit-scrollbar{display:none}
+    .svc-card{flex:0 0 80%;scroll-snap-align:start;padding:26px 22px 68px}
+    .services-dots{display:flex}
 
     .reviews-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
     .reviews-grid::-webkit-scrollbar{display:none}
@@ -1239,8 +1244,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
-    <div class="services-grid">
-      <a href="trainingsaanbod/sgpt-small-group-personal-training/index.html" class="svc-card hot reveal">
+    <div class="services-grid" data-swipe-track="services">
+      <a href="trainingsaanbod/sgpt-small-group-personal-training/index.html" class="svc-card hot swipe-slide reveal">
         <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="14" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 34c0-5.523 4.477-10 10-10h12c5.523 0 10 4.477 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="svc-tag">⭐ Meest gekozen</div>
         <div class="svc-name">Small Group<br>Personal Training</div>
@@ -1248,7 +1253,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="svc-price">Vanaf €149 <span>per 4 weken</span></div>
         <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
-      <a href="trainingsaanbod/personal-training/index.html" class="svc-card hot reveal d1">
+      <a href="trainingsaanbod/personal-training/index.html" class="svc-card hot swipe-slide reveal d1">
         <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 34c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M28 18l4 4-4 4M32 22H24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="svc-tag">1-op-1</div>
         <div class="svc-name">Personal<br>Training</div>
@@ -1256,7 +1261,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="svc-price">Vanaf €300 <span>per 4 weken</span></div>
         <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
-      <a href="online-coaching/index.html" class="svc-card reveal d2">
+      <a href="online-coaching/index.html" class="svc-card swipe-slide reveal d2">
         <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="12" y="6" width="16" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="30" r="1" fill="currentColor"/></svg></div>
         <div class="svc-tag">Voeding &amp; leefstijl</div>
         <div class="svc-name">Voedings- en<br>leefstijl&shy;coaching</div>
@@ -1264,7 +1269,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="svc-price">Vanaf €50 <span>per 4 weken</span></div>
         <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
-      <a href="trainingsaanbod/groepslessen/index.html" class="svc-card reveal d3">
+      <a href="trainingsaanbod/groepslessen/index.html" class="svc-card swipe-slide reveal d3">
         <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8 30V20l12-8 12 8v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="22" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <div class="svc-tag">Samen trainen</div>
         <div class="svc-name">Groeps&shy;lessen</div>
@@ -1272,7 +1277,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="svc-price">All-Inclusive <span>vanaf €53,50 per 4 weken</span></div>
         <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
-      <a href="trainingsaanbod/24-7-fitness/index.html" class="svc-card reveal d4">
+      <a href="trainingsaanbod/24-7-fitness/index.html" class="svc-card swipe-slide reveal d4">
         <div class="svc-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 11v9l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="svc-tag">Ondersteunend</div>
         <div class="svc-name">Zelfstandig trainen<br>&amp; 24/7 toegang</div>
@@ -1280,6 +1285,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="svc-price">Vanaf €48,50 <span>per 4 weken</span></div>
         <div class="svc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
+    </div>
+    <div class="services-dots" data-swipe-dots="services" role="tablist" aria-label="Trainingsaanbod">
+      <button type="button" class="dot is-active" aria-label="Optie 1" aria-selected="true"></button>
+      <button type="button" class="dot" aria-label="Optie 2" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Optie 3" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Optie 4" aria-selected="false"></button>
+      <button type="button" class="dot" aria-label="Optie 5" aria-selected="false"></button>
     </div>
   </div>
 </section>
@@ -2071,7 +2083,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   });
 
   // Mobile swipe-carousels (team, resultaten, reviews): sync pagination dots to scroll position
-  ['team', 'resultaten', 'reviews'].forEach(id => {
+  ['team', 'resultaten', 'reviews', 'services'].forEach(id => {
     const track = document.querySelector(`[data-swipe-track="${id}"]`);
     const dotsWrap = document.querySelector(`[data-swipe-dots="${id}"]`);
     if (!track || !dotsWrap) return;
