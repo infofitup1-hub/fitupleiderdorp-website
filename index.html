@@ -1394,8 +1394,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="lite" style="background:var(--white);padding:132px 0">
+<section class="lite patrick-section" style="background:var(--white)">
   <style>
+    .patrick-section{padding:132px 0}
     .patrick-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     .patrick-photos{display:grid;grid-template-columns:3fr 2fr;gap:16px;align-items:stretch}
     .patrick-photos .p-main,.patrick-photos .p-side{overflow:hidden;border-radius:16px}
@@ -1403,7 +1404,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .patrick-text h2{font-family:var(--fd);font-size:clamp(38px,5vw,58px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:28px;color:var(--white)}
     .patrick-text h2 em{color:var(--accent);font-style:normal}
     .patrick-text p{color:rgba(255,255,255,.7);font-size:16px;line-height:1.75;margin-bottom:16px}
-    @media(max-width:980px){.patrick-wrap{grid-template-columns:1fr;gap:48px}.patrick-photos{max-width:480px;margin:0 auto}}
+    @media(max-width:980px){.patrick-wrap{grid-template-columns:1fr;gap:48px}.patrick-photos{max-width:480px;margin:0 auto}.patrick-section{padding:76px 0}}
+    @media(max-width:560px){.patrick-section{padding:56px 0}}
   </style>
   <div class="container">
     <div class="patrick-wrap">
@@ -1675,7 +1677,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="intake-booking" id="intake-plannen" aria-labelledby="iw-heading-1" style="background:var(--black);padding:108px 0">
+<section class="intake-booking" id="intake-plannen" aria-labelledby="iw-heading-1" style="background:var(--black)">
+  <style>
+    .intake-booking{padding:108px 0}
+    @media(max-width:980px){.intake-booking{padding:76px 0}}
+    @media(max-width:560px){.intake-booking{padding:56px 0}}
+  </style>
   <div class="container">
     <div class="intake-widget reveal">
       <div class="intake-widget-inner">
@@ -1880,13 +1887,30 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section style="padding:0" aria-hidden="true">
-  <style>@media(max-width:640px){.club-strip-grid{grid-template-columns:repeat(2,1fr)!important}}</style>
-  <div class="club-strip-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px">
-    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-1.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Trainingsruimte Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-2.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Krachttoestellen Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-3.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Vrije gewichten Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-    <div style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-4.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Loungehoek Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<section style="padding:0;background:var(--black)" aria-hidden="true">
+  <style>
+    .club-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+    .club-strip-dots{display:none;align-items:center;justify-content:center;gap:8px;padding:16px 0;background:var(--black)}
+    .club-strip-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
+    .club-strip-dots .dot.is-active{background:var(--accent);transform:scale(1.25)}
+    @media(max-width:640px){
+      .club-strip-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:3px}
+      .club-strip-grid::-webkit-scrollbar{display:none}
+      .club-strip-grid > div{flex:0 0 46%;scroll-snap-align:start}
+      .club-strip-dots{display:flex}
+    }
+  </style>
+  <div class="club-strip-grid" data-swipe-track="club">
+    <div class="swipe-slide" style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-1.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Trainingsruimte Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="swipe-slide" style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-2.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Krachttoestellen Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="swipe-slide" style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-3.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Vrije gewichten Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="swipe-slide" style="aspect-ratio:1;overflow:hidden"><img src="assets/images/club-strip-4.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Loungehoek Fit Up Leiderdorp" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </div>
+  <div class="club-strip-dots" data-swipe-dots="club" role="tablist" aria-label="Foto's van de club">
+    <button type="button" class="dot is-active" aria-label="Foto 1" aria-selected="true"></button>
+    <button type="button" class="dot" aria-label="Foto 2" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Foto 3" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Foto 4" aria-selected="false"></button>
   </div>
 </section>
 
@@ -2083,7 +2107,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   });
 
   // Mobile swipe-carousels (team, resultaten, reviews): sync pagination dots to scroll position
-  ['team', 'resultaten', 'reviews', 'services'].forEach(id => {
+  ['team', 'resultaten', 'reviews', 'services', 'club'].forEach(id => {
     const track = document.querySelector(`[data-swipe-track="${id}"]`);
     const dotsWrap = document.querySelector(`[data-swipe-dots="${id}"]`);
     if (!track || !dotsWrap) return;

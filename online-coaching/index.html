@@ -128,9 +128,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .voordelen-icon{width:42px;height:42px;border-radius:10px;border:1px solid rgba(110,130,0,.28);background:rgba(212,255,0,.14);display:flex;align-items:center;justify-content:center;color:var(--accent-ink)}
   .voordelen-card h3{font-family:var(--fd);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:var(--ink)}
   .voordelen-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400}
-  .voordelen-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:20px}
-  .voordelen-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-  .voordelen-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
 
   /* ROUTE — hoe werkt het */
   .how{background:var(--paper2)}
@@ -225,8 +222,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .if-field input:focus,.if-field select:focus,.if-field textarea:focus{outline:none;border-color:var(--accent-ink)}
   .if-field textarea{resize:vertical;min-height:72px}
   .if-radio-group{display:flex;gap:20px;flex-wrap:wrap}
-  .if-radio{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);cursor:pointer}
-  .if-radio input{accent-color:var(--accent-ink)}
+  .if-radio{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+  .if-radio input{accent-color:var(--accent-ink);width:18px;height:18px;flex-shrink:0}
   .if-price-hint{font-size:11.5px;color:var(--ink-mute);margin-top:10px;line-height:1.6}
   .if-app-intro{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:16px}
   .if-app-download{margin-top:18px}
@@ -309,24 +306,28 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .btn-accent{padding:14px 22px;font-size:13px;letter-spacing:1.5px}
     .btn-dark{padding:14px 22px;font-size:13px}
 
-    .faq-grid,.tarief-cards,.modes-grid,.coaches-grid{grid-template-columns:1fr!important}
+    .faq-grid,.tarief-cards,.modes-grid{grid-template-columns:1fr!important}
     .toggle-btn{padding:9px 18px;font-size:12px}
 
     .intake-card{padding:24px 20px}
-    .if-radio-group{flex-direction:column;gap:10px}
+    .if-radio-group{flex-direction:column;gap:2px}
+    .intake-form fieldset{margin-bottom:22px}
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .voordelen,.modes,.coaches,.pricing,.intake{padding:48px 0}
-    .voordelen-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:14px;padding-top:24px}
-    .voordelen-grid::-webkit-scrollbar{display:none}
-    .voordelen-card{flex:0 0 68%;scroll-snap-align:start}
-    .voordelen-dots{display:flex}
+    /* Wat krijg je: compacte 2x3 grid i.p.v. swipe — alle 6 voordelen in één oogopslag */
+    .voordelen-grid{grid-template-columns:1fr 1fr;gap:26px 18px;padding-top:28px}
+    .voordelen-icon{width:36px;height:36px}
     .sec-head{margin-bottom:36px}
     .mode-card{padding:22px 20px}
+    /* Coaches: compact 2-koloms i.p.v. twee volle stacked cards */
+    .coaches-grid{gap:14px}
+    .coach-name{font-size:19px}
+    .coach-desc{font-size:11px}
     .tarief-card{padding:26px 22px 24px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
-    .coach-body{padding:18px 20px 20px}
+    .coach-body{padding:14px 14px 16px}
   }
 
   @media (max-width:420px){
@@ -475,7 +476,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="sec-label reveal"><span class="sec-label-line"></span>Wat krijg je</div>
       <h2 id="voordelen-heading" class="reveal d1">Wat krijg je?</h2>
     </div>
-    <div class="voordelen-grid" id="oc-voordelen-track">
+    <div class="voordelen-grid">
       <div class="voordelen-card reveal" id="training-op-maat">
         <div class="voordelen-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
         <h3>Persoonlijk trainingsschema</h3>
@@ -506,14 +507,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <h3>Alles in onze eigen Fit Up-app</h3>
         <p>Training, voeding, check-ins en coach-contact centraal op één plek.</p>
       </div>
-    </div>
-    <div class="voordelen-dots" id="oc-voordelen-dots" role="tablist" aria-label="Wat krijg je">
-      <button type="button" class="dot is-active" aria-label="Item 1" aria-selected="true"></button>
-      <button type="button" class="dot" aria-label="Item 2" aria-selected="false"></button>
-      <button type="button" class="dot" aria-label="Item 3" aria-selected="false"></button>
-      <button type="button" class="dot" aria-label="Item 4" aria-selected="false"></button>
-      <button type="button" class="dot" aria-label="Item 5" aria-selected="false"></button>
-      <button type="button" class="dot" aria-label="Item 6" aria-selected="false"></button>
     </div>
   </div>
 </section>
@@ -1136,34 +1129,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   });
 })();
 /* === END RESULTATEN SWIPE-CAROUSEL PAGINATION === */
-
-/* === VOORDELEN SWIPE-CAROUSEL PAGINATION (mobile only) === */
-(function(){
-  var track = document.getElementById('oc-voordelen-track');
-  var pagination = document.getElementById('oc-voordelen-dots');
-  if(!track || !pagination || !window.matchMedia('(max-width:640px)').matches) return;
-  var slides = track.querySelectorAll('.voordelen-card');
-  var dots = pagination.querySelectorAll('.dot');
-  function setActive(i){
-    dots.forEach(function(d, idx){
-      var active = idx === i;
-      d.classList.toggle('is-active', active);
-      d.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting) setActive(Array.prototype.indexOf.call(slides, entry.target));
-    });
-  }, {root: track, threshold: 0.6});
-  slides.forEach(function(s){ io.observe(s); });
-  dots.forEach(function(dot, i){
-    dot.addEventListener('click', function(){
-      slides[i].scrollIntoView({behavior: 'smooth', inline: 'start', block: 'nearest'});
-    });
-  });
-})();
-/* === END VOORDELEN SWIPE-CAROUSEL PAGINATION === */
 </script>
 
 </body>
