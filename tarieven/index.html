@@ -164,9 +164,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* STUDENT NOTE — bewust subtiel, geen uitnodigende CTA-kaart */
   .student-note{background:var(--paper);padding:0 0 60px}
-  .student-note-tile{display:block;max-width:640px;margin:0 auto;background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:16px 22px;text-decoration:none;transition:all .2s}
+  .student-note-tile{display:flex;align-items:center;gap:16px;max-width:640px;margin:0 auto;background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:16px 22px;text-decoration:none;transition:all .2s}
   .student-note-tile:hover{border-color:var(--accent);box-shadow:var(--sh-2)}
-  .student-note p{text-align:center;font-size:13px;color:var(--ink-mute);line-height:1.6}
+  .student-note-icon{flex-shrink:0;width:30px;height:30px;color:var(--accent-ink)}
+  .student-note p{font-size:13px;color:var(--ink-mute);line-height:1.6}
   .student-note strong{color:var(--ink);font-weight:700}
 
   /* PT SECTION (dual variants — base card light, recommend card charcoal) */
@@ -619,6 +620,11 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <section class="student-note" aria-label="Studentenkorting">
   <div class="container">
     <a href="../gratis-intake/index.html" class="student-note-tile">
+      <svg class="student-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 14 21 9.5 12 5 3 9.5 12 14z"/>
+        <path d="M7 11.5v5c0 1.1 2.24 3 5 3s5-1.9 5-3v-5"/>
+        <path d="M21 9.5v5"/>
+      </svg>
       <p><strong>Studeer je?</strong> Vraag tijdens je gratis intake naar de studentenkorting op 24/7 Fitness (vanaf €38,50) of All-Inclusive (vanaf €43,50) per 4 weken — op vertoon van een geldige studentenpas.</p>
     </a>
   </div>
