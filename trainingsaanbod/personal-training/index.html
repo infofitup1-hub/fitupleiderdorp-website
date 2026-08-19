@@ -82,7 +82,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .page-hero-left{padding:46px 64px 46px 40px;display:flex;flex-direction:column;justify-content:center}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
   .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-  .page-hero h1{font-family:var(--fd);font-weight:800;text-transform:none;font-size:clamp(40px,5vw,66px);line-height:1;margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
+  .page-hero h1{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(40px,5vw,66px);line-height:1;margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
   .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
   .page-hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
   .page-hero-sub strong{color:var(--white);font-weight:500}
@@ -134,7 +134,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .hbar-item{display:flex;flex-direction:column;gap:4px}
   .hbar-label{font-size:11px;color:var(--ink-mute);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
   .hbar-value{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--ink)}
-  .hbar-value em{color:var(--accent-ink);font-style:normal}
+  .hbar-value em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.55) 58%);padding:0 .04em}
 
   /* WHAT IS PT — centered narrative + includes list */
   .what-wrap{max-width:880px;margin:0 auto}
@@ -177,10 +177,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* NUTRITION APP STRIP */
   .nutri{background:var(--paper2);padding:120px 0;position:relative;overflow:hidden}
   .nutri::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 65%);pointer-events:none}
-  .nutri-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
-  .nutri-copy h2{font-size:clamp(40px,5.2vw,62px);margin-bottom:22px}
-  .nutri-copy>p{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:400;max-width:480px;margin-bottom:32px}
-  .nutri-features{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;border-top:1px solid var(--line)}
+  .nutri-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:80px;row-gap:8px;grid-template-areas:"title phone" "features phone";position:relative}
+  .nutri-title{grid-area:title;align-self:end}
+  .nutri-title h2{font-size:clamp(40px,5.2vw,62px);margin-bottom:22px}
+  .nutri-title>p{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:400;max-width:480px}
+  .nutri-phone{grid-area:phone}
+  .nutri-features{grid-area:features;align-self:start;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:24px;border-top:1px solid var(--line)}
   .nutri-feat{padding:20px 0;border-bottom:1px solid var(--line)}
   .nutri-feat:nth-child(odd){padding-right:24px;border-right:1px solid var(--line)}
   .nutri-feat:nth-child(even){padding-left:24px}
@@ -237,6 +239,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(20,22,17,.2)}
   .t-cta-outline:hover{border-color:var(--accent);color:var(--accent)}
   .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
+  /* MEER INFORMATIE toggle — dichtgeklapt op smartphone, altijd open vanaf tablet */
+  .t-more{margin-top:4px}
+  .t-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);padding:12px 0;border-top:1px solid var(--line)}
+  .t-more summary::-webkit-details-marker{display:none}
+  .t-more summary .chev{transition:transform .25s;flex-shrink:0}
+  .t-more[open] summary .chev{transform:rotate(180deg)}
+  .tarief-card.hot .t-more summary{color:rgba(0,0,0,.65);border-top-color:rgba(0,0,0,.12)}
+  @media (min-width:641px){
+    .t-more summary{display:none}
+  }
 
   /* FOR WHO */
   .forwho{background:var(--paper2)}
@@ -265,7 +277,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .results-stats{display:flex;gap:32px;flex-wrap:wrap}
   .res-stat{border-left:2px solid var(--accent);padding-left:14px}
   .res-stat-num{font-family:var(--fd);font-size:34px;font-weight:900;line-height:1;color:var(--ink)}
-  .res-stat-num em{color:var(--accent-ink);font-style:normal}
+  .res-stat-num em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.55) 58%);padding:0 .04em}
   .res-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);margin-top:4px}
   .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
   .result-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;position:relative}
@@ -287,9 +299,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .result-delta+.result-delta{border-left:1px solid var(--line);padding-left:10px}
   .result-delta-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
   .result-delta-value{font-family:var(--fd);font-size:15px;font-weight:900;color:var(--ink)}
-  .result-delta-value em{color:var(--accent-ink);font-style:normal}
+  .result-delta-value em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.6) 58%);padding:0 .03em}
   .result-quote{font-size:12px;color:var(--ink-soft);line-height:1.55;font-weight:400;font-style:italic;padding-top:6px;border-top:1px dashed var(--line)}
   .result-quote::before{content:'\201C';color:var(--accent);font-family:var(--fd);font-size:24px;font-weight:900;line-height:0;margin-right:4px;position:relative;top:6px}
+  /* MEER INFORMATIE toggle — dichtgeklapt op smartphone, altijd open vanaf tablet */
+  .result-more{margin-top:2px}
+  .result-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fd);font-weight:700;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent-ink);padding:8px 0}
+  .result-more summary::-webkit-details-marker{display:none}
+  .result-more summary .chev{transition:transform .25s;flex-shrink:0}
+  .result-more[open] summary .chev{transform:rotate(180deg)}
+  @media (min-width:641px){
+    .result-more summary{display:none}
+  }
   .results-foot{margin-top:28px;text-align:center;font-size:12px;color:var(--ink-soft);letter-spacing:.3px}
   .results-foot a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
   .results-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:24px}
@@ -343,14 +364,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .page-hero-left{padding:40px}
     .page-hero-right{min-height:0;margin:0 auto;padding:28px 20px}
     .what-grid,.forwho-grid{grid-template-columns:1fr;gap:48px}
-    .steps{grid-template-columns:1fr 1fr}
-    .tarief-cards{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .tarief-cards{grid-template-columns:1fr 1fr;gap:14px}
     .spotter-inner{grid-template-columns:1fr}
     .spotter-content{padding:40px 32px}
     .spotter-photo{min-height:340px}
     .faq-grid{grid-template-columns:1fr}
-    .nutri-grid{grid-template-columns:1fr;gap:48px}
-    .nutri-phone{min-height:480px;margin-top:8px}
+    .nutri-grid{grid-template-columns:1fr;grid-template-areas:"title" "phone" "features";row-gap:20px}
+    .nutri-phone{min-height:0;margin-top:8px}
+    .nutri-phone-stack{max-width:320px;margin:0 auto}
+    .nutri-title,.nutri-features{align-self:auto}
     .nutri-features{grid-template-columns:1fr}
     .nutri-feat:nth-child(odd){padding-right:0;border-right:none}
     .nutri-feat:nth-child(even){padding-left:0}
@@ -401,7 +424,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.fu-steps{grid-template-columns:1fr!important}
+    .fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.two-col,.compare-table,.fu-compare-table,.fu-steps{grid-template-columns:1fr!important}
     .results-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
     .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
     .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
@@ -420,12 +443,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .pricing,.results,.final-cta,.nutri,.spotter{padding:48px 0}
-    .steps{grid-template-columns:1fr 1fr;gap:12px}
-    .step{padding:22px 16px 18px}
-    .step-num{font-size:70px}
-    .step h3{font-size:17px}
-    .step p{font-size:12.5px}
-    .tarief-card{padding:26px 22px 24px}
+    .steps{grid-template-columns:1fr}
+    .step{padding:24px 20px 22px}
+    .tarief-card{padding:22px 18px 20px}
+    .t-name{font-size:22px}
+    .t-price-wrap .num{font-size:34px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
     .result-body{padding:14px 16px 18px}
@@ -553,11 +575,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       jouw tempo, jouw doel — met techniekcheck op elke herhaling en voedingsbegeleiding
       via de app. Vier sessies per maand, meetbare progressie.
     </p>
-    <div class="page-hero-stats">
-      <div class="ph-stat"><div class="ph-stat-num">1-op-1</div><div class="ph-stat-label">Vaste trainer</div></div>
-      <div class="ph-stat"><div class="ph-stat-num">4×</div><div class="ph-stat-label">Sessies p/4 wkn</div></div>
-      <div class="ph-stat"><div class="ph-stat-num">€300</div><div class="ph-stat-label">Vanaf per 4 weken</div></div>
-    </div>
     <div class="page-hero-ctas">
       <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#tarieven" class="btn-ghost">Of: bekijk tarieven →</a>
@@ -662,31 +679,31 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <section class="nutri" aria-labelledby="nutri-heading">
   <div class="container">
     <div class="nutri-grid">
-      <div class="nutri-copy">
+      <div class="nutri-title">
         <div class="sec-label reveal"><span class="sec-label-line"></span>Voeding &amp; training in één app</div>
         <h2 id="nutri-heading" class="reveal d1">Je plan altijd <em>op zak</em></h2>
         <p class="reveal d2">Jouw schema, voedingsdoelen en voortgang — alles in dezelfde app. Tussen sessies door zie je precies wat er op het programma staat, wat je vandaag mag eten en hoe je er bij elke meting voorstaat.</p>
-        <div class="nutri-features">
-          <div class="nutri-feat reveal d1">
-            <div class="nutri-feat-num">01 · Voeding</div>
-            <div class="nutri-feat-title">Calorieën &amp; macro's</div>
-            <div class="nutri-feat-desc">Plan op maat met dagelijkse kcal- en macrotelling. Maaltijden afvinken en je weet direct waar je staat.</div>
-          </div>
-          <div class="nutri-feat reveal d2">
-            <div class="nutri-feat-num">02 · Training</div>
-            <div class="nutri-feat-title">Schema met video</div>
-            <div class="nutri-feat-desc">Elke oefening met techniekvideo, sets, reps en gewicht — duidelijk wat je doet en hoe.</div>
-          </div>
-          <div class="nutri-feat reveal d3">
-            <div class="nutri-feat-num">03 · Inzicht</div>
-            <div class="nutri-feat-title">Voortgang real-time</div>
-            <div class="nutri-feat-desc">Gewicht, vetpercentage en kracht­getallen in één overzicht. Je trainer kijkt mee.</div>
-          </div>
-          <div class="nutri-feat reveal d4">
-            <div class="nutri-feat-num">04 · Begeleiding</div>
-            <div class="nutri-feat-title">Chat met je trainer</div>
-            <div class="nutri-feat-desc">Vraag tussen sessies door iets over je schema, voeding of een oefening. Korte lijn.</div>
-          </div>
+      </div>
+      <div class="nutri-features">
+        <div class="nutri-feat reveal d1">
+          <div class="nutri-feat-num">01 · Voeding</div>
+          <div class="nutri-feat-title">Calorieën &amp; macro's</div>
+          <div class="nutri-feat-desc">Plan op maat met dagelijkse kcal- en macrotelling. Maaltijden afvinken en je weet direct waar je staat.</div>
+        </div>
+        <div class="nutri-feat reveal d2">
+          <div class="nutri-feat-num">02 · Training</div>
+          <div class="nutri-feat-title">Schema met video</div>
+          <div class="nutri-feat-desc">Elke oefening met techniekvideo, sets, reps en gewicht — duidelijk wat je doet en hoe.</div>
+        </div>
+        <div class="nutri-feat reveal d3">
+          <div class="nutri-feat-num">03 · Inzicht</div>
+          <div class="nutri-feat-title">Voortgang real-time</div>
+          <div class="nutri-feat-desc">Gewicht, vetpercentage en kracht­getallen in één overzicht. Je trainer kijkt mee.</div>
+        </div>
+        <div class="nutri-feat reveal d4">
+          <div class="nutri-feat-num">04 · Begeleiding</div>
+          <div class="nutri-feat-title">Chat met je trainer</div>
+          <div class="nutri-feat-desc">Vraag tussen sessies door iets over je schema, voeding of een oefening. Korte lijn.</div>
         </div>
       </div>
       <div class="nutri-phone reveal d1">
@@ -755,13 +772,18 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">Personal<br>Training</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">300</span></div>
         <div class="t-period">per 4 weken · 4 sessies van 60 min</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
-        </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training" class="t-cta t-cta-outline">Aanmelden →</a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
+            </ul>
+          </div>
+        </details>
       </div>
       <!-- PT Plus (hot) -->
       <div class="tarief-card hot reveal d1">
@@ -770,14 +792,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">Personal<br>Training Plus</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">350</span></div>
         <div class="t-period">per 4 weken · incl. 24/7 + groepslessen</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 Fitness</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
-        </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="t-cta t-cta-dark">Aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 Fitness</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
     <p class="tarief-foot">Geen inschrijfgeld · Losse PT-sessie? Vanaf €75 per sessie via de <a href="../../tarieven/index.html" style="color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px">tarievenpagina</a></p>
@@ -847,12 +874,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
             <div class="result-name">Marja<span>Begon met wandelen, eindigde met deadlift</span></div>
             <div class="result-weeks">12 mnd</div>
           </div>
-          <div class="result-deltas">
-            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−13</em>kg</span></div>
-            <div class="result-delta"><span class="result-delta-label">Energie</span><span class="result-delta-value"><em>↑</em></span></div>
-            <div class="result-delta"><span class="result-delta-label">Vertrouwen</span><span class="result-delta-value"><em>↑</em></span></div>
-          </div>
-          <p class="result-quote">Ik dacht dat krachttraining niks voor mij was op mijn leeftijd. Met mijn PT bleek het juist het beste wat ik kon doen.</p>
+          <details class="result-more">
+            <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="result-more-body">
+              <div class="result-deltas">
+                <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−13</em>kg</span></div>
+                <div class="result-delta"><span class="result-delta-label">Energie</span><span class="result-delta-value"><em>↑</em></span></div>
+                <div class="result-delta"><span class="result-delta-label">Vertrouwen</span><span class="result-delta-value"><em>↑</em></span></div>
+              </div>
+              <p class="result-quote">Ik dacht dat krachttraining niks voor mij was op mijn leeftijd. Met mijn PT bleek het juist het beste wat ik kon doen.</p>
+            </div>
+          </details>
         </div>
       </article>
 
@@ -867,12 +899,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
             <div class="result-name">Irene<span>Van inactief naar dagelijks trainen</span></div>
             <div class="result-weeks">52 wkn</div>
           </div>
-          <div class="result-deltas">
-            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−34</em>kg</span></div>
-            <div class="result-delta"><span class="result-delta-label">Houding</span><span class="result-delta-value"><em>↑</em></span></div>
-            <div class="result-delta"><span class="result-delta-label">Kracht</span><span class="result-delta-value"><em>↑↑</em></span></div>
-          </div>
-          <p class="result-quote">Eén vaste trainer die je elke week ziet — dat is precies wat ik nodig had om vol te houden.</p>
+          <details class="result-more">
+            <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="result-more-body">
+              <div class="result-deltas">
+                <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−34</em>kg</span></div>
+                <div class="result-delta"><span class="result-delta-label">Houding</span><span class="result-delta-value"><em>↑</em></span></div>
+                <div class="result-delta"><span class="result-delta-label">Kracht</span><span class="result-delta-value"><em>↑↑</em></span></div>
+              </div>
+              <p class="result-quote">Eén vaste trainer die je elke week ziet — dat is precies wat ik nodig had om vol te houden.</p>
+            </div>
+          </details>
         </div>
       </article>
 
@@ -887,12 +924,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
             <div class="result-name">Barbara<span>Combinatie van PT, voeding &amp; groepslessen</span></div>
             <div class="result-weeks">14 mnd</div>
           </div>
-          <div class="result-deltas">
-            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−35</em>kg</span></div>
-            <div class="result-delta"><span class="result-delta-label">Conditie</span><span class="result-delta-value"><em>↑↑</em></span></div>
-            <div class="result-delta"><span class="result-delta-label">Slaap</span><span class="result-delta-value"><em>↑</em></span></div>
-          </div>
-          <p class="result-quote">PT Plus betekende dat ik óók 24/7 kon trainen en lessen kon volgen — dat verschil zie je terug.</p>
+          <details class="result-more">
+            <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="result-more-body">
+              <div class="result-deltas">
+                <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−35</em>kg</span></div>
+                <div class="result-delta"><span class="result-delta-label">Conditie</span><span class="result-delta-value"><em>↑↑</em></span></div>
+                <div class="result-delta"><span class="result-delta-label">Slaap</span><span class="result-delta-value"><em>↑</em></span></div>
+              </div>
+              <p class="result-quote">PT Plus betekende dat ik óók 24/7 kon trainen en lessen kon volgen — dat verschil zie je terug.</p>
+            </div>
+          </details>
         </div>
       </article>
 
@@ -907,12 +949,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
             <div class="result-name">Mark<span>Strak in 8 weken — body recomposition</span></div>
             <div class="result-weeks">8 wkn</div>
           </div>
-          <div class="result-deltas">
-            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−5</em>kg</span></div>
-            <div class="result-delta"><span class="result-delta-label">Vet %</span><span class="result-delta-value"><em>−2,1</em>%</span></div>
-            <div class="result-delta"><span class="result-delta-label">Spier</span><span class="result-delta-value"><em>↑</em></span></div>
-          </div>
-          <p class="result-quote">Met een schema op maat en strakke voedingsbegeleiding zag ik binnen acht weken écht verschil.</p>
+          <details class="result-more">
+            <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="result-more-body">
+              <div class="result-deltas">
+                <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−5</em>kg</span></div>
+                <div class="result-delta"><span class="result-delta-label">Vet %</span><span class="result-delta-value"><em>−2,1</em>%</span></div>
+                <div class="result-delta"><span class="result-delta-label">Spier</span><span class="result-delta-value"><em>↑</em></span></div>
+              </div>
+              <p class="result-quote">Met een schema op maat en strakke voedingsbegeleiding zag ik binnen acht weken écht verschil.</p>
+            </div>
+          </details>
         </div>
       </article>
 
@@ -927,12 +974,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
             <div class="result-name">Karin<span>Klaar voor de wereldreis — en nog steeds aan het trainen</span></div>
             <div class="result-weeks">9 mnd</div>
           </div>
-          <div class="result-deltas">
-            <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−17</em>kg</span></div>
-            <div class="result-delta"><span class="result-delta-label">Conditie</span><span class="result-delta-value"><em>↑↑</em></span></div>
-            <div class="result-delta"><span class="result-delta-label">Mindset</span><span class="result-delta-value"><em>↑</em></span></div>
-          </div>
-          <p class="result-quote">Ik kan nu dingen die ik me jaren niet voor kon stellen — wandelen, hiken, gewoon meedoen.</p>
+          <details class="result-more">
+            <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="result-more-body">
+              <div class="result-deltas">
+                <div class="result-delta"><span class="result-delta-label">Gewicht</span><span class="result-delta-value"><em>−17</em>kg</span></div>
+                <div class="result-delta"><span class="result-delta-label">Conditie</span><span class="result-delta-value"><em>↑↑</em></span></div>
+                <div class="result-delta"><span class="result-delta-label">Mindset</span><span class="result-delta-value"><em>↑</em></span></div>
+              </div>
+              <p class="result-quote">Ik kan nu dingen die ik me jaren niet voor kon stellen — wandelen, hiken, gewoon meedoen.</p>
+            </div>
+          </details>
         </div>
       </article>
 
@@ -1020,6 +1072,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Tarief- en resultaatkaarten: "Meer informatie" dichtgeklapt op smartphone, altijd open vanaf tablet
+  function syncTariefDetails(){
+    const isWide = window.innerWidth > 640;
+    document.querySelectorAll('.t-more, .result-more').forEach(d => {
+      if (isWide) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  syncTariefDetails();
+  window.addEventListener('resize', syncTariefDetails);
 </script>
 
 <script>
