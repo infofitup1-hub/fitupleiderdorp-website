@@ -58,13 +58,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
   h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
   h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
-  .hero h1 em,.final-cta h2 em{background:none;padding:0;color:var(--accent)}
+  .hero h1 em{background:none;padding:0;color:var(--accent)}
   .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:14px 26px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s;cursor:pointer}
   .btn-accent:hover{background:transparent;color:var(--accent)}
   .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(20,22,17,.25);padding-bottom:2px;transition:all .2s}
   .btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
-  .hero .btn-ghost,.final-cta .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
-  .hero .btn-ghost:hover,.final-cta .btn-ghost:hover{color:var(--white);border-color:var(--white)}
+  .hero .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
+  .hero .btn-ghost:hover{color:var(--white);border-color:var(--white)}
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
   .reveal.in{opacity:1;transform:none}
   .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
@@ -226,11 +226,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .btn-dark:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
 
   /* CTA */
-  .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
-  .final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(212,255,0,.05) 0%,transparent 70%);pointer-events:none}
-  .final-cta h2{font-size:clamp(52px,8vw,88px);margin-bottom:24px;color:var(--white)}
-  .final-cta p{font-size:16px;color:rgba(255,255,255,.5);max-width:440px;margin:0 auto 44px;font-weight:300;line-height:1.75}
-  .cta-actions{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
 
   /* FOOTER */
   footer{background:var(--mid);border-top:1px solid rgba(255,255,255,.05);padding:64px 0 32px}
@@ -285,7 +280,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     h2{font-size:clamp(34px,9vw,48px)!important}
 
     .hero{padding:100px 0 40px}
-    .pricing,.student,.pt-section,.always,.addons,.faq,.final-cta{padding:48px 0}
+    .pricing,.student-note,.pt-section,.always,.addons,.faq{padding:48px 0}
     .price-card{padding:24px 20px 20px}
     .price-card.featured{padding-top:44px}
     .pt-card{padding:24px 20px}
@@ -829,21 +824,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container">
-    <h2 class="reveal">Klaar om te<br><em>beginnen?</em></h2>
-    <p class="reveal d1">Plan een gratis intake bij Fit Up Leiderdorp. We kijken samen naar jouw doel en bepalen het tarief dat bij jou past — zonder verplichtingen.</p>
-    <p class="reveal d2" style="margin-top:20px;font-size:14px;opacity:.75">Liever eerst rondkijken? Bekijk onze <a href="../sportschool-leiderdorp/index.html" style="color:var(--accent)">sportschool in Leiderdorp</a> of de <a href="../fitnessclub-leiderdorp/index.html" style="color:var(--accent)">fitnessclub in Leiderdorp</a>.</p>
-    <div class="cta-actions reveal d2">
-      <a href="../gratis-intake/index.html" class="btn-accent">
-        Plan een gratis intake
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-ghost">Liever eerst een intake via WhatsApp</a>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="container">
     <div class="footer-grid">
