@@ -115,29 +115,39 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .hbar-value{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--ink)}
   .hbar-value em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.55) 58%);padding:0 .04em}
 
-  /* CLASS CARDS — quiet text blocks, no photography */
+  /* CLASS CARDS — compacte tegels, ruimte gereserveerd voor foto/video later */
   .classes{background:var(--paper);padding:60px 0 100px}
-  .class-block{margin-bottom:16px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;transition:box-shadow .35s}
+  .classes-track{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .class-block{margin-bottom:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;transition:box-shadow .35s}
   .class-block:hover{box-shadow:var(--sh-hover)}
-  .class-content{padding:44px 48px;max-width:680px;display:flex;flex-direction:column}
-  .class-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-  .class-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent)}
-  .class-title{font-family:var(--fd);font-size:clamp(30px,3.6vw,42px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.5px;margin-bottom:16px;color:var(--ink)}
+  .class-content{padding:26px 24px;max-width:none;display:flex;flex-direction:column}
+  .class-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .class-eyebrow::before{content:'';width:18px;height:1.5px;background:var(--accent)}
+  .class-title{font-family:var(--fd);font-size:clamp(22px,2.4vw,28px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.5px;margin-bottom:10px;color:var(--ink)}
   .class-title em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
-  .class-desc{font-size:15px;color:var(--ink-soft);line-height:1.7;font-weight:400;margin-bottom:24px;max-width:480px}
-  .class-meta{display:flex;gap:0;margin-bottom:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0}
-  .class-meta-item{flex:1;display:flex;flex-direction:column;gap:3px;padding-right:18px}
-  .class-meta-item+.class-meta-item{border-left:1px solid var(--line);padding-left:18px}
-  .class-meta-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
-  .class-meta-value{font-family:var(--fd);font-size:18px;font-weight:900;color:var(--ink)}
+  .class-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400;margin-bottom:20px;max-width:none;overflow-wrap:break-word}
+  .class-meta{display:flex;gap:0;margin-bottom:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0}
+  .class-meta-item{flex:1;display:flex;flex-direction:column;gap:3px;padding-right:10px}
+  .class-meta-item+.class-meta-item{border-left:1px solid var(--line);padding-left:10px}
+  .class-meta-label{font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
+  .class-meta-value{font-family:var(--fd);font-size:15px;font-weight:900;color:var(--ink)}
   .class-meta-value em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.55) 58%);padding:0 .04em}
-  .class-focus{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-  .class-focus span{font-size:11px;font-weight:500;letter-spacing:.5px;color:var(--ink-soft);background:rgba(212,255,0,.14);border:1px solid rgba(110,130,0,.25);padding:6px 12px}
-  .class-intensity{display:flex;align-items:center;gap:10px;margin-bottom:24px}
-  .int-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
+  .class-focus{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+  .class-focus span{font-size:10px;font-weight:500;letter-spacing:.3px;color:var(--ink-soft);background:rgba(212,255,0,.14);border:1px solid rgba(110,130,0,.25);padding:5px 10px}
+  .class-intensity{display:flex;align-items:center;gap:10px;margin-bottom:0}
+  .int-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
   .int-bar{display:flex;gap:3px}
-  .int-bar span{width:18px;height:6px;background:var(--line)}
+  .int-bar span{width:14px;height:6px;background:var(--line)}
   .int-bar span.on{background:var(--accent-ink)}
+  /* MEER INFORMATIE toggle — dichtgeklapt op smartphone, altijd open vanaf tablet */
+  .class-more{margin-top:16px}
+  .class-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fd);font-weight:700;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent-ink);padding:10px 0;border-top:1px solid var(--line)}
+  .class-more summary::-webkit-details-marker{display:none}
+  .class-more summary .chev{transition:transform .25s;flex-shrink:0}
+  .class-more[open] summary .chev{transform:rotate(180deg)}
+  @media (min-width:641px){
+    .class-more summary{display:none}
+  }
   .classes-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:6px}
   .classes-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
   .classes-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
@@ -161,11 +171,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .rooster{background:var(--paper)}
 
   /* FOR WHO / TRY */
-  .try-strip{background:var(--accent);padding:64px 0}
-  .try-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-  .try-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:10px}
-  .try-title{font-family:var(--fd);font-size:clamp(30px,4vw,48px);font-weight:900;text-transform:uppercase;color:var(--black);line-height:1;letter-spacing:.5px}
-  .try-sub{font-size:15px;color:rgba(0,0,0,.55);margin-top:12px;max-width:480px;line-height:1.6}
 
   /* FAQ — native <details>/<summary> accordion: content stays in the DOM for SEO, collapsed visually */
   .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -207,7 +212,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .hero-strip-track::-webkit-scrollbar{display:none}
     .hero-strip-photo{flex:0 0 82%;scroll-snap-align:start}
     .hero-strip-pagination{display:flex}
-    .class-content{padding:36px 28px;max-width:none}
+    .classes-track{grid-template-columns:1fr 1fr}
+    .class-content{padding:24px 20px;max-width:none}
     .classes{padding:48px 0 64px}
     .price-inner{grid-template-columns:1fr;padding:36px 28px;gap:32px}
     .faq-grid{grid-template-columns:1fr}
@@ -271,7 +277,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .price-strip,.final-cta{padding:48px 0}
     .classes{padding:40px 0 56px}
-    .class-content{padding:26px 22px}
+    .classes-track{grid-template-columns:1fr 1fr;gap:10px;min-width:0}
+    .class-block{min-width:0}
+    .class-content{padding:18px 16px}
+    .class-title{font-size:19px}
+    .class-desc{font-size:12.5px}
+    .class-meta-value{font-size:13px}
+    .class-focus span{font-size:9px;padding:4px 8px}
     .price-inner{padding:28px 22px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
@@ -396,11 +408,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       barbell-sessies tot bokshandschoenen — onbeperkt meedoen met het
       <strong>All-Inclusive abonnement</strong> vanaf €53,50 per 4 weken.
     </p>
-    <div class="page-hero-stats">
-      <div class="ph-stat"><div class="ph-stat-num">4</div><div class="ph-stat-label">Vaste lessen p/week</div></div>
-      <div class="ph-stat"><div class="ph-stat-num">45–60</div><div class="ph-stat-label">Min. per les</div></div>
-      <div class="ph-stat"><div class="ph-stat-num">€53,50</div><div class="ph-stat-label">All-Inclusive p/4 wkn</div></div>
-    </div>
     <div class="page-hero-ctas">
       <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">Plan een gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#rooster" class="btn-ghost">Of: reserveren via de app →</a>
@@ -472,23 +479,28 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="class-content">
         <div class="class-eyebrow">Les 01 · Barbell workout</div>
         <h3 class="class-title">Body<em>pump</em></h3>
-        <p class="class-desc">De originele barbell workout op muziek. Negen tracks, één doel: elke spier in je lichaam aan het werk met lichte gewichten en veel herhalingen. Vetverbranding én spieruithoudingsvermogen in 55 minuten.</p>
         <div class="class-intensity">
           <span class="int-label">Intensiteit</span>
           <div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
         </div>
-        <div class="class-meta">
-          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>55</em> min</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
-        </div>
-        <div class="class-focus">
-          <span>Volledig lichaam</span>
-          <span>Spieruithouding</span>
-          <span>Vetverbranding</span>
-          <span>Op muziek</span>
-        </div>
-        <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+        <details class="class-more">
+          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="class-more-body">
+            <p class="class-desc">De originele barbell workout op muziek. Negen tracks, één doel: elke spier in je lichaam aan het werk met lichte gewichten en veel herhalingen. Vetverbranding én spieruithoudingsvermogen in 55 minuten.</p>
+            <div class="class-meta">
+              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>55</em> min</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
+            </div>
+            <div class="class-focus">
+              <span>Volledig lichaam</span>
+              <span>Spieruithouding</span>
+              <span>Vetverbranding</span>
+              <span>Op muziek</span>
+            </div>
+            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+          </div>
+        </details>
       </div>
     </article>
 
@@ -497,23 +509,28 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="class-content">
         <div class="class-eyebrow">Les 02 · Boxing conditioning</div>
         <h3 class="class-title">Boks<em>fit</em></h3>
-        <p class="class-desc">Bokstechniek, cardio en kracht in één les. Werk aan je jab, hook en uppercut op de stootkussens — afgewisseld met explosieve oefeningen. Geen sparring, wél het gevoel van een echte training.</p>
         <div class="class-intensity">
           <span class="int-label">Intensiteit</span>
           <div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
         </div>
-        <div class="class-meta">
-          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Cardio</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
-        </div>
-        <div class="class-focus">
-          <span>Techniek</span>
-          <span>Conditie</span>
-          <span>Coördinatie</span>
-          <span>Stressrelease</span>
-        </div>
-        <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+        <details class="class-more">
+          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="class-more-body">
+            <p class="class-desc">Bokstechniek, cardio en kracht in één les. Werk aan je jab, hook en uppercut op de stootkussens — afgewisseld met explosieve oefeningen. Geen sparring, wél het gevoel van een echte training.</p>
+            <div class="class-meta">
+              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Cardio</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
+            </div>
+            <div class="class-focus">
+              <span>Techniek</span>
+              <span>Conditie</span>
+              <span>Coördinatie</span>
+              <span>Stressrelease</span>
+            </div>
+            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+          </div>
+        </details>
       </div>
     </article>
 
@@ -522,24 +539,29 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="class-content">
         <div class="class-eyebrow">Les 03 · Functional fitness</div>
         <h3 class="class-title">HIIT<br>& <em>Hyrox</em></h3>
-        <p class="class-desc">Hoge intensiteit, korte rust. Functionele stations met sled push, burpees, wallballs en rowing — de bouwstenen van Hyrox. Voor iedereen die voorbij de loopband wil en in 45 minuten écht leeg wil zijn.</p>
         <div class="class-intensity">
           <span class="int-label">Intensiteit</span>
           <div class="int-bar" role="img" aria-label="Intensiteit: 5 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
         </div>
-        <div class="class-meta">
-          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>45</em> min</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">HIIT</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Mid-Pro</span></div>
-        </div>
-        <div class="class-focus">
-          <span>Sled push</span>
-          <span>Wallballs</span>
-          <span>Rowing</span>
-          <span>Burpees</span>
-          <span>Vo₂ max</span>
-        </div>
-        <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+        <details class="class-more">
+          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="class-more-body">
+            <p class="class-desc">Hoge intensiteit, korte rust. Functionele stations met sled push, burpees, wallballs en rowing — de bouwstenen van Hyrox. Voor iedereen die voorbij de loopband wil en in 45 minuten écht leeg wil zijn.</p>
+            <div class="class-meta">
+              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>45</em> min</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">HIIT</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Mid-Pro</span></div>
+            </div>
+            <div class="class-focus">
+              <span>Sled push</span>
+              <span>Wallballs</span>
+              <span>Rowing</span>
+              <span>Burpees</span>
+              <span>Vo₂ max</span>
+            </div>
+            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+          </div>
+        </details>
       </div>
     </article>
 
@@ -548,24 +570,29 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="class-content">
         <div class="class-eyebrow">Les 04 · Heavy strength</div>
         <h3 class="class-title">Power<em>hour</em></h3>
-        <p class="class-desc">Een uur zware krachttraining onder begeleiding. Squat, deadlift, bench, row — de grote oefeningen, met techniekcheck en progressie. Zelfde gevoel als training met een PT, alleen dan in een vaste groep.</p>
         <div class="class-intensity">
           <span class="int-label">Intensiteit</span>
           <div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
         </div>
-        <div class="class-meta">
-          <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
-          <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
-        </div>
-        <div class="class-focus">
-          <span>Squat</span>
-          <span>Deadlift</span>
-          <span>Bench press</span>
-          <span>Row</span>
-          <span>Techniek-check</span>
-        </div>
-        <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+        <details class="class-more">
+          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="class-more-body">
+            <p class="class-desc">Een uur zware krachttraining onder begeleiding. Squat, deadlift, bench, row — de grote oefeningen, met techniekcheck en progressie. Zelfde gevoel als training met een PT, alleen dan in een vaste groep.</p>
+            <div class="class-meta">
+              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
+            </div>
+            <div class="class-focus">
+              <span>Squat</span>
+              <span>Deadlift</span>
+              <span>Bench press</span>
+              <span>Row</span>
+              <span>Techniek-check</span>
+            </div>
+            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+          </div>
+        </details>
       </div>
     </article>
 
@@ -609,24 +636,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="sec-head">
       <div class="sec-label reveal"><span class="sec-label-line"></span>Weekrooster</div>
       <h2 id="rooster-heading" class="reveal d1">Het rooster vind je binnenkort <em>in de app</em></h2>
-      <p class="reveal d2">Het actuele lesrooster wordt binnenkort zichtbaar in de nieuwe Fit Up app, waar je ook je plek reserveert. Wil je nu al weten wanneer een les past? Neem contact op.</p>
-    </div>
-    <div class="reveal d1" style="text-align:center;">
-      <a href="../../gratis-intake/index.html" class="btn-accent">Neem contact op <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- TRY STRIP -->
-<section class="try-strip">
-  <div class="container">
-    <div class="try-inner">
-      <div>
-        <div class="try-label">Nog geen lid?</div>
-        <div class="try-title">Plan een gratis<br>intake</div>
-        <p class="try-sub">Kies een les uit het rooster en reserveer je plek vooraf via de app. Zonder verplichtingen — kom langs en doe mee.</p>
-      </div>
-      <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-dark">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="reveal d2">Het actuele lesrooster wordt binnenkort zichtbaar in de nieuwe Fit Up app, waar je ook je plek reserveert. Wil je nu al weten wanneer een les past? <a href="../../gratis-intake/index.html" style="color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px">Neem contact op</a>.</p>
     </div>
   </div>
 </section>
@@ -703,6 +713,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Lestegels: "Meer informatie" dichtgeklapt op smartphone, altijd open vanaf tablet
+  function syncClassDetails(){
+    const isWide = window.innerWidth > 640;
+    document.querySelectorAll('.class-more').forEach(d => {
+      if (isWide) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  syncClassDetails();
+  window.addEventListener('resize', syncClassDetails);
 </script>
 
 <script>
