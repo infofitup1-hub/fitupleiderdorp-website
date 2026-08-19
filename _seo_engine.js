@@ -73,8 +73,8 @@ const FOOTER=`<footer>
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
         <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
-        <li><a href="tel:0645280679">06 45280679</a></li>
-        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="tel:0645280679">06 - 45 28 06 79</a></li>
+        <li><a href="mailto:info@fitupleiderdorp.nl">info@fitupleiderdorp.nl</a></li>
         <li><a href="https://wa.me/31645280679" target="_blank" rel="noopener">WhatsApp direct</a></li>
       </ul></div>
     </div>
@@ -138,7 +138,7 @@ const L={
 function render(p){
   const url='https://fitupleiderdorp.nl/'+p.slug+'/';
   const faqLD={"@context":"https://schema.org","@type":"FAQPage","mainEntity":p.faq.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":(f.a).replace(/<[^>]+>/g,'')}}))};
-  const bizLD={"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]};
+  const bizLD={"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"info@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]};
   const crumbLD={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":p.crumb,"item":url}]};
   const pills=p.pills.map(t=>'<span class="trust-pill">'+chk+t+'</span>').join('');
   const stats=p.card.stats.map(s=>'<div><div class="hsc-stat-num">'+s[0]+'</div><div class="hsc-stat-label">'+s[1]+'</div></div>').join('\n        ');

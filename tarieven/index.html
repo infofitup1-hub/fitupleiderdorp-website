@@ -130,6 +130,17 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .price-trial:hover{color:var(--black)}
   .price-card:not(.featured) .price-trial{color:var(--accent-ink)}
   .price-card:not(.featured) .price-trial:hover{color:var(--ink)}
+  .price-reframe{font-size:12.5px;color:var(--ink-mute);line-height:1.5;margin:-8px 0 20px}
+  .price-reframe strong{color:var(--ink);font-weight:700}
+  .price-card.featured .price-reframe{color:rgba(0,0,0,.6)}
+  .price-card.featured .price-reframe strong{color:var(--black)}
+  .pt-tagline{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:-4px 0 16px}
+  .pt-card.recommend .pt-tagline{color:rgba(255,255,255,.55)}
+  .pt-reframe{font-size:12.5px;color:var(--ink-mute);line-height:1.5;margin:-4px 0 20px}
+  .pt-reframe strong{color:var(--ink);font-weight:700}
+  .pt-card.recommend .pt-reframe{color:rgba(255,255,255,.55)}
+  .pt-card.recommend .pt-reframe strong{color:var(--white)}
+  .stu-reframe{font-size:11.5px;color:rgba(255,255,255,.4);margin-top:4px}
   /* SGPT freq toggle inside card */
   .freq-switch{display:flex;background:rgba(0,0,0,.18);padding:3px;gap:2px;margin-bottom:18px;border:1px solid rgba(0,0,0,.12)}
   .price-card:not(.featured) .freq-switch{background:var(--paper2);border-color:var(--line)}
@@ -380,7 +391,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 .nav-drawer .drawer-group{border-bottom:1px solid rgba(255,255,255,.06)}
 .nav-drawer .drawer-group > a{border-bottom:0}
 .nav-drawer .drawer-sub{list-style:none;display:flex;flex-direction:column;padding:0 0 14px 4px;margin:-6px 0 0 0}
-.nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:10px 0 10px 18px;border-bottom:0;position:relative}
+.nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:16px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:13px 0 13px 18px;min-height:44px;display:flex;align-items:center;border-bottom:0;position:relative}
 .nav-drawer .drawer-sub a::before{content:"";position:absolute;left:0;top:50%;width:8px;height:1px;background:rgba(212,255,0,.6);transform:translateY(-50%)}
 .nav-drawer .drawer-sub a::after{display:none}
 .nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
@@ -394,7 +405,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </style>
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/main.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"info@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Tarieven","item":"https://fitupleiderdorp.nl/tarieven/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Zit er een opzegtermijn aan mijn abonnement?","acceptedAnswer":{"@type":"Answer","text":"Bij een 6- of 12-maanden abonnement zit je vast aan die looptijd; daarna kun je opzeggen met vier weken opzegtermijn. Koos je voor het flexibele abonnement, dan geldt die opzegtermijn van vier weken vanaf dag 1. Opzeggen kan altijd per mail of WhatsApp."}},{"@type":"Question","name":"Is er een inschrijfgeld of administratiekosten?","acceptedAnswer":{"@type":"Answer","text":"Nee. Je betaalt alleen je abonnement — geen inschrijfgeld, geen administratiekosten, geen verborgen kosten."}},{"@type":"Question","name":"Wat is het verschil tussen 12 maanden, 6 maanden en flexibel?","acceptedAnswer":{"@type":"Answer","text":"12 maanden = het scherpste tarief: 24/7 Fitness vanaf €48,50 en All-Inclusive vanaf €53,50. 6 maanden is iets hoger: €53,50 voor Fitness en €58,50 voor All-Inclusive. Liever per maand opzegbaar? Dat kan met het flexibele All-Inclusive abonnement van €68,50 per 4 weken."}},{"@type":"Question","name":"Kan ik mijn abonnement pauzeren bij vakantie of blessure?","acceptedAnswer":{"@type":"Answer","text":"Ja. Bij vakantie kun je tot 4 weken per jaar gratis pauzeren. Bij langdurige blessure met doktersverklaring volledig."}},{"@type":"Question","name":"Is er studentenkorting?","acceptedAnswer":{"@type":"Answer","text":"Ja. Met een geldige studentenpas train je 24/7 Fitness voor €38,50 en All-Inclusive voor €43,50 per 4 weken. Laat je pas zien bij de intake."}},{"@type":"Question","name":"Wat als ik niet zeker weet welk abonnement bij me past?","acceptedAnswer":{"@type":"Answer","text":"Plan een gratis intake. We adviseren altijd het abonnement dat past bij jouw doel — niet bij ons hoogste tarief."}},{"@type":"Question","name":"Hoe verloopt de betaling?","acceptedAnswer":{"@type":"Answer","text":"Automatische incasso, elke 4 weken. Eenvoudig en transparant."}}]}</script>
 </head>
@@ -403,11 +414,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   <a href="../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../assets/images/logo-mark-on-dark.png" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
-    <li><a href="../trainingsaanbod/index.html">Trainingsaanbod</a></li>
-    <li><a href="../online-coaching/index.html">Online Coaching</a></li>
+    <li><a href="../index.html">Home</a></li>
+    <li class="has-sub">
+      <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
+      <ul class="nav-submenu">
+        <li><a href="../trainingsaanbod/personal-training/index.html">1-op-1 PT<small>Volledig persoonlijke coaching</small></a></li>
+        <li><a href="../trainingsaanbod/personal-training/index.html#duo-training">Duo Training<small>Samen trainen, 1-op-2</small></a></li>
+        <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group<small>Kleine vaste groep, max. 4</small></a></li>
+        <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen<small>Gecoacht, op vaste tijden</small></a></li>
+      </ul>
+    </li>
     <li><a href="../tarieven/index.html" class="active">Tarieven</a></li>
-    <li><a href="../gratis-intake/index.html">Contact</a></li>
-    <li><a href="../gratis-intake/index.html" class="nav-btn">Gratis intake</a></li>
+    <li><a href="../index.html#verhaal">Over Fit Up</a></li>
+    <li><a href="../gratis-intake/index.html" class="nav-btn">Contact</a></li>
   </ul>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
     <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -415,11 +434,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </button>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-  <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
-  <a href="../online-coaching/index.html">Online Coaching</a>
-  <a href="../tarieven/index.html">Tarieven</a>
-  <a href="../gratis-intake/index.html">Contact</a>
-  <a href="../gratis-intake/index.html" class="drawer-cta">Gratis intake</a>
+  <a href="../index.html">Home</a>
+  <div class="drawer-group">
+    <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
+    <ul class="drawer-sub">
+      <li><a href="../trainingsaanbod/personal-training/index.html">1-op-1 PT</a></li>
+      <li><a href="../trainingsaanbod/personal-training/index.html#duo-training">Duo Training</a></li>
+      <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group</a></li>
+      <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+    </ul>
+  </div>
+  <a href="../tarieven/index.html" class="active">Tarieven</a>
+  <a href="../index.html#verhaal">Over Fit Up</a>
+  <a href="../gratis-intake/index.html" class="drawer-cta">Contact</a>
 </div>
 
 <!-- HERO -->
@@ -459,7 +486,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="price-card swipe-slide reveal">
         <div class="price-tag">Zelfstandig trainen</div>
         <div class="price-name">24/7<br>Fitness</div>
-        <p class="price-tagline">Onbeperkt toegang tot onze fitnessruimte. Altijd open, altijd rustig.</p>
+        <p class="price-tagline">Train op elk moment van de dag, in een rustige ruimte zonder wachtrij of drukte.</p>
 
         <div class="price-amount">
           <span class="currency">€</span>
@@ -468,6 +495,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         </div>
         <div class="price-unit">per 4 weken · 12 maanden contract</div>
         <span class="price-flex-note">of €53,50 voor 6 maanden</span>
+        <p class="price-reframe">Dat is <strong>€1,73 per dag</strong> — minder dan een koffie buitenshuis.</p>
 
         <a href="../gratis-intake/index.html" class="price-cta">
           Start met fitness
@@ -476,10 +504,10 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 
         <div class="price-divider"></div>
         <ul class="price-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 toegang met persoonlijke QR-code</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fitnessruimte &amp; cardio</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dumbbells tot 40kg, Concept2 rowers</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kleedkamers met douche</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt toegang</strong>, dag en nacht, met je eigen QR-code</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Volledige fitnessruimte</strong> en cardio</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Dumbbells tot 40kg</strong> en Concept2 rowers</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Kleedkamers</strong> met douche</span></li>
         </ul>
         <div class="price-foot">Geen inschrijfgeld · Gratis intake</div>
       </div>
@@ -489,7 +517,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="price-ribbon">★ Meest gekozen</div>
         <div class="price-tag">Fitness + alle groepslessen</div>
         <div class="price-name">All-<br>Inclusive</div>
-        <p class="price-tagline">Alles uit 24/7 Fitness, plus onbeperkt alle groepslessen per week.</p>
+        <p class="price-tagline">Dezelfde rust van 24/7 Fitness, met alle groepslessen erbij. Nooit meer los bijboeken.</p>
 
         <div class="price-amount">
           <span class="currency">€</span>
@@ -498,6 +526,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         </div>
         <div class="price-unit">per 4 weken · 12 maanden contract</div>
         <span class="price-flex-note">of €58,50 (6 mnd) · €68,50 flexibel</span>
+        <p class="price-reframe">Dat is <strong>€1,91 per dag</strong> — inclusief alle groepslessen.</p>
 
         <a href="../gratis-intake/index.html" class="price-cta">
           Start met All-Inclusive
@@ -507,12 +536,12 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 
         <div class="price-divider"></div>
         <ul class="price-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit 24/7 Fitness</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Boksfit, HIIT, Hyrox, Bodypump</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis reserveren via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis intake-gesprek</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4 weken per jaar gratis pauzeren</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Alles uit 24/7 Fitness</strong>, plus meer</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong>, elke week</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Boksfit, HIIT, Hyrox, Bodypump</strong> en meer</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis reserveren</strong> via de app</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis intakegesprek</strong> vooraf</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4 weken pauzeren</strong>, elk jaar gratis</span></li>
         </ul>
         <div class="price-foot">Geen verborgen kosten · Geen inschrijfgeld</div>
       </div>
@@ -521,12 +550,12 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="price-card swipe-slide reveal d2" id="sgpt-card">
         <div class="price-tag">Begeleid + resultaat</div>
         <div class="price-name">Small<br>Group PT</div>
-        <p class="price-tagline">Persoonlijke coaching in vaste kleine groep van max. 4. Inclusief alles.</p>
+        <p class="price-tagline">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
 
         <div class="freq-switch" role="tablist" aria-label="Frequentie SGPT">
-          <button role="tab" data-freq="1" data-price="149" data-frac="" class="active" aria-selected="true">1× p/w</button>
-          <button role="tab" data-freq="2" data-price="220" data-frac="" aria-selected="false">2× p/w</button>
-          <button role="tab" data-freq="3" data-price="285" data-frac="" aria-selected="false">3× p/w</button>
+          <button role="tab" data-freq="1" data-price="149" data-frac="" data-day="5,32" class="active" aria-selected="true">1× p/w</button>
+          <button role="tab" data-freq="2" data-price="220" data-frac="" data-day="7,86" aria-selected="false">2× p/w</button>
+          <button role="tab" data-freq="3" data-price="285" data-frac="" data-day="10,18" aria-selected="false">3× p/w</button>
         </div>
 
         <div class="price-amount" aria-live="polite">
@@ -535,6 +564,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <span class="frac" id="sgpt-frac"></span>
         </div>
         <div class="price-unit">per 4 weken · <span id="sgpt-unit">1× per week</span></div>
+        <p class="price-reframe">Dat is <strong>€<span id="sgpt-day">5,32</span> per dag</strong> — de prijs van een lunch, met een vaste coach en groep.</p>
 
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="price-cta">
           Plan gratis intake
@@ -543,12 +573,12 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 
         <div class="price-divider"></div>
         <ul class="price-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Vaste kleine groep van max. 4</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Vaste eigen trainer</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsplan via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 Fitness inbegrepen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt groepslessen inbegrepen</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
         </ul>
         <div class="price-foot">Duo-tarief op aanvraag</div>
       </div>
@@ -578,6 +608,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <span class="currency">€</span><span class="num">38</span><span class="frac">,50</span>
         </div>
         <div class="stu-unit">per 4 weken · 12 maanden contract</div>
+        <div class="stu-reframe">€1,38 per dag</div>
       </div>
 
       <div class="stu-item">
@@ -586,6 +617,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <span class="currency">€</span><span class="num">43</span><span class="frac">,50</span>
         </div>
         <div class="stu-unit">per 4 weken · 12 maanden · incl. groepslessen</div>
+        <div class="stu-reframe">€1,55 per dag</div>
       </div>
 
       <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20studentenabonnement" class="stu-cta">
@@ -611,16 +643,18 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="pt-card reveal d1">
         <div class="pt-tag">Alleen PT</div>
         <div class="pt-name">Personal<br>Training</div>
+        <p class="pt-tagline">Eén coach, jouw tempo — voor wie maximale aandacht wil.</p>
         <div class="pt-price">
           <span class="currency">€</span>
           <span class="num">300</span>
         </div>
         <div class="pt-unit">per 4 weken · 4 sessies van 60 min</div>
+        <p class="pt-reframe">Dat is <strong>€10,71 per dag</strong> — voor een trainer die alleen naar jou kijkt.</p>
         <ul class="pt-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
         </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training" class="pt-cta">
           Plan gratis intake
@@ -632,18 +666,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="badge">Aanrader</div>
         <div class="pt-tag">PT + alles inbegrepen</div>
         <div class="pt-name">Personal<br>Training Plus</div>
+        <p class="pt-tagline">Dezelfde 1-op-1 coaching, plus onbeperkt trainen en groepslessen erbij.</p>
         <div class="pt-price">
           <span class="currency">€</span>
           <span class="num">350</span>
         </div>
         <div class="pt-unit">per 4 weken · incl. 24/7 Fitness + groepslessen</div>
+        <p class="pt-reframe">Dat is <strong>€12,50 per dag</strong> — alles inbegrepen, zonder extra's.</p>
         <ul class="pt-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4× 60 min 1-op-1 per maand</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Persoonlijk trainings­schema</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt 24/7 Fitness</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt 24/7 Fitness</strong> inbegrepen</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong> inbegrepen</span></li>
         </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="pt-cta">
           Plan gratis intake
@@ -858,8 +893,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
         <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
-        <li><a href="tel:0645280679">06 45280679</a></li>
-        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="tel:0645280679">06 - 45 28 06 79</a></li>
+        <li><a href="mailto:info@fitupleiderdorp.nl">info@fitupleiderdorp.nl</a></li>
         <li><a href="https://wa.me/31645280679" target="_blank" rel="noopener">WhatsApp</a></li>
       </ul></div>
     </div>
@@ -887,6 +922,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     const buttons = sgptCard.querySelectorAll('.freq-switch button');
     const num = document.getElementById('sgpt-num');
     const unit = document.getElementById('sgpt-unit');
+    const day = document.getElementById('sgpt-day');
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
@@ -894,6 +930,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         btn.setAttribute('aria-selected','true');
         num.textContent = btn.dataset.price;
         unit.textContent = btn.dataset.freq + '× per week';
+        day.textContent = btn.dataset.day;
       });
     });
   }

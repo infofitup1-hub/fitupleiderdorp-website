@@ -374,7 +374,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 .nav-drawer .drawer-group{border-bottom:1px solid rgba(255,255,255,.06)}
 .nav-drawer .drawer-group > a{border-bottom:0}
 .nav-drawer .drawer-sub{list-style:none;display:flex;flex-direction:column;padding:0 0 14px 4px;margin:-6px 0 0 0}
-.nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:10px 0 10px 18px;border-bottom:0;position:relative}
+.nav-drawer .drawer-sub a{font-family:var(--fb);font-weight:500;font-size:16px;letter-spacing:.3px;text-transform:none;color:rgba(255,255,255,.65);padding:13px 0 13px 18px;min-height:44px;display:flex;align-items:center;border-bottom:0;position:relative}
 .nav-drawer .drawer-sub a::before{content:"";position:absolute;left:0;top:50%;width:8px;height:1px;background:rgba(212,255,0,.6);transform:translateY(-50%)}
 .nav-drawer .drawer-sub a::after{display:none}
 .nav-drawer .drawer-sub a:hover{color:var(--accent);padding-left:24px}
@@ -388,7 +388,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </style>
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/main.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"info.fitup1@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"info@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Online Coaching","item":"https://fitupleiderdorp.nl/online-coaching/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Coaching Fit Up Leiderdorp","description":"Persoonlijk trainings- en voedingsschema, wekelijkse check-in en techniek-coaching op video, overal ter wereld.","url":"https://fitupleiderdorp.nl/online-coaching/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"offers":[{"@type":"Offer","name":"Basis (Online Coaching)","price":"50","priceCurrency":"EUR","description":"per 4 weken"},{"@type":"Offer","name":"Basis (Online Coaching) — 12-weken traject","price":"135","priceCurrency":"EUR","description":"12-weken traject, normaal €150"},{"@type":"Offer","name":"Plus (Hybride Coaching)","price":"75","priceCurrency":"EUR","description":"per 4 weken, online begeleiding plus fysieke check-ins in de club"},{"@type":"Offer","name":"Plus (Hybride Coaching) — 12-weken traject","price":"199","priceCurrency":"EUR","description":"12-weken traject, normaal €225, online begeleiding plus fysieke check-ins in de club"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Moet ik in Leiderdorp wonen?","acceptedAnswer":{"@type":"Answer","text":"Nee. Online Coaching werkt overal in Nederland en je hoeft geen lid te zijn van de fysieke club. Voor Hybride kom je af en toe langs bij Fit Up Leiderdorp."}},{"@type":"Question","name":"Is Online Coaching hetzelfde als Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Nee. Bij Personal Training staat je coach fysiek naast je tijdens de training. Bij Online Coaching train je zelfstandig en krijg je op afstand planning en feedback."}},{"@type":"Question","name":"Wat als ik geen ervaring heb met krachttraining?","acceptedAnswer":{"@type":"Answer","text":"Geen probleem. Elke oefening heeft een techniekvideo en je kunt je sets op video insturen voor feedback."}},{"@type":"Question","name":"Kan ik tussentijds switchen naar Personal Training?","acceptedAnswer":{"@type":"Answer","text":"Ja, zonder extra inschrijfkosten. Je betaalt vanaf het moment van switchen het nieuwe tarief."}}]}</script>
@@ -398,11 +398,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   <a href="../index.html" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../assets/images/logo-mark-on-dark.png" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
-    <li><a href="../trainingsaanbod/index.html">Trainingsaanbod</a></li>
-    <li><a href="../online-coaching/index.html" class="active">Online Coaching</a></li>
+    <li><a href="../index.html">Home</a></li>
+    <li class="has-sub">
+      <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
+      <ul class="nav-submenu">
+        <li><a href="../trainingsaanbod/personal-training/index.html">1-op-1 PT<small>Volledig persoonlijke coaching</small></a></li>
+        <li><a href="../trainingsaanbod/personal-training/index.html#duo-training">Duo Training<small>Samen trainen, 1-op-2</small></a></li>
+        <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group<small>Kleine vaste groep, max. 4</small></a></li>
+        <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen<small>Gecoacht, op vaste tijden</small></a></li>
+      </ul>
+    </li>
     <li><a href="../tarieven/index.html">Tarieven</a></li>
-    <li><a href="../gratis-intake/index.html">Contact</a></li>
-    <li><a href="#intake" class="nav-btn">Gratis intake</a></li>
+    <li><a href="../index.html#verhaal">Over Fit Up</a></li>
+    <li><a href="../gratis-intake/index.html" class="nav-btn">Contact</a></li>
   </ul>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-drawer">
     <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -410,11 +418,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </button>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-  <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
-  <a href="../online-coaching/index.html">Online Coaching</a>
+  <a href="../index.html">Home</a>
+  <div class="drawer-group">
+    <a href="../trainingsaanbod/index.html">Trainingsaanbod</a>
+    <ul class="drawer-sub">
+      <li><a href="../trainingsaanbod/personal-training/index.html">1-op-1 PT</a></li>
+      <li><a href="../trainingsaanbod/personal-training/index.html#duo-training">Duo Training</a></li>
+      <li><a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html">Small Group</a></li>
+      <li><a href="../trainingsaanbod/groepslessen/index.html">Groepslessen</a></li>
+    </ul>
+  </div>
   <a href="../tarieven/index.html">Tarieven</a>
-  <a href="../gratis-intake/index.html">Contact</a>
-  <a href="#intake" class="drawer-cta">Gratis intake</a>
+  <a href="../index.html#verhaal">Over Fit Up</a>
+  <a href="../gratis-intake/index.html" class="drawer-cta">Contact</a>
 </div>
 
 <!-- 1. HERO -->
@@ -927,8 +943,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
         <li><a href="https://maps.google.com/?q=Weversbaan+9+Leiderdorp" target="_blank" rel="noopener">Weversbaan 9, Leiderdorp</a></li>
-        <li><a href="tel:0645280679">06 45280679</a></li>
-        <li><a href="mailto:info.fitup1@gmail.com">info.fitup1@gmail.com</a></li>
+        <li><a href="tel:0645280679">06 - 45 28 06 79</a></li>
+        <li><a href="mailto:info@fitupleiderdorp.nl">info@fitupleiderdorp.nl</a></li>
         <li><a href="https://wa.me/31645280679" target="_blank" rel="noopener">WhatsApp</a></li>
       </ul></div>
     </div>
