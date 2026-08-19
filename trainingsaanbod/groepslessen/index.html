@@ -90,15 +90,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;color:var(--white)}
   .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
   .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
-  .page-hero-right{position:relative;display:flex;gap:8px;padding:40px 40px 40px 0}
-  .hero-strip-track{display:contents}
-  .hero-strip-photo{position:relative;flex:1;min-width:0;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--sh-hover);opacity:0;animation:fadeIn 1s ease .3s forwards}
-  .hero-strip-photo img{width:100%;height:100%;object-fit:cover;object-position:center 75%;display:block}
-  .hero-strip-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.4) 0%,transparent 40%);pointer-events:none}
+  .page-hero-right{position:relative;display:flex;align-items:center;justify-content:center;padding:60px 40px}
+  .hero-photo-card{position:relative;width:100%;max-width:300px;aspect-ratio:4/5;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--sh-hover);opacity:0;animation:fadeIn 1s ease .3s forwards}
+  .hero-cycle-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.2s ease}
+  .hero-cycle-img.is-active{opacity:1}
+  .hero-photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.65) 0%,transparent 45%);pointer-events:none;z-index:1}
   .hero-badge{position:absolute;bottom:16px;left:12px;right:12px;background:var(--accent);color:var(--black);padding:10px 12px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;z-index:2;display:flex;align-items:center;justify-content:center;gap:6px;opacity:0;animation:fadeUp .6s ease 1s forwards}
-  .hero-strip-pagination{display:none;align-items:center;justify-content:center;gap:8px}
-  .hero-strip-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-  .hero-strip-dot.is-active{background:var(--accent);transform:scale(1.25)}
 
   /* SECTION HEADERS */
   .sec-head{text-align:center;margin-bottom:56px}
@@ -207,11 +204,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @media (max-width:980px){
     .page-hero{grid-template-columns:1fr;min-height:auto}
     .page-hero-left{padding:40px}
-    .page-hero-right{min-height:0;padding:0 0 0 40px;flex-direction:column;align-items:stretch;gap:16px}
-    .hero-strip-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:10px;width:100%;height:420px;padding-right:40px}
-    .hero-strip-track::-webkit-scrollbar{display:none}
-    .hero-strip-photo{flex:0 0 82%;scroll-snap-align:start}
-    .hero-strip-pagination{display:flex}
+    .page-hero-right{min-height:340px;padding:0 40px 40px}
     .classes-track{grid-template-columns:1fr 1fr}
     .class-content{padding:24px 20px;max-width:none}
     .classes{padding:48px 0 64px}
@@ -238,7 +231,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
     .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:0 0 0 20px!important;gap:12px!important}
-    .hero-strip-track{height:380px;padding-right:20px}
+    .page-hero-right{min-height:280px!important;padding:0 20px 32px!important}
     .page-hero-sub,.fu-page-hero-sub{font-size:15px}
     .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
     .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
@@ -355,8 +348,8 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 <script src="../../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"info@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Trainingsaanbod","item":"https://fitupleiderdorp.nl/trainingsaanbod/"},{"@type":"ListItem","position":3,"name":"Groepslessen","item":"https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Groepslessen Leiderdorp","description":"Groepslessen bij Fit Up Leiderdorp: Bodypump, Boksfit, HIIT & Hyrox en Powerhour, onbeperkt inbegrepen bij het All-Inclusive abonnement.","url":"https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"areaServed":{"@type":"City","name":"Leiderdorp"},"offers":[{"@type":"Offer","name":"All-Inclusive abonnement","price":"53.50","priceCurrency":"EUR","description":"per 4 weken, onbeperkt alle groepslessen inbegrepen"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Moet ik me vooraf inschrijven voor een les?","acceptedAnswer":{"@type":"Answer","text":"Ja. Voor groepslessen reserveer je vooraf je plek via de app, zo weet je zeker dat er plek voor je is."}},{"@type":"Question","name":"Voor welk niveau zijn de lessen?","acceptedAnswer":{"@type":"Answer","text":"Bodypump, Boksfit en Powerhour zijn geschikt voor elk niveau — de trainer geeft alternatieven voor elke oefening. HIIT & Hyrox vraagt iets meer conditie, maar ook daar passen we aan op jouw tempo."}},{"@type":"Question","name":"Zit dit bij mijn abonnement?","acceptedAnswer":{"@type":"Answer","text":"Bij het All-Inclusive abonnement (vanaf €53,50 per 4 weken) zit onbeperkt meedoen met alle groepslessen inbegrepen. Bij het 24/7 Fitness abonnement zitten groepslessen niet inbegrepen — daarvoor upgrade je naar All-Inclusive. Geen losse strippenkaarten of extra kosten."}},{"@type":"Question","name":"Wat moet ik meenemen?","acceptedAnswer":{"@type":"Answer","text":"Sportkleren, schone binnenschoenen en een handdoek. Voor Boksfit zijn handschoenen aanwezig, maar eigen wraps zijn aan te raden. Bodypump-gewichten staan klaar in de zaal."}},{"@type":"Question","name":"Kan ik een gratis intake doen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Stuur ons een berichtje via WhatsApp en we plannen een gratis intake in. Daarna mag je rustig kijken of het bij je past — zonder verplichting."}},{"@type":"Question","name":"Hoe vaak per week kan ik komen?","acceptedAnswer":{"@type":"Answer","text":"Zo vaak je wilt. Onbeperkt deelnemen betekent ook echt onbeperkt. Combineer Bodypump met Boksfit, of doe vier keer per week Powerhour — jouw keuze."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Groepslessen Leiderdorp","description":"Groepslessen bij Fit Up Leiderdorp: Bodypump, Boksfit, HIIT & Hyrox, Powerhour en BBB, onbeperkt inbegrepen bij het All-Inclusive abonnement.","url":"https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/","provider":{"@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352BZ","addressCountry":"NL"}},"areaServed":{"@type":"City","name":"Leiderdorp"},"offers":[{"@type":"Offer","name":"All-Inclusive abonnement","price":"53.50","priceCurrency":"EUR","description":"per 4 weken, onbeperkt alle groepslessen inbegrepen"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Moet ik me vooraf inschrijven voor een les?","acceptedAnswer":{"@type":"Answer","text":"Ja. Voor groepslessen reserveer je vooraf je plek via de app, zo weet je zeker dat er plek voor je is."}},{"@type":"Question","name":"Voor welk niveau zijn de lessen?","acceptedAnswer":{"@type":"Answer","text":"Bodypump, Boksfit, Powerhour en BBB zijn geschikt voor elk niveau — de trainer geeft alternatieven voor elke oefening. HIIT & Hyrox vraagt iets meer conditie, maar ook daar passen we aan op jouw tempo."}},{"@type":"Question","name":"Zit dit bij mijn abonnement?","acceptedAnswer":{"@type":"Answer","text":"Bij het All-Inclusive abonnement (vanaf €53,50 per 4 weken) zit onbeperkt meedoen met alle groepslessen inbegrepen. Bij het 24/7 Fitness abonnement zitten groepslessen niet inbegrepen — daarvoor upgrade je naar All-Inclusive. Geen losse strippenkaarten of extra kosten."}},{"@type":"Question","name":"Wat moet ik meenemen?","acceptedAnswer":{"@type":"Answer","text":"Sportkleren, schone binnenschoenen en een handdoek. Voor Boksfit zijn handschoenen aanwezig, maar eigen wraps zijn aan te raden. Bodypump-gewichten staan klaar in de zaal."}},{"@type":"Question","name":"Kan ik een gratis intake doen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Stuur ons een berichtje via WhatsApp en we plannen een gratis intake in. Daarna mag je rustig kijken of het bij je past — zonder verplichting."}},{"@type":"Question","name":"Hoe vaak per week kan ik komen?","acceptedAnswer":{"@type":"Answer","text":"Zo vaak je wilt. Onbeperkt deelnemen betekent ook echt onbeperkt. Combineer Bodypump met Boksfit, of doe vier keer per week Powerhour — jouw keuze."}}]}</script>
 </head>
 <body>
 
@@ -404,9 +397,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Groepslessen</div>
     <h1>Groepslessen<br><em>Leiderdorp</em></h1>
     <p class="page-hero-sub">
-      Vier compacte groepslessen met <strong>vaste trainers</strong>. Van loeizware
-      barbell-sessies tot bokshandschoenen — onbeperkt meedoen met het
-      <strong>All-Inclusive abonnement</strong> vanaf €53,50 per 4 weken.
+      Vijf groepslessen met vaste trainers — kracht, conditie en techniek.
+      Onbeperkt meedoen met het <strong>All-Inclusive abonnement</strong>
+      vanaf €53,50 per 4 weken.
     </p>
     <div class="page-hero-ctas">
       <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">Plan een gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -414,22 +407,11 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </div>
   </div>
   <div class="page-hero-right">
-    <div class="hero-strip-track" id="groepslessen-hero-track">
-      <div class="hero-strip-photo">
-        <img src="../../assets/images/groepslessen-sled.jpg" alt="Sled push tijdens Powerhour bij Fit Up Leiderdorp" width="874" height="1920" fetchpriority="high" decoding="async" class="hero-slide">
-      </div>
-      <div class="hero-strip-photo">
-        <img src="../../assets/images/groepslessen-medball.jpg" alt="Medicine ball training tijdens groepsles bij Fit Up Leiderdorp" width="874" height="1920" loading="lazy" decoding="async" class="hero-slide">
-      </div>
-      <div class="hero-strip-photo">
-        <img src="../../assets/images/groepslessen-boksfit.jpg" alt="Boksfit groepsles bij Fit Up Leiderdorp" width="1080" height="1920" loading="lazy" decoding="async" class="hero-slide">
-        <div class="hero-badge">★ Onbeperkt meedoen</div>
-      </div>
-    </div>
-    <div class="hero-strip-pagination" id="groepslessen-hero-pagination" role="tablist" aria-label="Foto's van de groepslessen">
-      <button type="button" class="hero-strip-dot is-active" aria-label="Foto 1" aria-selected="true"></button>
-      <button type="button" class="hero-strip-dot" aria-label="Foto 2" aria-selected="false"></button>
-      <button type="button" class="hero-strip-dot" aria-label="Foto 3" aria-selected="false"></button>
+    <div class="hero-photo-card" id="groepslessen-hero-cycle">
+      <img src="../../assets/images/groepslessen-sled.jpg" alt="Sled push tijdens Powerhour bij Fit Up Leiderdorp" width="874" height="1920" fetchpriority="high" decoding="async" class="hero-cycle-img is-active" style="object-position:center 79%">
+      <img src="../../assets/images/groepslessen-medball.jpg" alt="Medicine ball training tijdens groepsles bij Fit Up Leiderdorp" width="874" height="1920" loading="lazy" decoding="async" class="hero-cycle-img" style="object-position:center 68%">
+      <img src="../../assets/images/groepslessen-boksfit.jpg" alt="Boksfit groepsles bij Fit Up Leiderdorp" width="1080" height="1920" loading="lazy" decoding="async" class="hero-cycle-img" style="object-position:center 88%">
+      <div class="hero-badge">★ Onbeperkt meedoen</div>
     </div>
   </div>
 </header>
@@ -461,9 +443,9 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   </style>
   <div class="container">
     <div class="sec-head" style="margin-bottom:0">
-      <div class="sec-label reveal"><span class="sec-label-line"></span>Vier lessen, één doel</div>
+      <div class="sec-label reveal"><span class="sec-label-line"></span>Vijf lessen, één doel</div>
       <h2 class="reveal d1">Sterker, fitter,<br><em>scherper.</em></h2>
-      <p class="reveal d2">Vier doordachte lessen die elkaar aanvullen: barbell-kracht, conditie, intervaltraining en bokstechniek.</p>
+      <p class="reveal d2">Vijf doordachte lessen die elkaar aanvullen: barbell-kracht, conditie, intervaltraining, bokstechniek en core.</p>
     </div>
   </div>
 </section>
@@ -596,12 +578,43 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       </div>
     </article>
 
+    <!-- BBB -->
+    <article class="class-block swipe-slide reveal">
+      <div class="class-content">
+        <div class="class-eyebrow">Les 05 · Core &amp; kracht</div>
+        <h3 class="class-title"><em>BBB</em></h3>
+        <div class="class-intensity">
+          <span class="int-label">Intensiteit</span>
+          <div class="int-bar" role="img" aria-label="Intensiteit: 3 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
+        </div>
+        <details class="class-more">
+          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="class-more-body">
+            <p class="class-desc">Buik, billen, benen — gerichte krachttraining voor je onderlichaam en core. Met gewichten en eigen lichaamsgewicht bouw je kracht en definitie op, op woensdagochtend en -avond.</p>
+            <div class="class-meta">
+              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>45</em> min</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
+              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
+            </div>
+            <div class="class-focus">
+              <span>Buik</span>
+              <span>Billen</span>
+              <span>Benen</span>
+              <span>Woensdag</span>
+            </div>
+            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
+          </div>
+        </details>
+      </div>
+    </article>
+
   </div>
   <div class="classes-dots" data-swipe-dots="classes" role="tablist" aria-label="Groepslessen">
     <button type="button" class="dot is-active" aria-label="Les 1" aria-selected="true"></button>
     <button type="button" class="dot" aria-label="Les 2" aria-selected="false"></button>
     <button type="button" class="dot" aria-label="Les 3" aria-selected="false"></button>
     <button type="button" class="dot" aria-label="Les 4" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Les 5" aria-selected="false"></button>
   </div>
   </div>
 </section>
@@ -620,7 +633,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <div style="font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;font-weight:600">All-Inclusive abonnement</div>
         </div>
         <div class="price-feat">
-          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt meedoen met alle 4 lessen</span>
+          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt meedoen met alle 5 lessen</span>
           <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inbegrepen bij het All-Inclusive abonnement</span>
           <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Maandelijks opzegbaar</span>
         </div>
@@ -650,7 +663,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     </div>
     <div class="faq-grid">
       <details class="faq-item reveal"><summary class="faq-q">Moet ik me vooraf inschrijven voor een les?</summary><div class="faq-a">Ja. Voor groepslessen reserveer je vooraf je plek via de app, zo weet je zeker dat er plek voor je is.</div></details>
-      <details class="faq-item reveal d1"><summary class="faq-q">Voor welk niveau zijn de lessen?</summary><div class="faq-a">Bodypump, Boksfit en Powerhour zijn geschikt voor elk niveau — de trainer geeft alternatieven voor elke oefening. HIIT & Hyrox vraagt iets meer conditie, maar ook daar passen we aan op jouw tempo.</div></details>
+      <details class="faq-item reveal d1"><summary class="faq-q">Voor welk niveau zijn de lessen?</summary><div class="faq-a">Bodypump, Boksfit, Powerhour en BBB zijn geschikt voor elk niveau — de trainer geeft alternatieven voor elke oefening. HIIT & Hyrox vraagt iets meer conditie, maar ook daar passen we aan op jouw tempo.</div></details>
       <details class="faq-item reveal d2"><summary class="faq-q">Zit dit bij mijn abonnement?</summary><div class="faq-a">Bij het <strong>All-Inclusive</strong> abonnement (vanaf €53,50 per 4 weken) zit onbeperkt meedoen met alle groepslessen inbegrepen. Bij het 24/7 Fitness abonnement zitten groepslessen niet inbegrepen — daarvoor upgrade je naar All-Inclusive. Geen losse strippenkaarten of extra kosten.</div></details>
       <details class="faq-item reveal d3"><summary class="faq-q">Wat moet ik meenemen?</summary><div class="faq-a">Sportkleren, schone binnenschoenen en een handdoek. Voor Boksfit zijn handschoenen aanwezig, maar eigen wraps zijn aan te raden. Bodypump-gewichten staan klaar in de zaal.</div></details>
       <details class="faq-item reveal d4"><summary class="faq-q">Kan ik een gratis intake doen?</summary><div class="faq-a">Ja. Stuur ons een berichtje via WhatsApp en we plannen een gratis intake in. Daarna mag je rustig kijken of het bij je past — zonder verplichting.</div></details>
@@ -746,35 +759,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </script>
 
 <script>
-/* === HERO PHOTO CAROUSEL (Groepslessen, mobile/tablet only) === */
+/* === HERO PHOTO AUTO-CYCLE (Groepslessen): fade automatisch tussen 3 foto's === */
 (function(){
-  var track = document.getElementById('groepslessen-hero-track');
-  var pagination = document.getElementById('groepslessen-hero-pagination');
-  if(!track || !pagination || !window.matchMedia('(max-width:980px)').matches) return;
-  var slides = track.querySelectorAll('.hero-slide');
-  var dots = pagination.querySelectorAll('.hero-strip-dot');
-  function setActive(i){
-    dots.forEach(function(d,idx){
-      var active = idx === i;
-      d.classList.toggle('is-active', active);
-      d.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        setActive(Array.prototype.indexOf.call(slides, entry.target));
-      }
-    });
-  }, {root:track, threshold:0.6});
-  slides.forEach(function(s){ io.observe(s); });
-  dots.forEach(function(dot, i){
-    dot.addEventListener('click', function(){
-      slides[i].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
-    });
-  });
+  var card = document.getElementById('groepslessen-hero-cycle');
+  if(!card) return;
+  var imgs = card.querySelectorAll('.hero-cycle-img');
+  if(imgs.length < 2) return;
+  var i = 0;
+  setInterval(function(){
+    imgs[i].classList.remove('is-active');
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add('is-active');
+  }, 4000);
 })();
-/* === END HERO PHOTO CAROUSEL === */
 </script>
 
 <script>

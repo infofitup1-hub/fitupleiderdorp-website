@@ -175,11 +175,19 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
   .page-hero{padding:64px 0 60px}
   .page-hero .hero-wrap{padding:0 20px}
   .hero-photo-diagonal{height:clamp(260px,80vw,420px);clip-path:polygon(0 0,100% 0,100% 80%,0 96%);margin-bottom:12px}
-  .services{padding:30px 0 80px}
-  .services-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding:0 20px}
-  .services-grid::-webkit-scrollbar{display:none}
-  .svc-card{flex:0 0 80%;scroll-snap-align:start;padding:24px 22px}
-  .services-dots{display:flex}
+  .services{padding:30px 20px 80px}
+  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .svc-card{padding:18px 15px;gap:8px}
+  .svc-icon svg{width:28px;height:28px}
+  .svc-tag{font-size:9.5px;letter-spacing:1.5px}
+  .svc-name{font-size:18px}
+  .svc-desc{font-size:12px;line-height:1.5}
+  .svc-price{font-size:10.5px;padding-top:10px;margin-top:2px}
+  .svc-price strong{font-size:14px}
+  .svc-more{font-size:10.5px}
+  .svc-arrow{top:16px;right:16px}
+  .svc-arrow svg{width:16px;height:16px}
+  .services-dots{display:none}
   .goal-finder{padding:0 20px 30px}
   .gf-inner{padding:30px 24px}
   .gf-row{flex-direction:column;align-items:flex-start;gap:10px}
