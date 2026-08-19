@@ -141,6 +141,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .pt-reframe strong{color:var(--ink);font-weight:700}
   .pt-card.recommend .pt-reframe{color:rgba(255,255,255,.55)}
   .pt-card.recommend .pt-reframe strong{color:var(--white)}
+  /* MEER INFORMATIE toggle — op smartphone dichtgeklapt, vanaf tablet altijd volledig zichtbaar */
+  .price-more,.pt-more{margin-top:2px}
+  .price-more summary,.pt-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);padding:12px 0;border-top:1px solid var(--line)}
+  .price-more summary::-webkit-details-marker,.pt-more summary::-webkit-details-marker{display:none}
+  .price-more summary .chev,.pt-more summary .chev{transition:transform .25s;flex-shrink:0}
+  .price-more[open] summary .chev,.pt-more[open] summary .chev{transform:rotate(180deg)}
+  .price-card.featured .price-more summary{color:var(--accent);border-top-color:rgba(0,0,0,.12)}
+  .pt-card.recommend .pt-more summary{color:var(--accent);border-top-color:rgba(255,255,255,.12)}
+  .price-more-body,.pt-more-body{padding-top:4px}
+  @media (min-width:641px){
+    .price-more summary,.pt-more summary{display:none}
+  }
   .stu-reframe{font-size:11.5px;color:rgba(255,255,255,.4);margin-top:4px}
   /* SGPT freq toggle inside card */
   .freq-switch{display:flex;background:rgba(0,0,0,.18);padding:3px;gap:2px;margin-bottom:18px;border:1px solid rgba(0,0,0,.12)}
@@ -482,7 +494,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="price-card swipe-slide reveal" id="fitness247-card">
         <div class="price-tag">Zelfstandig trainen</div>
         <div class="price-name">24/7<br>Fitness</div>
-        <p class="price-tagline">Train op elk moment van de dag, in een rustige ruimte zonder wachtrij of drukte.</p>
 
         <div class="price-amount">
           <span class="currency">€</span>
@@ -490,22 +501,28 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <span class="frac">,50</span>
         </div>
         <div class="price-unit">per 4 weken · 12 maanden contract</div>
-        <span class="price-flex-note">of €53,50 voor 6 maanden</span>
-        <p class="price-reframe">Dat is <strong>€1,73 per dag</strong> — minder dan een koffie buitenshuis.</p>
 
         <a href="../gratis-intake/index.html" class="price-cta">
           Start met fitness
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
 
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt toegang</strong>, dag en nacht, met je eigen QR-code</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Volledige fitnessruimte</strong> en cardio</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Dumbbells tot 40kg</strong> en Concept2 rowers</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Kleedkamers</strong> met douche</span></li>
-        </ul>
-        <div class="price-foot">Geen inschrijfgeld · Gratis intake</div>
+        <details class="price-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="price-more-body">
+            <p class="price-tagline">Train op elk moment van de dag, in een rustige ruimte zonder wachtrij of drukte.</p>
+            <span class="price-flex-note">of €53,50 voor 6 maanden</span>
+            <p class="price-reframe">Dat is <strong>€1,73 per dag</strong> — minder dan een koffie buitenshuis.</p>
+            <div class="price-divider"></div>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt toegang</strong>, dag en nacht, met je eigen QR-code</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Volledige fitnessruimte</strong> en cardio</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Dumbbells tot 40kg</strong> en Concept2 rowers</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Kleedkamers</strong> met douche</span></li>
+            </ul>
+            <div class="price-foot">Geen inschrijfgeld · Gratis intake</div>
+          </div>
+        </details>
       </div>
 
       <!-- ALL-INCLUSIVE (Featured) -->
@@ -513,7 +530,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="price-ribbon">★ Meest gekozen</div>
         <div class="price-tag">Fitness + alle groepslessen</div>
         <div class="price-name">All-<br>Inclusive</div>
-        <p class="price-tagline">Dezelfde rust van 24/7 Fitness, met alle groepslessen erbij. Nooit meer los bijboeken.</p>
 
         <div class="price-amount">
           <span class="currency">€</span>
@@ -521,8 +537,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <span class="frac">,50</span>
         </div>
         <div class="price-unit">per 4 weken · 12 maanden contract</div>
-        <span class="price-flex-note">of €58,50 (6 mnd) · €68,50 flexibel</span>
-        <p class="price-reframe">Dat is <strong>€1,91 per dag</strong> — inclusief alle groepslessen.</p>
 
         <a href="../gratis-intake/index.html" class="price-cta">
           Start met All-Inclusive
@@ -530,23 +544,30 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         </a>
         <a href="../gratis-intake/index.html" class="price-trial">Of: boek een gratis intake →</a>
 
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Alles uit 24/7 Fitness</strong>, plus meer</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong>, elke week</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Boksfit, HIIT, Hyrox, Bodypump</strong> en meer</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis reserveren</strong> via de app</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis intakegesprek</strong> vooraf</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4 weken pauzeren</strong>, elk jaar gratis</span></li>
-        </ul>
-        <div class="price-foot">Geen verborgen kosten · Geen inschrijfgeld</div>
+        <details class="price-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="price-more-body">
+            <p class="price-tagline">Dezelfde rust van 24/7 Fitness, met alle groepslessen erbij. Nooit meer los bijboeken.</p>
+            <span class="price-flex-note">of €58,50 (6 mnd) · €68,50 flexibel</span>
+            <p class="price-reframe">Dat is <strong>€1,91 per dag</strong> — inclusief alle groepslessen.</p>
+            <div class="price-divider"></div>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Alles uit 24/7 Fitness</strong>, plus meer</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong>, elke week</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Boksfit, HIIT, Hyrox, Bodypump</strong> en meer</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis reserveren</strong> via de app</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis intakegesprek</strong> vooraf</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4 weken pauzeren</strong>, elk jaar gratis</span></li>
+            </ul>
+            <div class="price-foot">Geen verborgen kosten · Geen inschrijfgeld</div>
+          </div>
+        </details>
       </div>
 
       <!-- SGPT -->
       <div class="price-card swipe-slide reveal d2" id="sgpt-card">
         <div class="price-tag">Begeleid + resultaat</div>
         <div class="price-name">Small<br>Group PT</div>
-        <p class="price-tagline">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
 
         <div class="freq-switch" role="tablist" aria-label="Frequentie SGPT">
           <button role="tab" data-freq="1" data-price="149" data-frac="" data-day="5,32" class="active" aria-selected="true">1× p/w</button>
@@ -560,23 +581,29 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
           <span class="frac" id="sgpt-frac"></span>
         </div>
         <div class="price-unit">per 4 weken · <span id="sgpt-unit">1× per week</span></div>
-        <p class="price-reframe">Dat is <strong>€<span id="sgpt-day">5,32</span> per dag</strong> — de prijs van een lunch, met een vaste coach en groep.</p>
 
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="price-cta">
           Plan gratis intake
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
 
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
-        </ul>
-        <div class="price-foot">Duo-tarief op aanvraag</div>
+        <details class="price-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="price-more-body">
+            <p class="price-tagline">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
+            <p class="price-reframe">Dat is <strong>€<span id="sgpt-day">5,32</span> per dag</strong> — de prijs van een lunch, met een vaste coach en groep.</p>
+            <div class="price-divider"></div>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
+            </ul>
+            <div class="price-foot">Duo-tarief op aanvraag</div>
+          </div>
+        </details>
       </div>
 
     </div>
@@ -612,47 +639,57 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <div class="pt-card reveal d1">
         <div class="pt-tag">Alleen PT</div>
         <div class="pt-name">Personal<br>Training</div>
-        <p class="pt-tagline">Eén coach, jouw tempo — voor wie maximale aandacht wil.</p>
         <div class="pt-price">
           <span class="currency">€</span>
           <span class="num">300</span>
         </div>
         <div class="pt-unit">per 4 weken · 4 sessies van 60 min</div>
-        <p class="pt-reframe">Dat is <strong>€10,71 per dag</strong> — voor een trainer die alleen naar jou kijkt.</p>
-        <ul class="pt-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
-        </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training" class="pt-cta">
           Plan gratis intake
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+        <details class="pt-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="pt-more-body">
+            <p class="pt-tagline">Eén coach, jouw tempo — voor wie maximale aandacht wil.</p>
+            <p class="pt-reframe">Dat is <strong>€10,71 per dag</strong> — voor een trainer die alleen naar jou kijkt.</p>
+            <ul class="pt-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <div class="pt-card recommend reveal d2">
         <div class="badge">Aanrader</div>
         <div class="pt-tag">PT + alles inbegrepen</div>
         <div class="pt-name">Personal<br>Training Plus</div>
-        <p class="pt-tagline">Dezelfde 1-op-1 coaching, plus onbeperkt trainen en groepslessen erbij.</p>
         <div class="pt-price">
           <span class="currency">€</span>
           <span class="num">350</span>
         </div>
         <div class="pt-unit">per 4 weken · incl. 24/7 Fitness + groepslessen</div>
-        <p class="pt-reframe">Dat is <strong>€12,50 per dag</strong> — alles inbegrepen, zonder extra's.</p>
-        <ul class="pt-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt 24/7 Fitness</strong> inbegrepen</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong> inbegrepen</span></li>
-        </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="pt-cta">
           Plan gratis intake
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+        <details class="pt-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="pt-more-body">
+            <p class="pt-tagline">Dezelfde 1-op-1 coaching, plus onbeperkt trainen en groepslessen erbij.</p>
+            <p class="pt-reframe">Dat is <strong>€12,50 per dag</strong> — alles inbegrepen, zonder extra's.</p>
+            <ul class="pt-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt 24/7 Fitness</strong> inbegrepen</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong> inbegrepen</span></li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -870,6 +907,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Prijskaarten: "Meer informatie" altijd open vanaf tablet-breedte,
+  // dichtgeklapt (met toggle) op smartphone. Details/summary heeft geen
+  // eigen hoogte als 'open' ontbreekt, dus dit moet via het attribuut zelf.
+  function syncPriceDetails(){
+    const isWide = window.innerWidth > 640;
+    document.querySelectorAll('.price-more, .pt-more').forEach(d => {
+      if (isWide) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  syncPriceDetails();
+  window.addEventListener('resize', syncPriceDetails);
 
   // SGPT frequency switch
   const sgptCard = document.getElementById('sgpt-card');
