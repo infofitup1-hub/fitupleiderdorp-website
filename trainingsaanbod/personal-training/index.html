@@ -343,7 +343,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .page-hero-left{padding:40px}
     .page-hero-right{min-height:0;margin:0 auto;padding:28px 20px}
     .what-grid,.forwho-grid{grid-template-columns:1fr;gap:48px}
-    .steps{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
     .tarief-cards{grid-template-columns:1fr}
     .spotter-inner{grid-template-columns:1fr}
     .spotter-content{padding:40px 32px}
@@ -360,9 +360,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
     .nav-links{display:none}
     .nav-links li:last-child{display:block}
-  }
-  @media (max-width:680px){
-    .results-grid{grid-template-columns:1fr}
   }
 
 
@@ -404,7 +401,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.fu-steps{grid-template-columns:1fr!important}
+    .fu-results-grid,.access-grid,.faq-grid,.gear-grid,.for-grid,.tarief-cards,.two-col,.compare-table,.fu-compare-table,.fu-steps{grid-template-columns:1fr!important}
+    .results-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
     .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
     .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
 
@@ -422,18 +420,22 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .pricing,.results,.final-cta,.nutri,.spotter{padding:48px 0}
-    .steps{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
-    .steps::-webkit-scrollbar{display:none}
-    .step{flex:0 0 80%;scroll-snap-align:start;padding:24px 20px 22px}
-    .steps-dots{display:flex}
+    .steps{grid-template-columns:1fr 1fr;gap:12px}
+    .step{padding:22px 16px 18px}
+    .step-num{font-size:70px}
+    .step h3{font-size:17px}
+    .step p{font-size:12.5px}
     .tarief-card{padding:26px 22px 24px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
     .result-body{padding:14px 16px 18px}
-    .results-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:14px}
-    .results-grid::-webkit-scrollbar{display:none}
-    .result-card{flex:0 0 82%;scroll-snap-align:start}
-    .results-dots{display:flex}
+    .results-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .result-name{font-size:14px}
+    .result-name span{font-size:10px}
+    .result-delta{padding-right:2px}
+    .result-delta+.result-delta{padding-left:2px}
+    .result-delta-label{font-size:7.5px;letter-spacing:0}
+    .result-delta-value{font-size:12px}
     .sec-head{margin-bottom:36px}
   }
 
