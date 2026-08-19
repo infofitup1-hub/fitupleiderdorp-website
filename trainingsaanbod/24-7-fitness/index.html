@@ -180,6 +180,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(20,22,17,.2)}
   .t-cta-outline:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
   .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
+  /* MEER INFORMATIE toggle — dichtgeklapt op smartphone, altijd open vanaf tablet */
+  .t-more{margin-top:4px}
+  .t-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);padding:12px 0;border-top:1px solid var(--line)}
+  .t-more summary::-webkit-details-marker{display:none}
+  .t-more summary .chev{transition:transform .25s;flex-shrink:0}
+  .t-more[open] summary .chev{transform:rotate(180deg)}
+  .tarief-card.hot .t-more summary{color:rgba(0,0,0,.65);border-top-color:rgba(0,0,0,.12)}
+  @media (min-width:641px){
+    .t-more summary{display:none}
+  }
 
   /* FAQ — native <details>/<summary> accordion: content stays in the DOM for SEO, collapsed visually */
   .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:0}
@@ -215,8 +225,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @media (max-width:980px){
     .page-hero{grid-template-columns:1fr}
     .page-hero-left{padding:40px}
-    .gear-grid,.for-grid,.tarief-cards{grid-template-columns:1fr}
-    .tarief-card.hot{transform:none}
+    .gear-grid,.for-grid,.tarief-cards{grid-template-columns:1fr 1fr}
+    .tarief-card.hot{transform:none;grid-column:1/-1;order:-1}
     .two-col{grid-template-columns:1fr;gap:32px}
     .two-col-photo{justify-self:center;max-width:220px}
     .access-grid,.faq-grid{grid-template-columns:1fr}
@@ -265,7 +275,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .ticker-item,.fu-ticker-item{margin-right:32px;font-size:12px}
 
-    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.for-grid,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
+    .results-grid,.fu-results-grid,.access-grid,.faq-grid,.two-col,.compare-table,.fu-compare-table,.steps,.fu-steps{grid-template-columns:1fr!important}
     .hbar-inner,.fu-hbar-inner{grid-template-columns:1fr!important;gap:24px;text-align:left}
     .hbar-grid,.fu-hbar-grid{grid-template-columns:1fr 1fr!important}
 
@@ -283,15 +293,17 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .for-who,.tarief-strip{padding:48px 0!important}
-    .gear-grid,.tarief-cards{display:flex!important;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
-    .gear-grid::-webkit-scrollbar,.tarief-cards::-webkit-scrollbar{display:none}
-    .gear-card{flex:0 0 78%;scroll-snap-align:start;padding:22px 20px}
-    .tarief-card{flex:0 0 82%;scroll-snap-align:start;padding:26px 22px 24px}
-    .tarief-card.hot{transform:none}
-    .swipe-dots{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px}
-    .swipe-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-    .swipe-dots .dot.is-active{background:var(--ink,#141611);transform:scale(1.25)}
-    .for-card{padding:24px 20px}
+    .gear-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .gear-card{padding:20px 16px}
+    .gear-name{font-size:17px}
+    .gear-desc{font-size:12.5px}
+    .tarief-cards{grid-template-columns:1fr 1fr;gap:10px}
+    .tarief-card{padding:22px 18px 20px}
+    .tarief-card.hot{transform:none;grid-column:1/-1;order:-1}
+    .t-name{font-size:22px}
+    .t-price-wrap .num{font-size:34px}
+    .for-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .for-card{padding:20px 16px}
     .access-item{padding:16px 16px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
@@ -568,12 +580,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">Fitness<br>6 maanden</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">53</span><span class="frac">,50</span></div>
         <div class="t-period">per 4 weken · 6 maanden contract</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 toegang met persoonlijke QR-code</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volledig uitgeruste sportschool</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis parkeren voor de deur</li>
-        </ul>
         <a href="../../gratis-intake/index.html" class="t-cta t-cta-outline">Direct aanmelden →</a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 toegang met persoonlijke QR-code</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volledig uitgeruste sportschool</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis parkeren voor de deur</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <!-- 12 maanden (HOT) -->
@@ -583,13 +600,18 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">Fitness<br>12 maanden</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">48</span><span class="frac">,50</span></div>
         <div class="t-period">per 4 weken · 12 maanden contract</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 toegang met persoonlijke QR-code</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volledig uitgeruste sportschool</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>€5 voordeliger p/4wkn vs. 6 mnd</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis parkeren voor de deur</li>
-        </ul>
         <a href="../../gratis-intake/index.html" class="t-cta t-cta-dark">Direct aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 toegang met persoonlijke QR-code</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volledig uitgeruste sportschool</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>€5 voordeliger p/4wkn vs. 6 mnd</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis parkeren voor de deur</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <!-- ALL INCLUSIVE -->
@@ -598,13 +620,18 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">All-<br>Inclusive</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">53</span><span class="frac">,50</span></div>
         <div class="t-period">per 4 weken · 12 maanden · incl. lessen</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit 24/7 Fitness</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Boksfit, HIIT, Hyrox, Bodypump</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis reserveren via app</li>
-        </ul>
         <a href="../../gratis-intake/index.html" class="t-cta t-cta-primary">Direct aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit 24/7 Fitness</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt alle groepslessen</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Boksfit, HIIT, Hyrox, Bodypump</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis reserveren via app</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
     <div class="swipe-dots" data-swipe-dots="tarief247" role="tablist" aria-label="Abonnementen">
@@ -686,6 +713,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Tarief-kaarten: "Meer informatie" dichtgeklapt op smartphone, altijd open vanaf tablet
+  function syncTariefDetails(){
+    const isWide = window.innerWidth > 640;
+    document.querySelectorAll('.t-more').forEach(d => {
+      if (isWide) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  syncTariefDetails();
+  window.addEventListener('resize', syncTariefDetails);
 </script>
 
 <script>
