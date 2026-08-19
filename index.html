@@ -1724,9 +1724,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </section>
 
 <!-- LOKALE PAGINA'S -->
-<section style="background:var(--mid);padding:64px 0" aria-labelledby="lokaal-heading">
+<section style="background:var(--mid);padding:32px 0" aria-labelledby="lokaal-heading">
   <style>
-    .seo-ll-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; margin-top: 36px; }
+    .ll-accordion { border-top: 1px solid rgba(255,255,255,.08); }
+    .ll-accordion-summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; list-style: none; font-family: var(--fd); font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.75); padding: 18px 4px; min-height: 44px; }
+    .ll-accordion-summary::-webkit-details-marker { display: none; }
+    .ll-accordion-icon { flex-shrink: 0; color: var(--accent); transition: transform .25s ease; }
+    .ll-accordion[open] .ll-accordion-icon { transform: rotate(180deg); }
+    .ll-accordion-body { padding: 8px 4px 28px; }
+    .seo-ll-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; margin-top: 12px; }
     .seo-ll-group-label { font-family: var(--fd); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; }
     .seo-ll-group ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
     .seo-ll-group a { color: rgba(255,255,255,.7); text-decoration: none; font-size: 13.5px; line-height: 1.4; transition: color .2s; }
@@ -1735,9 +1741,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     @media (max-width: 480px) { .seo-ll-groups { grid-template-columns: 1fr; } }
   </style>
   <div class="container">
-    <div class="sec-label reveal"><span class="sec-label-line"></span>Meer lezen</div>
-    <h2 id="lokaal-heading" class="reveal d1" style="font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.5px;color:rgba(255,255,255,.85)">Pagina&apos;s per doel en regio</h2>
-    <div class="seo-ll-groups reveal d2">
+    <details class="ll-accordion" id="lokaal-heading">
+      <summary class="ll-accordion-summary">
+        Meer over onze programma&apos;s en regio&apos;s
+        <svg class="ll-accordion-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="ll-accordion-body">
+    <div class="seo-ll-groups">
       <div class="seo-ll-group">
         <div class="seo-ll-group-label">Trainingsvormen</div>
         <ul>
@@ -1780,6 +1790,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         </ul>
       </div>
     </div>
+      </div>
+    </details>
   </div>
 </section>
 
