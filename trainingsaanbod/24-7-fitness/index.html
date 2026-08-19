@@ -112,7 +112,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .hour-item{display:flex;flex-direction:column;gap:4px}
   .hour-label{font-size:11px;color:var(--ink-mute);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
   .hour-time{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--ink)}
-  .hour-time em{color:var(--accent-ink);font-style:normal}
+  .hour-time em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.55) 58%);padding:0 .04em}
 
   /* GEAR / FACILITIES */
   .gear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:0}
@@ -298,7 +298,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .gear-name{font-size:17px}
     .gear-desc{font-size:12.5px}
     .tarief-cards{grid-template-columns:1fr 1fr;gap:10px}
-    .tarief-card{padding:22px 18px 20px}
+    .tarief-card{padding:22px 18px 20px;min-width:0}
     .tarief-card.hot{transform:none;grid-column:1/-1;order:-1}
     .t-name{font-size:22px}
     .t-price-wrap .num{font-size:34px}
