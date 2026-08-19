@@ -160,6 +160,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(20,22,17,.2)}
   .t-cta-outline:hover{border-color:var(--accent);color:var(--accent-ink)}
   .tarief-foot{text-align:center;margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
+  /* MEER INFORMATIE toggle — dichtgeklapt op smartphone, altijd open vanaf tablet */
+  .t-more{margin-top:4px}
+  .t-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);padding:12px 0;border-top:1px solid var(--line)}
+  .t-more summary::-webkit-details-marker{display:none}
+  .t-more summary .chev{transition:transform .25s;flex-shrink:0}
+  .t-more[open] summary .chev{transform:rotate(180deg)}
+  .tarief-card.hot .t-more summary{color:rgba(0,0,0,.65);border-top-color:rgba(0,0,0,.12)}
+  @media (min-width:641px){
+    .t-more summary{display:none}
+  }
 
   /* FOR WHO — quiet text list */
   .forwho{background:var(--paper2)}
@@ -209,8 +219,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .page-hero-left{padding:40px}
     .page-hero-right{min-height:380px}
     .what-grid,.forwho-grid{grid-template-columns:1fr;gap:48px}
-    .steps,.tarief-cards{grid-template-columns:1fr}
-    .tarief-card.hot{transform:none}
+    .steps,.tarief-cards{grid-template-columns:1fr 1fr}
+    .tarief-card.hot{grid-column:1/-1;order:-1;transform:none}
     .faq-grid{grid-template-columns:1fr}
     .hbar-inner{grid-template-columns:1fr;gap:24px;text-align:left}
     .hbar-grid{grid-template-columns:1fr 1fr}
@@ -275,14 +285,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .pricing{padding:48px 0}
-    .steps,.tarief-cards{display:flex!important;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
-    .steps::-webkit-scrollbar,.tarief-cards::-webkit-scrollbar{display:none}
-    .step{flex:0 0 80%;scroll-snap-align:start;padding:24px 20px 22px}
-    .tarief-card{flex:0 0 82%;scroll-snap-align:start;padding:26px 22px 24px}
-    .tarief-card.hot{transform:none}
-    .swipe-dots{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px}
-    .swipe-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(20,22,17,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-    .swipe-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
+    .steps{grid-template-columns:1fr 1fr;gap:12px}
+    .step{padding:22px 16px 18px}
+    .tarief-cards{grid-template-columns:1fr 1fr;gap:10px}
+    .tarief-card{padding:22px 18px 20px}
+    .tarief-card.hot{transform:none;grid-column:1/-1;order:-1}
+    .t-name{font-size:22px}
+    .t-price-wrap .num{font-size:34px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
 
@@ -553,14 +562,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">SGPT<br>4 sessies</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">149</span></div>
         <div class="t-period">per 4 weken · 4 sessies p/mnd</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4 SGPT sessies per 4 weken</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 fitness inbegrepen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Groepslessen inbegrepen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
-        </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20SGPT%201x%20per%20week" class="t-cta t-cta-outline">Aanmelden →</a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4 SGPT sessies per 4 weken</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 fitness inbegrepen</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Groepslessen inbegrepen</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <!-- 2x per week (HOT) -->
@@ -570,14 +584,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">SGPT<br>8 sessies</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">220</span></div>
         <div class="t-period">per 4 weken · 2× per week trainen</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>8 SGPT sessies per 4 weken</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 fitness + lessen inbegrepen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sweetspot voor afvallen & opbouw</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
-        </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20SGPT%202x%20per%20week" class="t-cta t-cta-dark">Aanmelden <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>8 SGPT sessies per 4 weken</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 fitness + lessen inbegrepen</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sweetspot voor afvallen & opbouw</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <!-- 3x per week -->
@@ -586,14 +605,19 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <div class="t-name">SGPT<br>12 sessies</div>
         <div class="t-price-wrap"><span class="currency">€</span><span class="num">285</span></div>
         <div class="t-period">per 4 weken · maximale progressie</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>12 SGPT sessies per 4 weken</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 fitness + lessen inbegrepen</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voor wie écht serieus is</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
-        </ul>
         <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20SGPT%203x%20per%20week" class="t-cta t-cta-outline">Aanmelden →</a>
+        <details class="t-more">
+          <summary>Meer informatie <svg class="chev" width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="t-more-body">
+            <ul class="t-features">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>12 SGPT sessies per 4 weken</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voedingsbegeleiding via app</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 fitness + lessen inbegrepen</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Voor wie écht serieus is</li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Progressiemeting elke 4 weken</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
     <div class="swipe-dots" data-swipe-dots="tariefsgpt" role="tablist" aria-label="Frequenties">
@@ -677,6 +701,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Tarief-kaarten: "Meer informatie" dichtgeklapt op smartphone, altijd open vanaf tablet
+  function syncTariefDetails(){
+    const isWide = window.innerWidth > 640;
+    document.querySelectorAll('.t-more').forEach(d => {
+      if (isWide) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  syncTariefDetails();
+  window.addEventListener('resize', syncTariefDetails);
 </script>
 
 <script>
