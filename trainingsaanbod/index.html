@@ -114,19 +114,22 @@ h1 em{font-style:normal;color:var(--accent)}
 .gf-route:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
 
 /* 12 WEKEN COACHING */
-.coaching12{padding:0 40px 100px;max-width:1400px;margin:0 auto}
-.c12-inner{background:var(--charcoal);border-radius:var(--r-card);padding:64px 60px;text-align:center;color:var(--white);position:relative;overflow:hidden}
-.c12-inner::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(212,255,0,.08) 0%,transparent 70%);pointer-events:none}
-.c12-inner .eyebrow,.c12-inner h2,.c12-inner>p,.c12-routes,.c12-note,.c12-inner .btn-accent,.c12-sub{position:relative;z-index:1}
-.c12-inner h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,46px);line-height:1;letter-spacing:-.5px;margin-bottom:18px;color:var(--white)}
-.c12-inner h2 em{font-style:normal;color:var(--accent)}
-.c12-inner>p{font-size:16px;color:rgba(255,255,255,.7);line-height:1.7;max-width:620px;margin:0 auto 30px;font-weight:300}
-.c12-routes{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.c12-route{font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(212,255,0,.3);border-radius:999px;padding:9px 20px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
-.c12-route:hover{background:rgba(212,255,0,.12);border-color:var(--accent)}
-.c12-note{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto}
-.c12-inner .btn-accent{margin-bottom:14px}
-.c12-sub{font-size:13px;color:rgba(255,255,255,.5);max-width:440px;margin:0 auto}
+.coaching12{padding:0 40px 60px;max-width:1400px;margin:0 auto}
+.c12-inner{display:block;background:var(--accent);border-radius:var(--r-card);padding:48px 44px;text-align:center;color:var(--black);text-decoration:none;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.c12-inner:hover{transform:translateY(-4px);box-shadow:0 24px 50px -20px rgba(12,12,12,.35)}
+.c12-inner .eyebrow{color:rgba(12,12,12,.6)}
+.c12-inner .eyebrow-line{background:rgba(12,12,12,.6)}
+.c12-inner h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(30px,4.5vw,50px);line-height:1;letter-spacing:-.5px;margin-bottom:10px;color:var(--black)}
+.c12-inner h2 em{font-style:normal;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
+.c12-inner>p{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(12,12,12,.55);margin-bottom:30px}
+.c12-route-map{display:flex;justify-content:center;gap:0;max-width:600px;margin:0 auto}
+.c12-stop{flex:1;position:relative;padding-top:36px}
+.c12-stop::before{content:'';position:absolute;top:11px;left:0;right:0;height:2px;background:rgba(12,12,12,.22)}
+.c12-stop:first-child::before{left:50%}
+.c12-stop:last-child::before{right:50%}
+.c12-stop-num{position:absolute;top:0;left:50%;transform:translateX(-50%);width:24px;height:24px;border-radius:50%;background:var(--black);color:var(--accent);font-family:var(--fd);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
+.c12-stop-label{font-family:var(--fd);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px}
+.c12-stop-sub{font-size:11.5px;color:rgba(12,12,12,.6);line-height:1.4;padding:0 4px}
 
 /* MOMENT VIDEO */
 .moment{background:var(--paper2);padding:110px 40px}
@@ -181,8 +184,9 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
   .gf-inner{padding:30px 24px}
   .gf-row{flex-direction:column;align-items:flex-start;gap:10px}
   .gf-route{align-self:flex-start}
-  .coaching12{padding:0 20px 70px}
-  .c12-inner{padding:44px 26px}
+  .coaching12{padding:0 20px 40px}
+  .c12-inner{padding:36px 22px}
+  .c12-stop-sub{display:none}
   .moment{padding:70px 20px}
   .moment-inner{grid-template-columns:1fr;gap:40px;text-align:center}
   .moment-text p{margin-left:auto;margin-right:auto}
@@ -376,20 +380,28 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </section>
 
 <section class="coaching12">
-  <div class="c12-inner">
+  <a href="../gratis-intake/index.html" class="c12-inner">
     <span class="eyebrow"><span class="eyebrow-line"></span>Serieus aan je doel werken</span>
-    <h2>In 12 weken naar je doel.<br>Kies <em>jouw pad</em>.</h2>
-    <p>12 weken gericht werken aan progressie, structuur en consistentie — kies de vorm van begeleiding die bij je past:</p>
-    <div class="c12-routes">
-      <a href="../trainingsaanbod/sgpt-small-group-personal-training/index.html" class="c12-route">SGPT</a>
-      <a href="../trainingsaanbod/personal-training/index.html" class="c12-route">Personal Training</a>
-      <a href="../online-coaching/index.html" class="c12-route">Online Coaching</a>
+    <h2>In 12 weken fit? <em>Klik hier.</em></h2>
+    <p>Zo ziet jouw traject eruit:</p>
+    <div class="c12-route-map">
+      <div class="c12-stop">
+        <span class="c12-stop-num">1</span>
+        <div class="c12-stop-label">Intake &amp; meting</div>
+        <div class="c12-stop-sub">Je startpunt en doel in kaart</div>
+      </div>
+      <div class="c12-stop">
+        <span class="c12-stop-num">2</span>
+        <div class="c12-stop-label">12 weken gericht</div>
+        <div class="c12-stop-sub">Trainen + voeding op maat</div>
+      </div>
+      <div class="c12-stop">
+        <span class="c12-stop-num">3</span>
+        <div class="c12-stop-label">Resultaat</div>
+        <div class="c12-stop-sub">Meting en vervolgstap</div>
+      </div>
     </div>
-    <p class="c12-note">Liever zelfstandig(er) trainen? 24/7 Fitness en de groepslessen blijven gewoon beschikbaar.</p>
-    <a href="../tarieven/index.html" class="btn-outline">Bekijk tarieven
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
+  </a>
 </section>
 
 <section class="moment">
