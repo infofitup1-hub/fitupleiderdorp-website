@@ -46,7 +46,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link rel="canonical" href="https://fitupleiderdorp.nl/online-coaching/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{--black:#0c0c0c;--mid:#161616;--dark:#111;--white:#fff;--accent:#d4ff00;--gray:#888;--lgray:#2a2a2a;--charcoal:#18191b;--paper:#fff;--paper2:#f3f4f0;--ink:#141611;--ink-soft:#3c3f37;--ink-mute:#575b4e;--line:rgba(20,22,17,.08);--accent-ink:#4a5900;--r-btn:10px;--r-card:18px;--sh-2:0 1px 2px rgba(20,22,17,.04),0 24px 50px -22px rgba(20,22,17,.18);--sh-hover:0 2px 6px rgba(20,22,17,.05),0 40px 80px -28px rgba(20,22,17,.28);--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -99,7 +99,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:460px;height:460px;background:radial-gradient(ellipse,rgba(212,255,0,.09) 0%,transparent 68%);pointer-events:none;z-index:0}
   .hero-phones{position:relative;z-index:1;width:100%;max-width:480px;opacity:0;animation:fadeUp .7s ease .3s forwards}
   .hero-phones img{display:block;width:100%;height:auto}
-  .hero-badge{position:absolute;bottom:16px;right:8px;background:var(--accent);color:var(--black);padding:12px 16px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;z-index:3;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
 
   /* HERO FEATURE VISUAL (features + smartphones) */
   .hero-feature-visual{position:relative;z-index:1;display:grid;grid-template-columns:minmax(150px,28%) 1fr;align-items:center;gap:18px;width:100%}
@@ -172,7 +171,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .coach-body{padding:22px 26px 26px}
   .coach-name{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:24px;letter-spacing:.3px;line-height:1;color:var(--ink)}
   .coach-desc{font-size:12.5px;font-weight:700;letter-spacing:.5px;color:var(--accent-ink);margin-top:8px}
-  .coaches-note{max-width:640px;margin:32px auto 0;text-align:center;font-size:14px;color:var(--ink-soft);line-height:1.7}
+  .coaches-note{max-width:640px;margin:32px auto 0;text-align:center;font-size:15px;font-weight:700;color:var(--ink);line-height:1.7}
+  .coaches-note-arrow{color:var(--accent-ink);font-weight:900;margin-right:4px}
 
   /* PRICING */
   .pricing{background:var(--paper);padding:100px 0}
@@ -301,7 +301,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .page-hero-left{padding:110px 20px 40px!important}
     .page-hero-right{min-height:0!important;padding:8px 20px 40px!important}
     .hero-phones{max-width:320px}
-    .hero-badge{bottom:2px;right:0;font-size:10px;padding:10px 14px}
     .page-hero-sub{font-size:15px}
     .page-hero-ctas{flex-direction:column;align-items:stretch;gap:14px}
     .page-hero-ctas .btn-accent{justify-content:center;width:100%}
@@ -495,7 +494,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         <img src="../assets/images/app-phones-hero.png" alt="Twee smartphones met de Fit Up online coaching-app: voortgang, gewicht en coachprofiel" width="1351" height="1164" fetchpriority="high" decoding="async">
       </div>
     </div>
-    <div class="hero-badge">★ Coach in je app</div>
   </div>
 </header>
 
@@ -638,7 +636,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
         </div>
       </div>
     </div>
-    <p class="coaches-note reveal d2">Onze online coaching komt rechtstreeks uit de dagelijkse praktijk van een fysieke sportschool. Geen anoniem platform, maar begeleiding door coaches die dagelijks met klanten in de PT-studio werken.</p>
+    <p class="coaches-note reveal d2"><span class="coaches-note-arrow" aria-hidden="true">→</span>Onze online coaching komt rechtstreeks uit de dagelijkse praktijk van een fysieke sportschool. Geen anoniem platform, maar begeleiding door coaches die dagelijks met klanten in de PT-studio werken.</p>
   </div>
 </section>
 
@@ -665,7 +663,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     .rescase-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;position:relative}
     .rescase-lead{font-size:13.5px;font-weight:400;color:var(--ink-mute);line-height:1.65;margin-bottom:16px}
     .rescase-quote-mark{font-family:var(--fd);font-size:52px;font-weight:900;color:var(--accent);opacity:.7;line-height:.5;margin-bottom:10px}
-    .rescase-text{font-size:15px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.72}
+    .rescase-text{font-family:'Caveat',cursive;font-size:22px;font-weight:600;font-style:normal;color:rgba(12,12,12,.82);line-height:1.4}
     .rescase-foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;align-items:center;flex-wrap:wrap;gap:10px}
     .rescase-tag{font-family:var(--fd);font-size:10px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent-ink);background:rgba(212,255,0,.16);border:1px solid rgba(110,130,0,.25);padding:6px 11px;border-radius:999px}
     .rescase-flow{font-size:11.5px;color:var(--ink-mute);line-height:1.6;font-weight:500}
