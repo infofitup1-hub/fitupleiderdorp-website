@@ -81,16 +81,6 @@ body.nav-open .nav-drawer{transform:translateY(0)}
 .nav-drawer .drawer-sub a{font-size:16px;padding:10px 0}
 .nav-drawer .drawer-cta{background:var(--accent);color:var(--black);text-align:center;margin-top:20px;border:0}
 
-/* HERO */
-.page-hero{background:var(--charcoal);padding:96px 0 76px;text-align:center;position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 70%);pointer-events:none}
-.page-hero .hero-wrap{max-width:760px;margin:0 auto;position:relative;padding:0 40px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
-.eyebrow-line{width:20px;height:1.5px;background:var(--accent);display:inline-block}
-.page-hero h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(38px,6vw,64px);line-height:1;letter-spacing:.5px;color:var(--white);margin-bottom:18px}
-.page-hero h1 em{font-style:normal;color:var(--accent)}
-.page-hero .hero-sub{color:rgba(255,255,255,.6);font-size:16px;line-height:1.7;max-width:520px;margin:0 auto}
-
 /* PATRICK STORY */
 .patrick-section{padding:96px 0}
 .patrick-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -153,8 +143,6 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
   .nav-links{display:none}
   .nav-toggle{display:inline-flex}
   .container{padding:0 20px}
-  .page-hero{padding:64px 0 56px}
-  .page-hero .hero-wrap{padding:0 20px}
   footer{padding:56px 20px 28px}
   .f-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 20px;margin-bottom:36px}
   .f-brand{grid-column:1/-1;margin-bottom:4px}
@@ -167,6 +155,7 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
   .f-col a{font-size:13px}
 }
 </style>
+<link rel="stylesheet" href="../assets/css/seo.css?v=20260820">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
@@ -214,13 +203,17 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
   <a href="../gratis-intake/index.html" class="drawer-cta">Contact</a>
 </div>
 
-<header class="page-hero">
-  <div class="hero-wrap">
-    <span class="eyebrow"><span class="eyebrow-line"></span>Fit Up Leiderdorp</span>
-    <h1>Over <em>Fit Up</em></h1>
-    <p class="hero-sub">Kleinschalig, persoonlijk en met een team dat je naam kent. Maak kennis met de mensen achter de club.</p>
-  </div>
-</header>
+<section class="crumb"><div class="container"><nav class="crumb-inner" aria-label="Kruimelpad"><a href="../index.html">Home</a><span class="crumb-sep">/</span><span class="crumb-cur">Over Fit Up</span></nav></div></section>
+
+<header class="seo-hero"><div class="container"><div class="seo-hero-grid"><div>
+<div class="hero-eyebrow"><span class="eyebrow-dot"></span>Over ons · Fit Up Leiderdorp</div>
+<h1>Over <em>Fit Up</em></h1>
+<p class="seo-hero-sub">Kleinschalig, persoonlijk en met een team dat je naam kent. Maak kennis met de mensen achter de club.</p>
+<div class="trust-row"><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sinds 2014</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Oud-Defensie eigenaar</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vast team van 4 coaches</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Persoonlijke aandacht</span></div>
+<div class="seo-hero-ctas"><a href="../gratis-intake/index.html" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="https://wa.me/31645280679?text=Hi%20Fit%20Up%2C%20ik%20heb%20een%20vraag%20over%20jullie%20team" target="_blank" rel="noopener" class="btn-outline">WhatsApp direct</a></div>
+</div>
+<aside class="hero-stats-card"><div class="hsc-label">In het kort</div><div class="hsc-title">Het team</div><div class="hsc-stats"><div><div class="hsc-stat-num">2014</div><div class="hsc-stat-label">Opgericht door Patrick</div></div><div><div class="hsc-stat-num">4</div><div class="hsc-stat-label">Vaste coaches in het team</div></div><div><div class="hsc-stat-num">13</div><div class="hsc-stat-label">Jaar diensttijd bij Defensie</div></div><div><div class="hsc-stat-num">24/7</div><div class="hsc-stat-label">Toegang tot de club</div></div></div><div class="hsc-foot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Weversbaan 9, Leiderdorp · gratis parkeren voor de deur</span></div></aside>
+</div></div></header>
 
 <section class="patrick-section">
   <div class="container">

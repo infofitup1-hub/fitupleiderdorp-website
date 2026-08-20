@@ -68,14 +68,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
   h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
   h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
-  .page-hero h1 em,.final-cta h2 em{background:none;padding:0;color:var(--accent)}
+  .final-cta h2 em{background:none;padding:0;color:var(--accent)}
   h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
   .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-accent:hover{background:transparent;color:var(--accent)}
   .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(20,22,17,.25);padding-bottom:2px;transition:all .2s}
   .btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
-  .page-hero .btn-ghost,.final-cta .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
-  .page-hero .btn-ghost:hover,.final-cta .btn-ghost:hover{color:var(--white);border-color:var(--white)}
+  .final-cta .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
+  .final-cta .btn-ghost:hover{color:var(--white);border-color:var(--white)}
   .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--black);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-dark:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
@@ -84,27 +84,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
-
-  /* PAGE HERO */
-  .page-hero{min-height:78vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:var(--charcoal)}
-  .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
-  .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
-  .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-  .page-hero h1{font-size:clamp(56px,7.5vw,96px);margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
-  .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
-  .page-hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
-  .page-hero-sub strong{color:var(--white);font-weight:500}
-  .page-hero-stats{display:flex;gap:32px;margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .7s forwards;flex-wrap:wrap}
-  .ph-stat{border-left:2px solid var(--accent);padding-left:16px}
-  .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;color:var(--white)}
-  .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
-  .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
-  .page-hero-right{position:relative;display:flex;align-items:center;justify-content:center;padding:60px 40px}
-  .hero-photo-card{position:relative;width:100%;max-width:300px;aspect-ratio:4/5;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--sh-hover);opacity:0;animation:fadeIn 1s ease .3s forwards}
-  .hero-cycle-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.2s ease}
-  .hero-cycle-img.is-active{opacity:1}
-  .hero-photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.65) 0%,transparent 45%);pointer-events:none;z-index:1}
-  .hero-badge{position:absolute;bottom:16px;left:12px;right:12px;background:var(--accent);color:var(--black);padding:10px 12px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;z-index:2;display:flex;align-items:center;justify-content:center;gap:6px;opacity:0;animation:fadeUp .6s ease 1s forwards}
 
   /* SECTION HEADERS */
   .sec-head{text-align:center;margin-bottom:56px}
@@ -211,9 +190,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .f-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
 
   @media (max-width:980px){
-    .page-hero{grid-template-columns:1fr;min-height:auto}
-    .page-hero-left{padding:40px}
-    .page-hero-right{min-height:340px;padding:0 40px 40px}
     .classes-track{grid-template-columns:1fr 1fr}
     .class-content{padding:24px 20px;max-width:none}
     .classes{padding:48px 0 64px}
@@ -237,17 +213,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     section{padding:56px 0}
     h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
     h2{font-size:clamp(34px,9vw,48px)!important}
-
-    .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
-    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:0 0 0 20px!important;gap:12px!important}
-    .page-hero-right{min-height:280px!important;padding:0 20px 32px!important}
-    .page-hero-sub,.fu-page-hero-sub{font-size:15px}
-    .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
-    .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
-    .ph-stat-num,.fu-ph-stat-num{font-size:22px}
-    .ph-stat-label,.fu-ph-stat-label{font-size:9px;letter-spacing:1px}
-    .page-hero-ctas,.fu-page-hero-ctas{flex-direction:column;align-items:stretch;gap:12px}
-    .page-hero-ctas .btn-accent,.fu-page-hero-ctas .btn-accent{justify-content:center;width:100%}
 
     .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
     .f-brand{grid-column:auto!important}
@@ -353,6 +318,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 
 </style>
 <style>.h1-kicker{display:block;font-size:.16em;letter-spacing:3px;color:var(--accent);margin-bottom:14px;line-height:1;font-weight:700;text-transform:uppercase}</style>
+<link rel="stylesheet" href="../../assets/css/seo.css?v=20260820">
 <link rel="stylesheet" href="../../assets/css/style.css">
 <script src="../../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
@@ -402,30 +368,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <a href="../../gratis-intake/index.html" class="drawer-cta">Contact</a>
 </div>
 
-<!-- HERO -->
-<header class="page-hero">
-  <div class="page-hero-left">
-    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Groepslessen</div>
-    <h1>Groepslessen<br><em>Leiderdorp</em></h1>
-    <p class="page-hero-sub">
-      Vijf groepslessen met vaste trainers — kracht, conditie en techniek.
-      Onbeperkt meedoen met het <strong>All-Inclusive abonnement</strong>
-      vanaf €53,50 per 4 weken.
-    </p>
-    <div class="page-hero-ctas">
-      <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">Plan een gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#rooster" class="btn-ghost">Of: reserveren via de app →</a>
-    </div>
-  </div>
-  <div class="page-hero-right">
-    <div class="hero-photo-card" id="groepslessen-hero-cycle">
-      <img src="../../assets/images/groepslessen-sled.jpg" alt="Sled push tijdens Powerhour bij Fit Up Leiderdorp" width="874" height="1920" fetchpriority="high" decoding="async" class="hero-cycle-img is-active" style="object-position:center 79%">
-      <img src="../../assets/images/groepslessen-medball.jpg" alt="Medicine ball training tijdens groepsles bij Fit Up Leiderdorp" width="874" height="1920" loading="lazy" decoding="async" class="hero-cycle-img" style="object-position:center 68%">
-      <img src="../../assets/images/groepslessen-boksfit.jpg" alt="Boksfit groepsles bij Fit Up Leiderdorp" width="1080" height="1920" loading="lazy" decoding="async" class="hero-cycle-img" style="object-position:center 88%">
-      <div class="hero-badge">★ Onbeperkt meedoen</div>
-    </div>
-  </div>
-</header>
+<section class="crumb"><div class="container"><nav class="crumb-inner" aria-label="Kruimelpad"><a href="../../index.html">Home</a><span class="crumb-sep">/</span><a href="../../trainingsaanbod/index.html">Trainingsaanbod</a><span class="crumb-sep">/</span><span class="crumb-cur">Groepslessen</span></nav></div></section>
+
+<header class="seo-hero"><div class="container"><div class="seo-hero-grid"><div>
+<div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Groepslessen</div>
+<h1>Groepslessen<br><em>Leiderdorp</em></h1>
+<p class="seo-hero-sub">Vijf groepslessen met vaste trainers — kracht, conditie en techniek. Onbeperkt meedoen met het <strong>All-Inclusive abonnement</strong> vanaf €53,50 per 4 weken.</p>
+<div class="trust-row"><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>5 groepslessen</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vaste trainers</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Onbeperkt meedoen</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gratis parkeren</span></div>
+<div class="seo-hero-ctas"><a href="https://wa.me/31645280679?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen" class="btn-accent">Plan een gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="#rooster" class="btn-outline">Reserveren via de app</a></div>
+</div>
+<aside class="hero-stats-card"><div class="hsc-label">In het kort</div><div class="hsc-title">Groepslessen</div><div class="hsc-stats"><div><div class="hsc-stat-num">5</div><div class="hsc-stat-label">Verschillende groepslessen</div></div><div><div class="hsc-stat-num">€53,50</div><div class="hsc-stat-label">Vanaf per 4 weken</div></div><div><div class="hsc-stat-num">Onbeperkt</div><div class="hsc-stat-label">Meedoen met alle lessen</div></div><div><div class="hsc-stat-num">Gratis</div><div class="hsc-stat-label">Parkeren voor de deur</div></div></div><div class="hsc-foot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Weversbaan 9, Leiderdorp · gratis parkeren voor de deur</span></div></aside>
+</div></div></header>
 
 <!-- HIGHLIGHT BAND -->
 <section class="hbar" style="padding:36px 0">

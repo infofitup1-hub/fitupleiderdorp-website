@@ -68,7 +68,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
   h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
   h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
-  .page-hero h1 em,.final-cta h2 em,.spotter-content h3 em,.try-title em{background:none;padding:0;color:var(--accent)}
+  .final-cta h2 em,.spotter-content h3 em,.try-title em{background:none;padding:0;color:var(--accent)}
   h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
   .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-accent:hover{background:transparent;color:var(--accent)}
@@ -76,9 +76,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
   .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--black);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-dark:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
-  /* btn-ghost op donkere hero blijft licht */
-  .page-hero .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
-  .page-hero .btn-ghost:hover{color:var(--white);border-color:var(--white)}
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
   .reveal.in{opacity:1;transform:none}
   .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
@@ -86,35 +83,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 
-  /* PAGE HERO */
-  .page-hero{min-height:66vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:var(--charcoal)}
-  .page-hero-left{padding:46px 64px 46px 40px;display:flex;flex-direction:column;justify-content:center}
-  .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
-  .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-  .page-hero h1{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(40px,5vw,66px);line-height:1;margin-bottom:24px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
-  .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
-  .page-hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
-  .page-hero-sub strong{color:var(--white);font-weight:500}
-  .page-hero-stats{display:flex;gap:32px;margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .7s forwards;flex-wrap:wrap}
-  .ph-stat{border-left:2px solid var(--accent);padding-left:16px}
-  .ph-stat-num{font-family:var(--fd);font-size:30px;font-weight:900;line-height:1;color:var(--white)}
-  .ph-stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
-  .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
-  .page-hero-right{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:center;align-self:center;gap:16px;padding:16px;width:100%;height:100%}
-  .pt-photo-wrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
-  .pt-photo-card{position:relative;z-index:2;width:100%;max-width:410px;aspect-ratio:3/4;overflow:hidden;border-radius:18px;background:var(--lgray);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
-  .pt-photo-track{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .pt-photo-track::-webkit-scrollbar{display:none}
-  .page-hero-right img,.page-hero-right video{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;animation:fadeIn 1s ease .3s forwards}
-  .pt-photo-track .pt-slide{flex:0 0 100%;scroll-snap-align:start}
-  .pt-photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.55) 0%,transparent 30%);pointer-events:none;z-index:1}
-  .hero-badge{position:absolute;bottom:16px;right:16px;background:var(--accent);color:var(--black);padding:10px 14px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
-  .pt-pagination{display:flex;align-items:center;gap:9px;position:relative;z-index:2}
-  .pt-page-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.28);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-  .pt-page-dot.is-active{background:var(--accent);transform:scale(1.25)}
-  .pt-page-dot:hover{background:rgba(255,255,255,.5)}
-
-  /* PHOTO PLACEHOLDER (hero) — striped, monospace caption, no faked imagery */
+  /* PHOTO PLACEHOLDER (spotter section) — striped, monospace caption, no faked imagery */
   .photo-placeholder{position:absolute;inset:0;background:
     repeating-linear-gradient(135deg,rgba(212,255,0,.04) 0 14px,transparent 14px 28px),
     linear-gradient(180deg,#1a1a1a 0%,#0e0e0e 100%);
@@ -369,9 +338,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .f-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
 
   @media (max-width:980px){
-    .page-hero{grid-template-columns:1fr;min-height:auto}
-    .page-hero-left{padding:40px}
-    .page-hero-right{min-height:0;margin:0 auto;padding:28px 20px}
     .what-grid,.forwho-grid{grid-template-columns:1fr;gap:48px}
     .steps{grid-template-columns:1fr}
     .tarief-cards{grid-template-columns:1fr 1fr;gap:14px}
@@ -407,17 +373,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     section{padding:56px 0}
     h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
     h2{font-size:clamp(34px,9vw,48px)!important}
-
-    .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
-    .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:20px!important;gap:12px!important}
-    .pt-photo-card{max-width:320px!important}
-    .page-hero-sub,.fu-page-hero-sub{font-size:15px}
-    .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
-    .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
-    .ph-stat-num,.fu-ph-stat-num{font-size:22px}
-    .ph-stat-label,.fu-ph-stat-label{font-size:9px;letter-spacing:1px}
-    .page-hero-ctas,.fu-page-hero-ctas{flex-direction:column;align-items:stretch;gap:12px}
-    .page-hero-ctas .btn-accent,.fu-page-hero-ctas .btn-accent{justify-content:center;width:100%}
 
     .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
     .f-brand{grid-column:auto!important}
@@ -529,6 +484,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 
 </style>
 <style>.h1-kicker{display:block;font-size:.16em;letter-spacing:3px;color:var(--accent);margin-bottom:14px;line-height:1;font-weight:700;text-transform:uppercase}</style>
+<link rel="stylesheet" href="../../assets/css/seo.css?v=20260820">
 <link rel="stylesheet" href="../../assets/css/style.css">
 <script src="../../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
@@ -578,39 +534,17 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <a href="../../gratis-intake/index.html" class="drawer-cta">Contact</a>
 </div>
 
-<!-- HERO — Personal Training -->
-<header class="page-hero" data-screen-label="Hero PT">
-  <div class="page-hero-left">
-    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Personal Training</div>
-    <h1>Personal Training<br><em>bij Fit Up</em></h1>
-    <p class="page-hero-sub">
-      Volledig <strong>1-op-1 coaching</strong> met je eigen vaste trainer. Jouw schema,
-      jouw tempo, jouw doel — met techniekcheck op elke herhaling en voedingsbegeleiding
-      via de app. Vier sessies per maand, meetbare progressie.
-    </p>
-    <div class="page-hero-ctas">
-      <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#tarieven" class="btn-ghost">Of: bekijk tarieven →</a>
-    </div>
-  </div>
-  <div class="page-hero-right">
-    <div class="pt-photo-wrap">
-      <div class="pt-photo-card">
-        <div class="pt-photo-track" id="pt-hero-track">
-          <img src="../../assets/images/pt-dumbbell-spot.jpg" alt="Personal trainer spot een klant tijdens een dumbbell bench press bij Fit Up Leiderdorp" width="900" height="1200" fetchpriority="high" decoding="async" class="pt-slide">
-          <img src="../../assets/images/pt-squat-spot.jpg" alt="Personal trainer spot een klant tijdens een squat bij Fit Up Leiderdorp" width="1440" height="1048" loading="lazy" decoding="async" class="pt-slide">
-          <img src="../../assets/images/pt-hero-spot-poster.jpg" alt="Personal trainer begeleidt klanten tijdens kabeltraining bij Fit Up Leiderdorp" width="2160" height="3840" loading="lazy" decoding="async" class="pt-slide">
-        </div>
-        <div class="hero-badge">★ 1-op-1 coaching</div>
-      </div>
-    </div>
-    <div class="pt-pagination" id="pt-hero-pagination" role="tablist" aria-label="Foto's van Personal Training">
-      <button type="button" class="pt-page-dot is-active" aria-label="Foto 1" aria-selected="true"></button>
-      <button type="button" class="pt-page-dot" aria-label="Foto 2" aria-selected="false"></button>
-      <button type="button" class="pt-page-dot" aria-label="Foto 3" aria-selected="false"></button>
-    </div>
-  </div>
-</header>
+<section class="crumb"><div class="container"><nav class="crumb-inner" aria-label="Kruimelpad"><a href="../../index.html">Home</a><span class="crumb-sep">/</span><a href="../../trainingsaanbod/index.html">Trainingsaanbod</a><span class="crumb-sep">/</span><span class="crumb-cur">Personal Training</span></nav></div></section>
+
+<header class="seo-hero"><div class="container"><div class="seo-hero-grid"><div>
+<div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Personal Training</div>
+<h1>Personal Training<br><em>bij Fit Up</em></h1>
+<p class="seo-hero-sub">Volledig <strong>1-op-1 coaching</strong> met je eigen vaste trainer. Jouw schema, jouw tempo, jouw doel — met techniekcheck op elke herhaling en voedingsbegeleiding via de app. Vier sessies per maand, meetbare progressie.</p>
+<div class="trust-row"><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1-op-1 coaching</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vaste trainer</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Voedingsbegeleiding via app</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gratis parkeren</span></div>
+<div class="seo-hero-ctas"><a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20intake%20Personal%20Training" class="btn-accent">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="#tarieven" class="btn-outline">Bekijk tarieven</a></div>
+</div>
+<aside class="hero-stats-card"><div class="hsc-label">In het kort</div><div class="hsc-title">Personal Training</div><div class="hsc-stats"><div><div class="hsc-stat-num">1-op-1</div><div class="hsc-stat-label">Volledig persoonlijke coaching</div></div><div><div class="hsc-stat-num">4</div><div class="hsc-stat-label">Sessies van 60 min per 4 weken</div></div><div><div class="hsc-stat-num">€300</div><div class="hsc-stat-label">Vanaf per 4 weken</div></div><div><div class="hsc-stat-num">Gratis</div><div class="hsc-stat-label">Parkeren voor de deur</div></div></div><div class="hsc-foot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Weversbaan 9, Leiderdorp · gratis parkeren voor de deur</span></div></aside>
+</div></div></header>
 
 <!-- HIGHLIGHT BAND -->
 <section class="hbar" style="padding:36px 0">
