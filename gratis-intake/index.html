@@ -104,6 +104,19 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .channel { padding: 14px 18px; }
     .visit-card { padding: 22px 20px; }
   }
+
+  /* VIRTUAGYM ROOSTER-WIDGET — groter + brand-accent i.p.v. neutraal wit */
+  vg-widget {
+    --vg-surface: var(--accent, #d4ff00);
+    --vg-surface-hover: #e8ff66;
+    --vg-text-primary: #0c0c0c;
+    --vg-shadow: 0 10px 28px -6px rgba(212,255,0,.55);
+    transform: scale(1.25);
+    transform-origin: bottom right;
+  }
+  @media (max-width: 640px) {
+    vg-widget { transform: scale(1.1); }
+  }
 </style>
 
 <script type="application/ld+json">
