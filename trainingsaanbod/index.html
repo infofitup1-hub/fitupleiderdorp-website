@@ -63,13 +63,27 @@ nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14
 .nav-links a:hover,.nav-links a.active{color:var(--white)}
 .nav-btn{background:var(--accent)!important;color:var(--black)!important;padding:10px 24px;font-weight:700!important;letter-spacing:1px!important}
 
-/* SHARED EYEBROW/BUTTONS (used across services/goal-finder/coaching12/moment sections) */
+/* HERO — donker bookend (component-variant: centered) */
+.page-hero{background:var(--charcoal);padding:96px 0 100px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(212,255,0,.06) 0%,transparent 70%);pointer-events:none}
+.page-hero .hero-wrap{max-width:900px;margin:0 auto;position:relative;padding:0 40px}
+.hero-photo-diagonal{width:100%;height:clamp(320px,58vw,540px);position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 88%,0 100%);margin-bottom:14px}
+.hero-photo-diagonal img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
+.hero-photo-diagonal::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(12,12,12,0) 45%,rgba(12,12,12,.55) 100%)}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
 .eyebrow-line{width:24px;height:2px;background:var(--accent)}
+h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6.5vw,80px);line-height:.92;letter-spacing:-.5px;margin-bottom:26px;color:var(--white)}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:18px;font-weight:300;color:rgba(255,255,255,.7);line-height:1.75;max-width:700px;margin:0 auto}
+.hero-sub strong{color:var(--white);font-weight:500}
+.hero-cta-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:34px}
 .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s}
 .btn-accent:hover{background:transparent;color:var(--accent)}
 .btn-outline{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);text-decoration:none;padding:14px 28px;font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.3);border-radius:var(--r-btn);transition:all .25s}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-trust{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:13px;letter-spacing:.3px;color:rgba(255,255,255,.6)}
+.hero-trust .ht-stars{color:var(--accent);letter-spacing:1px}
+.hero-trust strong{color:var(--white);font-weight:700}
 
 /* SERVICES GRID */
 .services{padding:40px 40px 120px;max-width:1400px;margin:0 auto}
@@ -167,6 +181,9 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
 @media (max-width:768px){
   nav{padding:18px 20px}
   .nav-links{display:none}
+  .page-hero{padding:64px 0 60px}
+  .page-hero .hero-wrap{padding:0 20px}
+  .hero-photo-diagonal{height:clamp(260px,80vw,420px);clip-path:polygon(0 0,100% 0,100% 80%,0 96%);margin-bottom:12px}
   .services{padding:30px 20px 80px}
   .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
   .svc-card{padding:18px 15px;gap:8px}
@@ -254,7 +271,6 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 /* === END NAV DROPDOWN + DRAWER === */
 
 </style>
-<link rel="stylesheet" href="../assets/css/seo.css?v=20260820">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
@@ -303,17 +319,23 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <a href="../gratis-intake/index.html" class="drawer-cta">Contact</a>
 </div>
 
-<section class="crumb"><div class="container"><nav class="crumb-inner" aria-label="Kruimelpad"><a href="../index.html">Home</a><span class="crumb-sep">/</span><span class="crumb-cur">Trainingsaanbod</span></nav></div></section>
-
-<header class="seo-hero"><div class="container"><div class="seo-hero-grid"><div>
-<div class="hero-eyebrow"><span class="eyebrow-dot"></span>Trainingsaanbod · Fit Up Leiderdorp</div>
-<h1>Trainingsaanbod<br><em>Leiderdorp</em></h1>
-<p class="seo-hero-sub">Geen standaard schema van de plank — kies de vorm van <strong>persoonlijke begeleiding</strong> die bij jouw doel, ervaring en agenda past.</p>
-<div class="trust-row"><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>5 trainingsvormen</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>4,9 ★ op 66 reviews</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Persoonlijke begeleiding</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gratis parkeren</span></div>
-<div class="seo-hero-ctas"><a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20kennismaking%20inplannen." target="_blank" rel="noopener" class="btn-accent">Plan een kennismaking <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="../tarieven/index.html" class="btn-outline">Bekijk tarieven</a></div>
-</div>
-<aside class="hero-stats-card"><div class="hsc-label">In het kort</div><div class="hsc-title">Het aanbod</div><div class="hsc-stats"><div><div class="hsc-stat-num">5</div><div class="hsc-stat-label">Trainingsvormen onder één dak</div></div><div><div class="hsc-stat-num">4,9</div><div class="hsc-stat-label">Score op 66 Google-reviews</div></div><div><div class="hsc-stat-num">12</div><div class="hsc-stat-label">Weken naar zichtbaar resultaat</div></div><div><div class="hsc-stat-num">€48,50</div><div class="hsc-stat-label">Instappen vanaf per 4 weken</div></div></div><div class="hsc-foot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Weversbaan 9, Leiderdorp · gratis parkeren voor de deur</span></div></aside>
-</div></div></header>
+<header class="page-hero">
+  <div class="hero-photo-diagonal"><img src="../assets/images/trainingsaanbod-app-hero.webp" alt="Trainen inplannen via de app bij Fit Up Leiderdorp" loading="lazy" decoding="async"></div>
+  <div class="hero-wrap">
+    <span class="eyebrow"><span class="eyebrow-line"></span>Fit Up Leiderdorp</span>
+    <h1>Trainingsaanbod<br><em>Leiderdorp</em></h1>
+    <p class="hero-sub">Geen standaard schema van de plank — kies de vorm van <strong>persoonlijke begeleiding</strong> die bij jouw doel, ervaring en agenda past.</p>
+    <div class="hero-cta-row">
+      <a href="https://wa.me/31645280679?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20een%20gratis%20kennismaking%20inplannen." target="_blank" rel="noopener" class="btn-accent">Plan een kennismaking
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="../tarieven/index.html" class="btn-outline">Bekijk tarieven</a>
+    </div>
+    <div class="hero-trust" aria-label="Beoordeeld met 4,9 van 5 sterren op basis van 66 Google-reviews">
+      <span class="ht-stars" aria-hidden="true">★★★★★</span> <strong>4,9</strong> uit 66 Google-reviews
+    </div>
+  </div>
+</header>
 
 <section class="services">
   <div class="services-grid" data-swipe-track="services">
