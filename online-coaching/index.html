@@ -47,8 +47,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/seo.css?v=20260820">
-<link rel="stylesheet" href="../assets/css/style.css">
 <style>
   :root{--black:#0c0c0c;--mid:#161616;--dark:#111;--white:#fff;--accent:#d4ff00;--gray:#888;--lgray:#2a2a2a;--charcoal:#18191b;--paper:#fff;--paper2:#f3f4f0;--ink:#141611;--ink-soft:#3c3f37;--ink-mute:#575b4e;--line:rgba(20,22,17,.08);--accent-ink:#4a5900;--r-btn:10px;--r-card:18px;--sh-2:0 1px 2px rgba(20,22,17,.04),0 24px 50px -22px rgba(20,22,17,.18);--sh-hover:0 2px 6px rgba(20,22,17,.05),0 40px 80px -28px rgba(20,22,17,.28);--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -70,11 +68,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
   h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(36px,4.8vw,56px);line-height:.95;letter-spacing:.3px}
   h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
+  .page-hero h1 em{background:none;padding:0;color:var(--accent)}
   h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
   .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-accent:hover{background:transparent;color:var(--accent)}
   .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(20,22,17,.25);padding-bottom:2px;transition:all .2s}
   .btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
+  .page-hero .btn-ghost{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.2)}
+  .page-hero .btn-ghost:hover{color:var(--white);border-color:var(--white)}
   .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--accent);text-decoration:none;padding:15px 28px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--black);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-dark:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
@@ -82,6 +83,47 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+
+  /* PAGE HERO */
+  .page-hero{min-height:62vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:100px;background:linear-gradient(160deg,#0a0a0a 0%,#151516 55%,#0d0d0e 100%)}
+  .page-hero-left{padding:60px 64px 60px 40px;display:flex;flex-direction:column;justify-content:center}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fadeUp .6s ease .2s forwards}
+  .hero-eyebrow .eyebrow-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+  .page-hero h1{font-size:clamp(44px,5.5vw,72px);margin-bottom:22px;color:var(--white);opacity:0;animation:fadeUp .6s ease .4s forwards}
+  .page-hero h1 em{font-style:normal;color:var(--accent);display:block}
+  .page-hero-sub{font-size:17px;font-weight:500;color:rgba(255,255,255,.7);line-height:1.6;max-width:420px;margin-bottom:36px;opacity:0;animation:fadeUp .6s ease .6s forwards}
+  .page-hero-ctas{display:flex;gap:24px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .75s forwards}
+  .hero-avail{display:flex;align-items:center;gap:7px;margin-top:18px;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.2px;opacity:0;animation:fadeUp .6s ease .85s forwards}
+  .hero-avail svg{flex-shrink:0;color:var(--accent)}
+  .page-hero-right{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:48px 40px}
+  .page-hero-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:460px;height:460px;background:radial-gradient(ellipse,rgba(212,255,0,.09) 0%,transparent 68%);pointer-events:none;z-index:0}
+  .hero-phones{position:relative;z-index:1;width:100%;max-width:480px;opacity:0;animation:fadeUp .7s ease .3s forwards}
+  .hero-phones img{display:block;width:100%;height:auto}
+
+  /* HERO FEATURE VISUAL (features + smartphones) */
+  .hero-feature-visual{position:relative;z-index:1;display:grid;grid-template-columns:minmax(150px,28%) 1fr;align-items:center;gap:18px;width:100%}
+  .hero-features{display:flex;flex-direction:column;gap:8px;min-width:0}
+  .hero-feature{display:flex;align-items:center;gap:9px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:5px 13px 5px 5px;text-decoration:none;box-shadow:0 3px 10px -4px rgba(20,22,17,.14);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;opacity:0;animation:fadeUp .6s ease forwards}
+  .hero-feature-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--black);transition:box-shadow .2s ease}
+  .hero-feature-icon svg{width:15px;height:15px}
+  .hero-feature-title{flex:1;min-width:0;font-family:var(--fd);font-weight:800;font-size:11.5px;letter-spacing:.2px;text-transform:none;color:var(--ink);line-height:1.15;white-space:nowrap}
+  .hero-feature-arrow{flex-shrink:0;color:var(--accent-ink);transition:transform .2s ease,color .2s ease;width:12px;height:12px}
+  .hero-feature:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 16px 34px -12px rgba(212,255,0,.45),var(--sh-hover);cursor:pointer}
+  .hero-feature:hover .hero-feature-icon{box-shadow:0 0 0 6px rgba(212,255,0,.28)}
+  .hero-feature:hover .hero-feature-arrow{transform:translateX(3px)}
+  .hero-feature:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .hero-feature-visual .hero-phones{min-width:0;max-width:480px;margin:0 auto}
+  .hero-feature:nth-child(1){animation-delay:.15s}
+  .hero-feature:nth-child(2){animation-delay:.22s}
+  .hero-feature:nth-child(3){animation-delay:.29s}
+  .hero-feature:nth-child(4){animation-delay:.36s}
+  .hero-feature:nth-child(5){animation-delay:.43s}
+  .hero-feature:nth-child(6){animation-delay:.5s}
+  @media (prefers-reduced-motion:reduce){
+    .hero-feature{transition:none;animation:none;opacity:1}
+    .hero-feature:hover{transform:none}
+    .hero-feature-arrow{transition:none}
+  }
 
   /* SECTION HEADERS */
   .sec-head{text-align:center;margin-bottom:56px}
@@ -219,6 +261,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .f-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
 
   @media (max-width:980px){
+    .page-hero{grid-template-columns:1fr;min-height:auto}
+    .page-hero-left{padding:40px}
+    .page-hero-right{min-height:0;padding:36px 20px}
+    .hero-phones{max-width:400px}
+    .hero-feature-visual{grid-template-columns:1fr;gap:22px}
+    .hero-feature-visual .hero-phones{order:1;width:100%;max-width:400px;margin:0 auto}
+    .hero-features{order:2;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .tarief-cards{grid-template-columns:1fr}
     .modes-grid{grid-template-columns:1fr}
     .faq-grid{grid-template-columns:1fr}
@@ -227,6 +276,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .if-grid-2{grid-template-columns:1fr}
     .nav-links{display:none}
     .nav-links li:last-child{display:block}
+  }
+
+  @media (max-width:768px){
+    .hero-feature{padding:11px 12px;gap:9px;border-radius:14px}
+    .hero-feature-icon{width:28px;height:28px}
+    .hero-feature-icon svg{width:14px;height:14px}
+    .hero-feature-title{font-size:12px;white-space:normal;line-height:1.2}
   }
 
   /* ───── MOBILE (smartphone) ───── */
@@ -241,6 +297,13 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     section{padding:56px 0}
     h1{font-size:clamp(40px,11vw,60px)!important;line-height:.92}
     h2{font-size:clamp(34px,9vw,48px)!important}
+
+    .page-hero-left{padding:110px 20px 40px!important}
+    .page-hero-right{min-height:0!important;padding:8px 20px 40px!important}
+    .hero-phones{max-width:320px}
+    .page-hero-sub{font-size:15px}
+    .page-hero-ctas{flex-direction:column;align-items:stretch;gap:14px}
+    .page-hero-ctas .btn-accent{justify-content:center;width:100%}
 
     .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
     .f-brand{grid-column:auto!important}
@@ -333,6 +396,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 /* === END NAV DROPDOWN + DRAWER === */
 
 </style>
+<link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31645280679","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Online Coaching","item":"https://fitupleiderdorp.nl/online-coaching/"}]}</script>
@@ -382,17 +446,56 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </div>
 
 <!-- 1. HERO -->
-<section class="crumb"><div class="container"><nav class="crumb-inner" aria-label="Kruimelpad"><a href="../index.html">Home</a><span class="crumb-sep">/</span><span class="crumb-cur">Online Coaching</span></nav></div></section>
-
-<header class="seo-hero"><div class="container"><div class="seo-hero-grid"><div>
-<div class="hero-eyebrow"><span class="eyebrow-dot"></span>Fit Up Online Coaching</div>
-<h1>Online coaching<br>met <em>structuur</em></h1>
-<p class="seo-hero-sub">Persoonlijke training, voeding en wekelijkse coaching. Geen standaard schema dat je zelf moet uitzoeken, maar begeleiding die wordt aangepast aan jouw voortgang.</p>
-<div class="trust-row"><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vaste coach</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Wekelijkse check-in</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Beschikbaar in heel Nederland</span><span class="trust-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vanaf €50 per 4 weken</span></div>
-<div class="seo-hero-ctas"><a href="#intake" class="btn-accent">Start met je intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="https://wa.me/31645280679?text=Hi%20Fit%20Up%2C%20ik%20heb%20een%20vraag%20over%20Online%20Coaching" target="_blank" rel="noopener" class="btn-outline">WhatsApp direct</a></div>
-</div>
-<aside class="hero-stats-card"><div class="hsc-label">In het kort</div><div class="hsc-title">Online Coaching</div><div class="hsc-stats"><div><div class="hsc-stat-num">€50</div><div class="hsc-stat-label">Per 4 weken, vanaf (Basis)</div></div><div><div class="hsc-stat-num">1</div><div class="hsc-stat-label">Vaste coach, geen wisselingen</div></div><div><div class="hsc-stat-num">Wekelijks</div><div class="hsc-stat-label">Persoonlijke check-in</div></div><div><div class="hsc-stat-num">Heel NL</div><div class="hsc-stat-label">Beschikbaar door heel Nederland</div></div></div><div class="hsc-foot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Weversbaan 9, Leiderdorp · gratis parkeren voor de deur</span></div></aside>
-</div></div></header>
+<header class="page-hero" data-screen-label="Hero Online Coaching">
+  <div class="page-hero-left">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Fit Up Online Coaching</div>
+    <h1>Online coaching<br>met <em>structuur</em></h1>
+    <p class="page-hero-sub">Persoonlijke training, voeding en wekelijkse coaching. Geen standaard schema dat je zelf moet uitzoeken, maar begeleiding die wordt aangepast aan jouw voortgang.</p>
+    <div class="page-hero-ctas">
+      <a href="#intake" class="btn-accent">Start met je intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <p class="hero-avail"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>Beschikbaar in heel Nederland</p>
+  </div>
+  <div class="page-hero-right">
+    <div class="hero-feature-visual">
+      <div class="hero-features" role="navigation" aria-label="Snel naar een onderdeel van deze pagina">
+        <a class="hero-feature" href="#voordelen">
+          <span class="hero-feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.3"/><rect x="14" y="3" width="7" height="7" rx="1.3"/><rect x="3" y="14" width="7" height="7" rx="1.3"/><rect x="14" y="14" width="7" height="7" rx="1.3"/></svg></span>
+          <span class="hero-feature-title">Wat krijg je</span>
+          <svg class="hero-feature-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="hero-feature" href="#hoe-werkt">
+          <span class="hero-feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg></span>
+          <span class="hero-feature-title">Methode</span>
+          <svg class="hero-feature-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="hero-feature" href="#coaches">
+          <span class="hero-feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></span>
+          <span class="hero-feature-title">Coaches</span>
+          <svg class="hero-feature-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="hero-feature" href="#tarieven">
+          <span class="hero-feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12.5L12.5 20 4 11.5V4h7.5L20 12.5z"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+          <span class="hero-feature-title">Tarieven</span>
+          <svg class="hero-feature-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="hero-feature" href="#faq">
+          <span class="hero-feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 114 2c-1 .7-1.5 1.3-1.5 2.5"/><path d="M12 17h.01"/></svg></span>
+          <span class="hero-feature-title">Q&amp;A</span>
+          <svg class="hero-feature-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="hero-feature" href="#intake">
+          <span class="hero-feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></span>
+          <span class="hero-feature-title">Intake</span>
+          <svg class="hero-feature-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-phones">
+        <img src="../assets/images/app-phones-hero.png" alt="Twee smartphones met de Fit Up online coaching-app: voortgang, gewicht en coachprofiel" width="1351" height="1164" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+  </div>
+</header>
 
 <!-- 2. WAT KRIJG JE -->
 <section class="voordelen" id="voordelen" aria-labelledby="voordelen-heading">
