@@ -740,6 +740,39 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </head>
 <body>
 
+<!-- TIJDELIJKE MELDING — WhatsApp-storing, verwijdert zichzelf na 2026-09-07 -->
+<div id="wa-notice" style="display:none;position:fixed;top:0;left:0;right:0;z-index:250;background:#0c0c0c;color:#fff;padding:12px 44px 12px 16px;text-align:center;font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.55;border-bottom:1px solid rgba(212,255,0,.25)">
+  <span style="color:#d4ff00;font-weight:700">Let op:</span> door een storing hebben we tijdelijk geen toegang meer tot oude WhatsApp-gesprekken. Heb je de afgelopen week een <strong>gratis intake</strong> aangevraagd via WhatsApp? <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up%2C%20ik%20had%20vorige%20week%20al%20een%20gratis%20intake%20aangevraagd%20via%20WhatsApp%2C%20maar%20stuur%20'm%20door%20de%20storing%20nu%20opnieuw." style="color:#d4ff00;text-decoration:underline;font-weight:700;white-space:nowrap">Stuur 'm opnieuw</a> — dan plannen we je zo snel mogelijk in.
+  <button id="wa-notice-close" aria-label="Melding sluiten" style="position:absolute;top:6px;right:8px;background:none;border:none;color:rgba(255,255,255,.5);font-size:20px;line-height:1;cursor:pointer;padding:6px">&times;</button>
+</div>
+<script>
+(function(){
+  var expiry = new Date('2026-09-07T23:59:59');
+  if (new Date() > expiry) return;
+  try { if (localStorage.getItem('waNoticeDismissed') === '1') return; } catch(e){}
+  var el = document.getElementById('wa-notice');
+  var closeBtn = document.getElementById('wa-notice-close');
+  if (!el) return;
+  el.style.display = 'block';
+  function applyOffset(){
+    document.documentElement.style.setProperty('--wa-notice-h', el.offsetHeight + 'px');
+    document.body.classList.add('has-wa-notice');
+  }
+  applyOffset();
+  window.addEventListener('resize', applyOffset);
+  closeBtn.addEventListener('click', function(){
+    el.style.display = 'none';
+    document.body.classList.remove('has-wa-notice');
+    try { localStorage.setItem('waNoticeDismissed', '1'); } catch(e){}
+  });
+})();
+</script>
+<style>
+  body.has-wa-notice{padding-top:var(--wa-notice-h,0px)}
+  body.has-wa-notice nav{top:var(--wa-notice-h,0px)}
+  @media(max-width:640px){#wa-notice{font-size:12px;padding:10px 40px 10px 12px}}
+</style>
+
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   <a href="index.html" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="assets/images/logo-mark-on-dark.png" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
