@@ -19,7 +19,7 @@ window.FU_CL_CONFIG = {
   webhookUrl: 'https://hook.eu1.make.com/qw741ixpqwexef7vdaqrglxodnspbrzu',
 
   /* Bestaand officieel Fit Up WhatsApp-nummer (uit de site zelf) */
-  whatsappNumber: '31645280679',
+  whatsappNumber: '31648776322',
 
   privacyUrl: '/privacybeleid/',
 
