@@ -5,6 +5,33 @@ Logboek van de 99,9%-productie-optimalisatie. Elke wijziging heeft een **waarom*
 gewijzigd. Afbeeldingen: bestaande echte foto's blijven staan; placeholders alleen voor
 secties waar nog geen beeld beschikbaar is (bv. resultaten-sectie i.a.w. klantgoedkeuring).
 
+## 2026-08-21 — Kleine keyword-uitbreiding `fitnessclub-leiderdorp/index.html`
+
+- **Letterlijke term "fitness in Leiderdorp" toegevoegd** aan de hero-subtekst en de "Lokaal
+  in Leiderdorp"-paragraaf. De pagina targette tot nu toe consequent "fitnessclub leiderdorp"
+  (title, meta, H1, keywords) maar de kale zoekterm "fitness leiderdorp" (prioriteitswoord,
+  positie ~12) kwam nergens letterlijk voor.
+  _Impact: SEO (dekt het ontbrekende exacte zoekwoord)._
+- **Bewust ongewijzigd**: title, meta description, H1, canonical, alle schema (FAQ/
+  SportsActivityLocation/Breadcrumb) en interne links — die stonden al goed en zijn niet
+  aangeraakt. Sitemap-`lastmod` ook niet bijgewerkt (buiten scope van deze goedkeuring).
+
+## 2026-08-21 — 301-consolidatie `/personal-trainer-leiderdorp/` alsnog afgerond
+
+- **`sitemap.xml`**: de URL-vermelding voor `/personal-trainer-leiderdorp/` verwijderd. De
+  pagina wordt sinds 14 augustus (commit `94e64ec`) al forced 301-geredirect naar
+  `/personal-training-leiderdorp/`; de sitemap-vermelding was daarna echter weer teruggezet,
+  wat een geredirecte URL als indexeerbaar aan Google voorstelde.
+  _Impact: SEO (voorkomt verwarrende/tegenstrijdige signalen voor Googlebot op een
+  prioriteitszoekwoord)._
+- **`.github/autoseo.js`**: `personal-trainer-leiderdorp/index.html` verwijderd uit de
+  `ALL_PAGES`-lijst van de wekelijkse autonome SEO-agent. Deze lijst is vermoedelijk de bron
+  van de ongewenste terugkeer in de sitemap; zonder deze aanpassing zou de agent de
+  inconsistentie waarschijnlijk opnieuw introduceren.
+  _Impact: SEO (voorkomt herhaling van het probleem)._
+- Redirect in `_redirects` en de paginabestanden zelf **niet aangepast** — dat blijft
+  bewust buiten scope, zoals ook in de oorspronkelijke consolidatie van 14 augustus.
+
 ## 2026-08-06 — Trainingsaanbod hub (`trainingsaanbod/index.html`)
 
 - **Metadata (title/description/OG/Twitter) herschreven** — was afgekapt ("...PT, Fitness &")

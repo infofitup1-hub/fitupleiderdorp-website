@@ -22,7 +22,7 @@ const ALL_PAGES = [
   "fitness-voor-beginners-leiderdorp/index.html","fitnessclub-leiderdorp/index.html",
   "gratis-intake/index.html","hyrox-training-leiderdorp/index.html",
   "krachttraining-leiderdorp/index.html","online-coaching/index.html",
-  "personal-trainer-leiden/index.html","personal-trainer-leiderdorp/index.html",
+  "personal-trainer-leiden/index.html",
   "personal-trainer-oegstgeest/index.html","personal-trainer-voorschoten/index.html",
   "personal-training-leiderdorp/index.html","small-group-personal-training-leiderdorp/index.html",
   "spiermassa-opbouwen-leiderdorp/index.html","sportschool-leiderdorp/index.html",
