@@ -64,6 +64,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .phone-btn-vol1 { left: -4px; top: 110px; height: 36px; border-radius: 2px 0 0 2px; }
   .phone-btn-vol2 { left: -4px; top: 156px; height: 36px; border-radius: 2px 0 0 2px; }
   @media (max-width: 460px) { .phone-frame { border-radius: 40px; padding: 10px; } .phone-screen { border-radius: 30px; height: min(680px, 75vh); } }
+  .phone-fade { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 64px; border-radius: 0 0 38px 38px; background: linear-gradient(transparent, rgba(0,0,0,.85)); pointer-events: none; z-index: 5; transition: opacity .3s ease; }
+  .phone-scroll-hint { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); z-index: 6; display: flex; align-items: center; gap: 6px; padding: 7px 16px; background: rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.15); border-radius: 20px; font-family: var(--fd); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); pointer-events: none; transition: opacity .3s ease; animation: scrollHintBounce 1.6s ease-in-out infinite; }
+  .phone-scroll-hint svg { width: 12px; height: 12px; }
+  .phone-fade.is-hidden, .phone-scroll-hint.is-hidden { opacity: 0; }
+  @keyframes scrollHintBounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(5px); } }
+  .phone-hint-text { text-align: center; font-size: 13px; color: rgba(255,255,255,.5); margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 6px; }
   .calc-form { background: var(--mid); padding: 28px 24px; }
   .calc-form h2 { margin-bottom: 24px; font-size: clamp(24px, 6vw, 30px); color: var(--white); }
   .calc-form h2 em { color: var(--accent); background: none; }
@@ -217,7 +223,12 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="phone-btn phone-btn-vol1"></div>
         <div class="phone-btn phone-btn-vol2"></div>
         <div class="phone-btn phone-btn-power"></div>
-        <div class="phone-screen">
+        <div class="phone-fade" id="phoneFade"></div>
+        <div class="phone-scroll-hint" id="phoneScrollHint">
+          <span>Scroll</span>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="phone-screen" id="phoneScreen">
           <div class="phone-statusbar">
             <span>9:41</span>
             <span class="phone-statusbar-icons">
@@ -288,6 +299,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       </aside>
         </div>
       </div>
+      <p class="phone-hint-text"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11M8 13l-4-4M8 13l4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Scroll in het scherm om je gegevens in te vullen en het resultaat te zien</p>
     </div>
   </div>
 </section>
@@ -491,6 +503,18 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   }
   // Run initial compute
   compute();
+
+  // Phone scroll hint
+  const phoneScreen = document.getElementById('phoneScreen');
+  const phoneFade = document.getElementById('phoneFade');
+  const phoneScrollHint = document.getElementById('phoneScrollHint');
+  if (phoneScreen) {
+    phoneScreen.addEventListener('scroll', () => {
+      const nearBottom = phoneScreen.scrollTop + phoneScreen.clientHeight >= phoneScreen.scrollHeight - 20;
+      phoneFade.classList.toggle('is-hidden', phoneScreen.scrollTop > 20 || nearBottom);
+      phoneScrollHint.classList.toggle('is-hidden', phoneScreen.scrollTop > 20);
+    }, {passive:true});
+  }
 
   // Nav scroll
   const nav = document.getElementById('nav');
