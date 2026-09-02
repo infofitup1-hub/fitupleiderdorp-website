@@ -52,12 +52,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link rel="stylesheet" href="../assets/css/seo.css?v=20260820">
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
-  .phone-wrap { display: flex; justify-content: center; padding: 10px 0 30px; }
+  .phone-section { position: relative; overflow: hidden; }
+  .phone-section::before, .phone-section::after { content: ''; position: absolute; border-radius: 50%; pointer-events: none; filter: blur(10px); z-index: 0; }
+  .phone-section::before { top: -160px; left: 50%; transform: translateX(-72%); width: 560px; height: 560px; background: radial-gradient(circle, rgba(212,255,0,.22) 0%, transparent 70%); }
+  .phone-section::after { bottom: -180px; left: 50%; transform: translateX(20%); width: 560px; height: 560px; background: radial-gradient(circle, rgba(46,196,255,.16) 0%, transparent 70%); }
+  .phone-wrap { position: relative; z-index: 1; display: flex; justify-content: center; padding: 10px 0 30px; }
   .phone-frame { position: relative; width: 390px; max-width: 100%; background: linear-gradient(160deg,#2c2c2c,#0a0a0a); border-radius: 52px; padding: 16px; box-shadow: 0 40px 90px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.06); }
   .phone-island { position: absolute; top: 34px; left: 50%; transform: translateX(-50%); width: 100px; height: 28px; background: #000; border-radius: 20px; z-index: 5; }
-  .phone-screen { position: relative; background: var(--black); border-radius: 38px; overflow-y: auto; overflow-x: hidden; height: min(760px, 80vh); scrollbar-width: none; }
+  .phone-screen { position: relative; background: linear-gradient(165deg, #202b12 0%, #0d0d0d 42%, #0a1d20 100%); border-radius: 38px; overflow-y: auto; overflow-x: hidden; height: min(760px, 80vh); scrollbar-width: none; padding: 0 14px 20px; }
   .phone-screen::-webkit-scrollbar { display: none; }
-  .phone-statusbar { position: sticky; top: 0; z-index: 4; display: flex; justify-content: space-between; align-items: center; padding: 18px 28px 6px; font-family: var(--fb); font-size: 14px; font-weight: 600; color: var(--white); background: var(--black); }
+  .phone-statusbar { position: sticky; top: 0; z-index: 4; margin: 0 -14px; display: flex; justify-content: space-between; align-items: center; padding: 18px 28px 10px; font-family: var(--fb); font-size: 14px; font-weight: 600; color: var(--white); background: rgba(10,10,10,.5); backdrop-filter: blur(10px); }
   .phone-statusbar-icons { display: flex; gap: 5px; align-items: center; opacity: .85; }
   .phone-btn { position: absolute; width: 4px; background: #1a1a1a; }
   .phone-btn-power { right: -4px; top: 130px; height: 70px; border-radius: 0 2px 2px 0; }
@@ -70,7 +74,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .phone-fade.is-hidden, .phone-scroll-hint.is-hidden { opacity: 0; }
   @keyframes scrollHintBounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(5px); } }
   .phone-hint-text { text-align: center; font-size: 13px; color: rgba(255,255,255,.5); margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 6px; }
-  .calc-form { background: var(--mid); padding: 28px 24px; }
+  .calc-form { background: var(--mid); padding: 28px 24px; border-radius: 24px; margin-top: 16px; }
   .calc-form h2 { margin-bottom: 24px; font-size: clamp(24px, 6vw, 30px); color: var(--white); }
   .calc-form h2 em { color: var(--accent); background: none; }
   .field-group { margin-bottom: 22px; min-width: 0; }
@@ -89,7 +93,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .field-suffix { position: relative; }
   .field-suffix::after { content: attr(data-suffix); position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 13px; pointer-events: none; }
   .field-suffix input { padding-right: 38px; }
-  .calc-result { background: var(--black); border-top: 1px solid rgba(212,255,0,.12); padding: 28px 24px 40px; }
+  .calc-result { background: var(--black); border: 1px solid rgba(212,255,0,.12); border-radius: 24px; padding: 28px 24px 32px; margin-top: 16px; }
   .res-eyebrow { font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
   .res-headline { font-family: var(--fd); font-size: clamp(28px, 3.4vw, 38px); font-weight: 900; text-transform: uppercase; line-height: 1; margin-bottom: 24px; letter-spacing: .5px; color: var(--white); }
   .res-kcal-box { background: var(--accent); color: var(--black); padding: 24px 28px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 24px; }
@@ -215,7 +219,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </div>
 </header>
 
-<section style="padding-top:30px">
+<section class="phone-section" style="padding-top:30px">
   <div class="container">
     <div class="phone-wrap">
       <div class="phone-frame">
