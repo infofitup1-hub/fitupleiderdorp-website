@@ -63,7 +63,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   body{background:var(--black);color:var(--white);font-family:var(--fb);overflow-x:hidden}
 
   /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
+  #nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
   nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
   .logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
   .logo span{color:var(--accent)}
@@ -406,7 +406,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* ───────────────────────────── RESPONSIVE ───────────────────────────── */
   @media (max-width:980px){
-    nav{padding:16px 20px}
+    #nav{padding:16px 20px}
     nav.scrolled{padding:12px 20px}
     /* WHY sectie - foto boven tekst op mobiel */
     .why-grid{grid-template-columns:1fr!important;gap:32px}
@@ -478,7 +478,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   }
 
   @media (max-width:560px){
-    nav{padding:14px 16px}
+    #nav{padding:14px 16px}
     nav.scrolled{padding:10px 16px}
     .logo{font-size:22px;letter-spacing:2px}
     .nav-toggle{width:42px;height:42px}

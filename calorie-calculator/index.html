@@ -55,7 +55,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .calc-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
   .calc-wrap > * { min-width: 0; }
   .calc-form { background: var(--mid); padding: 40px; border-left: 3px solid var(--accent); }
-  .calc-form h2 { margin-bottom: 28px; font-size: clamp(28px, 3.4vw, 36px); }
+  .calc-form h2 { margin-bottom: 28px; font-size: clamp(28px, 3.4vw, 36px); color: var(--white); }
+  .calc-form h2 em { color: var(--accent); background: none; }
   .field-group { margin-bottom: 22px; min-width: 0; }
   .field-group label { display: block; font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -74,7 +75,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .field-suffix input { padding-right: 38px; }
   .calc-result { background: var(--black); border: 1px solid rgba(212,255,0,.12); padding: 40px; position: sticky; top: 110px; }
   .res-eyebrow { font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-  .res-headline { font-family: var(--fd); font-size: clamp(28px, 3.4vw, 38px); font-weight: 900; text-transform: uppercase; line-height: 1; margin-bottom: 24px; letter-spacing: .5px; }
+  .res-headline { font-family: var(--fd); font-size: clamp(28px, 3.4vw, 38px); font-weight: 900; text-transform: uppercase; line-height: 1; margin-bottom: 24px; letter-spacing: .5px; color: var(--white); }
   .res-kcal-box { background: var(--accent); color: var(--black); padding: 24px 28px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 24px; }
   .res-kcal-num { font-family: var(--fd); font-size: 58px; font-weight: 900; line-height: 1; }
   .res-kcal-label { font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; text-align: right; line-height: 1.3; }
@@ -84,7 +85,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .macros { margin-top: 28px; display: grid; gap: 14px; }
   .macro { background: var(--mid); padding: 18px 22px; }
   .macro-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .macro-name { font-family: var(--fd); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px; }
+  .macro-name { font-family: var(--fd); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px; color: var(--white); }
   .macro-dot { width: 9px; height: 9px; border-radius: 50%; }
   .m-protein .macro-dot { background: #d4ff00; }
   .m-fat .macro-dot { background: #ff8c2e; }
@@ -111,7 +112,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .calc-info { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; }
   .calc-info-card { background: var(--mid); padding: 32px 28px; }
   .calc-info-num { font-family: var(--fd); font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--accent); margin-bottom: 12px; }
-  .calc-info-title { font-family: var(--fd); font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; letter-spacing: .5px; }
+  .calc-info-title { font-family: var(--fd); font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; letter-spacing: .5px; color: var(--white); }
   .calc-info-text { font-size: 13.5px; color: rgba(255,255,255,.6); line-height: 1.7; font-weight: 300; }
   @media (max-width: 980px) { .calc-info { grid-template-columns: 1fr; } }
 </style>
