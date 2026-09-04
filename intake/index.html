@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1319457633346909');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2SMP15M8YK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2SMP15M8YK');
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Persoonlijke intake | Fit Up Leiderdorp</title>
+<meta name="description" content="Persoonlijke intake voor je afspraak bij Fit Up Leiderdorp.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Persoonlijke intake | Fit Up Leiderdorp">
+<meta property="og:description" content="Vertel ons iets meer over jezelf voorafgaand aan je afspraak bij Fit Up Leiderdorp.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png">
+<meta property="og:locale" content="nl_NL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/seo.css?v=20260820">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  /* ===== INTAKE — page-specific styles ===== */
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  /* Minimal top band (no full nav — focused, private flow) */
+  .intake-top { background: var(--charcoal); padding: 40px 0 56px; text-align: center; position: relative; overflow: hidden; }
+  .intake-top::before { content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 560px; height: 560px; background: radial-gradient(ellipse, rgba(212,255,0,.06) 0%, transparent 70%); pointer-events: none; }
+  .intake-brand { font-family: var(--fd); font-size: 22px; font-weight: 900; letter-spacing: 4px; color: var(--white); position: relative; }
+  .intake-brand span { color: var(--accent); }
+  .intake-top .hero-eyebrow { display: inline-flex; justify-content: center; margin-top: 14px; position: relative; }
+  .intake-top h1 { margin-top: 20px; font-size: clamp(28px, 5vw, 42px); line-height: 1.15; color: var(--white); position: relative; }
+  .intake-top-sub { margin: 16px auto 0; max-width: 560px; font-size: 15px; font-weight: 300; color: rgba(255,255,255,.7); line-height: 1.7; position: relative; }
+
+  /* Content */
+  .intake-section { background: var(--paper2); padding: 40px 0 80px; }
+  .intake-card { max-width: 720px; margin: -40px auto 0; background: var(--paper); border-radius: var(--r-card); box-shadow: var(--sh-2); padding: 28px 22px 32px; position: relative; }
+
+  /* Progress */
+  .intake-progress { margin-bottom: 26px; }
+  .intake-progress-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .intake-step-count { font-family: var(--fd); font-size: 11.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-ink); }
+  .intake-step-title { font-family: var(--fd); font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: .3px; color: var(--ink); }
+  .intake-progress-bar { height: 6px; background: var(--line); border-radius: 100px; overflow: hidden; }
+  .intake-progress-fill { height: 100%; background: var(--accent); border-radius: 100px; transition: width .35s ease; }
+
+  /* Fieldsets / fields */
+  .intake-step { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  .intake-step[hidden] { display: none; }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field[hidden] { display: none; }
+  .field label, .field-label-static { font-family: var(--fb); font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .field-optional { font-style: normal; font-weight: 400; color: var(--ink-mute); font-size: 12px; }
+  .field-row { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .field input[type="text"], .field input[type="number"], .field textarea {
+    width: 100%; background: var(--paper); border: 1.5px solid rgba(20,22,17,.16); border-radius: var(--r-btn);
+    padding: 13px 14px; font-size: 16px; font-family: var(--fb); color: var(--ink); outline: none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .field textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--gray); }
+  .field input:focus, .field textarea:focus {
+    border-color: var(--accent-ink); box-shadow: 0 0 0 3px rgba(212,255,0,.28);
+  }
+  .field.has-error input, .field.has-error textarea, .field.has-error .choice-card { border-color: #c94b3f; }
+  .field.has-error .field-label-static, .field.has-error > label:first-child { color: #b8392e; }
+  .field-hint { font-size: 12px; color: var(--ink-mute); line-height: 1.55; margin-top: 2px; }
+  .field-other { margin-top: 2px; }
+
+  /* Choice cards (radio + checkbox) */
+  .choice-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .choice-card {
+    position: relative; display: flex; align-items: center; gap: 12px;
+    border: 1.5px solid rgba(20,22,17,.14); border-radius: var(--r-md); padding: 13px 15px;
+    background: var(--paper); cursor: pointer; transition: border-color .18s, background .18s;
+    font-size: 14.5px; color: var(--ink); line-height: 1.4;
+  }
+  .choice-card input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+  .choice-card .choice-dot {
+    width: 19px; height: 19px; flex-shrink: 0; border-radius: 50%; border: 1.5px solid rgba(20,22,17,.22);
+    display: inline-flex; align-items: center; justify-content: center; transition: all .15s;
+  }
+  .choice-card.is-multi .choice-dot { border-radius: 6px; }
+  .choice-card.is-checked, .choice-card:has(input:checked) { border-color: var(--accent-ink); background: rgba(212,255,0,.08); }
+  .choice-card.is-checked .choice-dot, .choice-card:has(input:checked) .choice-dot { border-color: var(--accent-ink); background: var(--accent); }
+  .choice-card.is-checked .choice-dot::after, .choice-card:has(input:checked) .choice-dot::after { content: ''; }
+  .choice-card:not(.is-multi).is-checked .choice-dot::after, .choice-card:not(.is-multi):has(input:checked) .choice-dot::after { width: 7px; height: 7px; border-radius: 50%; background: #0c0c0c; }
+  .choice-card.is-multi.is-checked .choice-dot::after, .choice-card.is-multi:has(input:checked) .choice-dot::after { width: 9px; height: 5px; border-left: 2px solid #0c0c0c; border-bottom: 2px solid #0c0c0c; transform: rotate(-45deg) translate(1px,-1px); }
+  .choice-card:has(input:focus-visible) { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
+  .choice-card:hover { border-color: rgba(20,22,17,.3); }
+
+  .consent-card { align-items: flex-start; }
+  .consent-card .choice-dot { margin-top: 1px; }
+  .field-consent { margin-top: 4px; }
+
+  /* Honeypot */
+  .hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  /* Nav buttons */
+  .intake-nav { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink);
+    padding: 14px 22px; font-family: var(--fd); font-weight: 700; font-size: 13.5px; letter-spacing: 1px;
+    text-transform: uppercase; border: 1.5px solid rgba(20,22,17,.2); border-radius: var(--r-btn);
+    cursor: pointer; transition: all .2s;
+  }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--ink); }
+  .btn-ghost:disabled { opacity: .35; cursor: not-allowed; }
+  .intake-nav .btn-accent, .intake-nav .btn-ghost { border-width: 1.5px; padding: 14px 26px; font-size: 13.5px; min-height: 48px; }
+  .intake-nav .btn-accent:disabled { opacity: .55; cursor: not-allowed; }
+  .intake-nav [hidden] { display: none; }
+
+  /* Footer */
+  .intake-footer { background: var(--charcoal); padding: 34px 0; text-align: center; }
+  .intake-footer-brand { font-family: var(--fd); font-size: 18px; font-weight: 900; letter-spacing: 3px; color: var(--white); margin-bottom: 10px; }
+  .intake-footer-brand span { color: var(--accent); }
+  .intake-footer p { font-size: 12.5px; color: rgba(255,255,255,.5); line-height: 1.7; }
+  .intake-footer a { color: rgba(255,255,255,.65); text-decoration: none; }
+  .intake-footer a:hover { color: var(--accent); }
+  .intake-footer-copy { margin-top: 4px; color: rgba(255,255,255,.3) !important; }
+
+  @media (min-width: 641px) {
+    .field-row { grid-template-columns: 1fr 1fr; }
+    .choice-grid { grid-template-columns: 1fr 1fr; }
+    .intake-card { padding: 40px 44px 44px; }
+  }
+  @media (max-width: 640px) {
+    .intake-card { margin-top: -28px; border-radius: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="intake-top">
+  <div class="container">
+    <div class="intake-brand">FIT<span>UP</span></div>
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Persoonlijke intake</div>
+    <h1>Vertel ons iets meer<br>over jezelf</h1>
+    <p class="intake-top-sub">We hebben inmiddels al even contact gehad. Met deze korte intake krijgen we vooraf een beter beeld van jouw doelen, ervaring en wensen. Zo kunnen we tijdens onze afspraak direct gericht aan de slag.</p>
+  </div>
+</header>
+
+<main>
+  <section class="intake-section">
+    <div class="container">
+      <div class="intake-card" id="intakeCard">
+
+        <div class="intake-progress">
+          <div class="intake-progress-head">
+            <span class="intake-step-count">Stap <span id="stepCurrent">1</span> van 5</span>
+            <span class="intake-step-title" id="stepTitleLabel">Over jou</span>
+          </div>
+          <div class="intake-progress-bar"><div class="intake-progress-fill" id="progressFill" style="width:20%"></div></div>
+        </div>
+
+        <form name="fitup-intake" method="POST" action="/intake/bedankt/" data-netlify="true" netlify-honeypot="bot-field" id="intakeForm" novalidate>
+          <input type="hidden" name="form-name" value="fitup-intake">
+          <p class="hp-field" aria-hidden="true">
+            <label>Laat dit veld leeg als je een mens bent
+              <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+            </label>
+          </p>
+
+          <!-- STAP 1 — OVER JOU -->
+          <fieldset class="intake-step" data-step="1">
+            <legend class="sr-only">Stap 1: Over jou</legend>
+
+            <div class="field">
+              <label for="f-naam">Voor- en achternaam</label>
+              <input type="text" id="f-naam" name="naam" autocomplete="name" required>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="f-leeftijd">Leeftijd</label>
+                <input type="number" id="f-leeftijd" name="leeftijd" inputmode="numeric" min="14" max="99" step="1" required>
+              </div>
+              <div class="field">
+                <label for="f-lengte">Lengte (cm)</label>
+                <input type="number" id="f-lengte" name="lengte_cm" inputmode="numeric" min="120" max="220" step="1" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-gewicht">Gewicht (kg)</label>
+              <input type="number" id="f-gewicht" name="gewicht_kg" inputmode="decimal" min="30" max="250" step="0.1" required>
+            </div>
+          </fieldset>
+
+          <!-- STAP 2 — JOUW DOEL -->
+          <fieldset class="intake-step" data-step="2" hidden>
+            <legend class="sr-only">Stap 2: Jouw doel</legend>
+
+            <div class="field">
+              <span class="field-label-static" id="doel-label">Wat is je belangrijkste doel?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="doel-label">
+                <label class="choice-card"><input type="radio" name="doel" value="Afvallen" required><span class="choice-dot"></span><span>Afvallen</span></label>
+                <label class="choice-card"><input type="radio" name="doel" value="Sterker worden" required><span class="choice-dot"></span><span>Sterker worden</span></label>
+                <label class="choice-card"><input type="radio" name="doel" value="Spiermassa opbouwen" required><span class="choice-dot"></span><span>Spiermassa opbouwen</span></label>
+                <label class="choice-card"><input type="radio" name="doel" value="Fitter worden" required><span class="choice-dot"></span><span>Fitter worden</span></label>
+                <label class="choice-card"><input type="radio" name="doel" value="Strakker worden" required><span class="choice-dot"></span><span>Strakker worden</span></label>
+                <label class="choice-card"><input type="radio" name="doel" value="Conditie verbeteren" required><span class="choice-dot"></span><span>Conditie verbeteren</span></label>
+                <label class="choice-card"><input type="radio" name="doel" value="Beter bewegen" required><span class="choice-dot"></span><span>Beter bewegen</span></label>
+                <label class="choice-card"><input type="radio" name="doel" value="Anders, namelijk..." required><span class="choice-dot"></span><span>Anders, namelijk...</span></label>
+              </div>
+              <div class="field field-other" id="doel-anders-wrap" hidden>
+                <label for="f-doel-anders">Namelijk</label>
+                <input type="text" id="f-doel-anders" name="doel_anders">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-doel-3-6">Wat wil je over 3–6 maanden concreet bereikt hebben?</label>
+              <textarea id="f-doel-3-6" name="doel_3_6_maanden" rows="4" required></textarea>
+            </div>
+          </fieldset>
+
+          <!-- STAP 3 — TRAINING -->
+          <fieldset class="intake-step" data-step="3" hidden>
+            <legend class="sr-only">Stap 3: Training</legend>
+
+            <div class="field">
+              <span class="field-label-static" id="freq-label">Hoe vaak sport of train je momenteel?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="freq-label">
+                <label class="choice-card"><input type="radio" name="huidige_frequentie" value="Niet" required><span class="choice-dot"></span><span>Niet</span></label>
+                <label class="choice-card"><input type="radio" name="huidige_frequentie" value="1x per week" required><span class="choice-dot"></span><span>1x per week</span></label>
+                <label class="choice-card"><input type="radio" name="huidige_frequentie" value="2x per week" required><span class="choice-dot"></span><span>2x per week</span></label>
+                <label class="choice-card"><input type="radio" name="huidige_frequentie" value="3x per week" required><span class="choice-dot"></span><span>3x per week</span></label>
+                <label class="choice-card"><input type="radio" name="huidige_frequentie" value="4x of vaker per week" required><span class="choice-dot"></span><span>4x of vaker per week</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="ervaring-label">Hoeveel ervaring heb je met krachttraining?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="ervaring-label">
+                <label class="choice-card"><input type="radio" name="kracht_ervaring" value="Geen" required><span class="choice-dot"></span><span>Geen</span></label>
+                <label class="choice-card"><input type="radio" name="kracht_ervaring" value="Beginner" required><span class="choice-dot"></span><span>Beginner</span></label>
+                <label class="choice-card"><input type="radio" name="kracht_ervaring" value="Gemiddeld" required><span class="choice-dot"></span><span>Gemiddeld</span></label>
+                <label class="choice-card"><input type="radio" name="kracht_ervaring" value="Ervaren" required><span class="choice-dot"></span><span>Ervaren</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="gewenst-freq-label">Hoe vaak zou je realistisch willen of kunnen trainen?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="gewenst-freq-label">
+                <label class="choice-card"><input type="radio" name="gewenste_frequentie" value="1x per week" required><span class="choice-dot"></span><span>1x per week</span></label>
+                <label class="choice-card"><input type="radio" name="gewenste_frequentie" value="2x per week" required><span class="choice-dot"></span><span>2x per week</span></label>
+                <label class="choice-card"><input type="radio" name="gewenste_frequentie" value="3x per week" required><span class="choice-dot"></span><span>3x per week</span></label>
+                <label class="choice-card"><input type="radio" name="gewenste_frequentie" value="4x of vaker per week" required><span class="choice-dot"></span><span>4x of vaker per week</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="tijden-label">Wanneer train je het liefst? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="group" aria-labelledby="tijden-label">
+                <label class="choice-card is-multi"><input type="checkbox" name="voorkeurstijden" value="Ochtend"><span class="choice-dot"></span><span>Ochtend</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voorkeurstijden" value="Middag"><span class="choice-dot"></span><span>Middag</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voorkeurstijden" value="Avond"><span class="choice-dot"></span><span>Avond</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voorkeurstijden" value="Weekend"><span class="choice-dot"></span><span>Weekend</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voorkeurstijden" value="Wisselend"><span class="choice-dot"></span><span>Wisselend</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="actief-label">Hoe actief is je dagelijks leven of werk?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="actief-label">
+                <label class="choice-card"><input type="radio" name="levensstijl_activiteit" value="Voornamelijk zittend" required><span class="choice-dot"></span><span>Voornamelijk zittend</span></label>
+                <label class="choice-card"><input type="radio" name="levensstijl_activiteit" value="Combinatie van zitten en bewegen" required><span class="choice-dot"></span><span>Combinatie van zitten en bewegen</span></label>
+                <label class="choice-card"><input type="radio" name="levensstijl_activiteit" value="Voornamelijk actief" required><span class="choice-dot"></span><span>Voornamelijk actief</span></label>
+                <label class="choice-card"><input type="radio" name="levensstijl_activiteit" value="Fysiek zwaar werk" required><span class="choice-dot"></span><span>Fysiek zwaar werk</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="uitdaging-label">Waar loop je momenteel vooral tegenaan? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="group" aria-labelledby="uitdaging-label">
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Motivatie"><span class="choice-dot"></span><span>Motivatie</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Structuur"><span class="choice-dot"></span><span>Structuur</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Tijd"><span class="choice-dot"></span><span>Tijd</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Voeding"><span class="choice-dot"></span><span>Voeding</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Consistentie"><span class="choice-dot"></span><span>Consistentie</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Niet weten wat ik moet doen"><span class="choice-dot"></span><span>Niet weten wat ik moet doen</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Blessures of klachten"><span class="choice-dot"></span><span>Blessures of klachten</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Eerder weinig resultaat"><span class="choice-dot"></span><span>Eerder weinig resultaat</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="uitdagingen" value="Anders, namelijk..."><span class="choice-dot"></span><span>Anders, namelijk...</span></label>
+              </div>
+              <div class="field field-other" id="uitdagingen-anders-wrap" hidden>
+                <label for="f-uitdagingen-anders">Namelijk</label>
+                <input type="text" id="f-uitdagingen-anders" name="uitdagingen_anders">
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- STAP 4 — VOEDING & LEEFSTIJL -->
+          <fieldset class="intake-step" data-step="4" hidden>
+            <legend class="sr-only">Stap 4: Voeding &amp; leefstijl</legend>
+
+            <div class="field">
+              <span class="field-label-static" id="eetmomenten-label">Hoeveel eetmomenten heb je gemiddeld per dag?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="eetmomenten-label">
+                <label class="choice-card"><input type="radio" name="eetmomenten" value="1–2" required><span class="choice-dot"></span><span>1–2</span></label>
+                <label class="choice-card"><input type="radio" name="eetmomenten" value="3" required><span class="choice-dot"></span><span>3</span></label>
+                <label class="choice-card"><input type="radio" name="eetmomenten" value="4" required><span class="choice-dot"></span><span>4</span></label>
+                <label class="choice-card"><input type="radio" name="eetmomenten" value="5" required><span class="choice-dot"></span><span>5</span></label>
+                <label class="choice-card"><input type="radio" name="eetmomenten" value="6 of meer" required><span class="choice-dot"></span><span>6 of meer</span></label>
+                <label class="choice-card"><input type="radio" name="eetmomenten" value="Wisselend" required><span class="choice-dot"></span><span>Wisselend</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="voeding-uitd-label">Waar loop je bij voeding vooral tegenaan? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="group" aria-labelledby="voeding-uitd-label">
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Portiegrootte"><span class="choice-dot"></span><span>Portiegrootte</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Snacken"><span class="choice-dot"></span><span>Snacken</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Avondeten / avondsnacken"><span class="choice-dot"></span><span>Avondeten / avondsnacken</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Zoetigheid"><span class="choice-dot"></span><span>Zoetigheid</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Weekend"><span class="choice-dot"></span><span>Weekend</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Alcohol"><span class="choice-dot"></span><span>Alcohol</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Planning"><span class="choice-dot"></span><span>Planning</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Voldoende eiwitten"><span class="choice-dot"></span><span>Voldoende eiwitten</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Onregelmatig eten"><span class="choice-dot"></span><span>Onregelmatig eten</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="voeding_uitdagingen" value="Anders, namelijk..."><span class="choice-dot"></span><span>Anders, namelijk...</span></label>
+              </div>
+              <div class="field field-other" id="voeding-anders-wrap" hidden>
+                <label for="f-voeding-anders">Namelijk</label>
+                <input type="text" id="f-voeding-anders" name="voeding_uitdagingen_anders">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-blessures">Zijn er blessures, lichamelijke beperkingen of andere bijzonderheden waar we bij het sporten rekening mee moeten houden?</label>
+              <textarea id="f-blessures" name="blessures_bijzonderheden" rows="4" required></textarea>
+              <p class="field-hint">Deel alleen informatie die relevant is voor het veilig uitvoeren van training. Medische details kunnen we indien nodig persoonlijk bespreken.</p>
+            </div>
+          </fieldset>
+
+          <!-- STAP 5 — BEGELEIDING -->
+          <fieldset class="intake-step" data-step="5" hidden>
+            <legend class="sr-only">Stap 5: Begeleiding</legend>
+
+            <div class="field">
+              <span class="field-label-static" id="begeleiding-label">Welke begeleiding spreekt je aan? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="group" aria-labelledby="begeleiding-label">
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="Zelfstandig fitness"><span class="choice-dot"></span><span>Zelfstandig fitness</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="Small Group Personal Training"><span class="choice-dot"></span><span>Small Group Personal Training</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="1-op-1 Personal Training"><span class="choice-dot"></span><span>1-op-1 Personal Training</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="Groepslessen"><span class="choice-dot"></span><span>Groepslessen</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="Voedingsbegeleiding"><span class="choice-dot"></span><span>Voedingsbegeleiding</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="Trainingsschema"><span class="choice-dot"></span><span>Trainingsschema</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="Combinatie"><span class="choice-dot"></span><span>Combinatie</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="begeleiding" value="Weet ik nog niet – graag advies"><span class="choice-dot"></span><span>Weet ik nog niet – graag advies</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="verwacht-label">Wat verwacht je vooral van Fit Up? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="group" aria-labelledby="verwacht-label">
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Persoonlijk trainingsplan"><span class="choice-dot"></span><span>Persoonlijk trainingsplan</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Voedingsadvies"><span class="choice-dot"></span><span>Voedingsadvies</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Stok achter de deur"><span class="choice-dot"></span><span>Stok achter de deur</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Techniek leren"><span class="choice-dot"></span><span>Techniek leren</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Regelmatige coaching"><span class="choice-dot"></span><span>Regelmatige coaching</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Meten van voortgang"><span class="choice-dot"></span><span>Meten van voortgang</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Zelfstandig leren trainen"><span class="choice-dot"></span><span>Zelfstandig leren trainen</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="verwachting" value="Anders, namelijk..."><span class="choice-dot"></span><span>Anders, namelijk...</span></label>
+              </div>
+              <div class="field field-other" id="verwachting-anders-wrap" hidden>
+                <label for="f-verwachting-anders">Namelijk</label>
+                <input type="text" id="f-verwachting-anders" name="verwachting_anders">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-overig">Is er nog iets dat je ons vooraf wilt meegeven? <em class="field-optional">(optioneel)</em></label>
+              <textarea id="f-overig" name="overig" rows="3"></textarea>
+            </div>
+
+            <div class="field field-consent">
+              <label class="choice-card is-multi consent-card">
+                <input type="checkbox" id="f-toestemming" name="toestemming" value="Ja" required>
+                <span class="choice-dot"></span>
+                <span>Ik geef toestemming dat Fit Up mijn ingevulde gegevens gebruikt om mijn intake en eventuele begeleiding voor te bereiden.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="intake-nav">
+            <button type="button" class="btn-ghost" id="btnPrev" disabled>Vorige</button>
+            <button type="button" class="btn-accent" id="btnNext">Volgende</button>
+            <button type="submit" class="btn-accent" id="btnSubmit" hidden><span class="btn-label">Intake versturen</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="intake-footer">
+  <div class="container">
+    <div class="intake-footer-brand">FIT<span>UP</span></div>
+    <p>Weversbaan 9, Leiderdorp · <a href="tel:0648776322">06 - 48 77 63 22</a> · <a href="mailto:patrick@fitupleiderdorp.nl">patrick@fitupleiderdorp.nl</a></p>
+    <p class="intake-footer-copy">© 2020–2026 Fit Up Leiderdorp</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('intakeForm');
+  var steps = Array.prototype.slice.call(form.querySelectorAll('.intake-step'));
+  var totalSteps = steps.length;
+  var current = 1;
+  var stepLabels = {1:'Over jou',2:'Jouw doel',3:'Training',4:'Voeding & leefstijl',5:'Begeleiding'};
+
+  var elStepCurrent = document.getElementById('stepCurrent');
+  var elStepTitle = document.getElementById('stepTitleLabel');
+  var elProgressFill = document.getElementById('progressFill');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+  var btnSubmit = document.getElementById('btnSubmit');
+  var cardEl = document.getElementById('intakeCard');
+
+  function currentStepEl(){ return steps[current - 1]; }
+
+  function showStep(n){
+    steps.forEach(function(s){ s.hidden = (parseInt(s.getAttribute('data-step'), 10) !== n); });
+    elStepCurrent.textContent = n;
+    elStepTitle.textContent = stepLabels[n];
+    elProgressFill.style.width = (n / totalSteps * 100) + '%';
+    btnPrev.disabled = (n === 1);
+    btnNext.hidden = (n === totalSteps);
+    btnSubmit.hidden = (n !== totalSteps);
+    current = n;
+  }
+
+  function validateStep(stepEl){
+    var invalid = stepEl.querySelector(':invalid');
+    if (invalid) {
+      var fieldWrap = invalid.closest('.field');
+      if (fieldWrap) { fieldWrap.classList.add('has-error'); }
+      invalid.reportValidity();
+      invalid.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function scrollToCard(){
+    if (cardEl) { cardEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+
+  btnNext.addEventListener('click', function(){
+    if (!validateStep(currentStepEl())) return;
+    if (current < totalSteps) { showStep(current + 1); scrollToCard(); }
+  });
+
+  btnPrev.addEventListener('click', function(){
+    if (current > 1) { showStep(current - 1); scrollToCard(); }
+  });
+
+  form.addEventListener('submit', function(e){
+    if (!validateStep(currentStepEl())) { e.preventDefault(); return; }
+    btnSubmit.disabled = true;
+    btnSubmit.querySelector('.btn-label').textContent = 'Versturen...';
+  });
+
+  form.addEventListener('input', function(e){
+    var fieldWrap = e.target.closest('.field');
+    if (fieldWrap) { fieldWrap.classList.remove('has-error'); }
+  });
+
+  function syncChoiceCards(){
+    form.querySelectorAll('.choice-card').forEach(function(c){
+      var input = c.querySelector('input');
+      c.classList.toggle('is-checked', input.checked);
+    });
+  }
+
+  form.addEventListener('change', function(e){
+    var fieldWrap = e.target.closest('.field');
+    if (fieldWrap) { fieldWrap.classList.remove('has-error'); }
+    syncChoiceCards();
+  });
+
+  function wireOther(groupName, otherValue, wrapId, inputId){
+    var wrap = document.getElementById(wrapId);
+    var input = document.getElementById(inputId);
+    function update(){
+      var checkedOther = form.querySelector('input[name="' + groupName + '"][value="' + otherValue + '"]');
+      var show = !!(checkedOther && checkedOther.checked);
+      wrap.hidden = !show;
+      input.required = show;
+      if (!show) { input.value = ''; }
+    }
+    form.querySelectorAll('input[name="' + groupName + '"]').forEach(function(el){
+      el.addEventListener('change', update);
+    });
+    update();
+  }
+
+  wireOther('doel', 'Anders, namelijk...', 'doel-anders-wrap', 'f-doel-anders');
+  wireOther('uitdagingen', 'Anders, namelijk...', 'uitdagingen-anders-wrap', 'f-uitdagingen-anders');
+  wireOther('voeding_uitdagingen', 'Anders, namelijk...', 'voeding-anders-wrap', 'f-voeding-anders');
+  wireOther('verwachting', 'Anders, namelijk...', 'verwachting-anders-wrap', 'f-verwachting-anders');
+
+  syncChoiceCards();
+  showStep(1);
+})();
+</script>
+</body>
+</html>
