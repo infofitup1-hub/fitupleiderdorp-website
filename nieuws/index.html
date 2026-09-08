@@ -55,7 +55,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .news-title { font-family: var(--fd); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .3px; color: var(--ink); margin-bottom: 8px; }
   .news-text { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; max-width: 560px; }
   .news-arrow { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-family: var(--fd); font-size: 12.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-ink); }
-  @media (max-width: 640px) { .news-item { padding: 24px 22px; } .news-title { font-size: 19px; } }
+  .news-row { display: flex; gap: 20px; align-items: flex-start; }
+  .news-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: var(--r-md); background: var(--paper2); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .news-icon img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+  @media (max-width: 640px) { .news-item { padding: 24px 22px; } .news-title { font-size: 19px; } .news-row { gap: 14px; } .news-icon { width: 42px; height: 42px; } }
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Nieuws","item":"https://fitupleiderdorp.nl/nieuws/"}]}</script>
@@ -122,10 +125,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <p class="news-text">We zijn overgestapt van PayNplan naar Virtuagym. Fit Up Leiderdorp groeit, en we wilden een systeem dat met die groei meegroeit. Via onze eigen Fit Up-app regel je voortaan je lesreserveringen, bekijk je je trainingsschema, krijg je voedingscoaching en zie je je voortgang — én sta je in verbinding met de rest van de Fit Up-community.</p>
       </div>
       <a class="news-item" href="../veteranenkorting/index.html">
-        <div class="news-date">September 2026</div>
-        <div class="news-title">Veteranenvoordeel: 15% korting voor Nederlandse veteranen</div>
-        <p class="news-text">Nederlandse veteranen krijgen bij Fit Up Leiderdorp 15% korting op een 6- of 12-maands abonnement, een gratis intake en een gratis nulmeting.</p>
-        <span class="news-arrow">Lees meer <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="news-row">
+          <div class="news-icon"><img src="../assets/images/veteranendag-logo-oranje.png" alt="Veteranen-logo" loading="lazy" decoding="async"></div>
+          <div>
+            <div class="news-date">September 2026</div>
+            <div class="news-title">Veteranenvoordeel: 15% korting voor Nederlandse veteranen</div>
+            <p class="news-text">Nederlandse veteranen krijgen bij Fit Up Leiderdorp 15% korting op een 6- of 12-maands abonnement, een gratis intake en een gratis nulmeting.</p>
+            <span class="news-arrow">Lees meer <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </div>
       </a>
     </div>
   </div>
