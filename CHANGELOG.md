@@ -5,6 +5,29 @@ Logboek van de 99,9%-productie-optimalisatie. Elke wijziging heeft een **waarom*
 gewijzigd. Afbeeldingen: bestaande echte foto's blijven staan; placeholders alleen voor
 secties waar nog geen beeld beschikbaar is (bv. resultaten-sectie i.a.w. klantgoedkeuring).
 
+## 2026-09-08 — "Beste"-claim verwijderd van `beste-personal-trainer-leiderdorp/index.html`
+
+- **Klantopdracht**: eigenaar wil geen "beste personal trainer"-claim maken — dit is een
+  onderbouwbare superioriteitsclaim ("beste"/"best beoordeeld"/"hoogst beoordeeld") die niet
+  gemaakt mag worden, los van of de bewering feitelijk klopt.
+- **Title, meta description, OG/Twitter-tags, H1, hero-badge, H2, reviews-tekst en de
+  LocalBusiness-schema description** herschreven: elke "beste"/"best beoordeeld"/"hoogst
+  beoordeeld"-formulering vervangen door verifieerbare feiten (4,9★ op Google, 66 reviews,
+  kleinschalig, vaste coach per sporter).
+- **FAQ (zowel de zichtbare `<details>`-blokken als de FAQPage-schema)**: 3 van de 6 vragen
+  waren zelf als superioriteitsclaim geformuleerd ("Wat is de beste personal trainer/
+  sportschool in Leiderdorp?", "Welke sportschool heeft de beste begeleiding?"). Herschreven
+  naar neutrale vragen ("Wat maakt Fit Up een goede keuze...", "Is Fit Up een goede
+  sportschool...", "Hoe werkt de begeleiding...") met feitelijke antwoorden. De overige 3
+  FAQ's (beginners, kosten, reistijd) waren al claim-vrij en zijn ongewijzigd.
+  _Impact: eerlijkheid/compliance (geen onderbouwde "beste"-claim meer), SEO (schema en
+  zichtbare tekst blijven 1-op-1 consistent)._
+- **Bewust ongewijzigd**: URL-slug (`/beste-personal-trainer-leiderdorp/`), canonical,
+  interne links, sitemap-vermelding, schema-types en overige secties (statistiekenblok,
+  CTA-knoppen, footer) — alleen de claim zelf is verwijderd, geen consolidatie of
+  URL-wijziging. Dit staat los van de bredere PT-cannibalisatie-analyse voor "personal
+  trainer leiderdorp" (nog in afwachting van Search Console paginadata).
+
 ## 2026-08-21 — Kleine keyword-uitbreiding `fitnessclub-leiderdorp/index.html`
 
 - **Letterlijke term "fitness in Leiderdorp" toegevoegd** aan de hero-subtekst en de "Lokaal
