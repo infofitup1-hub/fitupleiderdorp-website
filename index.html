@@ -303,6 +303,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
   @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+  /* WHATSAPP FLOAT */
+  .wa-float{position:fixed;bottom:16px;right:16px;z-index:198;display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;text-decoration:none;padding:14px 18px 14px 14px;border-radius:100px;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;box-shadow:0 10px 24px -6px rgba(37,211,102,.5);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s,box-shadow .25s}
+  .wa-float.show{opacity:1;pointer-events:auto;transform:none}
+  .wa-float:hover{transform:translateY(-3px);box-shadow:0 16px 32px -6px rgba(37,211,102,.6)}
+  .wa-float svg{flex-shrink:0}
+  @media(min-width:769px){.wa-float{bottom:28px;right:28px}}
+  @media(max-width:400px){.wa-float span{display:none}.wa-float{padding:14px;border-radius:50%}}
+
 
   /* ---- LIGHT SECTIONS (VEED premium hybrid) ---- */
   .lite .sec-label{color:var(--accent);text-shadow:-1px -1px 0 var(--black),1px -1px 0 var(--black),-1px 1px 0 var(--black),1px 1px 0 var(--black)}
@@ -1752,6 +1760,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </div>
 </footer>
 
+<a href="https://wa.me/31648776322?text=Hi%20Fit%20Up%2C%20ik%20wil%20graag%20een%20gratis%20intake%20inplannen." target="_blank" rel="noopener" class="wa-float" id="wa-float" aria-label="App ons via WhatsApp">
+  <svg viewBox="0 0 32 32" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.2.6 2.5.9 3.8.9 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.5-.3-4.9 1 1-4.7-.3-.5c-.9-1.5-1.4-3.2-1.4-4.9 0-5.3 4.3-9.6 9.6-9.6s9.6 4.3 9.6 9.6-4.3 9.7-9.6 9.7zm5.3-7.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+  <span>App ons</span>
+</a>
 
 <script>
   const nav = document.getElementById('nav');
@@ -1814,6 +1826,26 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       });
     });
   });
+
+  // Floating WhatsApp-knop: tonen na de hero, verbergen bij de intake-tegel en footer
+  // (die al eigen WhatsApp-CTA's hebben) zodat er nooit dubbele knoppen zichtbaar zijn.
+  const waFloat = document.getElementById('wa-float');
+  if (waFloat) {
+    const heroEl = document.querySelector('.hero');
+    const protectedZones = [document.getElementById('intake-plannen'), document.querySelector('footer')].filter(Boolean);
+    function inView(el) {
+      const r = el.getBoundingClientRect();
+      return r.top < innerHeight && r.bottom > 0;
+    }
+    function updateWaFloat() {
+      const pastHero = !heroEl || heroEl.getBoundingClientRect().bottom < 0;
+      const nearProtected = protectedZones.some(inView);
+      waFloat.classList.toggle('show', pastHero && !nearProtected);
+    }
+    window.addEventListener('scroll', updateWaFloat, {passive: true});
+    window.addEventListener('resize', updateWaFloat);
+    updateWaFloat();
+  }
 </script>
 <script src="assets/js/conversion-layer.config.js" defer></script>
 <script src="assets/js/conversion-layer.js" defer></script>
