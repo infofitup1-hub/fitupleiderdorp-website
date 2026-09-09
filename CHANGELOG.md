@@ -5,7 +5,7 @@ Logboek van de 99,9%-productie-optimalisatie. Elke wijziging heeft een **waarom*
 gewijzigd. Afbeeldingen: bestaande echte foto's blijven staan; placeholders alleen voor
 secties waar nog geen beeld beschikbaar is (bv. resultaten-sectie i.a.w. klantgoedkeuring).
 
-## 2026-09-09 — Google Preferred Sources-CTA toegevoegd aan `nieuws/index.html`
+## 2026-09-09 — Google Preferred Sources-CTA sitewide in de footer
 
 - **Aanleiding**: fitupleiderdorp.nl is handmatig gecontroleerd als selecteerbaar in Google's
   "voorkeursbronnen"-tool (source preferences tool) — bezoekers kunnen Fit Up daar aanvinken
@@ -16,23 +16,32 @@ secties waar nog geen beeld beschikbaar is (bv. resultaten-sectie i.a.w. klantgo
   (`https://developers.google.com/search/docs/appearance/preferred-sources`, laatst
   bijgewerkt 2026-08-20) — géén zelfgebouwde badge of deeplink-only variant. Twee toevoegingen:
   `<script async src="https://news.google.com/swg/js/v1/publisher.js"></script>` in de
-  `<head>`, en `<div google-add-preferred-source-btn data-theme="light"></div>` op de plek
+  `<head>`, en `<div google-add-preferred-source-btn data-theme="dark"></div>` op de plek
   waar de knop moet verschijnen. Google rendert de knop zelf (auto-vertaald, click-through
   terug naar de pagina); het script rendert niets en geeft geen fout op domeinen die niet in
   de voorkeursbronnen-tool staan (getest op localhost: script laadt, voegt
   `data-initialized="true"` toe, maar toont geen knop — geen console-errors, geen layout
   shift).
-- **Plaatsing**: subtiel kaartje onderaan de berichtenlijst op de `/nieuws/`-hub (de centrale
-  content-/aankondigingenpagina, in de hoofdnavigatie op alle pagina's), vóór de footer — niet
-  op de homepage, niet prominent, geen popup/floating button. Titel "Volg Fit Up als
-  voorkeursbron in Google", subtekst over training/voeding/coaching-content, Google's eigen
-  knop. Visueel duidelijk minder prominent dan de bestaande `.cta-block` (intake/PT/SGPT).
+- **Plaatsing (herzien na klantfeedback)**: eerst alleen onderaan de `/nieuws/`-hub geplaatst,
+  maar die pagina wordt door de meeste bezoekers nooit organisch bereikt. Op klantverzoek
+  verplaatst naar de **footer, sitewide** — de enige plek die op elke pagina staat zonder de
+  hoofd-CTA's te raken. Klein blok (korte tekst + Google's knop) direct onder de link-kolommen
+  en vóór de copyright-regel, met `data-theme="dark"` passend bij de donkere footer-achtergrond
+  (`var(--mid)`). Nooit boven de vouw, geen nieuw blok op de homepage, geen popup/floating
+  button — de intake/PT/SGPT-CTA's blijven overal visueel dominanter.
   _Impact: GEO/AEO (grotere kans op zichtbaarheid met voorkeur-badge in AI Overviews/AI Mode),
   geen SEO-wijziging._
+- **Bereik**: toegevoegd aan de 37 pagina's met de standaard footer (`.footer-grid` +
+  `.f-bottom`) via een eenmalig script dat dezelfde twee vaste ankerpunten (het gtag-blok in
+  `<head>`, en de regel vóór `<div class="f-bottom">`) gebruikte — geen losse handmatige
+  bewerking per bestand, dus geen risico op onderlinge afwijkingen. Bewust **overgeslagen**:
+  `ad-landing.html` (losstaande advertentie-funnel, geen afleiding gewenst), `404.html`, en de
+  paar pagina's met een eigen afwijkende footer-opbouw (`contact/`, `over-fit-up/`,
+  `privacybeleid/`, `intake/`) — die hebben geen `.f-bottom`-anker en zijn niet aangeraakt om
+  geen maatwerk-risico te lopen.
 - **Bewust ongewijzigd**: titles, meta descriptions, H1's, canonicals, redirects, sitemap,
   bestaande schema/JSON-LD, interne linkstructuur, bestaande CTA's (Gratis intake, Personal
-  Training, SGPT) en AutoSEO-logica. Alleen `nieuws/index.html` aangepast — geen nieuw
-  blogsysteem, geen sitewide uitrol.
+  Training, SGPT) en AutoSEO-logica. Geen nieuw blogsysteem.
 
 ## 2026-09-08 — "Beste"-claim verwijderd van `beste-personal-trainer-leiderdorp/index.html`
 
