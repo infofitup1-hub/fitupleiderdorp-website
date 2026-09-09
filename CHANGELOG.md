@@ -5,6 +5,35 @@ Logboek van de 99,9%-productie-optimalisatie. Elke wijziging heeft een **waarom*
 gewijzigd. Afbeeldingen: bestaande echte foto's blijven staan; placeholders alleen voor
 secties waar nog geen beeld beschikbaar is (bv. resultaten-sectie i.a.w. klantgoedkeuring).
 
+## 2026-09-09 — Google Preferred Sources-CTA toegevoegd aan `nieuws/index.html`
+
+- **Aanleiding**: fitupleiderdorp.nl is handmatig gecontroleerd als selecteerbaar in Google's
+  "voorkeursbronnen"-tool (source preferences tool) — bezoekers kunnen Fit Up daar aanvinken
+  zodat content vaker met een "voorkeur"-badge verschijnt in Top Stories, AI Mode en AI
+  Overviews.
+- **Officiële methode gebruikt**: de door Google aanbevolen "Standard JavaScript
+  implementation" uit de officiële Search Central-documentatie
+  (`https://developers.google.com/search/docs/appearance/preferred-sources`, laatst
+  bijgewerkt 2026-08-20) — géén zelfgebouwde badge of deeplink-only variant. Twee toevoegingen:
+  `<script async src="https://news.google.com/swg/js/v1/publisher.js"></script>` in de
+  `<head>`, en `<div google-add-preferred-source-btn data-theme="light"></div>` op de plek
+  waar de knop moet verschijnen. Google rendert de knop zelf (auto-vertaald, click-through
+  terug naar de pagina); het script rendert niets en geeft geen fout op domeinen die niet in
+  de voorkeursbronnen-tool staan (getest op localhost: script laadt, voegt
+  `data-initialized="true"` toe, maar toont geen knop — geen console-errors, geen layout
+  shift).
+- **Plaatsing**: subtiel kaartje onderaan de berichtenlijst op de `/nieuws/`-hub (de centrale
+  content-/aankondigingenpagina, in de hoofdnavigatie op alle pagina's), vóór de footer — niet
+  op de homepage, niet prominent, geen popup/floating button. Titel "Volg Fit Up als
+  voorkeursbron in Google", subtekst over training/voeding/coaching-content, Google's eigen
+  knop. Visueel duidelijk minder prominent dan de bestaande `.cta-block` (intake/PT/SGPT).
+  _Impact: GEO/AEO (grotere kans op zichtbaarheid met voorkeur-badge in AI Overviews/AI Mode),
+  geen SEO-wijziging._
+- **Bewust ongewijzigd**: titles, meta descriptions, H1's, canonicals, redirects, sitemap,
+  bestaande schema/JSON-LD, interne linkstructuur, bestaande CTA's (Gratis intake, Personal
+  Training, SGPT) en AutoSEO-logica. Alleen `nieuws/index.html` aangepast — geen nieuw
+  blogsysteem, geen sitewide uitrol.
+
 ## 2026-09-08 — "Beste"-claim verwijderd van `beste-personal-trainer-leiderdorp/index.html`
 
 - **Klantopdracht**: eigenaar wil geen "beste personal trainer"-claim maken — dit is een
