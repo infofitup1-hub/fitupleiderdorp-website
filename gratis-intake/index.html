@@ -285,16 +285,19 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
       <script>
         (function(){
+          var blocksAt = new Date(2026, 8, 16); // 16 september 2026, lokale tijd
           var opensAt = new Date(2026, 8, 29); // 29 september 2026, lokale tijd
           var notice = document.getElementById('planner-closed-notice');
           var widgetWrap = document.getElementById('planner-widget-wrap');
-          if (new Date() >= opensAt) {
+          var now = new Date();
+          var isBlocked = now >= blocksAt && now < opensAt;
+          if (isBlocked) {
+            notice.style.display = '';
+          } else {
             widgetWrap.style.display = '';
             var s = document.createElement('script');
             s.src = 'https://static.virtuagym.com/vg-guest-booking-widget/dist/js/app.js';
             document.body.appendChild(s);
-          } else {
-            notice.style.display = '';
           }
         })();
       </script>
