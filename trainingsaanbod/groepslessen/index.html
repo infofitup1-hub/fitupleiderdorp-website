@@ -178,6 +178,29 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* ROOSTER */
   .rooster{background:var(--paper)}
+  .rooster-panel{max-width:720px;margin:36px auto 0;background:var(--paper2);border-radius:var(--r-card);padding:28px 26px;box-shadow:var(--sh-2)}
+  .rooster-days{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;-webkit-overflow-scrolling:touch}
+  .rooster-days::-webkit-scrollbar{display:none}
+  .rooster-day{flex:0 0 auto;font-family:var(--fd);font-weight:700;letter-spacing:.5px;font-size:13px;text-transform:uppercase;padding:10px 16px;border-radius:100px;border:1.5px solid rgba(20,22,17,.12);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:all .2s}
+  .rooster-day:hover{border-color:rgba(20,22,17,.35)}
+  .rooster-day.is-active{background:var(--accent);border-color:var(--accent);color:var(--black)}
+  .rooster-list{display:flex;flex-direction:column;gap:10px;min-height:64px}
+  .rooster-state{color:var(--ink-mute);font-size:14px;padding:18px 4px;text-align:center}
+  .rooster-card{display:flex;align-items:center;gap:16px;background:var(--paper);border-left:3px solid var(--accent);border-radius:var(--r-btn);padding:14px 18px;box-shadow:var(--sh-2)}
+  .rooster-card.is-full{border-left-color:rgba(20,22,17,.15)}
+  .rooster-card-time{font-family:var(--fd);font-weight:800;font-size:15px;color:var(--ink);white-space:nowrap;min-width:104px}
+  .rooster-card-title{flex:1;font-weight:700;color:var(--ink);font-size:15px}
+  .rooster-card-spots{font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--accent-ink);white-space:nowrap}
+  .rooster-card.is-full .rooster-card-spots{color:var(--ink-mute)}
+  .rooster-app-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:32px}
+  .rooster-app-cta span{font-size:14px;color:var(--ink-soft);font-weight:600}
+  .rooster-app-links{display:flex;gap:10px}
+  .rooster-app-links .btn-accent{padding:11px 20px;font-size:12px;letter-spacing:1px}
+  @media (max-width:640px){
+    .rooster-panel{padding:22px 18px}
+    .rooster-card{flex-wrap:wrap;gap:6px 14px}
+    .rooster-card-spots{width:100%}
+  }
 
   /* FOR WHO / TRY */
 
@@ -664,11 +687,124 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   <div class="container">
     <div class="sec-head">
       <div class="sec-label reveal"><span class="sec-label-line"></span>Weekrooster</div>
-      <h2 id="rooster-heading" class="reveal d1">Het rooster vind je binnenkort <em>in de app</em></h2>
-      <p class="reveal d2">Het actuele lesrooster wordt binnenkort zichtbaar in de nieuwe Fit Up app, waar je ook je plek reserveert. Wil je nu al weten wanneer een les past? <a href="../../gratis-intake/index.html" style="color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px">Neem contact op</a>.</p>
+      <h2 id="rooster-heading" class="reveal d1">Kies je les, <em>reserveer via de app</em></h2>
+      <p class="reveal d2">Het actuele rooster van deze week. Een plek reserveer je in de Fit Up-app — zo weet je zeker dat er plaats voor je is.</p>
+    </div>
+
+    <div class="rooster-panel reveal d3">
+      <div class="rooster-days" id="rooster-days" role="tablist" aria-label="Kies een dag"></div>
+      <div class="rooster-list" id="rooster-list">
+        <div class="rooster-state" id="rooster-state">Rooster laden&hellip;</div>
+      </div>
+    </div>
+
+    <div class="rooster-app-cta reveal d4">
+      <span>Reserveer je plek in de Fit Up-app</span>
+      <div class="rooster-app-links">
+        <a href="https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.fitup1&pcampaignid=web_share" target="_blank" rel="noopener" class="btn-accent">Android</a>
+        <a href="https://apps.apple.com/us/app/virtuagym-fitness-workouts/id808207399" target="_blank" rel="noopener" class="btn-accent">iPhone</a>
+      </div>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var daysEl = document.getElementById('rooster-days');
+  var listEl = document.getElementById('rooster-list');
+  var events = [];
+  var status = 'loading'; // loading | ready | unconfigured | error
+  var selectedDayKey = null;
+
+  function dayKey(d){ return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate(); }
+  function fmtDayLabel(d, i){
+    var names = ['Zo','Ma','Di','Wo','Do','Vr','Za'];
+    return i === 0 ? 'Vandaag' : names[d.getDay()] + ' ' + d.getDate();
+  }
+  function fmtTime(iso){
+    var d = new Date(iso);
+    var h = String(d.getHours()).padStart(2, '0');
+    var m = String(d.getMinutes()).padStart(2, '0');
+    return h + ':' + m;
+  }
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function renderDays(){
+    var today = new Date(); today.setHours(0,0,0,0);
+    daysEl.innerHTML = '';
+    for (var i = 0; i < 7; i++){
+      var d = new Date(today.getTime() + i * 86400000);
+      var key = dayKey(d);
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'rooster-day' + (key === selectedDayKey ? ' is-active' : '');
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', key === selectedDayKey ? 'true' : 'false');
+      btn.textContent = fmtDayLabel(d, i);
+      btn.dataset.key = key;
+      btn.addEventListener('click', function(){
+        selectedDayKey = this.dataset.key;
+        renderDays();
+        renderList();
+      });
+      daysEl.appendChild(btn);
+    }
+  }
+
+  function renderList(){
+    if (status === 'loading'){
+      listEl.innerHTML = '<div class="rooster-state">Rooster laden&hellip;</div>';
+      return;
+    }
+    if (status === 'unconfigured'){
+      listEl.innerHTML = '<div class="rooster-state">Het live rooster wordt binnenkort hier zichtbaar.</div>';
+      return;
+    }
+    if (status === 'error'){
+      listEl.innerHTML = '<div class="rooster-state">Rooster kon niet worden geladen. Probeer het later opnieuw.</div>';
+      return;
+    }
+    var dayEvents = events.filter(function(e){ return dayKey(new Date(e.start)) === selectedDayKey; });
+    if (!dayEvents.length){
+      listEl.innerHTML = '<div class="rooster-state">Geen lessen gepland op deze dag.</div>';
+      return;
+    }
+    listEl.innerHTML = dayEvents.map(function(e){
+      var full = e.spotsLeft === 0;
+      var spotsLabel = e.spotsLeft === null ? '' : (full ? 'Vol' : e.spotsLeft + ' ' + (e.spotsLeft === 1 ? 'plek' : 'plekken') + ' vrij');
+      return '<div class="rooster-card' + (full ? ' is-full' : '') + '">'
+        + '<div class="rooster-card-time">' + fmtTime(e.start) + '&ndash;' + fmtTime(e.end) + '</div>'
+        + '<div class="rooster-card-title">' + escapeHtml(e.title || 'Les') + '</div>'
+        + (spotsLabel ? '<div class="rooster-card-spots">' + spotsLabel + '</div>' : '')
+        + '</div>';
+    }).join('');
+  }
+
+  var today0 = new Date(); today0.setHours(0,0,0,0);
+  selectedDayKey = dayKey(today0);
+  renderDays();
+  renderList();
+
+  fetch('/.netlify/functions/schedule?days=7')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (!data || !data.configured){
+        status = 'unconfigured';
+      } else {
+        events = data.events || [];
+        status = 'ready';
+      }
+      renderList();
+    })
+    .catch(function(){
+      status = 'error';
+      renderList();
+    });
+})();
+</script>
 
 <!-- FAQ -->
 <section style="background:var(--paper2)" aria-labelledby="faq-heading">
