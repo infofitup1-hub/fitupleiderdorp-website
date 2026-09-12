@@ -17,9 +17,10 @@ exports.handler = async function handler(event) {
   const days = Math.min(Math.max(parseInt(event.queryStringParameters?.days, 10) || 7, 1), 14);
   const now = new Date();
   const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  // Virtuagym's Club Events API verwacht timestamp_start/timestamp_end in milliseconden.
-  const timestampStart = startOfToday;
-  const timestampEnd = startOfToday + days * DAY_MS;
+  // Virtuagym's Club Events API verwacht timestamp_start/timestamp_end in seconden
+  // (bevestigd via hun eigen foutmelding "timestamp_start too large" bij milliseconden).
+  const timestampStart = Math.floor(startOfToday / 1000);
+  const timestampEnd = Math.floor((startOfToday + days * DAY_MS) / 1000);
 
   const url = `${API_BASE}/${clubId}/events?` + new URLSearchParams({
     api_key: apiKey,
@@ -66,7 +67,7 @@ exports.handler = async function handler(event) {
     }))
     .sort((a, b) => new Date(a.start) - new Date(b.start));
 
-  return json(200, { configured: true, events }, 300);
+  return json(200, { configured: true, events, debugStatuscode: data?.statuscode, debugResultCount: data?.result_count, debugRawCount: results.length }, 300);
 };
 
 function json(statusCode, body, cacheSeconds) {
