@@ -50,6 +50,7 @@ exports.handler = async function handler(event) {
     return json(502, { configured: true, error: 'bad_upstream_json', events: [] });
   }
 
+  const debugRawJson = JSON.stringify(data).slice(0, 800);
   const results = Array.isArray(data?.results) ? data.results : [];
 
   const events = results
@@ -67,7 +68,7 @@ exports.handler = async function handler(event) {
     }))
     .sort((a, b) => new Date(a.start) - new Date(b.start));
 
-  return json(200, { configured: true, events, debugStatuscode: data?.statuscode, debugResultCount: data?.result_count, debugRawCount: results.length }, 300);
+  return json(200, { configured: true, events, debugRawJson, debugTimestampStart: timestampStart, debugTimestampEnd: timestampEnd }, 300);
 };
 
 function json(statusCode, body, cacheSeconds) {
