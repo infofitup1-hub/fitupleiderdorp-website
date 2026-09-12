@@ -146,7 +146,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* Titels */
   .guest-booking-widget--header--title,
-  .vg-date-picker-slider--header__title { color: var(--white) !important; font-weight: 800 !important; letter-spacing: -.2px; }
+  .vg-date-picker-slider--header__title {
+    color: var(--white) !important;
+    font-weight: 800 !important;
+    letter-spacing: -.2px;
+    font-size: clamp(20px, 5vw, 30px) !important;
+    line-height: 1.25 !important;
+  }
+  .guest-booking-widget--header--side-bullet,
+  .guest-booking-widget--header--side-information { white-space: nowrap !important; }
   .guest-booking-widget--subtitle,
   .guest-booking-widget--header--side-bullet,
   .guest-booking-widget--header--side-information { color: rgba(255,255,255,.5) !important; }
