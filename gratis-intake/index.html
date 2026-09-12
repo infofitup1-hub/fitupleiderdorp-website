@@ -397,14 +397,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     </div>
     <div class="planner-card reveal">
       <h2 id="planner-h">Plan je <em style="font-style:normal;color:var(--accent)">gratis intake</em></h2>
-      <p>Kies direct een moment dat jou uitkomt — geen heen-en-weer appen nodig, je boeking staat meteen vast.</p>
+      <p id="planner-intro">Kies direct een moment dat jou uitkomt — geen heen-en-weer appen nodig, je boeking staat meteen vast.</p>
 
       <div id="planner-closed-notice" class="planner-closed" style="display:none">
         <div class="planner-closed-icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M12 14v3l2 1.5"/></svg>
         </div>
-        <div class="planner-closed-title">Wegens vakantie tijdelijk gesloten</div>
-        <p class="planner-closed-text">Inplannen is niet mogelijk tot en met 28 september. Vanaf 29 september kun je hier weer direct jouw gratis kennismaking inplannen.</p>
+        <div class="planner-closed-title">Online inplannen kan nu niet</div>
+        <p class="planner-closed-text">Wegens vakantie kun je hier tot en met 28 september geen intake inplannen. Vanaf 29 september kan dat weer gewoon.<br><br>Wil je nu al iets regelen? <strong>App ons gerust</strong> — we reageren altijd binnen een uur.</p>
       </div>
 
       <div id="planner-widget-wrap" class="planner-widget-wrap" style="display:none">
@@ -424,6 +424,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
           var isBlocked = now < opensAt;
           if (isBlocked) {
             notice.style.display = '';
+            var intro = document.getElementById('planner-intro');
+            if (intro) intro.textContent = 'Online inplannen kan tijdelijk niet — je kunt wel gewoon appen, we reageren altijd binnen een uur.';
           } else {
             widgetWrap.style.display = '';
             var s = document.createElement('script');
