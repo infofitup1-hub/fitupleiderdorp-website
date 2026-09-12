@@ -50,16 +50,17 @@ exports.handler = async function handler(event) {
     return json(502, { configured: true, error: 'bad_upstream_json', events: [] });
   }
 
-  const debugRawJson = JSON.stringify(data).slice(0, 800);
-  const results = Array.isArray(data?.results) ? data.results : [];
+  // Virtuagym geeft de lessen terug onder "result" (enkelvoud), niet "results".
+  const results = Array.isArray(data?.result) ? data.result : [];
 
   const events = results
     .filter((e) => !e.canceled)
     .map((e) => ({
       id: e.event_id,
       title: e.title,
-      start: e.start,
-      end: e.end,
+      // "2026-09-14 07:30:00" -> "2026-09-14T07:30:00" voor betrouwbare Date-parsing.
+      start: typeof e.start === 'string' ? e.start.replace(' ', 'T') : e.start,
+      end: typeof e.end === 'string' ? e.end.replace(' ', 'T') : e.end,
       bookable: !!e.bookable,
       spotsLeft: typeof e.max_places === 'number' && typeof e.attendees === 'number'
         ? Math.max(e.max_places - e.attendees, 0)
@@ -68,7 +69,7 @@ exports.handler = async function handler(event) {
     }))
     .sort((a, b) => new Date(a.start) - new Date(b.start));
 
-  return json(200, { configured: true, events, debugRawJson, debugTimestampStart: timestampStart, debugTimestampEnd: timestampEnd }, 300);
+  return json(200, { configured: true, events }, 300);
 };
 
 function json(statusCode, body, cacheSeconds) {
