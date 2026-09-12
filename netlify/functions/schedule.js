@@ -37,7 +37,9 @@ exports.handler = async function handler(event) {
   }
 
   if (!upstream.ok) {
-    return json(502, { configured: true, error: `upstream_${upstream.status}`, events: [] });
+    let bodyText = '';
+    try { bodyText = await upstream.text(); } catch (err) { /* ignore */ }
+    return json(502, { configured: true, error: `upstream_${upstream.status}`, detail: bodyText.slice(0, 500), events: [] });
   }
 
   let data;
