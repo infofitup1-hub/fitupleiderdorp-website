@@ -185,13 +185,20 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .rooster-day:hover{border-color:rgba(20,22,17,.35)}
   .rooster-day.is-active{background:var(--accent);border-color:var(--accent);color:var(--black)}
   .rooster-list{display:flex;flex-direction:column;gap:10px;min-height:64px}
+  .rooster-list.rooster-fade-in{animation:rooster-in .3s cubic-bezier(.4,0,.2,1)}
+  @keyframes rooster-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .rooster-count{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-mute);margin:0 2px 12px}
   .rooster-state{color:var(--ink-mute);font-size:14px;padding:18px 4px;text-align:center}
-  .rooster-card{display:flex;align-items:center;gap:16px;background:var(--paper);border-left:3px solid var(--accent);border-radius:var(--r-btn);padding:14px 18px;box-shadow:var(--sh-2)}
-  .rooster-card.is-full{border-left-color:rgba(20,22,17,.15)}
-  .rooster-card-time{font-family:var(--fd);font-weight:800;font-size:15px;color:var(--ink);white-space:nowrap;min-width:104px}
-  .rooster-card-title{flex:1;font-weight:700;color:var(--ink);font-size:15px}
-  .rooster-card-spots{font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--accent-ink);white-space:nowrap}
-  .rooster-card.is-full .rooster-card-spots{color:var(--ink-mute)}
+  .rooster-card{display:flex;align-items:center;gap:16px;background:var(--paper);border-radius:var(--r-btn);padding:12px 18px 12px 12px;box-shadow:var(--sh-2);transition:transform .2s ease,box-shadow .2s ease}
+  .rooster-card:hover{transform:translateY(-2px);box-shadow:var(--sh-hover)}
+  .rooster-card-time{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--black);color:var(--white);border-radius:10px;padding:8px 12px;min-width:74px;line-height:1.2}
+  .rooster-card-time .t-start{font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:.2px}
+  .rooster-card-time .t-dur{font-size:10px;font-weight:600;letter-spacing:.4px;color:rgba(255,255,255,.55);text-transform:uppercase}
+  .rooster-card.is-full .rooster-card-time{background:rgba(20,22,17,.12);color:var(--ink-mute)}
+  .rooster-card.is-full .rooster-card-time .t-dur{color:var(--ink-mute)}
+  .rooster-card-title{flex:1;font-weight:800;color:var(--ink);font-size:16px;font-family:var(--fd);letter-spacing:.2px}
+  .rooster-card-spots{font-size:11.5px;font-weight:700;letter-spacing:.4px;color:var(--accent-ink);white-space:nowrap;background:rgba(212,255,0,.35);padding:6px 12px;border-radius:100px}
+  .rooster-card.is-full .rooster-card-spots{color:var(--ink-mute);background:rgba(20,22,17,.08)}
   .rooster-app-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:32px}
   .rooster-app-cta span{font-size:14px;color:var(--ink-soft);font-weight:600}
   .rooster-app-links{display:flex;gap:10px}
@@ -199,7 +206,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @media (max-width:640px){
     .rooster-panel{padding:22px 18px}
     .rooster-card{flex-wrap:wrap;gap:6px 14px}
-    .rooster-card-spots{width:100%}
+    .rooster-card-spots{width:100%;text-align:center}
   }
 
   /* FOR WHO / TRY */
@@ -731,6 +738,13 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
   }
+  function fmtTitle(title){
+    return String(title || 'Les').replace(/\bStrenght\b/i, 'Strength');
+  }
+  function fmtDuration(start, end){
+    var mins = Math.round((new Date(end) - new Date(start)) / 60000);
+    return mins > 0 ? mins + ' min' : '';
+  }
 
   function renderDays(){
     var today = new Date(); today.setHours(0,0,0,0);
@@ -755,32 +769,35 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
   }
 
   function renderList(){
+    var html;
     if (status === 'loading'){
-      listEl.innerHTML = '<div class="rooster-state">Rooster laden&hellip;</div>';
-      return;
+      html = '<div class="rooster-state">Rooster laden&hellip;</div>';
+    } else if (status === 'unconfigured'){
+      html = '<div class="rooster-state">Het live rooster wordt binnenkort hier zichtbaar.</div>';
+    } else if (status === 'error'){
+      html = '<div class="rooster-state">Rooster kon niet worden geladen. Probeer het later opnieuw.</div>';
+    } else {
+      var dayEvents = events.filter(function(e){ return dayKey(new Date(e.start)) === selectedDayKey; });
+      if (!dayEvents.length){
+        html = '<div class="rooster-state">Geen lessen gepland op deze dag.</div>';
+      } else {
+        var countLabel = dayEvents.length + ' ' + (dayEvents.length === 1 ? 'les' : 'lessen') + ' op deze dag';
+        html = '<p class="rooster-count">' + countLabel + '</p>' + dayEvents.map(function(e){
+          var full = e.spotsLeft === 0;
+          var spotsLabel = e.spotsLeft === null ? '' : (full ? 'Vol' : e.spotsLeft + ' ' + (e.spotsLeft === 1 ? 'plek' : 'plekken') + ' vrij');
+          var duration = fmtDuration(e.start, e.end);
+          return '<div class="rooster-card' + (full ? ' is-full' : '') + '">'
+            + '<div class="rooster-card-time"><span class="t-start">' + fmtTime(e.start) + '</span>' + (duration ? '<span class="t-dur">' + duration + '</span>' : '') + '</div>'
+            + '<div class="rooster-card-title">' + escapeHtml(fmtTitle(e.title)) + '</div>'
+            + (spotsLabel ? '<div class="rooster-card-spots">' + spotsLabel + '</div>' : '')
+            + '</div>';
+        }).join('');
+      }
     }
-    if (status === 'unconfigured'){
-      listEl.innerHTML = '<div class="rooster-state">Het live rooster wordt binnenkort hier zichtbaar.</div>';
-      return;
-    }
-    if (status === 'error'){
-      listEl.innerHTML = '<div class="rooster-state">Rooster kon niet worden geladen. Probeer het later opnieuw.</div>';
-      return;
-    }
-    var dayEvents = events.filter(function(e){ return dayKey(new Date(e.start)) === selectedDayKey; });
-    if (!dayEvents.length){
-      listEl.innerHTML = '<div class="rooster-state">Geen lessen gepland op deze dag.</div>';
-      return;
-    }
-    listEl.innerHTML = dayEvents.map(function(e){
-      var full = e.spotsLeft === 0;
-      var spotsLabel = e.spotsLeft === null ? '' : (full ? 'Vol' : e.spotsLeft + ' ' + (e.spotsLeft === 1 ? 'plek' : 'plekken') + ' vrij');
-      return '<div class="rooster-card' + (full ? ' is-full' : '') + '">'
-        + '<div class="rooster-card-time">' + fmtTime(e.start) + '&ndash;' + fmtTime(e.end) + '</div>'
-        + '<div class="rooster-card-title">' + escapeHtml(e.title || 'Les') + '</div>'
-        + (spotsLabel ? '<div class="rooster-card-spots">' + spotsLabel + '</div>' : '')
-        + '</div>';
-    }).join('');
+    listEl.classList.remove('rooster-fade-in');
+    listEl.innerHTML = html;
+    void listEl.offsetWidth;
+    listEl.classList.add('rooster-fade-in');
   }
 
   var today0 = new Date(); today0.setHours(0,0,0,0);
