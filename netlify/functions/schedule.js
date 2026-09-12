@@ -17,8 +17,9 @@ exports.handler = async function handler(event) {
   const days = Math.min(Math.max(parseInt(event.queryStringParameters?.days, 10) || 7, 1), 14);
   const now = new Date();
   const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  const timestampStart = Math.floor(startOfToday / 1000);
-  const timestampEnd = Math.floor((startOfToday + days * DAY_MS) / 1000);
+  // Virtuagym's Club Events API verwacht timestamp_start/timestamp_end in milliseconden.
+  const timestampStart = startOfToday;
+  const timestampEnd = startOfToday + days * DAY_MS;
 
   const url = `${API_BASE}/${clubId}/events?` + new URLSearchParams({
     api_key: apiKey,
