@@ -274,8 +274,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
         <div class="planner-closed-icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M12 14v3l2 1.5"/></svg>
         </div>
-        <div class="planner-closed-title">Tijdelijk geen intake-afspraken beschikbaar</div>
-        <p class="planner-closed-text">Vanaf 29 september kun je hier weer direct jouw gratis kennismaking inplannen.</p>
+        <div class="planner-closed-title">Wegens vakantie tijdelijk gesloten</div>
+        <p class="planner-closed-text">Inplannen is niet mogelijk tot en met 28 september. Vanaf 29 september kun je hier weer direct jouw gratis kennismaking inplannen.</p>
       </div>
 
       <div id="planner-widget-wrap" class="planner-widget-wrap" style="display:none">
@@ -285,19 +285,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
       <script>
         (function(){
-          var blocksAt = new Date(2026, 8, 16); // 16 september 2026, lokale tijd
           var opensAt = new Date(2026, 8, 29); // 29 september 2026, lokale tijd
           var notice = document.getElementById('planner-closed-notice');
           var widgetWrap = document.getElementById('planner-widget-wrap');
-          var now = new Date();
-          var isBlocked = now >= blocksAt && now < opensAt;
-          if (isBlocked) {
-            notice.style.display = '';
-          } else {
+          if (new Date() >= opensAt) {
             widgetWrap.style.display = '';
             var s = document.createElement('script');
             s.src = 'https://static.virtuagym.com/vg-guest-booking-widget/dist/js/app.js';
             document.body.appendChild(s);
+          } else {
+            notice.style.display = '';
           }
         })();
       </script>
