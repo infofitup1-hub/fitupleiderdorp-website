@@ -196,7 +196,7 @@ function buildBlogPage(topic, aiContent, nav, footer) {
     </section>`).join("\n");
 
   const faqHtml = faqItems.map(f => `
-    <details style="background:#1a1a1a;padding:20px 24px;margin-bottom:2px;">
+    <details style="background:#18191b;padding:20px 24px;margin-bottom:2px;">
       <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">${f.q}</summary>
       <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">${f.a}</p>
     </details>`).join("\n");
@@ -209,7 +209,7 @@ function buildBlogPage(topic, aiContent, nav, footer) {
 
   const internalLinksHtml = topic.internal_links.map(l => {
     const label = l.replace(/\//g, "").replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) || "Lees meer";
-    return `<a href="${l}" style="background:#1a1a1a;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">${l.replace(/\//g,"").replace(/-/g," ")} →</a>`;
+    return `<a href="${l}" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">${l.replace(/\//g,"").replace(/-/g," ")} →</a>`;
   }).join("\n");
 
   return `<!DOCTYPE html>
