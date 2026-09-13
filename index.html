@@ -303,7 +303,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* REVEAL */
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
   .reveal.in{opacity:1;transform:none}
-  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
 
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
@@ -886,17 +886,23 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .audience h2 em{color:var(--black);text-shadow:none;background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
     .audience-head{max-width:640px;margin:0 0 44px}
     .audience-head p{color:rgba(12,12,12,.6);font-weight:300;line-height:1.75;margin-top:16px;font-size:15px}
-    .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .aud-col{border:1px solid rgba(12,12,12,.08);padding:34px 32px;background:var(--white);box-shadow:0 1px 2px rgba(12,12,12,.04);position:relative}
-    .aud-col.fit{border-color:rgba(212,255,0,.6)}
+    .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+    .aud-col{border:1px solid rgba(12,12,12,.08);padding:34px 32px;background:var(--white);box-shadow:0 1px 2px rgba(12,12,12,.04);position:relative;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+    .aud-col.fit{border-color:rgba(212,255,0,.6);background:linear-gradient(180deg,rgba(212,255,0,.05),rgba(212,255,0,.01) 40%,var(--white) 100%)}
+    .aud-col.fit:hover{transform:translateY(-4px);box-shadow:var(--sh-hover)}
+    .aud-col.nofit{background:var(--paper2);border-color:rgba(12,12,12,.06)}
     .aud-col.nofit::before,.aud-col.nofit::after{content:"";position:absolute;width:16px;height:16px;pointer-events:none;opacity:.4;transition:opacity .3s,width .3s,height .3s}
     .aud-col.nofit::before{top:14px;left:14px;border-top:1px solid var(--accent);border-left:1px solid var(--accent)}
     .aud-col.nofit::after{bottom:14px;right:14px;border-bottom:1px solid var(--accent);border-right:1px solid var(--accent)}
     .aud-col.nofit:hover::before,.aud-col.nofit:hover::after{opacity:1;width:20px;height:20px}
+    .aud-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:16px}
+    .aud-col.fit .aud-badge{background:var(--accent);color:var(--black)}
+    .aud-col.nofit .aud-badge{background:rgba(12,12,12,.08);color:rgba(12,12,12,.55)}
     .aud-col h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:1px;line-height:1.05;margin-bottom:22px;color:var(--black)}
     .aud-col.fit h3 em{font-style:normal;color:var(--black);text-shadow:none;background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
     .aud-list{list-style:none;display:flex;flex-direction:column;gap:15px}
-    .aud-list li{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.55;color:rgba(12,12,12,.72)}
+    .aud-list li{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.55;color:rgba(12,12,12,.72);transition:transform .25s ease}
+    .aud-list li:hover{transform:translateX(3px)}
     .aud-list .ic{flex-shrink:0;width:22px;height:22px;display:grid;place-items:center;margin-top:1px}
     .aud-col.fit .ic{color:#4a5900}
     .aud-col.nofit li{color:rgba(12,12,12,.6)}
@@ -911,21 +917,23 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     </div>
     <div class="audience-grid">
       <div class="aud-col fit reveal d1">
+        <span class="aud-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Dit krijg je</span>
         <h3>Dit is <em>jouw club</em> als je&hellip;</h3>
         <ul class="aud-list">
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>al jaren traint zonder duidelijk plan — bij ons train je met een persoonlijk schema, gemeten elke 4 weken</li>
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>voeding nooit hebt meegenomen — wij combineren training met persoonlijke voedingscoaching via de app</li>
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>niemand je naam kent bij een grote, anonieme gym — bij ons kent je coach jou én je doel</li>
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>graag traint op je eigen moment — 24/7 open, altijd rustig</li>
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>net begint óf na jaren weer instapt — alle niveaus zijn welkom</li>
+          <li class="reveal d1"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>al jaren traint zonder duidelijk plan — bij ons train je met een persoonlijk schema, gemeten elke 4 weken</li>
+          <li class="reveal d2"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>voeding nooit hebt meegenomen — wij combineren training met persoonlijke voedingscoaching via de app</li>
+          <li class="reveal d3"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>niemand je naam kent bij een grote, anonieme gym — bij ons kent je coach jou én je doel</li>
+          <li class="reveal d4"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>graag traint op je eigen moment — 24/7 open, altijd rustig</li>
+          <li class="reveal d5"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>net begint óf na jaren weer instapt — alle niveaus zijn welkom</li>
         </ul>
       </div>
       <div class="aud-col nofit reveal d2">
+        <span class="aud-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dit niet</span>
         <h3>Waarschijnlijk niet je plek als je&hellip;</h3>
         <ul class="aud-list">
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>puur de laagste maandprijs zoekt, zonder begeleiding</li>
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>een enorme, drukke gym met honderden toestellen wilt</li>
-          <li><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>het liefst volledig anoniem traint, zonder contact</li>
+          <li class="reveal d1"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>puur de laagste maandprijs zoekt, zonder begeleiding</li>
+          <li class="reveal d2"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>een enorme, drukke gym met honderden toestellen wilt</li>
+          <li class="reveal d3"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>het liefst volledig anoniem traint, zonder contact</li>
         </ul>
       </div>
     </div>
