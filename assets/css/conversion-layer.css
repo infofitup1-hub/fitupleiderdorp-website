@@ -1,7 +1,7 @@
 /* =============================================================
    FIT UP LEIDERDORP — Conversielaag styling
    Gebruikt dezelfde tokens als de rest van de site:
-   --black:#0c0c0c --mid:#161616 --white:#fff --accent:#d4ff00
+   --black:#0c0c0c --mid:#0c0c0c --white:#fff --accent:#d4ff00
    --fd: Barlow Condensed --fb: DM Sans
    ============================================================= */
 
@@ -26,7 +26,7 @@
   box-shadow: 0 8px 24px rgba(0,0,0,.4);
   transition: transform .2s ease, background .2s ease;
 }
-.fu-cl-fab:hover { transform: translateY(-2px); background: #161616; }
+.fu-cl-fab:hover { transform: translateY(-2px); background: #0c0c0c; }
 .fu-cl-fab-title {
   font-family: var(--fd, 'Barlow Condensed', sans-serif);
   font-weight: 800;

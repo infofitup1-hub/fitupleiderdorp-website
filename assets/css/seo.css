@@ -6,7 +6,7 @@
 
 :root {
   /* kleuren */
-  --black:#0c0c0c; --charcoal:#18191b; --mid:#161616; --dark:#111;
+  --black:#0c0c0c; --charcoal:#18191b; --mid:#0c0c0c; --dark:#0c0c0c;
   --white:#fff; --paper:#ffffff; --paper2:#f3f4f0;
   --ink:#141611; --ink-soft:#3c3f37; --ink-mute:#575b4e;
   --line:rgba(20,22,17,.08); --line-2:rgba(20,22,17,.05);
@@ -75,7 +75,7 @@ h3 { font-family: var(--fd); font-weight: 800; text-transform: uppercase; font-s
 /* SECTIONS — ruime, consistente spacing + wit/warm-grijs ritme */
 section { padding: 120px 0; }
 section:nth-of-type(even) { background: var(--paper2); }
-section.seo-hero, section.cta-block { background: var(--charcoal); }
+section.seo-hero, section.cta-block { background: #0c0c0c; }
 .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 .sec-label { display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 18px; }
 .sec-label-line { width: 24px; height: 1.5px; background: var(--accent); }
@@ -116,19 +116,10 @@ section.seo-hero, section.cta-block { background: var(--charcoal); }
 .crumb-cur { color: var(--accent); }
 
 /* HERO — donker charcoal bookend (matcht homepage-hero) */
-.seo-hero { padding: 40px 0 120px; position: relative; overflow: hidden; background: var(--charcoal); color: var(--white); }
+.seo-hero { padding: 40px 0 120px; position: relative; overflow: hidden; background: #0c0c0c; color: var(--white); }
 .seo-hero {
-  background-image:
-    linear-gradient(27deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(27deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(90deg, rgba(255,255,255,.008) 10px, transparent 10px),
-    linear-gradient(rgba(0,0,0,.06) 25%, transparent 25%, transparent 50%, rgba(0,0,0,.06) 50%, rgba(0,0,0,.06) 75%, transparent 75%, transparent);
-  background-position: 0 5px, 10px 0px, 0px 10px, 10px 5px, 0 0, 0 0;
-  background-size: 20px 20px;
+  
 }
-.seo-hero::before { content: ''; position: absolute; top: -10%; right: -10%; width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(212, 255, 0, .06) 0%, transparent 70%); pointer-events: none; }
 .seo-hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; position: relative; }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; animation: slideUp .6s ease .05s both; }
 .hero-eyebrow .eyebrow-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
@@ -197,19 +188,10 @@ section.seo-hero, section.cta-block { background: var(--charcoal); }
 .local-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* CTA BLOCK — donker charcoal bookend (matcht homepage final-cta) */
-.cta-block { background: var(--charcoal); color: var(--white); padding: 128px 0; text-align: center; position: relative; overflow: hidden; }
+.cta-block { background: #0c0c0c; color: var(--white); padding: 128px 0; text-align: center; position: relative; overflow: hidden; }
 .cta-block {
-  background-image:
-    linear-gradient(27deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(27deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(90deg, rgba(255,255,255,.008) 10px, transparent 10px),
-    linear-gradient(rgba(0,0,0,.06) 25%, transparent 25%, transparent 50%, rgba(0,0,0,.06) 50%, rgba(0,0,0,.06) 75%, transparent 75%, transparent);
-  background-position: 0 5px, 10px 0px, 0px 10px, 10px 5px, 0 0, 0 0;
-  background-size: 20px 20px;
+  
 }
-.cta-block::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 700px; background: radial-gradient(ellipse, rgba(212, 255, 0, .05) 0%, transparent 70%); pointer-events: none; }
 .cta-block h2 { color: var(--white); position: relative; }
 .cta-block h2 em { color: var(--accent); background: none; padding: 0; }
 .cta-block p { font-size: 16px; max-width: 520px; margin: 18px auto 36px; color: rgba(255, 255, 255, .6); line-height: 1.75; font-weight: 300; position: relative; }
@@ -241,15 +223,7 @@ section.seo-hero, section.cta-block { background: var(--charcoal); }
 /* FOOTER — donker bookend (matcht homepage) */
 footer { background: var(--mid); padding: 80px 0 28px; border-top: 1px solid rgba(212, 255, 0, .08); }
 footer {
-  background-image:
-    linear-gradient(27deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(27deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(90deg, rgba(255,255,255,.008) 10px, transparent 10px),
-    linear-gradient(rgba(0,0,0,.06) 25%, transparent 25%, transparent 50%, rgba(0,0,0,.06) 50%, rgba(0,0,0,.06) 75%, transparent 75%, transparent);
-  background-position: 0 5px, 10px 0px, 0px 10px, 10px 5px, 0 0, 0 0;
-  background-size: 20px 20px;
+  
 }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 56px; }
 .f-brand .f-logo { font-family: var(--fd); font-size: 32px; font-weight: 900; letter-spacing: 4px; color: var(--white); margin-bottom: 18px; }
@@ -283,28 +257,8 @@ footer {
   .cta-block { padding: 76px 0; }
 }
 
-/* CARBON-TEXTURE — subtiele koolstofvezel-weave voor donkere vlakken.
-   Alleen zwart/wit-overlays (geen nieuwe kleur) bovenop een bestaande
-   donkere achtergrond (--black/--mid/--charcoal). */
+/* Donkere vlakken: egaal, zonder patroon of textuur. */
 .carbon-surface {
   position: relative;
-  background-image:
-    linear-gradient(27deg, rgba(255,255,255,.018) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(255,255,255,.018) 5px, transparent 5px),
-    linear-gradient(27deg, rgba(0,0,0,.16) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(0,0,0,.16) 5px, transparent 5px),
-    linear-gradient(90deg, rgba(255,255,255,.01) 10px, transparent 10px),
-    linear-gradient(rgba(0,0,0,.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,.1) 50%, rgba(0,0,0,.1) 75%, transparent 75%, transparent) !important;
-  background-position: 0 5px, 10px 0px, 0px 10px, 10px 5px, 0 0, 0 0 !important;
-  background-size: 20px 20px !important;
-}
-/* Nog terughoudender variant voor grote/lichte vlakken zoals hero's en CTA-banden. */
-.carbon-surface--soft {
-  background-image:
-    linear-gradient(27deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(255,255,255,.012) 5px, transparent 5px),
-    linear-gradient(27deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(207deg, rgba(0,0,0,.1) 5px, transparent 5px),
-    linear-gradient(90deg, rgba(255,255,255,.008) 10px, transparent 10px),
-    linear-gradient(rgba(0,0,0,.06) 25%, transparent 25%, transparent 50%, rgba(0,0,0,.06) 50%, rgba(0,0,0,.06) 75%, transparent 75%, transparent) !important;
+  
 }
