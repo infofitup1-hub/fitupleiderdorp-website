@@ -1970,6 +1970,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   :is(.audience,.lite,.reviews,.faq-home,.tour) h2 em{background:linear-gradient(transparent 90%,var(--accent) 90%)!important;padding:0!important}
   .lite .svc-card::before,.lite .svc-card::after,.fc-wrap::before,.fc-wrap::after{display:none!important}
   .intake-tile{box-shadow:none!important}
+  /* Coachfoto: volledige breedte en bovenkant behouden zodat het gezicht van de coach in beeld blijft */
+  .audience-head-photo{width:100%;max-width:none;aspect-ratio:4/3}
+  .audience-head-photo img{object-position:left top}
   .svc-card.reveal.in,.review-card.reveal.in,.frame-card.reveal.in,.aud-col.reveal.in,.fc-wrap.reveal.in,.intake-tile.reveal.in,.reviews-score-block.reveal.in{animation:none}
   .rwall .frame-photo--wide{aspect-ratio:347/255}
   .rwall .frame-photo--wide img{object-position:center}
