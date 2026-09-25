@@ -1930,5 +1930,85 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </script>
 <script src="assets/js/conversion-layer.config.js" defer></script>
 <script src="assets/js/conversion-layer.js" defer></script>
+<style id="mobile-premium">
+/* Mobiel: verticaal i.p.v. carrousels, rustiger lime-gebruik (laatste in de cascade) */
+@media(max-width:767px){
+  /* Testimonials: verticale stapel, ingeklapt tot naam, resultaat en ±3 regels */
+  .rwall .frame-wall{display:flex;flex-direction:column;overflow:visible;scroll-snap-type:none;max-width:none;gap:28px;margin-top:40px}
+  .rwall .frame-card{flex:none;width:100%;max-width:none;margin-top:0}
+  .rwall .frame-photo{aspect-ratio:4/3}
+  .rwall .frame-photo img{object-position:center 30%}
+  .rwall .frame-card:not(.is-open) .frame-lead{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .rwall .frame-card:not(.is-open) .frame-quote{display:none}
+  .rwall .frame-more{margin-top:10px}
+  .rwall .frame-more summary{padding:12px 0;min-height:44px;border-bottom:1px solid rgba(12,12,12,.14)}
+  .rwall .frame-cap{padding:22px 16px 14px}
+  .rwall .frame-card--hero .frame-cap{padding:22px 16px 14px}
+  .rwall-dots{display:none}
+  .rwall h2{font-size:clamp(32px,9.4vw,44px)}
+
+  /* Reviews: één kolom, compact, ingekort tot ±3 regels */
+  .reviews-grid{display:grid;grid-template-columns:1fr;overflow:visible;scroll-snap-type:none;gap:12px}
+  .review-card{flex:none;padding:22px 20px 18px}
+  .review-card::before,.review-card::after,.review-quote-mark{display:none}
+  .review-stars{margin-bottom:10px}
+  .review-text{font-size:19px;line-height:1.35;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .review-card.is-open .review-text{display:block;overflow:visible}
+  .review-card.no-clamp .review-text{display:block;overflow:visible}
+  .review-author{padding-top:14px}
+  .review-avatar{background:var(--black);color:var(--accent)}
+  .review-card[style*="border-left"]{border-left-width:2px!important}
+  .reviews-dots{display:none}
+  .review-more{display:block;background:none;border:0;padding:0 0 12px;margin:-6px 0 4px;min-height:44px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(12,12,12,.6);cursor:pointer;text-align:left}
+
+  /* Clubfoto's: 2×2 in plaats van swipe */
+  .club-strip-grid{display:grid;grid-template-columns:1fr 1fr;overflow:visible;scroll-snap-type:none;gap:3px}
+  .club-strip-grid > div{flex:none}
+  .club-strip-dots{display:none}
+
+  /* Lime: accent, geen vlak — markeerstift wordt dunne lijn, decoratieve hoeken weg */
+  :is(.audience,.lite,.reviews,.faq-home,.tour) h2 em{background:linear-gradient(transparent 90%,var(--accent) 90%)!important;padding:0!important}
+  .lite .svc-card::before,.lite .svc-card::after,.fc-wrap::before,.fc-wrap::after{display:none!important}
+  .intake-tile{box-shadow:none!important}
+  .svc-card.reveal.in,.review-card.reveal.in,.frame-card.reveal.in,.aud-col.reveal.in,.fc-wrap.reveal.in,.intake-tile.reveal.in,.reviews-score-block.reveal.in{animation:none}
+  .rwall .frame-photo--wide{aspect-ratio:347/255}
+  .rwall .frame-photo--wide img{object-position:center}
+}
+</style>
+<script>
+(function(){
+  var mq = window.matchMedia('(max-width:767px)');
+  // Testimonials: maximaal één verhaal tegelijk open (alleen mobiel)
+  var cards = document.querySelectorAll('.rwall .frame-card');
+  cards.forEach(function(card){
+    var d = card.querySelector('details.frame-more'); if(!d) return;
+    var sum = d.querySelector('summary'); var label = sum.textContent.trim();
+    d.addEventListener('toggle', function(){
+      if(!mq.matches) return;
+      card.classList.toggle('is-open', d.open);
+      sum.textContent = d.open ? 'Minder tonen' : label;
+      if(d.open){ cards.forEach(function(o){ var od=o.querySelector('details.frame-more'); if(o!==card && od && od.open) od.open=false; }); }
+    });
+  });
+  // Reviews: "Lees meer" alleen waar de tekst echt wordt ingekort
+  var rev = document.querySelectorAll('.reviews-grid .review-card');
+  function setupReviews(){
+    rev.forEach(function(card){
+      var t = card.querySelector('.review-text'), b = card.querySelector('.review-more');
+      if(!mq.matches){ if(b) b.hidden = true; return; }
+      if(!b){
+        card.classList.remove('is-open');
+        var over = t.scrollHeight > t.clientHeight + 2;
+        if(!over){ card.classList.add('no-clamp'); return; }
+        b = document.createElement('button'); b.type='button'; b.className='review-more'; b.textContent='Lees meer'; b.setAttribute('aria-expanded','false');
+        b.addEventListener('click', function(){ var o = card.classList.toggle('is-open'); b.textContent = o ? 'Minder tonen' : 'Lees meer'; b.setAttribute('aria-expanded', o); });
+        t.insertAdjacentElement('afterend', b);
+      } else { b.hidden = false; }
+    });
+  }
+  setupReviews(); window.addEventListener('load', setupReviews);
+  if(mq.addEventListener) mq.addEventListener('change', setupReviews);
+})();
+</script>
 </body>
 </html>
