@@ -97,47 +97,55 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .hero-meta-item svg{color:var(--accent);flex-shrink:0}
 
 
-  /* ═════ TARIEVEN — één uniform kaartsysteem (.tc) ═════ */
-  .tarieven-sec{background:var(--paper2);padding:96px 0 0}
-  .tarieven-sec.last{padding-bottom:96px}
-  .tarieven-sec + .tarieven-sec{padding-top:80px}
-  .tc-head{max-width:1040px;margin:0 auto 40px;text-align:left}
+  /* ═════ TARIEVEN — één compact kaartsysteem (.tc): naam · prijs · knop, details uitklapbaar ═════ */
+  .tarieven-sec{background:var(--paper2);padding:80px 0 0}
+  .tarieven-sec.last{padding-bottom:80px}
+  .tarieven-sec + .tarieven-sec{padding-top:64px}
+  .tc-head{max-width:1040px;margin:0 auto 32px;text-align:left}
   .tc-head h2{margin-bottom:0;text-align:left}
-  .tc-head p{font-size:18px;line-height:1.7;color:var(--ink-soft);margin-top:18px;max-width:640px}
-  .tc-group{max-width:1040px;margin:0 auto 56px}
+  .tc-head p{font-size:18px;line-height:1.7;color:var(--ink-soft);margin-top:16px;max-width:640px}
+  .tc-group{max-width:1040px;margin:0 auto 44px}
   .tc-group:last-child{margin-bottom:0}
-  .tc-group-title{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(30px,3.4vw,40px);line-height:1;letter-spacing:.5px;color:var(--ink);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--line-strong)}
-  .tc-list{display:flex;flex-direction:column;gap:24px}
-  .tc{background:var(--white);border:1px solid var(--line-strong);border-radius:14px;padding:44px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:32px 64px;align-items:start;position:relative}
+  .tc-group-title{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(28px,3vw,36px);line-height:1;letter-spacing:.5px;color:var(--ink);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line-strong)}
+  .tc-list{display:flex;flex-direction:column;gap:14px}
+  .tc{background:var(--white);border:1px solid var(--line-strong);border-radius:14px;padding:0 32px;position:relative}
   .tc.hl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-  .tc-badge{display:inline-block;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;background:var(--black);color:var(--accent);padding:6px 12px;border-radius:6px;margin-bottom:16px}
-  .tc-label{font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:10px}
-  .tc-name{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(36px,4vw,46px);line-height:1;letter-spacing:.5px;color:var(--ink);margin-bottom:14px}
-  .tc-freq{display:block;font-size:.5em;letter-spacing:1px;color:var(--accent-ink);margin-top:8px}
-  .tc-desc{font-size:17px;line-height:1.65;color:var(--ink-soft);margin-bottom:24px}
-  .tc-price{padding-top:22px;border-top:1px solid var(--line-strong)}
-  .tc-amount{display:flex;align-items:baseline;gap:6px;font-family:var(--fd);font-weight:900;color:var(--ink);line-height:.9}
-  .tc-amount .cur{font-size:32px;font-weight:800}
-  .tc-amount .num{font-size:80px;letter-spacing:-1px}
-  .tc-amount .frac{font-size:32px;font-weight:800}
-  .tc-unit{font-size:17px;font-weight:600;color:var(--ink);margin-top:10px;line-height:1.5}
-  .tc-note{font-size:16px;line-height:1.6;color:var(--ink-soft);margin-top:8px}
-  .tc-note strong{color:var(--ink)}
-  .tc-side{display:flex;flex-direction:column;gap:24px;min-width:0}
-  .tc-features{list-style:none;display:flex;flex-direction:column;gap:14px}
-  .tc-features li{display:flex;gap:12px;font-size:17px;line-height:1.55;color:var(--ink-soft)}
-  .tc-features li svg{flex-shrink:0;color:var(--accent-ink);margin-top:5px}
-  .tc-features li strong{color:var(--ink)}
-  .tc-foot{font-size:16px;line-height:1.6;color:var(--ink-soft);padding-top:20px;border-top:1px solid var(--line-strong)}
-  .tc-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-  .tc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:16px 30px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:var(--r-btn);border:2px solid var(--black);background:var(--black);color:var(--accent);transition:background .2s,color .2s,border-color .2s}
+  .tc-row{display:grid;grid-template-columns:minmax(0,1fr) 310px 250px;gap:24px 32px;align-items:center;padding:26px 0}
+  .tc-badge{display:inline-block;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;background:var(--black);color:var(--accent);padding:4px 10px;border-radius:6px;margin-bottom:10px}
+  .tc-label{font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:6px}
+  .tc-name{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(28px,3vw,36px);line-height:1;letter-spacing:.5px;color:var(--ink)}
+  .tc-freq{display:block;font-size:.55em;letter-spacing:1px;color:var(--accent-ink);margin-top:6px}
+  .tc-cost{text-align:right}
+  .tc-amount{display:flex;align-items:baseline;justify-content:flex-end;gap:4px;font-family:var(--fd);font-weight:900;color:var(--ink);line-height:.9}
+  .tc-amount .cur{font-size:26px;font-weight:800}
+  .tc-amount .num{font-size:56px;letter-spacing:-1px}
+  .tc-amount .frac{font-size:26px;font-weight:800}
+  .tc-unit{font-size:16px;font-weight:600;color:var(--ink);margin-top:6px;line-height:1.4}
+  .tc-alt{font-size:16px;color:var(--ink-soft);margin-top:2px;line-height:1.4}
+  .tc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 20px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:var(--r-btn);border:2px solid var(--black);background:var(--black);color:var(--accent);transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
   .tc-btn:hover{background:transparent;color:var(--black)}
   .tc.hl .tc-btn{background:var(--accent);border-color:var(--accent);color:var(--black)}
   .tc.hl .tc-btn:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .tc-btn:focus-visible,.tc-link:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .tc-btn:focus-visible,.tc-link:focus-visible,.tc-more summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .tc-more{border-top:1px solid var(--line-strong)}
+  .tc-more summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:16px 0;font-size:16px;font-weight:600;color:var(--ink)}
+  .tc-more summary::-webkit-details-marker{display:none}
+  .tc-more summary .chev{transition:transform .25s;color:var(--accent-ink)}
+  .tc-more[open] summary .chev{transform:rotate(180deg)}
+  .tc-body{padding:4px 0 28px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:12px 56px;align-items:start}
+  .tc-body > .tc-features,.tc-body > .tc-foot,.tc-body > .tc-link{grid-column:2}
+  .tc-body > .tc-desc,.tc-body > .tc-note{grid-column:1}
+  .tc-body > .tc-desc:only-child,.tc-body > .tc-desc:last-child{grid-column:1/-1}
+  .tc-desc{font-size:17px;line-height:1.65;color:var(--ink-soft)}
+  .tc-note{font-size:16px;line-height:1.6;color:var(--ink-soft)}
+  .tc-note strong{color:var(--ink)}
+  .tc-features{list-style:none;display:flex;flex-direction:column;gap:12px;grid-row:1 / span 4}
+  .tc-features li{display:flex;gap:12px;font-size:17px;line-height:1.55;color:var(--ink-soft)}
+  .tc-features li svg{flex-shrink:0;color:var(--accent-ink);margin-top:5px}
+  .tc-features li strong{color:var(--ink)}
+  .tc-foot{font-size:16px;line-height:1.6;color:var(--ink-soft);padding-top:8px}
   .tc-link{font-size:16px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
   .tc-link:hover{color:var(--accent-ink)}
-  .tc-side:not(:has(.tc-features)){align-self:center}
   /* FAQ — native <details>/<summary> accordion: content stays in the DOM for SEO, collapsed visually */
   .faq{background:var(--paper);padding:100px 0}
   .faq-wrap{max-width:820px;margin:48px auto 0}
@@ -239,23 +247,27 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   }
 
   @media (max-width:980px){
-    .tc{grid-template-columns:1fr;gap:28px;padding:36px 32px}
-    .tc.no-side{grid-template-columns:1fr;align-items:start}
+    .tc-body{grid-template-columns:1fr}
+    .tc-body > *{grid-column:1!important;grid-row:auto!important}
+  }
+  @media (max-width:760px){
+    .tc-row{grid-template-columns:1fr auto;gap:16px 20px}
+    .tc-id{grid-column:1 / -1}
+    .tc-cost{text-align:left;grid-column:1}
+    .tc-amount{justify-content:flex-start}
+    .tc-btn{grid-column:1 / -1;width:100%}
   }
   @media (max-width:640px){
-    .tarieven-sec{padding:64px 0 0}
-    .tarieven-sec + .tarieven-sec{padding-top:56px}
-    .tarieven-sec.last{padding-bottom:64px}
-    .tc-head{margin-bottom:28px}
-    .tc-group{margin-bottom:44px}
-    .tc-list{gap:20px}
-    .tc{padding:28px 22px;gap:24px}
-    .tc-name{font-size:36px}
-    .tc-amount .num{font-size:68px}
+    .tarieven-sec{padding:56px 0 0}
+    .tarieven-sec + .tarieven-sec{padding-top:48px}
+    .tarieven-sec.last{padding-bottom:56px}
+    .tc-head{margin-bottom:24px}
+    .tc-group{margin-bottom:36px}
+    .tc{padding:0 20px}
+    .tc-row{padding:22px 0}
+    .tc-name{font-size:30px}
+    .tc-amount .num{font-size:52px}
     .tc-features li{font-size:16px}
-    .tc-btn{width:100%}
-    .tc-cta{align-items:stretch}
-    .tc-link{text-align:center}
     .hero-meta{gap:12px 24px}
   }
 
@@ -393,58 +405,64 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h3 class="tc-group-title">Fitness</h3>
       <div class="tc-list">
 <article class="tc reveal" id="fitness247-card">
-  <div class="tc-main">
-    <p class="tc-label">Zelfstandig trainen</p>
-    <h3 class="tc-name">24/7 Fitness</h3>
-    <p class="tc-desc">Train op elk moment van de dag, in een rustige ruimte zonder wachtrij of drukte.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Zelfstandig trainen</p>
+      <h3 class="tc-name">24/7 Fitness</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">48</span><span class="frac">,50</span></p>
       <p class="tc-unit">per 4 weken · 12 maanden contract</p>
-      <p class="tc-note">of €53,50 voor 6 maanden</p>
+      <p class="tc-alt">of €53,50 voor 6 maanden</p>
+    </div>
+    <a href="/gratis-intake/" class="tc-btn">Start met fitness <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Train op elk moment van de dag, in een rustige ruimte zonder wachtrij of drukte.</p>
       <p class="tc-note">Dat is <strong>€1,73 per dag</strong> — minder dan een koffie buitenshuis.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt toegang</strong>, dag en nacht, met je eigen QR-code</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Volledige fitnessruimte</strong> en cardio</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Dumbbells tot 40kg</strong> en Concept2 rowers</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Kleedkamers</strong> met douche</span></li>
+      </ul>
+      <p class="tc-foot">Geen inschrijfgeld · Gratis intake</p>
     </div>
-  </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt toegang</strong>, dag en nacht, met je eigen QR-code</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Volledige fitnessruimte</strong> en cardio</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Dumbbells tot 40kg</strong> en Concept2 rowers</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Kleedkamers</strong> met douche</span></li>
-    </ul>
-    <p class="tc-foot">Geen inschrijfgeld · Gratis intake</p>
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Start met fitness <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal hl d1" id="allinclusive-card">
-  <div class="tc-main">
-    <span class="tc-badge">★ Meest gekozen</span>
-    <p class="tc-label">Fitness + alle groepslessen</p>
-    <h3 class="tc-name">All-Inclusive</h3>
-    <p class="tc-desc">Dezelfde rust van 24/7 Fitness, met alle groepslessen erbij. Nooit meer los bijboeken.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <span class="tc-badge">★ Meest gekozen</span>
+      <p class="tc-label">Fitness + alle groepslessen</p>
+      <h3 class="tc-name">All-Inclusive</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">53</span><span class="frac">,50</span></p>
       <p class="tc-unit">per 4 weken · 12 maanden contract</p>
-      <p class="tc-note">of €58,50 (6 mnd) · €68,50 flexibel</p>
-      <p class="tc-note">Dat is <strong>€1,91 per dag</strong> — inclusief alle groepslessen.</p>
+      <p class="tc-alt">of €58,50 (6 mnd) · €68,50 flexibel</p>
     </div>
+    <a href="/gratis-intake/" class="tc-btn">Start met All-Inclusive <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Alles uit 24/7 Fitness</strong>, plus meer</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong>, elke week</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Boksfit, HIIT, Hyrox, Bodypump</strong> en meer</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis reserveren</strong> via de app</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis intakegesprek</strong> vooraf</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4 weken pauzeren</strong>, elk jaar gratis</span></li>
-    </ul>
-    <p class="tc-foot">Geen verborgen kosten · Geen inschrijfgeld</p>
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Start met All-Inclusive <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Dezelfde rust van 24/7 Fitness, met alle groepslessen erbij. Nooit meer los bijboeken.</p>
+      <p class="tc-note">Dat is <strong>€1,91 per dag</strong> — inclusief alle groepslessen.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Alles uit 24/7 Fitness</strong>, plus meer</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong>, elke week</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Boksfit, HIIT, Hyrox, Bodypump</strong> en meer</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis reserveren</strong> via de app</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis intakegesprek</strong> vooraf</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4 weken pauzeren</strong>, elk jaar gratis</span></li>
+      </ul>
+      <p class="tc-foot">Geen verborgen kosten · Geen inschrijfgeld</p>
       <a href="/gratis-intake/" class="tc-link">Of: boek een gratis intake →</a>
     </div>
-  </div>
+  </details>
 </article>
       </div>
     </div>
@@ -452,82 +470,91 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
       <h3 class="tc-group-title">Small Group Personal Training</h3>
       <div class="tc-list">
 <article class="tc reveal" id="sgpt-card">
-  <div class="tc-main">
-    <p class="tc-label">Begeleid + resultaat</p>
-    <h3 class="tc-name">Small Group PT<span class="tc-freq">1× per week</span></h3>
-    <p class="tc-desc">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Begeleid + resultaat</p>
+      <h3 class="tc-name">Small Group PT<span class="tc-freq">1× per week</span></h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">149</span></p>
       <p class="tc-unit">per 4 weken · 1× per week</p>
+    </div>
+    <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
       <p class="tc-note">Dat is <strong>€5,32 per dag</strong> — de prijs van een lunch, met een vaste coach en groep.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
+      </ul>
+      <p class="tc-foot">Duo-tarief op aanvraag</p>
     </div>
-  </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
-    </ul>
-    <p class="tc-foot">Duo-tarief op aanvraag</p>
-    <div class="tc-cta">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal d1" id="sgpt-card-2x">
-  <div class="tc-main">
-    <p class="tc-label">Begeleid + resultaat</p>
-    <h3 class="tc-name">Small Group PT<span class="tc-freq">2× per week</span></h3>
-    <p class="tc-desc">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Begeleid + resultaat</p>
+      <h3 class="tc-name">Small Group PT<span class="tc-freq">2× per week</span></h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">220</span></p>
       <p class="tc-unit">per 4 weken · 2× per week</p>
+    </div>
+    <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
       <p class="tc-note">Dat is <strong>€7,86 per dag</strong> — de prijs van een lunch, met een vaste coach en groep.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
+      </ul>
+      <p class="tc-foot">Duo-tarief op aanvraag</p>
     </div>
-  </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
-    </ul>
-    <p class="tc-foot">Duo-tarief op aanvraag</p>
-    <div class="tc-cta">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal d2" id="sgpt-card-3x">
-  <div class="tc-main">
-    <p class="tc-label">Begeleid + resultaat</p>
-    <h3 class="tc-name">Small Group PT<span class="tc-freq">3× per week</span></h3>
-    <p class="tc-desc">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Begeleid + resultaat</p>
+      <h3 class="tc-name">Small Group PT<span class="tc-freq">3× per week</span></h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">285</span></p>
       <p class="tc-unit">per 4 weken · 3× per week</p>
+    </div>
+    <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Coaching in een vaste, kleine groep van max. 4 — met dezelfde aandacht als 1-op-1.</p>
       <p class="tc-note">Dat is <strong>€10,18 per dag</strong> — de prijs van een lunch, met een vaste coach en groep.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
+      </ul>
+      <p class="tc-foot">Duo-tarief op aanvraag</p>
     </div>
-  </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Vaste kleine groep</strong> van max. 4</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Eigen vaste trainer</strong>, die je kent</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsplan</strong> via de app</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>24/7 Fitness</strong> onbeperkt inbegrepen</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Groepslessen</strong> onbeperkt inbegrepen</span></li>
-    </ul>
-    <p class="tc-foot">Duo-tarief op aanvraag</p>
-    <div class="tc-cta">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20starten%20met%20Small%20Group%20PT" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
+  </details>
 </article>
       </div>
     </div>
@@ -545,52 +572,58 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="tc-group">
       <div class="tc-list">
 <article class="tc reveal">
-  <div class="tc-main">
-    <p class="tc-label">Alleen PT</p>
-    <h3 class="tc-name">Personal Training</h3>
-    <p class="tc-desc">Eén coach, jouw tempo — voor wie maximale aandacht wil.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Alleen PT</p>
+      <h3 class="tc-name">Personal Training</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">300</span></p>
       <p class="tc-unit">per 4 weken · 4 sessies van 60 min</p>
+    </div>
+    <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Eén coach, jouw tempo — voor wie maximale aandacht wil.</p>
       <p class="tc-note">Dat is <strong>€10,71 per dag</strong> — voor een trainer die alleen naar jou kijkt.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
+      </ul>
     </div>
-  </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Progressiemeting</strong> elke 4 weken</span></li>
-    </ul>
-    <div class="tc-cta">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal hl d1">
-  <div class="tc-main">
-    <span class="tc-badge">Aanrader</span>
-    <p class="tc-label">PT + alles inbegrepen</p>
-    <h3 class="tc-name">Personal Training Plus</h3>
-    <p class="tc-desc">Dezelfde 1-op-1 coaching, plus onbeperkt trainen en groepslessen erbij.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <span class="tc-badge">Aanrader</span>
+      <p class="tc-label">PT + alles inbegrepen</p>
+      <h3 class="tc-name">Personal Training Plus</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">350</span></p>
       <p class="tc-unit">per 4 weken · incl. 24/7 Fitness + groepslessen</p>
+    </div>
+    <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Dezelfde 1-op-1 coaching, plus onbeperkt trainen en groepslessen erbij.</p>
       <p class="tc-note">Dat is <strong>€12,50 per dag</strong> — alles inbegrepen, zonder extra's.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt 24/7 Fitness</strong> inbegrepen</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong> inbegrepen</span></li>
+      </ul>
     </div>
-  </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>4× 60 minuten</strong> 1-op-1 per maand</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persoonlijk schema</strong>, volledig op jou afgestemd</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Voedingsbegeleiding</strong> via de app</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt 24/7 Fitness</strong> inbegrepen</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Onbeperkt groepslessen</strong> inbegrepen</span></li>
-    </ul>
-    <div class="tc-cta">
-      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20Personal%20Training%20Plus" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
+  </details>
 </article>
       </div>
     </div>
@@ -608,18 +641,23 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="tc-group">
       <div class="tc-list">
 <article class="tc reveal">
-  <div class="tc-main">
-    <p class="tc-label">Bij elk abonnement</p>
-    <h3 class="tc-name">Altijd inbegrepen</h3>
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Bij elk abonnement</p>
+      <h3 class="tc-name">Altijd inbegrepen</h3>
+    </div>
   </div>
-  <div class="tc-side">
-    <ul class="tc-features">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis intake</strong> — Een persoonlijk gesprek waarin we jouw doel, startpunt en leefstijl in kaart brengen.</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis proefles</strong> — Probeer een groepsles of SGPT-sessie zonder verplichtingen of inschrijfgeld.</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Duidelijke prijzen</strong> — Vaste prijs per 4 weken, helder wat er wel en niet bij zit — geen verrassingen achteraf.</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Geen inschrijfgeld</strong> — Geen administratiekosten, geen verborgen kosten. Eerlijk en duidelijk — jij betaalt alleen je abonnement.</span></li>
-    </ul>
-  </div>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis intake</strong> — Een persoonlijk gesprek waarin we jouw doel, startpunt en leefstijl in kaart brengen.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Gratis proefles</strong> — Probeer een groepsles of SGPT-sessie zonder verplichtingen of inschrijfgeld.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Duidelijke prijzen</strong> — Vaste prijs per 4 weken, helder wat er wel en niet bij zit — geen verrassingen achteraf.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Geen inschrijfgeld</strong> — Geen administratiekosten, geen verborgen kosten. Eerlijk en duidelijk — jij betaalt alleen je abonnement.</span></li>
+      </ul>
+    </div>
+  </details>
 </article>
       </div>
     </div>
@@ -637,68 +675,80 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="tc-group">
       <div class="tc-list">
 <article class="tc reveal">
-  <div class="tc-main">
-    <p class="tc-label">Optionele add-on</p>
-    <h3 class="tc-name">Losse Personal Training sessie</h3>
-    <p class="tc-desc">60 minuten 1-op-1 met je trainer · zonder abonnement</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Optionele add-on</p>
+      <h3 class="tc-name">Losse Personal Training sessie</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">75</span></p>
       <p class="tc-unit">per sessie</p>
     </div>
+    <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="tc-side">
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">60 minuten 1-op-1 met je trainer · zonder abonnement</p>
     </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal">
-  <div class="tc-main">
-    <p class="tc-label">Optionele add-on</p>
-    <h3 class="tc-name">10-rittenkaart Groepslessen</h3>
-    <p class="tc-desc">10 lessen naar keuze · voor wie geen abonnement wil</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Optionele add-on</p>
+      <h3 class="tc-name">10-rittenkaart Groepslessen</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">99</span></p>
       <p class="tc-unit">per kaart</p>
     </div>
+    <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="tc-side">
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">10 lessen naar keuze · voor wie geen abonnement wil</p>
     </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal">
-  <div class="tc-main">
-    <p class="tc-label">Optionele add-on</p>
-    <h3 class="tc-name">Dagpas</h3>
-    <p class="tc-desc">1 dag toegang · fitness of een groepsles · ideaal om kennis te maken</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Optionele add-on</p>
+      <h3 class="tc-name">Dagpas</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">12</span><span class="frac">,50</span></p>
       <p class="tc-unit">per dag</p>
     </div>
+    <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="tc-side">
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">1 dag toegang · fitness of een groepsles · ideaal om kennis te maken</p>
     </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal">
-  <div class="tc-main">
-    <p class="tc-label">Optionele add-on</p>
-    <h3 class="tc-name">Nulmeting &amp; Advies</h3>
-    <p class="tc-desc">Vetpercentage, spiermassa en gewicht gemeten, plus persoonlijk kcal-, macro- en trainingsadvies (type en frequentie) · gratis bij een lidmaatschap en start met trainen bij Fit Up</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Optionele add-on</p>
+      <h3 class="tc-name">Nulmeting &amp; Advies</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">34</span><span class="frac">,95</span></p>
       <p class="tc-unit">eenmalig</p>
     </div>
+    <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="tc-side">
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Boeken <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Vetpercentage, spiermassa en gewicht gemeten, plus persoonlijk kcal-, macro- en trainingsadvies (type en frequentie) · gratis bij een lidmaatschap en start met trainen bij Fit Up</p>
     </div>
-  </div>
+  </details>
 </article>
       </div>
     </div>
@@ -716,36 +766,42 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
     <div class="tc-group">
       <div class="tc-list">
 <article class="tc reveal">
-  <div class="tc-main">
-    <p class="tc-label">Studentenprijs</p>
-    <h3 class="tc-name">24/7 Fitness</h3>
-    <p class="tc-desc">Op vertoon van een geldige studentenpas.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Studentenprijs</p>
+      <h3 class="tc-name">24/7 Fitness</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">38</span><span class="frac">,50</span></p>
       <p class="tc-unit">vanaf · per 4 weken</p>
     </div>
+    <a href="/gratis-intake/" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="tc-side">
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Op vertoon van een geldige studentenpas.</p>
     </div>
-  </div>
+  </details>
 </article>
 <article class="tc reveal d1">
-  <div class="tc-main">
-    <p class="tc-label">Studentenprijs</p>
-    <h3 class="tc-name">All-Inclusive</h3>
-    <p class="tc-desc">Op vertoon van een geldige studentenpas.</p>
-    <div class="tc-price">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Studentenprijs</p>
+      <h3 class="tc-name">All-Inclusive</h3>
+    </div>
+    <div class="tc-cost">
       <p class="tc-amount"><span class="cur">€</span><span class="num">43</span><span class="frac">,50</span></p>
       <p class="tc-unit">vanaf · per 4 weken</p>
     </div>
+    <a href="/gratis-intake/" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="tc-side">
-    <div class="tc-cta">
-      <a href="/gratis-intake/" class="tc-btn">Plan gratis intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <details class="tc-more">
+    <summary>Meer informatie <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Op vertoon van een geldige studentenpas.</p>
     </div>
-  </div>
+  </details>
 </article>
       </div>
     </div>
