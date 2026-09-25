@@ -423,6 +423,58 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 }
 /* === END NAV DROPDOWN + DRAWER === */
 
+
+  /* PREMIUM LEESBAARHEID — grotere llettertjes, rustiger lime, uitgelichte kaart donker (net als homepage) */
+  .hero h1 em{color:var(--white)}
+  .hero-meta-item{font-size:13px}
+  .price-tag,.pt-tag{font-size:12px;letter-spacing:2px;color:var(--ink-soft)}
+  .price-tagline,.pt-tagline{font-size:15px;color:var(--ink-soft)}
+  .price-unit,.pt-unit{font-size:14px;letter-spacing:0}
+  .price-strike{font-size:14px}
+  .price-cta,.pt-cta{font-size:14px;padding:16px 0;letter-spacing:1.5px}
+  .price-features li,.pt-features li{font-size:15px;line-height:1.5;color:rgba(20,22,17,.82)}
+  .price-features{gap:12px}
+  .price-foot{font-size:13px;letter-spacing:0}
+  .price-flex-note{font-size:12.5px;letter-spacing:1px}
+  .price-trial{font-size:14px}
+  .price-reframe,.pt-reframe{font-size:14px}
+  .price-ribbon{font-size:12px}
+  .pt-card .badge{font-size:11px}
+  .price-more summary,.pt-more summary{font-size:13px}
+  .freq-switch button{font-size:14px}
+  .student-note p{font-size:14.5px;color:var(--ink-soft)}
+  .stu-reframe{font-size:13px}
+  .addon-desc{font-size:14px}
+  .addon-price span{font-size:13px}
+  .addon-cta{font-size:12.5px}
+  /* uitgelichte kaart: zwart met lime accenten i.p.v. een groot lime vlak */
+  .price-card.featured{background:var(--charcoal);color:var(--white);border-top-color:var(--accent);box-shadow:var(--sh-2)}
+  .price-card.featured:hover{border-top-color:var(--accent)}
+  .price-ribbon{background:var(--accent);color:var(--black)}
+  .price-card.featured .price-tag{color:var(--accent)}
+  .price-card.featured .price-name,.price-card.featured .price-amount{color:var(--white)}
+  .price-card.featured .price-tagline,.price-card.featured .price-unit,.price-card.featured .price-reframe,.price-card.featured .price-foot{color:rgba(255,255,255,.72)}
+  .price-card.featured .price-reframe strong{color:var(--white)}
+  .price-card.featured .price-strike{color:rgba(255,255,255,.5)}
+  .price-card.featured .price-cta{background:var(--accent);border-color:var(--accent);color:var(--black)}
+  .price-card.featured .price-cta:hover{background:transparent;color:var(--accent)}
+  .price-card.featured .price-divider,.price-card.featured .price-foot{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.14)}
+  .price-card.featured .price-foot{background:none}
+  .price-card.featured .price-features li{color:rgba(255,255,255,.88)}
+  .price-card.featured .price-features li svg{color:var(--accent)}
+  .price-card.featured .price-flex-note{color:var(--white);background:rgba(255,255,255,.12)}
+  .price-card.featured .price-trial{color:rgba(255,255,255,.85)}
+  .price-card.featured .price-trial:hover{color:var(--accent)}
+  .price-card.featured .price-more summary{border-top-color:rgba(255,255,255,.14)}
+  @media (max-width:640px){
+    .price-tagline,.price-reframe,.price-foot,.pt-tagline,.pt-reframe{font-size:14px!important}
+    .price-features li,.pt-features li{font-size:15px!important}
+    .price-grid,.pt-grid{grid-template-columns:1fr!important;gap:16px!important}
+    .price-card{padding:28px 22px 22px!important}
+    .price-card.featured{padding-top:52px!important}
+    .pt-card{padding:28px 22px!important}
+    .price-cta,.pt-cta{width:100%}
+  }
 </style>
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/main.js" defer></script>
