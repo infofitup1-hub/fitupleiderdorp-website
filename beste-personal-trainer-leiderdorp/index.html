@@ -45,7 +45,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Personal Trainer Leiderdorp | Fit Up 4,9★">
   <meta name="twitter:description" content="Fit Up Leiderdorp: 4,9 sterren, 76 Google reviews, gratis intake.">
-  <link rel="stylesheet" href="/assets/css/seo.css?v=20260820">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/seo.css?v=20260927">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -132,8 +135,61 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   ]
 }
   </script>
+<style>
+/* === Landingspagina met eigen secties - ds2 (tokens, zie CLAUDE.md) === */
+body.ds2{background:var(--color-black)}
+.ds2 #nav{background:rgba(8,10,9,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid var(--border-dark)}
+@media (max-width:640px){.ds2 #nav{padding:10px 16px}}
+.ds2 .art-hero{background:var(--color-black);padding:100px 0 60px;text-align:center}
+.ds2 .art-sec{background:var(--color-black);padding:80px 0}
+.ds2 .art-sec-soft{background:var(--color-black-soft);padding:64px 0;border-top:1px solid var(--border-dark)}
+.ds2 .art-tc{text-align:center}
+.ds2 .art-cta{background:var(--color-black-soft);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:80px 0;text-align:center}
+.ds2 .art-related{background:var(--color-black);padding:48px 0;text-align:center}
+.ds2 .art-w700,.ds2 .art-w800,.ds2 .art-w900,.ds2 .art-w1000,.ds2 .art-w1100{margin:0 auto;padding:0 24px}
+.ds2 .art-w700{max-width:700px}.ds2 .art-w800{max-width:800px}.ds2 .art-w900{max-width:900px}.ds2 .art-w1000{max-width:1000px}.ds2 .art-w1100{max-width:1100px}
+.ds2 .art-label{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--color-lime);margin-bottom:12px}
+.ds2 .art-mb16{margin-bottom:16px}
+.ds2 .art-h1{font-family:var(--fd);font-size:clamp(40px,7vw,72px);font-weight:900;color:var(--color-text-light);line-height:1;margin-bottom:24px;text-transform:uppercase;overflow-wrap:break-word}
+.ds2 .art-em{color:var(--color-lime);font-style:normal}
+.ds2 .art-link{color:var(--color-lime)}
+.ds2 .art-lead{font-size:18px;color:var(--color-text-secondary-dark);max-width:640px;margin:0 auto 40px;line-height:1.7}
+.ds2 .art-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.ds2 .art-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.ds2 .art-btn,.ds2 .art-btn-2{display:inline-block;padding:16px 32px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:var(--radius-btn);transition:background .25s,border-color .25s}
+.ds2 .art-btn{background:var(--color-lime);color:var(--color-black);border:2px solid var(--color-lime)}
+.ds2 .art-btn:hover{background:var(--color-lime-hover);border-color:var(--color-lime-hover)}
+.ds2 .art-btn-2{background:transparent;color:var(--color-text-light);border:1.5px solid var(--border-dark-strong)}
+.ds2 .art-btn-2:hover{background:rgba(244,245,241,.06);border-color:var(--color-text-light)}
+.ds2 .art-rating{background:var(--color-graphite);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:14px 0;text-align:center}
+.ds2 .art-rating-link{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--color-text-light);font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase}
+.ds2 .art-rating-link span:first-child{color:var(--color-lime)}
+.ds2 .art-fig{margin:0 auto;max-width:1000px}
+.ds2 .art-fig img{border-radius:0 0 var(--radius-card) var(--radius-card)}
+.ds2 .art-h2{font-family:var(--fd);font-size:40px;font-weight:900;color:var(--color-text-light);margin-bottom:16px;text-transform:uppercase}
+.ds2 .art-mb48{margin-bottom:48px}.ds2 .art-mb40{margin-bottom:40px}
+.ds2 .art-h2-sm{font-size:32px}
+.ds2 .art-h2-cta{color:var(--color-text-light);font-size:44px}
+.ds2 .art-sub{color:var(--color-text-secondary-dark);text-align:center;margin-bottom:48px;font-size:16px}
+.ds2 .art-p{color:var(--color-text-secondary-dark);font-size:16px;line-height:1.7;margin-bottom:24px}
+.ds2 .art-cta-p{color:var(--color-text-secondary-dark);font-size:17px;margin-bottom:32px;line-height:1.7}
+.ds2 .art-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.ds2 .art-card{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:32px}
+.ds2 .art-card-ico{color:var(--color-lime);font-size:28px;margin-bottom:12px}
+.ds2 .art-card-stat{color:var(--color-lime);font-size:32px;font-weight:900;font-family:var(--fd);margin-bottom:8px}
+.ds2 .art-card-h{font-family:var(--fd);font-size:22px;font-weight:800;color:var(--color-text-light);margin-bottom:12px;text-transform:uppercase}
+.ds2 .art-card-p{color:var(--color-text-secondary-dark);line-height:1.7;font-size:16px}
+.ds2 .art-faq-list{display:flex;flex-direction:column}
+.ds2 .art-faq{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:20px 24px;margin-bottom:10px}
+.ds2 .art-faq-q{font-weight:600;font-size:16px;cursor:pointer;color:var(--color-text-light);list-style:none}
+.ds2 .art-faq-a{color:var(--color-text-secondary-dark);margin-top:12px;line-height:1.7;font-size:16px}
+.ds2 .art-chip{background:var(--color-graphite);color:var(--color-text-light);border:1px solid var(--border-dark);border-radius:var(--radius-btn);padding:12px 18px;font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:border-color .2s}
+.ds2 .art-chip:hover{border-color:var(--border-dark-strong)}
+.ds2 .art-note{font-size:14px;color:var(--color-text-secondary-dark);letter-spacing:.3px;margin:0 0 12px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6}
+@media (max-width:640px){.ds2 .art-h2{font-size:32px}.ds2 .art-h2-cta{font-size:34px}.ds2 .art-sec{padding:56px 0}.ds2 .art-cta{padding:64px 0}}
+</style>
 </head>
-<body>
+<body class="ds2">
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   <a href="/" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../assets/images/logo-mark-on-dark.webp" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
@@ -177,113 +233,113 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </div>
 
 <main>
-  <section style="background:#0c0c0c;padding:100px 0 60px;text-align:center;">
-    <div style="max-width:900px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:16px;">Leiderdorp · Leiden · Oegstgeest · Voorschoten</div>
-      <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,7vw,72px);font-weight:900;color:#fff;line-height:1;margin-bottom:24px;text-transform:uppercase;">
-        Personal Trainer &amp; Sportschool<br><em style="color:#d4ff00;font-style:normal;">Leiderdorp</em>
+  <section class="art-hero">
+    <div class="art-w900">
+      <div class="art-label art-mb16">Leiderdorp · Leiden · Oegstgeest · Voorschoten</div>
+      <h1 class="art-h1">
+        Personal Trainer &amp; Sportschool<br><em class="art-em">Leiderdorp</em>
       </h1>
-      <p style="font-size:18px;color:rgba(255,255,255,0.7);max-width:640px;margin:0 auto 40px;line-height:1.7;">Fit Up Leiderdorp scoort 4,9 sterren op Google (76 beoordelingen). Kleinschalig en persoonlijk, met een vaste coach voor iedere sporter.</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="/gratis-intake/" style="background:#d4ff00;color:#000;padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Plan gratis intake →</a>
-        <a href="/tarieven/" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Bekijk tarieven</a>
+      <p class="art-lead">Fit Up Leiderdorp scoort 4,9 sterren op Google (76 beoordelingen). Kleinschalig en persoonlijk, met een vaste coach voor iedere sporter.</p>
+      <div class="art-actions">
+        <a href="/gratis-intake/" class="art-btn">Plan gratis intake →</a>
+        <a href="/tarieven/" class="art-btn-2">Bekijk tarieven</a>
       </div>
     </div>
   </section>
 
-  <div style="background:#d4ff00;padding:14px 0;text-align:center;">
+  <div class="art-rating">
     <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#000;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:1px;text-transform:uppercase;">
+       class="art-rating-link">
       <span>★★★★★</span><span>4,9 · 76 Google Reviews</span>
     </a>
   </div>
 
-  <figure style="margin:0;max-width:1000px;margin:0 auto;">
+  <figure class="art-fig">
     <img src="/assets/images/pt-coach.webp" alt="Personal trainer begeleidt een sporter bij een kracht­oefening bij Fit Up Leiderdorp" width="1024" height="1365" style="width:100%;height:auto;max-height:460px;object-fit:cover;object-position:center 25%;display:block" loading="lazy" decoding="async">
   </figure>
 
-  <section style="background:#0c0c0c;padding:80px 0;">
-    <div style="max-width:1000px;margin:0 auto;padding:0 24px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:#fff;margin-bottom:16px;text-align:center;text-transform:uppercase;">Waarom sporters voor Fit Up kiezen</h2>
-      <p style="color:rgba(255,255,255,0.5);text-align:center;margin-bottom:48px;font-size:15px;">In het kort: dit zijn de feiten</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;">
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:32px;font-weight:900;font-family:'Barlow Condensed',sans-serif;margin-bottom:8px;">4,9★</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Beoordeling</h3>
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;">76 Google reviews met een gemiddelde van 4,9 sterren.</p>
+  <section class="art-sec">
+    <div class="art-w1000">
+      <h2 class="art-h2 art-tc">Waarom sporters voor Fit Up kiezen</h2>
+      <p class="art-sub">In het kort: dit zijn de feiten</p>
+      <div class="art-grid">
+        <div class="art-card">
+          <div class="art-card-stat">4,9★</div>
+          <h3 class="art-card-h">Beoordeling</h3>
+          <p class="art-card-p">76 Google reviews met een gemiddelde van 4,9 sterren.</p>
         </div>
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:32px;font-weight:900;font-family:'Barlow Condensed',sans-serif;margin-bottom:8px;">Max 4</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Kleine groepen</h3>
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;">Nooit meer dan 4 personen per groep. Je krijgt altijd persoonlijke aandacht van je coach.</p>
+        <div class="art-card">
+          <div class="art-card-stat">Max 4</div>
+          <h3 class="art-card-h">Kleine groepen</h3>
+          <p class="art-card-p">Nooit meer dan 4 personen per groep. Je krijgt altijd persoonlijke aandacht van je coach.</p>
         </div>
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:32px;font-weight:900;font-family:'Barlow Condensed',sans-serif;margin-bottom:8px;">24/7</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Altijd open</h3>
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;">Altijd toegang met jouw persoonlijke QR-code. Train wanneer het jou uitkomt.</p>
+        <div class="art-card">
+          <div class="art-card-stat">24/7</div>
+          <h3 class="art-card-h">Altijd open</h3>
+          <p class="art-card-p">Altijd toegang met jouw persoonlijke QR-code. Train wanneer het jou uitkomt.</p>
         </div>
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:32px;font-weight:900;font-family:'Barlow Condensed',sans-serif;margin-bottom:8px;">Gratis</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Geen inschrijfgeld</h3>
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;">Geen inschrijfgeld, gratis intake, gratis parkeren. Transparante tarieven zonder verrassingen.</p>
+        <div class="art-card">
+          <div class="art-card-stat">Gratis</div>
+          <h3 class="art-card-h">Geen inschrijfgeld</h3>
+          <p class="art-card-p">Geen inschrijfgeld, gratis intake, gratis parkeren. Transparante tarieven zonder verrassingen.</p>
         </div>
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:32px;font-weight:900;font-family:'Barlow Condensed',sans-serif;margin-bottom:8px;">2014</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Al 10 jaar actief</h3>
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;">Opgericht in 2014. Meer dan 10 jaar ervaring in personal coaching in de regio Leiderdorp.</p>
+        <div class="art-card">
+          <div class="art-card-stat">2014</div>
+          <h3 class="art-card-h">Al 10 jaar actief</h3>
+          <p class="art-card-p">Opgericht in 2014. Meer dan 10 jaar ervaring in personal coaching in de regio Leiderdorp.</p>
         </div>
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:32px;font-weight:900;font-family:'Barlow Condensed',sans-serif;margin-bottom:8px;">200+</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;">Actieve leden</h3>
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;">Meer dan 200 actieve leden uit Leiderdorp, Leiden, Oegstgeest, Voorschoten en omgeving.</p>
+        <div class="art-card">
+          <div class="art-card-stat">200+</div>
+          <h3 class="art-card-h">Actieve leden</h3>
+          <p class="art-card-p">Meer dan 200 actieve leden uit Leiderdorp, Leiden, Oegstgeest, Voorschoten en omgeving.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section style="background:#0c0c0c;padding:80px 0;">
-    <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:40px;text-transform:uppercase;">Veelgestelde vragen</h2>
-      <div style="display:flex;flex-direction:column;gap:2px;">
-        <details style="background:#18191b;padding:20px 24px;">
-          <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Wat maakt Fit Up een goede keuze als personal trainer in Leiderdorp?</summary>
-          <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Fit Up Leiderdorp scoort 4,9 sterren op basis van 76 Google reviews en biedt 1-op-1 personal training, small group PT en 24/7 fitness aan Weversbaan 9 in Leiderdorp.</p>
+  <section class="art-sec">
+    <div class="art-w800">
+      <h2 class="art-h2 art-mb40">Veelgestelde vragen</h2>
+      <div class="art-faq-list">
+        <details class="art-faq">
+          <summary class="art-faq-q">Wat maakt Fit Up een goede keuze als personal trainer in Leiderdorp?</summary>
+          <p class="art-faq-a">Fit Up Leiderdorp scoort 4,9 sterren op basis van 76 Google reviews en biedt 1-op-1 personal training, small group PT en 24/7 fitness aan Weversbaan 9 in Leiderdorp.</p>
         </details>
-        <details style="background:#18191b;padding:20px 24px;">
-          <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Is Fit Up een goede sportschool in Leiderdorp?</summary>
-          <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Fit Up Leiderdorp scoort 4,9 sterren en 76 reviews op Google. De kleinschalige coaching club biedt 24/7 fitness, personal training en small group training aan Weversbaan 9, Leiderdorp.</p>
+        <details class="art-faq">
+          <summary class="art-faq-q">Is Fit Up een goede sportschool in Leiderdorp?</summary>
+          <p class="art-faq-a">Fit Up Leiderdorp scoort 4,9 sterren en 76 reviews op Google. De kleinschalige coaching club biedt 24/7 fitness, personal training en small group training aan Weversbaan 9, Leiderdorp.</p>
         </details>
-        <details style="background:#18191b;padding:20px 24px;">
-          <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Hoe werkt de begeleiding bij Fit Up in Leiderdorp?</summary>
-          <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Fit Up Leiderdorp onderscheidt zich met persoonlijke begeleiding: elke sporter krijgt een vaste coach, persoonlijk trainingsschema en voedingsbegeleiding. Fit Up scoort 4,9 sterren op Google (76 reviews).</p>
+        <details class="art-faq">
+          <summary class="art-faq-q">Hoe werkt de begeleiding bij Fit Up in Leiderdorp?</summary>
+          <p class="art-faq-a">Fit Up Leiderdorp onderscheidt zich met persoonlijke begeleiding: elke sporter krijgt een vaste coach, persoonlijk trainingsschema en voedingsbegeleiding. Fit Up scoort 4,9 sterren op Google (76 reviews).</p>
         </details>
-        <details style="background:#18191b;padding:20px 24px;">
-          <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Wat kost een personal trainer in Leiderdorp?</summary>
-          <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Dat hangt af van de vorm: personal training, Small Group PT of 24/7 fitness. Geen inschrijfgeld. Bekijk de <a href="/tarieven/" style="color:#d4ff00;">actuele tarieven</a> of vraag ernaar bij je gratis intake.</p>
+        <details class="art-faq">
+          <summary class="art-faq-q">Wat kost een personal trainer in Leiderdorp?</summary>
+          <p class="art-faq-a">Dat hangt af van de vorm: personal training, Small Group PT of 24/7 fitness. Geen inschrijfgeld. Bekijk de <a href="/tarieven/" class="art-link">actuele tarieven</a> of vraag ernaar bij je gratis intake.</p>
         </details>
-        <details style="background:#18191b;padding:20px 24px;">
-          <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Hoe ver is Fit Up van Leiden, Oegstgeest en Voorschoten?</summary>
-          <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Fit Up Leiderdorp ligt op 5 minuten van Leiden, 8 minuten van Oegstgeest en 10 minuten van Voorschoten. Adres: Weversbaan 9, 2352 BZ Leiderdorp. Gratis parkeren voor de deur.</p>
+        <details class="art-faq">
+          <summary class="art-faq-q">Hoe ver is Fit Up van Leiden, Oegstgeest en Voorschoten?</summary>
+          <p class="art-faq-a">Fit Up Leiderdorp ligt op 5 minuten van Leiden, 8 minuten van Oegstgeest en 10 minuten van Voorschoten. Adres: Weversbaan 9, 2352 BZ Leiderdorp. Gratis parkeren voor de deur.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <section style="background:#d4ff00;padding:80px 0;text-align:center;">
-    <div style="max-width:700px;margin:0 auto;padding:0 24px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;">Ontdek het zelf</h2>
-      <p style="color:rgba(0,0,0,0.7);font-size:16px;margin-bottom:32px;line-height:1.7;">Plan een gratis intake en ervaar zelf hoe Fit Up personal training in Leiderdorp aanpakt. Geen verplichtingen.</p>
-      <a href="/gratis-intake/" style="background:#000;color:#d4ff00;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
+  <section class="art-cta">
+    <div class="art-w700">
+      <h2 class="art-h2 art-h2-cta">Ontdek het zelf</h2>
+      <p class="art-cta-p">Plan een gratis intake en ervaar zelf hoe Fit Up personal training in Leiderdorp aanpakt. Geen verplichtingen.</p>
+      <a href="/gratis-intake/" class="art-btn">Plan gratis intake →</a>
     </div>
   </section>
 
-  <section style="background:#0c0c0c;padding:48px 0;text-align:center;">
-    <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <a href="/personal-training-leiderdorp/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Personal Training →</a>
-        <a href="/trainingsaanbod/sgpt-small-group-personal-training/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Small Group PT →</a>
-        <a href="/tarieven/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Tarieven →</a>
-        <a href="/sportschool-leiderdorp/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Sportschool Leiderdorp →</a>
+  <section class="art-related">
+    <div class="art-w800">
+      <div class="art-chips">
+        <a href="/personal-training-leiderdorp/" class="art-chip">Personal Training →</a>
+        <a href="/trainingsaanbod/sgpt-small-group-personal-training/" class="art-chip">Small Group PT →</a>
+        <a href="/tarieven/" class="art-chip">Tarieven →</a>
+        <a href="/sportschool-leiderdorp/" class="art-chip">Sportschool Leiderdorp →</a>
       </div>
     </div>
   </section>
@@ -324,7 +380,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     </div>
 
     <div style="text-align:center;padding:0 0 22px">
-      <p style="font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.3px;margin:0 0 12px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6">Volg Fit Up als voorkeursbron in Google &mdash; mis geen update over training, voeding en coaching</p>
+      <p class="art-note">Volg Fit Up als voorkeursbron in Google &mdash; mis geen update over training, voeding en coaching</p>
       <div style="display:flex;justify-content:center;min-height:36px"><div google-add-preferred-source-btn data-theme="dark"></div></div>
     </div>
 

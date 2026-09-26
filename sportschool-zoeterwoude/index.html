@@ -46,7 +46,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sportschool Zoeterwoude | Fit Up — 5 min rijden">
   <meta name="twitter:description" content="Sportschool vlakbij Zoeterwoude? Fit Up Leiderdorp ligt op 5 minuten. 24/7 open, personal training, kleine groepen en gratis intake. Weversbaan 9, Leiderdorp.">
-  <link rel="stylesheet" href="/assets/css/seo.css?v=20260820">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/seo.css?v=20260927">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -134,8 +137,61 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 }
   </script>
   
+<style>
+/* === Landingspagina met eigen secties - ds2 (tokens, zie CLAUDE.md) === */
+body.ds2{background:var(--color-black)}
+.ds2 #nav{background:rgba(8,10,9,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid var(--border-dark)}
+@media (max-width:640px){.ds2 #nav{padding:10px 16px}}
+.ds2 .art-hero{background:var(--color-black);padding:100px 0 60px;text-align:center}
+.ds2 .art-sec{background:var(--color-black);padding:80px 0}
+.ds2 .art-sec-soft{background:var(--color-black-soft);padding:64px 0;border-top:1px solid var(--border-dark)}
+.ds2 .art-tc{text-align:center}
+.ds2 .art-cta{background:var(--color-black-soft);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:80px 0;text-align:center}
+.ds2 .art-related{background:var(--color-black);padding:48px 0;text-align:center}
+.ds2 .art-w700,.ds2 .art-w800,.ds2 .art-w900,.ds2 .art-w1000,.ds2 .art-w1100{margin:0 auto;padding:0 24px}
+.ds2 .art-w700{max-width:700px}.ds2 .art-w800{max-width:800px}.ds2 .art-w900{max-width:900px}.ds2 .art-w1000{max-width:1000px}.ds2 .art-w1100{max-width:1100px}
+.ds2 .art-label{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--color-lime);margin-bottom:12px}
+.ds2 .art-mb16{margin-bottom:16px}
+.ds2 .art-h1{font-family:var(--fd);font-size:clamp(40px,7vw,72px);font-weight:900;color:var(--color-text-light);line-height:1;margin-bottom:24px;text-transform:uppercase;overflow-wrap:break-word}
+.ds2 .art-em{color:var(--color-lime);font-style:normal}
+.ds2 .art-link{color:var(--color-lime)}
+.ds2 .art-lead{font-size:18px;color:var(--color-text-secondary-dark);max-width:640px;margin:0 auto 40px;line-height:1.7}
+.ds2 .art-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.ds2 .art-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.ds2 .art-btn,.ds2 .art-btn-2{display:inline-block;padding:16px 32px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:var(--radius-btn);transition:background .25s,border-color .25s}
+.ds2 .art-btn{background:var(--color-lime);color:var(--color-black);border:2px solid var(--color-lime)}
+.ds2 .art-btn:hover{background:var(--color-lime-hover);border-color:var(--color-lime-hover)}
+.ds2 .art-btn-2{background:transparent;color:var(--color-text-light);border:1.5px solid var(--border-dark-strong)}
+.ds2 .art-btn-2:hover{background:rgba(244,245,241,.06);border-color:var(--color-text-light)}
+.ds2 .art-rating{background:var(--color-graphite);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:14px 0;text-align:center}
+.ds2 .art-rating-link{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--color-text-light);font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase}
+.ds2 .art-rating-link span:first-child{color:var(--color-lime)}
+.ds2 .art-fig{margin:0 auto;max-width:1000px}
+.ds2 .art-fig img{border-radius:0 0 var(--radius-card) var(--radius-card)}
+.ds2 .art-h2{font-family:var(--fd);font-size:40px;font-weight:900;color:var(--color-text-light);margin-bottom:16px;text-transform:uppercase}
+.ds2 .art-mb48{margin-bottom:48px}.ds2 .art-mb40{margin-bottom:40px}
+.ds2 .art-h2-sm{font-size:32px}
+.ds2 .art-h2-cta{color:var(--color-text-light);font-size:44px}
+.ds2 .art-sub{color:var(--color-text-secondary-dark);text-align:center;margin-bottom:48px;font-size:16px}
+.ds2 .art-p{color:var(--color-text-secondary-dark);font-size:16px;line-height:1.7;margin-bottom:24px}
+.ds2 .art-cta-p{color:var(--color-text-secondary-dark);font-size:17px;margin-bottom:32px;line-height:1.7}
+.ds2 .art-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.ds2 .art-card{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:32px}
+.ds2 .art-card-ico{color:var(--color-lime);font-size:28px;margin-bottom:12px}
+.ds2 .art-card-stat{color:var(--color-lime);font-size:32px;font-weight:900;font-family:var(--fd);margin-bottom:8px}
+.ds2 .art-card-h{font-family:var(--fd);font-size:22px;font-weight:800;color:var(--color-text-light);margin-bottom:12px;text-transform:uppercase}
+.ds2 .art-card-p{color:var(--color-text-secondary-dark);line-height:1.7;font-size:16px}
+.ds2 .art-faq-list{display:flex;flex-direction:column}
+.ds2 .art-faq{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:20px 24px;margin-bottom:10px}
+.ds2 .art-faq-q{font-weight:600;font-size:16px;cursor:pointer;color:var(--color-text-light);list-style:none}
+.ds2 .art-faq-a{color:var(--color-text-secondary-dark);margin-top:12px;line-height:1.7;font-size:16px}
+.ds2 .art-chip{background:var(--color-graphite);color:var(--color-text-light);border:1px solid var(--border-dark);border-radius:var(--radius-btn);padding:12px 18px;font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:border-color .2s}
+.ds2 .art-chip:hover{border-color:var(--border-dark-strong)}
+.ds2 .art-note{font-size:14px;color:var(--color-text-secondary-dark);letter-spacing:.3px;margin:0 0 12px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6}
+@media (max-width:640px){.ds2 .art-h2{font-size:32px}.ds2 .art-h2-cta{font-size:34px}.ds2 .art-sec{padding:56px 0}.ds2 .art-cta{padding:64px 0}}
+</style>
 </head>
-<body>
+<body class="ds2">
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   <a href="/" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../assets/images/logo-mark-on-dark.webp" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
@@ -181,106 +237,106 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
 <main>
   <!-- HERO -->
-  <section style="background:#0c0c0c;padding:100px 0 60px;text-align:center;" aria-labelledby="page-h1">
-    <div style="max-width:900px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:16px;">Fit Up Leiderdorp</div>
-      <h1 id="page-h1" style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,8vw,80px);font-weight:900;color:#fff;line-height:1;margin-bottom:24px;text-transform:uppercase;overflow-wrap:break-word;">
-        Sportschool<br><em style="color:#d4ff00;font-style:normal;">Zoeterwoude</em>
+  <section aria-labelledby="page-h1" class="art-hero">
+    <div class="art-w900">
+      <div class="art-label art-mb16">Fit Up Leiderdorp</div>
+      <h1 id="page-h1" class="art-h1">
+        Sportschool<br><em class="art-em">Zoeterwoude</em>
       </h1>
-      <p style="font-size:18px;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto 40px;line-height:1.7;">Woon je in Zoeterwoude en zoek je een goede sportschool? Fit Up Leiderdorp ligt op slechts 5 minuten rijden. Kleinschalig, persoonlijk en 24/7 open.</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="/gratis-intake/" style="background:#d4ff00;color:#000;padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
-        <a href="/tarieven/" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Bekijk tarieven</a>
+      <p class="art-lead">Woon je in Zoeterwoude en zoek je een goede sportschool? Fit Up Leiderdorp ligt op slechts 5 minuten rijden. Kleinschalig, persoonlijk en 24/7 open.</p>
+      <div class="art-actions">
+        <a href="/gratis-intake/" class="art-btn">Plan gratis intake →</a>
+        <a href="/tarieven/" class="art-btn-2">Bekijk tarieven</a>
       </div>
     </div>
   </section>
 
   <!-- TRUST BAR -->
-  <div style="background:#d4ff00;padding:14px 0;text-align:center;">
+  <div class="art-rating">
     <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#000;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:1px;text-transform:uppercase;">
-      <span style="font-size:16px;">★★★★★</span>
+       class="art-rating-link">
+      <span>★★★★★</span>
       <span>4,9 · 76 Google Reviews</span>
     </a>
   </div>
 
-  <figure style="margin:0;max-width:1000px;margin:0 auto;">
+  <figure class="art-fig">
     <img src="/assets/images/pt-gym-interior.webp" alt="Trainingsvloer met fitnessapparatuur bij Fit Up Leiderdorp, vlakbij Zoeterwoude" width="1080" height="810" style="width:100%;height:auto;max-height:440px;object-fit:cover;display:block" loading="lazy" decoding="async">
   </figure>
 
   <!-- DIENSTEN -->
-  <section style="background:#0c0c0c;padding:80px 0;" aria-labelledby="diensten-heading">
-    <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:12px;text-align:center;">Ons aanbod</div>
-      <h2 id="diensten-heading" style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:#fff;margin-bottom:48px;text-align:center;">Wat wij bieden</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;">
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:28px;margin-bottom:12px;">💪</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;">24/7 Fitness</h3>
-          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:14px;">Train wanneer het jou uitkomt. Fit Up is elke dag open — ook vroeg in de ochtend of laat in de avond. Met jouw persoonlijke QR-code heb je altijd toegang.</p>
+  <section aria-labelledby="diensten-heading" class="art-sec">
+    <div class="art-w1100">
+      <div class="art-label art-tc">Ons aanbod</div>
+      <h2 id="diensten-heading" class="art-h2 art-mb48 art-tc">Wat wij bieden</h2>
+      <div class="art-grid">
+        <div class="art-card">
+          <div class="art-card-ico">💪</div>
+          <h3 class="art-card-h">24/7 Fitness</h3>
+          <p class="art-card-p">Train wanneer het jou uitkomt. Fit Up is elke dag open — ook vroeg in de ochtend of laat in de avond. Met jouw persoonlijke QR-code heb je altijd toegang.</p>
         </div>
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:28px;margin-bottom:12px;">🎯</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;">Personal Training</h3>
-          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:14px;">Wil je sneller resultaat? Met een vaste personal trainer werk je aan jouw specifieke doelen — afvallen, spieropbouw of meer energie.</p>
+        <div class="art-card">
+          <div class="art-card-ico">🎯</div>
+          <h3 class="art-card-h">Personal Training</h3>
+          <p class="art-card-p">Wil je sneller resultaat? Met een vaste personal trainer werk je aan jouw specifieke doelen — afvallen, spieropbouw of meer energie.</p>
         </div>
-        <div style="background:#18191b;padding:32px;">
-          <div style="color:#d4ff00;font-size:28px;margin-bottom:12px;">📍</div>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;">5 min van Zoeterwoude</h3>
-          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:14px;">Fit Up Leiderdorp is via de N11 snel te bereiken vanuit Zoeterwoude. Gratis parkeren voor de deur. Geen gedoe, gewoon trainen.</p>
+        <div class="art-card">
+          <div class="art-card-ico">📍</div>
+          <h3 class="art-card-h">5 min van Zoeterwoude</h3>
+          <p class="art-card-p">Fit Up Leiderdorp is via de N11 snel te bereiken vanuit Zoeterwoude. Gratis parkeren voor de deur. Geen gedoe, gewoon trainen.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section style="background:#d4ff00;padding:80px 0;text-align:center;">
-    <div style="max-width:700px;margin:0 auto;padding:0 24px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;">Klaar om te starten?</h2>
-      <p style="color:rgba(0,0,0,0.7);font-size:16px;margin-bottom:32px;line-height:1.7;">Plan een gratis intake en ontdek wat Fit Up voor jou kan doen. Geen verplichtingen, wel eerlijk advies.</p>
-      <a href="/gratis-intake/" style="background:#000;color:#d4ff00;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
+  <section class="art-cta">
+    <div class="art-w700">
+      <h2 class="art-h2 art-h2-cta">Klaar om te starten?</h2>
+      <p class="art-cta-p">Plan een gratis intake en ontdek wat Fit Up voor jou kan doen. Geen verplichtingen, wel eerlijk advies.</p>
+      <a href="/gratis-intake/" class="art-btn">Plan gratis intake →</a>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section style="background:#0c0c0c;padding:80px 0;" aria-labelledby="faq-heading">
-    <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:12px;">FAQ</div>
-      <h2 id="faq-heading" style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:40px;">Veelgestelde vragen</h2>
-      <div style="display:flex;flex-direction:column;">
+  <section aria-labelledby="faq-heading" class="art-sec">
+    <div class="art-w800">
+      <div class="art-label">FAQ</div>
+      <h2 id="faq-heading" class="art-h2 art-mb40">Veelgestelde vragen</h2>
+      <div class="art-faq-list">
         
-      <details style="background:#18191b;padding:20px 24px;margin-bottom:2px;">
-        <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Hoe ver is Fit Up van Zoeterwoude?</summary>
-        <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Fit Up Leiderdorp ligt op circa 5 minuten rijden van Zoeterwoude via de N11. Het adres is Weversbaan 9, 2352 BZ Leiderdorp.</p>
+      <details class="art-faq">
+        <summary class="art-faq-q">Hoe ver is Fit Up van Zoeterwoude?</summary>
+        <p class="art-faq-a">Fit Up Leiderdorp ligt op circa 5 minuten rijden van Zoeterwoude via de N11. Het adres is Weversbaan 9, 2352 BZ Leiderdorp.</p>
       </details>
-      <details style="background:#18191b;padding:20px 24px;margin-bottom:2px;">
-        <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Is er een sportschool in Zoeterwoude zelf?</summary>
-        <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Er is geen volwaardige sportschool in Zoeterwoude zelf. Fit Up Leiderdorp is de dichtstbijzijnde professionele gym met 24/7 toegang en persoonlijke begeleiding.</p>
+      <details class="art-faq">
+        <summary class="art-faq-q">Is er een sportschool in Zoeterwoude zelf?</summary>
+        <p class="art-faq-a">Er is geen volwaardige sportschool in Zoeterwoude zelf. Fit Up Leiderdorp is de dichtstbijzijnde professionele gym met 24/7 toegang en persoonlijke begeleiding.</p>
       </details>
-      <details style="background:#18191b;padding:20px 24px;margin-bottom:2px;">
-        <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Wat kost een lidmaatschap?</summary>
-        <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Fitness bij Fit Up start vanaf €48,50 per 4 weken. Geen inschrijfgeld. Gratis intake vooraf.</p>
+      <details class="art-faq">
+        <summary class="art-faq-q">Wat kost een lidmaatschap?</summary>
+        <p class="art-faq-a">Fitness bij Fit Up start vanaf €48,50 per 4 weken. Geen inschrijfgeld. Gratis intake vooraf.</p>
       </details>
-      <details style="background:#18191b;padding:20px 24px;margin-bottom:2px;">
-        <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Kan ik gratis proberen?</summary>
-        <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Ja. Plan een gratis intake en bekijk de gym zonder verplichtingen. Eerlijk advies over wat het beste bij jouw doel past.</p>
+      <details class="art-faq">
+        <summary class="art-faq-q">Kan ik gratis proberen?</summary>
+        <p class="art-faq-a">Ja. Plan een gratis intake en bekijk de gym zonder verplichtingen. Eerlijk advies over wat het beste bij jouw doel past.</p>
       </details>
-      <details style="background:#18191b;padding:20px 24px;margin-bottom:2px;">
-        <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">Is er gratis parkeren?</summary>
-        <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">Ja, er is gratis parkeren voor de deur van Fit Up Leiderdorp.</p>
+      <details class="art-faq">
+        <summary class="art-faq-q">Is er gratis parkeren?</summary>
+        <p class="art-faq-a">Ja, er is gratis parkeren voor de deur van Fit Up Leiderdorp.</p>
       </details>
       </div>
     </div>
   </section>
 
   <!-- LOCATIE -->
-  <section style="background:#0c0c0c;padding:60px 0;text-align:center;">
-    <div style="max-width:700px;margin:0 auto;padding:0 24px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:16px;">Fit Up Leiderdorp</h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;margin-bottom:24px;">Weversbaan 9 · 2352 BZ Leiderdorp<br>24/7 open · Gratis parkeren · Geen inschrijfgeld</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="/gratis-intake/" style="background:#d4ff00;color:#000;padding:14px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Plan intake →</a>
-        <a href="/gratis-intake/" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);padding:14px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Contact</a>
+  <section class="art-sec art-sec-soft art-tc">
+    <div class="art-w700">
+      <h2 class="art-h2 art-h2-sm">Fit Up Leiderdorp</h2>
+      <p class="art-p">Weversbaan 9 · 2352 BZ Leiderdorp<br>24/7 open · Gratis parkeren · Geen inschrijfgeld</p>
+      <div class="art-actions">
+        <a href="/gratis-intake/" class="art-btn">Plan intake →</a>
+        <a href="/gratis-intake/" class="art-btn-2">Contact</a>
       </div>
     </div>
   </section>
@@ -322,7 +378,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     </div>
 
     <div style="text-align:center;padding:0 0 22px">
-      <p style="font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.3px;margin:0 0 12px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6">Volg Fit Up als voorkeursbron in Google &mdash; mis geen update over training, voeding en coaching</p>
+      <p class="art-note">Volg Fit Up als voorkeursbron in Google &mdash; mis geen update over training, voeding en coaching</p>
       <div style="display:flex;justify-content:center;min-height:36px"><div google-add-preferred-source-btn data-theme="dark"></div></div>
     </div>
 
