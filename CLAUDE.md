@@ -54,3 +54,4 @@ Krachtige editorial hiërarchie, consistente H1/H2/H3/body-stijlen. Body en info
 - Lokaal 404 op `/.netlify/functions/schedule` is normaal (statische dev-server draait geen Netlify Functions).
 - Fase 3: 8 pure-seo.css pagina's op `ds2` (sportschool, fitnessclub, fitness-40-plus, vrouwen-fitness, hyrox-training, afvallen, personal-trainer, fitness-voor-beginners). Alle ds2-pagina's laden `seo.css?v=20260927`; bij elke seo.css-wijziging één nieuwe versie voor alle ds2-pagina's tegelijk.
 - Inline `style=""`-attributen op pagina's (promokaart 'Lees ook', Google-regel, lokale alinea) zijn per pagina naar tokens/16px gezet.
+- Fase 4A: 6 pure seo.css-pagina's op `ds2` (spiermassa, krachttraining, PT Leiden/Oegstgeest/Voorschoten, voedingscoach). Bewust overgeslagen: personal-trainer-alphen-aan-den-rijn, sportschool-zoeterwoude, beste-personal-trainer-leiderdorp (50-65 inline design-styles, o.a. lime vlakken en eigen buttons) plus alle pagina's met eigen `<style>`.
