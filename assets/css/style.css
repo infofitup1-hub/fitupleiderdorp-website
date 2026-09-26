@@ -10,8 +10,8 @@
 
 /* Site-wide selection styling */
 ::selection {
-  background: #d4ff00;
-  color: #0c0c0c;
+  background: var(--color-lime, #B7F229);
+  color: var(--color-black, #080A09);
 }
 
 /* Honour user motion preferences */
@@ -36,15 +36,15 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-dark-strong, rgba(255, 255, 255, 0.24));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-secondary-dark, #A7ADA8);
   text-decoration: none;
   transition: all 0.2s;
 }
 .f-social a:hover {
-  border-color: var(--accent, #d4ff00);
-  color: var(--accent, #d4ff00);
+  border-color: var(--color-lime, #B7F229);
+  color: var(--color-lime, #B7F229);
 }

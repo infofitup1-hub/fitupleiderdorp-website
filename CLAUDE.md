@@ -47,4 +47,8 @@ Krachtige editorial hiërarchie, consistente H1/H2/H3/body-stijlen. Body en info
 - Homepage: volledig omgezet (legacy variabelen zijn aliassen naar de tokens).
 - `seo.css` is gedeeld door ~33 pagina's. Het v2-blok werkt alleen op `<body class="ds2">`; alleen `/personal-training-leiderdorp/` heeft die class. Sitebrede uitrol = class op alle pagina's + `.ds2`-prefixen opruimen.
 - Bewust behouden: WhatsApp-groen (#25D366), semantisch groen/rood van check/kruis-icoontjes, `#d92d20` foutrood.
-- Niet vergeten: `conversion-layer.css` en `style.css` (::selection) hebben nog oude waarden.
+- Fase 2: `conversion-layer.css` (widget staat uit: `enabled:false`) en `style.css` omgezet naar tokens met fallbacks.
+- Gemigreerd (class `ds2` op body): `/personal-training-leiderdorp/`, `/small-group-personal-training-leiderdorp/`, `/nieuws/` (via seo.css v2-blok), `/tarieven/` en `/trainingsaanbod/groepslessen/` (eigen inline CSS: tokens in `:root` + blok "DS2 harmonisatie" onderaan de laatste `<style>`).
+- Tarieven: alle kaarten `.tc` met `<details open>`; de "Meer informatie"-summary is verborgen zodat alle kenmerken standaard zichtbaar zijn.
+- Pagina's met eigen CSS migreren = `:root` legacy-variabelen aliassen naar tokens + regex-mapping van oude kleuren/radii + harmonisatieblok (buttons, nav, footer, 16px-tekst).
+- Lokaal 404 op `/.netlify/functions/schedule` is normaal (statische dev-server draait geen Netlify Functions).
