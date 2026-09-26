@@ -39,20 +39,58 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <meta property="og:site_name" content="Fit Up Leiderdorp">
 <meta property="og:locale" content="nl_NL">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/css/seo.css?v=20260820">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/seo.css?v=20260927">
   <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
-.bh1{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;text-transform:uppercase;overflow-wrap:break-word;}
-.bh2{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;text-transform:uppercase;font-size:28px;color:#fff;margin-bottom:16px;}
-.bb{font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.85;font-size:16px;}
-.bl{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;}
-.bi{width:100%;height:280px;object-fit:cover;display:block;}
+/* === Artikelpagina's - ds2 (tokens, zie CLAUDE.md) === */
+.ds2 #nav{background:rgba(8,10,9,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid var(--border-dark)}
+@media (max-width:640px){.ds2 #nav{padding:10px 16px}}
+.ds2 .bh1,.ds2 .blog-h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;overflow-wrap:break-word}
+.ds2 .bh2,.ds2 .blog-h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:28px;color:var(--color-text-dark);margin-bottom:16px}
+.ds2 .bb,.ds2 .blog-body{font-family:var(--fb);font-weight:400;color:var(--color-text-dark);line-height:1.8;font-size:17px;margin-bottom:0}
+.ds2 .bl,.ds2 .blog-label{font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--color-lime-ink)}
+.ds2 .art-hero .bl,.ds2 .art-hero .blog-label,.ds2 .art-related .bl,.ds2 .art-related .blog-label{color:var(--color-lime)}
+.ds2 .bi,.ds2 .blog-img{width:100%;height:280px;object-fit:cover;display:block;border-radius:var(--radius-card)}
+.ds2 .art-hero{background:var(--color-black);padding:100px 0 60px;text-align:center}
+.ds2 .art-wrap{max-width:800px;margin:0 auto;padding:0 24px}
+.ds2 .art-wrap-sm{max-width:700px;margin:0 auto;padding:0 24px}
+.ds2 .art-h1{font-size:clamp(44px,8vw,80px);color:var(--color-text-light);line-height:1;margin-bottom:24px}
+.ds2 .art-em{color:var(--color-lime);font-style:normal}
+.ds2 .art-strong{color:var(--color-lime);font-weight:600}
+.ds2 .art-lead{font-size:18px;color:var(--color-text-secondary-dark);max-width:580px;margin:0 auto 40px;line-height:1.75}
+.ds2 .art-btn{display:inline-block;background:var(--color-lime);color:var(--color-black);padding:16px 32px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid var(--color-lime);border-radius:var(--radius-btn);transition:background .25s,border-color .25s}
+.ds2 .art-btn:hover{background:var(--color-lime-hover);border-color:var(--color-lime-hover)}
+.ds2 .art-mt20{margin-top:20px}
+.ds2 .art-rating{background:var(--color-graphite);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:14px 0;text-align:center}
+.ds2 .art-rating-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--color-text-light);font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase}
+.ds2 .art-rating-link span:first-child{color:var(--color-lime)}
+.ds2 .art-article{max-width:780px;margin:0 auto;padding:72px 24px}
+.ds2 .art-article section{padding:0;background:transparent}
+.ds2 .art-callout{background:var(--color-graphite);border:1px solid var(--border-dark);border-left:3px solid var(--color-lime);border-radius:var(--radius-card);padding:28px 32px;margin:60px 0}
+.ds2 .art-callout-label{color:var(--color-lime);font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.ds2 .art-callout-text{color:var(--color-text-light);font-size:17px;line-height:1.7;margin:0}
+.ds2 .art-faq{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:20px 24px;margin-bottom:10px}
+.ds2 .art-faq-q{font-weight:600;font-size:16px;cursor:pointer;color:var(--color-text-light);list-style:none}
+.ds2 .art-faq-a{color:var(--color-text-secondary-dark);margin-top:12px;line-height:1.7;font-size:16px;font-weight:400}
+.ds2 .art-cta{background:var(--color-black-soft);border-top:1px solid var(--border-dark);padding:80px 0;text-align:center}
+.ds2 .art-cta-h2{font-family:var(--fd);font-size:44px;font-weight:900;color:var(--color-text-light);margin-bottom:16px;text-transform:uppercase}
+.ds2 .art-cta-p{color:var(--color-text-secondary-dark);font-size:17px;margin-bottom:32px;line-height:1.7}
+.ds2 .art-related{background:var(--color-black);padding:48px 0;text-align:center}
+.ds2 .art-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.ds2 .art-chip{background:var(--color-graphite);color:var(--color-text-light);border:1px solid var(--border-dark);border-radius:var(--radius-btn);padding:12px 18px;font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:border-color .2s}
+.ds2 .art-chip:hover{border-color:var(--border-dark-strong)}
+.ds2 .art-cap,.ds2 .blog-caption{font-size:14px;color:var(--color-text-muted-light);margin-top:8px;font-style:italic}
+.ds2 .art-note{font-size:14px;color:var(--color-text-secondary-dark);letter-spacing:.3px;margin:0 0 12px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6}
+@media (max-width:640px){.ds2 .art-cta-h2{font-size:34px}.ds2 .art-article{padding:56px 20px}.ds2 .art-callout{padding:24px 20px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Hyrox voorbereiding 12-weken schema","description":"Hyrox voorbereiding: 12-weken trainingsschema voor beginners en gevorderden. Specifieke Hyrox coaching bij Fit Up Leiderdorp. Gratis intake.","datePublished":"2026-07-28","dateModified":"2026-07-28","author":{"@type":"Person","name":"Patrick Hollander"},"publisher":{"@type":"Organization","name":"Fit Up Leiderdorp","url":"https://fitupleiderdorp.nl/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hoe lang van tevoren moet ik beginnen met Hyrox-training?", "acceptedAnswer": {"@type": "Answer", "text": "Voor beginners is 16 tot 20 weken ideaal. Als je al een goede basisconditie hebt, zijn 12 weken voldoende. Start altijd met een intake bij een coach om je startpunt te bepalen."}}, {"@type": "Question", "name": "Kan ik Hyrox doen zonder ervaring?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, Hyrox heeft categorieën voor alle niveaus. De Pro-categorie is voor ervaren atleten; de Open-categorie is toegankelijk voor iedereen. Met de juiste voorbereiding kom je prima over de finish."}}, {"@type": "Question", "name": "Geeft Fit Up Leiderdorp specifieke Hyrox-coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Fit Up heeft trainers met Hyrox-ervaring. We begeleiden zowel beginners als gevorderden bij hun Hyrox-voorbereiding, individueel en in kleine groepen."}}, {"@type": "Question", "name": "Welke oefeningen moet ik prioriteren?", "acceptedAnswer": {"@type": "Answer", "text": "Sled push en sled pull zijn de meest tijdrovende stations. Train deze specifiek. Hardlopen (1 km herhalingen) en functionele kracht (lunges, burpees) zijn de andere kernpijlers."}}]}</script>
-</head><body>
+</head><body class="ds2">
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   <a href="/" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../assets/images/logo-mark-on-dark.webp" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
   <ul class="nav-links">
@@ -96,39 +134,39 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 </div>
 
 <main>
-<section style="background:#0c0c0c;padding:100px 0 60px;text-align:center;">
-<div style="max-width:800px;margin:0 auto;padding:0 24px;">
+<section class="art-hero">
+<div class="art-wrap">
 <p class="bl" style="margin-bottom:16px;">Fit Up Leiderdorp · 28 July 2026</p>
-<h1 class="bh1" style="font-size:clamp(48px,8vw,80px);color:#fff;line-height:1;margin-bottom:24px;">Hyrox voorbereiding<br><em style="color:#d4ff00;font-style:normal;">12-weken schema</em></h1>
-<p style="font-size:18px;color:rgba(255,255,255,0.65);max-width:580px;margin:0 auto 40px;line-height:1.75;font-family:DM Sans,sans-serif;font-weight:300;">Hyrox is het snelst groeiende fitness-event ter wereld. Rennen, functionele oefeningen, maximale inspanning. Met de juiste voorbereiding haal je het meeste uit jouw race.</p>
-<a href="/gratis-intake/" style="background:#d4ff00;color:#000;padding:16px 32px;font-family:Barlow Condensed,sans-serif;font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
+<h1 class="bh1 art-h1">Hyrox voorbereiding<br><em class="art-em">12-weken schema</em></h1>
+<p class="art-lead">Hyrox is het snelst groeiende fitness-event ter wereld. Rennen, functionele oefeningen, maximale inspanning. Met de juiste voorbereiding haal je het meeste uit jouw race.</p>
+<a href="/gratis-intake/" class="art-btn">Plan gratis intake →</a>
 </div></section>
-<div style="background:#d4ff00;padding:12px 0;text-align:center;">
-<a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#000;font-family:Barlow Condensed,sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;"><span>★★★★★</span><span>4,9 · 76 Google Reviews</span></a>
+<div class="art-rating">
+<a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener" class="art-rating-link"><span>★★★★★</span><span>4,9 · 76 Google Reviews</span></a>
 </div>
-<article style="max-width:780px;margin:0 auto;padding:72px 24px;">
-<section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">01</p><h2 class="bh2">Wat is Hyrox precies?</h2><p class="bb">Hyrox bestaat uit 8 kilometer hardlopen, verdeeld over 8 rondes van 1 kilometer, afgewisseld met 8 functionele workstation-oefeningen. Denk aan sled push, burpee broad jumps, rowing en sandbag lunges.</p><p class="bb">Het is een mix van uithoudingsvermogen en kracht — en precies dat maakt het zo uitdagend.</p><figure style="margin:32px 0;"><img src="/assets/images/les-hiit-hyrox.webp" alt="Hyrox training Leiderdorp" class="bi" width="874" height="1920" decoding="async" loading="lazy"><figcaption style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px;font-style:italic;">Hyrox training bij Fit Up Leiderdorp.</figcaption></figure></section><section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">02</p><h2 class="bh2">Fase 1 (week 1-4): basis opbouwen</h2><p class="bb">Begin met twee krachtsessies en twee loopsessies per week. Focus op de basisbewegingen: squats, deadlifts en lunge-variaties.</p><p class="bb">Hardlopen doe je op een rustig tempo — je bouwt eerst aeroob vermogen op. Zorg dat je de basisoefeningen technisch goed onder de knie hebt voordat je de intensiteit opschroeft.</p><figure style="margin:32px 0;"><img src="/assets/images/gym-sfeer-1.webp" alt="Krachtraining Hyrox voorbereiding" class="bi" width="1080" height="1920" decoding="async" loading="lazy"><figcaption style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px;font-style:italic;">Fase 1: basis opbouwen.</figcaption></figure></section><section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">03</p><h2 class="bh2">Fase 2 (week 5-8): intensiteit verhogen</h2><p class="bb">Voeg een derde trainingsdag toe en begin met specifieke Hyrox-workouts: de sled push, SkiErg en rower in je sessies.</p><p class="bb">Verhoog het looptempo en werk aan je lactaatdrempel met intervaltraining. Dit is de zwaarste fase — herstel en slaap zijn cruciaal.</p><figure style="margin:32px 0;"><img src="/assets/images/ad-gym-kracht.webp" alt="Hyrox training schema week 5-8" class="bi" width="1100" height="1955" decoding="async" loading="lazy"><figcaption style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px;font-style:italic;">Fase 2: specifieke Hyrox-workouts.</figcaption></figure></section><section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">04</p><h2 class="bh2">Fase 3 (week 9-12): race-ready</h2><p class="bb">Simuleer race-omstandigheden. Doe volledige Hyrox-simulaties in training en werk aan je pacing-strategie.</p><p class="bb">Bouw de trainingsbelasting in de laatste twee weken langzaam af (tapering), zodat je fris aan de start staat. Focus op techniek en mentale voorbereiding.</p><figure style="margin:32px 0;"><img src="/assets/images/ad-sgpt-squat.webp" alt="Hyrox race voorbereiding" class="bi" width="1864" height="4096" decoding="async" loading="lazy"><figcaption style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px;font-style:italic;">Fase 3: race-ready worden.</figcaption></figure></section>
-<div style="background:#18191b;border-left:3px solid #d4ff00;padding:28px 32px;margin:60px 0;">
-<p style="color:#d4ff00;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;">Persoonlijke begeleiding</p>
-<p style="color:#fff;font-family:DM Sans,sans-serif;font-size:16px;line-height:1.7;margin:0;font-weight:300;">Bij Fit Up Leiderdorp start je altijd met een <strong style="color:#d4ff00;">gratis intake</strong>. We bespreken jouw doelen en stellen een plan op dat past bij jouw lichaam.</p>
-<a href="/gratis-intake/" style="display:inline-block;margin-top:20px;background:#d4ff00;color:#000;padding:12px 24px;font-family:Barlow Condensed,sans-serif;font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Plan gratis intake →</a>
+<article class="art-article">
+<section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">01</p><h2 class="bh2">Wat is Hyrox precies?</h2><p class="bb">Hyrox bestaat uit 8 kilometer hardlopen, verdeeld over 8 rondes van 1 kilometer, afgewisseld met 8 functionele workstation-oefeningen. Denk aan sled push, burpee broad jumps, rowing en sandbag lunges.</p><p class="bb">Het is een mix van uithoudingsvermogen en kracht — en precies dat maakt het zo uitdagend.</p><figure style="margin:32px 0;"><img src="/assets/images/les-hiit-hyrox.webp" alt="Hyrox training Leiderdorp" class="bi" width="874" height="1920" decoding="async" loading="lazy"><figcaption class="art-cap">Hyrox training bij Fit Up Leiderdorp.</figcaption></figure></section><section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">02</p><h2 class="bh2">Fase 1 (week 1-4): basis opbouwen</h2><p class="bb">Begin met twee krachtsessies en twee loopsessies per week. Focus op de basisbewegingen: squats, deadlifts en lunge-variaties.</p><p class="bb">Hardlopen doe je op een rustig tempo — je bouwt eerst aeroob vermogen op. Zorg dat je de basisoefeningen technisch goed onder de knie hebt voordat je de intensiteit opschroeft.</p><figure style="margin:32px 0;"><img src="/assets/images/gym-sfeer-1.webp" alt="Krachtraining Hyrox voorbereiding" class="bi" width="1080" height="1920" decoding="async" loading="lazy"><figcaption class="art-cap">Fase 1: basis opbouwen.</figcaption></figure></section><section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">03</p><h2 class="bh2">Fase 2 (week 5-8): intensiteit verhogen</h2><p class="bb">Voeg een derde trainingsdag toe en begin met specifieke Hyrox-workouts: de sled push, SkiErg en rower in je sessies.</p><p class="bb">Verhoog het looptempo en werk aan je lactaatdrempel met intervaltraining. Dit is de zwaarste fase — herstel en slaap zijn cruciaal.</p><figure style="margin:32px 0;"><img src="/assets/images/ad-gym-kracht.webp" alt="Hyrox training schema week 5-8" class="bi" width="1100" height="1955" decoding="async" loading="lazy"><figcaption class="art-cap">Fase 2: specifieke Hyrox-workouts.</figcaption></figure></section><section style="margin-bottom:60px;"><p class="bl" style="margin-bottom:10px;">04</p><h2 class="bh2">Fase 3 (week 9-12): race-ready</h2><p class="bb">Simuleer race-omstandigheden. Doe volledige Hyrox-simulaties in training en werk aan je pacing-strategie.</p><p class="bb">Bouw de trainingsbelasting in de laatste twee weken langzaam af (tapering), zodat je fris aan de start staat. Focus op techniek en mentale voorbereiding.</p><figure style="margin:32px 0;"><img src="/assets/images/ad-sgpt-squat.webp" alt="Hyrox race voorbereiding" class="bi" width="1864" height="4096" decoding="async" loading="lazy"><figcaption class="art-cap">Fase 3: race-ready worden.</figcaption></figure></section>
+<div class="art-callout">
+<p class="art-callout-label">Persoonlijke begeleiding</p>
+<p class="art-callout-text">Bij Fit Up Leiderdorp start je altijd met een <strong class="art-strong">gratis intake</strong>. We bespreken jouw doelen en stellen een plan op dat past bij jouw lichaam.</p>
+<a href="/gratis-intake/" class="art-btn art-mt20">Plan gratis intake →</a>
 </div>
 <section style="margin-top:72px;">
 <p class="bl" style="margin-bottom:16px;">Veelgestelde vragen</p>
 <h2 class="bh2" style="margin-bottom:28px;">Jouw vragen beantwoord</h2>
-<div style="display:flex;flex-direction:column;"><details style="background:#18191b;padding:20px 24px;margin-bottom:2px;border-left:2px solid rgba(212,255,0,0.3);"><summary style="font-weight:600;font-size:15px;cursor:pointer;color:#fff;list-style:none;font-family:DM Sans,sans-serif;">Hoe lang van tevoren moet ik beginnen met Hyrox-training?</summary><p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;font-family:DM Sans,sans-serif;font-weight:300;">Voor beginners is 16 tot 20 weken ideaal. Als je al een goede basisconditie hebt, zijn 12 weken voldoende. Start altijd met een intake bij een coach om je startpunt te bepalen.</p></details><details style="background:#18191b;padding:20px 24px;margin-bottom:2px;border-left:2px solid rgba(212,255,0,0.3);"><summary style="font-weight:600;font-size:15px;cursor:pointer;color:#fff;list-style:none;font-family:DM Sans,sans-serif;">Kan ik Hyrox doen zonder ervaring?</summary><p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;font-family:DM Sans,sans-serif;font-weight:300;">Ja, Hyrox heeft categorieën voor alle niveaus. De Pro-categorie is voor ervaren atleten; de Open-categorie is toegankelijk voor iedereen. Met de juiste voorbereiding kom je prima over de finish.</p></details><details style="background:#18191b;padding:20px 24px;margin-bottom:2px;border-left:2px solid rgba(212,255,0,0.3);"><summary style="font-weight:600;font-size:15px;cursor:pointer;color:#fff;list-style:none;font-family:DM Sans,sans-serif;">Geeft Fit Up Leiderdorp specifieke Hyrox-coaching?</summary><p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;font-family:DM Sans,sans-serif;font-weight:300;">Ja. Fit Up heeft trainers met Hyrox-ervaring. We begeleiden zowel beginners als gevorderden bij hun Hyrox-voorbereiding, individueel en in kleine groepen.</p></details><details style="background:#18191b;padding:20px 24px;margin-bottom:2px;border-left:2px solid rgba(212,255,0,0.3);"><summary style="font-weight:600;font-size:15px;cursor:pointer;color:#fff;list-style:none;font-family:DM Sans,sans-serif;">Welke oefeningen moet ik prioriteren?</summary><p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;font-family:DM Sans,sans-serif;font-weight:300;">Sled push en sled pull zijn de meest tijdrovende stations. Train deze specifiek. Hardlopen (1 km herhalingen) en functionele kracht (lunges, burpees) zijn de andere kernpijlers.</p></details></div>
+<div style="display:flex;flex-direction:column;"><details class="art-faq"><summary class="art-faq-q">Hoe lang van tevoren moet ik beginnen met Hyrox-training?</summary><p class="art-faq-a">Voor beginners is 16 tot 20 weken ideaal. Als je al een goede basisconditie hebt, zijn 12 weken voldoende. Start altijd met een intake bij een coach om je startpunt te bepalen.</p></details><details class="art-faq"><summary class="art-faq-q">Kan ik Hyrox doen zonder ervaring?</summary><p class="art-faq-a">Ja, Hyrox heeft categorieën voor alle niveaus. De Pro-categorie is voor ervaren atleten; de Open-categorie is toegankelijk voor iedereen. Met de juiste voorbereiding kom je prima over de finish.</p></details><details class="art-faq"><summary class="art-faq-q">Geeft Fit Up Leiderdorp specifieke Hyrox-coaching?</summary><p class="art-faq-a">Ja. Fit Up heeft trainers met Hyrox-ervaring. We begeleiden zowel beginners als gevorderden bij hun Hyrox-voorbereiding, individueel en in kleine groepen.</p></details><details class="art-faq"><summary class="art-faq-q">Welke oefeningen moet ik prioriteren?</summary><p class="art-faq-a">Sled push en sled pull zijn de meest tijdrovende stations. Train deze specifiek. Hardlopen (1 km herhalingen) en functionele kracht (lunges, burpees) zijn de andere kernpijlers.</p></details></div>
 </section>
 </article>
-<section style="background:#d4ff00;padding:80px 0;text-align:center;">
-<div style="max-width:700px;margin:0 auto;padding:0 24px;">
-<h2 style="font-family:Barlow Condensed,sans-serif;font-size:44px;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;">Klaar om te starten?</h2>
-<p style="color:rgba(0,0,0,0.7);font-size:16px;margin-bottom:32px;line-height:1.7;font-family:DM Sans,sans-serif;">Plan een gratis intake bij Fit Up Leiderdorp. Geen verplichtingen — wel eerlijk advies.</p>
-<a href="/gratis-intake/" style="background:#000;color:#d4ff00;padding:18px 40px;font-family:Barlow Condensed,sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
+<section class="art-cta">
+<div class="art-wrap-sm">
+<h2 class="art-cta-h2">Klaar om te starten?</h2>
+<p class="art-cta-p">Plan een gratis intake bij Fit Up Leiderdorp. Geen verplichtingen — wel eerlijk advies.</p>
+<a href="/gratis-intake/" class="art-btn">Plan gratis intake →</a>
 </div></section>
-<section style="background:#0c0c0c;padding:48px 0;text-align:center;">
-<div style="max-width:800px;margin:0 auto;padding:0 24px;">
+<section class="art-related">
+<div class="art-wrap">
 <p class="bl" style="margin-bottom:16px;">Lees ook</p>
-<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;"><a href="/hyrox-training-leiderdorp/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Hyrox Training Leiderdorp →</a><a href="/trainingsaanbod/sgpt-small-group-personal-training/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Small Group PT →</a><a href="/trainingsaanbod/personal-training/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Personal Training →</a><a href="/gratis-intake/" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Gratis intake →</a></div>
+<div class="art-chips"><a href="/hyrox-training-leiderdorp/" class="art-chip">Hyrox Training Leiderdorp →</a><a href="/trainingsaanbod/sgpt-small-group-personal-training/" class="art-chip">Small Group PT →</a><a href="/trainingsaanbod/personal-training/" class="art-chip">Personal Training →</a><a href="/gratis-intake/" class="art-chip">Gratis intake →</a></div>
 </div></section>
 </main>
 <footer>
@@ -167,7 +205,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     </div>
 
     <div style="text-align:center;padding:0 0 22px">
-      <p style="font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.3px;margin:0 0 12px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6">Volg Fit Up als voorkeursbron in Google &mdash; mis geen update over training, voeding en coaching</p>
+      <p class="art-note">Volg Fit Up als voorkeursbron in Google &mdash; mis geen update over training, voeding en coaching</p>
       <div style="display:flex;justify-content:center;min-height:36px"><div google-add-preferred-source-btn data-theme="dark"></div></div>
     </div>
 
