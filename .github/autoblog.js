@@ -155,6 +155,49 @@ function getThisWeeksTopic() {
   return BLOG_TOPICS[weekNumber % BLOG_TOPICS.length];
 }
 
+// Design-output (FitUP-designsysteem ds2, tokens uit assets/css/style.css + seo.css; zie CLAUDE.md)
+const BLOG_CSS = `/* === Artikelpagina's - ds2 (tokens, zie CLAUDE.md) === */
+.ds2 #nav{background:rgba(8,10,9,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid var(--border-dark)}
+@media (max-width:640px){.ds2 #nav{padding:10px 16px}}
+.ds2 .bh1,.ds2 .blog-h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;overflow-wrap:break-word}
+.ds2 .bh2,.ds2 .blog-h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:28px;color:var(--color-text-dark);margin-bottom:16px}
+.ds2 .bb,.ds2 .blog-body{font-family:var(--fb);font-weight:400;color:var(--color-text-dark);line-height:1.8;font-size:17px;margin-bottom:0}
+.ds2 .bl,.ds2 .blog-label{font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--color-lime-ink)}
+.ds2 .art-hero .bl,.ds2 .art-hero .blog-label,.ds2 .art-related .bl,.ds2 .art-related .blog-label{color:var(--color-lime)}
+.ds2 .bi,.ds2 .blog-img{width:100%;height:280px;object-fit:cover;display:block;border-radius:var(--radius-card)}
+.ds2 .art-hero{background:var(--color-black);padding:100px 0 60px;text-align:center}
+.ds2 .art-wrap{max-width:800px;margin:0 auto;padding:0 24px}
+.ds2 .art-wrap-sm{max-width:700px;margin:0 auto;padding:0 24px}
+.ds2 .art-h1{font-size:clamp(44px,8vw,80px);color:var(--color-text-light);line-height:1;margin-bottom:24px}
+.ds2 .art-em{color:var(--color-lime);font-style:normal}
+.ds2 .art-strong{color:var(--color-lime);font-weight:600}
+.ds2 .art-lead{font-size:18px;color:var(--color-text-secondary-dark);max-width:580px;margin:0 auto 40px;line-height:1.75}
+.ds2 .art-btn{display:inline-block;background:var(--color-lime);color:var(--color-black);padding:16px 32px;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid var(--color-lime);border-radius:var(--radius-btn);transition:background .25s,border-color .25s}
+.ds2 .art-btn:hover{background:var(--color-lime-hover);border-color:var(--color-lime-hover)}
+.ds2 .art-mt20{margin-top:20px}
+.ds2 .art-rating{background:var(--color-graphite);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:14px 0;text-align:center}
+.ds2 .art-rating-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--color-text-light);font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase}
+.ds2 .art-rating-link span:first-child{color:var(--color-lime)}
+.ds2 .art-article{max-width:780px;margin:0 auto;padding:72px 24px}
+.ds2 .art-article section{padding:0;background:transparent}
+.ds2 .art-callout{background:var(--color-graphite);border:1px solid var(--border-dark);border-left:3px solid var(--color-lime);border-radius:var(--radius-card);padding:28px 32px;margin:60px 0}
+.ds2 .art-callout-label{color:var(--color-lime);font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.ds2 .art-callout-text{color:var(--color-text-light);font-size:17px;line-height:1.7;margin:0}
+.ds2 .art-faq{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:20px 24px;margin-bottom:10px}
+.ds2 .art-faq-q{font-weight:600;font-size:16px;cursor:pointer;color:var(--color-text-light);list-style:none}
+.ds2 .art-faq-a{color:var(--color-text-secondary-dark);margin-top:12px;line-height:1.7;font-size:16px;font-weight:400}
+.ds2 .art-cta{background:var(--color-black-soft);border-top:1px solid var(--border-dark);padding:80px 0;text-align:center}
+.ds2 .art-cta-h2{font-family:var(--fd);font-size:44px;font-weight:900;color:var(--color-text-light);margin-bottom:16px;text-transform:uppercase}
+.ds2 .art-cta-p{color:var(--color-text-secondary-dark);font-size:17px;margin-bottom:32px;line-height:1.7}
+.ds2 .art-related{background:var(--color-black);padding:48px 0;text-align:center}
+.ds2 .art-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.ds2 .art-chip{background:var(--color-graphite);color:var(--color-text-light);border:1px solid var(--border-dark);border-radius:var(--radius-btn);padding:12px 18px;font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:border-color .2s}
+.ds2 .art-chip:hover{border-color:var(--border-dark-strong)}
+.ds2 .art-cap,.ds2 .blog-caption{font-size:14px;color:var(--color-text-muted-light);margin-top:8px;font-style:italic}
+.ds2 .art-note{font-size:14px;color:var(--color-text-secondary-dark);letter-spacing:.3px;margin:0 0 12px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6}
+@media (max-width:640px){.ds2 .art-cta-h2{font-size:34px}.ds2 .art-article{padding:56px 20px}.ds2 .art-callout{padding:24px 20px}}
+`;
+
 // Bouw de HTML pagina op basis van AI-content
 function buildBlogPage(topic, aiContent, nav, footer) {
   const now = new Date();
@@ -191,14 +234,14 @@ function buildBlogPage(topic, aiContent, nav, footer) {
 
   const sectionsHtml = sections.map(s => `
     <section style="margin-bottom:48px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#fff;margin-bottom:16px;text-transform:uppercase;">${s.h2}</h2>
-      <p style="color:rgba(255,255,255,0.7);line-height:1.8;font-size:15px;">${s.body.trim()}</p>
+      <h2 class="blog-h2">${s.h2}</h2>
+      <p class="blog-body">${s.body.trim()}</p>
     </section>`).join("\n");
 
   const faqHtml = faqItems.map(f => `
-    <details style="background:#18191b;padding:20px 24px;margin-bottom:2px;">
-      <summary style="font-weight:700;font-size:15px;cursor:pointer;color:#fff;list-style:none;">${f.q}</summary>
-      <p style="color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.7;font-size:14px;">${f.a}</p>
+    <details class="art-faq">
+      <summary class="art-faq-q">${f.q}</summary>
+      <p class="art-faq-a">${f.a}</p>
     </details>`).join("\n");
 
   const faqSchema = faqItems.length > 0 ? JSON.stringify({
@@ -209,7 +252,7 @@ function buildBlogPage(topic, aiContent, nav, footer) {
 
   const internalLinksHtml = topic.internal_links.map(l => {
     const label = l.replace(/\//g, "").replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) || "Lees meer";
-    return `<a href="${l}" style="background:#18191b;color:#fff;border:1px solid rgba(255,255,255,0.1);padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">${l.replace(/\//g,"").replace(/-/g," ")} →</a>`;
+    return `<a href="${l}" class="art-chip">${l.replace(/\//g,"").replace(/-/g," ")} →</a>`;
   }).join("\n");
 
   return `<!DOCTYPE html>
@@ -229,9 +272,15 @@ function buildBlogPage(topic, aiContent, nav, footer) {
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${seoTitle.slice(0,60)}">
   <meta name="twitter:description" content="${metaDesc.slice(0,160)}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/seo.css?v=20260927">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+${BLOG_CSS}</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -254,45 +303,44 @@ function buildBlogPage(topic, aiContent, nav, footer) {
   ${faqSchema}
   </script>
 </head>
-<body>
+<body class="ds2">
 ${nav}
 <main>
-  <section style="background:#0c0c0c;padding:100px 0 60px;text-align:center;">
-    <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:16px;">Fit Up Leiderdorp · ${dateStr}</div>
-      <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,7vw,72px);font-weight:900;color:#fff;line-height:1;margin-bottom:24px;text-transform:uppercase;">${h1}</h1>
-      <p style="font-size:18px;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto;line-height:1.7;">${intro}</p>
+  <section class="art-hero">
+    <div class="art-wrap">
+      <div class="blog-label" style="margin-bottom:16px;">Fit Up Leiderdorp · ${dateStr}</div>
+      <h1 class="blog-h1 art-h1">${h1}</h1>
+      <p class="art-lead">${intro}</p>
     </div>
   </section>
 
-  <div style="background:#d4ff00;padding:12px 0;text-align:center;">
-    <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#000;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;">
+  <div class="art-rating">
+    <a href="https://share.google/LzpqWN4mAFxA6ZDuG" target="_blank" rel="noopener" class="art-rating-link">
       <span>★★★★★</span><span>4,9 · 55 Google Reviews — Fit Up Leiderdorp</span>
     </a>
   </div>
 
-  <article style="max-width:800px;margin:0 auto;padding:64px 24px;">
+  <article class="art-article">
     ${sectionsHtml}
     ${faqItems.length > 0 ? `
     <section style="margin-top:64px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:24px;text-transform:uppercase;">Veelgestelde vragen</h2>
+      <h2 class="blog-h2">Veelgestelde vragen</h2>
       ${faqHtml}
     </section>` : ""}
   </article>
 
-  <section style="background:#d4ff00;padding:80px 0;text-align:center;">
-    <div style="max-width:700px;margin:0 auto;padding:0 24px;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;">Klaar om te starten?</h2>
-      <p style="color:rgba(0,0,0,0.7);font-size:16px;margin-bottom:32px;line-height:1.7;">Plan een gratis intake bij Fit Up Leiderdorp. Geen verplichtingen — wel eerlijk advies over wat bij jouw doel past.</p>
-      <a href="/gratis-intake/" style="background:#000;color:#d4ff00;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;">Plan gratis intake →</a>
+  <section class="art-cta">
+    <div class="art-wrap-sm">
+      <h2 class="art-cta-h2">Klaar om te starten?</h2>
+      <p class="art-cta-p">Plan een gratis intake bij Fit Up Leiderdorp. Geen verplichtingen — wel eerlijk advies over wat bij jouw doel past.</p>
+      <a href="/gratis-intake/" class="art-btn">Plan gratis intake →</a>
     </div>
   </section>
 
-  <section style="background:#111;padding:48px 0;text-align:center;">
-    <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#d4ff00;margin-bottom:16px;">Lees ook</div>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+  <section class="art-related">
+    <div class="art-wrap">
+      <div class="blog-label" style="margin-bottom:16px;">Lees ook</div>
+      <div class="art-chips">
         ${internalLinksHtml}
       </div>
     </div>
