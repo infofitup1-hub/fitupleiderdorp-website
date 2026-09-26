@@ -71,7 +71,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.5px}
   h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6vw,68px);line-height:.9;letter-spacing:.5px}
   h2 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(183,242,41,.5) 58%);padding:0 .04em}
-  .page-hero h1 em,.final-cta h2 em,.spotter-content h3 em,.try-title em{background:none;padding:0;color:var(--accent)}
+  .page-hero h1 em,.final-cta h2 em,.spotter-content h3 em{background:none;padding:0;color:var(--accent)}
   h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:.5px}
   .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s;white-space:nowrap}
   .btn-accent:hover{background:transparent;color:var(--accent)}
@@ -117,11 +117,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .pt-page-dot.is-active{background:var(--accent);transform:scale(1.25)}
   .pt-page-dot:hover{background:rgba(255,255,255,.5)}
 
-  /* PHOTO PLACEHOLDER (hero) — striped, monospace caption, no faked imagery */
-  .photo-placeholder{position:absolute;inset:0;background:
-    linear-gradient(180deg,var(--color-graphite) 0%,#161616 100%);
-    display:flex;flex-direction:column;justify-content:flex-end;padding:36px;color:var(--color-text-light)}
-  .photo-placeholder::before{content:'';position:absolute;inset:24px;border:1px dashed rgba(183,242,41,.28);pointer-events:none}
   .pp-tag{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:rgba(8,10,9,.55);padding:8px 12px;border:1px solid rgba(183,242,41,.3)}
   .pp-tag-dot{width:6px;height:6px;background:var(--accent);border-radius:50%}
   .pp-title{font-family:var(--fd);font-size:clamp(28px,3vw,38px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:.3px;max-width:380px;margin-bottom:10px;position:relative;z-index:1}
@@ -174,7 +169,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   @media (max-width:640px){.duo-block{padding:48px 0}}
   .spotter-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden}
   .spotter-photo{position:relative;min-height:440px;background:var(--lgray)}
-  .spotter-photo .photo-placeholder{padding:28px}
   .spotter-content{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
   .spotter-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px;display:flex;align-items:center;gap:10px}
   .spotter-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent)}
@@ -269,7 +263,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .forwho-num{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--accent-ink);letter-spacing:1.5px;min-width:24px;line-height:1.5}
   .forwho-text{font-size:15px;color:var(--ink-soft);line-height:1.55;font-weight:400}
   .forwho-photo{border-radius:var(--r-card);box-shadow:var(--sh-2)}
-  .try-title em{color:var(--black);background:none}
   .final-cta .btn-dark{background:var(--accent);color:var(--black);border-color:var(--accent)}
   .final-cta .btn-dark:hover{background:transparent;color:var(--accent)}
   .forwho-photo{aspect-ratio:4/3;overflow:hidden;background:var(--lgray);position:relative}
@@ -338,11 +331,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .faq-a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;font-weight:400;padding:0 26px 24px}
 
   /* TRY STRIP */
-  .try-strip{background:var(--accent);padding:64px 0}
-  .try-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-  .try-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(8,10,9,.45);margin-bottom:10px}
-  .try-title{font-family:var(--fd);font-size:clamp(30px,4vw,48px);font-weight:900;text-transform:uppercase;color:var(--black);line-height:1;letter-spacing:.5px}
-  .try-sub{font-size:15px;color:rgba(8,10,9,.55);margin-top:12px;max-width:480px;line-height:1.6}
 
   /* FINAL CTA */
   .final-cta{background:var(--dark);padding:120px 0;text-align:center;position:relative;overflow:hidden}
@@ -563,11 +551,6 @@ footer{border-top-color:var(--border-dark)}
 .tarief-card.hot .t-cta{background:var(--color-lime);border-color:var(--color-lime);color:var(--color-black)}
 .tarief-card.hot .t-cta:hover{background:var(--color-lime-hover);border-color:var(--color-lime-hover)}
 .tarief-card.hot .ribbon{background:var(--color-lime);color:var(--color-black)}
-.try-strip{background:var(--color-graphite);border-top:3px solid var(--color-lime)}
-.try-label{color:var(--color-lime)}
-.try-title{color:var(--color-text-light)}
-.try-title em{color:var(--color-lime)}
-.try-sub{color:var(--color-text-secondary-dark);font-size:16px}
 .ds2 p.reveal,.ds2 .for-desc,.ds2 .gear-desc,.ds2 .access-desc{font-size:16px}
 .ds2 .access-title{font-size:16px}
 .ds2 .tarief-card .ribbon,.ds2 .ph-stat-label,.ds2 .hour-label{font-size:12px}
