@@ -43,19 +43,19 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/seo.css?v=20260820">
+<link rel="stylesheet" href="../assets/css/seo.css?v=20260927">
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
   /* ===== INTAKE — page-specific styles ===== */
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
   /* Minimal top band (no full nav — focused, private flow) */
-  .intake-top { background: #0c0c0c; padding: 40px 0 56px; text-align: center; position: relative; overflow: hidden; }
-  .intake-brand { font-family: var(--fd); font-size: 22px; font-weight: 900; letter-spacing: 4px; color: var(--white); position: relative; }
+  .intake-top { background: var(--color-black); padding: 40px 0 56px; text-align: center; position: relative; overflow: hidden; }
+  .intake-brand { font-family: var(--fd); font-size: 22px; font-weight: 900; letter-spacing: 4px; color: var(--color-text-light); position: relative; }
   .intake-brand span { color: var(--accent); }
   .intake-top .hero-eyebrow { display: inline-flex; justify-content: center; margin-top: 14px; position: relative; }
-  .intake-top h1 { margin-top: 20px; font-size: clamp(28px, 5vw, 42px); line-height: 1.15; color: var(--white); position: relative; }
-  .intake-top-sub { margin: 16px auto 0; max-width: 560px; font-size: 15px; font-weight: 300; color: rgba(255,255,255,.7); line-height: 1.7; position: relative; }
+  .intake-top h1 { margin-top: 20px; font-size: clamp(28px, 5vw, 42px); line-height: 1.15; color: var(--color-text-light); position: relative; }
+  .intake-top-sub { margin: 16px auto 0; max-width: 560px; font-size: 16px; font-weight: 400; color: var(--color-text-secondary-dark); line-height: 1.7; position: relative; }
 
   /* Content */
   .intake-section { background: var(--paper2); padding: 40px 0 80px; }
@@ -64,7 +64,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* Progress */
   .intake-progress { margin-bottom: 26px; }
   .intake-progress-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
-  .intake-step-count { font-family: var(--fd); font-size: 11.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-ink); }
+  .intake-step-count { font-family: var(--fd); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-ink); }
   .intake-step-title { font-family: var(--fd); font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: .3px; color: var(--ink); }
   .intake-progress-bar { height: 6px; background: var(--line); border-radius: 100px; overflow: hidden; }
   .intake-progress-fill { height: 100%; background: var(--accent); border-radius: 100px; transition: width .35s ease; }
@@ -74,45 +74,45 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .intake-step[hidden] { display: none; }
   .field { display: flex; flex-direction: column; gap: 7px; }
   .field[hidden] { display: none; }
-  .field label, .field-label-static { font-family: var(--fb); font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.4; }
-  .field-optional { font-style: normal; font-weight: 400; color: var(--ink-mute); font-size: 12px; }
+  .field label, .field-label-static { font-family: var(--fb); font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .field-optional { font-style: normal; font-weight: 400; color: var(--ink-mute); font-size: 14px; }
   .field-row { display: grid; grid-template-columns: 1fr; gap: 18px; }
   .field input[type="text"], .field input[type="number"], .field textarea {
-    width: 100%; background: var(--paper); border: 1.5px solid rgba(20,22,17,.16); border-radius: var(--r-btn);
-    padding: 13px 14px; font-size: 16px; font-family: var(--fb); color: var(--ink); outline: none;
+    width: 100%; background: var(--paper); border: 1.5px solid rgba(18,21,18,.28); border-radius: var(--r-btn);
+    padding: 13px 14px; min-height: 48px; font-size: 16px; font-family: var(--fb); color: var(--ink); outline: none;
     transition: border-color .2s, box-shadow .2s;
   }
   .field textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
-  .field input::placeholder, .field textarea::placeholder { color: var(--gray); }
+  .field input::placeholder, .field textarea::placeholder { color: var(--color-text-muted-light); }
   .field input:focus, .field textarea:focus {
-    border-color: var(--accent-ink); box-shadow: 0 0 0 3px rgba(212,255,0,.28);
+    border-color: var(--accent-ink); box-shadow: 0 0 0 3px rgba(74,89,0,.28);
   }
   .field.has-error input, .field.has-error textarea, .field.has-error .choice-card { border-color: #d92d20; }
   .field.has-error .field-label-static, .field.has-error > label:first-child { color: #d92d20; }
-  .field-hint { font-size: 12px; color: var(--ink-mute); line-height: 1.55; margin-top: 2px; }
+  .field-hint { font-size: 14px; color: var(--ink-mute); line-height: 1.55; margin-top: 2px; }
   .field-other { margin-top: 2px; }
 
   /* Choice cards (radio + checkbox) */
   .choice-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
   .choice-card {
     position: relative; display: flex; align-items: center; gap: 12px;
-    border: 1.5px solid rgba(20,22,17,.14); border-radius: var(--r-md); padding: 13px 15px;
+    border: 1.5px solid rgba(18,21,18,.22); border-radius: var(--r-md); padding: 13px 15px; min-height: 48px;
     background: var(--paper); cursor: pointer; transition: border-color .18s, background .18s;
-    font-size: 14.5px; color: var(--ink); line-height: 1.4;
+    font-size: 16px; color: var(--ink); line-height: 1.4;
   }
   .choice-card input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
   .choice-card .choice-dot {
-    width: 19px; height: 19px; flex-shrink: 0; border-radius: 50%; border: 1.5px solid rgba(20,22,17,.22);
+    width: 19px; height: 19px; flex-shrink: 0; border-radius: 50%; border: 1.5px solid rgba(18,21,18,.4);
     display: inline-flex; align-items: center; justify-content: center; transition: all .15s;
   }
   .choice-card.is-multi .choice-dot { border-radius: 6px; }
-  .choice-card.is-checked, .choice-card:has(input:checked) { border-color: var(--accent-ink); background: rgba(212,255,0,.08); }
+  .choice-card.is-checked, .choice-card:has(input:checked) { border-color: var(--accent-ink); background: rgba(183,242,41,.12); }
   .choice-card.is-checked .choice-dot, .choice-card:has(input:checked) .choice-dot { border-color: var(--accent-ink); background: var(--accent); }
   .choice-card.is-checked .choice-dot::after, .choice-card:has(input:checked) .choice-dot::after { content: ''; }
-  .choice-card:not(.is-multi).is-checked .choice-dot::after, .choice-card:not(.is-multi):has(input:checked) .choice-dot::after { width: 7px; height: 7px; border-radius: 50%; background: #0c0c0c; }
-  .choice-card.is-multi.is-checked .choice-dot::after, .choice-card.is-multi:has(input:checked) .choice-dot::after { width: 9px; height: 5px; border-left: 2px solid #0c0c0c; border-bottom: 2px solid #0c0c0c; transform: rotate(-45deg) translate(1px,-1px); }
+  .choice-card:not(.is-multi).is-checked .choice-dot::after, .choice-card:not(.is-multi):has(input:checked) .choice-dot::after { width: 7px; height: 7px; border-radius: 50%; background: var(--color-black); }
+  .choice-card.is-multi.is-checked .choice-dot::after, .choice-card.is-multi:has(input:checked) .choice-dot::after { width: 9px; height: 5px; border-left: 2px solid var(--color-black); border-bottom: 2px solid var(--color-black); transform: rotate(-45deg) translate(1px,-1px); }
   .choice-card:has(input:focus-visible) { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
-  .choice-card:hover { border-color: rgba(20,22,17,.3); }
+  .choice-card:hover { border-color: rgba(18,21,18,.45); }
 
   .consent-card { align-items: flex-start; }
   .consent-card .choice-dot { margin-top: 1px; }
@@ -125,24 +125,25 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .intake-nav { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
   .btn-ghost {
     display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink);
-    padding: 14px 22px; font-family: var(--fd); font-weight: 700; font-size: 13.5px; letter-spacing: 1px;
-    text-transform: uppercase; border: 1.5px solid rgba(20,22,17,.2); border-radius: var(--r-btn);
+    padding: 14px 22px; font-family: var(--fd); font-weight: 800; font-size: 15px; letter-spacing: 1.5px;
+    text-transform: uppercase; border: 1.5px solid rgba(18,21,18,.28); border-radius: var(--r-btn);
     cursor: pointer; transition: all .2s;
   }
-  .btn-ghost:hover:not(:disabled) { border-color: var(--ink); }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--ink); background: rgba(8,10,9,.04); }
+  .btn-ghost:focus-visible, .intake-nav .btn-accent:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
   .btn-ghost:disabled { opacity: .35; cursor: not-allowed; }
-  .intake-nav .btn-accent, .intake-nav .btn-ghost { border-width: 1.5px; padding: 14px 26px; font-size: 13.5px; min-height: 48px; }
+  .intake-nav .btn-accent, .intake-nav .btn-ghost { border-width: 1.5px; padding: 14px 26px; font-size: 15px; min-height: 48px; }
   .intake-nav .btn-accent:disabled { opacity: .55; cursor: not-allowed; }
   .intake-nav [hidden] { display: none; }
 
   /* Footer */
-  .intake-footer { background: #0c0c0c; padding: 34px 0; text-align: center; }
-  .intake-footer-brand { font-family: var(--fd); font-size: 18px; font-weight: 900; letter-spacing: 3px; color: var(--white); margin-bottom: 10px; }
+  .intake-footer { background: var(--color-black); padding: 34px 0; text-align: center; }
+  .intake-footer-brand { font-family: var(--fd); font-size: 18px; font-weight: 900; letter-spacing: 3px; color: var(--color-text-light); margin-bottom: 10px; }
   .intake-footer-brand span { color: var(--accent); }
-  .intake-footer p { font-size: 12.5px; color: rgba(255,255,255,.5); line-height: 1.7; }
-  .intake-footer a { color: rgba(255,255,255,.65); text-decoration: none; }
-  .intake-footer a:hover { color: var(--accent); }
-  .intake-footer-copy { margin-top: 4px; color: rgba(255,255,255,.3) !important; }
+  .intake-footer p { font-size: 14px; color: var(--color-text-secondary-dark); line-height: 1.7; }
+  .intake-footer a { color: var(--color-text-light); text-decoration: none; }
+  .intake-footer a:hover { color: var(--color-lime); }
+  .intake-footer-copy { margin-top: 4px; color: var(--color-text-secondary-dark) !important; }
 
   @media (min-width: 641px) {
     .field-row { grid-template-columns: 1fr 1fr; }
@@ -150,11 +151,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .intake-card { padding: 40px 44px 44px; }
   }
   @media (max-width: 640px) {
-    .intake-card { margin-top: -28px; border-radius: 18px; }
+    .intake-card { margin-top: -28px; border-radius: var(--radius-card); }
   }
 </style>
 </head>
-<body>
+<body class="ds2">
 
 <header class="intake-top">
   <div class="container">
