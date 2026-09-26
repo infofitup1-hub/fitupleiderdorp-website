@@ -52,3 +52,5 @@ Krachtige editorial hiërarchie, consistente H1/H2/H3/body-stijlen. Body en info
 - Tarieven: alle kaarten `.tc` met `<details open>`; de "Meer informatie"-summary is verborgen zodat alle kenmerken standaard zichtbaar zijn.
 - Pagina's met eigen CSS migreren = `:root` legacy-variabelen aliassen naar tokens + regex-mapping van oude kleuren/radii + harmonisatieblok (buttons, nav, footer, 16px-tekst).
 - Lokaal 404 op `/.netlify/functions/schedule` is normaal (statische dev-server draait geen Netlify Functions).
+- Fase 3: 8 pure-seo.css pagina's op `ds2` (sportschool, fitnessclub, fitness-40-plus, vrouwen-fitness, hyrox-training, afvallen, personal-trainer, fitness-voor-beginners). Alle ds2-pagina's laden `seo.css?v=20260927`; bij elke seo.css-wijziging één nieuwe versie voor alle ds2-pagina's tegelijk.
+- Inline `style=""`-attributen op pagina's (promokaart 'Lees ook', Google-regel, lokale alinea) zijn per pagina naar tokens/16px gezet.

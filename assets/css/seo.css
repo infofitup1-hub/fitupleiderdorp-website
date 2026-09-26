@@ -328,4 +328,5 @@ footer {
 .ds2 .hsc-foot { font-size: 14px; }
 .ds2 .linklist-sub, .ds2 .f-bottom { font-size: 14px; }
 .ds2 .f-brand p, .ds2 .f-col a { font-size: 15px; }
+.ds2 .nav-submenu a small { font-size: 13px; }
 .ds2 .sec-label, .ds2 .crumb-inner, .ds2 .trust-pill, .ds2 .hsc-stat-label, .ds2 .werk-step { font-size: 12px; }
