@@ -49,26 +49,27 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--black:#0c0c0c;--mid:#0c0c0c;--dark:#0c0c0c;--white:#fff;--off:#f3f4f0;--accent:#d4ff00;--accent-ink:#4a5900;--gray:#888;--lgray:#2a2a2a;--charcoal:#18191b;--paper2:#f3f4f0;--ink:#141611;--ink-soft:#3c3f37;--ink-mute:#575b4e;--line:rgba(20,22,17,.08);--r-btn:10px;--r-card:18px;--sh-2:0 1px 2px rgba(20,22,17,.04),0 24px 50px -22px rgba(20,22,17,.18);--sh-hover:0 2px 6px rgba(20,22,17,.05),0 40px 80px -28px rgba(20,22,17,.28);--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif}
+:root{--color-black:#080A09;--color-black-soft:#101311;--color-graphite:#191D1A;--color-white-warm:#F4F5F1;--color-white-warm-alt:#ECEEE8;--color-text-light:#F4F5F1;--color-text-secondary-dark:#A7ADA8;--color-text-dark:#121512;--color-text-muted-light:#606660;--color-lime:#B7F229;--color-lime-hover:#9EDB20;--color-lime-ink:var(--color-lime-ink);--border-dark:rgba(255,255,255,.10);--border-dark-strong:rgba(255,255,255,.24);--border-light:rgba(0,0,0,.08);--radius-btn:6px;--radius-card:10px;--black:var(--color-black);--mid:var(--color-black-soft);--dark:var(--color-black);--white:var(--color-white-warm);--off:var(--color-white-warm-alt);--accent:var(--color-lime);--accent-ink:var(--color-lime-ink);--gray:var(--color-text-secondary-dark);--lgray:var(--color-graphite);--charcoal:var(--color-graphite);--paper2:var(--color-white-warm-alt);--ink:var(--color-text-dark);--ink-soft:var(--color-text-dark);--ink-mute:var(--color-text-muted-light);--line:var(--border-light);--r-btn:var(--radius-btn);--r-card:var(--radius-card);--sh-2:0 1px 2px rgba(18,21,18,.04),0 24px 50px -22px rgba(18,21,18,.18);--sh-hover:0 2px 6px rgba(18,21,18,.05),0 40px 80px -28px rgba(18,21,18,.28);--fd:'Barlow Condensed',sans-serif;--fb:'DM Sans',sans-serif}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--white);color:var(--ink);font-family:var(--fb);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 .container{max-width:1240px;margin:0 auto;padding:0 40px}
 
 /* NAV */
 #nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
-nav.scrolled{background:rgba(12,12,12,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(212,255,0,.1)}
+nav.scrolled{background:rgba(8,10,9,.96);backdrop-filter:blur(18px);padding:14px 40px;border-bottom:1px solid rgba(183,242,41,.1)}
 .logo{font-family:var(--fd);font-size:28px;font-weight:900;letter-spacing:4px;color:var(--white);text-decoration:none}
 .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
-.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--white)}
-.nav-btn{background:var(--accent)!important;color:var(--black)!important;padding:10px 24px;font-weight:700!important;letter-spacing:1px!important}
+.nav-links a{color:var(--color-text-secondary-dark);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--color-text-light)}
+.nav-btn:hover{background:var(--color-lime-hover)!important}
+.nav-btn{background:var(--accent)!important;color:var(--black)!important;border-radius:var(--radius-btn);padding:10px 24px;font-weight:700!important;letter-spacing:1px!important}
 .nav-links li.has-sub{position:relative}
 .nav-links .nav-submenu{display:none;position:absolute;top:100%;left:0;padding-top:14px;list-style:none;min-width:240px}
 .nav-links li.has-sub:hover .nav-submenu{display:block}
-.nav-submenu{background:var(--black);border:1px solid rgba(255,255,255,.08);padding:10px}
-.nav-submenu li a{display:flex;flex-direction:column;gap:2px;padding:10px 12px;text-transform:none;font-size:13px;letter-spacing:0;color:var(--white)}
-.nav-submenu li a:hover{background:rgba(212,255,0,.06)}
-.nav-submenu li a small{color:rgba(255,255,255,.4);font-size:11px}
+.nav-submenu{background:var(--black);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:10px}
+.nav-submenu li a{display:flex;flex-direction:column;gap:2px;padding:10px 12px;text-transform:none;font-size:14px;letter-spacing:0;color:var(--white)}
+.nav-submenu li a:hover{background:rgba(183,242,41,.06)}
+.nav-submenu li a small{color:var(--color-text-secondary-dark);font-size:13px}
 .nav-toggle{display:none;background:none;border:0;color:var(--white);cursor:pointer;padding:8px}
 .nav-toggle svg{display:block}
 .nav-toggle .icon-close{display:none}
@@ -76,76 +77,78 @@ body.nav-open .nav-toggle .icon-open{display:none}
 body.nav-open .nav-toggle .icon-close{display:block}
 .nav-drawer{position:fixed;inset:0;z-index:190;background:var(--black);display:flex;flex-direction:column;gap:4px;padding:100px 28px 40px;transform:translateY(-100%);transition:transform .3s ease;overflow-y:auto}
 body.nav-open .nav-drawer{transform:translateY(0)}
-.nav-drawer a{color:var(--white);text-decoration:none;font-family:var(--fd);font-size:22px;font-weight:700;text-transform:uppercase;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-drawer a{color:var(--white);text-decoration:none;font-family:var(--fd);font-size:22px;font-weight:700;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--border-dark)}
 .nav-drawer .drawer-sub{list-style:none;padding-left:16px}
 .nav-drawer .drawer-sub a{font-size:16px;padding:10px 0}
 .nav-drawer .drawer-cta{background:var(--accent);color:var(--black);text-align:center;margin-top:20px;border:0}
 
 /* HERO */
-.page-hero{background:#0c0c0c;padding:96px 0 76px;text-align:center;position:relative;overflow:hidden}
+.page-hero{background:var(--color-black);padding:96px 0 76px;text-align:center;position:relative;overflow:hidden}
 .page-hero .hero-wrap{max-width:760px;margin:0 auto;position:relative;padding:0 40px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
 .eyebrow-line{width:20px;height:1.5px;background:var(--accent);display:inline-block}
-.page-hero h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(38px,6vw,64px);line-height:1;letter-spacing:.5px;color:var(--white);margin-bottom:18px}
+.page-hero h1{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(38px,6vw,64px);line-height:1;letter-spacing:.5px;color:var(--color-text-light);margin-bottom:18px}
 .page-hero h1 em{font-style:normal;color:var(--accent)}
-.page-hero .hero-sub{color:rgba(255,255,255,.6);font-size:16px;line-height:1.7;max-width:520px;margin:0 auto}
+.page-hero .hero-sub{color:var(--color-text-secondary-dark);font-size:16px;line-height:1.7;max-width:520px;margin:0 auto}
 
 /* PATRICK STORY */
 .patrick-section{padding:96px 0}
 .patrick-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .patrick-photos{display:grid;grid-template-columns:3fr 2fr;gap:16px;align-items:stretch}
-.patrick-photos .p-main,.patrick-photos .p-side{overflow:hidden;border-radius:16px}
+.patrick-photos .p-main,.patrick-photos .p-side{overflow:hidden;border-radius:var(--radius-card)}
 .patrick-photos .p-main img,.patrick-photos .p-side img{width:100%;height:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center 22%}
-.patrick-text .sec-label{display:flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:#575b4e;margin-bottom:18px}
+.patrick-text .sec-label{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--color-text-muted-light);margin-bottom:18px}
 .patrick-text h2{font-family:var(--fd);font-size:clamp(32px,4.5vw,50px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:24px;color:var(--black)}
-.patrick-text h2 em{font-style:normal;color:var(--black);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em}
-.patrick-text p{color:rgba(12,12,12,.7);font-size:16px;line-height:1.75;margin-bottom:16px}
+.patrick-text h2 em{font-style:normal;color:var(--black);background:linear-gradient(transparent 58%,rgba(183,242,41,.5) 58%);padding:0 .04em}
+.patrick-text p{color:var(--color-text-muted-light);font-size:16px;line-height:1.75;margin-bottom:16px}
 @media(max-width:980px){.patrick-wrap{grid-template-columns:1fr;gap:48px}.patrick-photos{max-width:480px;margin:0 auto}.patrick-section{padding:64px 0}}
 
 /* TEAM */
 .team{background:var(--off);padding:96px 0}
 .team-head{max-width:640px;margin:0 0 44px}
-.team-head p{color:rgba(12,12,12,.6);font-weight:300;line-height:1.75;margin-top:16px;font-size:15px}
+.team-head p{color:var(--color-text-muted-light);font-weight:400;line-height:1.75;margin-top:16px;font-size:16px}
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.team-card{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh-2);transition:border-color .25s,box-shadow .25s}
+.team-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh-2);transition:border-color .25s,box-shadow .25s}
 .team-card:hover{border-color:rgba(110,130,0,.4);box-shadow:var(--sh-hover)}
 .team-photo{aspect-ratio:4/5;overflow:hidden;background:var(--lgray)}
 .team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
 .team-card:hover .team-photo img{transform:scale(1.04)}
 .team-body{padding:20px 20px 24px;flex:1;display:flex;flex-direction:column}
 .team-name{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:21px;letter-spacing:1px;line-height:1;color:var(--black)}
-.team-role{color:#4a5900;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:10px}
-.team-blurb{color:rgba(12,12,12,.6);font-size:13.5px;line-height:1.6;margin-top:14px;font-weight:300}
+.team-role{color:var(--color-lime-ink);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:10px}
+.team-blurb{color:var(--color-text-muted-light);font-size:16px;line-height:1.6;margin-top:14px;font-weight:400}
 @media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr;gap:16px}}
 @media(max-width:560px){
-  .team-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .team-body{padding:14px 14px 18px}.team-name{font-size:17px}.team-blurb{font-size:12.5px}
+  .team-grid{grid-template-columns:1fr;gap:14px}
+  .team-card{flex-direction:row}
+  .team-photo{width:38%;flex-shrink:0;aspect-ratio:auto}
+  .team-body{padding:14px 14px 18px}.team-name{font-size:17px}.team-blurb{font-size:16px}
 }
 
 /* SHARED BUTTONS */
 .btn-accent{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--black);text-decoration:none;padding:15px 30px;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--accent);border-radius:var(--r-btn);transition:all .25s}
-.btn-accent:hover{background:transparent;color:var(--accent)}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;color:var(--white);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.5px;border:1.5px solid rgba(255,255,255,.3);padding:14px 26px;border-radius:var(--r-btn);transition:all .25s}
-.btn-outline:hover{border-color:var(--white)}
+.btn-accent:hover{background:var(--color-lime-hover);border-color:var(--color-lime-hover);color:var(--color-black)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;color:var(--color-text-light);text-decoration:none;font-size:16px;font-weight:600;letter-spacing:.5px;border:1.5px solid var(--border-dark-strong);padding:14px 26px;border-radius:var(--r-btn);transition:all .25s}
+.btn-outline:hover{border-color:var(--color-text-light)}
 
 /* CTA STRIP */
-.about-cta{background:#0c0c0c;padding:64px 0;text-align:center}
+.about-cta{background:var(--color-black);padding:64px 0;text-align:center}
 .about-cta h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;font-size:clamp(24px,3.4vw,34px);line-height:1.05;color:var(--white);margin-bottom:14px}
 .about-cta h2 em{font-style:normal;color:var(--accent)}
-.about-cta p{color:rgba(255,255,255,.55);font-size:14px;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto}
+.about-cta p{color:var(--color-text-secondary-dark);font-size:16px;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto}
 
 /* FOOTER */
-footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--lgray)}
+footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--border-dark)}
 .f-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr repeat(3,minmax(0,1fr));gap:24px;margin-bottom:60px;align-items:stretch}
 .f-col{min-width:0}
-.f-col h4{font-family:var(--fd);font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;color:var(--ink)}
+.f-col h4{font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;color:var(--color-text-secondary-dark)}
 .f-col ul{list-style:none}
 .f-col li{margin-bottom:10px}
-.f-col a{color:var(--ink-soft);text-decoration:none;font-size:14px;transition:color .2s;overflow-wrap:anywhere;word-break:break-word}
-.f-col a:hover{color:var(--accent-ink)}
+.f-col a{color:var(--color-text-light);text-decoration:none;font-size:15px;transition:color .2s;overflow-wrap:anywhere;word-break:break-word}
+.f-col a:hover{color:var(--color-lime)}
 .f-brand .logo{display:block;margin-bottom:16px}
-.f-brand p{color:var(--gray);font-size:14px;line-height:1.7;max-width:300px}
-.f-bottom{max-width:1400px;margin:0 auto;padding-top:30px;border-top:1px solid var(--lgray);display:flex;justify-content:space-between;color:var(--gray);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.f-brand p{color:var(--gray);font-size:15px;line-height:1.7;max-width:300px}
+.f-bottom{max-width:1400px;margin:0 auto;padding-top:30px;border-top:1px solid var(--border-dark);display:flex;justify-content:space-between;color:var(--gray);font-size:14px;letter-spacing:1px;text-transform:uppercase}
 
 @media (max-width:768px){
   #nav{padding:18px 20px}
@@ -163,7 +166,7 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
 @media(max-width:520px){
   .f-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}
   .f-col h4{font-size:12px}
-  .f-col a{font-size:13px}
+  .f-col a{font-size:14px}
 }
 </style>
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -171,7 +174,7 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Over Fit Up","item":"https://fitupleiderdorp.nl/over-fit-up/"}]}</script>
 </head>
-<body>
+<body class="ds2">
 
 <nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
   <a href="/" class="logo" aria-label="Fit Up Leiderdorp homepage"><img src="../assets/images/logo-mark-on-dark.webp" alt="Fit Up Leiderdorp" style="height:34px;width:auto;display:block"></a>
@@ -248,8 +251,8 @@ footer{background:var(--mid);padding:80px 40px 40px;border-top:1px solid var(--l
 <section class="team" aria-labelledby="team-heading">
   <div class="container">
     <div class="team-head">
-      <div class="sec-label" style="display:flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:#575b4e"><span style="width:20px;height:1.5px;background:#575b4e;display:inline-block"></span>Het team</div>
-      <h2 id="team-heading" style="font-family:var(--fd);font-size:clamp(32px,4.5vw,50px);font-weight:900;text-transform:uppercase;line-height:1;margin-top:18px;color:var(--black)">Coaches die je <em style="font-style:normal;color:var(--black);background:linear-gradient(transparent 58%,rgba(212,255,0,.5) 58%);padding:0 .04em">naam kennen</em></h2>
+      <div class="sec-label" style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--color-text-muted-light)"><span style="width:20px;height:1.5px;background:var(--color-text-muted-light);display:inline-block"></span>Het team</div>
+      <h2 id="team-heading" style="font-family:var(--fd);font-size:clamp(32px,4.5vw,50px);font-weight:900;text-transform:uppercase;line-height:1;margin-top:18px;color:var(--black)">Coaches die je <em style="font-style:normal;color:var(--black);background:linear-gradient(transparent 58%,rgba(183,242,41,.5) 58%);padding:0 .04em">naam kennen</em></h2>
       <p>Bij Fit Up train je niet met een willekeurige instructeur, maar met een vast team dat weet waar je aan werkt. Van personal training en looptraining tot groepslessen — je vindt hier de juiste coach voor jouw doel.</p>
     </div>
     <div class="team-grid">
