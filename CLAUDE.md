@@ -1,0 +1,50 @@
+# CLAUDE.md — Fit Up Leiderdorp (productiesite)
+
+Bestaande productiesite. Geen redesign vanaf nul: SEO, routes, content, formulieren, tracking en conversieflow blijven behouden. Niets live deployen zonder expliciet akkoord. Grote visuele wijzigingen incrementeel met checkpoint, niet in één keer over veel pagina's.
+
+## Vaste designrichting (geldt voor ALLE pagina's)
+
+Premium boutique fitness: krachtig maar rustig, echte FitUP-fotografie, cinematic waar passend, asymmetrische/editorial composities waar logisch, minder generieke grids/cards, geen AI-template-uitstraling. Mobiel heeft dezelfde premium kwaliteit als desktop.
+
+### Kleurtokens (doel-waarden)
+| Token | Waarde |
+|---|---|
+| Primary black | `#080A09` |
+| Soft black | `#101311` |
+| Graphite | `#191D1A` |
+| Warm white | `#F4F5F1` |
+| Secondary text (donker) | `#A7ADA8` |
+| Dark text | `#121512` |
+| Muted text (licht vlak) | `#606660` |
+| FitUP lime | `#B7F229` |
+| Lime hover | `#9EDB20` |
+
+### Achtergronden
+- Donkere vlakken: egaal zwart/off-black uit bovenstaande tokens. Geen prints, patronen, grain, decoratieve textures of willekeurige zwarttinten.
+- Lichte secties: warm white (`#F4F5F1`) in plaats van hard wit waar passend.
+
+### Lime
+Alleen als gecontroleerd accent: CTA's, highlights, kleine lijnen, cijfers, badges, actieve states. Nooit dominante paginakleur, geen grote lime vlakken.
+
+### Typografie
+Krachtige editorial hiërarchie, consistente H1/H2/H3/body-stijlen. Body en informatieve tekst minimaal 16px. Geen kleine-lettertjeslook.
+
+### Buttons (max. twee hoofdvarianten sitebreed)
+1. Primary: lime + donkere tekst (hover `#9EDB20`).
+2. Secondary: transparant/donker + witte tekst + subtiele border.
+
+### Borders / radii
+- Donkere border: `rgba(255,255,255,0.10)`; lichte border: `rgba(0,0,0,0.08)`.
+- Consistente radii, geen overdreven SaaS/rounded-card look.
+
+## Technische context
+- Statische HTML op Netlify. Pagina-CSS grotendeels inline per pagina; gedeeld: `assets/css/seo.css` (landingspagina's, bevat het `:root`-designsysteem), `assets/css/conversion-layer.css`, `assets/css/style.css` (klein). Homepage `index.html` heeft een eigen inline `:root`.
+- Fonts: Barlow Condensed (koppen), DM Sans (body).
+- Nieuwe tokens/wijzigingen eerst centraal (seo.css `:root` + homepage `:root`), daarna pagina's laten verwijzen naar tokens in plaats van hardcoded hex.
+
+## Implementatiestatus designsysteem (Fase 1, sep 2026)
+- Tokens staan als `--color-*`, `--border-*`, `--radius-*` in `index.html` `:root` en in `assets/css/seo.css` (onderaan, blok "DESIGN SYSTEM v2"). Afgeleide tokens buiten de vaste set: `--color-white-warm-alt: #ECEEE8` (afwisselende lichte sectie, zodat kaarten in warm white zichtbaar blijven), `--color-lime-ink: #4a5900` (leesbare limetint voor tekst op licht), `--border-dark-strong: rgba(255,255,255,.24)` (secundaire buttons), `--radius-btn: 6px`, `--radius-card: 10px`.
+- Homepage: volledig omgezet (legacy variabelen zijn aliassen naar de tokens).
+- `seo.css` is gedeeld door ~33 pagina's. Het v2-blok werkt alleen op `<body class="ds2">`; alleen `/personal-training-leiderdorp/` heeft die class. Sitebrede uitrol = class op alle pagina's + `.ds2`-prefixen opruimen.
+- Bewust behouden: WhatsApp-groen (#25D366), semantisch groen/rood van check/kruis-icoontjes, `#d92d20` foutrood.
+- Niet vergeten: `conversion-layer.css` en `style.css` (::selection) hebben nog oude waarden.

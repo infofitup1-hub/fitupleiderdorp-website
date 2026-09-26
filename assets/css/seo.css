@@ -262,3 +262,70 @@ footer {
   position: relative;
   
 }
+
+/* =========================================================================
+   DESIGN SYSTEM v2 — FitUP tokens (bron: CLAUDE.md)
+   Fase 1: alleen actief op pagina's met <body class="ds2"> (testpagina).
+   Sitebrede uitrol = class op alle pagina's zetten, daarna de ".ds2 "-
+   prefixen hier opruimen en de legacy-waarden in :root vervangen.
+   ========================================================================= */
+:root {
+  --color-black:#080A09; --color-black-soft:#101311; --color-graphite:#191D1A;
+  --color-white-warm:#F4F5F1; --color-white-warm-alt:#ECEEE8;
+  --color-text-light:#F4F5F1; --color-text-secondary-dark:#A7ADA8;
+  --color-text-dark:#121512; --color-text-muted-light:#606660;
+  --color-lime:#B7F229; --color-lime-hover:#9EDB20; --color-lime-ink:#4a5900;
+  --border-dark:rgba(255,255,255,.10); --border-dark-strong:rgba(255,255,255,.24);
+  --border-light:rgba(0,0,0,.08);
+  --radius-btn:6px; --radius-card:10px;
+}
+.ds2 {
+  --black:var(--color-black); --charcoal:var(--color-graphite); --mid:var(--color-black-soft); --dark:var(--color-black);
+  --white:var(--color-white-warm); --paper:var(--color-white-warm); --paper2:var(--color-white-warm-alt);
+  --ink:var(--color-text-dark); --ink-soft:var(--color-text-dark); --ink-mute:var(--color-text-muted-light);
+  --line:var(--border-light); --line-2:rgba(0,0,0,.05);
+  --accent:var(--color-lime); --accent-ink:var(--color-lime-ink);
+  --gray:var(--color-text-secondary-dark); --lgray:var(--color-graphite);
+  --r-btn:var(--radius-btn); --r-md:var(--radius-card); --r-card:var(--radius-card);
+  --sh-1:0 1px 2px rgba(18,21,18,.04);
+  --sh-2:0 1px 2px rgba(18,21,18,.04),0 24px 50px -22px rgba(18,21,18,.18);
+  --sh-hover:0 2px 6px rgba(18,21,18,.05),0 40px 80px -28px rgba(18,21,18,.26);
+}
+/* navigatie */
+.ds2 nav.scrolled { background: rgba(8,10,9,.96); border-bottom: 1px solid var(--border-dark); }
+.ds2 .nav-links a { color: var(--color-text-secondary-dark); font-size: 14px; }
+.ds2 .nav-links a:hover { color: var(--color-text-light); }
+.ds2 .nav-btn:hover { background: var(--color-lime-hover) !important; }
+.ds2 .nav-submenu li { background: rgba(8,10,9,.98); border-color: var(--border-dark); }
+.ds2 .nav-submenu li:first-child { border-top-color: var(--border-dark); }
+.ds2 .nav-submenu a { color: var(--color-text-secondary-dark); font-size: 14px; }
+.ds2 .nav-submenu a:hover { background: rgba(244,245,241,.05); color: var(--color-text-light); }
+.ds2 .nav-toggle { border-color: var(--border-dark-strong); }
+.ds2 .nav-drawer { background: rgba(8,10,9,.98); }
+.ds2 .drawer-foot a, .ds2 .drawer-foot span { font-size: 14px; }
+/* vlakken */
+.ds2 section.seo-hero, .ds2 section.cta-block, .ds2 .seo-hero, .ds2 .cta-block { background: var(--color-black); }
+.ds2 footer { border-top: 1px solid var(--border-dark); }
+.ds2 .hero-stats-card { border-color: var(--border-dark); }
+.ds2 .hsc-foot { border-top-color: var(--border-dark); }
+.ds2 .f-bottom { border-top-color: var(--border-dark); }
+.ds2 h2 em { background: linear-gradient(transparent 58%, rgba(183,242,41,.5) 58%); }
+.ds2 .trust-pill { background: rgba(183,242,41,.08); border-color: rgba(183,242,41,.2); border-radius: var(--radius-btn); }
+.ds2 .ps-sol-icon { background: rgba(183,242,41,.18); border-radius: var(--radius-btn); }
+.ds2 .ps-prob-icon { border-radius: var(--radius-btn); }
+.ds2 .werk-num { color: rgba(18,21,18,.06); }
+/* buttons: primary (lime) + secondary (transparant, lichte tekst, subtiele border) */
+.ds2 .btn-accent:hover { background: var(--color-lime-hover); border-color: var(--color-lime-hover); color: var(--color-black); }
+.ds2 .btn-dark { color: var(--color-text-light); }
+.ds2 .btn-dark:hover { background: transparent; color: var(--color-black); border-color: var(--color-black); }
+.ds2 .btn-outline, .ds2 .cta-block .btn-outline-dark { background: transparent; color: var(--color-text-light); font-weight: 800; font-size: 15px; padding: 14px 28px; border: 1.5px solid var(--border-dark-strong); }
+.ds2 .btn-outline:hover, .ds2 .cta-block .btn-outline-dark:hover { background: rgba(244,245,241,.06); border-color: var(--color-text-light); color: var(--color-text-light); }
+.ds2 .btn-ghost { justify-content: center; font-family: var(--fd); font-weight: 800; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-text-dark); border: 1.5px solid rgba(8,10,9,.22); border-radius: var(--radius-btn); padding: 14px 28px; }
+.ds2 .btn-ghost:hover { background: rgba(8,10,9,.04); border-color: var(--color-text-dark); }
+/* leesbaarheid: informatietekst min. 16px, labels min. 12px */
+.ds2 .for-desc, .ds2 .ps-prob-text, .ds2 .ps-sol-title, .ds2 .ps-sol-text, .ds2 .werk-desc,
+.ds2 .local-item-title, .ds2 .local-item-desc, .ds2 .faq-a-inner { font-size: 16px; }
+.ds2 .hsc-foot { font-size: 14px; }
+.ds2 .linklist-sub, .ds2 .f-bottom { font-size: 14px; }
+.ds2 .f-brand p, .ds2 .f-col a { font-size: 15px; }
+.ds2 .sec-label, .ds2 .crumb-inner, .ds2 .trust-pill, .ds2 .hsc-stat-label, .ds2 .werk-step { font-size: 12px; }
