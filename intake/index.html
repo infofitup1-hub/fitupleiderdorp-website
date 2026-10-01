@@ -77,7 +77,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .field label, .field-label-static { font-family: var(--fb); font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.4; }
   .field-optional { font-style: normal; font-weight: 400; color: var(--ink-mute); font-size: 14px; }
   .field-row { display: grid; grid-template-columns: 1fr; gap: 18px; }
-  .field input[type="text"], .field input[type="number"], .field textarea {
+  .field input[type="text"], .field input[type="number"], .field input[type="email"], .field input[type="tel"], .field textarea {
     width: 100%; background: var(--paper); border: 1.5px solid rgba(18,21,18,.28); border-radius: var(--r-btn);
     padding: 13px 14px; min-height: 48px; font-size: 16px; font-family: var(--fb); color: var(--ink); outline: none;
     transition: border-color .2s, box-shadow .2s;
@@ -173,10 +173,10 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
         <div class="intake-progress">
           <div class="intake-progress-head">
-            <span class="intake-step-count">Stap <span id="stepCurrent">1</span> van 5</span>
+            <span class="intake-step-count">Stap <span id="stepCurrent">1</span> van 6</span>
             <span class="intake-step-title" id="stepTitleLabel">Over jou</span>
           </div>
-          <div class="intake-progress-bar"><div class="intake-progress-fill" id="progressFill" style="width:20%"></div></div>
+          <div class="intake-progress-bar"><div class="intake-progress-fill" id="progressFill" style="width:16.67%"></div></div>
         </div>
 
         <form name="fitup-intake" method="POST" action="/intake/bedankt/" data-netlify="true" netlify-honeypot="bot-field" id="intakeForm" novalidate>
@@ -210,6 +210,25 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
             <div class="field">
               <label for="f-gewicht">Gewicht (kg)</label>
               <input type="number" id="f-gewicht" name="gewicht_kg" inputmode="decimal" min="30" max="250" step="0.1" required>
+            </div>
+
+            <div class="field">
+              <label for="f-email">E-mailadres</label>
+              <input type="email" id="f-email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="f-telefoon">Telefoonnummer <em class="field-optional">(optioneel)</em></label>
+              <input type="tel" id="f-telefoon" name="telefoon" autocomplete="tel" inputmode="tel">
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="geslacht-label">Geslacht <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="geslacht-label">
+                <label class="choice-card"><input type="radio" name="geslacht" value="Vrouw"><span class="choice-dot"></span><span>Vrouw</span></label>
+                <label class="choice-card"><input type="radio" name="geslacht" value="Man"><span class="choice-dot"></span><span>Man</span></label>
+                <label class="choice-card"><input type="radio" name="geslacht" value="Anders / zeg ik liever niet"><span class="choice-dot"></span><span>Anders / zeg ik liever niet</span></label>
+              </div>
             </div>
           </fieldset>
 
@@ -315,11 +334,42 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
                 <input type="text" id="f-uitdagingen-anders" name="uitdagingen_anders">
               </div>
             </div>
+
+            <div class="field">
+              <label for="f-trainhist">Wat heb je eerder gedaan aan training, en wat werkte wel of juist niet? <em class="field-optional">(optioneel)</em></label>
+              <textarea id="f-trainhist" name="training_historie" rows="3"></textarea>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="locatie-label">Waar ga je trainen? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="group" aria-labelledby="locatie-label">
+                <label class="choice-card is-multi"><input type="checkbox" name="trainlocatie" value="Bij Fit Up"><span class="choice-dot"></span><span>Bij Fit Up</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="trainlocatie" value="Andere sportschool"><span class="choice-dot"></span><span>Andere sportschool</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="trainlocatie" value="Thuis met basismateriaal"><span class="choice-dot"></span><span>Thuis met basismateriaal</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="trainlocatie" value="Thuis met volledige set"><span class="choice-dot"></span><span>Thuis met volledige set</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="trainlocatie" value="Buiten"><span class="choice-dot"></span><span>Buiten</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="duur-label">Hoe lang mag een training duren? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="duur-label">
+                <label class="choice-card"><input type="radio" name="sessieduur" value="30 min"><span class="choice-dot"></span><span>30 min</span></label>
+                <label class="choice-card"><input type="radio" name="sessieduur" value="45 min"><span class="choice-dot"></span><span>45 min</span></label>
+                <label class="choice-card"><input type="radio" name="sessieduur" value="60 min"><span class="choice-dot"></span><span>60 min</span></label>
+                <label class="choice-card"><input type="radio" name="sessieduur" value="75 min of langer"><span class="choice-dot"></span><span>75 min of langer</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-oefeningen">Zijn er oefeningen die je erg leuk vindt, of juist liever niet doet? <em class="field-optional">(optioneel)</em></label>
+              <textarea id="f-oefeningen" name="oefeningen_voorkeur" rows="3"></textarea>
+            </div>
           </fieldset>
 
-          <!-- STAP 4 — VOEDING & LEEFSTIJL -->
+          <!-- STAP 4 — VOEDING -->
           <fieldset class="intake-step" data-step="4" hidden>
-            <legend class="sr-only">Stap 4: Voeding &amp; leefstijl</legend>
+            <legend class="sr-only">Stap 4: Voeding</legend>
 
             <div class="field">
               <span class="field-label-static" id="eetmomenten-label">Hoeveel eetmomenten heb je gemiddeld per dag?</span>
@@ -353,16 +403,108 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
               </div>
             </div>
 
+
+            <div class="field">
+              <span class="field-label-static" id="dieet-label">Eet je volgens een bepaald dieet of heb je voorkeuren? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="group" aria-labelledby="dieet-label">
+                <label class="choice-card is-multi"><input type="checkbox" name="dieet" value="Geen"><span class="choice-dot"></span><span>Geen</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="dieet" value="Vegetarisch"><span class="choice-dot"></span><span>Vegetarisch</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="dieet" value="Veganistisch"><span class="choice-dot"></span><span>Veganistisch</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="dieet" value="Glutenvrij"><span class="choice-dot"></span><span>Glutenvrij</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="dieet" value="Lactosevrij"><span class="choice-dot"></span><span>Lactosevrij</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="dieet" value="Halal"><span class="choice-dot"></span><span>Halal</span></label>
+                <label class="choice-card is-multi"><input type="checkbox" name="dieet" value="Anders (zie hieronder)"><span class="choice-dot"></span><span>Anders (zie hieronder)</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-allergie">Heb je voedselallergieën, intoleranties of dingen die je echt niet lust? <em class="field-optional">(optioneel)</em></label>
+              <textarea id="f-allergie" name="allergieen_afkeer" rows="2"></textarea>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="kook-label">Hoe eet je meestal? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="kook-label">
+                <label class="choice-card"><input type="radio" name="kookgedrag" value="Ik kook zelf"><span class="choice-dot"></span><span>Ik kook zelf</span></label>
+                <label class="choice-card"><input type="radio" name="kookgedrag" value="Ik doe aan meal prep"><span class="choice-dot"></span><span>Ik doe aan meal prep</span></label>
+                <label class="choice-card"><input type="radio" name="kookgedrag" value="Veel afhaal of bezorgd"><span class="choice-dot"></span><span>Veel afhaal of bezorgd</span></label>
+                <label class="choice-card"><input type="radio" name="kookgedrag" value="Vaak buiten de deur / kantine"><span class="choice-dot"></span><span>Vaak buiten de deur / kantine</span></label>
+                <label class="choice-card"><input type="radio" name="kookgedrag" value="Wisselend"><span class="choice-dot"></span><span>Wisselend</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-typischedag">Wat eet en drink je op een gewone dag? Een globaal overzicht is genoeg. <em class="field-optional">(optioneel)</em></label>
+              <textarea id="f-typischedag" name="typische_dag_eten" rows="4"></textarea>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="alcohol-label">Hoeveel alcohol drink je gemiddeld per week? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="alcohol-label">
+                <label class="choice-card"><input type="radio" name="alcohol" value="Geen"><span class="choice-dot"></span><span>Geen</span></label>
+                <label class="choice-card"><input type="radio" name="alcohol" value="1–5 glazen"><span class="choice-dot"></span><span>1–5 glazen</span></label>
+                <label class="choice-card"><input type="radio" name="alcohol" value="6–10 glazen"><span class="choice-dot"></span><span>6–10 glazen</span></label>
+                <label class="choice-card"><input type="radio" name="alcohol" value="Meer dan 10 glazen"><span class="choice-dot"></span><span>Meer dan 10 glazen</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-supplementen">Gebruik je supplementen? <em class="field-optional">(optioneel)</em></label>
+              <textarea id="f-supplementen" name="supplementen" rows="2"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- STAP 5 — GEZONDHEID & HERSTEL -->
+          <fieldset class="intake-step" data-step="5" hidden>
+            <legend class="sr-only">Stap 5: Gezondheid &amp; herstel</legend>
+
             <div class="field">
               <label for="f-blessures">Zijn er blessures, lichamelijke beperkingen of andere bijzonderheden waar we bij het sporten rekening mee moeten houden?</label>
               <textarea id="f-blessures" name="blessures_bijzonderheden" rows="4" required></textarea>
               <p class="field-hint">Deel alleen informatie die relevant is voor het veilig uitvoeren van training. Medische details kunnen we indien nodig persoonlijk bespreken.</p>
             </div>
+
+            <div class="field">
+              <span class="field-label-static" id="slaap-label">Hoeveel uur slaap je gemiddeld per nacht?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="slaap-label">
+                <label class="choice-card"><input type="radio" name="slaap" value="Minder dan 6" required><span class="choice-dot"></span><span>Minder dan 6</span></label>
+                <label class="choice-card"><input type="radio" name="slaap" value="6–7" required><span class="choice-dot"></span><span>6–7</span></label>
+                <label class="choice-card"><input type="radio" name="slaap" value="7–8" required><span class="choice-dot"></span><span>7–8</span></label>
+                <label class="choice-card"><input type="radio" name="slaap" value="Meer dan 8" required><span class="choice-dot"></span><span>Meer dan 8</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="stress-label">Hoe ervaar je je stressniveau?</span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="stress-label">
+                <label class="choice-card"><input type="radio" name="stress" value="Laag" required><span class="choice-dot"></span><span>Laag</span></label>
+                <label class="choice-card"><input type="radio" name="stress" value="Gemiddeld" required><span class="choice-dot"></span><span>Gemiddeld</span></label>
+                <label class="choice-card"><input type="radio" name="stress" value="Hoog" required><span class="choice-dot"></span><span>Hoog</span></label>
+                <label class="choice-card"><input type="radio" name="stress" value="Wisselend" required><span class="choice-dot"></span><span>Wisselend</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label-static" id="stappen-label">Hoeveel stappen zet je gemiddeld per dag? <em class="field-optional">(optioneel)</em></span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="stappen-label">
+                <label class="choice-card"><input type="radio" name="stappen" value="Minder dan 5.000"><span class="choice-dot"></span><span>Minder dan 5.000</span></label>
+                <label class="choice-card"><input type="radio" name="stappen" value="5.000–8.000"><span class="choice-dot"></span><span>5.000–8.000</span></label>
+                <label class="choice-card"><input type="radio" name="stappen" value="8.000–12.000"><span class="choice-dot"></span><span>8.000–12.000</span></label>
+                <label class="choice-card"><input type="radio" name="stappen" value="Meer dan 12.000"><span class="choice-dot"></span><span>Meer dan 12.000</span></label>
+                <label class="choice-card"><input type="radio" name="stappen" value="Weet ik niet"><span class="choice-dot"></span><span>Weet ik niet</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-medisch">Is er iets medisch relevant voor training of voeding (bijv. medicatie, hart, bloeddruk, zwangerschap)? <em class="field-optional">(optioneel)</em></label>
+              <textarea id="f-medisch" name="medisch_relevant" rows="3"></textarea>
+              <p class="field-hint">Alleen delen wat jij kwijt wilt; we bespreken het zo nodig persoonlijk.</p>
+            </div>
           </fieldset>
 
-          <!-- STAP 5 — BEGELEIDING -->
-          <fieldset class="intake-step" data-step="5" hidden>
-            <legend class="sr-only">Stap 5: Begeleiding</legend>
+          <!-- STAP 6 — BEGELEIDING -->
+          <fieldset class="intake-step" data-step="6" hidden>
+            <legend class="sr-only">Stap 6: Begeleiding</legend>
 
             <div class="field">
               <span class="field-label-static" id="begeleiding-label">Welke begeleiding spreekt je aan? <em class="field-optional">(optioneel)</em></span>
@@ -435,7 +577,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   var steps = Array.prototype.slice.call(form.querySelectorAll('.intake-step'));
   var totalSteps = steps.length;
   var current = 1;
-  var stepLabels = {1:'Over jou',2:'Jouw doel',3:'Training',4:'Voeding & leefstijl',5:'Begeleiding'};
+  var stepLabels = {1:'Over jou',2:'Jouw doel',3:'Training',4:'Voeding',5:'Gezondheid & herstel',6:'Begeleiding'};
 
   var elStepCurrent = document.getElementById('stepCurrent');
   var elStepTitle = document.getElementById('stepTitleLabel');
