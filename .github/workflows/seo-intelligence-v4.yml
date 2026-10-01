@@ -1,0 +1,111 @@
+name: AutoSEO v4 - Google Intelligence
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 7 * * 1"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  google-intelligence:
+    name: "SEO v4 - WIF + GSC + GA4"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Authenticate to Google Cloud via Workload Identity Federation
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: fitup-seo-intelligence
+          workload_identity_provider: projects/669780333216/locations/global/workloadIdentityPools/github-autoseo/providers/github-actions
+          service_account: autoseo-v4@fitup-seo-intelligence.iam.gserviceaccount.com
+          token_format: access_token
+          create_credentials_file: true
+          export_environment_variables: true
+
+      - name: Verify Google identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${{ steps.auth.outputs.access_token }}"
+          echo "Google Workload Identity Federation authentication succeeded."
+
+      - name: Verify Search Console API access
+        shell: bash
+        env:
+          ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+        run: |
+          set -euo pipefail
+
+          HTTP_CODE=$(curl -sS -o /tmp/gsc.json -w "%{http_code}" \
+            -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+            "https://www.googleapis.com/webmasters/v3/sites")
+
+          cat /tmp/gsc.json
+
+          if [ "${HTTP_CODE}" != "200" ]; then
+            echo "Search Console API failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi
+
+          grep -q "fitupleiderdorp.nl" /tmp/gsc.json || {
+            echo "Search Console API works, but fitupleiderdorp.nl was not found."
+            exit 1
+          }
+
+          echo "Search Console access verified."
+
+      - name: Verify GA4 Data API access
+        shell: bash
+        env:
+          ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          GA4_PROPERTY_ID: "540487028"
+        run: |
+          set -euo pipefail
+
+          cat >/tmp/ga4-request.json <<'JSON'
+          {
+            "dateRanges": [
+              {
+                "startDate": "7daysAgo",
+                "endDate": "yesterday"
+              }
+            ],
+            "metrics": [
+              {
+                "name": "sessions"
+              }
+            ],
+            "limit": "1"
+          }
+          JSON
+
+          HTTP_CODE=$(curl -sS -o /tmp/ga4.json -w "%{http_code}" \
+            -X POST \
+            -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data-binary @/tmp/ga4-request.json \
+            "https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}:runReport")
+
+          cat /tmp/ga4.json
+
+          if [ "${HTTP_CODE}" != "200" ]; then
+            echo "GA4 Data API failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi
+
+          echo "GA4 Data API access verified for property ${GA4_PROPERTY_ID}."
+
+      - name: WIF setup summary
+        if: success()
+        run: |
+          echo "AutoSEO v4 Google authentication is ready."
+          echo "No service-account JSON key is used."
+          echo "Search Console and GA4 are accessible from GitHub Actions."
