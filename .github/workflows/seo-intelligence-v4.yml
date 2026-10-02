@@ -11,13 +11,18 @@ permissions:
 
 jobs:
   google-intelligence:
-    name: "SEO v4 - WIF + GSC + GA4"
+    name: "SEO v4 - GSC + GA4 Intelligence"
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
 
       - name: Authenticate to Google Cloud via Workload Identity Federation
         id: auth
@@ -107,9 +112,34 @@ jobs:
 
           echo "GA4 Data API access verified for property ${GA4_PROPERTY_ID}."
 
-      - name: WIF setup summary
+      - name: Self-test intelligence engine
+        run: node .github/autoseo-v4-intelligence.mjs --self-test
+
+      - name: Build SEO/GEO intelligence input and opportunities
+        env:
+          ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          GSC_SITE_URL: "https://fitupleiderdorp.nl/"
+          GA4_PROPERTY_ID: "540487028"
+          AUTOSEO_OUTPUT_DIR: "artifacts/autoseo-v4"
+        run: node .github/autoseo-v4-intelligence.mjs
+
+      - name: Add intelligence summary to workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat artifacts/autoseo-v4/summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload AutoSEO v4 intelligence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: autoseo-v4-intelligence
+          path: artifacts/autoseo-v4/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: AutoSEO v4 summary
         if: success()
         run: |
-          echo "AutoSEO v4 Google authentication is ready."
-          echo "No service-account JSON key is used."
-          echo "Search Console and GA4 are accessible from GitHub Actions."
+          echo "AutoSEO v4 intelligence run succeeded."
+          echo "Search Console and GA4 data were combined into structured SEO/GEO input."
+          echo "Prioritized opportunities were generated and saved as a workflow artifact."
