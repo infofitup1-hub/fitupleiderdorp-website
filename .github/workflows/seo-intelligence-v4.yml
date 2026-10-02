@@ -1,6 +1,9 @@
 name: AutoSEO v4 - Google Intelligence
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
   schedule:
     - cron: "15 7 * * 1"
