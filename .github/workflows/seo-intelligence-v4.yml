@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   google-intelligence:
-    name: "SEO v4 - GSC + GA4 Intelligence"
+    name: "SEO v4 - GSC + GA4 + Technical Intelligence"
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -113,7 +113,11 @@ jobs:
           echo "GA4 Data API access verified for property ${GA4_PROPERTY_ID}."
 
       - name: Self-test intelligence engine
-        run: node .github/autoseo-v4-intelligence.mjs --self-test
+        run: |
+          node --check .github/autoseo-v4-intelligence.mjs
+          node --check .github/autoseo-v4-technical.mjs
+          node .github/autoseo-v4-intelligence.mjs --self-test
+          node --test .github/autoseo-v4-technical.test.mjs
 
       - name: Build SEO/GEO intelligence input and opportunities
         env:
@@ -121,6 +125,15 @@ jobs:
           GSC_SITE_URL: "https://fitupleiderdorp.nl/"
           GA4_PROPERTY_ID: "540487028"
           AUTOSEO_OUTPUT_DIR: "artifacts/autoseo-v4"
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+          AUTOSEO_TECHNICAL_MAX_URLS: "5"
+          AUTOSEO_FETCH_TIMEOUT_MS: "15000"
+          AUTOSEO_IMPORTANT_URLS: "/personal-training-leiderdorp/,/tarieven/"
+          # Reserved hooks only: setting these never activates a paid provider.
+          AUTOSEO_RANKING_PROVIDER: ${{ vars.AUTOSEO_RANKING_PROVIDER }}
+          AUTOSEO_RANKING_API_KEY: ${{ secrets.AUTOSEO_RANKING_API_KEY }}
+          AUTOSEO_BACKLINK_PROVIDER: ${{ vars.AUTOSEO_BACKLINK_PROVIDER }}
+          AUTOSEO_BACKLINK_API_KEY: ${{ secrets.AUTOSEO_BACKLINK_API_KEY }}
         run: node .github/autoseo-v4-intelligence.mjs
 
       - name: Add intelligence summary to workflow
@@ -143,3 +156,4 @@ jobs:
           echo "AutoSEO v4 intelligence run succeeded."
           echo "Search Console and GA4 data were combined into structured SEO/GEO input."
           echo "Prioritized opportunities were generated and saved as a workflow artifact."
+          echo "Technical SEO and PageSpeed actions are separate; provider hooks make no paid API calls."

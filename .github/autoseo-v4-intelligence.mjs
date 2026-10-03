@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import process from 'node:process';
 import assert from 'node:assert/strict';
+import { collectTechnical, technicalActions, providerHooks } from './autoseo-v4-technical.mjs';
 
 const SITE_URL = process.env.GSC_SITE_URL || 'https://fitupleiderdorp.nl/';
 const GA4_PROPERTY_ID = process.env.GA4_PROPERTY_ID || '540487028';
@@ -373,6 +374,9 @@ function markdownSummary(payload) {
     `- Medium: ${payload.summary.mediumPriority}`,
     `- Monitor: ${payload.summary.monitorPriority}`,
     `- GEO answer candidates: ${payload.geoSignals.answerReadyCandidates.length}`,
+    `- Technical pages sampled: ${payload.technicalIntelligence?.pages.length || 0}`,
+    `- PageSpeed available: ${payload.technicalIntelligence?.pages.filter(p => p.pagespeed.status === 'ok').length || 0}`,
+    `- Separate technical actions: ${payload.technicalActions?.length || 0}`,
     '',
     '## Top opportunities',
     '',
@@ -382,6 +386,14 @@ function markdownSummary(payload) {
     '',
     '> GEO items in this first run measure answer-readiness from search demand. They do not yet measure mentions or citations inside ChatGPT, Perplexity or other AI engines.',
   ];
+  const cell = (v) => String(v).replace(/[\r\n|]/g, ' ');
+  lines.push('', '## Page-level technical actions (separate from query/page scoring)', '',
+    '| Priority | Signals | URL | Issues |', '|---|---|---|---|',
+    ...(payload.technicalActions || []).map(a => `| ${a.priority} | ${a.signals.join(', ')} | ${cell(a.page)} | ${cell([...(a.evidence.technicalIssues || []), ...(a.evidence.pagespeedIssues || [])].join(', ') || 'resource availability/content')} |`),
+    '', '## Measurement availability',
+    ...(payload.technicalIntelligence?.pages || []).map(p => `- ${cell(p.url)}: HTML ${p.technical.status}${p.technical.error ? ` (${p.technical.error})` : ''}; PageSpeed ${p.pagespeed.status}${p.pagespeed.error ? ` (${p.pagespeed.error})` : ''}`),
+    ...(payload.technicalIntelligence?.resources || []).map(r => `- ${cell(r.url)}: ${r.status}${r.error ? ` (${r.error})` : ` (HTTP ${r.statusCode})`}`),
+    '', 'Ranking/backlink providers: hooks only; no external provider calls. Missing measurements are unknown, not zero. Duplicate checks cover sampled URLs only.');
   return `${lines.join('\n')}\n`;
 }
 
@@ -496,9 +508,11 @@ async function main() {
   const gscPages = aggregateGscPages(gscCurrent);
   const opportunities = buildOpportunities(gscCurrent, ga4Current, ga4CurrentResult.keyEventsAvailable);
   const geoSignals = buildGeoSignals(gscCurrent);
+  const technicalIntelligence = await collectTechnical({ siteUrl: SITE_URL, gscPages, ga4Pages: ga4Current });
+  const pageTechnicalActions = technicalActions(technicalIntelligence);
 
   const payload = {
-    schemaVersion: '2.0.0',
+    schemaVersion: '2.1.0',
     metadata: {
       generatedAt: new Date().toISOString(),
       siteUrl: SITE_URL,
@@ -509,11 +523,14 @@ async function main() {
     sources: {
       searchConsole: { connected: true, dimensions: ['query', 'page'] },
       ga4: { connected: true, dimension: 'landingPagePlusQueryString', keyEventsAvailable: ga4CurrentResult.keyEventsAvailable },
+      technical: { sampledUrls: technicalIntelligence.pages.length },
+      pagespeed: { provider: 'google-pagespeed-insights-v5', strategy: 'mobile', available: technicalIntelligence.pages.filter(p => p.pagespeed.status === 'ok').length },
     },
     summary: {
       gscRows: gscCurrent.length,
       ga4Pages: ga4Current.length,
       opportunities: opportunities.length,
+      technicalActions: pageTechnicalActions.length,
       criticalPriority: opportunities.filter((op) => op.priority === 'Critical').length,
       highPriority: opportunities.filter((op) => op.priority === 'High').length,
       mediumPriority: opportunities.filter((op) => op.priority === 'Medium').length,
@@ -531,11 +548,15 @@ async function main() {
     joinedPages: buildJoinedPages(gscPages, ga4Current),
     geoSignals,
     opportunities,
+    technicalIntelligence,
+    technicalActions: pageTechnicalActions,
+    providerHooks: providerHooks(process.env),
   };
 
   await mkdir(OUTPUT_DIR, { recursive: true });
   await writeFile(`${OUTPUT_DIR}/intelligence-input.json`, JSON.stringify(payload, null, 2));
   await writeFile(`${OUTPUT_DIR}/opportunities.json`, JSON.stringify(opportunities, null, 2));
+  await writeFile(`${OUTPUT_DIR}/technical-actions.json`, JSON.stringify(pageTechnicalActions, null, 2));
   await writeFile(`${OUTPUT_DIR}/summary.md`, markdownSummary(payload));
 
   console.log(`Created ${payload.summary.opportunities} prioritized opportunities (${payload.summary.criticalPriority} Critical, ${payload.summary.highPriority} High, ${payload.summary.mediumPriority} Medium, ${payload.summary.monitorPriority} Monitor).`);
