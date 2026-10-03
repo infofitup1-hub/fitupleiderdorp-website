@@ -7,13 +7,18 @@
 // SHA-256-hash ervan; die is niet terug te rekenen. Roteren = nieuw token + nieuwe hash.
 // Optioneel overschrijft env var WDEM_PUBLISH_TOKEN_SHA256 de hash.
 //
-//   GET  /wie-doet-er-mee/      -> laatste HTML
-//   POST /api/wie-doet-er-mee   -> nieuwe HTML opslaan (Authorization: Bearer <token>)
+//   GET  /wie-doet-er-mee/?access=<view-token>  -> laatste HTML (zonder/foute token: 403)
+//   POST /api/wie-doet-er-mee                   -> nieuwe HTML opslaan (Authorization: Bearer <upload-token>)
+//
+// Twee losse tokens met elk een eigen hash: het upload-token geeft nooit leestoegang
+// en het view-token kan nooit HTML uploaden. Optioneel overschrijven de env vars
+// WDEM_PUBLISH_TOKEN_SHA256 / WDEM_VIEW_TOKEN_SHA256 de hashes.
 
 import { getStore, getDeployStore } from "@netlify/blobs";
 import { createHash, timingSafeEqual } from "node:crypto";
 
 const TOKEN_SHA256 = "aa3818c0be75629bd3e9592d28867a16f9712519ef3edf69e650b758cbfc3cab";
+const VIEW_TOKEN_SHA256 = "60429446d0e46a6f2c69bf9bcf6fe9ec37ad423699c322c9eb41386bcb394d5a";
 
 const MAX_BYTES = 256 * 1024;
 
@@ -26,6 +31,14 @@ const PAGE_HEADERS = {
   "Content-Security-Policy":
     "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'",
 };
+
+const DENIED_HTML = `<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Geen toegang - Fit Up</title>
+<style>body{margin:0;background:#080A09;color:#F4F5F1;font:16px/1.5 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:32px 16px}main{max-width:560px;margin:0 auto}h1{font-size:30px;margin:0 0 8px}p{color:#A7ADA8;margin:0}</style>
+</head><body><main><h1>Geen toegang</h1><p>Open deze pagina via de Fit Up-app.</p></main></body></html>`;
 
 const FALLBACK_HTML = `<!DOCTYPE html>
 <html lang="nl"><head><meta charset="utf-8">
@@ -44,9 +57,9 @@ function store() {
   return getDeployStore("wie-doet-er-mee");
 }
 
-function tokenOk(header, expectedHash) {
-  const given = (header || "").replace(/^Bearer\s+/i, "").trim();
-  if (given.length < 32) return false;
+function tokenOk(given, expectedHash) {
+  given = String(given || "").trim();
+  if (given.length < 32 || given.length > 256) return false;
   const a = Buffer.from(createHash("sha256").update(given).digest("hex"));
   const b = Buffer.from(String(expectedHash || ""));
   return a.length === b.length && timingSafeEqual(a, b);
@@ -54,6 +67,11 @@ function tokenOk(header, expectedHash) {
 
 export default async (req) => {
   if (req.method === "GET" || req.method === "HEAD") {
+    const viewHash = Netlify.env.get("WDEM_VIEW_TOKEN_SHA256") || VIEW_TOKEN_SHA256;
+    const access = new URL(req.url).searchParams.get("access");
+    if (!tokenOk(access, viewHash)) {
+      return new Response(req.method === "HEAD" ? null : DENIED_HTML, { status: 403, headers: PAGE_HEADERS });
+    }
     let html = null;
     try {
       html = await store().get("latest");
@@ -68,7 +86,7 @@ export default async (req) => {
 
   if (req.method === "POST") {
     const expected = Netlify.env.get("WDEM_PUBLISH_TOKEN_SHA256") || TOKEN_SHA256;
-    if (!tokenOk(req.headers.get("authorization"), expected)) {
+    if (!tokenOk((req.headers.get("authorization") || "").replace(/^Bearer\s+/i, ""), expected)) {
       return new Response("Unauthorized", { status: 401 });
     }
 
