@@ -2,14 +2,18 @@
 //
 // Het lokale PowerShell-script haalt de Virtuagym-data op, bouwt het HTML-bestand
 // (alleen voornaam + initiaal) en POST het hierheen. Deze functie doet zelf GEEN
-// Virtuagym-call en kent geen Virtuagym-geheimen; alleen een apart upload-token
-// (env var WDEM_PUBLISH_TOKEN) dat uitsluitend dat script gebruikt.
+// Virtuagym-call en kent geen Virtuagym-geheimen. Uploaden kan alleen met een apart,
+// willekeurig 256-bit token (staat lokaal naast het script). Hier staat alleen de
+// SHA-256-hash ervan; die is niet terug te rekenen. Roteren = nieuw token + nieuwe hash.
+// Optioneel overschrijft env var WDEM_PUBLISH_TOKEN_SHA256 de hash.
 //
 //   GET  /wie-doet-er-mee/      -> laatste HTML
 //   POST /api/wie-doet-er-mee   -> nieuwe HTML opslaan (Authorization: Bearer <token>)
 
 import { getStore, getDeployStore } from "@netlify/blobs";
-import { timingSafeEqual } from "node:crypto";
+import { createHash, timingSafeEqual } from "node:crypto";
+
+const TOKEN_SHA256 = "aa3818c0be75629bd3e9592d28867a16f9712519ef3edf69e650b758cbfc3cab";
 
 const MAX_BYTES = 256 * 1024;
 
@@ -40,11 +44,11 @@ function store() {
   return getDeployStore("wie-doet-er-mee");
 }
 
-function tokenOk(header, expected) {
-  if (!expected || expected.length < 24) return false;
+function tokenOk(header, expectedHash) {
   const given = (header || "").replace(/^Bearer\s+/i, "").trim();
-  const a = Buffer.from(given);
-  const b = Buffer.from(expected);
+  if (given.length < 32) return false;
+  const a = Buffer.from(createHash("sha256").update(given).digest("hex"));
+  const b = Buffer.from(String(expectedHash || ""));
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
@@ -63,7 +67,7 @@ export default async (req) => {
   }
 
   if (req.method === "POST") {
-    const expected = Netlify.env.get("WDEM_PUBLISH_TOKEN");
+    const expected = Netlify.env.get("WDEM_PUBLISH_TOKEN_SHA256") || TOKEN_SHA256;
     if (!tokenOk(req.headers.get("authorization"), expected)) {
       return new Response("Unauthorized", { status: 401 });
     }
