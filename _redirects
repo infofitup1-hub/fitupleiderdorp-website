@@ -29,6 +29,7 @@
 # 301-consolidatie: dubbele lokale PT-pagina samengevoegd met de primaire pagina
 /personal-trainer-leiderdorp                  /personal-training-leiderdorp/                 301!
 /personal-trainer-leiderdorp/                 /personal-training-leiderdorp/                 301!
+/personal-trainer-leiderdorp/index.html       /personal-training-leiderdorp/                 301!
 
 # 301-consolidatie: Contact samengevoegd met Gratis Intake (één centrale conversiepagina)
 /contact                                      /gratis-intake/                                301!
