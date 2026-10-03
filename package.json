@@ -1,0 +1,8 @@
+{
+  "name": "fitup-leiderdorp-website",
+  "private": true,
+  "description": "Statische site; alleen nodig voor de Netlify Function-dependency van /wie-doet-er-mee/.",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
