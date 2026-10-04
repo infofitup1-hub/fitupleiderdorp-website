@@ -132,146 +132,249 @@ test("onvolledige deelnemerslijst: vrije plekken op basis van Virtuagym attendee
   assert.match(r.rec.html, /3 plekken vrij/);
 });
 
-// ---------- 4. morgen vanaf 20:00 ----------
+// ---------- 4. BuddyCheck: weekoverzicht (7 dagen) ----------
 
-test("20:00-grens Europe/Amsterdam (zomer + winter)", () => {
-  assert.equal(lib.showsTomorrow(new Date("2026-07-15T17:59:00Z")), false); // 19:59 CEST
-  assert.equal(lib.showsTomorrow(new Date("2026-07-15T18:00:00Z")), true); // 20:00 CEST
-  assert.equal(lib.showsTomorrow(new Date("2026-01-15T18:59:00Z")), false); // 19:59 CET
-  assert.equal(lib.showsTomorrow(new Date("2026-01-15T19:00:00Z")), true); // 20:00 CET
-});
-
-const dayData = (extra = {}) => ({
+const DATES = ["2026-07-15", "2026-07-16", "2026-07-17", "2026-07-18", "2026-07-19", "2026-07-20", "2026-07-21"];
+const weekData = (over = {}) => ({
   today: "2026-07-15",
-  lessen: [L("2026-07-15 20:30:00", "2026-07-15 21:30:00", { title: "NACHT" })],
-  tomorrow: { date: "2026-07-16", lessen: [L("2026-07-16 07:00:00", "2026-07-16 08:00:00", { title: "OCHTEND", namen: ["Piet P."] })] },
-  ...extra,
+  days: DATES.map((date, i) => ({
+    date,
+    lessen: i === 0 ? [L("2026-07-15 20:30:00", "2026-07-15 21:30:00", { title: "NACHT" })]
+      : i === 1 ? [L("2026-07-16 07:00:00", "2026-07-16 08:00:00", { title: "OCHTEND", namen: ["Piet P."], aantal: 1, max: 12 })]
+      : i === 3 ? [L("2026-07-18 10:00:00", "2026-07-18 11:00:00", { title: "ZATERDAGSPECIAL", namen: ["Jan B."], aantal: 12, max: 12 })]
+      : [],
+  })),
+  ...over,
+});
+const body = (h) => h.split("</head>")[1];
+const MID = "2026-07-15T10:00:00Z"; // 12:00 CEST
+
+test("weekoverzicht: 7 dagsecties in volgorde Vandaag, Morgen, dan de overige dagen", () => {
+  const h = body(render(weekData(), MID));
+  const heads = [...h.matchAll(/<h2 class="day-h[^"]*">([^<]*)<span>([^<]*)<\/span>/g)].map((m) => `${m[1]}|${m[2]}`);
+  assert.deepEqual(heads, [
+    "Vandaag|woensdag 15 juli", "Morgen|donderdag 16 juli", "vrijdag|17 juli", "zaterdag|18 juli",
+    "zondag|19 juli", "maandag|20 juli", "dinsdag|21 juli",
+  ]);
+  assert.equal((h.match(/<section class="day/g) || []).length, 7);
+  assert.ok(h.indexOf("NACHT") < h.indexOf("OCHTEND") && h.indexOf("OCHTEND") < h.indexOf("ZATERDAGSPECIAL"));
 });
 
-test("vóór 20:00 geen morgen-sectie, vanaf 20:00 wel (met zelfde info + privacynamen)", () => {
-  const before = render(dayData(), "2026-07-15T17:59:00Z");
-  assert.doesNotMatch(before, /Morgen|OCHTEND|Piet/);
-  const after = render(dayData(), "2026-07-15T18:00:00Z");
-  assert.match(after, /<h2 class="sec">Morgen<span>donderdag 16 juli<\/span><\/h2>/);
-  assert.match(after, /OCHTEND/);
-  assert.match(after, /Piet P\./);
-  assert.match(after, /1 \/ 12 deelnemers &middot; <span class="free">11 plekken vrij/);
-  assert.ok(after.indexOf("NACHT") < after.indexOf("Morgen")); // vandaag eerst
+test("dagen zonder lessen: compacte regel 'Geen lessen.', geen lege kaarten", () => {
+  const h = body(render(weekData(), MID));
+  assert.equal((h.match(/class="note">Geen lessen\.<\/p>/g) || []).length, 4); // vr, zo, ma, di
+  assert.equal((h.match(/<article/g) || []).length, 3); // NACHT, OCHTEND, ZATERDAGSPECIAL
 });
 
-test("morgen zonder lessen of zonder data: geen lege Morgen-sectie", () => {
-  assert.doesNotMatch(render(dayData({ tomorrow: { date: "2026-07-16", lessen: [] } }), "2026-07-15T18:30:00Z"), /Morgen/);
-  assert.doesNotMatch(render(dayData({ tomorrow: null }), "2026-07-15T18:30:00Z"), /Morgen/);
+test("vandaag: lopende en toekomstige lessen zichtbaar, afgelopen verborgen; andere dagen onaangetast", () => {
+  const data = weekData();
+  data.days[0].lessen = [
+    L("2026-07-15 09:00:00", "2026-07-15 10:00:00", { title: "AFGELOPEN" }),
+    L("2026-07-15 11:30:00", "2026-07-15 12:30:00", { title: "LOPEND" }), // 12:00 = bezig
+    L("2026-07-15 18:00:00", "2026-07-15 19:00:00", { title: "TOEKOMST" }),
+  ];
+  const h = body(render(data, MID));
+  assert.doesNotMatch(h, /AFGELOPEN/);
+  assert.match(h, /LOPEND/);
+  assert.match(h, /TOEKOMST/);
+  assert.match(h, /OCHTEND/); // morgen ongemoeid
 });
 
-test("alles van vandaag voorbij, morgen wel: melding + morgen-sectie", () => {
-  const h = render(dayData(), "2026-07-15T20:00:00Z"); // 22:00 CEST, NACHT 20:30-21:30 voorbij
-  assert.match(h, /Geen lessen meer vandaag/);
-  assert.match(h, /Hieronder staan de lessen van morgen/);
-  assert.match(h, /OCHTEND/);
-  assert.doesNotMatch(h, /NACHT/);
+test("vandaag alles voorbij: 'Geen lessen meer vandaag.'; vandaag zonder lessen: 'Vandaag geen groepslessen.'", () => {
+  assert.match(body(render(weekData(), "2026-07-15T20:00:00Z")), /Geen lessen meer vandaag\./); // 22:00 CEST
+  const leeg = weekData();
+  leeg.days[0].lessen = [];
+  assert.match(body(render(leeg, MID)), /Vandaag geen groepslessen\./);
 });
 
-test("pagina van vóór 20:00 wordt na 20:00 ververst (needsRefresh), niet na 20:00-record", () => {
-  const rec = { date: "2026-07-15", updatedAt: Date.parse("2026-07-15T17:55:00Z"), html: "x", withTomorrow: false };
-  assert.equal(lib.needsRefresh(rec, new Date("2026-07-15T17:58:00Z")), false);
-  assert.equal(lib.needsRefresh(rec, new Date("2026-07-15T18:01:00Z")), true);
-  assert.equal(lib.needsRefresh({ ...rec, withTomorrow: true, updatedAt: Date.parse("2026-07-15T18:00:00Z") }, new Date("2026-07-15T18:05:00Z")), false);
+test("vrije plekken en Vol per kaart in het weekoverzicht", () => {
+  const h = body(render(weekData(), MID));
+  assert.match(h, /OCHTEND[\s\S]*?1 \/ 12 deelnemers &middot; <span class="free">11 plekken vrij/);
+  assert.match(h, /<h3>ZATERDAGSPECIAL<\/h3><span class="badge">Vol<\/span>/);
 });
 
-// ---------- 7/8. API-efficiëntie en foutgedrag ----------
-
-const HANDLERS = (tomorrowPartsFail = false) => ({
-  "events/": ({ params }) => ok([
-    ev("t1", "2026-07-15 20:30:00", "2026-07-15 21:30:00"),
-    ev("m1", "2026-07-16 07:00:00", "2026-07-16 08:00:00"),
-    ev("m2", "2026-07-16 18:00:00", "2026-07-16 19:00:00"),
-  ]),
-  "eventparticipants/": ({ params }) => (tomorrowPartsFail && params.event_id.startsWith("m") ? resp({}, 500) : ok([part(1, 11)])),
-  "member/": () => member("anouk", "kok"),
-});
-
-test("calls vóór 20:00: 1 events + 1 participants per komende les; na 20:00: 1 events + vandaag-live + morgen", async () => {
-  const s = memStore();
-  const c = mockApi(HANDLERS());
-  await lib.refresh(s, { force: true, now: new Date("2026-07-15T16:00:00Z") }); // 18:00 CEST: koude cache vullen
-  c.length = 0;
-  const before = await lib.refresh(s, { force: true, now: new Date("2026-07-15T16:10:00Z") }); // 18:10
-  // vóór 20:00 zijn alleen de lessen van vandaag (1) relevant (morgen-events worden niet opgevraagd)
-  assert.equal(before.calls, 2);
-  assert.equal(c.filter((x) => x.path === "events/").length, 1);
-  assert.equal(c.filter((x) => x.path.startsWith("member/")).length, 0);
-  const win = c.find((x) => x.path === "events/").params;
-  assert.equal(Number(win.timestamp_end) - Number(win.timestamp_start), 24 * 3600); // 1 dag
-
-  c.length = 0;
-  const after = await lib.refresh(s, { force: true, now: new Date("2026-07-15T18:10:00Z") }); // 20:10
-  const ev2 = c.filter((x) => x.path === "events/");
-  assert.equal(ev2.length, 1); // vandaag + morgen in 1 call
-  assert.equal(Number(ev2[0].params.timestamp_end) - Number(ev2[0].params.timestamp_start), 48 * 3600);
-  assert.equal(c.filter((x) => x.path === "eventparticipants/").length, 3); // t1 + m1 + m2
-  assert.equal(c.filter((x) => x.path.startsWith("member/")).length, 0); // member-cache
-  assert.equal(after.calls, 4);
-  assert.match(after.rec.html, /Morgen/);
-});
-
-test("afgelopen lessen van vandaag kosten geen participants-call meer", async () => {
-  const s = memStore();
-  const c = mockApi(HANDLERS());
-  const r = await lib.refresh(s, { force: true, now: new Date("2026-07-15T20:00:00Z") }); // 22:00: t1 voorbij
-  assert.equal(c.filter((x) => x.path === "eventparticipants/").length, 2); // alleen morgen
-  assert.match(r.rec.html, /Geen lessen meer vandaag/);
-});
-
-test("morgen-deelnemers falen: vandaag werkt, morgen toont neutrale status per les", async () => {
-  mockApi(HANDLERS(true));
-  const r = await lib.refresh(memStore(), { force: true, now: new Date("2026-07-15T18:10:00Z") });
-  assert.equal(r.status, "ok");
-  assert.match(r.rec.html, /Anouk K\./); // vandaag
-  assert.match(r.rec.html, /Morgen/);
-  assert.match(r.rec.html, /Namen tijdelijk niet beschikbaar/);
-});
-
-test("morgen-events ontbreken: geen Morgen-sectie, vandaag normaal", async () => {
-  mockApi({
-    ...HANDLERS(),
-    "events/": () => ok([ev("t1", "2026-07-15 20:30:00", "2026-07-15 21:30:00")]),
+test("lange lesnamen en lange namen breken af (geen horizontale scroll)", () => {
+  const data = weekData();
+  data.days[1].lessen[0] = L("2026-07-16 07:00:00", "2026-07-16 08:00:00", {
+    title: "SUPERLANGELESNAAMZONDERSPATIESDIEOPMOBIELNIETPAST EN NOG EEN HEEL LANG VERVOLG",
+    namen: ["Maximiliaanvanderheijdenstein-Oosterhuis Z."],
   });
-  const r = await lib.refresh(memStore(), { force: true, now: new Date("2026-07-15T18:10:00Z") });
-  assert.equal(r.status, "ok");
-  assert.doesNotMatch(r.rec.html, /Morgen/);
-  assert.match(r.rec.html, /Anouk K\./);
+  const h = render(data, MID);
+  const css = h.match(/<style>([\s\S]*?)<\/style>/)[1];
+  assert.match(css, /\.card h3\{[^}]*overflow-wrap:anywhere/);
+  assert.match(css, /li\{[^}]*overflow-wrap:anywhere/);
+  assert.match(css, /ul\{[^}]*flex-wrap:wrap/);
+  assert.match(h, /SUPERLANGELESNAAMZONDERSPATIES/);
 });
 
-test("events-call faalt na 20:00: bestaand gedrag (vorige pagina blijft, geen crash)", async () => {
-  mockApi({ ...HANDLERS(), "events/": () => resp({}, 502) });
-  const s = memStore();
-  s.m.page = { html: "<li>Piet P.</li>", data: { today: "2026-07-15", lessen: [L("2026-07-15 20:30:00", "2026-07-15 21:30:00", { namen: ["Piet P."] })], tomorrow: null }, updatedAt: Date.parse("2026-07-15T18:00:00Z"), date: "2026-07-15", withTomorrow: true };
-  const r = await lib.refresh(s, { force: true, now: new Date("2026-07-15T18:10:00Z") });
-  assert.equal(r.status, "error");
-  assert.match(lib.pageFor(s.m.page, new Date("2026-07-15T18:11:00Z")), /Piet P\./);
+test("branding: overal BuddyCheck met subtitel; geen 'Wie doet er mee' meer", () => {
+  for (const h of [render(weekData(), MID), lib.STALE_HTML]) {
+    assert.match(h, /<title>BuddyCheck - Fit Up<\/title>/);
+    assert.match(h, /<h1>Buddy<em>Check<\/em><\/h1>/);
+    assert.match(h, /Check wie er bij jouw groepsles staat ingeschreven\./);
+    assert.doesNotMatch(h, /Wie doet er mee/);
+  }
 });
 
-// ---------- 5/6. mobiel + privacy ----------
+test("huisstijl: Barlow Condensed + DM Sans, Fit Up-tokens, 16px basis", () => {
+  const h = render(weekData(), MID);
+  assert.match(h, /fonts\.googleapis\.com\/css2\?family=Barlow\+Condensed[^"]*DM\+Sans[^"]*display=swap/);
+  assert.match(h, /--black:#080A09/);
+  assert.match(h, /--soft:#101311/);
+  assert.match(h, /--lime:#B7F229/);
+  assert.match(h, /--fd:'Barlow Condensed'/);
+  assert.match(h, /--fb:'DM Sans'/);
+  assert.match(h, /font:400 16px\/1\.55 var\(--fb\)/);
+  assert.doesNotMatch(h.replace(/\.foot\{[^}]*\}/, ""), /font-size:\s*1[0-5]px/); // geen informatieve tekst onder 16px (alleen de voettekst is 14px)
+});
 
-test("mobiele output: viewport, geen vaste breedtes/nowrap/min-width, wrap voor lange namen en titels", () => {
-  const h = render(dayData(), "2026-07-15T18:30:00Z");
+test("record van voor de weekweergave ({today, lessen}) blijft renderbaar als 1 dag", () => {
+  const h = body(lib.buildHtml({ today: "2026-07-15", lessen: [L("2026-07-15 18:00:00", "2026-07-15 19:00:00", { title: "OUD" })] }, new Date(MID)));
+  assert.match(h, /OUD/);
+  assert.equal((h.match(/<section class="day/g) || []).length, 1);
+});
+
+test("mobiele render: geen vaste breedtes, geen nowrap, viewport, flex-wrap", () => {
+  const h = render(weekData(), MID);
   assert.match(h, /name="viewport" content="width=device-width,initial-scale=1/);
   const css = h.match(/<style>([\s\S]*?)<\/style>/)[1];
   assert.doesNotMatch(css, /min-width:\s*[1-9]|white-space:\s*nowrap|[^-]width:\s*\d{3,}px/);
-  assert.match(css, /box-sizing:border-box/);
-  assert.match(css, /ul\{[^}]*flex-wrap:wrap/);
-  assert.match(css, /overflow-wrap:anywhere/);
   assert.match(css, /main\{max-width:560px/);
+  assert.match(css, /\.card header\{[^}]*min-width:0/);
 });
+
+// ---------- 5. API: 7 dagen in 1 call, hergebruik, foutisolatie ----------
+
+const WEEK_EVENTS = [
+  ev("t1", "2026-07-15 18:00:00", "2026-07-15 19:00:00", { attendees: 2 }), // vandaag, live
+  ev("t2", "2026-07-15 20:00:00", "2026-07-15 21:00:00", { attendees: 0 }), // vandaag: altijd vers, ook zonder aanmeldingen
+  ev("m1", "2026-07-16 07:00:00", "2026-07-16 08:00:00", { attendees: 3 }),
+  ev("m2", "2026-07-16 09:00:00", "2026-07-16 10:00:00", { attendees: 0 }), // morgen, leeg -> geen call
+  ev("d3", "2026-07-18 10:00:00", "2026-07-18 11:00:00", { attendees: 1 }),
+  ev("d7", "2026-07-21 10:00:00", "2026-07-21 11:00:00", { attendees: 1 }),
+  ev("x8", "2026-07-22 10:00:00", "2026-07-22 11:00:00", { attendees: 1 }), // dag 8: buiten venster
+];
+const WEEK_H = (over = {}) => ({
+  "events/": () => ok(WEEK_EVENTS),
+  "eventparticipants/": () => ok([part(1, 11)]),
+  "member/": () => member("anouk", "kok"),
+  ...over,
+});
+const T0 = new Date("2026-07-15T14:00:00Z"); // 16:00 CEST
+
+test("events-call dekt exact 7 kalenderdagen (zomertijd) en er is er maar 1", async () => {
+  const c = mockApi(WEEK_H());
+  await lib.refresh(memStore(), { force: true, now: T0 });
+  const evc = c.filter((x) => x.path === "events/");
+  assert.equal(evc.length, 1);
+  assert.equal(new Date(Number(evc[0].params.timestamp_start) * 1000).toISOString(), "2026-07-14T22:00:00.000Z"); // 00:00 CEST 15 juli
+  assert.equal(new Date(Number(evc[0].params.timestamp_end) * 1000).toISOString(), "2026-07-21T22:00:00.000Z"); // 00:00 CEST 22 juli
+});
+
+test("venster in wintertijd en over de omschakeldag blijft 7 kalenderdagen", async () => {
+  const c = mockApi({ ...WEEK_H(), "events/": () => ok([]) });
+  await lib.refresh(memStore(), { force: true, now: new Date("2026-10-22T10:00:00Z") }); // loopt over 25 okt (CEST -> CET)
+  const p = c.find((x) => x.path === "events/").params;
+  assert.equal(new Date(Number(p.timestamp_start) * 1000).toISOString(), "2026-10-21T22:00:00.000Z");
+  assert.equal(new Date(Number(p.timestamp_end) * 1000).toISOString(), "2026-10-28T23:00:00.000Z"); // 7 dagen, 25u dag erin
+});
+
+test("week: dag 8 genegeerd; lege toekomstige lessen zonder call; vandaag altijd vers", async () => {
+  const c = mockApi(WEEK_H());
+  const r = await lib.refresh(memStore(), { force: true, now: T0 });
+  assert.equal(r.status, "ok");
+  const ids = c.filter((x) => x.path === "eventparticipants/").map((x) => x.params.event_id).sort();
+  assert.deepEqual(ids, ["d3", "d7", "m1", "t1", "t2"]); // m2 (0 aanmeldingen, morgen) en x8 (dag 8) niet
+  assert.equal((r.rec.html.match(/<section class="day/g) || []).length, 7);
+});
+
+test("hergebruik: tweede run direct erna haalt alleen vandaag opnieuw op; wijziging aantal => opnieuw", async () => {
+  const s = memStore();
+  const c = mockApi(WEEK_H());
+  await lib.refresh(s, { force: true, now: T0 }); // koude run
+  c.length = 0;
+  const r2 = await lib.refresh(s, { force: true, now: new Date(T0.getTime() + 600e3) }); // +10 min
+  const ids = c.filter((x) => x.path === "eventparticipants/").map((x) => x.params.event_id).sort();
+  assert.deepEqual(ids, ["t1", "t2"]); // alleen vandaag; morgen en later uit cache
+  assert.equal(c.filter((x) => x.path.startsWith("member/")).length, 0);
+  assert.equal(r2.calls, 3); // 1 events + 2 vandaag
+  // aantal aanmeldingen wijzigt (gratis zichtbaar in events): die les wordt opnieuw opgehaald
+  c.length = 0;
+  WEEK_EVENTS.find((e) => e.event_id === "d3").attendees = 2;
+  await lib.refresh(s, { force: true, now: new Date(T0.getTime() + 1200e3) });
+  assert.ok(c.some((x) => x.params.event_id === "d3"));
+  WEEK_EVENTS.find((e) => e.event_id === "d3").attendees = 1;
+});
+
+test("TTL: morgen na 20 min, latere dagen na 90 min opnieuw", async () => {
+  const s = memStore();
+  const c = mockApi(WEEK_H());
+  await lib.refresh(s, { force: true, now: T0 });
+  c.length = 0;
+  await lib.refresh(s, { force: true, now: new Date(T0.getTime() + 21 * 60e3) });
+  const ids21 = c.filter((x) => x.path === "eventparticipants/").map((x) => x.params.event_id);
+  assert.ok(ids21.includes("m1") && !ids21.includes("d3"));
+  c.length = 0;
+  await lib.refresh(s, { force: true, now: new Date(T0.getTime() + 91 * 60e3) });
+  const ids91 = c.filter((x) => x.path === "eventparticipants/").map((x) => x.params.event_id);
+  assert.ok(ids91.includes("d3") && ids91.includes("d7"));
+});
+
+test("een les (morgen) faalt: alleen die les toont 'Namen tijdelijk niet beschikbaar', rest en vandaag normaal", async () => {
+  mockApi(WEEK_H({ "eventparticipants/": ({ params }) => (params.event_id === "m1" ? resp({}, 500) : ok([part(1, 11)])) }));
+  const s = memStore();
+  const r = await lib.refresh(s, { force: true, now: T0 });
+  assert.equal(r.status, "ok");
+  const h = r.rec.html;
+  assert.match(h, /Namen tijdelijk niet beschikbaar/);
+  assert.match(h, /3 \/ 12 deelnemers/); // aantal van Virtuagym
+  assert.match(h, /Anouk K\./); // andere lessen
+  assert.equal(Boolean(s.m.lessons?.m1?.ok), false); // mislukte les wordt niet als goed gecachet
+});
+
+test("hele events-call faalt: vorige pagina van vandaag blijft, geen crash", async () => {
+  mockApi(WEEK_H({ "events/": () => resp({}, 502) }));
+  const s = memStore();
+  s.m.page = { html: "<li>Piet P.</li>", data: weekData(), updatedAt: T0.getTime() - 5 * 60e3, date: "2026-07-15" };
+  const r = await lib.refresh(s, { force: true, now: T0 });
+  assert.equal(r.status, "error");
+  assert.match(lib.pageFor(s.m.page, new Date(T0.getTime() + 60e3)), /NACHT|OCHTEND/);
+});
+
+test("koude week-start blijft binnen het call-budget; gecachete week-run is klein", async () => {
+  const many = [];
+  for (let d = 0; d < 7; d++) for (let k = 0; k < 6; k++) many.push(ev(`e${d}${k}`, `2026-07-${15 + d} 1${k}:00:00`, `2026-07-${15 + d} 1${k}:50:00`, { attendees: 5 }));
+  mockApi({
+    "events/": () => ok(many),
+    "eventparticipants/": ({ params }) => ok([1, 2, 3, 4, 5].map((n) => part(Number(params.event_id.slice(1)) * 10 + n, 100 + n))),
+    "member/": () => member("anouk", "kok"),
+  });
+  const s = memStore();
+  const cold = await lib.refresh(s, { force: true, now: new Date("2026-07-15T05:00:00Z") }); // 07:00 CEST, alles nog komend
+  assert.equal(cold.status, "ok");
+  assert.ok(cold.calls <= 250, `koud: ${cold.calls}`);
+  const warm = await lib.refresh(s, { force: true, now: new Date("2026-07-15T05:10:00Z") });
+  assert.equal(warm.calls, 1 + 6); // 1 events + 6 lessen van vandaag; rest uit cache
+});
+
+test("per-les cache bevat alleen afgeschermde namen (geen ids, volledige namen, e-mail)", async () => {
+  mockApi(WEEK_H({ "member/": () => member("anouk", "Kokkelmans") }));
+  const s = memStore();
+  await lib.refresh(s, { force: true, now: T0 });
+  const dump = JSON.stringify(s.m.lessons);
+  assert.doesNotMatch(dump, /Kokkelmans|x@y\.z|member_id/);
+  assert.match(dump, /Anouk K\./);
+});
+
+// ---------- 6. privacy ----------
 
 test("privacy: geen lid-id, volledige naam, JSON of API-data in de HTML; noindex", async () => {
   mockApi({
-    "events/": () => ok([ev("e1", "2026-07-15 20:30:00", "2026-07-15 21:30:00"), ev("m1", "2026-07-16 07:00:00", "2026-07-16 08:00:00")]),
+    "events/": () => ok([ev("e1", "2026-07-15 18:00:00", "2026-07-15 19:00:00"), ev("m1", "2026-07-16 07:00:00", "2026-07-16 08:00:00")]),
     "eventparticipants/": () => ok([part(1, 59200112)]),
     "member/": () => member("anouk", "Kokkelmans"),
   });
-  const r = await lib.refresh(memStore(), { force: true, now: new Date("2026-07-15T18:10:00Z") });
+  const r = await lib.refresh(memStore(), { force: true, now: T0 });
   assert.doesNotMatch(r.rec.html, /59200112|Kokkelmans|x@y\.z|TESTKEY|TESTSECRET|member_id|api_key|club_secret|"result"|<!--/);
   assert.match(r.rec.html, /Anouk K\./);
   assert.match(r.rec.html, /noindex,nofollow/);

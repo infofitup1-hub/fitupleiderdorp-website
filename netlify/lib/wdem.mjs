@@ -19,7 +19,7 @@ const FETCH_TIMEOUT_MS = 5000;
 const MAX_ATTEMPTS = 3; // 1 poging + 2 retries
 const BACKOFF_MS = [300, 900];
 const MAX_PAGES = 5; // 5 x 500 records: ruim boven elke realistische dag
-const MAX_CALLS = 40; // harde bovengrens per refresh (voorkomt API-storms)
+const MAX_CALLS = 250; // harde bovengrens per refresh (koude start van een week ~150)
 const DEADLINE_CRON_MS = 25000; // geplande functie mag 30s
 const DEADLINE_LAZY_MS = 8000; // bezoekersverzoek: netjes binnen de 10s
 
@@ -108,12 +108,6 @@ export function addDaysYmd(ymd, n) {
 export function amsterdamWall(now = new Date()) {
   const p = Object.fromEntries(dtf({ hour: "2-digit", minute: "2-digit", second: "2-digit" }).formatToParts(now).map((x) => [x.type, x.value]));
   return `${amsterdamDate(now)} ${p.hour}:${p.minute}:${p.second}`;
-}
-
-// Vanaf 20:00 (Europe/Amsterdam) tonen we ook de lessen van morgen.
-export const TOMORROW_FROM_HOUR = 20;
-export function showsTomorrow(now = new Date()) {
-  return amsterdamHour(now) >= TOMORROW_FROM_HOUR;
 }
 
 const wallOf = (t) => String(t || "").replace("T", " ").slice(0, 19);
@@ -296,7 +290,7 @@ async function resolveNames(ids, s, creds, ctx, nowMs) {
     return !hit;
   });
   let changed = false;
-  await Promise.all(missing.map(async (id) => {
+  await pool(missing, 8, async (id) => {
     try {
       const data = await vg(`member/${encodeURIComponent(id)}`, {}, creds, ctx);
       const m = Array.isArray(data?.result) ? data.result[0] : null;
@@ -311,7 +305,7 @@ async function resolveNames(ids, s, creds, ctx, nowMs) {
         ctx.memberFail += 1; // verlopen entry blijft bruikbaar; geen entry = "niet beschikbaar"
       }
     }
-  }));
+  });
   // Verlopen entries waarvan de vernieuwing mislukte, blijven bruikbaar (tot de prune-grens).
   const prune = Object.entries(cache).filter(([, v]) => !v || typeof v.n !== "string" || nowMs - v.t > NAME_PRUNE_MS);
   for (const [k] of prune) { delete cache[k]; changed = true; }
@@ -322,32 +316,66 @@ async function resolveNames(ids, s, creds, ctx, nowMs) {
   return (id) => (cache[id] ? cache[id].n : null);
 }
 
-function buildLesson(e, p) {
+// ---------- lessen (7 dagen) ----------
+
+// Per les: namen + onbekend uit de ruwe deelnemerslijst (alleen afgeschermde weergavenamen).
+function listToNames(list, nameOf) {
   const namen = [];
   let onbekend = 0;
-  for (const x of p.list) {
+  for (const x of list) {
     if (x.member_id) {
-      const n = p.nameOf(String(x.member_id));
+      const n = nameOf(String(x.member_id));
       if (n) namen.push(n); else onbekend += 1;
     } else {
       namen.push(x.user_name ? guestName(x.user_name) : "Lid");
     }
   }
   namen.sort((a, b) => a.localeCompare(b, "nl"));
+  return { namen, onbekend };
+}
+
+const attOf = (e) => (e.attendees !== null && e.attendees !== "" && e.attendees !== undefined && Number.isFinite(Number(e.attendees)) ? Number(e.attendees) : null);
+
+function makeLesson(e, { namen, onbekend, ok, incomplete }) {
   const max = Number(e.max_places) > 0 ? Number(e.max_places) : 0;
   const total = namen.length + onbekend;
-  const att = Number.isFinite(Number(e.attendees)) && e.attendees !== null && e.attendees !== "" ? Number(e.attendees) : null;
+  const att = attOf(e);
   let aantal = total;
   // Lijst onbetrouwbaar of onvolledig: val terug op het aantal dat Virtuagym zelf meldt.
-  if ((!p.ok || p.incomplete) && att !== null) aantal = att;
-  if (p.incomplete && aantal > total) onbekend += aantal - total;
+  if ((!ok || incomplete) && att !== null) aantal = att;
+  if (incomplete && aantal > total) onbekend += aantal - total;
   // Geen lijst en ook geen betrouwbaar aantal: niets verzinnen.
-  if (!p.ok && att === null) aantal = null;
+  if (!ok && att === null) aantal = null;
   return {
     start: e.start, end: e.end, title: String(e.title || ""),
-    namen, aantal, max, onbekend, namenBeschikbaar: p.ok,
+    namen, aantal, max, onbekend, namenBeschikbaar: ok,
   };
 }
+
+function finishedLesson(e) {
+  return {
+    start: e.start, end: e.end, title: String(e.title || ""), namen: [], aantal: attOf(e),
+    max: Number(e.max_places) > 0 ? Number(e.max_places) : 0, onbekend: 0, namenBeschikbaar: true, done: true,
+  };
+}
+
+async function pool(items, limit, fn) {
+  const out = new Array(items.length);
+  let i = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (i < items.length) {
+      const k = i++;
+      out[k] = await fn(items[k], k);
+    }
+  }));
+  return out;
+}
+
+// Per-les cache (alleen afgeschermde namen): hergebruik zolang het aantal aanmeldingen
+// (gratis uit de events-call) gelijk is en de les niet te oud is. Vandaag altijd vers.
+const REUSE_TTL_MS = [0, 20 * 60 * 1000]; // dag 0: nooit hergebruiken; dag 1: 20 min
+const REUSE_TTL_LATER_MS = 90 * 60 * 1000; // dag 2-6: 90 min
+export const WEEK_DAYS = 7;
 
 export async function fetchToday(s, now, ctx) {
   const apiKey = Netlify.env.get("VIRTUAGYM_API_KEY");
@@ -357,26 +385,40 @@ export async function fetchToday(s, now, ctx) {
   const creds = { apiKey, clubSecret, clubId };
 
   const today = amsterdamDate(now);
-  const wantTomorrow = showsTomorrow(now);
-  const tomorrow = addDaysYmd(today, 1);
+  const dates = Array.from({ length: WEEK_DAYS }, (_, i) => addDaysYmd(today, i));
   const wall = amsterdamWall(now);
+  const nowMs = now.getTime();
 
-  // Vandaag (en vanaf 20:00 ook morgen) in EEN events-call (zelfde paginering).
+  // Alle 7 dagen in EEN events-call (zelfde paginering).
   const evAll = await paginate("events/", {
     timestamp_start: String(Math.floor(startOfYmdMs(today) / 1000)),
-    timestamp_end: String(Math.floor(startOfYmdMs(addDaysYmd(today, wantTomorrow ? 2 : 1)) / 1000)),
+    timestamp_end: String(Math.floor(startOfYmdMs(addDaysYmd(today, WEEK_DAYS)) / 1000)),
   }, "event_id", null, creds, ctx);
 
   const sorted = evAll.records
-    .filter((e) => typeof e.start === "string" && e.canceled !== true)
+    .filter((e) => typeof e.start === "string" && e.canceled !== true && dates.includes(e.start.slice(0, 10)))
     .sort((a, b) => a.start.localeCompare(b.start) || String(a.title).localeCompare(String(b.title)));
-  const todayEv = sorted.filter((e) => e.start.slice(0, 10) === today);
-  const tomorrowEv = wantTomorrow ? sorted.filter((e) => e.start.slice(0, 10) === tomorrow) : [];
 
-  // Deelnemers alleen voor lessen die nog getoond worden (afgelopen lessen zijn verborgen,
-  // dus daar sparen we de call). Mislukte les = "namen niet beschikbaar", geen crash.
-  const todayLive = todayEv.filter((e) => !isFinished(e, wall));
-  const fetchParts = async (e) => {
+  let cache = {};
+  try { cache = (await s.get("lessons", { type: "json" })) || {}; } catch { cache = {}; }
+
+  // Beslis per les: afgelopen / hergebruik / leeg (0 aanmeldingen) / ophalen.
+  const plan = sorted.map((e) => {
+    const d = dates.indexOf(e.start.slice(0, 10));
+    const att = attOf(e);
+    const id = String(e.event_id);
+    if (d === 0 && isFinished(e, wall)) return { e, d, kind: "finished" };
+    const c = cache[id];
+    const ttl = d < REUSE_TTL_MS.length ? REUSE_TTL_MS[d] : REUSE_TTL_LATER_MS;
+    if (d > 0 && att === 0) return { e, d, kind: "empty" };
+    if (c && c.ok && !c.onbekend && !c.incomplete && att !== null && c.att === att && nowMs - c.t < ttl && Array.isArray(c.namen)) {
+      return { e, d, kind: "reuse", c };
+    }
+    return { e, d, kind: "fetch" };
+  });
+
+  const toFetch = plan.filter((p) => p.kind === "fetch");
+  const fetched = await pool(toFetch, 8, async ({ e }) => {
     try {
       const r = await paginate("eventparticipants/", { event_id: e.event_id, fill_guestname: "1" },
         "event_participant_id", "event_participant_id", creds, ctx);
@@ -385,96 +427,118 @@ export async function fetchToday(s, now, ctx) {
       ctx.partFail += 1;
       return { ok: false, list: [], incomplete: false };
     }
-  };
-  const liveEv = [...todayLive, ...tomorrowEv];
-  const liveParts = await Promise.all(liveEv.map(fetchParts));
-  const partOf = new Map(liveEv.map((e, i) => [e, liveParts[i]]));
+  });
+  toFetch.forEach((p, i) => { p.res = fetched[i]; });
 
-  const ids = [...new Set(liveParts.flatMap((p) => p.list).filter((p) => p.member_id).map((p) => String(p.member_id)))];
-  const nameOf = ids.length ? await resolveNames(ids, s, creds, ctx, now.getTime()) : () => null;
+  const ids = [...new Set(fetched.flatMap((p) => p.list).filter((x) => x.member_id).map((x) => String(x.member_id)))];
+  const nameOf = ids.length ? await resolveNames(ids, s, creds, ctx, nowMs) : () => null;
 
-  const finishedLesson = (e) => {
-    const att = Number(e.attendees);
-    return {
-      start: e.start, end: e.end, title: String(e.title || ""), namen: [],
-      aantal: Number.isFinite(att) ? att : null, max: Number(e.max_places) > 0 ? Number(e.max_places) : 0,
-      onbekend: 0, namenBeschikbaar: true, done: true,
-    };
-  };
-  const lessen = todayEv.map((e) => (partOf.has(e) ? buildLesson(e, { ...partOf.get(e), nameOf }) : finishedLesson(e)));
-
-  let tomorrowData = null;
-  if (wantTomorrow) {
-    try {
-      tomorrowData = { date: tomorrow, lessen: tomorrowEv.map((e) => buildLesson(e, { ...partOf.get(e), nameOf })) };
-    } catch {
-      tomorrowData = null; // morgen mislukt: vandaag blijft gewoon werken
+  const newCache = {};
+  const days = dates.map((date) => ({ date, lessen: [] }));
+  for (const p of plan) {
+    let lesson;
+    const id = String(p.e.event_id);
+    if (p.kind === "finished") {
+      lesson = finishedLesson(p.e);
+    } else if (p.kind === "empty") {
+      lesson = makeLesson(p.e, { namen: [], onbekend: 0, ok: true, incomplete: false });
+    } else if (p.kind === "reuse") {
+      lesson = makeLesson(p.e, { namen: p.c.namen, onbekend: 0, ok: true, incomplete: false });
+      newCache[id] = p.c;
+      ctx.reused += 1;
+    } else {
+      const { namen, onbekend } = listToNames(p.res.list, nameOf);
+      lesson = makeLesson(p.e, { namen, onbekend, ok: p.res.ok, incomplete: p.res.incomplete });
+      newCache[id] = { t: nowMs, att: attOf(p.e), namen, onbekend, ok: p.res.ok, incomplete: p.res.incomplete };
     }
+    days[p.d].lessen.push(lesson);
   }
-  return { today, lessen, tomorrow: tomorrowData, incomplete: liveParts.some((p) => p.incomplete) };
+  if (JSON.stringify(newCache) !== JSON.stringify(cache)) {
+    try { await s.setJSON("lessons", newCache); } catch { /* niet fataal */ }
+  }
+  return {
+    today, days, lessen: days[0].lessen,
+    incomplete: fetched.some((p) => p.incomplete),
+  };
 }
 
 // ---------- HTML ----------
 
 const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
+export const BRAND = "BuddyCheck";
+export const SUBTITLE = "Check wie er bij jouw groepsles staat ingeschreven.";
+
+// Zelfde fonts en tokens als fitupleiderdorp.nl: Barlow Condensed (koppen) + DM Sans (tekst).
+const FONT_LINKS = `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap">`;
+
 const STYLE = `<style>
-:root{--bg:#080A09;--card:#101311;--line:rgba(255,255,255,.10);--txt:#F4F5F1;--mute:#A7ADA8;--lime:#B7F229}
+:root{--black:#080A09;--soft:#101311;--graphite:#191D1A;--warm:#F4F5F1;--mute:#A7ADA8;--lime:#B7F229;--line:rgba(255,255,255,.10);--line-strong:rgba(255,255,255,.24);--fd:'Barlow Condensed','Arial Narrow',Arial,sans-serif;--fb:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+body{margin:0;background:var(--black);color:var(--warm);font:400 16px/1.55 var(--fb);padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
 main{max-width:560px;margin:0 auto}
-.top{padding:8px 0 20px}
-.eyebrow{margin:0 0 6px;color:var(--lime);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-h1{margin:0;font-size:32px;line-height:1.1;font-weight:800;letter-spacing:-.01em}
-.sub{margin:8px 0 0;color:var(--mute)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;margin:0 0 12px}
-.card header{display:flex;align-items:baseline;gap:12px}
-.card time{font-size:22px;font-weight:800;color:var(--lime);font-variant-numeric:tabular-nums}
-.card h2{margin:0;font-size:19px;line-height:1.25;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.top{padding:6px 0 8px}
+.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:var(--lime);font:700 14px/1 var(--fd);letter-spacing:4px;text-transform:uppercase}
+.eyebrow:before{content:"";width:24px;height:2px;background:var(--lime);flex:none}
+h1{margin:0 0 12px;font:900 clamp(44px,14vw,60px)/.94 var(--fd);letter-spacing:.4px;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--lime)}
+.sub{margin:0;color:var(--mute);font-size:16px}
+.day-h{display:flex;align-items:baseline;gap:12px;margin:38px 0 14px;font:900 30px/1 var(--fd);letter-spacing:.5px;text-transform:uppercase}
+.day-h span{color:var(--mute);font:500 16px/1.2 var(--fb);letter-spacing:.02em;text-transform:none}
+.day-h.first{margin-top:30px}
+.day-empty .day-h{margin:26px 0 4px}
+.note{margin:0;color:var(--mute);font-size:16px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;margin:0 0 12px}
+.card header{display:flex;align-items:baseline;gap:12px;min-width:0}
+.card time{flex:none;color:var(--lime);font:900 30px/1 var(--fd);font-variant-numeric:tabular-nums;letter-spacing:.3px}
+.card h3{margin:0;min-width:0;font:800 22px/1.1 var(--fd);letter-spacing:.5px;text-transform:uppercase;overflow-wrap:anywhere}
+.badge{margin-left:auto;align-self:center;flex:none;padding:3px 10px;border:1px solid var(--line-strong);border-radius:6px;background:rgba(255,255,255,.06);color:var(--warm);font:700 14px/1.3 var(--fd);letter-spacing:2px;text-transform:uppercase}
 .count{margin:10px 0 8px;color:var(--mute);font-size:16px}
-.count.full{color:var(--txt)}
-.bar{height:3px;border-radius:2px;background:rgba(255,255,255,.10);overflow:hidden;margin:0 0 14px}
+.count.full{color:var(--warm)}
+.free{color:var(--warm);font-weight:600}
+.bar{height:3px;border-radius:2px;background:var(--line);overflow:hidden;margin:0 0 14px}
 .bar span{display:block;height:100%;background:var(--lime)}
-ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-li{padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.04);font-size:16px}
-.empty{margin:6px 0 0;color:var(--mute)}
-.card header{min-width:0}
-.card h2,li{overflow-wrap:anywhere}
-.badge{margin-left:auto;align-self:center;flex:none;padding:2px 10px;border:1px solid rgba(244,245,241,.28);border-radius:999px;background:rgba(255,255,255,.06);color:var(--txt);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.free{color:var(--txt)}
 .card.is-full .bar span{background:rgba(244,245,241,.45)}
-.sec{display:flex;align-items:baseline;gap:10px;margin:28px 0 12px;color:var(--mute);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.sec span{font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
-.sec.first{margin-top:0}
+ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+li{padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.04);font-size:16px;overflow-wrap:anywhere}
+.empty{margin:6px 0 0;color:var(--mute)}
 ul+.empty{margin-top:10px}
-.none,.stale{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--card);color:var(--mute)}
-.none h2,.stale h2{margin:0 0 6px;color:var(--txt);font-size:19px}
+.none,.stale{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--soft);color:var(--mute)}
+.none h3,.stale h2{margin:0 0 6px;color:var(--warm);font:800 22px/1.1 var(--fd);letter-spacing:.5px;text-transform:uppercase}
 .none p,.stale p{margin:0}
-.foot{margin:20px 0 0;color:var(--mute);font-size:14px;text-align:center}
+.foot{margin:28px 0 0;color:var(--mute);font-size:14px;text-align:center}
 [hidden]{display:none!important}
 </style>`;
+
+const HEAD = (title) => `<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="refresh" content="60">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark">
+<title>${title}</title>
+${FONT_LINKS}
+${STYLE}`;
+
+const TOP = `<div class="top">
+<p class="eyebrow">Fit Up Leiderdorp</p>
+<h1>Buddy<em>Check</em></h1>
+<p class="sub">${SUBTITLE}</p>
+</div>`;
 
 // Neutrale pagina zonder enige deelnemersdata: gebruikt als er geen actuele gegevens zijn
 // (nieuwe dag, data te oud, fout). Server-side, dus oude namen staan nooit in de bron.
 export const STALE_HTML = `<!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="refresh" content="60">
-<meta name="robots" content="noindex,nofollow">
-<meta name="color-scheme" content="dark">
-<title>Wie doet er mee? - Fit Up</title>
-${STYLE}
+${HEAD(`${BRAND} - Fit Up`)}
 </head>
 <body>
 <main>
-<div class="top">
-<p class="eyebrow">Fit Up Leiderdorp</p>
-<h1>Wie doet er mee?</h1>
-</div>
-<div class="stale"><h2>Nog geen actuele gegevens</h2><p>De inschrijvingen van vandaag worden zo bijgewerkt. Probeer het over enkele minuten opnieuw.</p></div>
+${TOP}
+<div class="stale" style="margin-top:28px"><h2>Nog geen actuele gegevens</h2><p>De inschrijvingen worden zo bijgewerkt. Probeer het over enkele minuten opnieuw.</p></div>
 </main>
 </body>
 </html>
@@ -502,7 +566,7 @@ function cardHtml(l) {
   }
   return [
     `<article class="card${vol ? " is-full" : ""}">`,
-    `<header><time>${esc(l.start.slice(11, 16))}</time><h2>${esc(l.title)}</h2>${vol ? `<span class="badge">Vol</span>` : ""}</header>`,
+    `<header><time>${esc(l.start.slice(11, 16))}</time><h3>${esc(l.title)}</h3>${vol ? `<span class="badge">Vol</span>` : ""}</header>`,
     `<p class="count${vol ? " full" : ""}">${esc(telling)}${vrijTekst}</p>`,
     l.max > 0 && heeftAantal ? `<div class="bar" aria-hidden="true"><span style="width:${pct}%"></span></div>` : "",
     body,
@@ -516,46 +580,50 @@ export function visibleToday(lessen, now = new Date()) {
   return lessen.filter((l) => !isFinished(l, wall));
 }
 
+// Oudere records (voor de weekweergave) hadden { today, lessen }: lees die als 1 dag.
+function weekOf(data) {
+  if (Array.isArray(data.days) && data.days.length) return data.days;
+  return [{ date: data.today, lessen: data.lessen || [] }];
+}
+
+function shortDate(date) {
+  const [y, m, d] = date.split("-").map(Number);
+  return `${d} ${MAANDEN[m - 1]}`;
+}
+
+function dayLabels(i, date) {
+  const [y, m, d] = date.split("-").map(Number);
+  const weekday = DAGEN[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
+  if (i === 0) return { name: "Vandaag", sub: datumTekst(date) };
+  if (i === 1) return { name: "Morgen", sub: datumTekst(date) };
+  return { name: weekday, sub: shortDate(date) };
+}
+
 // Rendert de pagina voor het moment `now` (bij elk bezoek opnieuw, vanuit de opgeslagen data):
 // zo verdwijnen afgelopen lessen precies op tijd, zonder extra API-calls.
-export function buildHtml({ today, lessen, tomorrow }, now = new Date(), updatedAt = now) {
-  const vis = visibleToday(lessen, now);
-  const morgen = tomorrow && showsTomorrow(now) && tomorrow.lessen.length ? tomorrow : null;
-  let totaal = 0;
-  for (const l of vis) totaal += l.aantal || 0;
-
-  const todayCards = vis.map(cardHtml);
-  if (!lessen.length) {
-    todayCards.push(`<div class="none"><h2>Vandaag geen groepslessen</h2><p>Kijk morgen weer of bekijk het lesrooster in de app.</p></div>`);
-  } else if (!vis.length) {
-    todayCards.push(`<div class="none"><h2>Geen lessen meer vandaag</h2><p>${morgen ? "Hieronder staan de lessen van morgen." : "Kijk morgen weer of bekijk het lesrooster in de app."}</p></div>`);
-  }
-  const heading = (t, date, first) => `<h2 class="sec${first ? " first" : ""}">${t}<span>${esc(datumTekst(date))}</span></h2>`;
-  const sections = morgen
-    ? [heading("Vandaag", today, true), ...todayCards, heading("Morgen", morgen.date, false), ...morgen.lessen.map(cardHtml)]
-    : todayCards;
+export function buildHtml(data, now = new Date(), updatedAt = now) {
+  const { today } = data;
+  const days = weekOf(data);
+  const parts = days.map((day, i) => {
+    const lessen = i === 0 ? visibleToday(day.lessen, now) : day.lessen;
+    const { name, sub } = dayLabels(i, day.date);
+    const h = `<h2 class="day-h${i === 0 ? " first" : ""}">${esc(name)}<span>${esc(sub)}</span></h2>`;
+    if (lessen.length) return `<section class="day">\n${h}\n${lessen.map(cardHtml).join("\n")}\n</section>`;
+    const note = i === 0 ? (day.lessen.length ? "Geen lessen meer vandaag." : "Vandaag geen groepslessen.") : "Geen lessen.";
+    return `<section class="day day-empty">\n${h}\n<p class="note">${note}</p>\n</section>`;
+  });
 
   return `<!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="refresh" content="60">
-<meta name="robots" content="noindex,nofollow">
-<meta name="color-scheme" content="dark">
-<title>Wie doet er mee? - Fit Up</title>
-${STYLE}
+${HEAD(`${BRAND} - Fit Up`)}
 </head>
 <body data-date="${esc(today)}">
 <main>
-<div class="top">
-<p class="eyebrow">Fit Up Leiderdorp</p>
-<h1>Wie doet er mee?</h1>
-<p class="sub">${esc(datumTekst(today))} &middot; ${vis.length} ${vis.length === 1 ? "groepsles" : "groepslessen"} &middot; ${totaal} inschrijvingen</p>
-</div>
-<div id="stale" class="stale" hidden><h2>Nog geen actuele gegevens</h2><p>De inschrijvingen van vandaag worden zo bijgewerkt. Probeer het over enkele minuten opnieuw.</p></div>
+${TOP}
+<div id="stale" class="stale" hidden style="margin-top:28px"><h2>Nog geen actuele gegevens</h2><p>De inschrijvingen worden zo bijgewerkt. Probeer het over enkele minuten opnieuw.</p></div>
 <div id="lessen">
-${sections.join("\n")}
+${parts.join("\n")}
 </div>
 <p class="foot">Bijgewerkt om ${esc(hhmm(updatedAt))} &middot; ververst automatisch</p>
 </main>
@@ -576,15 +644,13 @@ export function pageFor(rec, now = new Date()) {
   if (!rec || typeof rec.html !== "string") return STALE_HTML;
   if (rec.date !== amsterdamDate(now)) return STALE_HTML;
   if (now.getTime() - rec.updatedAt > MAX_SERVE_AGE_MS) return STALE_HTML;
-  // Nieuwe records bevatten de data: render voor dit moment (verbergt afgelopen lessen).
+  // Records bevatten de data: render voor dit moment (verbergt afgelopen lessen).
   if (rec.data) return buildHtml(rec.data, now, new Date(rec.updatedAt));
   return rec.html;
 }
 
 export function needsRefresh(rec, now = new Date()) {
-  if (!rec || rec.date !== amsterdamDate(now) || now.getTime() - rec.updatedAt > STALE_AFTER_MS) return true;
-  // Vanaf 20:00 moet morgen erbij zitten; ontbreekt dat (pagina van voor 20:00): verversen.
-  return showsTomorrow(now) && !rec.withTomorrow;
+  return !rec || rec.date !== amsterdamDate(now) || now.getTime() - rec.updatedAt > STALE_AFTER_MS;
 }
 
 // ---------- verversen ----------
@@ -620,22 +686,22 @@ export async function refresh(s, { force = false, trigger = "cron", now = new Da
   try { await s.setJSON("lock", { t: nowMs, ttl: LOCK_MS }); } catch { /* niet fataal */ }
 
   const ctx = {
-    calls: 0, cacheHit: 0, cacheMiss: 0, memberFail: 0, partFail: 0,
+    calls: 0, cacheHit: 0, cacheMiss: 0, memberFail: 0, partFail: 0, reused: 0,
     deadline: Date.now() + (trigger === "cron" ? DEADLINE_CRON_MS : DEADLINE_LAZY_MS),
   };
   try {
     const data = await fetchToday(s, now, ctx);
     const rec = {
       html: buildHtml(data, now), data, updatedAt: nowMs, date: data.today,
-      lessen: data.lessen.length, withTomorrow: showsTomorrow(now),
+      lessen: data.lessen.length,
     };
     await s.setJSON("page", rec);
-    const deelnemers = visibleToday(data.lessen, now).reduce((a, l) => a + (l.aantal || 0), 0);
+    const week = data.days.reduce((a, d) => a + d.lessen.length, 0);
     log({
-      trigger, ams: stamp, status: "ok", lessen: data.lessen.length, morgen: data.tomorrow ? data.tomorrow.lessen.length : null,
-      deelnemers, calls: ctx.calls,
-      cacheHit: ctx.cacheHit, cacheMiss: ctx.cacheMiss, partFail: ctx.partFail, memberFail: ctx.memberFail,
-      incomplete: data.incomplete, ms: Date.now() - t0,
+      trigger, ams: stamp, status: "ok", lessenVandaag: data.lessen.length, lessenWeek: week,
+      deelnemersVandaag: visibleToday(data.lessen, now).reduce((a, l) => a + (l.aantal || 0), 0),
+      calls: ctx.calls, hergebruikt: ctx.reused, cacheHit: ctx.cacheHit, cacheMiss: ctx.cacheMiss,
+      partFail: ctx.partFail, memberFail: ctx.memberFail, incomplete: data.incomplete, ms: Date.now() - t0,
     });
     return { status: "ok", rec, calls: ctx.calls };
   } catch (err) {
