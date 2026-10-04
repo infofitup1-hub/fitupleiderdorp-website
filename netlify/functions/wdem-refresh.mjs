@@ -1,16 +1,16 @@
 // Geplande functie: ververst elke 10 minuten de "Wie doet er mee?"-pagina server-side.
-// Draait alleen op de gepubliceerde (productie-)deploy. 's Nachts (23:00-05:00) geen calls:
-// er zijn dan geen lessen, en de pagina ververst zichzelf bij het eerste bezoek.
+// De cron triggert 24/7; refresh() dwingt zelf het venster 05:00-23:00 Europe/Amsterdam af
+// (zomer- en wintertijd via Intl, geen vaste UTC-offset) en doet daarbuiten een succesvolle
+// no-op: geen Virtuagym-calls, bestaande pagina blijft staan, geen foutstatus.
 
-import { store, refresh, amsterdamHour } from "../lib/wdem.mjs";
+import { store, refresh } from "../lib/wdem.mjs";
 
 export default async () => {
-  const h = amsterdamHour();
-  if (h >= 23 || h < 5) return;
   try {
-    await refresh(store(), { force: true });
+    await refresh(await store(), { force: true, trigger: "cron" });
   } catch (err) {
-    console.error("wdem-refresh mislukt:", err?.message || err);
+    // refresh() gooit niet; dit vangt alleen een store-initialisatiefout af.
+    console.log(JSON.stringify({ ev: "wdem_refresh", trigger: "cron", status: "error", category: "store" }));
   }
 };
 

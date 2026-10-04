@@ -4,12 +4,13 @@
 //
 // De data wordt volledig server-side opgehaald (netlify/lib/wdem.mjs): door de geplande
 // functie wdem-refresh elke 10 minuten en - als vangnet - hier als de opgeslagen pagina
-// te oud is. Geen upload meer, geen lokale pc nodig. Zonder of met een fout token: 403.
+// te oud is (alleen binnen 05:00-23:00 Europe/Amsterdam). Oude data (andere dag, > 2 uur)
+// wordt nooit getoond: dan staat er de neutrale pagina "Nog geen actuele gegevens". Geen upload meer, geen lokale pc nodig. Zonder of met een fout token: 403.
 // Hier staat alleen de SHA-256-hash van het view-token (niet terug te rekenen);
 // env var WDEM_VIEW_TOKEN_SHA256 overschrijft die hash.
 
 import { createHash, timingSafeEqual } from "node:crypto";
-import { store, readPage, refresh, STALE_AFTER_MS } from "../lib/wdem.mjs";
+import { store, readPage, refresh, pageFor, needsRefresh, isActiveWindow, STALE_HTML } from "../lib/wdem.mjs";
 
 const VIEW_TOKEN_SHA256 = "60429446d0e46a6f2c69bf9bcf6fe9ec37ad423699c322c9eb41386bcb394d5a";
 
@@ -32,8 +33,6 @@ const SHELL = (title, text) => `<!DOCTYPE html>
 </head><body><main><h1>${title}</h1><p>${text}</p></main></body></html>`;
 
 const DENIED_HTML = SHELL("Geen toegang", "Open deze pagina via de Fit Up-app.");
-const LOADING_HTML = `<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><meta http-equiv="refresh" content="30"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Wie doet er mee? - Fit Up</title><style>body{margin:0;background:#080A09;color:#F4F5F1;font:16px/1.5 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:32px 16px}main{max-width:560px;margin:0 auto}h1{font-size:30px;margin:0 0 8px}p{color:#A7ADA8;margin:0}</style></head><body><main><h1>Wie doet er mee?</h1><p>De inschrijvingen worden zo geladen. Probeer het over enkele minuten opnieuw.</p></main></body></html>`;
-
 function tokenOk(given, expectedHash) {
   given = String(given || "").trim();
   if (given.length < 32 || given.length > 256) return false;
@@ -53,17 +52,21 @@ export default async (req) => {
   }
   if (req.method === "HEAD") return new Response(null, { status: 200, headers: PAGE_HEADERS });
 
-  const s = store();
-  let rec = await readPage(s);
-  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
-  if (!rec || rec.date !== today || Date.now() - rec.updatedAt > STALE_AFTER_MS) {
-    try {
-      rec = (await refresh(s)) || rec;
-    } catch {
-      /* Virtuagym even niet bereikbaar: toon de laatst bekende pagina */
+  // Nooit een stacktrace of foutdetail naar de bezoeker: bij een onverwachte fout de
+  // neutrale pagina zonder gegevens.
+  try {
+    const s = await store();
+    let rec = await readPage(s);
+    const now = new Date();
+    if (needsRefresh(rec, now) && isActiveWindow(now)) {
+      const r = await refresh(s, { trigger: "lazy", now });
+      if (r.status === "ok") rec = r.rec;
     }
+    // pageFor toont alleen data van vandaag (Amsterdam); anders de neutrale pagina.
+    return new Response(pageFor(rec, new Date()), { status: 200, headers: PAGE_HEADERS });
+  } catch {
+    return new Response(STALE_HTML, { status: 200, headers: PAGE_HEADERS });
   }
-  return new Response(rec?.html || LOADING_HTML, { status: 200, headers: PAGE_HEADERS });
 };
 
 export const config = {
