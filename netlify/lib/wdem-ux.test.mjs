@@ -379,3 +379,14 @@ test("privacy: geen lid-id, volledige naam, JSON of API-data in de HTML; noindex
   assert.match(r.rec.html, /Anouk K\./);
   assert.match(r.rec.html, /noindex,nofollow/);
 });
+
+test("infotekst onderaan: Rooster-tip zonder link, lime accent, na de lessen en voor de voettekst", () => {
+  const h = render({ today: "2026-07-15", lessen: [] }, MID);
+  assert.match(h, /<p class="tip">Boeken of annuleren\? Doe dat via <b>Rooster<\/b> in de Fit Up-app\.<\/p>/);
+  assert.match(h, /\.tip b\{color:var\(--lime\)/);
+  assert.match(h, /\.tip\{[^}]*font-size:16px[^}]*overflow-wrap:anywhere/);
+  const tip = body(h).match(/<p class="tip">.*?<\/p>/)[0];
+  assert.doesNotMatch(tip, /<a |href|button/i);
+  assert.ok(body(h).indexOf('class="tip"') > body(h).indexOf('id="lessen"'));
+  assert.ok(body(h).indexOf('class="tip"') < body(h).indexOf('class="foot"'));
+});
