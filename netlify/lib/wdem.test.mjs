@@ -185,7 +185,7 @@ test("startOfDay: zomer/winter/omschakeldagen zonder vaste offset", () => {
 
 test("middernacht: vlak voor 00:00 geldig, vlak erna nooit oude namen", async () => {
   mockApi({
-    "events/": () => ok([ev("e1", "2026-10-04 20:00:00")]),
+    "events/": () => ok([ev("e1", "2026-10-04 22:30:00", { end: "2026-10-04 23:59:59" })]),
     "eventparticipants/": () => ok([part(1, 11)]),
     "member/": () => member("Anouk", "Kok"),
   });
@@ -335,7 +335,7 @@ test("cache bevat alleen afgeschermde naam + tijd; TTL, naamswijziging en prune"
   let achternaam = "kok";
   let dag = "2026-10-04";
   const c = mockApi({
-    "events/": () => ok([ev("e1", `${dag} 10:00:00`)]),
+    "events/": () => ok([ev("e1", `${dag} 10:00:00`, { end: `${dag} 23:30:00` })]),
     "eventparticipants/": () => ok([part(1, 11)]),
     "member/": () => member("anouk", achternaam),
   });

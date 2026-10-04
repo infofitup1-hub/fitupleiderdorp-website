@@ -86,12 +86,51 @@ function tzOffsetMs(d) {
   return asUTC - Math.floor(d.getTime() / 1000) * 1000;
 }
 
-export function startOfDayMs(now) {
-  const [y, m, d] = amsterdamDate(now).split("-").map(Number);
+export function startOfYmdMs(ymd) {
+  const [y, m, d] = ymd.split("-").map(Number);
   const guess = Date.UTC(y, m - 1, d);
   const off1 = tzOffsetMs(new Date(guess));
   const off2 = tzOffsetMs(new Date(guess - off1));
   return guess - off2;
+}
+
+export function startOfDayMs(now) {
+  return startOfYmdMs(amsterdamDate(now));
+}
+
+export function addDaysYmd(ymd, n) {
+  const [y, m, d] = ymd.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10);
+}
+
+// Wandklok-tijd in Amsterdam als "YYYY-MM-DD HH:MM:SS": direct vergelijkbaar met de
+// lokale tijdstempels van Virtuagym ("2026-10-04 10:00:00"), ook rond zomer-/wintertijd.
+export function amsterdamWall(now = new Date()) {
+  const p = Object.fromEntries(dtf({ hour: "2-digit", minute: "2-digit", second: "2-digit" }).formatToParts(now).map((x) => [x.type, x.value]));
+  return `${amsterdamDate(now)} ${p.hour}:${p.minute}:${p.second}`;
+}
+
+// Vanaf 20:00 (Europe/Amsterdam) tonen we ook de lessen van morgen.
+export const TOMORROW_FROM_HOUR = 20;
+export function showsTomorrow(now = new Date()) {
+  return amsterdamHour(now) >= TOMORROW_FROM_HOUR;
+}
+
+const wallOf = (t) => String(t || "").replace("T", " ").slice(0, 19);
+
+// Een les is "afgelopen" zodra de eindtijd bereikt is (einde = afgelopen). Zonder
+// eindtijd nemen we 60 minuten na de start aan.
+export function lessonEnd(l) {
+  const e = wallOf(l.end);
+  if (e.length >= 16) return e;
+  const st = wallOf(l.start);
+  const [y, mo, d] = st.slice(0, 10).split("-").map(Number);
+  const [h, mi] = st.slice(11, 16).split(":").map(Number);
+  return new Date(Date.UTC(y, mo - 1, d, h, mi + 60)).toISOString().slice(0, 19).replace("T", " ");
+}
+
+export function isFinished(l, wall) {
+  return lessonEnd(l) <= wall;
 }
 
 function hhmm(now) {
@@ -283,6 +322,33 @@ async function resolveNames(ids, s, creds, ctx, nowMs) {
   return (id) => (cache[id] ? cache[id].n : null);
 }
 
+function buildLesson(e, p) {
+  const namen = [];
+  let onbekend = 0;
+  for (const x of p.list) {
+    if (x.member_id) {
+      const n = p.nameOf(String(x.member_id));
+      if (n) namen.push(n); else onbekend += 1;
+    } else {
+      namen.push(x.user_name ? guestName(x.user_name) : "Lid");
+    }
+  }
+  namen.sort((a, b) => a.localeCompare(b, "nl"));
+  const max = Number(e.max_places) > 0 ? Number(e.max_places) : 0;
+  const total = namen.length + onbekend;
+  const att = Number.isFinite(Number(e.attendees)) && e.attendees !== null && e.attendees !== "" ? Number(e.attendees) : null;
+  let aantal = total;
+  // Lijst onbetrouwbaar of onvolledig: val terug op het aantal dat Virtuagym zelf meldt.
+  if ((!p.ok || p.incomplete) && att !== null) aantal = att;
+  if (p.incomplete && aantal > total) onbekend += aantal - total;
+  // Geen lijst en ook geen betrouwbaar aantal: niets verzinnen.
+  if (!p.ok && att === null) aantal = null;
+  return {
+    start: e.start, end: e.end, title: String(e.title || ""),
+    namen, aantal, max, onbekend, namenBeschikbaar: p.ok,
+  };
+}
+
 export async function fetchToday(s, now, ctx) {
   const apiKey = Netlify.env.get("VIRTUAGYM_API_KEY");
   const clubSecret = Netlify.env.get("VIRTUAGYM_CLUB_SECRET");
@@ -291,57 +357,61 @@ export async function fetchToday(s, now, ctx) {
   const creds = { apiKey, clubSecret, clubId };
 
   const today = amsterdamDate(now);
-  const startMs = startOfDayMs(now);
+  const wantTomorrow = showsTomorrow(now);
+  const tomorrow = addDaysYmd(today, 1);
+  const wall = amsterdamWall(now);
+
+  // Vandaag (en vanaf 20:00 ook morgen) in EEN events-call (zelfde paginering).
   const evAll = await paginate("events/", {
-    timestamp_start: String(Math.floor(startMs / 1000)),
-    timestamp_end: String(Math.floor((startMs + 24 * 3600 * 1000) / 1000)),
+    timestamp_start: String(Math.floor(startOfYmdMs(today) / 1000)),
+    timestamp_end: String(Math.floor(startOfYmdMs(addDaysYmd(today, wantTomorrow ? 2 : 1)) / 1000)),
   }, "event_id", null, creds, ctx);
 
-  const events = evAll.records
-    .filter((e) => typeof e.start === "string" && e.start.slice(0, 10) === today && e.canceled !== true)
+  const sorted = evAll.records
+    .filter((e) => typeof e.start === "string" && e.canceled !== true)
     .sort((a, b) => a.start.localeCompare(b.start) || String(a.title).localeCompare(String(b.title)));
+  const todayEv = sorted.filter((e) => e.start.slice(0, 10) === today);
+  const tomorrowEv = wantTomorrow ? sorted.filter((e) => e.start.slice(0, 10) === tomorrow) : [];
 
-  // Deelnemers per les (parallel). Mislukte les = "namen niet beschikbaar", geen crash.
-  const parts = await Promise.all(events.map(async (e) => {
+  // Deelnemers alleen voor lessen die nog getoond worden (afgelopen lessen zijn verborgen,
+  // dus daar sparen we de call). Mislukte les = "namen niet beschikbaar", geen crash.
+  const todayLive = todayEv.filter((e) => !isFinished(e, wall));
+  const fetchParts = async (e) => {
     try {
       const r = await paginate("eventparticipants/", { event_id: e.event_id, fill_guestname: "1" },
         "event_participant_id", "event_participant_id", creds, ctx);
       return { ok: true, list: r.records, incomplete: r.incomplete };
-    } catch (err) {
+    } catch {
       ctx.partFail += 1;
       return { ok: false, list: [], incomplete: false };
     }
-  }));
+  };
+  const liveEv = [...todayLive, ...tomorrowEv];
+  const liveParts = await Promise.all(liveEv.map(fetchParts));
+  const partOf = new Map(liveEv.map((e, i) => [e, liveParts[i]]));
 
-  const ids = [...new Set(parts.flatMap((p) => p.list).filter((p) => p.member_id).map((p) => String(p.member_id)))];
+  const ids = [...new Set(liveParts.flatMap((p) => p.list).filter((p) => p.member_id).map((p) => String(p.member_id)))];
   const nameOf = ids.length ? await resolveNames(ids, s, creds, ctx, now.getTime()) : () => null;
 
-  const lessen = events.map((e, i) => {
-    const p = parts[i];
-    const namen = [];
-    let onbekend = 0;
-    for (const x of p.list) {
-      if (x.member_id) {
-        const n = nameOf(String(x.member_id));
-        if (n) namen.push(n); else onbekend += 1;
-      } else {
-        namen.push(x.user_name ? guestName(x.user_name) : "Lid");
-      }
-    }
-    namen.sort((a, b) => a.localeCompare(b, "nl"));
-    const max = Number(e.max_places) > 0 ? Number(e.max_places) : 0;
-    const total = namen.length + onbekend;
+  const finishedLesson = (e) => {
     const att = Number(e.attendees);
-    let aantal = total;
-    // Lijst onbetrouwbaar of onvolledig: val terug op het aantal dat Virtuagym zelf meldt.
-    if ((!p.ok || p.incomplete) && Number.isFinite(att)) aantal = att;
-    if (p.incomplete && aantal > total) onbekend += aantal - total;
     return {
-      start: e.start, end: e.end, title: String(e.title || ""),
-      namen, aantal, max, onbekend, namenBeschikbaar: p.ok,
+      start: e.start, end: e.end, title: String(e.title || ""), namen: [],
+      aantal: Number.isFinite(att) ? att : null, max: Number(e.max_places) > 0 ? Number(e.max_places) : 0,
+      onbekend: 0, namenBeschikbaar: true, done: true,
     };
-  });
-  return { today, lessen, incomplete: parts.some((p) => p.incomplete) };
+  };
+  const lessen = todayEv.map((e) => (partOf.has(e) ? buildLesson(e, { ...partOf.get(e), nameOf }) : finishedLesson(e)));
+
+  let tomorrowData = null;
+  if (wantTomorrow) {
+    try {
+      tomorrowData = { date: tomorrow, lessen: tomorrowEv.map((e) => buildLesson(e, { ...partOf.get(e), nameOf })) };
+    } catch {
+      tomorrowData = null; // morgen mislukt: vandaag blijft gewoon werken
+    }
+  }
+  return { today, lessen, tomorrow: tomorrowData, incomplete: liveParts.some((p) => p.incomplete) };
 }
 
 // ---------- HTML ----------
@@ -369,8 +439,15 @@ h1{margin:0;font-size:32px;line-height:1.1;font-weight:800;letter-spacing:-.01em
 ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 li{padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.04);font-size:16px}
 .empty{margin:6px 0 0;color:var(--mute)}
+.card header{min-width:0}
+.card h2,li{overflow-wrap:anywhere}
+.badge{margin-left:auto;align-self:center;flex:none;padding:2px 10px;border:1px solid rgba(244,245,241,.28);border-radius:999px;background:rgba(255,255,255,.06);color:var(--txt);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.free{color:var(--txt)}
+.card.is-full .bar span{background:rgba(244,245,241,.45)}
+.sec{display:flex;align-items:baseline;gap:10px;margin:28px 0 12px;color:var(--mute);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.sec span{font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
+.sec.first{margin-top:0}
 ul+.empty{margin-top:10px}
-.card.past{opacity:.55}
 .none,.stale{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--card);color:var(--mute)}
 .none h2,.stale h2{margin:0 0 6px;color:var(--txt);font-size:19px}
 .none p,.stale p{margin:0}
@@ -403,35 +480,60 @@ ${STYLE}
 </html>
 `;
 
-export function buildHtml({ today, lessen }, now = new Date()) {
-  let totaal = 0;
-  const cards = lessen.map((l) => {
-    totaal += l.aantal;
-    const tijd = l.start.slice(11, 16);
-    const eind = (l.end || "").replace(" ", "T") || l.start.replace(" ", "T");
-    const vol = l.max > 0 && l.aantal >= l.max;
-    const telling = l.max > 0 ? `${l.aantal} / ${l.max} deelnemers` : l.aantal === 1 ? "1 deelnemer" : `${l.aantal} deelnemers`;
-    const pct = l.max > 0 ? Math.min(100, Math.round((100 * l.aantal) / l.max)) : 0;
-    let body;
-    if (!l.namenBeschikbaar) body = `<p class="empty">Namen tijdelijk niet beschikbaar.</p>`;
-    else if (!l.namen.length && !l.onbekend) body = `<p class="empty">Nog niemand ingeschreven. Wees de eerste!</p>`;
-    else {
-      const lijst = l.namen.length ? `<ul>\n${l.namen.map((n) => `<li>${esc(n)}</li>`).join("\n")}\n</ul>` : "";
-      const rest = l.onbekend ? `<p class="empty">${l.namen.length ? "+ " : ""}${l.onbekend} ${l.onbekend === 1 ? "naam" : "namen"} tijdelijk niet beschikbaar.</p>` : "";
-      body = [lijst, rest].filter(Boolean).join("\n");
-    }
-    return [
-      `<article class="card" data-end="${esc(eind)}">`,
-      `<header><time>${esc(tijd)}</time><h2>${esc(l.title)}</h2></header>`,
-      `<p class="count${vol ? " full" : ""}">${esc(telling)}${vol ? " &middot; vol" : ""}</p>`,
-      l.max > 0 ? `<div class="bar" aria-hidden="true"><span style="width:${pct}%"></span></div>` : "",
-      body,
-      `</article>`,
-    ].filter(Boolean).join("\n");
-  });
-  if (!lessen.length) {
-    cards.push(`<div class="none"><h2>Vandaag geen groepslessen</h2><p>Kijk morgen weer of bekijk het lesrooster in de app.</p></div>`);
+function cardHtml(l) {
+  const heeftAantal = l.aantal !== null && l.aantal !== undefined;
+  const vol = l.max > 0 && heeftAantal && l.aantal >= l.max;
+  const vrij = l.max > 0 && heeftAantal ? Math.max(0, l.max - l.aantal) : null; // nooit negatief
+  let telling = "";
+  if (heeftAantal) {
+    telling = l.max > 0 ? `${l.aantal} / ${l.max} deelnemers` : l.aantal === 1 ? "1 deelnemer" : `${l.aantal} deelnemers`;
+  } else {
+    telling = "Aantal tijdelijk niet beschikbaar";
   }
+  const vrijTekst = vrij !== null && vrij > 0 ? ` &middot; <span class="free">${vrij} ${vrij === 1 ? "plek" : "plekken"} vrij</span>` : "";
+  const pct = l.max > 0 && heeftAantal ? Math.min(100, Math.round((100 * l.aantal) / l.max)) : 0;
+  let body;
+  if (!l.namenBeschikbaar) body = `<p class="empty">Namen tijdelijk niet beschikbaar.</p>`;
+  else if (!l.namen.length && !l.onbekend) body = `<p class="empty">Nog niemand ingeschreven. Wees de eerste!</p>`;
+  else {
+    const lijst = l.namen.length ? `<ul>\n${l.namen.map((n) => `<li>${esc(n)}</li>`).join("\n")}\n</ul>` : "";
+    const rest = l.onbekend ? `<p class="empty">${l.namen.length ? "+ " : ""}${l.onbekend} ${l.onbekend === 1 ? "naam" : "namen"} tijdelijk niet beschikbaar.</p>` : "";
+    body = [lijst, rest].filter(Boolean).join("\n");
+  }
+  return [
+    `<article class="card${vol ? " is-full" : ""}">`,
+    `<header><time>${esc(l.start.slice(11, 16))}</time><h2>${esc(l.title)}</h2>${vol ? `<span class="badge">Vol</span>` : ""}</header>`,
+    `<p class="count${vol ? " full" : ""}">${esc(telling)}${vrijTekst}</p>`,
+    l.max > 0 && heeftAantal ? `<div class="bar" aria-hidden="true"><span style="width:${pct}%"></span></div>` : "",
+    body,
+    `</article>`,
+  ].filter(Boolean).join("\n");
+}
+
+// Lessen die al afgelopen zijn (Amsterdam-tijd, einde = afgelopen) worden niet getoond.
+export function visibleToday(lessen, now = new Date()) {
+  const wall = amsterdamWall(now);
+  return lessen.filter((l) => !isFinished(l, wall));
+}
+
+// Rendert de pagina voor het moment `now` (bij elk bezoek opnieuw, vanuit de opgeslagen data):
+// zo verdwijnen afgelopen lessen precies op tijd, zonder extra API-calls.
+export function buildHtml({ today, lessen, tomorrow }, now = new Date(), updatedAt = now) {
+  const vis = visibleToday(lessen, now);
+  const morgen = tomorrow && showsTomorrow(now) && tomorrow.lessen.length ? tomorrow : null;
+  let totaal = 0;
+  for (const l of vis) totaal += l.aantal || 0;
+
+  const todayCards = vis.map(cardHtml);
+  if (!lessen.length) {
+    todayCards.push(`<div class="none"><h2>Vandaag geen groepslessen</h2><p>Kijk morgen weer of bekijk het lesrooster in de app.</p></div>`);
+  } else if (!vis.length) {
+    todayCards.push(`<div class="none"><h2>Geen lessen meer vandaag</h2><p>${morgen ? "Hieronder staan de lessen van morgen." : "Kijk morgen weer of bekijk het lesrooster in de app."}</p></div>`);
+  }
+  const heading = (t, date, first) => `<h2 class="sec${first ? " first" : ""}">${t}<span>${esc(datumTekst(date))}</span></h2>`;
+  const sections = morgen
+    ? [heading("Vandaag", today, true), ...todayCards, heading("Morgen", morgen.date, false), ...morgen.lessen.map(cardHtml)]
+    : todayCards;
 
   return `<!DOCTYPE html>
 <html lang="nl">
@@ -449,20 +551,18 @@ ${STYLE}
 <div class="top">
 <p class="eyebrow">Fit Up Leiderdorp</p>
 <h1>Wie doet er mee?</h1>
-<p class="sub">${esc(datumTekst(today))} &middot; ${lessen.length} groepslessen &middot; ${totaal} inschrijvingen</p>
+<p class="sub">${esc(datumTekst(today))} &middot; ${vis.length} ${vis.length === 1 ? "groepsles" : "groepslessen"} &middot; ${totaal} inschrijvingen</p>
 </div>
 <div id="stale" class="stale" hidden><h2>Nog geen actuele gegevens</h2><p>De inschrijvingen van vandaag worden zo bijgewerkt. Probeer het over enkele minuten opnieuw.</p></div>
 <div id="lessen">
-${cards.join("\n")}
+${sections.join("\n")}
 </div>
-<p class="foot">Bijgewerkt om ${esc(hhmm(now))} &middot; ververst automatisch</p>
+<p class="foot">Bijgewerkt om ${esc(hhmm(updatedAt))} &middot; ververst automatisch</p>
 </main>
 <script>
 (function(){
 var d=new Date(),p=function(n){return(n<10?"0":"")+n},today=d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
-if(document.body.getAttribute("data-date")!==today){document.getElementById("stale").hidden=false;document.getElementById("lessen").hidden=true;return}
-var now=d.getTime(),c=document.querySelectorAll(".card[data-end]");
-for(var i=0;i<c.length;i++){if(new Date(c[i].getAttribute("data-end")).getTime()<now)c[i].className+=" past"}
+if(document.body.getAttribute("data-date")!==today){document.getElementById("stale").hidden=false;document.getElementById("lessen").hidden=true}
 })();
 </script>
 </body>
@@ -476,11 +576,15 @@ export function pageFor(rec, now = new Date()) {
   if (!rec || typeof rec.html !== "string") return STALE_HTML;
   if (rec.date !== amsterdamDate(now)) return STALE_HTML;
   if (now.getTime() - rec.updatedAt > MAX_SERVE_AGE_MS) return STALE_HTML;
+  // Nieuwe records bevatten de data: render voor dit moment (verbergt afgelopen lessen).
+  if (rec.data) return buildHtml(rec.data, now, new Date(rec.updatedAt));
   return rec.html;
 }
 
 export function needsRefresh(rec, now = new Date()) {
-  return !rec || rec.date !== amsterdamDate(now) || now.getTime() - rec.updatedAt > STALE_AFTER_MS;
+  if (!rec || rec.date !== amsterdamDate(now) || now.getTime() - rec.updatedAt > STALE_AFTER_MS) return true;
+  // Vanaf 20:00 moet morgen erbij zitten; ontbreekt dat (pagina van voor 20:00): verversen.
+  return showsTomorrow(now) && !rec.withTomorrow;
 }
 
 // ---------- verversen ----------
@@ -521,11 +625,15 @@ export async function refresh(s, { force = false, trigger = "cron", now = new Da
   };
   try {
     const data = await fetchToday(s, now, ctx);
-    const rec = { html: buildHtml(data, now), updatedAt: nowMs, date: data.today, lessen: data.lessen.length };
+    const rec = {
+      html: buildHtml(data, now), data, updatedAt: nowMs, date: data.today,
+      lessen: data.lessen.length, withTomorrow: showsTomorrow(now),
+    };
     await s.setJSON("page", rec);
-    const deelnemers = data.lessen.reduce((a, l) => a + l.aantal, 0);
+    const deelnemers = visibleToday(data.lessen, now).reduce((a, l) => a + (l.aantal || 0), 0);
     log({
-      trigger, ams: stamp, status: "ok", lessen: data.lessen.length, deelnemers, calls: ctx.calls,
+      trigger, ams: stamp, status: "ok", lessen: data.lessen.length, morgen: data.tomorrow ? data.tomorrow.lessen.length : null,
+      deelnemers, calls: ctx.calls,
       cacheHit: ctx.cacheHit, cacheMiss: ctx.cacheMiss, partFail: ctx.partFail, memberFail: ctx.memberFail,
       incomplete: data.incomplete, ms: Date.now() - t0,
     });
