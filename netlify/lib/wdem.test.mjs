@@ -409,8 +409,8 @@ test("normale gecachete run: 1 events-call + 1 participants-call per les, 0 memb
   } finally { console.log = origLog; }
   const line = JSON.parse(logs.find((l) => l.includes("wdem_refresh")));
   assert.equal(line.status, "ok");
-  assert.equal(line.lessen, 2);
-  assert.equal(line.deelnemers, 4);
+  assert.equal(line.lessenVandaag, 2);
+  assert.equal(line.deelnemersVandaag, 4);
   assert.equal(line.calls, 3);
   assert.equal(line.cacheHit, 2);
   assert.equal(line.cacheMiss, 0);

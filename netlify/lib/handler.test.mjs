@@ -55,3 +55,12 @@ test("HEAD zonder token 403, met token 200 en zonder body", async () => {
 test("alleen de twee publieke paden; geen upload-route", () => {
   assert.deepEqual(config.path, ["/wie-doet-er-mee", "/wie-doet-er-mee/"]);
 });
+
+test("CSP staat alleen Google Fonts toe (zelfde als de site) en geen andere externe bronnen", async () => {
+  const r = await get(`?access=${TOKEN}`);
+  const csp = r.headers.get("content-security-policy");
+  assert.match(csp, /style-src 'unsafe-inline' https:\/\/fonts\.googleapis\.com/);
+  assert.match(csp, /font-src https:\/\/fonts\.gstatic\.com/);
+  assert.match(csp, /default-src 'none'/);
+  assert.doesNotMatch(csp.replace(/https:\/\/fonts\.(googleapis|gstatic)\.com/g, ""), /https?:/);
+});

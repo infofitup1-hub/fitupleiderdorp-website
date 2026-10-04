@@ -1,4 +1,4 @@
-// "Wie doet er mee?" - toont de deelnemerspagina; alleen met geldig view-token.
+// BuddyCheck (voorheen "Wie doet er mee?") - toont het 7-dagen overzicht van groepslessen en deelnemers; alleen met geldig view-token.
 //
 //   GET /wie-doet-er-mee/?access=<view-token>
 //
@@ -21,7 +21,7 @@ const PAGE_HEADERS = {
   "Referrer-Policy": "no-referrer",
   "X-Content-Type-Options": "nosniff",
   "Content-Security-Policy":
-    "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'",
+    "default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'",
 };
 
 const SHELL = (title, text) => `<!DOCTYPE html>
