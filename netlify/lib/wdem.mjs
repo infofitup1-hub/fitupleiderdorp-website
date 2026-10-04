@@ -509,7 +509,9 @@ ul+.empty{margin-top:10px}
 .none,.stale{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--soft);color:var(--mute)}
 .none h3,.stale h2{margin:0 0 6px;color:var(--warm);font:800 22px/1.1 var(--fd);letter-spacing:.5px;text-transform:uppercase}
 .none p,.stale p{margin:0}
-.foot{margin:28px 0 0;color:var(--mute);font-size:14px;text-align:center}
+.tip{margin:32px 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:10px;color:var(--mute);font-size:16px;line-height:1.45;text-align:center;overflow-wrap:anywhere}
+.tip b{color:var(--lime);font-weight:600}
+.foot{margin:16px 0 0;color:var(--mute);font-size:14px;text-align:center}
 [hidden]{display:none!important}
 </style>`;
 
@@ -625,6 +627,7 @@ ${TOP}
 <div id="lessen">
 ${parts.join("\n")}
 </div>
+<p class="tip">Boeken of annuleren? Doe dat via <b>Rooster</b> in de Fit Up-app.</p>
 <p class="foot">Bijgewerkt om ${esc(hhmm(updatedAt))} &middot; ververst automatisch</p>
 </main>
 <script>
