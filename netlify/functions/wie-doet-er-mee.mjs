@@ -10,7 +10,12 @@
 // env var WDEM_VIEW_TOKEN_SHA256 overschrijft die hash.
 
 import { createHash, timingSafeEqual } from "node:crypto";
-import { store, readPage, refresh, pageFor, needsRefresh, isActiveWindow, STALE_HTML } from "../lib/wdem.mjs";
+import { store, readPage, refresh, pageFor, staleReason, needsRefresh, isActiveWindow, amsterdamStamp, STALE_HTML } from "../lib/wdem.mjs";
+
+// Diagnoselogregel (geen namen, ids of geheimen): maakt zichtbaar waarom de neutrale pagina getoond wordt.
+function viewLog(o) {
+  try { console.log(JSON.stringify({ ev: "wdem_view", ...o })); } catch { /* logging is nooit fataal */ }
+}
 
 const VIEW_TOKEN_SHA256 = "60429446d0e46a6f2c69bf9bcf6fe9ec37ad423699c322c9eb41386bcb394d5a";
 
@@ -54,17 +59,31 @@ export default async (req) => {
 
   // Nooit een stacktrace of foutdetail naar de bezoeker: bij een onverwachte fout de
   // neutrale pagina zonder gegevens.
+  let stage = "store";
   try {
     const s = await store();
+    stage = "read";
     let rec = await readPage(s);
     const now = new Date();
+    let refreshed = null;
     if (needsRefresh(rec, now) && isActiveWindow(now)) {
+      stage = "refresh";
       const r = await refresh(s, { trigger: "lazy", now });
+      refreshed = r.status === "error" ? "error:" + (r.category || "unknown") : r.status;
       if (r.status === "ok") rec = r.rec;
     }
     // pageFor toont alleen data van vandaag (Amsterdam); anders de neutrale pagina.
-    return new Response(pageFor(rec, new Date()), { status: 200, headers: PAGE_HEADERS });
-  } catch {
+    const at = new Date();
+    const reason = staleReason(rec, at);
+    if (reason) {
+      viewLog({
+        ams: amsterdamStamp(at), served: "stale", reason, window: isActiveWindow(at) ? "open" : "closed",
+        lazyRefresh: refreshed, ageMin: rec ? Math.round((at.getTime() - rec.updatedAt) / 60000) : null,
+      });
+    }
+    return new Response(pageFor(rec, at), { status: 200, headers: PAGE_HEADERS });
+  } catch (err) {
+    viewLog({ served: "stale", reason: stage === "store" ? "store_unavailable" : "app_error", stage, err: String(err?.name || "Error").slice(0, 40) });
     return new Response(STALE_HTML, { status: 200, headers: PAGE_HEADERS });
   }
 };
