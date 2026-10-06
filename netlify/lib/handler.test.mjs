@@ -64,3 +64,15 @@ test("CSP staat alleen Google Fonts toe (zelfde als de site) en geen andere exte
   assert.match(csp, /default-src 'none'/);
   assert.doesNotMatch(csp.replace(/https:\/\/fonts\.(googleapis|gstatic)\.com/g, ""), /https?:/);
 });
+
+test("diagnose: neutrale pagina logt de reden zonder gevoelige data", async () => {
+  const lines = [];
+  const orig = console.log;
+  console.log = (x) => lines.push(String(x));
+  try { await get(`?access=${TOKEN}`); } finally { console.log = orig; }
+  const v = lines.map((l) => { try { return JSON.parse(l); } catch { return null; } }).find((o) => o?.ev === "wdem_view");
+  assert.ok(v, "wdem_view logregel aanwezig");
+  assert.equal(v.served, "stale");
+  assert.match(v.reason, /^(store_unavailable|app_error|no_record|other_day|too_old)$/);
+  assert.doesNotMatch(JSON.stringify(v), new RegExp(TOKEN + "|access|api_key|secret", "i"));
+});

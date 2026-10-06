@@ -643,10 +643,16 @@ if(document.body.getAttribute("data-date")!==today){document.getElementById("sta
 
 // Welke pagina mag een bezoeker nu zien? Alleen data van VANDAAG (Amsterdam) en niet ouder
 // dan MAX_SERVE_AGE_MS; anders de neutrale pagina - nooit oude namen.
+// Waarom is de pagina neutraal? null = data is bruikbaar. Alleen voor diagnose in de logs.
+export function staleReason(rec, now = new Date()) {
+  if (!rec || typeof rec.html !== "string") return "no_record";
+  if (rec.date !== amsterdamDate(now)) return "other_day";
+  if (now.getTime() - rec.updatedAt > MAX_SERVE_AGE_MS) return "too_old";
+  return null;
+}
+
 export function pageFor(rec, now = new Date()) {
-  if (!rec || typeof rec.html !== "string") return STALE_HTML;
-  if (rec.date !== amsterdamDate(now)) return STALE_HTML;
-  if (now.getTime() - rec.updatedAt > MAX_SERVE_AGE_MS) return STALE_HTML;
+  if (staleReason(rec, now)) return STALE_HTML;
   // Records bevatten de data: render voor dit moment (verbergt afgelopen lessen).
   if (rec.data) return buildHtml(rec.data, now, new Date(rec.updatedAt));
   return rec.html;

@@ -390,3 +390,17 @@ test("infotekst onderaan: Rooster-tip zonder link, lime accent, na de lessen en 
   assert.ok(body(h).indexOf('class="tip"') > body(h).indexOf('id="lessen"'));
   assert.ok(body(h).indexOf('class="tip"') < body(h).indexOf('class="foot"'));
 });
+
+test("staleReason: dagwisseling, te oude data en bruikbare data (regressie nieuwe dag)", () => {
+  const rec = (iso, date) => ({ html: "<x>", date, updatedAt: new Date(iso).getTime() });
+  const yesterday = rec("2026-10-05T20:50:00Z", "2026-10-05"); // 22:50 Amsterdam
+  assert.equal(lib.staleReason(null), "no_record");
+  assert.equal(lib.staleReason({ date: "2026-10-06" }), "no_record");
+  assert.equal(lib.staleReason(yesterday, new Date("2026-10-05T21:30:00Z")), null); // 23:30 zelfde dag
+  assert.equal(lib.staleReason(yesterday, new Date("2026-10-05T22:30:00Z")), "other_day"); // 00:30 nieuwe dag
+  assert.equal(lib.staleReason(yesterday, new Date("2026-10-06T03:00:00Z")), "other_day"); // 05:00, nog niet ververst
+  const today = rec("2026-10-06T03:00:00Z", "2026-10-06");
+  assert.equal(lib.staleReason(today, new Date("2026-10-06T03:10:00Z")), null);
+  assert.equal(lib.staleReason(today, new Date("2026-10-06T05:01:00Z")), "too_old"); // > 2 uur
+  assert.equal(lib.pageFor(yesterday, new Date("2026-10-06T03:10:00Z")), lib.STALE_HTML);
+});
