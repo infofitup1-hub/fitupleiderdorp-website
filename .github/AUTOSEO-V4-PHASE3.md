@@ -85,3 +85,7 @@ redirects, quotas, timeouts, credential isolation, disabled hooks and an engine
 run with mocked GSC/GA4/PSI validating all output files and summary. The workflow
 retains Google authentication and artifact upload; live API success requires a
 real authenticated workflow run.
+
+## Tekst-redundantie (minimale tekst)
+
+`inspectHtml` meldt `redundant_text` als twee zichtbare tekstblokken (p/li/kop/summary, minimaal 8 woorden) sterk op elkaar lijken (3-woordreeksen, drempel 0,6). `isRedundantAddition(html, kandidaatTekst)` is de poort vóór elke tekstuitbreiding: `redundant: true` bij veel gedeelde zinsdelen (>= 0,4) of onderwerpwoorden (>= 0,45) met de bestaande zichtbare tekst. AutoSEO voegt dan niets toe; bij `redundant_text` is verwijderen de voorkeur. Heuristiek, geen semantische garantie: bij twijfel geen tekst toevoegen.

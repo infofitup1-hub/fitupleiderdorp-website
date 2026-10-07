@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { inspectHtml, selectUrls, parsePageSpeed, markDuplicates, collectTechnical, technicalActions, providerHooks } from './autoseo-v4-technical.mjs';
+import { inspectHtml, selectUrls, parsePageSpeed, markDuplicates, isRedundantAddition, findRedundantBlocks, collectTechnical, technicalActions, providerHooks } from './autoseo-v4-technical.mjs';
 const site = 'https://example.com/';
 const html = '<title>One &amp; two</title><meta content="Description" name="description"><link href="/" rel="canonical"><h1>Hello</h1><a href="/next">Next</a>';
 const psi = { lighthouseResult: { categories: { performance: { score: 0.6 }, seo: { score: 1 } }, audits: {
@@ -92,4 +92,12 @@ test('workflow engine end-to-end writes additive schema and preserves opportunit
     const workflow = await readFile('.github/workflows/seo-intelligence-v4.yml', 'utf8');
     for (const required of ['node --test .github/autoseo-v4-technical.test.mjs', 'secrets.PAGESPEED_API_KEY', 'artifacts/autoseo-v4/', 'steps.auth.outputs.access_token']) assert.ok(workflow.includes(required));
   } finally { await rm(dir, { recursive: true, force: true }); }
+});
+test('redundante tekst: herhaling wordt gesignaleerd, nieuw onderwerp niet', () => {
+  const page = '<h1>Fit Up</h1><p>Kleinschalige sportschool in Leiderdorp met 24/7 fitness, personal training en groepslessen. Gratis parkeren voor de deur.</p>';
+  assert.equal(isRedundantAddition(page, 'Fit Up is een kleinschalige sportschool in Leiderdorp met gratis parkeren, 24/7 fitness en personal training.').redundant, true);
+  assert.equal(isRedundantAddition(page, 'EMS-training duurt twintig minuten en gebruikt elektrostimulatie via speciale pakken.').redundant, false);
+  const twice = '<p>Kleinschalige sportschool in Leiderdorp met 24/7 fitness en personal training voor iedereen.</p><p>Kleinschalige sportschool in Leiderdorp met 24/7 fitness en personal training voor iedereen.</p>';
+  assert.equal(findRedundantBlocks(twice).length, 1);
+  assert.ok(inspectHtml(html + twice, site).issues.includes('redundant_text'));
 });

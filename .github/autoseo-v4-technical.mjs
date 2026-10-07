@@ -28,6 +28,33 @@ export function selectUrls(siteUrl, gscPages = [], ga4Pages = [], env = {}) {
   }
   return [...urls].slice(0, limit(env.AUTOSEO_TECHNICAL_MAX_URLS, 5, 10));
 }
+// Tekst-redundantie: nieuwe SEO/GEO-tekst alleen toevoegen als het onderwerp er nog niet staat.
+const STOP = new Set('de het een en of van voor met bij in op aan te is zijn je jouw jij ons onze ook dat die dit er als om naar uit door maar wel niet meer kun kunt wordt worden hier dan tot over per'.split(' '));
+const words = (s) => decode(clean(s)).toLowerCase().replace(/[^\p{L}\p{N}\s/]/gu, ' ').split(/\s+/).filter(Boolean);
+const grams = (w, n = 3) => { const out = new Set(); for (let i = 0; i + n <= w.length; i++) out.add(w.slice(i, i + n).join(' ')); return out; };
+const contentWords = (w) => new Set(w.filter(x => x.length > 3 && !STOP.has(x)));
+function visibleBlocks(html) {
+  const source = html.replace(/<!--[\s\S]*?-->/g, '').replace(/<(script|style|nav|footer|noscript|svg)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '');
+  return [...source.matchAll(/<(p|li|h[1-6]|summary)\b[^>]*>([\s\S]*?)<\/\1\s*>/gi)].map(m => words(m[2])).filter(w => w.length >= 8);
+}
+const containment = (a, b) => { if (!a.size) return 0; let hit = 0; for (const x of a) if (b.has(x)) hit++; return hit / a.size; };
+// Wel/niet toevoegen: true = de kandidaat-tekst herhaalt wat de pagina al zegt (zinsdelen of onderwerpwoorden).
+export function isRedundantAddition(html, candidateText, { phrase = 0.4, topic = 0.45 } = {}) {
+  const cand = words(candidateText);
+  const existing = visibleBlocks(html).flat();
+  const phraseScore = containment(grams(cand), grams(existing));
+  const topicScore = containment(contentWords(cand), contentWords(existing));
+  return { redundant: phraseScore >= phrase || topicScore >= topic, phraseScore: +phraseScore.toFixed(2), topicScore: +topicScore.toFixed(2) };
+}
+export function findRedundantBlocks(html, threshold = 0.6) {
+  const blocks = visibleBlocks(html); const found = [];
+  for (let i = 0; i < blocks.length; i++) for (let j = i + 1; j < blocks.length; j++) {
+    const a = grams(blocks[i]), b = grams(blocks[j]);
+    const score = containment(a.size <= b.size ? a : b, a.size <= b.size ? b : a);
+    if (score >= threshold) found.push({ a: blocks[i].slice(0, 8).join(' '), b: blocks[j].slice(0, 8).join(' '), score: +score.toFixed(2) });
+  }
+  return found;
+}
 export function inspectHtml(html, url, xRobots = '') {
   const source = html.replace(/<!--[\s\S]*?-->/g, '').replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '');
   const titles = [...source.matchAll(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/gi)].map(m => decode(clean(m[1])));
@@ -58,8 +85,10 @@ export function inspectHtml(html, url, xRobots = '') {
   if (h1Count !== 1) issues.push('h1_count');
   if (!internal.size) issues.push('no_internal_links');
   if (emptyLinks || invalidLinks) issues.push('invalid_internal_link_basics');
+  const redundant = findRedundantBlocks(html);
+  if (redundant.length) issues.push('redundant_text');
   return { titles, descriptions, canonicals, noindex: /\b(noindex|none)\b/i.test(robots), h1Count,
-    internalLinks: { uniqueCount: internal.size, emptyLinks, invalidLinks }, issues: [...new Set(issues)] };
+    internalLinks: { uniqueCount: internal.size, emptyLinks, invalidLinks }, redundantText: redundant.slice(0, 5), issues: [...new Set(issues)] };
 }
 export function markDuplicates(pages) {
   for (const [field, code] of [['titles', 'duplicate_title'], ['descriptions', 'duplicate_meta_description'], ['canonicals', 'duplicate_canonical']]) {
@@ -175,7 +204,7 @@ export function technicalActions(intelligence) {
     actions.push({ id: JSON.stringify(['technical_page', p.url]), scope: 'page', page: p.url, path: p.path,
       type: signals[0], signals, priority: high ? 'High' : 'Medium',
       evidence: { technicalIssues: issues, pagespeedIssues: speed, technical: p.technical, pagespeed: p.pagespeed },
-      recommendedAction: 'Review the measured page issues; confirm intended indexing/canonical/redirect behavior and repeat lab measurements before editing.' });
+      recommendedAction: 'Review the measured page issues; confirm intended indexing/canonical/redirect behavior and repeat lab measurements before editing. Voeg geen tekst toe als het onderwerp al op de pagina staat (isRedundantAddition) en houd tekst minimaal; bij redundant_text liever verwijderen dan aanvullen.' });
   }
   for (const r of intelligence.resources) if (r.status === 'ok' && (!r.reachable || !r.validContent)) actions.push({
     id: JSON.stringify(['technical_site', r.url]), scope: 'site', page: r.url, type: 'technical_seo_issue',
