@@ -1028,8 +1028,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .aud3-s{grid-area:1/1;margin:0;font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(44px,7.4vw,128px);line-height:.88;letter-spacing:-.5px;color:var(--color-text-light);text-shadow:0 2px 40px rgba(8,10,9,.55)}
     .aud3-s .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
     .aud3-s .w>i{display:inline-block;font-style:normal;transform:translateY(110%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
-    .aud3-s.on .w>i{transform:none;transition-delay:calc(var(--i)*55ms)}
-    .aud3-s.past .w>i{transform:translateY(-110%);transition-delay:calc(var(--i)*25ms)}
+    .aud3-s.on .w>i{transform:none;transition-delay:calc(var(--i)*55ms + .4s)}
+    .aud3-s.past .w>i{transform:translateY(-110%);transition-duration:.5s;transition-delay:calc(var(--i)*20ms)}
     .aud3-s b{color:var(--color-lime);font-weight:800}
     .aud3-bar{display:flex;gap:6px;width:clamp(140px,18vw,220px);margin-top:clamp(28px,4vw,52px)}
     .aud3-bar i{flex:1;height:3px;background:rgba(255,255,255,.18);position:relative;overflow:hidden}
@@ -1045,6 +1045,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .aud3-ghost .ln,.aud3-s .ln{margin:0}
     .aud3-ghost .ln{font-size:clamp(34px,5.6vw,92px);line-height:.98;color:transparent;-webkit-text-stroke:1.5px rgba(244,245,241,.7);text-shadow:none;margin-bottom:.12em}
     .aud3-cta{margin-top:clamp(20px,3vw,36px);display:inline-flex;pointer-events:auto;font-size:16px}
+    /* knop alleen tonen op de slotstap; anders ligt hij over de andere stellingen heen */
+    .aud3.live .aud3-s .aud3-cta{opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1),visibility 0s .5s}
+    .aud3.live .aud3-s.on .aud3-cta{opacity:1;visibility:visible;transform:none;transition-delay:.45s,.45s,0s}
     .aud3.live .aud3-pin{position:sticky;top:0;height:100svh;min-height:0}
     .aud3:not(.live) .aud3-photos,.aud3:not(.live) .aud3-num,.aud3:not(.live) .aud3-bar{display:none}
     .aud3:not(.live) .aud3-s{grid-area:auto;margin-bottom:18px;font-size:clamp(32px,5vw,64px)}
@@ -1072,11 +1075,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <div class="aud3-track" id="aud3-track">
     <div class="aud3-pin">
       <div class="aud3-photos" aria-hidden="true">
-        <figure class="aud3-ph"><img src="assets/images/ad-gym-overzicht.webp" alt="" loading="lazy" decoding="async" style="object-position:40% 55%"></figure>
-        <figure class="aud3-ph"><img src="assets/images/ad-gym-lounge.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 60%"></figure>
-        <figure class="aud3-ph"><img src="assets/images/why-coach-klant.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="aud3-ph"><img src="assets/images/club-ruimte-loopstrook.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 60%"></figure>
-        <figure class="aud3-ph"><img src="assets/images/ad-actie-cable.webp" alt="" loading="lazy" decoding="async" style="object-position:40% 40%"></figure>
+        <figure class="aud3-ph show"><img src="assets/images/ad-gym-overzicht.webp" alt="" width="1200" height="2133" loading="lazy" decoding="async" style="object-position:40% 55%"></figure>
       </div>
       <div class="aud3-num" aria-hidden="true"><span id="aud3-n">01</span></div>
       <div class="aud3-text">
