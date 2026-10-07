@@ -31,3 +31,18 @@
     d.scrollTop = 0;
   }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 })();
+
+/* Vaste mobiele knop "Plan gratis intake" (alleen kleine schermen, na wat scrollen) */
+(function () {
+  var skip = /^\/(gratis-intake|intake|bedankt|contact)(\/|$)|ad-landing/;
+  if (skip.test(location.pathname)) return;
+  var a = document.createElement('a');
+  a.className = 'sticky-cta';
+  a.href = '/gratis-intake/';
+  a.textContent = 'Plan gratis intake';
+  document.body.appendChild(a);
+  var onScroll = function () { a.classList.toggle('show', window.scrollY > 600); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  a.addEventListener('click', function () { if (window.gtag) gtag('event', 'sticky_cta_click'); });
+})();

@@ -55,9 +55,21 @@ body.nav-open { overflow: hidden; }
 .nav-drawer > * { flex-shrink: 0; }
 .nav-drawer.dd-ready .drawer-group { display: flex; flex-wrap: wrap; align-items: center; }
 .nav-drawer.dd-ready .drawer-group > a { flex: 1 1 0; min-width: 0; }
-.nav-drawer.dd-ready .drawer-toggle { flex: 0 0 52px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: none; border: 0; color: rgba(255, 255, 255, .8); cursor: pointer; }
+.nav-drawer.dd-ready .drawer-toggle { flex: 0 0 44px; width: 44px; height: 44px; margin-left: 8px; display: flex; align-items: center; justify-content: center; background: rgba(183, 242, 41, .1); border: 1.5px solid var(--color-lime, #B7F229); border-radius: 8px; color: var(--color-lime, #B7F229); cursor: pointer; }
+.nav-drawer.dd-ready .drawer-group.open .drawer-toggle { background: var(--color-lime, #B7F229); color: var(--color-black, #080A09); }
 .nav-drawer.dd-ready .drawer-toggle svg { transition: transform .25s; }
 .nav-drawer.dd-ready .drawer-group.open .drawer-toggle svg { transform: rotate(180deg); }
 .nav-drawer.dd-ready .drawer-group .drawer-sub { display: none; flex: 1 1 100%; }
 .nav-drawer.dd-ready .drawer-group.open .drawer-sub { display: block; }
 .nav-drawer .drawer-toggle:focus-visible { outline: 3px solid var(--color-lime, #B7F229); outline-offset: -3px; }
+
+/* Vaste "Plan gratis intake"-knop, alleen mobiel */
+.sticky-cta { display: none; }
+@media (max-width: 760px) {
+  .sticky-cta { display: flex; align-items: center; justify-content: center; position: fixed; left: 0; right: 0; bottom: 0; z-index: 180; min-height: 56px; padding: 12px 20px max(12px, env(safe-area-inset-bottom)); background: var(--color-lime, #B7F229); color: var(--color-black, #080A09); font-family: var(--fd, 'Barlow Condensed', sans-serif); font-weight: 800; font-size: 17px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transform: translateY(110%); transition: transform .25s ease; }
+  .sticky-cta.show { transform: none; }
+  body.nav-open .sticky-cta { transform: translateY(110%); }
+  .sticky-cta.show ~ .wa-float, body:has(.sticky-cta.show) .wa-float { bottom: 76px; }
+  body:has(.sticky-cta) footer { padding-bottom: 72px; }
+}
+.nav-drawer.dd-ready .drawer-group > a::after { display: none; }
