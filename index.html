@@ -396,7 +396,9 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .25s}
   .audience .aud-col:hover,.reviews .review-card:hover,.lite .svc-card:hover,.lite .team-card:hover{
     transform:translateY(-6px);box-shadow:0 2px 6px rgba(18,21,18,.05),0 40px 80px -28px rgba(18,21,18,.28)}
-  .audience .aud-col{padding:42px 38px}
+  .audience .aud-col{padding:40px 40px 38px;border:0;box-shadow:none;border-radius:0}
+  .audience .aud-col:hover{transform:none;box-shadow:none}
+  .audience .aud-col.fit{border-right:1px solid var(--border-light)}
   .reviews .review-card{padding:38px 34px}
   .lite .svc-card{padding:40px 32px 88px}
   /* premium accent: lime-highlight i.p.v. omlijnde tekst */
@@ -416,7 +418,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .audience .audience-head p,.audience .aud-list li,.reviews .review-text{color:var(--color-text-dark)}
   .lite .svc-desc,.lite .feat-desc,.lite .p-desc,.lite .team-blurb,
   .lite .problem-intro p,.lite .why-content p{font-size:16px;line-height:1.72}
-  .audience .aud-list li{font-size:16px;line-height:1.62}
+  .audience .aud-list li{font-size:16px;line-height:1.5}
   .audience .aud-col.nofit li{color:var(--color-text-muted-light)}
   .audience .audience-head p{font-size:16px;line-height:1.7}
   .lite .p-title,.lite .feat-title{font-size:16px;color:var(--black)}
@@ -937,38 +939,36 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .audience-head-photo{flex-shrink:0;width:210px;aspect-ratio:4/5;border-radius:var(--r-card);overflow:hidden;box-shadow:0 1px 2px rgba(8,10,9,.04),0 24px 50px -22px rgba(8,10,9,.22)}
     .audience-head-photo img{width:100%;height:100%;object-fit:cover;display:block}
     .audience-grid{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border:1px solid rgba(8,10,9,.08);border-radius:var(--r-card);box-shadow:0 1px 2px rgba(8,10,9,.04),0 24px 50px -22px rgba(8,10,9,.18);overflow:hidden}
-    .aud-col{padding:34px 36px;position:relative}
-    .aud-col.fit{border-right:1px solid rgba(8,10,9,.08)}
-    .aud-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    .aud-col{padding:40px 40px 38px;position:relative}
+    .aud-col.fit{border-right:1px solid var(--border-light,rgba(0,0,0,.08))}
+    .aud-col.fit::before{content:"";position:absolute;left:40px;top:0;width:48px;height:2px;background:var(--color-lime,#B7F229)}
+    .aud-badge{display:inline-flex;align-items:center;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
     .aud-col.fit .aud-badge{color:var(--color-lime-ink)}
-    .aud-col.nofit .aud-badge{color:rgba(8,10,9,.4)}
-    .aud-col h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:1px;line-height:1.05;margin-bottom:22px;color:var(--black)}
+    .aud-col.nofit .aud-badge{color:var(--color-text-muted-light,#606660)}
+    .aud-col h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:1px;line-height:1.05;margin-bottom:26px;color:var(--black)}
     .aud-col.fit h3 em{font-style:normal;color:var(--black);text-shadow:none;background:linear-gradient(transparent 58%,rgba(183,242,41,.5) 58%);padding:0 .04em}
-    .aud-list{list-style:none;display:flex;flex-direction:column;gap:16px}
-    .aud-list li{display:flex;gap:14px;align-items:center;font-size:16px;font-weight:600;line-height:1.4;color:rgba(8,10,9,.82);transition:transform .25s ease}
-    .aud-list li:hover{transform:translateX(3px)}
-    .aud-list .ic{flex-shrink:0;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;box-shadow:0 4px 10px -3px rgba(8,10,9,.35)}
-    .aud-list .ic svg{stroke:var(--color-text-light);stroke-width:3.2}
-    .aud-col.fit .ic{background:#22b34a}
-    .aud-col.nofit{background:rgba(8,10,9,.015)}
-    .aud-col.nofit li{color:rgba(8,10,9,.65)}
-    .aud-col.nofit .ic{background:#e33a3a}
+    .aud-list{list-style:none;display:flex;flex-direction:column;gap:0}
+    .aud-list li{display:flex;gap:16px;align-items:flex-start;font-size:16px;font-weight:500;line-height:1.5;padding:15px 0;border-top:1px solid var(--border-light,rgba(0,0,0,.08));color:var(--color-text-dark,#121512)}
+    .aud-list li:first-child{border-top:0;padding-top:0}
+    .aud-list .ic{flex-shrink:0;width:26px;height:26px;margin-top:-1px;border-radius:var(--radius-btn,6px);display:grid;place-items:center;border:1px solid transparent}
+    .aud-col.fit .ic{background:var(--color-black,#080A09);color:var(--color-lime,#B7F229)}
+    .aud-col.nofit{background:rgba(8,10,9,.025)}
+    .aud-col.nofit li{color:var(--color-text-muted-light,#606660)}
+    .aud-col.nofit .ic{background:transparent;color:var(--color-text-muted-light,#606660);border-color:rgba(8,10,9,.22)}
     @media(max-width:760px){
       .audience-head{flex-direction:column;align-items:stretch;gap:22px}
       .audience-head-photo{width:100%;max-width:300px;aspect-ratio:16/11;margin:0 auto}
       .audience-grid{gap:0}
-      .audience .aud-col{padding:22px 16px}
-      .audience .aud-col h3{font-size:16.5px;margin-bottom:16px}
-      .audience .aud-badge{font-size:12px;margin-bottom:10px}
-      .audience .aud-list{gap:14px}
-      .audience .aud-list li{font-size:16px;line-height:1.35;gap:10px}
-      .audience .aud-list .ic{width:28px;height:28px}
-      .audience .aud-list .ic svg{width:15px;height:15px}
+      .audience .aud-col{padding:28px 20px 24px}
+      .audience .aud-col.fit::before{left:20px}
+      .audience .aud-col h3{font-size:20px;margin-bottom:18px}
+      .audience .aud-list li{font-size:16px;line-height:1.45;gap:14px;padding:13px 0}
+      .audience .aud-list .ic{width:26px;height:26px}
     }
     @media(max-width:560px){
       .audience-grid{grid-template-columns:1fr}
-      .aud-col.fit{border-right:0;border-bottom:1px solid var(--border-light)}
-      .audience .aud-col{padding:26px 20px}
+      .audience .aud-col.fit{border-right:0;border-bottom:1px solid var(--border-light)}
+      .audience .aud-col{padding:28px 20px 24px}
     }
   </style>
   <div class="container">
@@ -984,23 +984,23 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     </div>
     <div class="audience-grid">
       <div class="aud-col fit reveal d1">
-        <span class="aud-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Dit krijg je</span>
+        <span class="aud-badge">Dit krijg je</span>
         <h3>Dit is <em>jouw club</em> als je&hellip;</h3>
         <ul class="aud-list">
-          <li class="reveal d1"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>al jaren traint zonder een duidelijk plan</li>
-          <li class="reveal d2"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>voeding nooit onderdeel van je aanpak was</li>
-          <li class="reveal d3"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>wilt dat je coach jou én je doel kent</li>
-          <li class="reveal d4"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>het liefst op je eigen moment traint</li>
-          <li class="reveal d5"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>net begint óf na jaren weer instapt</li>
+          <li class="reveal d1"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></span>al jaren traint zonder een duidelijk plan</li>
+          <li class="reveal d2"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></span>voeding nooit onderdeel van je aanpak was</li>
+          <li class="reveal d3"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></span>wilt dat je coach jou én je doel kent</li>
+          <li class="reveal d4"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></span>het liefst op je eigen moment traint</li>
+          <li class="reveal d5"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></span>net begint óf na jaren weer instapt</li>
         </ul>
       </div>
       <div class="aud-col nofit reveal d2">
-        <span class="aud-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dit niet</span>
+        <span class="aud-badge">Dit niet</span>
         <h3>Waarschijnlijk niet je plek als je&hellip;</h3>
         <ul class="aud-list">
-          <li class="reveal d1"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>puur de laagste prijs zoekt</li>
-          <li class="reveal d2"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>een grote, drukke gym wilt</li>
-          <li class="reveal d3"><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>volledig anoniem wilt trainen</li>
+          <li class="reveal d1"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10"/></svg></span>puur de laagste prijs zoekt</li>
+          <li class="reveal d2"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10"/></svg></span>een grote, drukke gym wilt</li>
+          <li class="reveal d3"><span class="ic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10"/></svg></span>volledig anoniem wilt trainen</li>
         </ul>
       </div>
     </div>
@@ -1427,6 +1427,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .frame-photo{position:relative;border-radius:var(--radius-btn);overflow:hidden;background:var(--color-black-soft);aspect-ratio:4/5}
     .frame-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .frame-photo picture{display:block;width:100%;height:100%}
     .frame-photo--wide{aspect-ratio:347/255}
 
     .frame-badge{position:absolute;left:14px;bottom:14px;background:var(--black);color:var(--accent);font-family:var(--fd);font-weight:900;font-size:30px;line-height:1;padding:10px 16px;border-radius:var(--radius-btn);border:1px solid rgba(183,242,41,.35);box-shadow:0 14px 28px -10px rgba(0,0,0,.4);z-index:2;letter-spacing:-.3px}
@@ -1510,7 +1511,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <!-- Danielle — samen met Patrick, hybride coaching-traject -->
       <figure class="frame-card frame-card--photo swipe-slide reveal d2" style="--rot:-1.4deg;--mt:34px">
         <div class="frame-photo">
-          <img src="assets/images/result-danielle.webp" alt="Danielle samen met coach Patrick bij Fit Up Leiderdorp" width="1127" height="2000" loading="lazy" decoding="async">
+          <picture><source media="(max-width:767px)" type="image/webp" srcset="assets/images/testi-danielle-sq-480.webp 480w, assets/images/testi-danielle-sq-800.webp 800w" sizes="100vw"><img src="assets/images/result-danielle.webp" alt="Danielle samen met coach Patrick bij Fit Up Leiderdorp" width="1127" height="2000" loading="lazy" decoding="async"></picture>
           <span class="frame-badge">−15,5<small>kg</small></span>
         </div>
         <figcaption class="frame-cap">
@@ -1534,7 +1535,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <!-- Julia & Monique — moeder-dochtercase, samen gestart, hier het centrale/grootste fotolijstje -->
       <figure class="frame-card frame-card--hero swipe-slide reveal d1" style="--rot:0.8deg;--mt:0px">
         <div class="frame-photo">
-          <img src="assets/images/result-julia-monique.webp" alt="Julia en Monique samen tijdens personal training bij Fit Up Leiderdorp" width="760" height="950" loading="lazy" decoding="async">
+          <picture><source media="(max-width:767px)" type="image/webp" srcset="assets/images/testi-julia-monique-sq-480.webp 480w, assets/images/testi-julia-monique-sq-800.webp 800w" sizes="100vw"><img src="assets/images/result-julia-monique.webp" alt="Julia en Monique samen tijdens personal training bij Fit Up Leiderdorp" width="760" height="950" loading="lazy" decoding="async"></picture>
           <span class="frame-badge">−4<small>kg</small></span>
           <span class="frame-badge frame-badge--right">−15<small>kg</small></span>
         </div>
@@ -1568,7 +1569,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
       <!-- Marja — bestaande voor/na-foto, zachter en persoonlijker uitgelicht -->
       <figure class="frame-card frame-card--photo swipe-slide reveal d3" style="--rot:-1deg;--mt:30px">
         <div class="frame-photo frame-photo--wide">
-          <img src="assets/images/result-marja.webp" alt="Marja — voor en na 13 kilo afvallen bij Fit Up Leiderdorp" width="347" height="255" loading="lazy" decoding="async">
+          <picture><source media="(max-width:767px)" type="image/webp" srcset="assets/images/testi-marja-sq-480.webp 480w, assets/images/testi-marja-sq-800.webp 800w" sizes="100vw"><img src="assets/images/result-marja.webp" alt="Marja — voor en na 13 kilo afvallen bij Fit Up Leiderdorp" width="347" height="255" loading="lazy" decoding="async"></picture>
           <span class="frame-badge">−13<small>kg</small></span>
         </div>
         <figcaption class="frame-cap">
@@ -1972,8 +1973,14 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* Testimonials: verticale stapel, ingeklapt tot naam, resultaat en ±3 regels */
   .rwall .frame-wall{display:flex;flex-direction:column;overflow:visible;scroll-snap-type:none;max-width:none;gap:28px;margin-top:40px}
   .rwall .frame-card{flex:none;width:100%;max-width:none;margin-top:0}
-  .rwall .frame-photo{aspect-ratio:4/3}
-  .rwall .frame-photo img{object-position:center 30%}
+  .rwall .frame-photo,.rwall .frame-photo--wide{aspect-ratio:1/1}
+  .rwall .frame-photo img{object-position:center}
+  .rwall .frame-photo picture{display:block;width:100%;height:100%}
+  .rwall .frame-card{border-radius:var(--radius-card)}
+  .rwall .frame-badge{left:12px;bottom:12px;font-size:26px;padding:8px 13px}
+  .rwall .frame-card--hero .frame-badge{font-size:26px;padding:8px 13px}
+  .rwall .frame-badge--right{left:auto;right:12px}
+  .rwall .frame-name,.rwall .frame-kop{font-size:22px}
   .rwall .frame-card:not(.is-open) .frame-lead{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   .rwall .frame-card:not(.is-open) .frame-quote{display:none}
   .rwall .frame-more{margin-top:10px}
@@ -2010,8 +2017,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .audience-head-photo{width:100%;max-width:none;aspect-ratio:4/3}
   .audience-head-photo img{object-position:left top}
   .svc-card.reveal.in,.review-card.reveal.in,.frame-card.reveal.in,.aud-col.reveal.in,.fc-wrap.reveal.in,.intake-tile.reveal.in,.reviews-score-block.reveal.in{animation:none}
-  .rwall .frame-photo--wide{aspect-ratio:347/255}
-  .rwall .frame-photo--wide img{object-position:center}
 }
 </style>
 <script>

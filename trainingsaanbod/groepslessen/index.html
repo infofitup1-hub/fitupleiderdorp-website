@@ -126,40 +126,19 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* CLASS CARDS — compacte tegels, ruimte gereserveerd voor foto/video later */
   .classes{background:var(--paper);padding:60px 0 100px}
-  .classes-track{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .class-block{margin-bottom:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh-2);overflow:hidden;transition:box-shadow .35s}
-  .class-block:hover{box-shadow:var(--sh-hover)}
-  .class-content{padding:26px 24px;max-width:none;display:flex;flex-direction:column}
-  .class-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-  .class-eyebrow::before{content:'';width:18px;height:1.5px;background:var(--accent)}
-  .class-title{font-family:var(--fd);font-size:clamp(22px,2.4vw,28px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.5px;margin-bottom:10px;color:var(--ink)}
-  .class-title em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(183,242,41,.5) 58%);padding:0 .04em}
-  .class-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:400;margin-bottom:20px;max-width:none;overflow-wrap:break-word}
-  .class-meta{display:flex;gap:0;margin-bottom:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0}
-  .class-meta-item{flex:1;display:flex;flex-direction:column;gap:3px;padding-right:10px}
-  .class-meta-item+.class-meta-item{border-left:1px solid var(--line);padding-left:10px}
-  .class-meta-label{font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
-  .class-meta-value{font-family:var(--fd);font-size:15px;font-weight:900;color:var(--ink)}
-  .class-meta-value em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 58%,rgba(183,242,41,.55) 58%);padding:0 .04em}
-  .class-focus{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-  .class-focus span{font-size:10px;font-weight:500;letter-spacing:.3px;color:var(--ink-soft);background:rgba(183,242,41,.14);border:1px solid rgba(110,130,0,.25);padding:5px 10px}
   .class-intensity{display:flex;align-items:center;gap:10px;margin-bottom:0}
   .int-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
   .int-bar{display:flex;gap:3px}
   .int-bar span{width:14px;height:6px;background:var(--line)}
-  .int-bar span.on{background:var(--accent-ink)}
+  .int-bar span.on{background:var(--color-lime-ink,#4a5900)}
+  .tc-cost .class-intensity{justify-content:flex-end;flex-wrap:wrap}
+  .int-label{font-size:12px}
+  .int-bar span{width:18px;height:6px;border-radius:2px}
+  @media (max-width:760px){.tc-cost .class-intensity{justify-content:flex-start}}
+  .classes .tc-list{gap:14px}
   /* MEER INFORMATIE toggle — dichtgeklapt op smartphone, altijd open vanaf tablet */
-  .class-more{margin-top:16px}
-  .class-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fd);font-weight:700;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent-ink);padding:10px 0;border-top:1px solid var(--line)}
-  .class-more summary::-webkit-details-marker{display:none}
-  .class-more summary .chev{transition:transform .25s;flex-shrink:0}
-  .class-more[open] summary .chev{transform:rotate(180deg)}
   @media (min-width:641px){
-    .class-more summary{display:none}
   }
-  .classes-dots{display:none;align-items:center;justify-content:center;gap:8px;margin-top:6px}
-  .classes-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(18,21,18,.18);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-  .classes-dots .dot.is-active{background:var(--ink);transform:scale(1.25)}
 
   /* PRICE STRIP — bold charcoal card afgezet tegen lichte pagina */
   .price-strip{background:var(--paper2);padding:80px 0}
@@ -239,8 +218,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .page-hero{grid-template-columns:1fr;min-height:auto}
     .page-hero-left{padding:40px}
     .page-hero-right{min-height:340px;padding:0 40px 40px}
-    .classes-track{grid-template-columns:1fr 1fr}
-    .class-content{padding:24px 20px;max-width:none}
     .classes{padding:48px 0 64px}
       .faq-grid{grid-template-columns:1fr}
     .hbar-inner{grid-template-columns:1fr;gap:24px;text-align:left}
@@ -303,13 +280,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     /* section padding: class-level padding beats the generic `section` mobile rule, so list it explicitly */
     .price-strip,.final-cta{padding:48px 0}
     .classes{padding:40px 0 56px}
-    .classes-track{grid-template-columns:1fr 1fr;gap:10px;min-width:0}
-    .class-block{min-width:0}
-    .class-content{padding:18px 16px}
-    .class-title{font-size:19px}
-    .class-desc{font-size:12.5px}
-    .class-meta-value{font-size:13px}
-    .class-focus span{font-size:9px;padding:4px 8px}
       .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
     .sec-head{margin-bottom:36px}
@@ -511,7 +481,6 @@ footer{border-top-color:var(--border-dark)}
 @media (max-width:640px){.page-hero-sub{font-size:16px}.class-desc,.class-meta-value{font-size:16px}.ph-stat-label,.class-focus span{font-size:12px}.faq-q{font-size:16px}.nav-btn{font-size:13px!important}}
 .page-hero .btn-ghost,.final-cta .btn-ghost{color:var(--color-text-light);border:1.5px solid var(--border-dark-strong)}
 .page-hero .btn-ghost:hover,.final-cta .btn-ghost:hover{background:rgba(244,245,241,.06);border-color:var(--color-text-light);color:var(--color-text-light)}
-.class-meta-label{font-size:12px!important}
 </style>
   <div class="container">
     <div class="sec-head" style="margin-bottom:0">
@@ -526,167 +495,129 @@ footer{border-top-color:var(--border-dark)}
 <section class="classes" aria-labelledby="classes-heading">
   <h2 id="classes-heading" style="position:absolute;left:-9999px">Onze groepslessen</h2>
   <div class="container">
-  <div class="classes-track" data-swipe-track="classes">
-
-    <!-- BODYPUMP -->
-    <article class="class-block swipe-slide reveal">
-      <div class="class-content">
-        <div class="class-eyebrow">Les 01 · Barbell workout</div>
-        <h3 class="class-title">Body<em>pump</em></h3>
-        <div class="class-intensity">
-          <span class="int-label">Intensiteit</span>
-          <div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
-        </div>
-        <details class="class-more">
-          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="class-more-body">
-            <p class="class-desc">De originele barbell workout op muziek. Negen tracks, één doel: elke spier in je lichaam aan het werk met lichte gewichten en veel herhalingen. Vetverbranding én spieruithoudingsvermogen in 55 minuten.</p>
-            <div class="class-meta">
-              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>55</em> min</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
-            </div>
-            <div class="class-focus">
-              <span>Volledig lichaam</span>
-              <span>Spieruithouding</span>
-              <span>Vetverbranding</span>
-              <span>Op muziek</span>
-            </div>
-            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
-          </div>
-        </details>
-      </div>
-    </article>
-
-    <!-- BOKSFIT -->
-    <article class="class-block swipe-slide reveal">
-      <div class="class-content">
-        <div class="class-eyebrow">Les 02 · Boxing conditioning</div>
-        <h3 class="class-title">Boks<em>fit</em></h3>
-        <div class="class-intensity">
-          <span class="int-label">Intensiteit</span>
-          <div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
-        </div>
-        <details class="class-more">
-          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="class-more-body">
-            <p class="class-desc">Bokstechniek, cardio en kracht in één les. Werk aan je jab, hook en uppercut op de stootkussens — afgewisseld met explosieve oefeningen. Geen sparring, wél het gevoel van een echte training.</p>
-            <div class="class-meta">
-              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Cardio</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
-            </div>
-            <div class="class-focus">
-              <span>Techniek</span>
-              <span>Conditie</span>
-              <span>Coördinatie</span>
-              <span>Stressrelease</span>
-            </div>
-            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
-          </div>
-        </details>
-      </div>
-    </article>
-
-    <!-- HIIT & HYROX -->
-    <article class="class-block swipe-slide reveal">
-      <div class="class-content">
-        <div class="class-eyebrow">Les 03 · Functional fitness</div>
-        <h3 class="class-title">HIIT <br>& <em>Hyrox</em></h3>
-        <div class="class-intensity">
-          <span class="int-label">Intensiteit</span>
-          <div class="int-bar" role="img" aria-label="Intensiteit: 5 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
-        </div>
-        <details class="class-more">
-          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="class-more-body">
-            <p class="class-desc">Hoge intensiteit, korte rust. Functionele stations met sled push, burpees, wallballs en rowing — de bouwstenen van Hyrox. Voor iedereen die voorbij de loopband wil en in 45 minuten écht leeg wil zijn.</p>
-            <div class="class-meta">
-              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>45</em> min</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">HIIT</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Mid-Pro</span></div>
-            </div>
-            <div class="class-focus">
-              <span>Sled push</span>
-              <span>Wallballs</span>
-              <span>Rowing</span>
-              <span>Burpees</span>
-              <span>Vo₂ max</span>
-            </div>
-            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
-          </div>
-        </details>
-      </div>
-    </article>
-
-    <!-- POWERHOUR -->
-    <article class="class-block swipe-slide reveal">
-      <div class="class-content">
-        <div class="class-eyebrow">Les 04 · Heavy strength</div>
-        <h3 class="class-title">Power<em>hour</em></h3>
-        <div class="class-intensity">
-          <span class="int-label">Intensiteit</span>
-          <div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
-        </div>
-        <details class="class-more">
-          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="class-more-body">
-            <p class="class-desc">Een uur zware krachttraining onder begeleiding. Squat, deadlift, bench, row — de grote oefeningen, met techniekcheck en progressie. Zelfde gevoel als training met een PT, alleen dan in een vaste groep.</p>
-            <div class="class-meta">
-              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>60</em> min</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
-            </div>
-            <div class="class-focus">
-              <span>Squat</span>
-              <span>Deadlift</span>
-              <span>Bench press</span>
-              <span>Row</span>
-              <span>Techniek-check</span>
-            </div>
-            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
-          </div>
-        </details>
-      </div>
-    </article>
-
-    <!-- BBB -->
-    <article class="class-block swipe-slide reveal">
-      <div class="class-content">
-        <div class="class-eyebrow">Les 05 · Core &amp; kracht</div>
-        <h3 class="class-title"><em>BBB</em></h3>
-        <div class="class-intensity">
-          <span class="int-label">Intensiteit</span>
-          <div class="int-bar" role="img" aria-label="Intensiteit: 3 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
-        </div>
-        <details class="class-more">
-          <summary>Meer informatie <svg class="chev" width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="class-more-body">
-            <p class="class-desc">Buik, billen, benen — gerichte krachttraining voor je onderlichaam en core. Met gewichten en eigen lichaamsgewicht bouw je kracht en definitie op, op woensdagochtend en -avond.</p>
-            <div class="class-meta">
-              <div class="class-meta-item"><span class="class-meta-label">Duur</span><span class="class-meta-value"><em>45</em> min</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Type</span><span class="class-meta-value">Kracht</span></div>
-              <div class="class-meta-item"><span class="class-meta-label">Niveau</span><span class="class-meta-value">Alle</span></div>
-            </div>
-            <div class="class-focus">
-              <span>Buik</span>
-              <span>Billen</span>
-              <span>Benen</span>
-              <span>Woensdag</span>
-            </div>
-            <a href="#rooster" class="btn-ghost">Reserveren via de app →</a>
-          </div>
-        </details>
-      </div>
-    </article>
-
+  <div class="tc-group">
+    <div class="tc-list">
+<article class="tc reveal">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Les 01 · Barbell workout</p>
+      <h3 class="tc-name">Bodypump</h3>
+    </div>
+    <div class="tc-cost">
+      <div class="class-intensity"><span class="int-label">Intensiteit</span><div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+    </div>
+    <a href="#rooster" class="tc-btn">Reserveren via de app <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <div class="classes-dots" data-swipe-dots="classes" role="tablist" aria-label="Groepslessen">
-    <button type="button" class="dot is-active" aria-label="Les 1" aria-selected="true"></button>
-    <button type="button" class="dot" aria-label="Les 2" aria-selected="false"></button>
-    <button type="button" class="dot" aria-label="Les 3" aria-selected="false"></button>
-    <button type="button" class="dot" aria-label="Les 4" aria-selected="false"></button>
-    <button type="button" class="dot" aria-label="Les 5" aria-selected="false"></button>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">De originele barbell workout op muziek. Negen tracks, één doel: elke spier in je lichaam aan het werk met lichte gewichten en veel herhalingen. Vetverbranding én spieruithoudingsvermogen in 55 minuten.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Duur:</strong> 55 min</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Type:</strong> Kracht</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Niveau:</strong> Alle</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Volledig lichaam · Spieruithouding · Vetverbranding · Op muziek</span></li>
+      </ul>
+    </div>
+  </details>
+</article>
+<article class="tc reveal">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Les 02 · Boxing conditioning</p>
+      <h3 class="tc-name">Boksfit</h3>
+    </div>
+    <div class="tc-cost">
+      <div class="class-intensity"><span class="int-label">Intensiteit</span><div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+    </div>
+    <a href="#rooster" class="tc-btn">Reserveren via de app <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Bokstechniek, cardio en kracht in één les. Werk aan je jab, hook en uppercut op de stootkussens — afgewisseld met explosieve oefeningen. Geen sparring, wél het gevoel van een echte training.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Duur:</strong> 60 min</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Type:</strong> Cardio</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Niveau:</strong> Alle</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Techniek · Conditie · Coördinatie · Stressrelease</span></li>
+      </ul>
+    </div>
+  </details>
+</article>
+<article class="tc reveal">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Les 03 · Functional fitness</p>
+      <h3 class="tc-name">HIIT &amp; Hyrox</h3>
+    </div>
+    <div class="tc-cost">
+      <div class="class-intensity"><span class="int-label">Intensiteit</span><div class="int-bar" role="img" aria-label="Intensiteit: 5 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div></div>
+    </div>
+    <a href="#rooster" class="tc-btn">Reserveren via de app <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Hoge intensiteit, korte rust. Functionele stations met sled push, burpees, wallballs en rowing — de bouwstenen van Hyrox. Voor iedereen die voorbij de loopband wil en in 45 minuten écht leeg wil zijn.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Duur:</strong> 45 min</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Type:</strong> HIIT</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Niveau:</strong> Mid-Pro</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sled push · Wallballs · Rowing · Burpees · Vo₂ max</span></li>
+      </ul>
+    </div>
+  </details>
+</article>
+<article class="tc reveal">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Les 04 · Heavy strength</p>
+      <h3 class="tc-name">Powerhour</h3>
+    </div>
+    <div class="tc-cost">
+      <div class="class-intensity"><span class="int-label">Intensiteit</span><div class="int-bar" role="img" aria-label="Intensiteit: 4 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+    </div>
+    <a href="#rooster" class="tc-btn">Reserveren via de app <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Een uur zware krachttraining onder begeleiding. Squat, deadlift, bench, row — de grote oefeningen, met techniekcheck en progressie. Zelfde gevoel als training met een PT, alleen dan in een vaste groep.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Duur:</strong> 60 min</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Type:</strong> Kracht</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Niveau:</strong> Alle</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Squat · Deadlift · Bench press · Row · Techniek-check</span></li>
+      </ul>
+    </div>
+  </details>
+</article>
+<article class="tc reveal">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Les 05 · Core &amp; kracht</p>
+      <h3 class="tc-name">BBB</h3>
+    </div>
+    <div class="tc-cost">
+      <div class="class-intensity"><span class="int-label">Intensiteit</span><div class="int-bar" role="img" aria-label="Intensiteit: 3 van 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div></div>
+    </div>
+    <a href="#rooster" class="tc-btn">Reserveren via de app <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Buik, billen, benen — gerichte krachttraining voor je onderlichaam en core. Met gewichten en eigen lichaamsgewicht bouw je kracht en definitie op, op woensdagochtend en -avond.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Duur:</strong> 45 min</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Type:</strong> Kracht</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Niveau:</strong> Alle</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Buik · Billen · Benen · Woensdag</span></li>
+      </ul>
+    </div>
+  </details>
+</article>
+    </div>
   </div>
   </div>
 </section>
@@ -945,16 +876,6 @@ footer{border-top-color:var(--border-dark)}
   }, {threshold:0.1, rootMargin:'0px 0px -32px 0px'});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Lestegels: "Meer informatie" dichtgeklapt op smartphone, altijd open vanaf tablet
-  function syncClassDetails(){
-    const isWide = window.innerWidth > 640;
-    document.querySelectorAll('.class-more').forEach(d => {
-      if (isWide) d.setAttribute('open', '');
-      else d.removeAttribute('open');
-    });
-  }
-  syncClassDetails();
-  window.addEventListener('resize', syncClassDetails);
 </script>
 
 <script>
