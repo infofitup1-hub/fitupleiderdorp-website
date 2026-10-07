@@ -48,3 +48,16 @@
   border-color: var(--color-lime, #B7F229);
   color: var(--color-lime, #B7F229);
 }
+
+/* Mobiel menu: soepel scrollen + Trainingsaanbod standaard ingeklapt */
+body.nav-open { overflow: hidden; }
+.nav-drawer { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding-bottom: max(40px, env(safe-area-inset-bottom)); }
+.nav-drawer > * { flex-shrink: 0; }
+.nav-drawer.dd-ready .drawer-group { display: flex; flex-wrap: wrap; align-items: center; }
+.nav-drawer.dd-ready .drawer-group > a { flex: 1 1 0; min-width: 0; }
+.nav-drawer.dd-ready .drawer-toggle { flex: 0 0 52px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: none; border: 0; color: rgba(255, 255, 255, .8); cursor: pointer; }
+.nav-drawer.dd-ready .drawer-toggle svg { transition: transform .25s; }
+.nav-drawer.dd-ready .drawer-group.open .drawer-toggle svg { transform: rotate(180deg); }
+.nav-drawer.dd-ready .drawer-group .drawer-sub { display: none; flex: 1 1 100%; }
+.nav-drawer.dd-ready .drawer-group.open .drawer-sub { display: block; }
+.nav-drawer .drawer-toggle:focus-visible { outline: 3px solid var(--color-lime, #B7F229); outline-offset: -3px; }
