@@ -386,19 +386,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .lite .feat-icon{border-color:rgba(110,130,0,.35);color:var(--color-lime-ink);background:rgba(183,242,41,.16)}
   .lite .why-feat:hover .feat-icon{background:rgba(183,242,41,.28);border-color:rgba(110,130,0,.5)}
   /* rounded cards in reeds-lichte secties (consistentie) */
-  .aud-col,.review-card{border-radius:var(--radius-card)}
+  .review-card{border-radius:var(--radius-card)}
 
   /* ---- PREMIUM v2 (lichte secties) ---- */
-  .lite,.audience,.reviews{padding:112px 0}
-  .audience .aud-col,.reviews .review-card,.lite .svc-card,.lite .team-card{
+  .lite,.reviews{padding:112px 0}
+  .reviews .review-card,.lite .svc-card,.lite .team-card{
     border-radius:var(--radius-card);border:1px solid rgba(18,21,18,.05);
     box-shadow:0 1px 2px rgba(18,21,18,.04),0 24px 50px -22px rgba(18,21,18,.20);
     transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .25s}
-  .audience .aud-col:hover,.reviews .review-card:hover,.lite .svc-card:hover,.lite .team-card:hover{
+  .reviews .review-card:hover,.lite .svc-card:hover,.lite .team-card:hover{
     transform:translateY(-6px);box-shadow:0 2px 6px rgba(18,21,18,.05),0 40px 80px -28px rgba(18,21,18,.28)}
-  .audience .aud-col{padding:40px 40px 38px;border:0;box-shadow:none;border-radius:0}
-  .audience .aud-col:hover{transform:none;box-shadow:none}
-  .audience .aud-col.fit{border-right:1px solid var(--border-light)}
   .reviews .review-card{padding:38px 34px}
   .lite .svc-card{padding:40px 32px 88px}
   /* premium accent: lime-highlight i.p.v. omlijnde tekst */
@@ -415,14 +412,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   /* ---- v3: leesbaarheid + afwerking ---- */
   .lite .svc-desc,.lite .feat-desc,.lite .p-desc,.lite .team-blurb,
   .lite .problem-intro p,.lite .why-content p,.lite .team-head p,
-  .audience .audience-head p,.audience .aud-list li,.reviews .review-text{color:var(--color-text-dark)}
+  .reviews .review-text{color:var(--color-text-dark)}
   .lite .svc-desc,.lite .feat-desc,.lite .p-desc,.lite .team-blurb,
   .lite .problem-intro p,.lite .why-content p{font-size:16px;line-height:1.72}
-  .audience .aud-list li{font-size:16px;line-height:1.5}
-  .audience .aud-col.nofit li{color:var(--color-text-muted-light)}
-  .audience .audience-head p{font-size:16px;line-height:1.7}
   .lite .p-title,.lite .feat-title{font-size:16px;color:var(--black)}
-  .lite .sec-label,.audience .sec-label,.reviews .sec-label{color:var(--color-text-muted-light);font-size:12px;letter-spacing:2.2px;font-weight:700}
+  .lite .sec-label,.reviews .sec-label{color:var(--color-text-muted-light);font-size:12px;letter-spacing:2.2px;font-weight:700}
   .lite .svc-tag{color:var(--color-lime-ink);font-size:12px;letter-spacing:1.5px}
   .reviews .review-meta,.reviews .stars-count{color:var(--color-text-muted-light)}
   .lite .problem-photos{gap:10px}
@@ -503,7 +497,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .hero-rating{margin-top:22px}
 
     section{padding:76px 0}
-    .lite,.audience,.reviews{padding:82px 0}
+    .lite,.reviews{padding:82px 0}
     .container{padding:0 24px}
     h2{font-size:clamp(30px,7vw,44px)}
     .section-header{margin-bottom:40px}
@@ -564,7 +558,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .hr-text strong{font-size:16px}
 
     section{padding:64px 0}
-    .lite,.audience,.reviews,.final-cta{padding:56px 0}
+    .lite,.reviews,.final-cta{padding:56px 0}
     .container{padding:0 20px}
 
     /* 2 tegels naast elkaar i.p.v. swipe-carousel */
@@ -2269,13 +2263,11 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .club-strip-dots{display:none}
 
   /* Lime: accent, geen vlak — markeerstift wordt dunne lijn, decoratieve hoeken weg */
-  :is(.audience,.lite,.reviews,.faq-home,.tour) h2 em{background:linear-gradient(transparent 90%,var(--accent) 90%)!important;padding:0!important}
+  :is(.lite,.reviews,.faq-home,.tour) h2 em{background:linear-gradient(transparent 90%,var(--accent) 90%)!important;padding:0!important}
   .lite .svc-card::before,.lite .svc-card::after,.fc-wrap::before,.fc-wrap::after{display:none!important}
   .intake-tile{box-shadow:none!important}
   /* Coachfoto: volledige breedte en bovenkant behouden zodat het gezicht van de coach in beeld blijft */
-  .audience-head-photo{width:100%;max-width:none;aspect-ratio:4/3}
-  .audience-head-photo img{object-position:left top}
-  .svc-card.reveal.in,.review-card.reveal.in,.frame-card.reveal.in,.aud-col.reveal.in,.fc-wrap.reveal.in,.intake-tile.reveal.in,.reviews-score-block.reveal.in{animation:none}
+  .svc-card.reveal.in,.review-card.reveal.in,.frame-card.reveal.in,.fc-wrap.reveal.in,.intake-tile.reveal.in,.reviews-score-block.reveal.in{animation:none}
 }
 </style>
 <script>
