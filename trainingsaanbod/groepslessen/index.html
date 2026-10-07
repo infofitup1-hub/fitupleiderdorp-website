@@ -163,18 +163,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* PRICE STRIP — bold charcoal card afgezet tegen lichte pagina */
   .price-strip{background:var(--paper2);padding:80px 0}
-  .price-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--charcoal);padding:48px;border-radius:var(--r-card);border-left:3px solid var(--accent);box-shadow:var(--sh-2)}
-  .price-inner h3{font-family:var(--fd);font-size:clamp(32px,4vw,44px);font-weight:900;text-transform:uppercase;line-height:.95;margin-bottom:14px;color:var(--white)}
-  .price-inner h3 em{font-style:normal;color:var(--accent)}
-  .price-inner p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300;max-width:420px}
-  .price-side{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
-  .price-headline{display:flex;align-items:baseline;gap:4px;font-family:var(--fd);font-weight:900;line-height:1;color:var(--white)}
-  .price-headline .curr{font-size:24px;color:var(--accent)}
-  .price-headline .num{font-size:72px;letter-spacing:-2px}
-  .price-headline .per{font-size:13px;color:var(--gray);margin-left:8px;font-family:var(--fb);font-weight:400;letter-spacing:.3px}
-  .price-feat{display:flex;flex-direction:column;gap:8px}
-  .price-feat span{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:center;font-weight:300}
-  .price-feat span svg{color:var(--accent);flex-shrink:0}
 
   /* ROOSTER */
   .rooster{background:var(--paper)}
@@ -254,8 +242,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .classes-track{grid-template-columns:1fr 1fr}
     .class-content{padding:24px 20px;max-width:none}
     .classes{padding:48px 0 64px}
-    .price-inner{grid-template-columns:1fr;padding:36px 28px;gap:32px}
-    .faq-grid{grid-template-columns:1fr}
+      .faq-grid{grid-template-columns:1fr}
     .hbar-inner{grid-template-columns:1fr;gap:24px;text-align:left}
     .hbar-grid{grid-template-columns:1fr 1fr}
     .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
@@ -323,8 +310,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .class-desc{font-size:12.5px}
     .class-meta-value{font-size:13px}
     .class-focus span{font-size:9px;padding:4px 8px}
-    .price-inner{padding:28px 22px}
-    .faq-q{padding:18px 18px;font-size:15px}
+      .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
     .sec-head{margin-bottom:36px}
 
@@ -391,6 +377,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 </style>
 <style>.h1-kicker{display:block;font-size:.16em;letter-spacing:3px;color:var(--accent);margin-bottom:14px;line-height:1;font-weight:700;text-transform:uppercase}</style>
 <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/tarief-cards.css?v=20261006">
 <script src="../../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Trainingsaanbod","item":"https://fitupleiderdorp.nl/trainingsaanbod/"},{"@type":"ListItem","position":3,"name":"Groepslessen","item":"https://fitupleiderdorp.nl/trainingsaanbod/groepslessen/"}]}</script>
@@ -515,10 +502,7 @@ footer{border-top-color:var(--border-dark)}
 .f-bottom p{font-size:14px;color:var(--color-text-secondary-dark)}
 .page-hero-sub{color:var(--color-text-secondary-dark);font-weight:400}
 .final-cta p{color:var(--color-text-secondary-dark);font-weight:400}
-.sec-head p,.class-desc,.class-meta-value,.price-inner p,.faq-a,.rooster-app-cta>span{font-size:16px}
-.price-inner p{color:var(--color-text-secondary-dark);font-weight:400}
-.price-feat span{font-size:16px;color:var(--color-text-light);font-weight:400}
-.price-headline .per{font-size:15px}
+.sec-head p,.class-desc,.class-meta-value,.faq-a,.rooster-app-cta>span{font-size:16px}
 .rooster-day,.rooster-state{font-size:14px}
 .rooster-count{font-size:14px}
 .rooster-card-spots{font-size:13px}
@@ -708,24 +692,35 @@ footer{border-top-color:var(--border-dark)}
 </section>
 
 <!-- PRICE STRIP -->
-<section class="price-strip">
+<section class="price-strip" aria-label="Tarief groepslessen">
   <div class="container">
-    <div class="price-inner reveal">
-      <div>
-        <h3>Eén abonnement,<br><em>alle lessen.</em></h3>
-        <p>Met het Fit Up <strong>All-Inclusive</strong> abonnement doe je onbeperkt mee met alle groepslessen. Geen losse strippenkaarten, geen extra kosten. Voor groepslessen reserveer je vooraf je plek via de app.</p>
-      </div>
-      <div class="price-side">
-        <div>
-          <div class="price-headline"><span class="curr">€</span><span class="num">53,50</span><span class="per">per 4 weken</span></div>
-          <div style="font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;font-weight:600">All-Inclusive abonnement</div>
-        </div>
-        <div class="price-feat">
-          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Onbeperkt meedoen met alle 5 lessen</span>
-          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inbegrepen bij het All-Inclusive abonnement</span>
-          <span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Maandelijks opzegbaar</span>
-        </div>
-        <a href="/tarieven/" class="btn-accent" style="margin-top:8px">Bekijk alle tarieven <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="tc-group">
+      <div class="tc-list">
+<article class="tc reveal hl" id="allinclusive-card">
+  <div class="tc-row">
+    <div class="tc-id">
+      <span class="tc-badge">★ Meest gekozen</span>
+      <p class="tc-label">Fitness + alle groepslessen</p>
+      <h3 class="tc-name">All-Inclusive</h3>
+    </div>
+    <div class="tc-cost">
+      <p class="tc-amount"><span class="cur">€</span><span class="num">53</span><span class="frac">,50</span></p>
+      <p class="tc-unit">per 4 weken</p>
+    </div>
+    <a href="/tarieven/" class="tc-btn">Bekijk alle tarieven <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Met het Fit Up <strong>All-Inclusive</strong> abonnement doe je onbeperkt mee met alle groepslessen. Geen losse strippenkaarten, geen extra kosten. Voor groepslessen reserveer je vooraf je plek via de app.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Onbeperkt meedoen met alle 5 lessen</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Inbegrepen bij het All-Inclusive abonnement</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Maandelijks opzegbaar</span></li>
+      </ul>
+    </div>
+  </details>
+</article>
       </div>
     </div>
   </div>

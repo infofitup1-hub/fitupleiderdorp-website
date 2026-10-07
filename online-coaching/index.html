@@ -178,30 +178,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
   /* PRICING */
   .pricing{background:var(--paper);padding:100px 0}
-  .t-day{font-size:12px;font-weight:600;color:var(--ink-mute);margin-bottom:6px}
-  .tarief-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;max-width:880px;margin:0 auto}
-  .tarief-card{background:var(--white);padding:40px 32px 36px;display:flex;flex-direction:column;position:relative;transition:all .3s;border:1px solid var(--line);border-top:3px solid transparent;border-radius:var(--r-card);box-shadow:var(--sh-2)}
-  .tarief-card:hover{transform:translateY(-4px);border-top-color:var(--accent);box-shadow:var(--sh-hover)}
-  .tarief-card.hot{background:linear-gradient(180deg,rgba(183,242,41,.08),rgba(183,242,41,.01) 45%,var(--white) 100%);border-color:rgba(74,89,0,.22);border-top-color:var(--accent);box-shadow:0 24px 60px -26px rgba(18,21,18,.22)}
-  .tarief-card .ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);background:var(--black);color:var(--accent);padding:6px 14px;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;border:1px solid var(--accent)}
-  .t-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:8px}
-  .t-name{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;margin-bottom:6px;line-height:.95;letter-spacing:.3px;color:var(--ink)}
-  .t-tagline{font-size:12.5px;color:var(--ink-mute);margin-bottom:18px}
-  .t-price-wrap{display:flex;align-items:baseline;gap:2px;margin-bottom:2px;font-family:var(--fd);font-weight:900;line-height:1}
-  .t-price-wrap .currency{font-size:24px;color:var(--accent-ink);margin-right:6px}
-  .t-price-wrap .num{font-size:62px;letter-spacing:-1px;color:var(--ink)}
-  .t-old-price{display:none;font-family:var(--fb);font-size:15px;font-weight:500;color:var(--ink-mute);text-decoration:line-through;margin-bottom:4px}
-  .t-save-badge{display:none;font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent-ink);background:rgba(183,242,41,.18);border:1px solid rgba(74,89,0,.28);border-radius:var(--radius-btn);padding:4px 10px;margin-bottom:10px}
-  .tarief-card.period-12 .t-old-price,.tarief-card.period-12 .t-save-badge{display:inline-block}
-  .t-period{font-size:12px;color:var(--ink-soft);margin-bottom:24px;letter-spacing:.3px}
-  .t-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:0 0 28px;padding-top:22px;border-top:1px solid var(--line);flex-grow:1}
-  .t-features li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-soft);font-weight:400}
-  .t-features li svg{color:var(--accent-ink);flex-shrink:0;margin-top:3px}
-  .t-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .25s;border:2px solid;border-radius:var(--r-btn)}
-  .t-cta-dark{background:var(--black);color:var(--accent);border-color:var(--black)}
-  .t-cta-dark:hover{background:transparent;color:var(--black);border-color:var(--black)}
-  .t-cta-outline{background:transparent;color:var(--ink);border-color:rgba(18,21,18,.2)}
-  .t-cta-outline:hover{border-color:var(--accent-ink);color:var(--accent-ink);background:rgba(183,242,41,.08)}
+  .tc .t-save{display:none}
+  .tc.period-12 .t-save{display:block}
   .price-toggle-wrap{text-align:center;margin:0 0 40px}
   .price-toggle{display:inline-flex;background:var(--paper2);border:1px solid var(--line);border-radius:var(--radius-btn);padding:4px;gap:4px}
   .toggle-btn{border:0;background:transparent;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);padding:10px 24px;border-radius:var(--radius-btn);cursor:pointer;transition:background .25s,color .25s}
@@ -270,7 +248,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .hero-feature-visual{grid-template-columns:1fr;gap:22px}
     .hero-feature-visual .hero-phones{order:1;width:100%;max-width:400px;margin:0 auto}
     .hero-features{order:2;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .tarief-cards{grid-template-columns:1fr}
     .modes-grid{grid-template-columns:1fr}
     .faq-grid{grid-template-columns:1fr}
     .voordelen-grid{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:32px}
@@ -318,7 +295,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .btn-accent{padding:14px 22px;font-size:13px;letter-spacing:1.5px}
     .btn-dark{padding:14px 22px;font-size:13px}
 
-    .faq-grid,.tarief-cards,.modes-grid{grid-template-columns:1fr!important}
+    .faq-grid,.modes-grid{grid-template-columns:1fr!important}
     .toggle-btn{padding:9px 18px;font-size:12px}
 
     .intake-card{padding:24px 20px}
@@ -336,7 +313,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .coaches-grid{gap:14px}
     .coach-name{font-size:19px}
     .coach-desc{font-size:11px}
-    .tarief-card{padding:26px 22px 24px}
     .faq-q{padding:18px 18px;font-size:15px}
     .faq-a{padding:0 18px 18px}
     .coach-body{padding:14px 14px 16px}
@@ -399,6 +375,7 @@ body.nav-open .nav-drawer{opacity:1;transform:none;pointer-events:auto}
 
 </style>
 <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/tarief-cards.css?v=20261006">
 <script src="../assets/js/main.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Fit Up Leiderdorp","image":"https://fitupleiderdorp.nl/assets/images/logo-mark-on-dark.png","@id":"https://fitupleiderdorp.nl/","url":"https://fitupleiderdorp.nl/","telephone":"+31648776322","email":"patrick@fitupleiderdorp.nl","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Weversbaan 9","addressLocality":"Leiderdorp","postalCode":"2352 BZ","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.1564,"longitude":4.5252},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"sameAs":["https://www.facebook.com/fitupleiderdorp","https://www.instagram.com/fitupleiderdorp/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fitupleiderdorp.nl/"},{"@type":"ListItem","position":2,"name":"Online Coaching","item":"https://fitupleiderdorp.nl/online-coaching/"}]}</script>
@@ -719,7 +696,7 @@ footer{border-top-color:var(--border-dark)}
 /* DS2 tekstmaten en formulier (alleen CSS) */
 .ds2 .voordelen-card p,.ds2 .route-content p,.ds2 .mode-card p,.ds2 .coaches-note,.ds2 .rescase-lead,.ds2 .faq-a,.ds2 .if-app-intro,.ds2 .if-price-hint,.ds2 .if-app-note,.ds2 .if-app-reminder,.ds2 .rescase-flow,.ds2 .if-success,.ds2 .if-error{font-size:16px}
 .ds2 p.reveal{font-size:16px!important}
-.ds2 .hero-feature-title,.ds2 .sec-label,.ds2 .mode-label,.ds2 .t-label,.ds2 .ribbon,.ds2 .if-field label,.ds2 .rescase-tag,.ds2 .rescase-range{font-size:12px}
+.ds2 .hero-feature-title,.ds2 .sec-label,.ds2 .mode-label,.ds2 .if-field label,.ds2 .rescase-tag,.ds2 .rescase-range{font-size:12px}
 .ds2 .if-field input,.ds2 .if-field select,.ds2 .if-field textarea{font-size:16px;min-height:48px;border-color:rgba(0,0,0,.25);border-radius:var(--radius-btn)}
 .ds2 .if-field input:focus,.ds2 .if-field select:focus,.ds2 .if-field textarea:focus{box-shadow:0 0 0 3px rgba(74,89,0,.25)}
 .ds2 .if-radio{font-size:16px}
@@ -794,36 +771,56 @@ footer{border-top-color:var(--border-dark)}
         <button type="button" class="toggle-btn" data-period="12" aria-pressed="false">12 weken</button>
       </div>
     </div>
-    <div class="tarief-cards">
-      <!-- Basis -->
-      <div class="tarief-card reveal">
-        <div class="t-label">Basis</div>
-        <div class="t-name">Online <br>Coaching</div>
-        <div class="t-tagline">Volledig online</div>
-        <div class="t-old-price">Normaal €150</div>
-        <div class="t-save-badge">€15 voordeel</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="50" data-price12="135">50</span></div>
-        <div class="t-day" data-day4="± €1,79 per dag" data-day12="± €1,61 per dag">± €1,79 per dag</div>
-        <div class="t-period" data-period4="per 4 weken" data-period12="12-weken traject">per 4 weken</div>
-        <a href="#intake" class="t-cta t-cta-outline">Start met je intake →</a>
-      </div>
-      <!-- Plus -->
-      <div class="tarief-card hot reveal d1">
-        <div class="ribbon">★ Aanrader</div>
-        <div class="t-label">Plus</div>
-        <div class="t-name">Hybride <br>Coaching</div>
-        <div class="t-tagline">Online + in de club</div>
-        <div class="t-old-price">Normaal €225</div>
-        <div class="t-save-badge">€26 voordeel</div>
-        <div class="t-price-wrap"><span class="currency">€</span><span class="num" data-price4="75" data-price12="199">75</span></div>
-        <div class="t-day" data-day4="± €2,68 per dag" data-day12="± €2,37 per dag">± €2,68 per dag</div>
-        <div class="t-period" data-period4="per 4 weken" data-period12="12-weken traject">per 4 weken</div>
-        <ul class="t-features">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Alles uit Basis</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fysieke check-in &amp; metingen bij Fit Up</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Techniek live beoordeeld</li>
-        </ul>
-        <a href="#intake" class="t-cta t-cta-dark">Start met je intake →</a>
+    <div class="tc-group">
+      <div class="tc-list">
+<article class="tc reveal" id="basis-card">
+  <div class="tc-row">
+    <div class="tc-id">
+      <p class="tc-label">Basis</p>
+      <h3 class="tc-name">Online Coaching</h3>
+    </div>
+    <div class="tc-cost">
+      <p class="tc-amount"><span class="cur">€</span><span class="num" data-price4="50" data-price12="135">50</span></p>
+      <p class="tc-unit" data-period4="per 4 weken" data-period12="12-weken traject">per 4 weken</p>
+      <p class="tc-alt t-day" data-day4="± €1,79 per dag" data-day12="± €1,61 per dag">± €1,79 per dag</p>
+    </div>
+    <a href="#intake" class="tc-btn">Start met je intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Volledig online.</p>
+      <p class="tc-foot t-save">Normaal €150 · €15 voordeel</p>
+    </div>
+  </details>
+</article>
+<article class="tc reveal hl d1" id="hybride-card">
+  <div class="tc-row">
+    <div class="tc-id">
+      <span class="tc-badge">★ Aanrader</span>
+      <p class="tc-label">Plus</p>
+      <h3 class="tc-name">Hybride Coaching</h3>
+    </div>
+    <div class="tc-cost">
+      <p class="tc-amount"><span class="cur">€</span><span class="num" data-price4="75" data-price12="199">75</span></p>
+      <p class="tc-unit" data-period4="per 4 weken" data-period12="12-weken traject">per 4 weken</p>
+      <p class="tc-alt t-day" data-day4="± €2,68 per dag" data-day12="± €2,37 per dag">± €2,68 per dag</p>
+    </div>
+    <a href="#intake" class="tc-btn">Start met je intake <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <details class="tc-more">
+    <summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="tc-body">
+      <p class="tc-desc">Online + in de club.</p>
+      <ul class="tc-features">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alles uit Basis</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Fysieke check-in &amp; metingen bij Fit Up</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Techniek live beoordeeld</span></li>
+      </ul>
+      <p class="tc-foot t-save">Normaal €225 · €26 voordeel</p>
+    </div>
+  </details>
+</article>
       </div>
     </div>
   </div>
@@ -1097,10 +1094,10 @@ footer{border-top-color:var(--border-dark)}
   var toggle = document.querySelector('.price-toggle');
   if(!toggle) return;
   var btns = toggle.querySelectorAll('.toggle-btn');
-  var cards = document.querySelectorAll('.tarief-card');
-  var nums = document.querySelectorAll('.tarief-card .num[data-price4]');
-  var periods = document.querySelectorAll('.tarief-card .t-period[data-period4]');
-  var days = document.querySelectorAll('.tarief-card .t-day[data-day4]');
+  var cards = document.querySelectorAll('.tc');
+  var nums = document.querySelectorAll('.tc .num[data-price4]');
+  var periods = document.querySelectorAll('.tc .tc-unit[data-period4]');
+  var days = document.querySelectorAll('.tc .t-day[data-day4]');
   function setPeriod(period){
     btns.forEach(function(b){
       var active = b.dataset.period === period;

@@ -313,6 +313,23 @@ footer{border-top-color:var(--border-dark)}
 .c12-stop-sub{color:var(--color-text-secondary-dark)}
 @media(max-width:640px){.services-grid{grid-template-columns:1fr;gap:14px}}
 .f-brand p{font-size:16px}
+
+/* Uitklapbare dienstkaarten */
+.svc-card{padding-bottom:20px}
+.svc-card .svc-desc{flex:0 0 auto}
+.svc-card .svc-more{text-decoration:none}
+.svc-card .svc-more:hover{gap:10px}
+.svc-details{border-top:1px solid var(--border-light);margin-top:auto;position:relative;z-index:1}
+.svc-details summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:14px 0 4px;font-size:16px;font-weight:600;color:var(--ink)}
+.svc-details summary::-webkit-details-marker{display:none}
+.svc-details summary .chev{transition:transform .25s;color:var(--color-lime-ink)}
+.svc-details[open] summary .chev{transform:rotate(180deg)}
+.svc-details summary:focus-visible,.svc-card .svc-more:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.svc-extra{display:flex;flex-direction:column;gap:12px;padding-top:10px}
+.svc-extra .svc-tag{font-size:13px}
+.svc-extra .svc-price{margin-top:0}
+.svc-card:hover{transform:none}
+@media(max-width:640px){.svc-card{padding:22px 20px}.svc-name{font-size:28px}.svc-desc{font-size:16px;line-height:1.55}.svc-more{font-size:13px}.svc-tag{font-size:13px}.svc-price{font-size:15px}.svc-price strong{font-size:18px}}
 </style>
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/main.js" defer></script>
@@ -384,55 +401,50 @@ footer{border-top-color:var(--border-dark)}
 
 <section class="services">
   <div class="services-grid" data-swipe-track="services">
-    <a href="/trainingsaanbod/sgpt-small-group-personal-training/" class="svc-card swipe-slide">
-      <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="14" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 34c0-5.523 4.477-10 10-10h12c5.523 0 10 4.477 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div class="svc-tag">⭐ Meest gekozen</div>
-      <h2 class="svc-name">Small Group <br>Personal Training</h2>
-      <p class="svc-desc">Persoonlijke coaching in een vaste groep van max. 4, met voeding en 24/7 toegang inbegrepen. Voor wie structuur wil, zonder de PT-prijs.</p>
-      <div class="svc-price">Vanaf <strong>€149</strong> per 4 weken</div>
-      <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
+    <article class="svc-card swipe-slide">
+      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="14" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="13" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 34c0-5.523 4.477-10 10-10h12c5.523 0 10 4.477 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>      <h2 class="svc-name">Small Group <br>Personal Training</h2>
+      <p class="svc-desc">Persoonlijke coaching in een vaste groep van max. 4.</p>
+      <a href="/trainingsaanbod/sgpt-small-group-personal-training/" class="svc-more">Bekijk aanbod <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <details class="tc-more svc-details"><summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="svc-extra"><div class="svc-tag">⭐ Meest gekozen</div><p class="svc-desc">Voeding en 24/7 toegang inbegrepen. Voor wie structuur wil, zonder de PT-prijs.</p><div class="svc-price">Vanaf <strong>€149</strong> per 4 weken</div></div>
+      </details>
+    </article>
 
-    <a href="/trainingsaanbod/personal-training/" class="svc-card swipe-slide">
-      <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 34c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div class="svc-tag">1-op-1</div>
-      <h2 class="svc-name">Personal <br>Training</h2>
-      <p class="svc-desc">Eén coach, één doel, één plan. Voor wie maximale persoonlijke aandacht wil en snelle resultaten zoekt.</p>
-      <div class="svc-price">vanaf <strong>€300</strong> per 4 weken</div>
-      <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
+    <article class="svc-card swipe-slide">
+      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 34c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>      <h2 class="svc-name">Personal <br>Training</h2>
+      <p class="svc-desc">Eén coach, één doel, één plan.</p>
+      <a href="/trainingsaanbod/personal-training/" class="svc-more">Bekijk aanbod <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <details class="tc-more svc-details"><summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="svc-extra"><div class="svc-tag">1-op-1</div><p class="svc-desc">Voor wie maximale persoonlijke aandacht wil en snelle resultaten zoekt.</p><div class="svc-price">vanaf <strong>€300</strong> per 4 weken</div></div>
+      </details>
+    </article>
 
-    <a href="/trainingsaanbod/24-7-fitness/" class="svc-card swipe-slide">
-      <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 11v9l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div class="svc-tag">Altijd open</div>
-      <h2 class="svc-name">24/7<br>Fitness</h2>
-      <p class="svc-desc">Train zelfstandig, wanneer het jou uitkomt, met complete apparatuur. Voor wie al weet wat te doen.</p>
-      <div class="svc-price">vanaf <strong>€48,50</strong> per 4 weken</div>
-      <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
+    <article class="svc-card swipe-slide">
+      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 11v9l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>      <h2 class="svc-name">24/7<br>Fitness</h2>
+      <p class="svc-desc">Train zelfstandig, wanneer het jou uitkomt, met complete apparatuur.</p>
+      <a href="/trainingsaanbod/24-7-fitness/" class="svc-more">Bekijk aanbod <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <details class="tc-more svc-details"><summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="svc-extra"><div class="svc-tag">Altijd open</div><p class="svc-desc">Voor wie al weet wat te doen.</p><div class="svc-price">vanaf <strong>€48,50</strong> per 4 weken</div></div>
+      </details>
+    </article>
 
-    <a href="/trainingsaanbod/groepslessen/" class="svc-card swipe-slide">
-      <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 30V20l12-8 12 8v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="22" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
-      <div class="svc-tag">Samen trainen</div>
-      <h2 class="svc-name">Groepslessen</h2>
-      <p class="svc-desc">Bodypump, Boksfit, HIIT, Powerhour en meer — onbeperkt meedoen. Voor wie liever samen dan alleen traint.</p>
-      <div class="svc-price">vanaf <strong>€53,50</strong> per 4 weken</div>
-      <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
+    <article class="svc-card swipe-slide">
+      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 30V20l12-8 12 8v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="22" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>      <h2 class="svc-name">Groepslessen</h2>
+      <p class="svc-desc">Bodypump, Boksfit, HIIT, Powerhour en meer — onbeperkt meedoen.</p>
+      <a href="/trainingsaanbod/groepslessen/" class="svc-more">Bekijk aanbod <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <details class="tc-more svc-details"><summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="svc-extra"><div class="svc-tag">Samen trainen</div><p class="svc-desc">Voor wie liever samen dan alleen traint.</p><div class="svc-price">vanaf <strong>€53,50</strong> per 4 weken</div></div>
+      </details>
+    </article>
 
-    <a href="/online-coaching/" class="svc-card swipe-slide">
-      <div class="svc-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="12" y="6" width="16" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="30" r="1" fill="currentColor"/></svg></div>
-      <div class="svc-tag">Overal trainen</div>
-      <h2 class="svc-name">Online <br>Coaching</h2>
-      <p class="svc-desc">Coach in je app: schema, voedingsplan en wekelijkse check-ins. Voor wie overal wil trainen, ongeacht de locatie.</p>
-      <div class="svc-price">vanaf <strong>€50</strong> per 4 weken</div>
-      <div class="svc-more">Meer informatie <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
+    <article class="svc-card swipe-slide">
+      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="12" y="6" width="16" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="30" r="1" fill="currentColor"/></svg></div>      <h2 class="svc-name">Online <br>Coaching</h2>
+      <p class="svc-desc">Coach in je app: schema, voedingsplan en wekelijkse check-ins.</p>
+      <a href="/online-coaching/" class="svc-more">Bekijk aanbod <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <details class="tc-more svc-details"><summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="svc-extra"><div class="svc-tag">Overal trainen</div><p class="svc-desc">Voor wie overal wil trainen, ongeacht de locatie.</p><div class="svc-price">vanaf <strong>€50</strong> per 4 weken</div></div>
+      </details>
+    </article>
   </div>
   <div class="services-dots" data-swipe-dots="services" role="tablist" aria-label="Trainingsaanbod">
     <button type="button" class="dot is-active" aria-label="Optie 1" aria-selected="true"></button>

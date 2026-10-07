@@ -1,0 +1,69 @@
+/* Gedeeld tariefkaart-systeem (.tc) — dezelfde kaart op de hele site.
+   Naam · prijs · knop; details uitklapbaar via "Klik hier voor meer info".
+   Gebruikt alleen --color-* / --radius-* tokens (met vaste fallbacks), zodat
+   pagina-eigen variabelen de kaart niet kunnen laten afwijken. */
+.tc-head{max-width:1040px;margin:0 auto 32px;text-align:left}
+.tc-head h2{margin-bottom:0;text-align:left}
+.tc-head p{font-size:18px;line-height:1.7;color:var(--color-text-dark,#121512);margin-top:16px;max-width:640px}
+.tc-group{max-width:1040px;margin:0 auto 44px}
+.tc-group:last-child{margin-bottom:0}
+.tc-group-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,3vw,36px);line-height:1;letter-spacing:.5px;color:var(--color-text-dark,#121512);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(0,0,0,.14)}
+.tc-list{display:flex;flex-direction:column;gap:14px}
+.tc{background:var(--color-white-warm,#F4F5F1);border:1px solid var(--border-light,rgba(0,0,0,.08));border-radius:var(--radius-card,10px);padding:0 32px;position:relative;text-align:left;color:var(--color-text-dark,#121512)}
+.tc.hl{border-color:var(--color-lime,#B7F229);box-shadow:0 0 0 1px var(--color-lime,#B7F229)}
+.tc-row{display:grid;grid-template-columns:minmax(0,1fr) 310px 250px;gap:24px 32px;align-items:center;padding:26px 0}
+.tc-badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;background:var(--color-black,#080A09);color:var(--color-lime,#B7F229);padding:4px 10px;border-radius:var(--radius-btn,6px);margin-bottom:10px}
+.tc-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--color-lime-ink,#4a5900);margin:0 0 6px}
+.tc-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,3vw,36px);line-height:1;letter-spacing:.5px;color:var(--color-text-dark,#121512);margin:0}
+.tc-freq{display:block;font-size:.55em;letter-spacing:1px;color:var(--color-lime-ink,#4a5900);margin-top:6px}
+.tc-cost{text-align:right}
+.tc-amount{display:flex;align-items:baseline;justify-content:flex-end;gap:4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;color:var(--color-text-dark,#121512);line-height:.9;margin:0}
+.tc-amount .cur{font-size:26px;font-weight:800}
+.tc-amount .num{font-size:56px;letter-spacing:-1px}
+.tc-amount .frac{font-size:26px;font-weight:800}
+.tc-unit{font-size:16px;font-weight:600;color:var(--color-text-dark,#121512);margin:6px 0 0;line-height:1.4}
+.tc-alt{font-size:16px;color:var(--color-text-dark,#121512);margin:2px 0 0;line-height:1.4}
+.tc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:var(--radius-btn,6px);border:2px solid var(--color-black,#080A09);background:var(--color-black,#080A09);color:var(--color-text-light,#F4F5F1);transition:background .2s,color .2s}
+.tc-btn:hover{background:transparent;color:var(--color-black,#080A09)}
+.tc.hl .tc-btn{background:var(--color-lime,#B7F229);border-color:var(--color-lime,#B7F229);color:var(--color-black,#080A09)}
+.tc.hl .tc-btn:hover{background:var(--color-lime-hover,#9EDB20);border-color:var(--color-lime-hover,#9EDB20);color:var(--color-black,#080A09)}
+.tc-btn:focus-visible,.tc-link:focus-visible,.tc-more summary:focus-visible{outline:3px solid var(--color-text-dark,#121512);outline-offset:3px}
+.tc-more{border-top:1px solid rgba(0,0,0,.14)}
+.tc-more summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:16px 0;font-size:16px;font-weight:600;color:var(--color-text-dark,#121512)}
+.tc-more summary::-webkit-details-marker{display:none}
+.tc-more summary .chev{transition:transform .25s;color:var(--color-lime-ink,#4a5900)}
+.tc-more[open] summary .chev{transform:rotate(180deg)}
+.tc-body{padding:28px 0 32px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:12px 56px;align-items:start}
+.tc-body > .tc-features,.tc-body > .tc-foot,.tc-body > .tc-link{grid-column:2}
+.tc-body > .tc-desc,.tc-body > .tc-note{grid-column:1}
+.tc-body > .tc-desc:only-child,.tc-body > .tc-desc:last-child{grid-column:1/-1}
+.tc-desc{font-size:17px;line-height:1.65;color:var(--color-text-dark,#121512);margin:0}
+.tc-note{font-size:16px;line-height:1.6;color:var(--color-text-dark,#121512);margin:0}
+.tc-note strong{color:var(--color-text-dark,#121512)}
+.tc-features{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;grid-row:1 / span 4}
+.tc-features li{display:flex;gap:12px;font-size:17px;line-height:1.55;color:var(--color-text-dark,#121512)}
+.tc-features li svg{flex-shrink:0;color:var(--color-lime-ink,#4a5900);margin-top:5px}
+.tc-features li strong{color:var(--color-text-dark,#121512)}
+.tc-foot{font-size:16px;line-height:1.6;color:var(--color-text-dark,#121512);padding-top:8px;margin:0}
+.tc-link{font-size:16px;font-weight:600;color:var(--color-text-dark,#121512);text-decoration:underline;text-underline-offset:4px}
+.tc-link:hover{color:var(--color-lime-ink,#4a5900)}
+@media (max-width:980px){
+  .tc-body{grid-template-columns:1fr}
+  .tc-body > *{grid-column:1!important;grid-row:auto!important}
+}
+@media (max-width:760px){
+  .tc-row{grid-template-columns:1fr auto;gap:16px 20px}
+  .tc-id{grid-column:1 / -1}
+  .tc-cost{text-align:left;grid-column:1}
+  .tc-amount{justify-content:flex-start}
+  .tc-btn{grid-column:1 / -1;width:100%}
+}
+@media (max-width:640px){
+  .tc-head{margin-bottom:24px}
+  .tc-group{margin-bottom:36px}
+  .tc{padding:0 20px}
+  .tc-row{padding:22px 0}
+  .tc-name{font-size:30px}
+  .tc-amount .num{font-size:52px}
+  .tc-features li{font-size:16px}
+}
