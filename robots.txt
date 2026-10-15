@@ -30,3 +30,23 @@ Disallow: /bedankt/
 User-agent: Googlebot
 Allow: /
 Disallow: /bedankt/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /bedankt/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /bedankt/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /bedankt/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /bedankt/
+
+User-agent: CCBot
+Allow: /
+Disallow: /bedankt/
