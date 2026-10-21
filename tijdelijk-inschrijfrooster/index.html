@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>BuddyCheck – Tijdelijk Inschrijfrooster | Fit Up Leiderdorp</title>
+<style>
+:root{color-scheme:dark;--bg:#080A09;--panel:#191D1A;--border:#343d37;--text:#F4F5F1;--muted:#A7ADA8;--lime:#B7F229}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Arial,sans-serif}main{max-width:780px;padding:30px 16px 60px;margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:15px}strong.brand{font-size:27px;font-weight:900;letter-spacing:.035em;color:var(--lime)}
+h1{font-size:clamp(28px,6vw,42px);line-height:1.13;margin:30px 0 12px}p{color:var(--muted)}.tag{font-size:12px;border:1px solid var(--border);border-radius:99px;padding:7px 10px;text-transform:uppercase;letter-spacing:.07em}
+.panel,.lesson{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;margin:18px 0}
+.alert{border-left:4px solid var(--lime);padding:14px 18px;background:#222d22;border-radius:6px;color:#ecf7df}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.lesson h3{margin:0;font-size:20px}.lesson p{margin:3px 0}label{display:block;font-weight:650;margin:14px 0 5px}
+input{width:100%;padding:14px 12px;background:#0c1110;border:1px solid #627065;border-radius:9px;color:white;font:inherit}
+button{padding:13px 18px;border:0;border-radius:10px;background:var(--lime);color:#101610;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}
+.small{font-size:16px}.hidden{display:none!important}.switch{display:flex;gap:8px;flex-wrap:wrap}.switch button{background:#27332b;color:white}.switch button.active{background:var(--lime);color:#101610}
+a{color:var(--lime)}.error{color:#ffbdad}.success{color:var(--lime)}
+</style></head><body><main>
+<header><strong class="brand">FIT UP</strong><span class="tag">Tijdelijke oplossing</span></header>
+<h1>BuddyCheck<br><span style="color:var(--lime)">Tijdelijk Inschrijfrooster</span></h1>
+<p>Bekijk de groepslessen en reserveer je plek wanneer het tijdelijke inschrijfsysteem is vrijgegeven.</p>
+<div class="alert" role="status" id="notice">We controleren het lesrooster en de abonnementsrechten. Reserveren via deze pagina is nog niet geopend.</div>
+<section class="panel"><div class="row"><h2 style="margin:0">Groepslessen</h2><span id="updated" class="small"></span></div><div id="days" class="switch" style="margin:14px 0"></div><div id="lessons"><p>Rooster wordt geladen…</p></div></section>
+<section id="loginPanel" class="panel"><h2>Inloggen als Fit Up-lid</h2><p>Alleen leden met een geldig abonnement en het juiste lesrecht kunnen reserveren.</p>
+<form id="login"><label for="email">E-mailadres</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
+<label for="password">Wachtwoord voor BuddyCheck</label><input id="password" name="password" type="password" autocomplete="current-password" required maxlength="256">
+<p class="small">Gebruik het afzonderlijke BuddyCheck-account dat Fit Up voor je heeft aangemaakt. Gebruik hier nooit je Virtuagym-wachtwoord. Nog geen account? Neem contact op met Fit Up.</p>
+<button type="submit">Inloggen</button></form><button id="logout" type="button" class="hidden">Uitloggen</button><p class="small" id="loginFeedback" role="status" aria-live="polite"></p></section>
+<section id="myPanel" class="panel hidden"><h2>Mijn reserveringen</h2><div id="mine"></div></section>
+<section class="panel"><h2>Hulp nodig?</h2><p>Kun je je les niet reserveren? Neem <a href="/gratis-intake/">contact op met Fit Up Leiderdorp</a>. Je reguliere Fit Up-abonnement blijft leidend voor toegang tot lessen.</p><p class="small">Deze tijdelijke planner staat los van Virtuagym. Reeds bestaande Virtuagym-reserveringen worden niet automatisch overgenomen.</p></section>
+<noscript><p>Schakel JavaScript in om het rooster te bekijken. Reserveren is nu niet beschikbaar.</p></noscript></main>
+<script src="/tijdelijk-inschrijfrooster/app.js" defer></script></body></html>
