@@ -20,7 +20,8 @@ function paint(){
  if(!lessons.length)$('lessons').append(el('p','Er zijn momenteel geen bevestigde lessen beschikbaar.'));
  for(const l of lessons){
   const article=el('article');article.className='lesson';
-  article.append(el('h3',l.name),el('p',l.start+'–'+l.end+(l.room?' · '+l.room:'')),el('p',l.available+' plekken beschikbaar'));
+  const head=el('header');head.className='lesson-head';head.append(el('time',l.start),el('h3',l.name));
+  article.append(head,el('p',l.start+'–'+l.end+(l.room?' · '+l.room:'')),el('p',l.available+' plekken beschikbaar'));
   const b=el('button','Reserveer');b.type='button';b.disabled=state.busy||!state.open||l.available<=0;
   b.onclick=async()=>{
    if(!state.token){feedback('Log eerst in en kies daarna Reserveer.');$('email').focus();return;}
@@ -33,6 +34,11 @@ async function schedule(){
  try{const d=await api();state.open=d.bookingOpen===true;state.lessons=Array.isArray(d.lessons)?d.lessons:[];state.days=Array.isArray(d.days)?d.days:[];}
  catch{feedback('Rooster niet bereikbaar. Reserveren blijft gesloten.',true);}
  if(!state.days.includes(state.day))state.day=state.days[0]||'';
+ const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+ const confirmed=$('confirmedSchedule');
+ confirmed.querySelectorAll('[data-schedule-date]').forEach(day=>{day.hidden=day.dataset.scheduleDate<today;});
+ confirmed.hidden=state.open||!Array.from(confirmed.querySelectorAll('[data-schedule-date]')).some(day=>!day.hidden);
+ $('days').closest('section').hidden=!state.open&&!confirmed.hidden;
  $('notice').textContent=state.open?'Het gecontroleerde tijdelijke rooster is geopend. Log in om te reserveren.':'We controleren het rooster en de abonnementsrechten. Nieuwe reserveringen zijn gesloten. Je bestaande reserveringen kun je na inloggen bekijken.';
  paint();
 }
