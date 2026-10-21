@@ -18,3 +18,10 @@
 
 /apple-touch-icon.png
   Cache-Control: public, max-age=2592000
+
+/tijdelijk-inschrijfrooster/*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'

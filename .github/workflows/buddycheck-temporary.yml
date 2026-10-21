@@ -1,0 +1,31 @@
+name: BuddyCheck temporary safety
+on:
+  pull_request:
+    paths:
+      - 'buddycheck-temporary/**'
+      - 'netlify/functions/buddycheck-temporary.mjs'
+      - 'tijdelijk-inschrijfrooster/**'
+      - 'package*.json'
+      - '.github/workflows/buddycheck-temporary.yml'
+  push:
+    branches: [main, feature/buddycheck-tijdelijk-inschrijfrooster]
+    paths:
+      - 'buddycheck-temporary/**'
+      - 'netlify/functions/buddycheck-temporary.mjs'
+      - 'tijdelijk-inschrijfrooster/**'
+      - 'package*.json'
+      - '.github/workflows/buddycheck-temporary.yml'
+permissions:
+  contents: read
+jobs:
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node --check tijdelijk-inschrijfrooster/app.js
+      - run: node --test buddycheck-temporary/booking.test.mjs

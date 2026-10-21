@@ -1,38 +1,54 @@
-// Tijdelijk inschrijfrooster; fail-closed als database, ledenrechten of expliciete activatie ontbreken.
-// Nooit Virtuagym-credentials of Supabase service-role keys naar de browser sturen.
-const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","X-Robots-Tag":"noindex,nofollow","X-Content-Type-Options":"nosniff"}});
-const env=(k)=>Netlify.env.get(k)||"";
-const enabled=()=>env("BUDDYCHECK_BOOKING_ENABLED")==="true" && env("BUDDYCHECK_BOOKING_VERIFIED")==="true";
-async function db(path,{method="GET",body}={}) {
- const base=env("BUDDYCHECK_SUPABASE_URL"),key=env("BUDDYCHECK_SUPABASE_SERVICE_ROLE_KEY");
- if(!/^https:\/\/[^/]+$/.test(base)||!key)throw new Error("unconfigured");
- const response=await fetch(base+"/rest/v1/"+path,{method,headers:{"apikey":key,"Authorization":"Bearer "+key,"Content-Type":"application/json","Accept":"application/json"},body:body===undefined?undefined:JSON.stringify(body),signal:AbortSignal.timeout(6500)});
- if(!response.ok)throw new Error("database_error");
- return response.json();
+// Only server-verified Supabase Auth identities reach service-only booking RPCs.
+const env = key => globalThis.Netlify?.env.get(key) || process.env[key] || '';
+const enabled = () => ['BUDDYCHECK_BOOKING_ENABLED','BUDDYCHECK_BOOKING_VERIFIED'].every(k => env(k) === 'true');
+const closed = {bookingOpen:false,days:[],lessons:[]};
+const json = (data, status=200) => new Response(JSON.stringify(data), {status, headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Robots-Tag':'noindex,nofollow','X-Content-Type-Options':'nosniff'}});
+async function api(path, {method='GET',body,token}={}) {
+  const base=env('BUDDYCHECK_SUPABASE_URL'), key=env('BUDDYCHECK_SUPABASE_SERVICE_ROLE_KEY');
+  if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(base) || !key) throw Error('configuration');
+  const r=await fetch(base+path,{method,headers:{apikey:key,Authorization:'Bearer '+(token||key),'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal:AbortSignal.timeout(6500)});
+  if(!r.ok) throw Error('upstream');
+  return r.json();
 }
-const validEmail=(x)=>typeof x==="string" && x.length<=160 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x);
-export default async(req)=>{
- if(req.method==="GET"){
-  if(!enabled())return json({bookingOpen:false,days:[],lessons:[]});
+const rpc=(name,body)=>api('/rest/v1/rpc/buddycheck_temp_'+name,{method:'POST',body});
+export default async function handler(req) {
+  if(!['GET','POST'].includes(req.method)) return json({ok:false,message:'Methode niet toegestaan.'},405);
+  const url=new URL(req.url);
+  if(req.method==='GET' && !req.headers.has('authorization')) {
+    if(!enabled()) return json(closed);
+    try {return json(await rpc('schedule',{}));} catch {return json(closed);}
+  }
+  if(req.method==='POST') {
+    if(req.headers.get('origin')!==url.origin) return json({ok:false,message:'Ongeldige herkomst.'},403);
+    if(!req.headers.get('content-type')?.startsWith('application/json')) return json({ok:false,message:'JSON vereist.'},415);
+  }
+  let payload={};
+  if(req.method==='POST') {
+    const raw=await req.text();
+    if(raw.length>4096) return json({ok:false,message:'Aanvraag te groot.'},413);
+    try {payload=JSON.parse(raw); if(!payload || Array.isArray(payload) || typeof payload!=='object') throw Error();}
+    catch {return json({ok:false,message:'Ongeldige aanvraag.'},400);}
+  }
   try {
-   const today=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Amsterdam",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
-   const rows=await db("buddycheck_temp_lessons?select=id,name,date,start_time,end_time,room,capacity,kind&active=eq.true&date=gte."+today+"&order=date.asc,start_time.asc&limit=100");
-   const lessons=rows.map(x=>({id:x.id,name:x.name,date:x.date,start:String(x.start_time).slice(0,5),end:String(x.end_time).slice(0,5),room:x.room||""}));
-   const days=[...new Set(lessons.map(x=>x.date))];
-   return json({bookingOpen:true,days,lessons});
-  }catch{return json({bookingOpen:false,days:[],lessons:[]})}
- }
- if(req.method!=="POST")return json({message:"Method not allowed"},405);
- if(!enabled())return json({ok:false,message:"Inschrijven is nog niet geopend."},503);
- let payload;try{payload=await req.json()}catch{return json({ok:false,message:"Ongeldige aanvraag."},400)}
- const email=String(payload.email||"").trim().toLowerCase(),code=payload.code,lessonId=payload.lessonId;
- if(!validEmail(email)||typeof code!=="string"||code.length<8||code.length>128||typeof lessonId!=="string"||!/^[0-9a-f-]{36}$/i.test(lessonId))return json({ok:false,message:"Controleer je gegevens."},400);
- try{
-  const {createHash}=await import("node:crypto");
-  const codeHash=createHash("sha256").update(code).digest("hex");
-  const data=await db("rpc/buddycheck_temp_book",{method:"POST",body:{p_email:email,p_code_hash:codeHash,p_lesson_id:lessonId}});
-  const status=data&&data.ok===true;
-  return json({ok:status,message:status?"Je reservering is bevestigd.":String(data?.message||"Reservering niet mogelijk.").slice(0,160)},status?200:400);
- }catch{return json({ok:false,message:"Reservering kon niet veilig worden verwerkt. Probeer later opnieuw."},503)}
-};
-export const config={path:"/.netlify/functions/buddycheck-temporary"};
+    if(payload.action==='login') {
+      if(typeof payload.email!=='string'||payload.email.length>254||typeof payload.password!=='string'||payload.password.length>256) return json({ok:false,message:'Controleer je gegevens.'},400);
+      let session;
+      try {session=await api('/auth/v1/token?grant_type=password',{method:'POST',body:{email:payload.email.trim(),password:payload.password}});} catch {return json({ok:false,message:'Inloggen mislukt. Controleer je gegevens of probeer later opnieuw.'},401);}
+      const member=await rpc('member',{p_user_id:session.user?.id});
+      if(member?.ok!==true) return json({ok:false,message:'Geen gecontroleerd actief lidmaatschap beschikbaar.'},403);
+      return json({ok:true,accessToken:session.access_token,expiresIn:session.expires_in});
+    }
+    const bearer=req.headers.get('authorization');
+    if(!/^Bearer [A-Za-z0-9_.-]{20,4096}$/.test(bearer||'')) return json({ok:false,message:'Log opnieuw in.'},401);
+    let user;
+    try {user=await api('/auth/v1/user',{token:bearer.slice(7)});} catch {return json({ok:false,message:'Log opnieuw in.'},401);}
+    if(!user?.id) return json({ok:false,message:'Log opnieuw in.'},401);
+    if(req.method==='GET') return json(await rpc('mine',{p_user_id:user.id}));
+    if(payload.action==='logout') {await api('/auth/v1/logout',{method:'POST',token:bearer.slice(7)}); return json({ok:true});}
+    if(!['book','cancel'].includes(payload.action)||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(payload.lessonId||'')) return json({ok:false,message:'Kies een geldige les.'},400);
+    if(payload.action==='book'&&!enabled()) return json({ok:false,message:'Inschrijven is gesloten.'},503);
+    const result=await rpc(payload.action,{p_user_id:user.id,p_lesson_id:payload.lessonId});
+    return json(result,result?.ok===true?200:409);
+  } catch {return json({ok:false,message:'De aanvraag kon niet veilig worden verwerkt. Vernieuw je overzicht voordat je opnieuw probeert.'},503);}
+}
+export const config={path:'/.netlify/functions/buddycheck-temporary',rateLimit:{windowLimit:30,windowSize:60,aggregateBy:['ip','domain']}};
