@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>BuddyCheck – Tijdelijk Inschrijfrooster | Fit Up Leiderdorp</title>
+<style>
+:root{color-scheme:dark;--bg:#0c1110;--panel:#171e1b;--border:#343d37;--text:#f4f8f3;--muted:#bac5bb;--lime:#c7f15b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Arial,sans-serif}main{max-width:780px;padding:30px 16px 60px;margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:15px}strong.brand{font-size:27px;font-weight:900;letter-spacing:.035em;color:var(--lime)}
+h1{font-size:clamp(28px,6vw,42px);line-height:1.13;margin:30px 0 12px}p{color:var(--muted)}.tag{font-size:12px;border:1px solid var(--border);border-radius:99px;padding:7px 10px;text-transform:uppercase;letter-spacing:.07em}
+.panel,.lesson{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;margin:18px 0}
+.alert{border-left:4px solid var(--lime);padding:14px 18px;background:#222d22;border-radius:6px;color:#ecf7df}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.lesson h3{margin:0;font-size:20px}.lesson p{margin:3px 0}label{display:block;font-weight:650;margin:14px 0 5px}
+input{width:100%;padding:14px 12px;background:#0c1110;border:1px solid #627065;border-radius:9px;color:white;font:inherit}
+button{padding:13px 18px;border:0;border-radius:10px;background:var(--lime);color:#101610;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}
+.small{font-size:13px}.hidden{display:none!important}.switch{display:flex;gap:8px;flex-wrap:wrap}.switch button{background:#27332b;color:white}.switch button.active{background:var(--lime);color:#101610}
+a{color:var(--lime)}.error{color:#ffbdad}.success{color:var(--lime)}
+</style></head><body><main>
+<header><strong class="brand">FIT UP</strong><span class="tag">Tijdelijke oplossing</span></header>
+<h1>BuddyCheck<br><span style="color:var(--lime)">Tijdelijk Inschrijfrooster</span></h1>
+<p>Bekijk de groepslessen en reserveer je plek wanneer het tijdelijke inschrijfsysteem is vrijgegeven.</p>
+<div class="alert" role="status" id="notice">We controleren het lesrooster en de abonnementsrechten. Reserveren via deze pagina is nog niet geopend.</div>
+<section class="panel"><div class="row"><h2 style="margin:0">Groepslessen</h2><span id="updated" class="small"></span></div><div id="days" class="switch" style="margin:14px 0"></div><div id="lessons"><p>Rooster wordt geladen…</p></div></section>
+<section id="loginPanel" class="panel hidden"><h2>Inloggen als Fit Up-lid</h2><p>Alleen leden met een geldig abonnement en het juiste lesrecht kunnen reserveren.</p>
+<form id="login"><label for="email">E-mailadres</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
+<label for="code">Persoonlijke toegangscode</label><input id="code" name="code" type="password" autocomplete="one-time-code" required minlength="8" maxlength="128">
+<p class="small">Gebruik uitsluitend de toegangscode die je rechtstreeks van Fit Up hebt ontvangen. Gebruik hier nooit je Virtuagym-wachtwoord.</p>
+<button type="submit">Controleren</button></form><p class="small" id="loginFeedback" role="status"></p></section>
+<section class="panel"><h2>Hulp nodig?</h2><p>Kun je je les niet reserveren? Neem contact op met Fit Up Leiderdorp. Je reguliere Fit Up-abonnement blijft leidend voor toegang tot lessen.</p><p class="small">Deze tijdelijke planner staat los van Virtuagym. Reeds bestaande Virtuagym-reserveringen worden niet automatisch overgenomen.</p></section>
+</main>
+<script>
+"use strict";
+const state={days:[],lessons:[],open:false,day:"",email:"",code:""};
+const byId=id=>document.getElementById(id);
+const el=(tag,txt,cls)=>{const e=document.createElement(tag);if(txt!=null)e.textContent=txt;if(cls)e.className=cls;return e};
+function paint(){const nav=byId('days'),list=byId('lessons');nav.replaceChildren();list.replaceChildren();
+for(const d of state.days){const b=el('button',new Intl.DateTimeFormat('nl-NL',{weekday:'short',day:'numeric',month:'short',timeZone:'Europe/Amsterdam'}).format(new Date(d+'T12:00:00+02:00')));b.type='button';b.className=d===state.day?'active':'';b.onclick=()=>{state.day=d;paint()};nav.append(b)}
+const lessons=state.lessons.filter(x=>x.date===state.day);
+if(!lessons.length){list.append(el('p','Voor deze dag zijn nog geen bevestigde lessen ingevoerd.'));return}
+for(const l of lessons){const c=el('article',null,'lesson'),r=el('div',null,'row'),info=el('div');
+info.append(el('h3',l.name),el('p',l.start+'–'+l.end+(l.room?' · '+l.room:'')));r.append(info);
+const btn=el('button',state.open?'Reserveer':'Nog niet beschikbaar');btn.disabled=!state.open;btn.onclick=()=>{byId('loginPanel').classList.remove('hidden');byId('loginPanel').scrollIntoView({behavior:'smooth'});byId('loginFeedback').textContent='Log in om deze les te reserveren: '+l.name;state.lessonId=l.id};r.append(btn);c.append(r);list.append(c)}}
+async function init(){try{const r=await fetch('/.netlify/functions/buddycheck-temporary',{cache:'no-store'});if(!r.ok)throw Error('Niet bereikbaar');const d=await r.json();state.days=Array.isArray(d.days)?d.days:[];state.lessons=Array.isArray(d.lessons)?d.lessons:[];state.day=state.days[0]||'';state.open=d.bookingOpen===true;if(state.open){byId('notice').textContent='Tijdelijke inschrijvingen zijn geopend. Log in met je persoonlijke Fit Up-toegangscode.';byId('loginPanel').classList.remove('hidden')}paint()}catch(e){byId('lessons').textContent='Het rooster kan momenteel niet worden geladen. Neem contact op met Fit Up.'}}
+byId('login').addEventListener('submit',async e=>{e.preventDefault();const feedback=byId('loginFeedback');feedback.textContent='Je aanvraag wordt gecontroleerd…';if(!state.lessonId){feedback.textContent='Kies eerst een les.';return}try{const r=await fetch('/.netlify/functions/buddycheck-temporary',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:byId('email').value.trim(),code:byId('code').value,lessonId:state.lessonId})});const d=await r.json();feedback.className=d.ok?'small success':'small error';feedback.textContent=d.message||'Reservering niet mogelijk.';}catch{feedback.className='small error';feedback.textContent='Verbinding mislukt. Probeer het later opnieuw.'}});
+init();
+</script></body></html>
