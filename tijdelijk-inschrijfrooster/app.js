@@ -1,69 +1,23 @@
 'use strict';
-const state={lessons:[],days:[],day:'',open:false,token:'',busy:false,timer:null};
-const $=id=>document.getElementById(id);
-const el=(tag,text)=>{const n=document.createElement(tag); if(text!==undefined)n.textContent=text; return n;};
-const endpoint='/.netlify/functions/buddycheck-temporary';
-function feedback(message,error=false){$('loginFeedback').textContent=message;$('loginFeedback').className=error?'small error':'small success';}
-function clearSession(){state.token='';clearTimeout(state.timer);$('login').classList.remove('hidden');$('logout').classList.add('hidden');$('myPanel').classList.add('hidden');$('mine').replaceChildren();paint();}
-async function api(body,auth=false){
- const headers={}; if(body)headers['Content-Type']='application/json'; if(auth&&state.token)headers.Authorization='Bearer '+state.token;
- const r=await fetch(endpoint,{method:body?'POST':'GET',headers,body:body?JSON.stringify(body):undefined,cache:'no-store',signal:AbortSignal.timeout(20000)});
- let data;try{data=await r.json();}catch{throw Error('Dienst tijdelijk niet bereikbaar. Probeer later opnieuw.');}
- if(r.status===401){clearSession();throw Error(data.message||'Log opnieuw in.');}
- if(!r.ok||data.ok===false)throw Error(data.message||'Aanvraag niet verwerkt.');
- return data;
-}
-function paint(){
- $('days').replaceChildren();$('lessons').replaceChildren();
- for(const d of state.days){const b=el('button',new Intl.DateTimeFormat('nl-NL',{weekday:'short',day:'numeric',month:'short',timeZone:'Europe/Amsterdam'}).format(new Date(d+'T12:00:00Z')));b.type='button';b.className=d===state.day?'active':'';b.setAttribute('aria-pressed',String(d===state.day));b.onclick=()=>{state.day=d;paint();};$('days').append(b);}
- const lessons=state.lessons.filter(l=>l.date===state.day);
- if(!lessons.length)$('lessons').append(el('p','Er zijn momenteel geen bevestigde lessen beschikbaar.'));
- for(const l of lessons){
-  const article=el('article');article.className='lesson';
-  const head=el('header');head.className='lesson-head';head.append(el('time',l.start),el('h3',l.name));
-  article.append(head,el('p',l.start+'–'+l.end+(l.room?' · '+l.room:'')),el('p',l.available+' plekken beschikbaar'));
-  const b=el('button','Reserveer');b.type='button';b.disabled=state.busy||!state.open||l.available<=0;
-  b.onclick=async()=>{
-   if(!state.token){feedback('Log eerst in en kies daarna Reserveer.');$('email').focus();return;}
-   await change('book',l.id);
-  };article.append(b);$('lessons').append(article);
- }
-}
-async function schedule(){
- state.open=false;state.lessons=[];state.days=[];
- try{const d=await api();state.open=d.bookingOpen===true;state.lessons=Array.isArray(d.lessons)?d.lessons:[];state.days=Array.isArray(d.days)?d.days:[];}
- catch{feedback('Rooster niet bereikbaar. Reserveren blijft gesloten.',true);}
- if(!state.days.includes(state.day))state.day=state.days[0]||'';
- const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
- const confirmed=$('confirmedSchedule');
- confirmed.querySelectorAll('[data-schedule-date]').forEach(day=>{day.hidden=day.dataset.scheduleDate<today;});
- confirmed.hidden=state.open||!Array.from(confirmed.querySelectorAll('[data-schedule-date]')).some(day=>!day.hidden);
- $('days').closest('section').hidden=!state.open&&!confirmed.hidden;
- $('notice').textContent=state.open?'Het gecontroleerde tijdelijke rooster is geopend. Log in om te reserveren.':'We controleren het rooster en de abonnementsrechten. Nieuwe reserveringen zijn gesloten. Je bestaande reserveringen kun je na inloggen bekijken.';
- paint();
-}
-async function mine(){
- if(!state.token)return;
- const d=await api(null,true);$('mine').replaceChildren();$('myPanel').classList.remove('hidden');
- if(!d.reservations?.length)$('mine').append(el('p','Je hebt geen reserveringen.'));
- for(const r of d.reservations||[]){
-  const row=el('article');row.className='lesson';row.append(el('h3',r.name),el('p',r.date+' · '+r.start+'–'+r.end+(r.active?'':' · Les niet actief; neem contact op met Fit Up.')));
-  const b=el('button','Annuleer');b.type='button';b.disabled=state.busy;b.onclick=()=>change('cancel',r.lessonId);row.append(b);$('mine').append(row);
- }
-}
-async function change(action,lessonId){
- if(state.busy)return;state.busy=true;paint();$('mine').querySelectorAll('button').forEach(b=>b.disabled=true);
- try{const d=await api({action,lessonId},true);feedback(d.message);}
- catch(e){feedback(e.message+' Controleer Mijn reserveringen voordat je opnieuw probeert.',true);}
- finally{state.busy=false;await schedule();try{await mine();}catch(e){feedback(e.message,true);}}
-}
-$('login').addEventListener('submit',async e=>{
- e.preventDefault();if(state.busy)return;state.busy=true;const b=e.submitter;b.disabled=true;
+const endpoint='/.netlify/functions/buddycheck-requests';
+const $=id=>document.getElementById(id),make=(tag,t)=>{const e=document.createElement(tag);if(t!==undefined)e.textContent=t;return e};
+let selected=null;
+function message(t,err=false){$('message').textContent=t;$('message').className=err?'error':'success'}
+async function load(){
  try{
-  const d=await api({action:'login',email:$('email').value.trim(),password:$('password').value});
-  state.token=d.accessToken;state.timer=setTimeout(()=>{clearSession();feedback('Je sessie is verlopen. Log opnieuw in.');},Math.max(1,Math.min(Number(d.expiresIn)||3600,3600))*1000);
-  $('login').classList.add('hidden');$('logout').classList.remove('hidden');feedback('Je bent ingelogd. Kies een les om te reserveren.');await mine();
- }catch(e){feedback(e.message,true);}finally{$('password').value='';state.busy=false;b.disabled=false;paint();}
+ const r=await fetch(endpoint,{cache:'no-store'});const d=await r.json();if(!r.ok||!d.open)throw Error('Aanvragen zijn nog niet beschikbaar.');
+ const c=$('lessons');c.replaceChildren();if(!d.lessons?.length)c.append(make('p','Er zijn nog geen lessen ingevoerd.'));
+ for(const l of d.lessons||[]){
+ const article=make('article');article.className='card';const date=make('div',new Intl.DateTimeFormat('nl-NL',{dateStyle:'full',timeZone:'Europe/Amsterdam'}).format(new Date(l.date+'T12:00:00Z')));date.className='date';
+ article.append(date,make('h2',l.name),make('p',l.start+'–'+l.end+(l.room?' · '+l.room:'')));
+ const b=make('button','Aanvraag indienen');b.type='button';b.disabled=l.approved>=l.capacity;b.onclick=()=>{selected=l;$('selected').textContent='Aanvraag: '+l.name+' · '+l.date+' '+l.start;$('request').classList.remove('hidden');$('request').scrollIntoView({behavior:'smooth'})};
+ article.append(b);if(b.disabled)article.append(make('p','Les is vol'));c.append(article);
+ }
+ }catch(e){$('lessons').textContent='Het rooster is momenteel niet beschikbaar. Neem contact op met Fit Up.';message(e.message,true)}
+}
+$('form').addEventListener('submit',async e=>{
+ e.preventDefault();if(!selected)return;const btn=$('submit');btn.disabled=true;
+ try{const r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'submit',lessonId:selected.id,name:$('fullName').value,email:$('email').value,website:$('website').value})});const d=await r.json();if(!r.ok||!d.ok)throw Error(d.message||'Aanvraag niet verwerkt.');message(d.message);$('request').classList.add('hidden');$('form').reset();await load();}
+ catch(e){message(e.message,true)}finally{btn.disabled=false}
 });
-$('logout').onclick=async()=>{try{await api({action:'logout'},true);}catch{}finally{clearSession();feedback('Je bent uitgelogd.');}};
-schedule();
+load();
