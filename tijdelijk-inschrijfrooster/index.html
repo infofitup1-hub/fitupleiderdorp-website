@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>BuddyCheck – Tijdelijk Inschrijfrooster | Fit Up Leiderdorp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap">
 <style>
 :root{color-scheme:dark;--bg:#080A09;--panel:#191D1A;--border:#343d37;--text:#F4F5F1;--muted:#A7ADA8;--lime:#B7F229}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Arial,sans-serif}main{max-width:780px;padding:30px 16px 60px;margin:auto}
@@ -13,11 +16,44 @@ input{width:100%;padding:14px 12px;background:#0c1110;border:1px solid #627065;b
 button{padding:13px 18px;border:0;border-radius:10px;background:var(--lime);color:#101610;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}
 .small{font-size:16px}.hidden{display:none!important}.switch{display:flex;gap:8px;flex-wrap:wrap}.switch button{background:#27332b;color:white}.switch button.active{background:var(--lime);color:#101610}
 a{color:var(--lime)}.error{color:#ffbdad}.success{color:var(--lime)}
+/* Reuse BuddyCheck's existing type, proportions, colors and lesson-card layout. */
+:root{--panel:#101311;--border:rgba(255,255,255,.10);--fd:'Barlow Condensed','Arial Narrow',Arial,sans-serif;--fb:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{font:400 16px/1.55 var(--fb);padding:max(24px,env(safe-area-inset-top)) 16px 40px}
+main{max-width:560px;padding:6px 0 0}
+.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:var(--lime);font:700 14px/1 var(--fd);letter-spacing:4px;text-transform:uppercase}
+.eyebrow:before{content:"";width:24px;height:2px;background:var(--lime);flex:none}
+h1{margin:0 0 12px;font:900 clamp(44px,14vw,60px)/.94 var(--fd);letter-spacing:.4px;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--lime)}
+.sub{margin:0;color:var(--muted)}h2{font:900 30px/1.1 var(--fd);text-transform:uppercase;letter-spacing:.5px}
+.panel,.lesson,.card{border-radius:10px;padding:16px 18px 18px}
+.alert{background:var(--panel);border:1px solid var(--border);border-left:2px solid var(--lime);margin:24px 0}
+.day-h{display:flex;align-items:baseline;gap:12px;margin:30px 0 14px}
+.day-h span{color:var(--muted);font:500 16px/1.2 var(--fb);text-transform:none}
+.card{background:var(--panel);border:1px solid var(--border);margin:0 0 12px}
+.card header,.lesson .lesson-head{display:flex;justify-content:flex-start;align-items:baseline;gap:12px}
+.card time,.lesson time{flex:none;color:var(--lime);font:900 30px/1 var(--fd);font-variant-numeric:tabular-nums}
+.card h3,.lesson h3{margin:0;font:800 22px/1.1 var(--fd);letter-spacing:.5px;text-transform:uppercase;overflow-wrap:anywhere}
+.card p{margin:12px 0 0}.schedule-note{color:var(--muted);margin:0 0 20px}
+button{border-radius:6px}button:focus-visible,a:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+[hidden]{display:none!important}
 </style></head><body><main>
-<header><strong class="brand">FIT UP</strong><span class="tag">Tijdelijke oplossing</span></header>
-<h1>BuddyCheck<br><span style="color:var(--lime)">Tijdelijk Inschrijfrooster</span></h1>
-<p>Bekijk de groepslessen en reserveer je plek wanneer het tijdelijke inschrijfsysteem is vrijgegeven.</p>
+<p class="eyebrow">Fit Up Leiderdorp</p>
+<h1>Buddy<em>Check</em></h1>
+<p class="sub">Tijdelijk inschrijfrooster</p>
 <div class="alert" role="status" id="notice">We controleren het lesrooster en de abonnementsrechten. Reserveren via deze pagina is nog niet geopend.</div>
+<section id="confirmedSchedule" aria-label="Door Fit Up doorgegeven lessen">
+<h2>Deze week</h2>
+<p class="schedule-note">Dit zijn de doorgegeven starttijden. Reserveren is nog gesloten.</p>
+<section data-schedule-date="2026-10-21"><h2 class="day-h">Woensdag <span>21 oktober</span></h2>
+<article class="card"><header><time datetime="2026-10-21T19:30:00+02:00">19:30</time><h3>BBB</h3></header></article></section>
+<section data-schedule-date="2026-10-23"><h2 class="day-h">Vrijdag <span>23 oktober</span></h2>
+<article class="card"><header><time datetime="2026-10-23T09:00:00+02:00">09:00</time><h3>Strength Hour</h3></header></article></section>
+<section data-schedule-date="2026-10-24"><h2 class="day-h">Zaterdag <span>24 oktober</span></h2>
+<article class="card"><header><time datetime="2026-10-24T09:00:00+02:00">09:00</time><h3>BOKSFIT</h3></header></article>
+<article class="card"><header><time datetime="2026-10-24T10:00:00+02:00">10:00</time><h3>HYROX</h3></header></article></section>
+<section data-schedule-date="2026-10-25"><h2 class="day-h">Zondag <span>25 oktober</span></h2>
+<article class="card"><header><time datetime="2026-10-25T10:00:00+01:00">10:00</time><h3>HIIT</h3></header></article></section>
+</section>
 <section class="panel"><div class="row"><h2 style="margin:0">Groepslessen</h2><span id="updated" class="small"></span></div><div id="days" class="switch" style="margin:14px 0"></div><div id="lessons"><p>Rooster wordt geladen…</p></div></section>
 <section id="loginPanel" class="panel"><h2>Inloggen als Fit Up-lid</h2><p>Alleen leden met een geldig abonnement en het juiste lesrecht kunnen reserveren.</p>
 <form id="login"><label for="email">E-mailadres</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
