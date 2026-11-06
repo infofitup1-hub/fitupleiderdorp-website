@@ -61,6 +61,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .news-row { display: flex; gap: 20px; align-items: flex-start; }
   .news-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: var(--r-md); background: var(--paper2); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .news-icon img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+  .news-icon img.photo { object-fit: cover; object-position: center 25%; padding: 0; }
   .ds2 .news-date { font-size: 12px; }
   .ds2 .news-text { font-size: 16px; }
   .ds2 .news-arrow { font-size: 14px; }
@@ -126,6 +127,16 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   <div class="container">
     <h2 id="news-heading" class="reveal" style="clip:rect(0 0 0 0);position:absolute">Berichten</h2>
     <div class="news-list reveal">
+      <div class="news-item">
+        <div class="news-row">
+          <div class="news-icon"><img class="photo" src="../assets/images/berkay-portret.webp" alt="Berkay Karakas, bokstrainer bij Fit Up Leiderdorp" loading="lazy" decoding="async"></div>
+          <div>
+            <div class="news-date">November 2026</div>
+            <div class="news-title">Nieuw bij Fit Up: bokstrainer Berkay Karakas</div>
+            <p class="news-text">Berkay is eigenaar van BEKABOKSN, actief wedstrijdbokser en gediplomeerd personal trainer en voedings- en leefstijlcoach (CIOS Hoofddorp). Zijn trainingen zijn persoonlijk, resultaatgericht en afgestemd op jouw niveau.</p>
+          </div>
+        </div>
+      </div>
       <div class="news-item">
         <div class="news-row">
           <div class="news-icon"><img src="../assets/images/logo-mark-on-dark.webp" alt="Fit Up Leiderdorp" loading="lazy" decoding="async"></div>
