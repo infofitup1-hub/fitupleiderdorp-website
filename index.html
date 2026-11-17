@@ -1460,6 +1460,15 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .svc2-price span{font-weight:400;color:var(--color-text-secondary-dark)}
     .svc2-go{display:inline-flex;align-items:center;gap:8px;margin-top:6px;color:var(--color-lime);font-weight:600;font-size:16px}
     .svc2-foot{margin-top:28px}
+    .today{background:var(--color-black-soft);color:var(--color-text-light);padding:clamp(32px,4.5vw,52px) 0;border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark)}
+    .today[hidden]{display:none}
+    .today-in{display:flex;align-items:center;gap:clamp(20px,3vw,44px);flex-wrap:wrap}
+    .today-head .sec-label{margin:0 0 8px}
+    .today-day{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(30px,3.6vw,42px);line-height:1;margin:0;color:var(--color-text-light)}
+    .today-list{flex:1 1 360px;display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;list-style:none}
+    .today-item{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:14px 16px}
+    .today-time{display:block;font-family:var(--fd);font-weight:800;font-size:26px;line-height:1;color:var(--color-lime)}
+    .today-name{display:block;margin-top:6px;font-size:16px;line-height:1.3;color:var(--color-text-light)}
     .svc2-row{height:auto;align-items:stretch}
     .svc2-card,.svc2-row:hover .svc2-card,.svc2-row .svc2-card:hover{flex:1 1 0;min-height:clamp(420px,52vw,560px)}
     .svc2-cover{position:absolute;inset:0;z-index:0}
@@ -1478,15 +1487,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     @media(max-width:900px){
       .svc2-card,.svc2-row:hover .svc2-card,.svc2-row .svc2-card:hover{height:auto;flex:none;min-height:min(110vw,420px)}
       .svc2-row{flex-direction:column;height:auto;gap:12px}
-    .today{background:var(--color-black-soft);color:var(--color-text-light);padding:clamp(32px,4.5vw,52px) 0;border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark)}
-    .today[hidden]{display:none}
-    .today-in{display:flex;align-items:center;gap:clamp(20px,3vw,44px);flex-wrap:wrap}
-    .today-head .sec-label{margin:0 0 8px}
-    .today-day{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(30px,3.6vw,42px);line-height:1;margin:0;color:var(--color-text-light)}
-    .today-list{flex:1 1 360px;display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;list-style:none}
-    .today-item{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:14px 16px}
-    .today-time{display:block;font-family:var(--fd);font-weight:800;font-size:26px;line-height:1;color:var(--color-lime)}
-    .today-name{display:block;margin-top:6px;font-size:16px;line-height:1.3;color:var(--color-text-light)}
       .svc2-card,.svc2-row:hover .svc2-card,.svc2-row .svc2-card:hover{flex:none;height:auto}
       .svc2-card img{filter:saturate(1) brightness(.9);transform:none}
       .svc2-more{max-height:none;opacity:1}
@@ -1569,24 +1569,6 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="reviews" aria-labelledby="reviews-heading">
-  <div class="container">
-    <div class="reviews-header" style="flex-direction:column;align-items:center;text-align:center;gap:24px">
-      <div>
-        <div class="sec-label reveal"><span class="sec-label-line"></span>Google Reviews</div>
-        <h2 id="reviews-heading" class="reveal d1">Wat sporters <em>zeggen</em></h2>
-      </div>
-      <div class="reviews-score-block reveal d2">
-        <div class="score-big">4,9</div>
-        <div class="stars-col">
-          <div class="stars" aria-label="4,9 van de 5 sterren">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <div class="stars-count">76 beoordelingen</div>
 <section class="today" id="vandaag" aria-labelledby="today-heading" hidden>
   <div class="container today-in">
     <div class="today-head">
@@ -1627,6 +1609,24 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 })();
 </script>
 
+<section class="reviews" aria-labelledby="reviews-heading">
+  <div class="container">
+    <div class="reviews-header" style="flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <div>
+        <div class="sec-label reveal"><span class="sec-label-line"></span>Google Reviews</div>
+        <h2 id="reviews-heading" class="reveal d1">Wat sporters <em>zeggen</em></h2>
+      </div>
+      <div class="reviews-score-block reveal d2">
+        <div class="score-big">4,9</div>
+        <div class="stars-col">
+          <div class="stars" aria-label="4,9 van de 5 sterren">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="stars-count">76 beoordelingen</div>
         </div>
       </div>
     </div>
