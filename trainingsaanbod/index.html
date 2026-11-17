@@ -328,6 +328,7 @@ footer{border-top-color:var(--border-dark)}
 .svc-extra{display:flex;flex-direction:column;gap:12px;padding-top:10px}
 .svc-extra .svc-tag{font-size:13px}
 .svc-extra .svc-price{margin-top:0}
+.svc-extra .svc-desc a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .svc-card:hover{transform:none}
 @media(max-width:640px){.svc-card{padding:22px 20px}.svc-name{font-size:28px}.svc-desc{font-size:16px;line-height:1.55}.svc-more{font-size:13px}.svc-tag{font-size:13px}.svc-price{font-size:15px}.svc-price strong{font-size:18px}}
 </style>
@@ -420,6 +421,15 @@ footer{border-top-color:var(--border-dark)}
     </article>
 
     <article class="svc-card swipe-slide">
+      <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M11 17c0-6 3-10 9-10h2c6 0 9 4 9 10v6c0 3-2 5-5 5h-1v5H15v-6c-2-1-4-3-4-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 33h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>      <h2 class="svc-name">Bokstraining</h2>
+      <p class="svc-desc">Boksles 1-op-1 of in een kleine groep van max. 6, met bokstrainer Berkay.</p>
+      <a href="https://wa.me/31648776322?text=Hi%20Fit%20Up,%20ik%20wil%20graag%20meer%20weten%20over%20boksles%20en%20de%20prijs." target="_blank" rel="noopener" class="svc-more">Stuur ons een bericht <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <details class="tc-more svc-details"><summary>Klik hier voor meer info <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="svc-extra"><div class="svc-tag">Techniek · Conditie · Kracht</div><p class="svc-desc">Je traint op techniek, conditie, kracht of een combinatie. Verzorgd door Berkay, trainer en wedstrijdbokser. Liever in de groep? De reguliere Boksles van Berkay richt zich op techniek en licht sparren, <a href="/trainingsaanbod/groepslessen/">Boksfit</a> van Patrick vooral op conditie.</p><div class="svc-price"><strong>Prijs op aanvraag</strong></div></div>
+      </details>
+    </article>
+
+    <article class="svc-card swipe-slide">
       <div class="svc-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M20 11v9l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>      <h2 class="svc-name">24/7<br>Fitness</h2>
       <p class="svc-desc">Train zelfstandig, wanneer het jou uitkomt, met complete apparatuur.</p>
       <a href="/trainingsaanbod/24-7-fitness/" class="svc-more">Bekijk aanbod <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -452,6 +462,7 @@ footer{border-top-color:var(--border-dark)}
     <button type="button" class="dot" aria-label="Optie 3" aria-selected="false"></button>
     <button type="button" class="dot" aria-label="Optie 4" aria-selected="false"></button>
     <button type="button" class="dot" aria-label="Optie 5" aria-selected="false"></button>
+    <button type="button" class="dot" aria-label="Optie 6" aria-selected="false"></button>
   </div>
 </section>
 
