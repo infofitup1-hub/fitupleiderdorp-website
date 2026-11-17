@@ -1469,6 +1469,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
     .today-item{background:var(--color-graphite);border:1px solid var(--border-dark);border-radius:var(--radius-card);padding:14px 16px}
     .today-time{display:block;font-family:var(--fd);font-weight:800;font-size:26px;line-height:1;color:var(--color-lime)}
     .today-name{display:block;margin-top:6px;font-size:16px;line-height:1.3;color:var(--color-text-light)}
+    /* "Is dit jouw club?" (aud3) scrollt niet prettig op smartphone: daar weg; de Fitcheck eronder dekt hetzelfde af */
+    @media(max-width:860px){.aud3{display:none}}
     .svc2-row{height:auto;align-items:stretch}
     .svc2-card,.svc2-row:hover .svc2-card,.svc2-row .svc2-card:hover{flex:1 1 0;min-height:clamp(420px,52vw,560px)}
     .svc2-cover{position:absolute;inset:0;z-index:0}
@@ -1572,8 +1574,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 <section class="today" id="vandaag" aria-labelledby="today-heading" hidden>
   <div class="container today-in">
     <div class="today-head">
-      <div class="sec-label"><span class="sec-label-line"></span>Lesrooster</div>
-      <h2 class="today-day" id="today-heading">Vandaag</h2>
+      <div class="sec-label"><span class="sec-label-line"></span><span id="today-day">Vandaag</span></div>
+      <h2 class="today-day" id="today-heading">Lesrooster</h2>
     </div>
     <ul class="today-list" id="today-list"></ul>
     <a href="/trainingsaanbod/groepslessen/#rooster" class="btn-ghost">Bekijk het weekrooster <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -1583,7 +1585,7 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 (function(){
   var sec = document.getElementById('vandaag');
   var list = document.getElementById('today-list');
-  var head = document.getElementById('today-heading');
+  var head = document.getElementById('today-day');
   if (!sec || !list || !head) return;
   var DAYS = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
