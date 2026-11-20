@@ -105,16 +105,20 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
   .page-hero-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .85s forwards}
   .page-hero-right{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:center;align-self:center;gap:16px;padding:16px;width:100%;height:100%}
   .pt-photo-wrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
-  .pt-photo-card{position:relative;z-index:2;width:100%;max-width:410px;aspect-ratio:3/4;overflow:hidden;border-radius:var(--radius-card);background:var(--lgray);box-shadow:0 20px 50px -20px rgba(8,10,9,.6)}
-  .pt-photo-track{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .pt-photo-track::-webkit-scrollbar{display:none}
+  .pt-photo-card{position:relative;z-index:2;width:100%;max-width:600px;aspect-ratio:6/5;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+  .pt-photo-track{position:relative;width:100%;height:100%}
+  .pt-fan-card{--d:0;--ad:0;--s:1;position:absolute;top:8%;left:50%;width:46%;aspect-ratio:3/4;margin:0;overflow:hidden;border-radius:var(--radius-card);background:var(--color-graphite);box-shadow:0 10px 30px rgba(0,0,0,.5);cursor:pointer;z-index:var(--z,1);transform:translateX(-50%) translateX(calc(var(--d)*46%)) translateY(calc(var(--ad)*13%)) rotate(calc(var(--d)*8deg)) scale(var(--s));transition:transform .7s cubic-bezier(.34,1.35,.5,1),box-shadow .4s ease,filter .4s ease;will-change:transform}
+  .pt-fan-card[data-active]{box-shadow:0 20px 40px rgba(0,0,0,.6);cursor:grab}
+  .pt-fan-card:not([data-active]){filter:brightness(.6)}
+  .pt-fan-card:not([data-active]):hover{filter:brightness(.85);transform:translateX(-50%) translateX(calc(var(--d)*46%)) translateY(calc(var(--ad)*13% - 3%)) rotate(calc(var(--d)*8deg)) scale(calc(var(--s)*1.05))}
+  .pt-fan-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,9,.55) 0%,transparent 30%);pointer-events:none}
+  .pt-fan-card img{pointer-events:none;-webkit-user-drag:none}
+  .pt-fan-card:not([data-active]) .hero-badge{display:none}
   .page-hero-right img,.page-hero-right video{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;animation:fadeIn 1s ease .3s forwards}
-  .pt-photo-track .pt-slide{flex:0 0 100%;scroll-snap-align:start}
-  .pt-photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,9,.55) 0%,transparent 30%);pointer-events:none;z-index:1}
   .hero-badge{position:absolute;bottom:16px;right:16px;background:var(--accent);color:var(--black);padding:10px 14px;font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .6s ease 1s forwards}
   .pt-pagination{display:flex;align-items:center;gap:9px;position:relative;z-index:2}
-  .pt-page-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.28);border:0;padding:0;cursor:pointer;transition:background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-  .pt-page-dot.is-active{background:var(--accent);transform:scale(1.25)}
+  .pt-page-dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.28);border:0;padding:0;cursor:pointer;transition:all .3s ease;-webkit-tap-highlight-color:transparent}
+  .pt-page-dot.is-active{width:24px;background:var(--accent)}
   .pt-page-dot:hover{background:rgba(255,255,255,.5)}
 
   .pp-tag{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:rgba(8,10,9,.55);padding:8px 12px;border:1px solid rgba(183,242,41,.3)}
@@ -357,7 +361,8 @@ src="https://www.facebook.com/tr?id=1319457633346909&ev=PageView&noscript=1"
 
     .page-hero-left,.fu-page-hero-left{padding:110px 20px 44px!important}
     .page-hero-right,.fu-page-hero-right{min-height:0!important;padding:20px!important;gap:12px!important}
-    .pt-photo-card{max-width:320px!important}
+    .pt-photo-card{max-width:420px!important;aspect-ratio:1/1!important}
+    .pt-fan-card{width:58%!important;top:4%!important;transform:translateX(-50%) translateX(calc(var(--d)*40%)) translateY(calc(var(--ad)*9%)) rotate(calc(var(--d)*4deg)) scale(var(--s))!important}
     .page-hero-sub,.fu-page-hero-sub{font-size:15px}
     .page-hero-stats,.fu-page-hero-stats{flex-wrap:wrap;gap:0}
     .page-hero-stats .ph-stat,.fu-page-hero-stats .fu-ph-stat{flex:1 1 33%;padding:14px 4px;text-align:left}
@@ -575,11 +580,10 @@ footer{border-top-color:var(--border-dark)}
     <div class="pt-photo-wrap">
       <div class="pt-photo-card">
         <div class="pt-photo-track" id="pt-hero-track">
-          <img src="../../assets/images/pt-dumbbell-spot.webp" alt="Personal trainer spot een klant tijdens een dumbbell bench press bij Fit Up Leiderdorp" width="900" height="1200" fetchpriority="high" decoding="async" class="pt-slide">
-          <img src="../../assets/images/pt-squat-spot.webp" alt="Personal trainer spot een klant tijdens een squat bij Fit Up Leiderdorp" width="1440" height="1048" loading="lazy" decoding="async" class="pt-slide">
-          <img src="../../assets/images/pt-hero-spot-poster.webp" alt="Personal trainer begeleidt klanten tijdens kabeltraining bij Fit Up Leiderdorp" width="2160" height="3840" loading="lazy" decoding="async" class="pt-slide">
+          <figure class="pt-fan-card pt-slide"><img src="../../assets/images/pt-dumbbell-spot.webp" alt="Personal trainer spot een klant tijdens een dumbbell bench press bij Fit Up Leiderdorp" width="900" height="1200" fetchpriority="high" decoding="async"><div class="hero-badge">★ 1-op-1 coaching</div></figure>
+          <figure class="pt-fan-card pt-slide"><img src="../../assets/images/pt-squat-spot.webp" alt="Personal trainer spot een klant tijdens een squat bij Fit Up Leiderdorp" width="1440" height="1048" loading="lazy" decoding="async"><div class="hero-badge">★ 1-op-1 coaching</div></figure>
+          <figure class="pt-fan-card pt-slide"><img src="../../assets/images/pt-hero-spot-poster.webp" alt="Personal trainer begeleidt klanten tijdens kabeltraining bij Fit Up Leiderdorp" width="2160" height="3840" loading="lazy" decoding="async"><div class="hero-badge">★ 1-op-1 coaching</div></figure>
         </div>
-        <div class="hero-badge">★ 1-op-1 coaching</div>
       </div>
     </div>
     <div class="pt-pagination" id="pt-hero-pagination" role="tablist" aria-label="Foto's van Personal Training">
@@ -1128,19 +1132,29 @@ footer{border-top-color:var(--border-dark)}
       d.setAttribute('aria-selected', active ? 'true' : 'false');
     });
   }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        setActive(Array.prototype.indexOf.call(slides, entry.target));
-      }
+  var n = slides.length, cur = Math.floor(n / 2), startX = null, moved = false;
+  function render(){
+    slides.forEach(function(c, i){
+      var d = i - cur, ad = Math.abs(d);
+      c.style.setProperty('--d', d);
+      c.style.setProperty('--ad', ad);
+      c.style.setProperty('--s', d === 0 ? 1.1 : Math.max(.4, .85 - ad * .05));
+      c.style.setProperty('--z', n - ad);
+      if(d === 0) c.setAttribute('data-active', ''); else c.removeAttribute('data-active');
     });
-  }, {root:track, threshold:0.6});
-  slides.forEach(function(s){ io.observe(s); });
-  dots.forEach(function(dot, i){
-    dot.addEventListener('click', function(){
-      slides[i].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
-    });
+    setActive(cur);
+  }
+  function go(i){ cur = Math.max(0, Math.min(n - 1, i)); render(); }
+  dots.forEach(function(dot, i){ dot.addEventListener('click', function(){ go(i); }); });
+  slides.forEach(function(c, i){ c.addEventListener('click', function(){ if(!moved && i !== cur) go(i); }); });
+  track.addEventListener('pointerdown', function(e){ startX = e.clientX; moved = false; });
+  track.addEventListener('pointerup', function(e){
+    if(startX === null) return;
+    var dx = e.clientX - startX; startX = null;
+    if(Math.abs(dx) > 40){ moved = true; go(cur + (dx < 0 ? 1 : -1)); setTimeout(function(){ moved = false; }, 50); }
   });
+  track.addEventListener('pointercancel', function(){ startX = null; });
+  render();
 })();
 /* === END HERO PHOTO CAROUSEL === */
 
